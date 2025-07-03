@@ -160,12 +160,7 @@ Creates a modal dialog rendered by the host app.
 **Returns**
 
 ```js
-Promise<{
-  id: string;
-  open: () => Promise<boolean>;
-  close: () => Promise<boolean>;
-  destroy: () => Promise<boolean>;
-}>
+Promise<boolean>
 ```
 
 **Example**
@@ -181,8 +176,6 @@ const dialog = await createDialog({
     label: "Close",
   },
 });
-
-await dialog.open();
 ```
 
 #### `openDialog`
@@ -283,12 +276,7 @@ an iFrame.
 **Returns**
 
 ```js
-Promise<{
-  id: string;
-  open: () => Promise<boolean>;
-  close: () => Promise<boolean>;
-  destroy: () => Promise<boolean>;
-}>
+Promise<boolean>
 ```
 
 **Example**
@@ -304,8 +292,6 @@ const modal = await createModal({
   },
   url: "https://google.com",
 });
-
-await modal.open();
 ```
 
 #### `openModal`
