@@ -331,19 +331,17 @@ export class SwirlResourceList {
             : this.focusedIndex - 1;
 
         this.focusItemAtIndex(prevIndex);
-      } else if (event.code === "Space" || event.code === "Enter") {
-        if (Boolean(this.controllingElement) && event.code === "Enter") {
-          const item = this.items[this.focusedIndex];
+      } else if (event.code === "Enter" && Boolean(this.controllingElement)) {
+        const item = this.items[this.focusedIndex];
 
-          if (!Boolean(item) || !item.isConnected) {
-            return;
-          }
-
-          event.stopPropagation();
-          event.preventDefault();
-
-          item.click();
+        if (!Boolean(item) || !item.isConnected) {
+          return;
         }
+
+        event.stopPropagation();
+        event.preventDefault();
+
+        item.click();
       } else if (event.code === "Home") {
         event.preventDefault();
         this.focusItemAtIndex(0);
