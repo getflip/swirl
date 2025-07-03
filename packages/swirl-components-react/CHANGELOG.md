@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.343.0
+
+### Minor Changes
+
+- [#1107](https://github.com/getflip/swirl/pull/1107)
+  [`6c7393dd`](https://github.com/getflip/swirl/commit/6c7393dd6727c17f6e8b19433a8ec3f38158d93f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow swirl-resource-list and
+  swirl-tree-view to use "list" semantics (instead of "grid"/"tree")
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6c7393dd`](https://github.com/getflip/swirl/commit/6c7393dd6727c17f6e8b19433a8ec3f38158d93f)]:
+  - @getflip/swirl-components@0.343.0
+
 ## 0.342.1
 
 ### Patch Changes
