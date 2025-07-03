@@ -51,7 +51,7 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
-import { SwirlBoxPadding as SwirlBoxPadding1 } from "./components/swirl-resource-list/swirl-resource-list";
+import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -78,7 +78,7 @@ import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-pr
 import { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
-import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
@@ -127,7 +127,7 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
-export { SwirlBoxPadding as SwirlBoxPadding1 } from "./components/swirl-resource-list/swirl-resource-list";
+export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -154,7 +154,7 @@ export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-pr
 export { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
-export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export namespace Components {
@@ -3395,6 +3395,10 @@ export namespace Components {
         "paddingInlineEnd"?: SwirlBoxPadding1;
         "paddingInlineStart"?: SwirlBoxPadding1;
         /**
+          * @default "grid"
+         */
+        "semantics"?: SwirlResourceListSemantics;
+        /**
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing;
@@ -3692,6 +3696,7 @@ export namespace Components {
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing1;
+        "swirlAriaRole"?: string;
         /**
           * @default false
          */
@@ -4504,6 +4509,10 @@ export namespace Components {
         "expandItems": (itemIds: string[]) => Promise<void>;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
+        /**
+          * @default "tree"
+         */
+        "semantics"?: SwirlTreeViewSemantics;
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
@@ -11374,6 +11383,10 @@ declare namespace LocalJSX {
         "paddingInlineEnd"?: SwirlBoxPadding1;
         "paddingInlineStart"?: SwirlBoxPadding1;
         /**
+          * @default "grid"
+         */
+        "semantics"?: SwirlResourceListSemantics;
+        /**
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing;
@@ -11674,6 +11687,7 @@ declare namespace LocalJSX {
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing1;
+        "swirlAriaRole"?: string;
         /**
           * @default false
          */
@@ -12458,6 +12472,10 @@ declare namespace LocalJSX {
     itemId: string;
     expanded: boolean;
   }>) => void;
+        /**
+          * @default "tree"
+         */
+        "semantics"?: SwirlTreeViewSemantics;
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;

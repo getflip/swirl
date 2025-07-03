@@ -195,6 +195,8 @@ export class SwirlResourceListItem {
       : this.label;
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
+    const hostRole = !!this.el.closest('[role="grid"]') ? "row" : "listitem";
+    const containerRole = hostRole === "row" ? "gridcell" : undefined;
 
     const labelContainerStyles = {
       paddingRight:
@@ -228,8 +230,8 @@ export class SwirlResourceListItem {
     );
 
     return (
-      <Host role="row">
-        <div class={className} role="gridcell">
+      <Host role={hostRole}>
+        <div class={className} role={containerRole}>
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}

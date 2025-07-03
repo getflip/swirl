@@ -16,6 +16,8 @@ import Sortable, { SortableEvent } from "sortablejs";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "../swirl-tree-view-item/swirl-tree-view-item";
 import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 
+export type SwirlTreeViewSemantics = "tree" | "list";
+
 export type SwirlTreeViewDropItemEvent = Pick<
   SortableEvent,
   "oldIndex" | "newIndex" | "item"
@@ -60,6 +62,7 @@ export class SwirlTreeView {
   @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
+  @Prop() semantics?: SwirlTreeViewSemantics = "tree";
 
   @Event() dropItem!: EventEmitter<SwirlTreeViewDropItemEvent>;
   @Event() itemExpansionChanged!: EventEmitter<{
@@ -92,6 +95,10 @@ export class SwirlTreeView {
 
   @Method()
   async expandItems(itemIds: string[]) {
+    if (this.semantics !== "tree") {
+      return;
+    }
+
     const items = this.getItems().filter((item) =>
       itemIds.includes(item.itemId)
     );
@@ -133,6 +140,10 @@ export class SwirlTreeView {
 
   @Listen("keydown")
   onKeyDown(event: KeyboardEvent) {
+    if (this.semantics !== "tree") {
+      return;
+    }
+
     if (event.key === "ArrowDown") {
       event.preventDefault();
       this.selectNextItem();
@@ -191,6 +202,10 @@ export class SwirlTreeView {
   }
 
   private init() {
+    if (this.semantics !== "tree") {
+      return;
+    }
+
     const selectedItem = this.getSelectedItem();
     const allItems = this.getItems();
 
@@ -510,7 +525,7 @@ export class SwirlTreeView {
           class="tree-view"
           onFocusin={this.onFocus}
           onFocusout={this.onBlur}
-          role="tree"
+          role={this.semantics === "tree" ? "tree" : undefined}
           ref={(el) => (this.listElement = el)}
           tabIndex={-1}
         >

@@ -7,11 +7,13 @@ describe("swirl-resource-list-file-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListFileItem],
       html: `
-        <swirl-resource-list-file-item
-          description="Description"
-          label="Label"
-          loading="true"
-        ></swirl-resource-list-file-item>
+        <div role="grid">
+          <swirl-resource-list-file-item
+            description="Description"
+            label="Label"
+            loading="true"
+          ></swirl-resource-list-file-item>
+        </div>
       `,
     });
 

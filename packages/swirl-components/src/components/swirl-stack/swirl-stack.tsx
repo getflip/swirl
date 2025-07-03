@@ -45,6 +45,7 @@ export class SwirlStack {
   @Prop() columnSpacing?: SwirlStackSpacing;
   @Prop() rowSpacing?: SwirlStackSpacing;
   @Prop() spacing?: SwirlStackSpacing = "0";
+  @Prop() swirlAriaRole?: string;
   @Prop() wrap?: boolean = false;
 
   render() {
@@ -64,7 +65,7 @@ export class SwirlStack {
 
     return (
       <Host style={{ height: this.height }}>
-        <Tag class={className} style={styles}>
+        <Tag class={className} role={this.swirlAriaRole} style={styles}>
           <slot></slot>
         </Tag>
       </Host>

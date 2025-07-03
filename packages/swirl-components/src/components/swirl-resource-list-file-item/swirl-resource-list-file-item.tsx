@@ -1,4 +1,12 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
@@ -9,6 +17,8 @@ import { DesktopMediaQuery } from "../../services/media-query.service";
   tag: "swirl-resource-list-file-item",
 })
 export class SwirlResourceListFileItem {
+  @Element() el: HTMLSwirlResourceListFileItemElement;
+
   @Prop() description?: string;
   @Prop() errorMessage?: string;
   @Prop() icon?: string = "<swirl-icon-file></swirl-icon-file>";
@@ -48,13 +58,20 @@ export class SwirlResourceListFileItem {
     const showSpinner = !showError && this.loading;
     const showRemoveButton = this.removable && !showSpinner;
 
+    const hostRole = !!this.el.closest('[role="grid"]') ? "row" : "listitem";
+    const containerRole = hostRole === "row" ? "gridcell" : undefined;
+
     const className = classnames("resource-list-file-item", {
       "resource-list-file-item--has-control": showSpinner || showRemoveButton,
     });
 
     return (
-      <Host role="row">
-        <div class={className} part="resource-list-file-item" role="gridcell">
+      <Host role={hostRole}>
+        <div
+          class={className}
+          part="resource-list-file-item"
+          role={containerRole}
+        >
           <span
             class="resource-list-file-item__icon"
             innerHTML={this.icon}
