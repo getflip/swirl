@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.343.1
+
+### Patch Changes
+
+- [#1114](https://github.com/getflip/swirl/pull/1114)
+  [`0a3ed897`](https://github.com/getflip/swirl/commit/0a3ed8977348c26e6ab96703c5ad64db6e015f39)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix list markup issue of the
+  swirl-tree-view"
+
+- Updated dependencies
+  [[`0a3ed897`](https://github.com/getflip/swirl/commit/0a3ed8977348c26e6ab96703c5ad64db6e015f39)]:
+  - @getflip/swirl-components@0.343.1
+
 ## 0.343.0
 
 ### Minor Changes
