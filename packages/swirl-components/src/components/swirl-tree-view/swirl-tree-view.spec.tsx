@@ -205,7 +205,7 @@ describe("swirl-tree-view", () => {
 
     expect(page.root.querySelector("ul")).toBeDefined();
     expect(page.root.querySelector('ul[role="tree"]')).toBeNull();
-    expect(page.root.querySelectorAll("li")).toHaveLength(2);
+    expect(page.root.querySelectorAll('[role="listitem"]')).toHaveLength(2);
     expect(page.root.querySelectorAll('li[role="treeitem"]')).toHaveLength(0);
   });
 });

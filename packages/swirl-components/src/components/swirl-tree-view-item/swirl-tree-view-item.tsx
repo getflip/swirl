@@ -490,6 +490,8 @@ export class SwirlTreeViewItem {
     const tabIndex =
       semantics === "tree" ? (this.selected ? 0 : -1) : undefined;
 
+    const Tag = semantics === "tree" ? "li" : "div";
+
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
       "tree-view-item--cannot-keyboard-drop":
@@ -500,8 +502,8 @@ export class SwirlTreeViewItem {
     });
 
     return (
-      <Host id={this.itemId} role="none">
-        <li class={className} role={semantics === "tree" ? "none" : undefined}>
+      <Host id={this.itemId} role={semantics === "tree" ? "none" : "listitem"}>
+        <Tag class={className} role={semantics === "tree" ? "none" : undefined}>
           <a
             aria-current={this.active ? "page" : undefined}
             aria-expanded={
@@ -579,7 +581,7 @@ export class SwirlTreeViewItem {
             }`}
             id={`${this.itemId}-children`}
             ref={(el) => (this.childList = el)}
-            role="group"
+            role={semantics === "tree" ? "group" : undefined}
             style={{
               display:
                 (!expanded || !hasChildren) && !shouldShowChildrenDropZone
@@ -589,7 +591,7 @@ export class SwirlTreeViewItem {
           >
             <slot></slot>
           </ul>
-        </li>
+        </Tag>
       </Host>
     );
   }
