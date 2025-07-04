@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.344.0
+
+### Minor Changes
+
+- [#1116](https://github.com/getflip/swirl/pull/1116)
+  [`263861b6`](https://github.com/getflip/swirl/commit/263861b65c68892ff7bc41012aefea2ba96ec5b0)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add
+  autorenew icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`263861b6`](https://github.com/getflip/swirl/commit/263861b65c68892ff7bc41012aefea2ba96ec5b0)]:
+  - @getflip/swirl-components@0.344.0
+
 ## 0.343.1
 
 ### Patch Changes
