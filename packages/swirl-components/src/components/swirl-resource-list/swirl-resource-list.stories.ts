@@ -58,4 +58,5 @@ export const SwirlResourceList = Template.bind({});
 
 SwirlResourceList.args = {
   label: "A resource list",
+  semantics: "list",
 };
