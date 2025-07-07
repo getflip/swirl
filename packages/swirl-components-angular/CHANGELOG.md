@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.344.0
+
+### Minor Changes
+
+- [#1116](https://github.com/getflip/swirl/pull/1116)
+  [`263861b6`](https://github.com/getflip/swirl/commit/263861b65c68892ff7bc41012aefea2ba96ec5b0)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add
+  autorenew icon
+
+* [#1118](https://github.com/getflip/swirl/pull/1118)
+  [`94392f48`](https://github.com/getflip/swirl/commit/94392f487aa2b5a751826d27694090d9809b2a78)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "disable-print" prop to
+  swirl-file-viewer
+
+### Patch Changes
+
+- Updated dependencies
+  [[`263861b6`](https://github.com/getflip/swirl/commit/263861b65c68892ff7bc41012aefea2ba96ec5b0),
+  [`94392f48`](https://github.com/getflip/swirl/commit/94392f487aa2b5a751826d27694090d9809b2a78)]:
+  - @getflip/swirl-components@0.344.0
+
 ## 0.343.1
 
 ### Patch Changes
