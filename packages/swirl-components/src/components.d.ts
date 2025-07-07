@@ -1026,6 +1026,7 @@ export namespace Components {
         "autoplay"?: boolean;
         "description"?: string;
         "disableDownload"?: boolean;
+        "disablePrint"?: boolean;
         /**
           * Download the file.
          */
@@ -9121,6 +9122,7 @@ declare namespace LocalJSX {
         "autoplay"?: boolean;
         "description"?: string;
         "disableDownload"?: boolean;
+        "disablePrint"?: boolean;
         /**
           * @default "File could not be loaded."
          */
