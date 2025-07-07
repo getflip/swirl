@@ -396,6 +396,7 @@ export class SwirlPdfReader {
               <swirl-file-viewer
                 active={this.active}
                 class="pdf-reader__viewer"
+                disablePrint={!this.printButtonEnabled}
                 file={this.file}
                 fileName={this.fileName}
                 onActivate={this.onActivate}
