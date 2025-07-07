@@ -23,6 +23,7 @@ export class SwirlFileViewer {
   @Prop() autoplay?: boolean;
   @Prop() description?: string;
   @Prop() disableDownload?: boolean;
+  @Prop() disablePrint?: boolean;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
   @Prop() fileName?: string;
@@ -62,7 +63,7 @@ export class SwirlFileViewer {
    */
   @Method()
   async print() {
-    if (this.type === "application/pdf") {
+    if (this.type === "application/pdf" && !this.disablePrint) {
       (this.viewer as HTMLSwirlFileViewerPdfElement).print();
     }
   }
