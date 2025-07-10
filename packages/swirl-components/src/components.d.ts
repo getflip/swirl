@@ -4417,6 +4417,11 @@ export namespace Components {
           * @returns
          */
         "clearAll": () => Promise<void>;
+        /**
+          * Dismiss a toast
+          * @param toastId
+          * @returns
+         */
         "dismiss": (toastId: string) => Promise<void>;
         "globalDuration"?: number;
         /**
