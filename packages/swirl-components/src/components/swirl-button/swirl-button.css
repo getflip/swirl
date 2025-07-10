@@ -56,10 +56,6 @@
     }
   }
 
-  &:focus:where(:not(:focus-visible)) {
-    outline: none;
-  }
-
   &:focus-visible {
     outline-color: var(--s-focus-default);
     outline-offset: var(--s-space-2);
