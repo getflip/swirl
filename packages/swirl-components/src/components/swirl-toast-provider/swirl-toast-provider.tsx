@@ -22,10 +22,6 @@ export type SwirlToastMessage = SwirlToastConfig & {
   tag: "swirl-toast-provider",
 })
 export class SwirlToastProvider {
-  /**
-   * Optional global duration for all toasts. Overrides any durations set via
-   * the `toast` method. Set to 0 to disable automatic closing of toasts.
-   */
   @Prop() globalDuration?: number;
 
   @State() private toasts: SwirlToastMessage[] = [];
@@ -61,18 +57,10 @@ export class SwirlToastProvider {
       return;
     }
 
-    let duration = this.globalDuration;
-
-    if (this.globalDuration === undefined) {
-      duration = newToast.duration;
-    } else if (this.globalDuration === 0) {
-      duration = undefined;
-    }
-
     const newToastWithId: SwirlToastMessage = {
       ...newToast,
       createdAt: new Date(),
-      duration,
+      duration: newToast.duration || this.globalDuration || undefined,
       toastId: newToast.toastId || String(Math.round(Math.random() * 10000)),
     };
 
