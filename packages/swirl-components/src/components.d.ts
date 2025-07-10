@@ -4423,9 +4423,6 @@ export namespace Components {
           * @returns
          */
         "dismiss": (toastId: string) => Promise<void>;
-        /**
-          * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
-         */
         "globalDuration"?: number;
         /**
           * Create a new toast
@@ -12403,9 +12400,6 @@ declare namespace LocalJSX {
         "toastId": string;
     }
     interface SwirlToastProvider {
-        /**
-          * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
-         */
         "globalDuration"?: number;
     }
     interface SwirlToggleButton {

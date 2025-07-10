@@ -20952,7 +20952,7 @@
       "attributes": [
         {
           "name": "global-duration",
-          "description": "Optional global duration for all toasts. Overrides any durations set via\nthe `toast` method. Set to 0 to disable automatic closing of toasts."
+          "description": ""
         }
       ]
     },
