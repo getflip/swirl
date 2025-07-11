@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.345.0
+
+### Minor Changes
+
+- [#1120](https://github.com/getflip/swirl/pull/1120)
+  [`41a8837f`](https://github.com/getflip/swirl/commit/41a8837f327f189e3b38fcd243e4cb0d011afe89)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use global
+  duration as a fallback in swirl-toast-provider
+
+### Patch Changes
+
+- [#1121](https://github.com/getflip/swirl/pull/1121)
+  [`56eb1389`](https://github.com/getflip/swirl/commit/56eb1389b63dad7b1cd449bf4929cf9b78ad09bd)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  swirl-button outline issue
+
+- Updated dependencies
+  [[`56eb1389`](https://github.com/getflip/swirl/commit/56eb1389b63dad7b1cd449bf4929cf9b78ad09bd),
+  [`41a8837f`](https://github.com/getflip/swirl/commit/41a8837f327f189e3b38fcd243e4cb0d011afe89)]:
+  - @getflip/swirl-components@0.345.0
+
 ## 0.344.0
 
 ### Minor Changes
