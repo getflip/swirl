@@ -28,7 +28,7 @@ describe("swirl-file-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-file-chip name="sample.pdf" type="application/pdf" url="/sample.pdf">
         <mock:shadow-root>
-          <span class="file-chip" role="group">
+          <span class="file-chip file-chip--type-pdf" role="group">
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>
             </span>
@@ -53,7 +53,7 @@ describe("swirl-file-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-file-chip name="sample.pdf" description="2.5 MB" type="application/pdf" url="/sample.pdf">
         <mock:shadow-root>
-          <span class="file-chip" role="group">
+          <span class="file-chip file-chip--type-pdf" role="group">
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>
             </span>
@@ -80,7 +80,9 @@ describe("swirl-file-chip", () => {
     const iconElement = page.root.shadowRoot.querySelector(
       ".file-chip__icon swirl-icon-image"
     );
+    const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
+    expect(fileChip.classList.contains("file-chip--type-image")).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 
@@ -92,7 +94,9 @@ describe("swirl-file-chip", () => {
     const iconElement = page.root.shadowRoot.querySelector(
       ".file-chip__icon swirl-icon-video-player"
     );
+    const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
+    expect(fileChip.classList.contains("file-chip--type-video")).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 
@@ -104,7 +108,9 @@ describe("swirl-file-chip", () => {
     const iconElement = page.root.shadowRoot.querySelector(
       ".file-chip__icon swirl-icon-audio-file"
     );
+    const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
+    expect(fileChip.classList.contains("file-chip--type-audio")).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 
@@ -116,11 +122,13 @@ describe("swirl-file-chip", () => {
     const iconElement = page.root.shadowRoot.querySelector(
       ".file-chip__icon swirl-icon-file"
     );
+    const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
+    expect(fileChip.classList.contains("file-chip--type-document")).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 
-  it("renders text file type", async () => {
+  it("renders unknown file types", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip],
       html: `<swirl-file-chip url="https://example.com/document.txt" name="document.txt" type="text/plain"></swirl-file-chip>`,
@@ -128,7 +136,23 @@ describe("swirl-file-chip", () => {
     const iconElement = page.root.shadowRoot.querySelector(
       ".file-chip__icon swirl-icon-attachment"
     );
+    const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
+    expect(fileChip.classList.contains("file-chip--type-unknown")).toBeTruthy();
+    expect(iconElement).toBeTruthy();
+  });
+
+  it("renders compressed archive file type", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFileChip],
+      html: `<swirl-file-chip url="https://example.com/archive.zip" name="archive.zip" type="application/zip"></swirl-file-chip>`,
+    });
+    const iconElement = page.root.shadowRoot.querySelector(
+      ".file-chip__icon swirl-icon-folder"
+    );
+    const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
+
+    expect(fileChip.classList.contains("file-chip--type-compressed")).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 
