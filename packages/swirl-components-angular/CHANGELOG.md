@@ -1,5 +1,38 @@
 # @getflip/swirl-components-angular
 
+## 0.347.0
+
+### Minor Changes
+
+- [#1125](https://github.com/getflip/swirl/pull/1125)
+  [`379c0733`](https://github.com/getflip/swirl/commit/379c07332f03c9d2ba27176f253467368e7ed0c8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Revert Angular 19 update
+
+### Patch Changes
+
+- Updated dependencies
+  [[`379c0733`](https://github.com/getflip/swirl/commit/379c07332f03c9d2ba27176f253467368e7ed0c8)]:
+  - @getflip/swirl-components@0.347.0
+
+## 0.346.0
+
+### Minor Changes
+
+- [`31aeae3c`](https://github.com/getflip/swirl/commit/31aeae3c9cb35de11d8d159026c14ca9f9692c32)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Upgrade to Angular 19
+
+### Patch Changes
+
+- [#1123](https://github.com/getflip/swirl/pull/1123)
+  [`a5b1db58`](https://github.com/getflip/swirl/commit/a5b1db58268218776857fb900e0994cd395b535f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix Swirl
+  components import in storybook
+
+- Updated dependencies
+  [[`a5b1db58`](https://github.com/getflip/swirl/commit/a5b1db58268218776857fb900e0994cd395b535f),
+  [`31aeae3c`](https://github.com/getflip/swirl/commit/31aeae3c9cb35de11d8d159026c14ca9f9692c32)]:
+  - @getflip/swirl-components@0.346.0
+
 ## 0.345.0
 
 ### Minor Changes
