@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.347.0
+
+### Minor Changes
+
+- [#1125](https://github.com/getflip/swirl/pull/1125)
+  [`379c0733`](https://github.com/getflip/swirl/commit/379c07332f03c9d2ba27176f253467368e7ed0c8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Revert Angular 19 update
+
 ## 0.346.0
 
 ### Minor Changes
