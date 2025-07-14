@@ -6,6 +6,7 @@ import {
   Host,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import { saveAs } from "file-saver";
 import classnames from "classnames";
@@ -17,6 +18,15 @@ import {
   isPdfMimeType,
   isVideoMimeType,
 } from "../../utils";
+
+type SwirlFileChipFileType =
+  | "image"
+  | "video"
+  | "audio"
+  | "pdf"
+  | "compressed"
+  | "document"
+  | "unknown";
 
 @Component({
   shadow: true,
@@ -40,6 +50,26 @@ export class SwirlFileChip {
   @Event() download: EventEmitter<void>;
 
   @State() isHovered: boolean = false;
+  @State() fileType: SwirlFileChipFileType = "unknown";
+
+  private readonly fileIconMap: Record<SwirlFileChipFileType, JSX.Element> = {
+    image: <swirl-icon-image></swirl-icon-image>,
+    video: <swirl-icon-video-player></swirl-icon-video-player>,
+    audio: <swirl-icon-audio-file></swirl-icon-audio-file>,
+    pdf: <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>,
+    compressed: <swirl-icon-folder></swirl-icon-folder>,
+    document: <swirl-icon-file></swirl-icon-file>,
+    unknown: <swirl-icon-attachment></swirl-icon-attachment>,
+  };
+
+  componentWillLoad() {
+    this.setFileType();
+  }
+
+  @Watch("type")
+  watchType() {
+    this.setFileType();
+  }
 
   private handleDownloadClick = () => {
     this.download.emit();
@@ -66,31 +96,39 @@ export class SwirlFileChip {
       return <swirl-spinner size="s" label={this.loadingLabel}></swirl-spinner>;
     }
 
+    return this.fileIconMap[this.fileType];
+  }
+
+  private setFileType() {
     if (isImageMimeType(this.type)) {
-      return <swirl-icon-image></swirl-icon-image>;
+      this.fileType = "image";
     } else if (isVideoMimeType(this.type)) {
-      return <swirl-icon-video-player></swirl-icon-video-player>;
+      this.fileType = "video";
     } else if (isAudioMimeType(this.type)) {
-      return <swirl-icon-audio-file></swirl-icon-audio-file>;
+      this.fileType = "audio";
     } else if (isPdfMimeType(this.type)) {
-      return <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>;
+      this.fileType = "pdf";
     } else if (isCompressedArchiveMimeType(this.type)) {
-      return <swirl-icon-folder></swirl-icon-folder>;
+      this.fileType = "compressed";
     } else if (isDocumentMimeType(this.type)) {
-      return <swirl-icon-file></swirl-icon-file>;
+      this.fileType = "document";
     } else {
-      return <swirl-icon-attachment></swirl-icon-attachment>;
+      this.fileType = "unknown";
     }
   }
 
   render() {
     const actionCount = +this.showPreviewButton + +this.showDownloadButton;
 
-    const className = classnames("file-chip", {
-      "file-chip--loading": this.loading,
-      "file-chip--one-action": actionCount === 1,
-      "file-chip--two-actions": actionCount === 2,
-    });
+    const className = classnames(
+      "file-chip",
+      `file-chip--type-${this.fileType}`,
+      {
+        "file-chip--loading": this.loading,
+        "file-chip--one-action": actionCount === 1,
+        "file-chip--two-actions": actionCount === 2,
+      }
+    );
 
     return (
       <Host>

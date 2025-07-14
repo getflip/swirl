@@ -76,3 +76,40 @@
   bottom: 0;
   opacity: 0;
 }
+
+.file-chip--type {
+  &-image .file-chip__icon {
+    color: var(--s-decorative-kiwi-text);
+    background-color: var(--s-decorative-kiwi-surface-subdued);
+  }
+
+  &-video .file-chip__icon {
+    color: var(--s-decorative-radish-text);
+    background-color: var(--s-decorative-radish-surface-subdued);
+  }
+
+  &-audio .file-chip__icon {
+    color: var(--s-decorative-grape-text);
+    background-color: var(--s-decorative-grape-surface-subdued);
+  }
+
+  &-pdf .file-chip__icon {
+    color: var(--s-decorative-chilli-text);
+    background-color: var(--s-decorative-chilli-surface-subdued);
+  }
+
+  &-compressed .file-chip__icon {
+    color: var(--s-decorative-pumpkin-text);
+    background-color: var(--s-decorative-pumpkin-surface-subdued);
+  }
+
+  &-document .file-chip__icon {
+    color: var(--s-decorative-blueberry-text);
+    background-color: var(--s-decorative-blueberry-surface-subdued);
+  }
+
+  &-unknown .file-chip__icon {
+    color: var(--s-decorative-banana-text);
+    background-color: var(--s-decorative-banana-surface-subdued);
+  }
+}
