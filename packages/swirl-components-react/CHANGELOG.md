@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.348.0
+
+### Minor Changes
+
+- [#1127](https://github.com/getflip/swirl/pull/1127)
+  [`262f179e`](https://github.com/getflip/swirl/commit/262f179e08a02ae9cf51bd9011e51ccb3ee1aefa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Upgrade to Angular 19
+
+### Patch Changes
+
+- Updated dependencies
+  [[`262f179e`](https://github.com/getflip/swirl/commit/262f179e08a02ae9cf51bd9011e51ccb3ee1aefa)]:
+  - @getflip/swirl-components@0.348.0
+
 ## 0.347.0
 
 ### Minor Changes
