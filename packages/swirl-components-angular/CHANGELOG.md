@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.349.0
+
+### Minor Changes
+
+- [#1128](https://github.com/getflip/swirl/pull/1128)
+  [`9b9aa87c`](https://github.com/getflip/swirl/commit/9b9aa87ca8bc3e0ac917d8038690205728795ab9)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add colors to
+  swirl-file-chip icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9b9aa87c`](https://github.com/getflip/swirl/commit/9b9aa87ca8bc3e0ac917d8038690205728795ab9)]:
+  - @getflip/swirl-components@0.349.0
+
 ## 0.348.0
 
 ### Minor Changes
