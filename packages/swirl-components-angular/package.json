@@ -5,6 +5,14 @@
     "ng": "ng",
     "build": "ng build"
   },
+  "module": "dist/component-library/fesm2022/getflip-swirl-components-angular.mjs",
+  "typings": "dist/component-library/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/component-library/index.d.ts",
+      "default": "./dist/component-library/fesm2022/getflip-swirl-components-angular.mjs"
+    }
+  },
   "dependencies": {
     "@angular/animations": "19.2.3",
     "@angular/common": "19.2.3",
