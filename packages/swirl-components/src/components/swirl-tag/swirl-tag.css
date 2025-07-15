@@ -36,11 +36,11 @@
 }
 
 .tag--variant-strong {
-  color: var(--s-text-on-action-primary);
+  color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
 
   & .tag__removal-button {
-    color: var(--s-icon-on-action-primary);
+    color: var(--s-icon-on-status);
   }
 }
 
@@ -57,11 +57,11 @@
   }
 
   &.tag--variant-strong {
-    color: var(--s-text-on-action-primary);
+    color: var(--s-text-on-status);
     background-color: var(--s-surface-info-default);
 
     & .tag__removal-button {
-      color: var(--s-icon-on-action-primary);
+      color: var(--s-icon-on-status);
     }
   }
 }
@@ -79,11 +79,11 @@
   }
 
   &.tag--variant-strong {
-    color: var(--s-text-on-action-primary);
+    color: var(--s-text-on-status);
     background-color: var(--s-surface-critical-default);
 
     & .tag__removal-button {
-      color: var(--s-icon-on-action-primary);
+      color: var(--s-icon-on-status);
     }
   }
 }
@@ -123,11 +123,11 @@
   }
 
   &.tag--variant-strong {
-    color: var(--s-text-on-action-primary);
+    color: var(--s-text-on-status);
     background-color: var(--s-surface-success-default);
 
     & .tag__removal-button {
-      color: var(--s-icon-on-action-primary);
+      color: var(--s-icon-on-status);
     }
   }
 }
@@ -145,11 +145,11 @@
   }
 
   &.tag--variant-strong {
-    color: var(--s-text-on-action-primary);
+    color: var(--s-text-on-status);
     background-color: var(--s-decorative-grape-surface);
 
     & .tag__removal-button {
-      color: var(--s-icon-on-action-primary);
+      color: var(--s-icon-on-status);
     }
   }
 }
