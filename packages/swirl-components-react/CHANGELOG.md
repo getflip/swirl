@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.349.1
+
+### Patch Changes
+
+- [#1131](https://github.com/getflip/swirl/pull/1131)
+  [`cf660037`](https://github.com/getflip/swirl/commit/cf660037f07fed2ad5ec44c4e63de28506670670)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Use correct design token for
+  swirl-tag labels and icons when used with variant "strong"
+- Updated dependencies
+  [[`cf660037`](https://github.com/getflip/swirl/commit/cf660037f07fed2ad5ec44c4e63de28506670670)]:
+  - @getflip/swirl-components@0.349.1
+
 ## 0.349.0
 
 ### Minor Changes
