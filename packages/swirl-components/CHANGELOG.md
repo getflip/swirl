@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.349.2
+
+### Patch Changes
+
+- [#1133](https://github.com/getflip/swirl/pull/1133)
+  [`176df111`](https://github.com/getflip/swirl/commit/176df111065b032f1138ba522fce252df6caa3a8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Pin pdfjs-dist
+  version to avoid worker version mismatch
+
 ## 0.349.1
 
 ### Patch Changes
