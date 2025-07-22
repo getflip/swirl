@@ -16848,6 +16848,10 @@
           "description": ""
         },
         {
+          "name": "hide-scrolled-header-border",
+          "description": ""
+        },
+        {
           "name": "hide-secondary-content",
           "description": ""
         },

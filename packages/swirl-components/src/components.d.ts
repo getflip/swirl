@@ -3020,6 +3020,7 @@ export namespace Components {
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
+        "hideScrolledHeaderBorder"?: boolean;
         "hideSecondaryContent"?: boolean;
         "hideSecondaryContentBorders"?: boolean;
         "hideSidebarContent"?: boolean;
@@ -11022,6 +11023,7 @@ declare namespace LocalJSX {
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
+        "hideScrolledHeaderBorder"?: boolean;
         "hideSecondaryContent"?: boolean;
         "hideSecondaryContentBorders"?: boolean;
         "hideSidebarContent"?: boolean;
