@@ -3428,6 +3428,7 @@ export namespace Components {
     }
     interface SwirlResourceListItem {
         "active"?: boolean;
+        "alignItems"?: string;
         "allowDrag"?: boolean;
         /**
           * @default true
@@ -11429,6 +11430,7 @@ declare namespace LocalJSX {
     }
     interface SwirlResourceListItem {
         "active"?: boolean;
+        "alignItems"?: string;
         "allowDrag"?: boolean;
         /**
           * @default true

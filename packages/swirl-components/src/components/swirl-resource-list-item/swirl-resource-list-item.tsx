@@ -57,6 +57,7 @@ export class SwirlResourceListItem {
   @Prop() selectable?: boolean;
   @Prop() swirlAriaLabel?: string;
   @Prop() value?: string;
+  @Prop() alignItems?: string;
 
   @State() hasMedia: boolean = false;
   @State() iconSize: 20 | 24 = 24;
@@ -240,6 +241,7 @@ export class SwirlResourceListItem {
               Boolean(this.swirlAriaLabel) ? undefined : this.elementId
             }
             class="resource-list-item__content"
+            style={{ alignItems: this.alignItems }}
             href={href}
             disabled={disabled}
             onClick={this.onClick}

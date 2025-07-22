@@ -18018,6 +18018,10 @@
           "description": ""
         },
         {
+          "name": "align-items",
+          "description": ""
+        },
+        {
           "name": "allow-drag",
           "description": ""
         },
