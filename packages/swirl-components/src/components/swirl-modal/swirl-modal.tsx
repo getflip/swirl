@@ -78,6 +78,7 @@ export class SwirlModal {
   @Prop({ mutable: true }) hideSidebarContent?: boolean;
   @Prop() hasSidebarCloseButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
+  @Prop() hideScrolledHeaderBorder?: boolean;
 
   @Event() toggleFullscreen: EventEmitter<boolean>;
   @Event() modalClose: EventEmitter<void>;
@@ -365,6 +366,7 @@ export class SwirlModal {
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
+      "modal--hide-scrolled-header-border": this.hideScrolledHeaderBorder,
       "modal--scrolled-down": this.scrolledDown,
       "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
       "modal--has-sidebar-content":

@@ -3020,6 +3020,7 @@ export namespace Components {
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
+        "hideScrolledHeaderBorder"?: boolean;
         "hideSecondaryContent"?: boolean;
         "hideSecondaryContentBorders"?: boolean;
         "hideSidebarContent"?: boolean;
@@ -3428,6 +3429,7 @@ export namespace Components {
     }
     interface SwirlResourceListItem {
         "active"?: boolean;
+        "alignItems"?: string;
         "allowDrag"?: boolean;
         /**
           * @default true
@@ -11021,6 +11023,7 @@ declare namespace LocalJSX {
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
+        "hideScrolledHeaderBorder"?: boolean;
         "hideSecondaryContent"?: boolean;
         "hideSecondaryContentBorders"?: boolean;
         "hideSidebarContent"?: boolean;
@@ -11429,6 +11432,7 @@ declare namespace LocalJSX {
     }
     interface SwirlResourceListItem {
         "active"?: boolean;
+        "alignItems"?: string;
         "allowDrag"?: boolean;
         /**
           * @default true

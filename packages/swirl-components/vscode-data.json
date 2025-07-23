@@ -16848,6 +16848,10 @@
           "description": ""
         },
         {
+          "name": "hide-scrolled-header-border",
+          "description": ""
+        },
+        {
           "name": "hide-secondary-content",
           "description": ""
         },
@@ -18015,6 +18019,10 @@
       "attributes": [
         {
           "name": "active",
+          "description": ""
+        },
+        {
+          "name": "align-items",
           "description": ""
         },
         {

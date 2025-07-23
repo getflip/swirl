@@ -340,7 +340,7 @@
   }
 }
 
-.modal--scrolled {
+.modal--scrolled:not(.modal--hide-scrolled-header-border) {
   @media (--from-tablet) {
     &:not(.modal--has-header-tools) .modal__header {
       border-bottom-color: var(--s-border-default);
