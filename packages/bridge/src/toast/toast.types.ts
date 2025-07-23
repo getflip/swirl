@@ -7,7 +7,6 @@ export type ShowToastRequestParams = {
   duration?: number;
   icon?: string;
   intent?: SwirlToastIntent;
-  persistent?: boolean;
 };
 
 export type ShowToastRequest = BridgeRequest<
