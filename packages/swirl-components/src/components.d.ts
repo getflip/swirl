@@ -4410,7 +4410,6 @@ export namespace Components {
           * @default "default"
          */
         "intent"?: SwirlToastIntent;
-        "persistent"?: boolean;
         "toastId": string;
     }
     interface SwirlToastProvider {
@@ -12402,7 +12401,6 @@ declare namespace LocalJSX {
          */
         "intent"?: SwirlToastIntent;
         "onDismiss"?: (event: SwirlToastCustomEvent<string>) => void;
-        "persistent"?: boolean;
         "toastId": string;
     }
     interface SwirlToastProvider {

@@ -183,7 +183,6 @@ describe("swirl-toast-provider", () => {
       icon: "<swirl-icon-info></swirl-icon-info>",
       intent: "success",
       duration: 8000,
-      persistent: false,
       toastId: "full-toast",
     };
 
@@ -200,7 +199,6 @@ describe("swirl-toast-provider", () => {
     expect(result.icon).toBe(fullToast.icon);
     expect(result.intent).toBe(fullToast.intent);
     expect(result.duration).toBe(fullToast.duration);
-    expect(result.persistent).toBe(fullToast.persistent);
     expect(result.toastId).toBe(fullToast.toastId);
   });
 });

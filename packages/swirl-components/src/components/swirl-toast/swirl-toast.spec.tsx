@@ -44,38 +44,4 @@ describe("swirl-toast", () => {
 
     expect(spy).toHaveBeenCalled();
   });
-
-  it("dismisses after duration when persistent is false", async () => {
-    const page = await newSpecPage({
-      components: [SwirlToast],
-      html: `<swirl-toast duration="100" toast-id="test-toast">Content</swirl-toast>`,
-    });
-    const spy = jest.fn();
-
-    page.root.addEventListener("dismiss", spy);
-
-    await new Promise((resolve) => setTimeout(resolve, 101));
-    await page.waitForChanges();
-
-    expect(spy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        detail: "test-toast",
-      })
-    );
-  });
-
-  it("does not dismiss after duration when persistent is true", async () => {
-    const page = await newSpecPage({
-      components: [SwirlToast],
-      html: `<swirl-toast duration="100" persistent="true" toast-id="test-toast">Content</swirl-toast>`,
-    });
-    const spy = jest.fn();
-
-    page.root.addEventListener("dismiss", spy);
-
-    await new Promise((resolve) => setTimeout(resolve, 101));
-    await page.waitForChanges();
-
-    expect(spy).not.toHaveBeenCalled();
-  });
 });

@@ -9,7 +9,6 @@ export type SwirlToastConfig = {
   duration?: number;
   icon?: string;
   intent?: SwirlToastIntent;
-  persistent?: boolean;
   toastId?: string;
 };
 

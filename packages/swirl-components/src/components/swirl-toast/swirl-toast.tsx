@@ -24,7 +24,6 @@ export class SwirlToast {
   @Prop() duration?: number;
   @Prop() icon?: string;
   @Prop() intent?: SwirlToastIntent = "default";
-  @Prop() persistent?: boolean;
   @Prop() toastId!: string;
 
   @Event() dismiss: EventEmitter<string>;
@@ -62,7 +61,7 @@ export class SwirlToast {
   private startTimer() {
     this.clearTimer();
 
-    if (this.duration === undefined || this.persistent) {
+    if (this.duration === undefined) {
       return;
     }
 
