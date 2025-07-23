@@ -1,8 +1,7 @@
 ---
-"@getflip/bridge": minor
 "@getflip/swirl-components": minor
 "@getflip/swirl-components-angular": minor
 "@getflip/swirl-components-react": minor
 ---
 
-Add persistent prop to swirl-toast
+Use Infinity duration to show persistent swirl-toast
