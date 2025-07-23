@@ -1,5 +1,21 @@
 # @getflip/swirl-components-angular
 
+## 0.350.0
+
+### Minor Changes
+
+- [#1135](https://github.com/getflip/swirl/pull/1135)
+  [`b426c2cc`](https://github.com/getflip/swirl/commit/b426c2ccec1d9909f69de6f83d5ea50a181aa7c8)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add option to
+  align swirl-resource-list-item content and hide modal header border when
+  scrolled
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b426c2cc`](https://github.com/getflip/swirl/commit/b426c2ccec1d9909f69de6f83d5ea50a181aa7c8)]:
+  - @getflip/swirl-components@0.350.0
+
 ## 0.349.2
 
 ### Patch Changes
