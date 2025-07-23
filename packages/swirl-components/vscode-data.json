@@ -20946,6 +20946,10 @@
           ]
         },
         {
+          "name": "persistent",
+          "description": ""
+        },
+        {
           "name": "toast-id",
           "description": ""
         }
