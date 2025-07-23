@@ -20924,7 +20924,7 @@
         },
         {
           "name": "duration",
-          "description": ""
+          "description": "When set to Infinity, the toast will remain visible until explicitly dismissed"
         },
         {
           "name": "icon",

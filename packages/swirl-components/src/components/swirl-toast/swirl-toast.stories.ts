@@ -14,6 +14,10 @@ export default {
         },
       },
     },
+    duration: {
+      description:
+        "When set to Infinity, the toast will remain visible until explicitly dismissed",
+    },
   },
   component: "swirl-toast",
   tags: ["autodocs"],
