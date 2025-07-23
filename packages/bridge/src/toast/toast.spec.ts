@@ -27,6 +27,7 @@ describe("toast", () => {
       duration: 5000,
       icon: "icon",
       intent: "success",
+      persistent: false,
     };
 
     const spy = jest.fn();
