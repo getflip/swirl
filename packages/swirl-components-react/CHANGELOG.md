@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.352.0
+
+### Minor Changes
+
+- [#1137](https://github.com/getflip/swirl/pull/1137)
+  [`c087e95d`](https://github.com/getflip/swirl/commit/c087e95d078ffefca1984c2a4e6c25b51369dc1d)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use Infinity
+  duration to show persistent swirl-toast
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c087e95d`](https://github.com/getflip/swirl/commit/c087e95d078ffefca1984c2a4e6c25b51369dc1d)]:
+  - @getflip/swirl-components@0.352.0
+
 ## 0.351.0
 
 ### Minor Changes
