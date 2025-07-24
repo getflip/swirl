@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.65.0
+
+### Minor Changes
+
+- [#1138](https://github.com/getflip/swirl/pull/1138)
+  [`5688039c`](https://github.com/getflip/swirl/commit/5688039c1a843eebdc366987bd87ae9d501b65f6)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add refresh
+  icon
+
 ## 0.64.0
 
 ### Minor Changes
