@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.351.0
+
+### Minor Changes
+
+- [#1138](https://github.com/getflip/swirl/pull/1138)
+  [`5688039c`](https://github.com/getflip/swirl/commit/5688039c1a843eebdc366987bd87ae9d501b65f6)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add refresh
+  icon
+
+* [#1140](https://github.com/getflip/swirl/pull/1140)
+  [`b88a6595`](https://github.com/getflip/swirl/commit/b88a6595593f65a322779634a970025dda4e2f87)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to pass SwirlPopover
+  component instances as the "swirlPopover" prop of the swirl-popover-trigger
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5688039c`](https://github.com/getflip/swirl/commit/5688039c1a843eebdc366987bd87ae9d501b65f6),
+  [`b88a6595`](https://github.com/getflip/swirl/commit/b88a6595593f65a322779634a970025dda4e2f87)]:
+  - @getflip/swirl-components@0.351.0
+
 ## 0.350.0
 
 ### Minor Changes
