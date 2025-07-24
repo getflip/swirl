@@ -21,6 +21,9 @@ export class SwirlToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
   @Prop() content?: string;
   @Prop() dismissLabel?: string;
+  /**
+   * When set to Infinity, the toast will remain visible until explicitly dismissed
+   */
   @Prop() duration?: number;
   @Prop() icon?: string;
   @Prop() intent?: SwirlToastIntent = "default";
@@ -61,7 +64,7 @@ export class SwirlToast {
   private startTimer() {
     this.clearTimer();
 
-    if (this.duration === undefined) {
+    if (this.duration === undefined || this.duration === Infinity) {
       return;
     }
 

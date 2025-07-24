@@ -4413,6 +4413,9 @@ export namespace Components {
         "accessibleDismissLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
+        /**
+          * When set to Infinity, the toast will remain visible until explicitly dismissed
+         */
         "duration"?: number;
         "icon"?: string;
         /**
@@ -12417,6 +12420,9 @@ declare namespace LocalJSX {
         "accessibleDismissLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
+        /**
+          * When set to Infinity, the toast will remain visible until explicitly dismissed
+         */
         "duration"?: number;
         "icon"?: string;
         /**
