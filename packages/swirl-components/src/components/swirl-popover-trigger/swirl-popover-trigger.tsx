@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
+import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
 @Component({
   shadow: false,
@@ -12,7 +13,7 @@ export class SwirlPopoverTrigger {
   @Prop() hidePopoverWhenInvisible?: boolean = true;
   @Prop() parentScrollContainer?: HTMLElement;
   @Prop() setAriaAttributes?: boolean = true;
-  @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
+  @Prop() swirlPopover!: string | HTMLSwirlPopoverElement | SwirlPopover;
   @Prop() triggerOnClick?: boolean = true;
   @Prop() triggerOnHover?: boolean = false;
   @Prop() hoverLingerDuration?: number;
@@ -49,6 +50,7 @@ export class SwirlPopoverTrigger {
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
     const popoverEl = this.getPopoverEl();
+
     if (Boolean(popoverEl)) {
       popoverEl.removeEventListener("mouseenter", this.popoverMouseEnter);
       popoverEl.removeEventListener("mouseleave", this.popoverMouseLeave);
@@ -66,10 +68,11 @@ export class SwirlPopoverTrigger {
     clearTimeout(this.hoverLingerReference);
   }
 
-  private getPopoverEl() {
+  private getPopoverEl(): HTMLSwirlPopoverElement | undefined {
     return typeof this.swirlPopover === "string"
       ? document.querySelector<HTMLSwirlPopoverElement>(`#${this.swirlPopover}`)
-      : this.swirlPopover;
+      : (this.swirlPopover as SwirlPopover)?.el ??
+          (this.swirlPopover as HTMLSwirlPopoverElement);
   }
 
   private getTriggerEl() {
@@ -206,10 +209,7 @@ export class SwirlPopoverTrigger {
       return;
     }
 
-    const popoverId =
-      typeof this.swirlPopover === "string"
-        ? this.swirlPopover
-        : this.swirlPopover?.id;
+    const popoverId = this.getPopoverEl()?.id;
 
     if (triggerEl.tagName.startsWith("SWIRL-")) {
       triggerEl.setAttribute("swirl-aria-controls", popoverId);

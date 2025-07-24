@@ -38,7 +38,7 @@ export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
   tag: "swirl-popover",
 })
 export class SwirlPopover {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLSwirlPopoverElement;
 
   @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
   @Prop() disableScrollLock?: boolean;
