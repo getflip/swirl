@@ -14,6 +14,7 @@ describe("swirl-popover-trigger", () => {
     const page = await newSpecPage({
       components: [SwirlPopoverTrigger, SwirlButton],
       html: `
+        <swirl-popover id="popover"></swirl-popover>
         <swirl-popover-trigger swirl-popover="popover">
           <swirl-button label="trigger"></swirl-button>
         </swirl-popover-trigger>
