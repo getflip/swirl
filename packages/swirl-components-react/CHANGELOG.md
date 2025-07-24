@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.353.0
+
+### Minor Changes
+
+- [#1142](https://github.com/getflip/swirl/pull/1142)
+  [`d05c5ce7`](https://github.com/getflip/swirl/commit/d05c5ce71e35bafcd97795f9083d5c9dadf9bba7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust "line-height-base" design
+  token
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d05c5ce7`](https://github.com/getflip/swirl/commit/d05c5ce71e35bafcd97795f9083d5c9dadf9bba7)]:
+  - @getflip/swirl-components@0.353.0
+
 ## 0.352.0
 
 ### Minor Changes

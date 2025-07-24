@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components-angular",
-  "version": "0.352.0",
+  "version": "0.353.0",
   "scripts": {
     "ng": "ng",
     "build": "ng build"
@@ -22,7 +22,7 @@
     "@angular/platform-browser": "19.2.3",
     "@angular/platform-browser-dynamic": "19.2.3",
     "@angular/router": "19.2.3",
-    "@getflip/swirl-components": "^0.352.0",
+    "@getflip/swirl-components": "^0.353.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "0.15.0"

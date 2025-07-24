@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.9.0
+
+### Minor Changes
+
+- [#1142](https://github.com/getflip/swirl/pull/1142)
+  [`d05c5ce7`](https://github.com/getflip/swirl/commit/d05c5ce71e35bafcd97795f9083d5c9dadf9bba7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust "line-height-base" design
+  token
+
 ## 2.8.0
 
 ### Minor Changes
