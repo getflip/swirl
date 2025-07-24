@@ -54,7 +54,7 @@
       "type": "lineHeights"
     },
     "line-height-base": {
-      "value": "22",
+      "value": "24",
       "type": "lineHeights"
     },
     "line-height-lg": {
@@ -2640,6 +2640,11 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
   }
 }

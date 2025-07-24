@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 01 Jul 2025 11:26:43 GMT
+// Generated on Thu, 24 Jul 2025 10:29:59 GMT
 
 
 
@@ -217,7 +217,7 @@ class SwirlDesignTokensLight {
     static const interactivePrimaryPressed = Color(0xFF4D77C7); /* Used if a component with “Interactive Primary/Default” has a pressed state. */
     static const letterSpacingNormal = 0.00;
     static const lineHeight2xl = 36.00;
-    static const lineHeightBase = 22.00;
+    static const lineHeightBase = 24.00;
     static const lineHeightLg = 24.00;
     static const lineHeightSm = 20.00;
     static const lineHeightXl = 28.00;
