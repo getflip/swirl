@@ -18993,6 +18993,10 @@
           "description": ""
         },
         {
+          "name": "description",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },

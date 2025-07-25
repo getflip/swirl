@@ -3730,6 +3730,7 @@ export namespace Components {
           * @default false
          */
         "checked"?: boolean;
+        "description"?: string;
         /**
           * @default false
          */
@@ -11752,6 +11753,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "checked"?: boolean;
+        "description"?: string;
         /**
           * @default false
          */

@@ -28,6 +28,7 @@ export class SwirlSwitch {
   @Element() el: HTMLElement;
 
   @Prop({ mutable: true }) checked?: boolean = false;
+  @Prop() description?: string;
   @Prop() disabled?: boolean = false;
   @Prop() hideLabel?: boolean;
   @Prop() inputId!: string;
@@ -96,14 +97,19 @@ export class SwirlSwitch {
             </swirl-visually-hidden>
             <span aria-hidden="true" class="switch__thumb"></span>
           </span>
-          {this.label && !this.hideLabel && (
-            <span class="switch__label">{this.label}</span>
-          )}
-          {this.hideLabel && (
-            <swirl-visually-hidden>
-              {this.swirlAriaLabel || this.label}
-            </swirl-visually-hidden>
-          )}
+          <swirl-stack class="switch__content">
+            {this.label && !this.hideLabel && (
+              <span class="switch__label">{this.label}</span>
+            )}
+            {this.hideLabel && (
+              <swirl-visually-hidden>
+                {this.swirlAriaLabel || this.label}
+              </swirl-visually-hidden>
+            )}
+            {this.description && (
+              <span class="switch__description">{this.description}</span>
+            )}
+          </swirl-stack>
         </label>
       </Host>
     );
