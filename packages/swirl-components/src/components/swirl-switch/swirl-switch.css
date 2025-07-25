@@ -120,5 +120,5 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-normal);
   line-height: var(--s-line-height-sm);
-  color: var(--s-text-secondary);
+  color: var(--s-text-subdued);
 }
