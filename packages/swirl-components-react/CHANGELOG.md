@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.353.1
+
+### Patch Changes
+
+- [#1144](https://github.com/getflip/swirl/pull/1144)
+  [`b3d1c371`](https://github.com/getflip/swirl/commit/b3d1c3713e4462241825d9670ba70bf4927bc507)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix placeholder detection of
+  swirl-form-control
+
+- Updated dependencies
+  [[`b3d1c371`](https://github.com/getflip/swirl/commit/b3d1c3713e4462241825d9670ba70bf4927bc507)]:
+  - @getflip/swirl-components@0.353.1
+
 ## 0.353.0
 
 ### Minor Changes
