@@ -233,7 +233,9 @@ export class SwirlFormControl {
       this.inputEl.getAttribute("show-character-counter")
     );
 
-    const hasPlaceholder = Boolean(this.inputEl.getAttribute("placeholder"));
+    const hasPlaceholder =
+      Boolean(this.inputEl.getAttribute("placeholder")) ||
+      Boolean((this.inputEl as HTMLSwirlTextInputElement).placeholder);
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
