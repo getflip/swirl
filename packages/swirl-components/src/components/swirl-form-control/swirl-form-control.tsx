@@ -9,7 +9,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getActiveElement, isDescendantOf } from "../../utils";
+import { getActiveElement, isDescendantOf, SwirlFormInput } from "../../utils";
 
 export type SwirlFormControlFontSize = "default" | "sm" | "base";
 
@@ -55,10 +55,10 @@ export class SwirlFormControl {
   )}`;
   private labelId = `form-control-label-${Math.round(Math.random() * 100000)}`;
 
-  private inputEl: HTMLElement;
+  private inputEl: HTMLElement & SwirlFormInput;
 
   componentWillLoad() {
-    this.inputEl = this.el.firstElementChild as HTMLElement;
+    this.inputEl = this.el.firstElementChild as HTMLElement & SwirlFormInput;
 
     this.associateDescriptionWithInputElement();
     this.associateLabelWithInputElement();
@@ -186,7 +186,7 @@ export class SwirlFormControl {
   };
 
   private checkInputValue = () => {
-    this.inputValue = (this.inputEl as HTMLInputElement)?.value;
+    this.inputValue = this.inputEl?.value;
   };
 
   private onFocusIn = () => {
@@ -233,7 +233,9 @@ export class SwirlFormControl {
       this.inputEl.getAttribute("show-character-counter")
     );
 
-    const hasPlaceholder = Boolean(this.inputEl.getAttribute("placeholder"));
+    const hasPlaceholder =
+      Boolean(this.inputEl.getAttribute("placeholder")) ||
+      Boolean(this.inputEl.placeholder);
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
