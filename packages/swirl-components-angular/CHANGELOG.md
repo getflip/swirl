@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.354.0
+
+### Minor Changes
+
+- [#1146](https://github.com/getflip/swirl/pull/1146)
+  [`4441d50f`](https://github.com/getflip/swirl/commit/4441d50f3798985f9f24591faf6137ba08202749)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add
+  description field to switchwq
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4441d50f`](https://github.com/getflip/swirl/commit/4441d50f3798985f9f24591faf6137ba08202749)]:
+  - @getflip/swirl-components@0.354.0
+
 ## 0.353.1
 
 ### Patch Changes
