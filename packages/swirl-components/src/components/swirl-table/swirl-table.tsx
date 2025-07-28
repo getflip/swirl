@@ -38,6 +38,7 @@ const defaultDragDropInstructions = {
 /**
  * @slot columns - Column container, should contain SwirlTableColumns.
  * @slot rows - Row container, should contain SwirlTableRows.
+ * @slot empty - Optional. Rendered in place of the `emptyStateLabel` when no rows are present.
  */
 @Component({
   shadow: false,
@@ -754,6 +755,10 @@ export class SwirlTable {
   };
 
   render() {
+    const hasEmptyStateSlotAssignment = Boolean(
+      this.el.querySelector('[slot="empty"]')
+    );
+
     const className = classNames("table", {
       "table--keyboard-move": this.movingViaKeyboard,
     });
@@ -805,9 +810,12 @@ export class SwirlTable {
                       class="table__empty-row-cell"
                       role="cell"
                     >
-                      <swirl-text align="center" size="sm">
-                        {this.emptyStateLabel}
-                      </swirl-text>
+                      <slot name="empty"></slot>
+                      {!hasEmptyStateSlotAssignment && (
+                        <swirl-text align="center" size="sm">
+                          {this.emptyStateLabel}
+                        </swirl-text>
+                      )}
                     </div>
                   </div>
                 )}
