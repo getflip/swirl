@@ -227,6 +227,7 @@ export class SwirlTable {
 
   async componentDidRender() {
     await this.updateLayout();
+    this.updateEmptyState();
   }
 
   @Listen("resize", { target: "window" })
