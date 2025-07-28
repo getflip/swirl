@@ -38,6 +38,7 @@ const defaultDragDropInstructions = {
 /**
  * @slot columns - Column container, should contain SwirlTableColumns.
  * @slot rows - Row container, should contain SwirlTableRows.
+ * @slot empty - Optional. Rendered in place of the `emptyStateLabel` when no rows are present.
  */
 @Component({
   shadow: false,
@@ -64,15 +65,19 @@ export class SwirlTable {
   @State() scrolledToEnd: boolean;
 
   private bodyEl: HTMLElement;
+  private columnMutationObserver: MutationObserver;
   private container: HTMLElement;
   private dragDropContainer: HTMLElement;
+  private headerEl: HTMLElement;
   private intersectionObserver: IntersectionObserver;
   private movingViaKeyboard: boolean;
   private positionBeforeKeyboardMove?: number;
+  private rowMutationObserver: MutationObserver;
   private sortable: Sortable | undefined;
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
+    this.setupMutationObservers();
 
     queueMicrotask(() => {
       this.setupDragDrop();
@@ -81,6 +86,8 @@ export class SwirlTable {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    this.columnMutationObserver?.disconnect();
+    this.rowMutationObserver?.disconnect();
     this.sortable?.destroy();
   }
 
@@ -105,6 +112,43 @@ export class SwirlTable {
     );
 
     this.intersectionObserver.observe(this.container);
+  }
+
+  /**
+   * We are not using shadow DOM for the table, so we cannot use the
+   * `slotchange` event to detect changes in the slotted content. Instead, we
+   * use a MutationObserver to watch for changes of rows.
+   */
+  private setupMutationObservers() {
+    this.columnMutationObserver = new MutationObserver((mutations) => {
+      const columnWasAddedOrRemoved = mutations.some(
+        (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
+      );
+
+      if (columnWasAddedOrRemoved) {
+        this.updateLayout();
+      }
+    });
+
+    this.columnMutationObserver.observe(this.headerEl, {
+      childList: true,
+      subtree: true,
+    });
+
+    this.rowMutationObserver = new MutationObserver((mutations) => {
+      const rowWasAddedOrRemoved = mutations.some(
+        (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
+      );
+
+      if (rowWasAddedOrRemoved) {
+        this.updateEmptyState();
+        this.setupDragDrop();
+      }
+    });
+
+    this.rowMutationObserver.observe(this.bodyEl, {
+      childList: true,
+    });
   }
 
   private setupDragDrop() {
@@ -639,12 +683,6 @@ export class SwirlTable {
     this.updateScrolledState();
   };
 
-  private onSlotChange = async () => {
-    await this.updateLayout();
-    this.updateEmptyState();
-    this.setupDragDrop();
-  };
-
   private onFocus = (event: FocusEvent) => {
     if (this.movingViaKeyboard) {
       const movingRow =
@@ -717,6 +755,10 @@ export class SwirlTable {
   };
 
   render() {
+    const hasEmptyStateSlotAssignment = Boolean(
+      this.el.querySelector('[slot="empty"]')
+    );
+
     const className = classNames("table", {
       "table--keyboard-move": this.movingViaKeyboard,
     });
@@ -751,12 +793,16 @@ export class SwirlTable {
                 </swirl-visually-hidden>
               )}
               <div role="rowgroup">
-                <div class="table__header" role="row">
-                  <slot name="columns" onSlotchange={this.onSlotChange}></slot>
+                <div
+                  class="table__header"
+                  ref={(el) => (this.headerEl = el)}
+                  role="row"
+                >
+                  <slot name="columns"></slot>
                 </div>
               </div>
               <div class="table__body" ref={(el) => (this.bodyEl = el)}>
-                <slot name="rows" onSlotchange={this.onSlotChange}></slot>
+                <slot name="rows"></slot>
                 {this.empty && (
                   <div class="table__empty-row" role="row">
                     <div
@@ -764,9 +810,12 @@ export class SwirlTable {
                       class="table__empty-row-cell"
                       role="cell"
                     >
-                      <swirl-text align="center" size="sm">
-                        {this.emptyStateLabel}
-                      </swirl-text>
+                      <slot name="empty"></slot>
+                      {!hasEmptyStateSlotAssignment && (
+                        <swirl-text align="center" size="sm">
+                          {this.emptyStateLabel}
+                        </swirl-text>
+                      )}
                     </div>
                   </div>
                 )}
