@@ -24,7 +24,7 @@
 .switch--label-position-start {
   flex-direction: row-reverse;
 
-  & .switch__label {
+  & .switch__content {
     margin-right: var(--s-space-12);
     margin-left: 0;
   }
@@ -101,14 +101,24 @@
   }
 }
 
-.switch__label {
+.switch__content {
+  margin-left: var(--s-space-12);
   position: relative;
   z-index: 1;
-  margin-left: var(--s-space-12);
+}
+
+.switch__label {
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.switch__description {
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-normal);
+  line-height: var(--s-line-height-sm);
+  color: var(--s-text-subdued);
 }

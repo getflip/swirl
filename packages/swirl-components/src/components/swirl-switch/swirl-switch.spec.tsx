@@ -18,9 +18,11 @@ describe("swirl-switch", () => {
             </swirl-visually-hidden>
             <span aria-hidden="true" class="switch__thumb"></span>
           </span>
-          <span class="switch__label">
-            Label
-          </span>
+          <swirl-stack class="switch__content">
+            <span class="switch__label">
+              Label
+            </span>
+          </swirl-stack>
         </label>
       </swirl-switch>
     `);
