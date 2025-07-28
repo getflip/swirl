@@ -4152,9 +4152,6 @@ export namespace Components {
           * @default "No results found."
          */
         "emptyStateLabel"?: string;
-        /**
-          * @default true
-         */
         "enableDragDrop"?: boolean;
         "label": string;
         /**
@@ -12178,9 +12175,6 @@ declare namespace LocalJSX {
           * @default "No results found."
          */
         "emptyStateLabel"?: string;
-        /**
-          * @default true
-         */
         "enableDragDrop"?: boolean;
         "label": string;
         "onDropRow"?: (event: SwirlTableCustomEvent<SwirlTableDropRowEvent>) => void;

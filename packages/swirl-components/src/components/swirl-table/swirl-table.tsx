@@ -64,17 +64,19 @@ export class SwirlTable {
   @State() scrolledToEnd: boolean;
 
   private bodyEl: HTMLElement;
+  private columnMutationObserver: MutationObserver;
   private container: HTMLElement;
   private dragDropContainer: HTMLElement;
+  private headerEl: HTMLElement;
   private intersectionObserver: IntersectionObserver;
   private movingViaKeyboard: boolean;
-  private mutationObserver: MutationObserver;
   private positionBeforeKeyboardMove?: number;
+  private rowMutationObserver: MutationObserver;
   private sortable: Sortable | undefined;
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
-    this.setupMutationObserver();
+    this.setupMutationObservers();
 
     queueMicrotask(() => {
       this.setupDragDrop();
@@ -83,7 +85,8 @@ export class SwirlTable {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
-    this.mutationObserver?.disconnect();
+    this.columnMutationObserver?.disconnect();
+    this.rowMutationObserver?.disconnect();
     this.sortable?.destroy();
   }
 
@@ -115,8 +118,24 @@ export class SwirlTable {
    * `slotchange` event to detect changes in the slotted content. Instead, we
    * use a MutationObserver to watch for changes of rows.
    */
-  private setupMutationObserver() {
-    this.mutationObserver = new MutationObserver((mutations) => {
+  private setupMutationObservers() {
+    this.columnMutationObserver = new MutationObserver((mutations) => {
+      const columnWasAddedOrRemoved = mutations.some(
+        (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
+      );
+
+      if (columnWasAddedOrRemoved) {
+        this.updateLayout();
+      }
+    });
+
+    this.columnMutationObserver.observe(this.headerEl, {
+      childList: true,
+      subtree: true,
+    });
+
+    this.rowMutationObserver = new MutationObserver((mutations) => {
+      console.log("sssss");
       const rowWasAddedOrRemoved = mutations.some(
         (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
       );
@@ -127,7 +146,7 @@ export class SwirlTable {
       }
     });
 
-    this.mutationObserver.observe(this.bodyEl, {
+    this.rowMutationObserver.observe(this.bodyEl, {
       childList: true,
     });
   }
@@ -769,7 +788,11 @@ export class SwirlTable {
                 </swirl-visually-hidden>
               )}
               <div role="rowgroup">
-                <div class="table__header" role="row">
+                <div
+                  class="table__header"
+                  ref={(el) => (this.headerEl = el)}
+                  role="row"
+                >
                   <slot name="columns"></slot>
                 </div>
               </div>
