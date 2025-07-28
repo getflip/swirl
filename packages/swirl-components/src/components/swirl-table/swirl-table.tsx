@@ -136,7 +136,6 @@ export class SwirlTable {
     });
 
     this.rowMutationObserver = new MutationObserver((mutations) => {
-      console.log("sssss");
       const rowWasAddedOrRemoved = mutations.some(
         (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
       );
