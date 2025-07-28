@@ -68,11 +68,13 @@ export class SwirlTable {
   private dragDropContainer: HTMLElement;
   private intersectionObserver: IntersectionObserver;
   private movingViaKeyboard: boolean;
+  private mutationObserver: MutationObserver;
   private positionBeforeKeyboardMove?: number;
   private sortable: Sortable | undefined;
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
+    this.setupMutationObserver();
 
     queueMicrotask(() => {
       this.setupDragDrop();
@@ -81,6 +83,7 @@ export class SwirlTable {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    this.mutationObserver?.disconnect();
     this.sortable?.destroy();
   }
 
@@ -105,6 +108,28 @@ export class SwirlTable {
     );
 
     this.intersectionObserver.observe(this.container);
+  }
+
+  /**
+   * We are not using shadow DOM for the table, so we cannot use the
+   * `slotchange` event to detect changes in the slotted content. Instead, we
+   * use a MutationObserver to watch for changes of rows.
+   */
+  private setupMutationObserver() {
+    this.mutationObserver = new MutationObserver((mutations) => {
+      const rowWasAddedOrRemoved = mutations.some(
+        (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
+      );
+
+      if (rowWasAddedOrRemoved) {
+        this.updateEmptyState();
+        this.setupDragDrop();
+      }
+    });
+
+    this.mutationObserver.observe(this.bodyEl, {
+      childList: true,
+    });
   }
 
   private setupDragDrop() {
@@ -183,7 +208,6 @@ export class SwirlTable {
 
   async componentDidRender() {
     await this.updateLayout();
-    this.updateEmptyState();
   }
 
   @Listen("resize", { target: "window" })
@@ -639,12 +663,6 @@ export class SwirlTable {
     this.updateScrolledState();
   };
 
-  private onSlotChange = async () => {
-    await this.updateLayout();
-    this.updateEmptyState();
-    this.setupDragDrop();
-  };
-
   private onFocus = (event: FocusEvent) => {
     if (this.movingViaKeyboard) {
       const movingRow =
@@ -752,11 +770,11 @@ export class SwirlTable {
               )}
               <div role="rowgroup">
                 <div class="table__header" role="row">
-                  <slot name="columns" onSlotchange={this.onSlotChange}></slot>
+                  <slot name="columns"></slot>
                 </div>
               </div>
               <div class="table__body" ref={(el) => (this.bodyEl = el)}>
-                <slot name="rows" onSlotchange={this.onSlotChange}></slot>
+                <slot name="rows"></slot>
                 {this.empty && (
                   <div class="table__empty-row" role="row">
                     <div
