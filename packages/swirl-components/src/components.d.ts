@@ -3642,6 +3642,7 @@ export namespace Components {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        "description"?: string;
         /**
           * @default false
          */
@@ -11666,6 +11667,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        "description"?: string;
         /**
           * @default false
          */

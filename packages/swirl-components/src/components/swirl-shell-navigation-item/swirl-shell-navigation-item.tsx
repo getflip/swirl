@@ -22,6 +22,7 @@ export class SwirlShellNavigationItem {
   @Prop() inlineLabel?: boolean;
   @Prop() inlineLabelColor: SwirlLabelColor = "default";
   @Prop() label!: string;
+  @Prop() description?: string;
   @Prop() target?: string;
   @Prop() tiled?: boolean;
   @Prop() withGradient?: boolean;
@@ -43,11 +44,15 @@ export class SwirlShellNavigationItem {
     const isLink = Boolean(this.href);
     const Tag = isLink ? "a" : "button";
 
+    const tooltipContent = this.description
+      ? `${this.label} ${this.description}`
+      : this.label;
+
     return (
       <Host>
         <swirl-tooltip
           active={this.hideLabel}
-          content={this.label}
+          content={tooltipContent}
           delay={100}
           position="right"
           positioning="fixed"
@@ -62,7 +67,18 @@ export class SwirlShellNavigationItem {
               <slot name="icon"></slot>
             </span>
             {!this.hideLabel ? (
-              <span class={labelClassNames}>{this.label}</span>
+              this.tiled ? (
+                <span class={labelClassNames}>{this.label}</span>
+              ) : (
+                <div class="shell-navigation-item__text-wrapper">
+                  <span class={labelClassNames}>{this.label}</span>
+                  {this.description && (
+                    <span class="shell-navigation-item__description">
+                      {this.description}
+                    </span>
+                  )}
+                </div>
+              )
             ) : (
               <swirl-visually-hidden>
                 <span class={labelClassNames}>{this.label}</span>

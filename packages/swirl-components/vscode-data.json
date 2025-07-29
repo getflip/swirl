@@ -18589,6 +18589,10 @@
           "description": ""
         },
         {
+          "name": "description",
+          "description": ""
+        },
+        {
           "name": "hide-label",
           "description": ""
         },

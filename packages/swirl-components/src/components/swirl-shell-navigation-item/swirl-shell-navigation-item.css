@@ -214,7 +214,7 @@
   align-items: center;
 }
 
-.shell-navigation-item__label {
+.shell-navigation-item__text-wrapper {
   overflow: hidden;
   min-width: 0;
   flex-grow: 1;
@@ -223,7 +223,14 @@
   text-overflow: ellipsis;
 }
 
+.shell-navigation-item__description {
+  margin-left: var(--s-space-8);
+  font-weight: var(--s-font-weight-normal);
+  color: var(--s-text-subdued);
+}
+
 .shell-navigation-item__badge {
+  flex-shrink: 0;
   --swirl-badge-border-color: var(--swirl-shell-background);
 }
 
