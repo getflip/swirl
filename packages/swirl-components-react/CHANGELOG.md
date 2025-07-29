@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.357.0
+
+### Minor Changes
+
+- [#1150](https://github.com/getflip/swirl/pull/1150)
+  [`8d12f1df`](https://github.com/getflip/swirl/commit/8d12f1df9db598d44c8652509986a141d1d3dd55)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add a
+  description to swirl-shell-navigation-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8d12f1df`](https://github.com/getflip/swirl/commit/8d12f1df9db598d44c8652509986a141d1d3dd55)]:
+  - @getflip/swirl-components@0.357.0
+
 ## 0.356.0
 
 ### Minor Changes
