@@ -67,6 +67,13 @@ describe("swirl-table", () => {
                     </span>
                   </div>
                 </div>
+                <div class="table__empty-row" role="row" style="width: undefinedpx;">
+                  <div aria-colspan="0" class="table__empty-row-cell" role="cell">
+                    <swirl-text align="center" size="sm">
+                      No results found.
+                    </swirl-text>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
