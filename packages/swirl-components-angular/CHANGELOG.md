@@ -1,5 +1,25 @@
 # @getflip/swirl-components-angular
 
+## 0.356.0
+
+### Minor Changes
+
+- [#1153](https://github.com/getflip/swirl/pull/1153)
+  [`ec11e680`](https://github.com/getflip/swirl/commit/ec11e6802b94c30f07897ce698ec3b50377be3fa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-table "loading" prop
+
+### Patch Changes
+
+- [#1153](https://github.com/getflip/swirl/pull/1153)
+  [`ec11e680`](https://github.com/getflip/swirl/commit/ec11e6802b94c30f07897ce698ec3b50377be3fa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make sure swirl-table "empty"
+  slot is always available
+
+- Updated dependencies
+  [[`ec11e680`](https://github.com/getflip/swirl/commit/ec11e6802b94c30f07897ce698ec3b50377be3fa),
+  [`ec11e680`](https://github.com/getflip/swirl/commit/ec11e6802b94c30f07897ce698ec3b50377be3fa)]:
+  - @getflip/swirl-components@0.356.0
+
 ## 0.355.1
 
 ### Patch Changes
