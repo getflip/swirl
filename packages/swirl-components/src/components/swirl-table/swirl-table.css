@@ -14,6 +14,12 @@
   }
 }
 
+.table--empty {
+  & .table__empty-row {
+    display: flex;
+  }
+}
+
 .table__container {
   position: relative;
   overflow: auto;
@@ -42,7 +48,7 @@
 }
 
 .table__empty-row {
-  display: flex;
+  display: none;
 }
 
 .table__empty-row-cell {

@@ -761,6 +761,7 @@ export class SwirlTable {
     );
 
     const className = classNames("table", {
+      "table--empty": this.empty,
       "table--keyboard-move": this.movingViaKeyboard,
     });
 
@@ -804,22 +805,20 @@ export class SwirlTable {
               </div>
               <div class="table__body" ref={(el) => (this.bodyEl = el)}>
                 <slot name="rows"></slot>
-                {this.empty && (
-                  <div class="table__empty-row" role="row">
-                    <div
-                      aria-colspan={this.getColumns().length}
-                      class="table__empty-row-cell"
-                      role="cell"
-                    >
-                      <slot name="empty"></slot>
-                      {!hasEmptyStateSlotAssignment && (
-                        <swirl-text align="center" size="sm">
-                          {this.emptyStateLabel}
-                        </swirl-text>
-                      )}
-                    </div>
+                <div class="table__empty-row" role="row">
+                  <div
+                    aria-colspan={this.getColumns().length}
+                    class="table__empty-row-cell"
+                    role="cell"
+                  >
+                    <slot name="empty"></slot>
+                    {!hasEmptyStateSlotAssignment && (
+                      <swirl-text align="center" size="sm">
+                        {this.emptyStateLabel}
+                      </swirl-text>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
