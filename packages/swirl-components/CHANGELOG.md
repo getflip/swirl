@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.355.1
+
+### Patch Changes
+
+- [#1151](https://github.com/getflip/swirl/pull/1151)
+  [`85d177d2`](https://github.com/getflip/swirl/commit/85d177d21193b7836505aa424452c8a36b82c5b0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue of swirl-table empty
+  state detection
+
 ## 0.355.0
 
 ### Minor Changes
