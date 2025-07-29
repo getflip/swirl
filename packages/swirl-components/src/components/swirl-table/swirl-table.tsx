@@ -55,6 +55,7 @@ export class SwirlTable {
   @Prop() emptyStateLabel?: string = "No results found.";
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
+  @Prop() loading?: boolean;
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
 
@@ -761,7 +762,7 @@ export class SwirlTable {
     );
 
     const className = classNames("table", {
-      "table--empty": this.empty,
+      "table--show-empty-state": this.empty && !this.loading,
       "table--keyboard-move": this.movingViaKeyboard,
     });
 

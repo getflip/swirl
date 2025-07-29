@@ -14,7 +14,7 @@
   }
 }
 
-.table--empty {
+.table--show-empty-state {
   & .table__empty-row {
     display: flex;
   }

@@ -4154,6 +4154,7 @@ export namespace Components {
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
         "label": string;
+        "loading"?: boolean;
         /**
           * Force a re-render of the table
          */
@@ -12177,6 +12178,7 @@ declare namespace LocalJSX {
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
         "label": string;
+        "loading"?: boolean;
         "onDropRow"?: (event: SwirlTableCustomEvent<SwirlTableDropRowEvent>) => void;
     }
     interface SwirlTableCell {

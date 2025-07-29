@@ -20072,6 +20072,10 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "loading",
+          "description": ""
         }
       ]
     },
