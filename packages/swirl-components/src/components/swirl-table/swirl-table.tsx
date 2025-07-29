@@ -148,6 +148,7 @@ export class SwirlTable {
 
     this.rowMutationObserver.observe(this.bodyEl, {
       childList: true,
+      subtree: true,
     });
   }
 
