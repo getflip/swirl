@@ -230,6 +230,7 @@
 }
 
 .shell-navigation-item__badge {
+  flex-shrink: 0;
   --swirl-badge-border-color: var(--swirl-shell-background);
 }
 
