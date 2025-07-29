@@ -20,9 +20,11 @@ describe("swirl-shell-navigation-item", () => {
               <span class="shell-navigation-item__icon">
                 <slot name="icon"></slot>
               </span>
-              <span class="shell-navigation-item__label">
-                Label
-              </span>
+              <div class="shell-navigation-item__text-wrapper">
+                <span class="shell-navigation-item__label">
+                  Label
+                </span>
+              </div>
             </button>
           </swirl-tooltip>
         </template>
