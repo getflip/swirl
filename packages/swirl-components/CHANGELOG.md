@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.355.0
+
+### Minor Changes
+
+- [#1148](https://github.com/getflip/swirl/pull/1148)
+  [`96cd21e4`](https://github.com/getflip/swirl/commit/96cd21e45a0afc0e9abc1a498c430dd50517cb65)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "empty" slot to swirl-table
+  used to override the default "emptyStateLabel"
+
+### Patch Changes
+
+- [#1148](https://github.com/getflip/swirl/pull/1148)
+  [`96cd21e4`](https://github.com/getflip/swirl/commit/96cd21e45a0afc0e9abc1a498c430dd50517cb65)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix detection of empty
+  swirl-tables
+
 ## 0.354.0
 
 ### Minor Changes
