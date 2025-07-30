@@ -2235,6 +2235,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconPatientList {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPause {
         "color"?: SwirlIconColor1;
         /**
@@ -6311,6 +6318,12 @@ declare global {
         prototype: HTMLSwirlIconOpenInNewElement;
         new (): HTMLSwirlIconOpenInNewElement;
     };
+    interface HTMLSwirlIconPatientListElement extends Components.SwirlIconPatientList, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPatientListElement: {
+        prototype: HTMLSwirlIconPatientListElement;
+        new (): HTMLSwirlIconPatientListElement;
+    };
     interface HTMLSwirlIconPauseElement extends Components.SwirlIconPause, HTMLStencilElement {
     }
     var HTMLSwirlIconPauseElement: {
@@ -8110,6 +8123,7 @@ declare global {
         "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
         "swirl-icon-open-in-full": HTMLSwirlIconOpenInFullElement;
         "swirl-icon-open-in-new": HTMLSwirlIconOpenInNewElement;
+        "swirl-icon-patient-list": HTMLSwirlIconPatientListElement;
         "swirl-icon-pause": HTMLSwirlIconPauseElement;
         "swirl-icon-pause-circle": HTMLSwirlIconPauseCircleElement;
         "swirl-icon-people-alt": HTMLSwirlIconPeopleAltElement;
@@ -10318,6 +10332,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconOpenInNew {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPatientList {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -12762,6 +12783,7 @@ declare namespace LocalJSX {
         "swirl-icon-notifications-off": SwirlIconNotificationsOff;
         "swirl-icon-open-in-full": SwirlIconOpenInFull;
         "swirl-icon-open-in-new": SwirlIconOpenInNew;
+        "swirl-icon-patient-list": SwirlIconPatientList;
         "swirl-icon-pause": SwirlIconPause;
         "swirl-icon-pause-circle": SwirlIconPauseCircle;
         "swirl-icon-people-alt": SwirlIconPeopleAlt;
@@ -13174,6 +13196,7 @@ declare module "@stencil/core" {
             "swirl-icon-notifications-off": LocalJSX.SwirlIconNotificationsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
             "swirl-icon-open-in-full": LocalJSX.SwirlIconOpenInFull & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInFullElement>;
             "swirl-icon-open-in-new": LocalJSX.SwirlIconOpenInNew & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInNewElement>;
+            "swirl-icon-patient-list": LocalJSX.SwirlIconPatientList & JSXBase.HTMLAttributes<HTMLSwirlIconPatientListElement>;
             "swirl-icon-pause": LocalJSX.SwirlIconPause & JSXBase.HTMLAttributes<HTMLSwirlIconPauseElement>;
             "swirl-icon-pause-circle": LocalJSX.SwirlIconPauseCircle & JSXBase.HTMLAttributes<HTMLSwirlIconPauseCircleElement>;
             "swirl-icon-people-alt": LocalJSX.SwirlIconPeopleAlt & JSXBase.HTMLAttributes<HTMLSwirlIconPeopleAltElement>;
