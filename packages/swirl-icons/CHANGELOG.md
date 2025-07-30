@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.66.0
+
+### Minor Changes
+
+- [#1156](https://github.com/getflip/swirl/pull/1156)
+  [`f39004dc`](https://github.com/getflip/swirl/commit/f39004dc3176f95244d601b2f15eca3deb7e2858)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add
+  PatientList icon
+
 ## 0.65.0
 
 ### Minor Changes
