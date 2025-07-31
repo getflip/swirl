@@ -1,4 +1,4 @@
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, SpecPage } from "@stencil/core/testing";
 
 import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 import { SwirlPopover } from "./swirl-popover";
@@ -8,6 +8,13 @@ import { SwirlPopover } from "./swirl-popover";
   disconnect() {}
   observe() {}
 };
+
+function isPopoverOpen(page: SpecPage) {
+  return !page.doc
+    .querySelector("swirl-popover")
+    .shadowRoot.querySelector(".popover")
+    .classList.contains("popover--inactive");
+}
 
 describe("swirl-popover", () => {
   const template = `
@@ -61,20 +68,13 @@ describe("swirl-popover", () => {
     `);
   });
 
-  it("opens on click and closes on blur/esc", async () => {
+  it("opens on click and closes on blur", async () => {
     const page = await newSpecPage({
       components: [SwirlPopover, SwirlPopoverTrigger],
       html: template,
     });
 
-    function isOpen() {
-      return !page.doc
-        .querySelector("swirl-popover")
-        .shadowRoot.querySelector(".popover")
-        .classList.contains("popover--inactive");
-    }
-
-    expect(isOpen()).toBeFalsy();
+    expect(isPopoverOpen(page)).toBeFalsy();
 
     // click trigger
     const trigger = page.root;
@@ -83,7 +83,7 @@ describe("swirl-popover", () => {
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
-    expect(isOpen()).toBeTruthy();
+    expect(isPopoverOpen(page)).toBeTruthy();
 
     // blur popover
     page.win.dispatchEvent(new FocusEvent("focusin"));
@@ -91,14 +91,25 @@ describe("swirl-popover", () => {
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
-    expect(isOpen()).toBeFalsy();
+    expect(isPopoverOpen(page)).toBeFalsy();
+  });
 
-    // re-open popover
+  it("opens on click and closes on esc", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+
+    // click trigger
+    const trigger = page.root;
+
     trigger.click();
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
-    expect(isOpen()).toBeTruthy();
+    expect(isPopoverOpen(page)).toBeTruthy();
 
     // close via escape key
     page.doc
@@ -109,7 +120,70 @@ describe("swirl-popover", () => {
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
-    expect(isOpen()).toBeFalsy();
+    expect(isPopoverOpen(page)).toBeFalsy();
+  });
+
+  it("opens on click and closes on blur into iframe", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: `
+        <div>
+          <div>
+            <swirl-popover-trigger swirl-popover="popover">
+              <button id="trigger">Trigger popover</button>
+            </swirl-popover-trigger>
+            <swirl-popover label="Popover" id="popover" style="display: none;">
+              <div>Content</div>
+            </swirl-popover>
+          </div>
+          <iframe id="iframe"></iframe>
+        </div>
+      `,
+    });
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+
+    // click trigger
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    trigger.click();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    const iframe = page.body.querySelector<HTMLElement>("#iframe");
+    iframe.click();
+
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+  });
+
+  it("does not close on blur when focus is lost to an element other then an iframe", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+
+    // click trigger
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    trigger.click();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    page.win.dispatchEvent(new FocusEvent("blur"));
+
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
   });
 
   it("returns the open state", async () => {
