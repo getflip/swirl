@@ -120,6 +120,23 @@ export class SwirlPopover {
     }
   }
 
+  @Listen("blur", { target: "window" })
+  onWindowBlur() {
+    if (!this.active || this.closing) {
+      return;
+    }
+
+    const activeElement = document.activeElement;
+    const elementsIncludedForAutoClosing = ["IFRAME"];
+
+    if (
+      activeElement &&
+      elementsIncludedForAutoClosing.includes(activeElement.tagName)
+    ) {
+      this.close();
+    }
+  }
+
   @Listen("click", { target: "window" })
   onWindowClick(event: MouseEvent) {
     if (!this.active || this.closing) {
