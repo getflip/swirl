@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.358.1
+
+### Patch Changes
+
+- [#1158](https://github.com/getflip/swirl/pull/1158)
+  [`abf93339`](https://github.com/getflip/swirl/commit/abf9333999aca6e7e4bb82d944563ac6cd839962)
+  Thanks [@danizep](https://github.com/danizep)! - Fix popover no closing when
+  clicking on iframe
+
+- Updated dependencies
+  [[`abf93339`](https://github.com/getflip/swirl/commit/abf9333999aca6e7e4bb82d944563ac6cd839962)]:
+  - @getflip/swirl-components@0.358.1
+
 ## 0.358.0
 
 ### Minor Changes
