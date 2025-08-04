@@ -1437,6 +1437,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconCancelOutline {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconChatBubble {
         "color"?: SwirlIconColor1;
         /**
@@ -5648,6 +5655,12 @@ declare global {
         prototype: HTMLSwirlIconCancelFilledElement;
         new (): HTMLSwirlIconCancelFilledElement;
     };
+    interface HTMLSwirlIconCancelOutlineElement extends Components.SwirlIconCancelOutline, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCancelOutlineElement: {
+        prototype: HTMLSwirlIconCancelOutlineElement;
+        new (): HTMLSwirlIconCancelOutlineElement;
+    };
     interface HTMLSwirlIconChatBubbleElement extends Components.SwirlIconChatBubble, HTMLStencilElement {
     }
     var HTMLSwirlIconChatBubbleElement: {
@@ -8035,6 +8048,7 @@ declare global {
         "swirl-icon-call-end": HTMLSwirlIconCallEndElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-cancel-filled": HTMLSwirlIconCancelFilledElement;
+        "swirl-icon-cancel-outline": HTMLSwirlIconCancelOutlineElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats": HTMLSwirlIconChatsElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
@@ -9562,6 +9576,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancelFilled {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCancelOutline {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -12711,6 +12732,7 @@ declare namespace LocalJSX {
         "swirl-icon-call-end": SwirlIconCallEnd;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-cancel-filled": SwirlIconCancelFilled;
+        "swirl-icon-cancel-outline": SwirlIconCancelOutline;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats": SwirlIconChats;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
@@ -13126,6 +13148,7 @@ declare module "@stencil/core" {
             "swirl-icon-call-end": LocalJSX.SwirlIconCallEnd & JSXBase.HTMLAttributes<HTMLSwirlIconCallEndElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-cancel-filled": LocalJSX.SwirlIconCancelFilled & JSXBase.HTMLAttributes<HTMLSwirlIconCancelFilledElement>;
+            "swirl-icon-cancel-outline": LocalJSX.SwirlIconCancelOutline & JSXBase.HTMLAttributes<HTMLSwirlIconCancelOutlineElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats": LocalJSX.SwirlIconChats & JSXBase.HTMLAttributes<HTMLSwirlIconChatsElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
