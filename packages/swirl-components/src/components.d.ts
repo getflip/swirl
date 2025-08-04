@@ -2200,6 +2200,20 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconNoteStack {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconNoteStackFilled {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconNotifications {
         "color"?: SwirlIconColor1;
         /**
@@ -6288,6 +6302,18 @@ declare global {
         prototype: HTMLSwirlIconNextPlanElement;
         new (): HTMLSwirlIconNextPlanElement;
     };
+    interface HTMLSwirlIconNoteStackElement extends Components.SwirlIconNoteStack, HTMLStencilElement {
+    }
+    var HTMLSwirlIconNoteStackElement: {
+        prototype: HTMLSwirlIconNoteStackElement;
+        new (): HTMLSwirlIconNoteStackElement;
+    };
+    interface HTMLSwirlIconNoteStackFilledElement extends Components.SwirlIconNoteStackFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconNoteStackFilledElement: {
+        prototype: HTMLSwirlIconNoteStackFilledElement;
+        new (): HTMLSwirlIconNoteStackFilledElement;
+    };
     interface HTMLSwirlIconNotificationsElement extends Components.SwirlIconNotifications, HTMLStencilElement {
     }
     var HTMLSwirlIconNotificationsElement: {
@@ -8118,6 +8144,8 @@ declare global {
         "swirl-icon-news-filled": HTMLSwirlIconNewsFilledElement;
         "swirl-icon-news-off": HTMLSwirlIconNewsOffElement;
         "swirl-icon-next-plan": HTMLSwirlIconNextPlanElement;
+        "swirl-icon-note-stack": HTMLSwirlIconNoteStackElement;
+        "swirl-icon-note-stack-filled": HTMLSwirlIconNoteStackFilledElement;
         "swirl-icon-notifications": HTMLSwirlIconNotificationsElement;
         "swirl-icon-notifications-active": HTMLSwirlIconNotificationsActiveElement;
         "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
@@ -10297,6 +10325,20 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNextPlan {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconNoteStack {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconNoteStackFilled {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -12778,6 +12820,8 @@ declare namespace LocalJSX {
         "swirl-icon-news-filled": SwirlIconNewsFilled;
         "swirl-icon-news-off": SwirlIconNewsOff;
         "swirl-icon-next-plan": SwirlIconNextPlan;
+        "swirl-icon-note-stack": SwirlIconNoteStack;
+        "swirl-icon-note-stack-filled": SwirlIconNoteStackFilled;
         "swirl-icon-notifications": SwirlIconNotifications;
         "swirl-icon-notifications-active": SwirlIconNotificationsActive;
         "swirl-icon-notifications-off": SwirlIconNotificationsOff;
@@ -13191,6 +13235,8 @@ declare module "@stencil/core" {
             "swirl-icon-news-filled": LocalJSX.SwirlIconNewsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconNewsFilledElement>;
             "swirl-icon-news-off": LocalJSX.SwirlIconNewsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNewsOffElement>;
             "swirl-icon-next-plan": LocalJSX.SwirlIconNextPlan & JSXBase.HTMLAttributes<HTMLSwirlIconNextPlanElement>;
+            "swirl-icon-note-stack": LocalJSX.SwirlIconNoteStack & JSXBase.HTMLAttributes<HTMLSwirlIconNoteStackElement>;
+            "swirl-icon-note-stack-filled": LocalJSX.SwirlIconNoteStackFilled & JSXBase.HTMLAttributes<HTMLSwirlIconNoteStackFilledElement>;
             "swirl-icon-notifications": LocalJSX.SwirlIconNotifications & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsElement>;
             "swirl-icon-notifications-active": LocalJSX.SwirlIconNotificationsActive & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsActiveElement>;
             "swirl-icon-notifications-off": LocalJSX.SwirlIconNotificationsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
