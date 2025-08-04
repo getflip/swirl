@@ -1,5 +1,18 @@
 # @getflip/swirl-components
 
+## 0.360.0
+
+### Minor Changes
+
+- [`f5f8353b`](https://github.com/getflip/swirl/commit/f5f8353b5c33b09216de7fc1bd6050813c019dac)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - New icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f5f8353b`](https://github.com/getflip/swirl/commit/f5f8353b5c33b09216de7fc1bd6050813c019dac)]:
+  - @getflip/swirl-icons@0.68.0
+
 ## 0.359.0
 
 ### Minor Changes
