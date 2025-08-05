@@ -329,6 +329,7 @@ export class SwirlModal {
   private setupFocusTrap() {
     this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
       allowOutsideClick: true,
+      setReturnFocus: document.activeElement as HTMLElement,
 
       // We don't always close the modal when ESC is pressed. So we manage the
       // deactivation of the focus trap manually.
