@@ -18776,6 +18776,18 @@
           "description": ""
         },
         {
+          "name": "secondary-nav-grid-layout-variant",
+          "description": "",
+          "values": [
+            {
+              "name": "app-icon"
+            },
+            {
+              "name": "tiled"
+            }
+          ]
+        },
+        {
           "name": "sidebar-active",
           "description": ""
         },
@@ -18825,6 +18837,10 @@
           "description": ""
         },
         {
+          "name": "filled",
+          "description": ""
+        },
+        {
           "name": "hide-label",
           "description": ""
         },
@@ -18860,8 +18876,19 @@
           "description": ""
         },
         {
-          "name": "tiled",
-          "description": ""
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "app-icon"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "tiled"
+            }
+          ]
         },
         {
           "name": "with-gradient",

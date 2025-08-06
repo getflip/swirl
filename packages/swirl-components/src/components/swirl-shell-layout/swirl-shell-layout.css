@@ -413,7 +413,7 @@
   & ::slotted(ul) {
     display: flex;
     flex-direction: column;
-    gap: var(--s-space-2);
+    gap: var(--s-space-8);
   }
 }
 
@@ -427,7 +427,18 @@
   & ::slotted(ul > *) {
     min-width: 0;
     max-height: none;
+  }
+}
+
+.shell-layout__secondary-nav-items--tiled {
+  & ::slotted(ul > *) {
     flex-basis: calc(50% - var(--s-space-8));
+  }
+}
+
+.shell-layout__secondary-nav-items--app-icon {
+  & ::slotted(ul > *) {
+    flex-basis: calc(32% - var(--s-space-8));
   }
 }
 

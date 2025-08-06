@@ -56,7 +56,8 @@ import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from 
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
-import { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
+import { SwirlShellLayoutSecondaryNavGridItemVariant } from "./components/swirl-shell-layout/swirl-shell-layout";
+import { SwirlLabelColor, SwirlShellNavigationItemVariant } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -133,7 +134,8 @@ export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from 
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
-export { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
+export { SwirlShellLayoutSecondaryNavGridItemVariant } from "./components/swirl-shell-layout/swirl-shell-layout";
+export { SwirlLabelColor, SwirlShellNavigationItemVariant } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -3647,6 +3649,10 @@ export namespace Components {
          */
         "secondaryNavExpandLabel"?: string;
         /**
+          * @default "tiled"
+         */
+        "secondaryNavGridLayoutVariant": SwirlShellLayoutSecondaryNavGridItemVariant;
+        /**
           * Opens the mobile navigation.
          */
         "showMobileNavigation": () => Promise<void>;
@@ -3671,6 +3677,7 @@ export namespace Components {
         "badgeLabel"?: string;
         "boxed"?: boolean;
         "description"?: string;
+        "filled"?: boolean;
         /**
           * @default false
          */
@@ -3683,7 +3690,10 @@ export namespace Components {
         "inlineLabelColor": SwirlLabelColor;
         "label": string;
         "target"?: string;
-        "tiled"?: boolean;
+        /**
+          * @default "default"
+         */
+        "variant": SwirlShellNavigationItemVariant;
         "withGradient"?: boolean;
     }
     interface SwirlSkeletonBox {
@@ -11731,6 +11741,10 @@ declare namespace LocalJSX {
           * @default "Show more"
          */
         "secondaryNavExpandLabel"?: string;
+        /**
+          * @default "tiled"
+         */
+        "secondaryNavGridLayoutVariant"?: SwirlShellLayoutSecondaryNavGridItemVariant;
         "sidebarActive"?: boolean;
         "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
@@ -11752,6 +11766,7 @@ declare namespace LocalJSX {
         "badgeLabel"?: string;
         "boxed"?: boolean;
         "description"?: string;
+        "filled"?: boolean;
         /**
           * @default false
          */
@@ -11764,7 +11779,10 @@ declare namespace LocalJSX {
         "inlineLabelColor"?: SwirlLabelColor;
         "label": string;
         "target"?: string;
-        "tiled"?: boolean;
+        /**
+          * @default "default"
+         */
+        "variant"?: SwirlShellNavigationItemVariant;
         "withGradient"?: boolean;
     }
     interface SwirlSkeletonBox {

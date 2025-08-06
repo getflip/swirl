@@ -12,7 +12,7 @@
 }
 
 .shell-navigation-item {
-  --swirl-app-icon-size: 1.5rem;
+  --swirl-app-icon-size: 2.5rem;
   --swirl-shell-navigation-item-gradient: linear-gradient(
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0.8)
@@ -75,6 +75,34 @@
     }
   }
 
+  &.shell-navigation-item--default {
+    &.shell-navigation-item--filled {
+      & .shell-navigation-item__icon {
+        width: 2.5rem;
+        min-width: 2.5rem;
+        height: 2.5rem;
+        min-height: 2.5rem;
+      }
+    }
+  }
+
+  &.shell-navigation-item--filled {
+    padding: var(--s-space-4);
+
+    &:not(.shell-navigation-item--has-app-icon) {
+      & .shell-navigation-item__icon {
+        color: var(--s-icon-on-action-primary);
+        background-color: var(--s-action-primary-default);
+      }
+    }
+
+    & ::slotted(swirl-app-icon) {
+      position: inherit;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   &.shell-navigation-item--tiled {
     --swirl-app-icon-size: 100%;
 
@@ -131,13 +159,6 @@
       }
     }
 
-    & .shell-navigation-item__badge {
-      position: absolute;
-      top: -0.375rem;
-      right: -0.375rem;
-      padding: var(--s-space-2);
-    }
-
     & .shell-navigation-item__label {
       display: -webkit-box;
       overflow: hidden;
@@ -164,6 +185,62 @@
       &.shell-navigation-item__label--dark {
         color: rgb(25, 25, 25);
       }
+    }
+  }
+
+  &.shell-navigation-item--app-icon {
+    --swirl-app-icon-size: 100%;
+    font-size: var(--s-font-size-xs);
+    padding: var(--s-space-8) var(--s-space-4);
+    align-items: center;
+    height: auto;
+    border-radius: var(--s-border-radius-sm);
+    flex-direction: column;
+    container-type: inline-size;
+    gap: var(--s-space-8);
+
+    &.shell-navigation-item--hide-label {
+      padding: var(--s-space-4);
+      --swirl-app-icon-size: 2.5rem;
+
+      & .shell-navigation-item__icon {
+        max-width: 2.5rem;
+      }
+    }
+
+    & .shell-navigation-item__icon {
+      overflow: hidden;
+      width: 100%;
+      max-width: 3.5rem;
+      height: auto;
+      border-radius: var(--s-border-radius-base);
+
+      color: var(--s-icon-on-action-primary);
+      aspect-ratio: 1;
+    }
+
+    & .shell-navigation-item__badge-wrapper {
+      max-width: 3.5rem;
+      max-height: 3.5rem;
+    }
+
+    & .shell-navigation-item__label {
+      text-align: center;
+    }
+  }
+
+  &.shell-navigation-item--app-icon, &.shell-navigation-item--tiled {
+    & .shell-navigation-item__badge-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    & .shell-navigation-item__badge {
+      position: absolute;
+      top: -0.375rem;
+      right: -0.375rem;
+      padding: var(--s-space-2);
     }
   }
 
@@ -212,6 +289,8 @@
   min-height: 2rem;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  border-radius: var(--s-border-radius-base);
 }
 
 .shell-navigation-item__text-wrapper {
