@@ -17,12 +17,14 @@ export class SwirlShellNavigationItem {
   @Prop() active?: boolean;
   @Prop() badgeLabel?: string;
   @Prop() boxed?: boolean;
+  @Prop() description?: string;
   @Prop() hideLabel: boolean = false;
   @Prop() href?: string;
   @Prop() inlineLabel?: boolean;
   @Prop() inlineLabelColor: SwirlLabelColor = "default";
   @Prop() label!: string;
-  @Prop() description?: string;
+  @Prop() markAsNew?: boolean;
+  @Prop() markAsNewLabel?: string = "New";
   @Prop() target?: string;
   @Prop() tiled?: boolean;
   @Prop() withGradient?: boolean;
@@ -41,6 +43,11 @@ export class SwirlShellNavigationItem {
       "shell-navigation-item__label--inline": this.inlineLabel,
     });
 
+    const hasBadge = this.badgeLabel !== undefined && this.badgeLabel !== null;
+    const showIsNewTag =
+      !hasBadge && this.markAsNew && !this.hideLabel && !this.tiled;
+    const showIsNewBadge =
+      !hasBadge && this.markAsNew && this.hideLabel && !this.tiled;
     const isLink = Boolean(this.href);
     const Tag = isLink ? "a" : "button";
 
@@ -84,7 +91,7 @@ export class SwirlShellNavigationItem {
                 <span class={labelClassNames}>{this.label}</span>
               </swirl-visually-hidden>
             )}
-            {this.badgeLabel !== undefined && this.badgeLabel !== null && (
+            {hasBadge && (
               <swirl-badge
                 aria-label={this.badgeLabel}
                 class={classnames("shell-navigation-item__badge", {
@@ -93,6 +100,24 @@ export class SwirlShellNavigationItem {
                 label={this.badgeLabel}
                 size="xs"
                 variant={this.badgeLabel === "" ? "dot" : "default"}
+              ></swirl-badge>
+            )}
+            {showIsNewTag && (
+              <swirl-tag
+                class="shell-navigation-item__is-new-tag"
+                intent="info"
+                label={this.markAsNewLabel.toLocaleUpperCase()}
+                size="s"
+                variant="strong"
+              ></swirl-tag>
+            )}
+            {showIsNewBadge && (
+              <swirl-badge
+                class="shell-navigation-item__is-new-badge"
+                intent="info"
+                label={this.markAsNewLabel.toLocaleUpperCase()}
+                size="xs"
+                variant="dot"
               ></swirl-badge>
             )}
           </Tag>

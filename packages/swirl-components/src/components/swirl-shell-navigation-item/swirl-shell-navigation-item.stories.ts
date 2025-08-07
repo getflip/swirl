@@ -2,6 +2,12 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-shell-navigation-item.mdx";
 
 export default {
+  argTypes: {
+    markAsNew: {
+      description:
+        "Not compatible with the 'tiled' variant. Hidden if a badge label is set.",
+    },
+  },
   component: "swirl-shell-navigation-item",
   tags: ["autodocs"],
   parameters: {

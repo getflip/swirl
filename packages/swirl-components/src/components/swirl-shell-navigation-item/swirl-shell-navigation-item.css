@@ -42,7 +42,8 @@
   &:hover {
     background-color: var(--s-surface-sunken-hovered);
 
-    & .shell-navigation-item__badge {
+    & .shell-navigation-item__badge,
+    & .shell-navigation-item__is-new-badge {
       --swirl-badge-border-color: var(--s-surface-sunken-hovered);
     }
   }
@@ -50,7 +51,8 @@
   &:active {
     background-color: var(--s-surface-sunken-pressed);
 
-    & .shell-navigation-item__badge {
+    & .shell-navigation-item__badge,
+    & .shell-navigation-item__is-new-badge {
       --swirl-badge-border-color: var(--s-surface-sunken-pressed);
     }
   }
@@ -232,6 +234,22 @@
 .shell-navigation-item__badge {
   flex-shrink: 0;
   --swirl-badge-border-color: var(--swirl-shell-background);
+}
+
+.shell-navigation-item__is-new-tag {
+  flex-shrink: 0;
+}
+
+.shell-navigation-item__is-new-badge {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  flex-shrink: 0;
+  --swirl-badge-border-color: var(--swirl-shell-background);
+}
+
+.shell-navigation-item__is-new-badge--hidden {
+  display: none;
 }
 
 @container (max-width: 4rem) {

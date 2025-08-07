@@ -62,7 +62,7 @@ const Template = (args) => {
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item label="Calendar">
+          <swirl-shell-navigation-item label="Calendar" mark-as-new>
             <swirl-app-icon icon="<swirl-icon-today size=&quot;24&quot;></swirl-icon-today>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
