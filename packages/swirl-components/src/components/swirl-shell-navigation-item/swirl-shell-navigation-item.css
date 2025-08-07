@@ -230,7 +230,8 @@
     }
   }
 
-  &.shell-navigation-item--app-icon, &.shell-navigation-item--tiled {
+  &.shell-navigation-item--app-icon,
+  &.shell-navigation-item--tiled {
     & .shell-navigation-item__badge-wrapper {
       position: absolute;
       width: 100%;
@@ -334,10 +335,6 @@
   right: 0.625rem;
   flex-shrink: 0;
   --swirl-badge-border-color: var(--swirl-shell-background);
-}
-
-.shell-navigation-item__is-new-badge--hidden {
-  display: none;
 }
 
 @container (max-width: 4rem) {
