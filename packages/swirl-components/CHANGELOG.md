@@ -1,5 +1,18 @@
 # @getflip/swirl-components
 
+## 0.363.0
+
+### Minor Changes
+
+- [#1166](https://github.com/getflip/swirl/pull/1166)
+  [`e42c6791`](https://github.com/getflip/swirl/commit/e42c679100a0e6744cf9612ea2e1a4761d4d7e3d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "info" intent to swirl-badge
+
+* [#1166](https://github.com/getflip/swirl/pull/1166)
+  [`e42c6791`](https://github.com/getflip/swirl/commit/e42c679100a0e6744cf9612ea2e1a4761d4d7e3d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "mark-as-new" prop to
+  swirl-shell-navigation-item
+
 ## 0.362.1
 
 ### Patch Changes
