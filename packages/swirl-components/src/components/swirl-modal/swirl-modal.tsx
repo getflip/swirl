@@ -13,6 +13,7 @@ import {
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
+import { getActiveElement } from "../../utils";
 
 export type SwirlModalVariant = "default" | "drawer";
 
@@ -111,20 +112,6 @@ export class SwirlModal {
   private sidebarScrollContainer: HTMLElement;
 
   componentDidLoad() {
-    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
-      allowOutsideClick: true,
-
-      // We don't always close the modal when ESC is pressed. So we manage the
-      // deactivation of the focus trap manually.
-      escapeDeactivates: false,
-
-      tabbableOptions: {
-        getShadowRoot: (node) => {
-          return node.shadowRoot;
-        },
-      },
-    });
-
     this.determineScrollStatus();
 
     this.updateCustomFooterStatus();
@@ -156,6 +143,7 @@ export class SwirlModal {
   async open() {
     this.isOpen = true;
     this.modalOpen.emit();
+    this.setupFocusTrap();
 
     setTimeout(() => {
       this.lockBodyScroll();
@@ -337,6 +325,23 @@ export class SwirlModal {
   private lockBodyScroll() {
     disableBodyScroll(this.scrollContainer);
     disableBodyScroll(this.sidebarScrollContainer);
+  }
+
+  private setupFocusTrap() {
+    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
+      allowOutsideClick: true,
+      setReturnFocus: getActiveElement() as HTMLElement,
+
+      // We don't always close the modal when ESC is pressed. So we manage the
+      // deactivation of the focus trap manually.
+      escapeDeactivates: false,
+
+      tabbableOptions: {
+        getShadowRoot: (node) => {
+          return node.shadowRoot;
+        },
+      },
+    });
   }
 
   private unlockBodyScroll() {
