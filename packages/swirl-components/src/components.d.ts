@@ -3689,6 +3689,11 @@ export namespace Components {
          */
         "inlineLabelColor": SwirlLabelColor;
         "label": string;
+        "markAsNew"?: boolean;
+        /**
+          * @default "New"
+         */
+        "markAsNewLabel"?: string;
         "target"?: string;
         /**
           * @default "default"
@@ -11778,6 +11783,11 @@ declare namespace LocalJSX {
          */
         "inlineLabelColor"?: SwirlLabelColor;
         "label": string;
+        "markAsNew"?: boolean;
+        /**
+          * @default "New"
+         */
+        "markAsNewLabel"?: string;
         "target"?: string;
         /**
           * @default "default"

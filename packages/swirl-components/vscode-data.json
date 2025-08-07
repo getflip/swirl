@@ -713,6 +713,9 @@
               "name": "grape"
             },
             {
+              "name": "info"
+            },
+            {
               "name": "kiwi"
             },
             {
@@ -18869,6 +18872,14 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "mark-as-new",
+          "description": ""
+        },
+        {
+          "name": "mark-as-new-label",
           "description": ""
         },
         {
