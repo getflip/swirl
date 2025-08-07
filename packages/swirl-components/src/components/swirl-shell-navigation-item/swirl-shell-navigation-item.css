@@ -218,6 +218,7 @@
     }
 
     & .shell-navigation-item__label {
+      line-height: var(--s-line-height-xs);
       text-align: center;
     }
   }
