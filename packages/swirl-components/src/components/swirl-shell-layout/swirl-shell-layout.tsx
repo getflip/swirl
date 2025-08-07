@@ -14,6 +14,7 @@ import {
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
 import { debounce, isDesktopViewport } from "../../utils";
+import { SwirlShellNavigationItemVariant } from "../swirl-shell-navigation-item/swirl-shell-navigation-item";
 
 const SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY =
   "SWIRL_SHELL_SECONDARY_NAVIGATION_COLLAPSE_STATE";
@@ -23,6 +24,11 @@ const NAVIGATION_COLLAPSE_STORAGE_KEY = "SWIRL_SHELL_NAVIGATION_COLLAPSE_STATE";
 const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
 
 export type SwirlShellLayoutSecondaryNavView = "grid" | "list";
+
+export type SwirlShellLayoutSecondaryNavGridItemVariant = Exclude<
+  SwirlShellNavigationItemVariant,
+  "default"
+>;
 
 /**
  * @slot logo - Logo shown inside header.
@@ -50,6 +56,9 @@ export class SwirlShellLayout {
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
   @Prop() collapseNavigationButtonLabel?: string = "Collapse navigation";
   @Prop() enableSecondaryNavGridLayout?: boolean = true;
+  @Prop()
+  secondaryNavGridLayoutVariant: SwirlShellLayoutSecondaryNavGridItemVariant =
+    "tiled";
   @Prop() expandNavigationButtonLabel?: string = "Expand navigation";
   @Prop() gridNavLayoutToggleLabel?: string = "Grid";
   @Prop() hideMobileNavigationButtonLabel?: string = "Close navigation";
@@ -266,10 +275,12 @@ export class SwirlShellLayout {
 
   private setSecondaryNavItemsTiled() {
     this.secondaryNavItems.forEach((item) => {
-      item.tiled =
+      item.variant =
         this.enableSecondaryNavGridLayout &&
         (this.secondaryNavView === "grid" ||
-          (this.navigationCollapsed && this.isDesktopViewport));
+          (this.navigationCollapsed && this.isDesktopViewport))
+          ? this.secondaryNavGridLayoutVariant
+          : "default";
     });
   }
 
@@ -459,10 +470,7 @@ export class SwirlShellLayout {
               </swirl-visually-hidden>
               <slot name="nav" onSlotchange={this.collectNavItems}></slot>
               <div class="shell-layout__secondary-nav">
-                <swirl-separator
-                  color="strong"
-                  spacing="16"
-                ></swirl-separator>
+                <swirl-separator color="strong" spacing="16"></swirl-separator>
                 {this.enableSecondaryNavGridLayout && (
                   <swirl-box paddingBlockEnd="16">
                     <swirl-stack
@@ -506,10 +514,12 @@ export class SwirlShellLayout {
                 )}
                 <div
                   class={{
+                    [`shell-layout__secondary-nav-items--${this.secondaryNavGridLayoutVariant}`]:
+                      true,
                     "shell-layout__secondary-nav-items": true,
                     "shell-layout__secondary-nav-items--grid-view":
                       this.enableSecondaryNavGridLayout &&
-                      (this.secondaryNavView === "grid" || mainNavCollapsed),
+                      this.secondaryNavView === "grid",
                   }}
                 >
                   <slot

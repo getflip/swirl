@@ -417,7 +417,7 @@
   }
 }
 
-.shell-layout__secondary-nav-items--grid-view {
+.shell-layout:not(.shell-layout--navigation-collapsed) .shell-layout__secondary-nav-items--grid-view {
   & ::slotted(ul) {
     flex-wrap: wrap;
     flex-direction: row;
@@ -427,7 +427,18 @@
   & ::slotted(ul > *) {
     min-width: 0;
     max-height: none;
+  }
+}
+
+.shell-layout__secondary-nav-items--tiled {
+  & ::slotted(ul > *) {
     flex-basis: calc(50% - var(--s-space-8));
+  }
+}
+
+.shell-layout__secondary-nav-items--app-icon {
+  & ::slotted(ul > *) {
+    flex-basis: calc(32% - var(--s-space-8));
   }
 }
 

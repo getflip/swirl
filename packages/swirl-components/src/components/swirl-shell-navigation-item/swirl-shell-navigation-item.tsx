@@ -2,6 +2,7 @@ import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlLabelColor = "default" | "light" | "dark";
+export type SwirlShellNavigationItemVariant = "default" | "tiled" | "app-icon";
 
 /**
  * @slot slot - image or icon to display
@@ -17,6 +18,7 @@ export class SwirlShellNavigationItem {
   @Prop() active?: boolean;
   @Prop() badgeLabel?: string;
   @Prop() boxed?: boolean;
+  @Prop() filled?: boolean;
   @Prop() hideLabel: boolean = false;
   @Prop() href?: string;
   @Prop() inlineLabel?: boolean;
@@ -24,16 +26,46 @@ export class SwirlShellNavigationItem {
   @Prop() label!: string;
   @Prop() description?: string;
   @Prop() target?: string;
-  @Prop() tiled?: boolean;
+  @Prop() variant: SwirlShellNavigationItemVariant = "default";
   @Prop() withGradient?: boolean;
 
+  componentWillLoad() {
+    this.forceIconProps();
+  }
+
+  componentDidRender() {
+    this.forceIconProps();
+  }
+
+  private forceIconProps() {
+    const iconEl = this.el.querySelector("[slot='icon']");
+    const smallIcon = this.hideLabel || this.variant === "default";
+
+    if (
+      iconEl &&
+      (iconEl.tagName.startsWith("SWIRL-ICON") ||
+        iconEl.tagName.startsWith("SWIRL-EMOJI") ||
+        iconEl.tagName.startsWith("SWIRL-SYMBOL"))
+    ) {
+      iconEl.setAttribute("size", smallIcon ? "20" : "24");
+    }
+  }
+
   render() {
-    const tagClassNames = classnames("shell-navigation-item", {
-      "shell-navigation-item--active": this.active,
-      "shell-navigation-item--boxed": this.boxed,
-      "shell-navigation-item--tiled": this.tiled,
-      "shell-navigation-item--gradient": this.withGradient,
-    });
+    const hasSwirlAppIcon = Boolean(this.el.querySelector("swirl-app-icon"));
+    const tagClassNames = classnames(
+      "shell-navigation-item",
+      `shell-navigation-item--${this.variant}`,
+      {
+        "shell-navigation-item--active": this.active,
+        "shell-navigation-item--boxed": this.boxed,
+        "shell-navigation-item--filled": this.filled,
+        "shell-navigation-item--inline-label": this.inlineLabel,
+        "shell-navigation-item--gradient": this.withGradient,
+        "shell-navigation-item--hide-label": this.hideLabel,
+        "shell-navigation-item--has-app-icon": hasSwirlAppIcon,
+      }
+    );
 
     const labelClassNames = classnames("shell-navigation-item__label", {
       "shell-navigation-item__label--light": this.inlineLabelColor === "light",
@@ -67,7 +99,7 @@ export class SwirlShellNavigationItem {
               <slot name="icon"></slot>
             </span>
             {!this.hideLabel ? (
-              this.tiled ? (
+              this.variant !== "default" ? (
                 <span class={labelClassNames}>{this.label}</span>
               ) : (
                 <div class="shell-navigation-item__text-wrapper">
@@ -85,15 +117,17 @@ export class SwirlShellNavigationItem {
               </swirl-visually-hidden>
             )}
             {this.badgeLabel !== undefined && this.badgeLabel !== null && (
-              <swirl-badge
-                aria-label={this.badgeLabel}
-                class={classnames("shell-navigation-item__badge", {
-                  "shell-navigation-item__badge--dot": this.badgeLabel === "",
-                })}
-                label={this.badgeLabel}
-                size="xs"
-                variant={this.badgeLabel === "" ? "dot" : "default"}
-              ></swirl-badge>
+              <span class="shell-navigation-item__badge-wrapper">
+                <swirl-badge
+                  aria-label={this.badgeLabel}
+                  class={classnames("shell-navigation-item__badge", {
+                    "shell-navigation-item__badge--dot": this.badgeLabel === "",
+                  })}
+                  label={this.badgeLabel}
+                  size="xs"
+                  variant={this.badgeLabel === "" ? "dot" : "default"}
+                ></swirl-badge>
+              </span>
             )}
           </Tag>
         </swirl-tooltip>
