@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.361.0
+
+### Minor Changes
+
+- [#1163](https://github.com/getflip/swirl/pull/1163)
+  [`55748fe9`](https://github.com/getflip/swirl/commit/55748fe91cb97c009c8846ee1fa8ed470226e012)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix focus
+  return after swirl-modal close
+
+### Patch Changes
+
+- Updated dependencies
+  [[`55748fe9`](https://github.com/getflip/swirl/commit/55748fe91cb97c009c8846ee1fa8ed470226e012)]:
+  - @getflip/swirl-components@0.361.0
+
 ## 0.360.0
 
 ### Minor Changes
