@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.362.0
+
+### Minor Changes
+
+- [#1164](https://github.com/getflip/swirl/pull/1164)
+  [`8353177d`](https://github.com/getflip/swirl/commit/8353177d50ce656a209fbf7193ed20a24edf3e26)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add new
+  'app-icon' variant to swirl-shell-layout navigation
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8353177d`](https://github.com/getflip/swirl/commit/8353177d50ce656a209fbf7193ed20a24edf3e26)]:
+  - @getflip/swirl-components@0.362.0
+
 ## 0.361.0
 
 ### Minor Changes
