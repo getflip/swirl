@@ -41,7 +41,9 @@ export class SwirlShellNavigationItem {
 
   private forceIconProps() {
     const iconEl = this.el.querySelector("[slot='icon']");
-    const smallIcon = this.hideLabel || this.variant === "default";
+    const smallIcon =
+      (this.hideLabel && this.variant === "app-icon") ||
+      this.variant === "default";
 
     if (
       iconEl &&
