@@ -80,6 +80,7 @@
   &.shell-navigation-item--default {
     &.shell-navigation-item--filled {
       & .shell-navigation-item__icon {
+        border-radius: var(--s-border-radius-sm);
         width: 2rem;
         min-width: 2rem;
         height: 2rem;
@@ -199,6 +200,7 @@
       --swirl-app-icon-size: 2rem;
 
       & .shell-navigation-item__icon {
+        border-radius: var(--s-border-radius-sm);
         max-width: 2rem;
       }
 
