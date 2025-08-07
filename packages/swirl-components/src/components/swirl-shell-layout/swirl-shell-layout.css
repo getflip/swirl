@@ -413,11 +413,11 @@
   & ::slotted(ul) {
     display: flex;
     flex-direction: column;
-    gap: var(--s-space-8);
+    gap: var(--s-space-2);
   }
 }
 
-.shell-layout__secondary-nav-items--grid-view {
+.shell-layout:not(.shell-layout--navigation-collapsed) .shell-layout__secondary-nav-items--grid-view {
   & ::slotted(ul) {
     flex-wrap: wrap;
     flex-direction: row;
