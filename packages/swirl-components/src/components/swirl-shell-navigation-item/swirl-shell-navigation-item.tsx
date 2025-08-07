@@ -29,6 +29,28 @@ export class SwirlShellNavigationItem {
   @Prop() variant: SwirlShellNavigationItemVariant = "default";
   @Prop() withGradient?: boolean;
 
+  componentWillLoad() {
+    this.forceIconProps();
+  }
+
+  componentDidRender() {
+    this.forceIconProps();
+  }
+
+  private forceIconProps() {
+    const iconEl = this.el.querySelector("[slot='icon']");
+    const smallIcon = this.hideLabel || this.variant === "default";
+
+    if (
+      iconEl &&
+      (iconEl.tagName.startsWith("SWIRL-ICON") ||
+        iconEl.tagName.startsWith("SWIRL-EMOJI") ||
+        iconEl.tagName.startsWith("SWIRL-SYMBOL"))
+    ) {
+      iconEl.setAttribute("size", smallIcon ? "20" : "24");
+    }
+  }
+
   render() {
     const hasSwirlAppIcon = Boolean(this.el.querySelector("swirl-app-icon"));
     const tagClassNames = classnames(
