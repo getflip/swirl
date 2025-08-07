@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components",
-  "version": "0.362.0",
+  "version": "0.362.1",
   "description": "Swirl Design System Web Component Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

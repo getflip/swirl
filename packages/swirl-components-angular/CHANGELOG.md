@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.362.1
+
+### Patch Changes
+
+- [#1168](https://github.com/getflip/swirl/pull/1168)
+  [`7ccc6c19`](https://github.com/getflip/swirl/commit/7ccc6c193a5bc35af2f66d61d334067e9305506d)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  shell-layout navigation spacing for tiled variant
+
+- Updated dependencies
+  [[`7ccc6c19`](https://github.com/getflip/swirl/commit/7ccc6c193a5bc35af2f66d61d334067e9305506d)]:
+  - @getflip/swirl-components@0.362.1
+
 ## 0.362.0
 
 ### Minor Changes
