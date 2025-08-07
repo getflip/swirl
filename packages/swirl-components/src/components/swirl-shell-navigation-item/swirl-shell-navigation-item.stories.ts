@@ -5,7 +5,7 @@ export default {
   argTypes: {
     markAsNew: {
       description:
-        "Not compatible with the 'tiled' variant. Hidden if a badge label is set.",
+        "Only compatible with the default variant. Hidden if a badge label is set.",
     },
   },
   component: "swirl-shell-navigation-item",
@@ -35,7 +35,7 @@ export const SwirlShellNavigationItem = Template.bind({});
 SwirlShellNavigationItem.args = {
   label: "Label",
   badgeLabel: "1",
-  tiled: true,
+  variant: "tiled",
   inlineLabel: true,
   withGradient: true,
   inlineLabelColor: "light",

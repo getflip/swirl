@@ -76,22 +76,22 @@ const Template = (args) => {
 
     <ul slot="secondary-nav">
       <li>
-        <swirl-shell-navigation-item label="Reporting hub" with-gradient>
+        <swirl-shell-navigation-item filled inline-label label="Reporting hub" with-gradient>
           <swirl-app-icon src="/menu-item-1.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
       <li>
-        <swirl-shell-navigation-item label="My absences" with-gradient>
+        <swirl-shell-navigation-item filled inline-label label="My absences" badge-label="3">
           <swirl-app-icon src="/menu-item-2.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
       <li>
-        <swirl-shell-navigation-item label="IT self-service" with-gradient>
-          <swirl-app-icon src="/menu-item-3.png" slot="icon"></swirl-app-icon>
+        <swirl-shell-navigation-item filled inline-label label="IT self-service">
+          <swirl-symbol glyph="shopping-cart" size="24" slot="icon" ></swirl-symbol>
         </swirl-shell-navigation-item>
       </li>
       <li>
-        <swirl-shell-navigation-item label="Office door key" with-gradient>
+        <swirl-shell-navigation-item filled inline-label label="Office door key" with-gradient>
           <swirl-app-icon src="/menu-item-4.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
@@ -200,4 +200,5 @@ export const SwirlShellLayout = Template.bind({});
 SwirlShellLayout.args = {
   sidebarToggleBadgeAriaLabel: "3 new notifications",
   sidebarToggleBadge: true,
+  secondaryNavGridLayoutVariant: "app-icon",
 };
