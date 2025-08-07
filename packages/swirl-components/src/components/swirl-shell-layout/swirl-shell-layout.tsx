@@ -127,7 +127,6 @@ export class SwirlShellLayout {
 
     this.navMutationObserver = new MutationObserver(() => {
       this.collectNavItems();
-      this.setSecondaryNavItemsTiled();
     });
 
     this.navMutationObserver.observe(this.navElement, {
@@ -181,6 +180,7 @@ export class SwirlShellLayout {
     );
 
     this.toggleNavItemLabels();
+    this.setSecondaryNavItemsTiled();
   }
 
   @Watch("sidebarActive")

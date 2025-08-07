@@ -196,6 +196,7 @@
     gap: var(--s-space-8);
 
     &.shell-navigation-item--hide-label {
+      align-items: start;
       padding: var(--s-space-8);
       --swirl-app-icon-size: 2rem;
 
