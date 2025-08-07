@@ -430,6 +430,12 @@
   }
 }
 
+.shell-layout--navigation-collapsed .shell-layout__secondary-nav-items--tiled {
+  & ::slotted(ul) {
+    gap: var(--s-space-16);
+  }
+}
+
 .shell-layout__secondary-nav-items--tiled {
   & ::slotted(ul > *) {
     flex-basis: calc(50% - var(--s-space-8));
