@@ -147,10 +147,18 @@ export class SwirlTable {
       }
     });
 
-    this.rowMutationObserver.observe(this.bodyEl, {
+    this.startRowMutationObserver();
+  }
+
+  private startRowMutationObserver() {
+    this.rowMutationObserver?.observe(this.bodyEl, {
       childList: true,
       subtree: true,
     });
+  }
+
+  private stopRowMutationObserver() {
+    this.rowMutationObserver?.disconnect();
   }
 
   private setupDragDrop() {
@@ -192,6 +200,9 @@ export class SwirlTable {
         handle: this.dragDropHandle,
         fallbackOnBody: true,
         group: `swirl-table-${Math.random().toString().substring(2)}`,
+        onStart: () => {
+          this.stopRowMutationObserver();
+        },
         onEnd: (event) => {
           event.stopPropagation();
 
@@ -210,6 +221,7 @@ export class SwirlTable {
             newPrevSiblingItemId:
               newIndex > 0 ? to.children[newIndex - 1].id : undefined,
           });
+          this.startRowMutationObserver();
         },
       });
     }
