@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.363.1
+
+### Patch Changes
+
+- [#1171](https://github.com/getflip/swirl/pull/1171)
+  [`7883739e`](https://github.com/getflip/swirl/commit/7883739e879fc52e379cdbc4d900f93025771468)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust styles
+  and reduce navigation flicking in swirl-shell-layout
+
 ## 0.363.0
 
 ### Minor Changes
