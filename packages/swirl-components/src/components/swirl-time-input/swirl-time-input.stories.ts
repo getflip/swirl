@@ -30,10 +30,6 @@ const Template = (args) => {
   addAttributesToElement(formControl, { ...args, label: "Time" });
   formControl.append("\n  ", element, "\n");
 
-  setTimeout(() => {
-    element.setAttribute("value", "12:34:00");
-  }, 3000);
-
   return formControl;
 };
 
