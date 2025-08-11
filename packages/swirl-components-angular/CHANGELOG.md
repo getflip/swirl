@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.363.3
+
+### Patch Changes
+
+- [#1175](https://github.com/getflip/swirl/pull/1175)
+  [`29a5f29b`](https://github.com/getflip/swirl/commit/29a5f29bb6fc91a8031958fa2f2608408b4f5e0a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly update the masked value
+  of the swirl-time-input
+
+- Updated dependencies
+  [[`29a5f29b`](https://github.com/getflip/swirl/commit/29a5f29bb6fc91a8031958fa2f2608408b4f5e0a)]:
+  - @getflip/swirl-components@0.363.3
+
 ## 0.363.2
 
 ### Patch Changes
