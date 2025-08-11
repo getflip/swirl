@@ -91,6 +91,7 @@ export class SwirlTimeInput {
   watchValue(newValue: string, oldValue: string) {
     if (newValue !== oldValue) {
       this.valueChange.emit(newValue);
+      this.mask.value = newValue;
     }
   }
 
