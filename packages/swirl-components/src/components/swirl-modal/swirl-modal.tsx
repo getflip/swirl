@@ -106,7 +106,7 @@ export class SwirlModal {
   @State() sidebarScrolledDown = false;
   @State() sidebarScrollable = false;
 
-  private focusTrap: focusTrap.FocusTrap;
+  private focusTrap: focusTrap.FocusTrap | undefined;
   private modalEl: HTMLElement;
   private scrollContainer: HTMLElement;
   private sidebarScrollContainer: HTMLElement;
@@ -151,7 +151,7 @@ export class SwirlModal {
     });
 
     setTimeout(() => {
-      this.focusTrap.activate();
+      this.focusTrap?.activate();
       this.handleAutoFocus();
     }, 200);
   }
@@ -175,7 +175,7 @@ export class SwirlModal {
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.focusTrap.deactivate();
+      this.focusTrap?.deactivate();
       this.isOpen = false;
       this.modalClose.emit();
       this.closing = false;
