@@ -3129,6 +3129,11 @@ export namespace Components {
         "multiSelect"?: boolean;
         "optionListId"?: string;
         /**
+          * @default "Select all"
+         */
+        "selectAllLabel"?: string;
+        "showSelectAll"?: boolean;
+        /**
           * @default []
          */
         "value"?: string[];
@@ -11228,6 +11233,11 @@ declare namespace LocalJSX {
   }>) => void;
         "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
+        /**
+          * @default "Select all"
+         */
+        "selectAllLabel"?: string;
+        "showSelectAll"?: boolean;
         /**
           * @default []
          */
