@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.363.6
+
+### Patch Changes
+
+- [#1181](https://github.com/getflip/swirl/pull/1181)
+  [`5d287ef3`](https://github.com/getflip/swirl/commit/5d287ef385ef7f893241fed74c54cecce350ab1c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust
+  swirl-option-list-item avatar slot
+
+- Updated dependencies
+  [[`5d287ef3`](https://github.com/getflip/swirl/commit/5d287ef385ef7f893241fed74c54cecce350ab1c)]:
+  - @getflip/swirl-components@0.363.6
+
 ## 0.363.5
 
 ### Patch Changes
