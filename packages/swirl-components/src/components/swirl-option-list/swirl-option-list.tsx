@@ -15,6 +15,8 @@ import {
   querySelectorAllDeep,
   SwirlFormInput,
 } from "../../utils";
+import classnames from "classnames";
+import { SwirlCheckboxState } from "../swirl-checkbox/swirl-checkbox";
 
 @Component({
   /**
@@ -41,6 +43,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Prop() label?: string;
   @Prop() optionListId?: string;
   @Prop() multiSelect?: boolean;
+  @Prop() showSelectAll?: boolean;
+  @Prop() selectAllLabel?: string = "Select all";
   @Prop({ mutable: true }) value?: string[] = [];
 
   @State() assistiveText: string;
@@ -105,8 +109,14 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     event.preventDefault();
 
     const target = event.target as HTMLElement;
-    const item = target?.closest("swirl-option-list-item");
+    const selectAll = target?.closest(".option-list__select-all");
 
+    if (Boolean(selectAll)) {
+      this.selectAllChanged();
+      return;
+    }
+
+    const item = target?.closest("swirl-option-list-item");
     const composedTarget = event.composedPath()[0] as HTMLElement;
     const clickedOption = Boolean(
       closestPassShadow(composedTarget, '[role="option"]')
@@ -152,8 +162,9 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       const optionFocused = Boolean(
         closestPassShadow(target, '[role="option"]')
       );
+      const selectAllFocused = target?.closest(".option-list__select-all");
 
-      if (!optionFocused) {
+      if (!optionFocused && !selectAllFocused) {
         return;
       }
 
@@ -161,12 +172,18 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
       if (Boolean(this.dragging)) {
         this.stopDrag(this.dragging);
+      } else if (selectAllFocused) {
+        this.selectAllChanged();
       } else {
         this.selectFocusedItem();
       }
     } else if (event.code === "Home") {
       event.preventDefault();
-      this.focusItem(0);
+      if (this.showSelectAll) {
+        this.focusSelectAll();
+      } else {
+        this.focusItem(0);
+      }
     } else if (event.code === "End") {
       event.preventDefault();
       this.focusItem(this.items.length - 1);
@@ -194,6 +211,17 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     });
 
     this.observer.observe(this.listboxEl, { childList: true, subtree: true });
+  }
+
+  private getSelectAllState(): SwirlCheckboxState {
+    const total = this.items?.length || 0;
+    const selectedCount = this.value?.length || 0;
+
+    return total === 0 || selectedCount === 0
+      ? false
+      : selectedCount === total
+      ? true
+      : "indeterminate";
   }
 
   private updateItems() {
@@ -288,6 +316,21 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       });
     }
   }
+
+  private selectAllChanged = () => {
+    if (this.disabled) {
+      return;
+    }
+
+    const total = this.items?.length || 0;
+    const selectedCount = this.value?.length || 0;
+
+    if (selectedCount === total) {
+      this.updateValue([]);
+    } else {
+      this.updateValue(this.items.map((item) => item.value));
+    }
+  };
 
   private selectItem(index: number) {
     if (this.disabled) {
@@ -502,6 +545,13 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     const ariaMultiselectable = this.multiSelect ? "true" : undefined;
     const tabIndex = Boolean(this.dragging) ? 0 : undefined;
 
+    const selectAllClassName = classnames("option-list__select-all", {
+      "option-list__select-all--disabled": this.disabled,
+    });
+    const showSelectAll = this.multiSelect && this.showSelectAll;
+    const selectAllId = `${this.optionListId || "option-list"}-select-all`;
+    const selectAllState = this.getSelectAllState();
+
     return (
       <Host>
         <swirl-visually-hidden role="alert">
@@ -518,6 +568,17 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           role="listbox"
           tabIndex={tabIndex}
         >
+          {showSelectAll && (
+            <div role="option" class={selectAllClassName}>
+              <swirl-checkbox
+                checked={selectAllState}
+                disabled={this.disabled}
+                inputId={selectAllId}
+                inputName={selectAllId}
+                label={this.selectAllLabel}
+              ></swirl-checkbox>
+            </div>
+          )}
           <slot onSlotchange={this.setSectionSeparator}></slot>
         </div>
       </Host>

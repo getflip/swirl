@@ -17443,6 +17443,14 @@
           "description": ""
         },
         {
+          "name": "select-all-label",
+          "description": ""
+        },
+        {
+          "name": "show-select-all",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
