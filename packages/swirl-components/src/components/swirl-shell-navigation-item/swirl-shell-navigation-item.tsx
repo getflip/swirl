@@ -109,6 +109,7 @@ export class SwirlShellNavigationItem {
             href={this.href}
             target={this.target}
             type={isLink ? undefined : "button"}
+            title={!this.hideLabel ? this.label : undefined}
           >
             <span class="shell-navigation-item__icon">
               <slot name="icon"></slot>

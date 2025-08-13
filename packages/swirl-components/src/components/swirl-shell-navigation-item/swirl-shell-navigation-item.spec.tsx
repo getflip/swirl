@@ -16,7 +16,7 @@ describe("swirl-shell-navigation-item", () => {
       <swirl-shell-navigation-item label="Label">
         <template shadowrootmode="open">
           <swirl-tooltip content="Label" delay="100" position="right" positioning="fixed">
-            <button class="shell-navigation-item shell-navigation-item--default shell-navigation-item--has-app-icon" type="button">
+            <button class="shell-navigation-item shell-navigation-item--default shell-navigation-item--has-app-icon" title="Label" type="button">
               <span class="shell-navigation-item__icon">
                 <slot name="icon"></slot>
               </span>
