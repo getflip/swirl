@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.363.4
+
+### Patch Changes
+
+- [#1177](https://github.com/getflip/swirl/pull/1177)
+  [`5fdf1bf5`](https://github.com/getflip/swirl/commit/5fdf1bf54aa7f19866b1fcf8bca1fdcde30809a2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix runtime error when trying to
+  close a modal that has already been detached from DOM
+- Updated dependencies
+  [[`5fdf1bf5`](https://github.com/getflip/swirl/commit/5fdf1bf54aa7f19866b1fcf8bca1fdcde30809a2)]:
+  - @getflip/swirl-components@0.363.4
+
 ## 0.363.3
 
 ### Patch Changes
