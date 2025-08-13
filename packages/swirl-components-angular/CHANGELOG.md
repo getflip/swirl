@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.363.5
+
+### Patch Changes
+
+- [#1179](https://github.com/getflip/swirl/pull/1179)
+  [`e5114daa`](https://github.com/getflip/swirl/commit/e5114daa91ec693533beb512bfe0057f74d1b5c1)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add title
+  attribute to swirl-shell-navigation-item
+
+- Updated dependencies
+  [[`e5114daa`](https://github.com/getflip/swirl/commit/e5114daa91ec693533beb512bfe0057f74d1b5c1)]:
+  - @getflip/swirl-components@0.363.5
+
 ## 0.363.4
 
 ### Patch Changes
