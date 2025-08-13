@@ -170,8 +170,6 @@
 
 .option-list-item__avatar {
   display: none;
-  width: 2.5rem;
-  height: 2.5rem;
   flex-shrink: 0;
 }
 
