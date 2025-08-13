@@ -12,6 +12,7 @@
   display: inline-flex;
   line-height: var(--s-line-height-base);
   cursor: pointer;
+  flex-grow: 1;
 
   &:focus-within .checkbox__box {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
@@ -189,9 +190,12 @@
 .checkbox__label-container {
   display: inline-flex;
   margin-left: var(--s-space-8);
-  padding-top: var(--s-space-2);
   align-items: flex-start;
   flex-direction: column;
+
+  @media (--from-desktop-without-touch) {
+    padding-top: var(--s-space-2);
+  }
 }
 
 .checkbox__label {
