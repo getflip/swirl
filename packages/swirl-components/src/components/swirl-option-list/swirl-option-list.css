@@ -19,6 +19,15 @@
   gap: var(--s-space-12);
 
 
+  &:focus-visible {
+    background-color: var(--s-surface-overlay-hovered);
+    outline-color: var(--s-focus-default);
+    outline-style: solid;
+    outline-width: 0.125rem;
+    z-index: 1;
+  }
+
+
   &:hover:not(.option-list__select-all--disabled) {
     background-color: var(--s-surface-overlay-hovered);
   }

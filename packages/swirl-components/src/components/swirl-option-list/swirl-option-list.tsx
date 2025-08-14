@@ -62,7 +62,9 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private items: HTMLSwirlOptionListItemElement[];
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
+  private selectAllEl: HTMLElement | undefined;
   private sortable: Sortable;
+  private swirlPopover: HTMLSwirlPopoverElement | undefined;
 
   componentDidLoad() {
     this.updateItems();
@@ -73,6 +75,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.syncItemsWithValue();
     this.setupDragDrop();
     this.setSectionSeparator();
+    this.setSelectAllTabIndex();
+    this.subscribeToSwirlPopover();
   }
 
   componentDidRender() {
@@ -80,6 +84,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   disconnectedCallback() {
+    this.unsubscribeFromSwirlPopover();
     this.observer?.disconnect();
     this.sortable?.destroy();
   }
@@ -230,17 +235,31 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       "swirl-option-list-item"
     );
 
-    this.items.forEach((item) =>
-      item.querySelector('[role="option"]')?.removeAttribute("tabIndex")
-    );
+    const hasTabIndexElement =
+      this.selectAllEl?.tabIndex === 0 ||
+      this.items.some((item) => item.querySelector('[tabindex="0"]'));
 
-    const item = this.items[0]?.querySelector('[role="option"]') as HTMLElement;
-
-    if (!Boolean(item)) {
+    if (hasTabIndexElement) {
       return;
     }
 
-    item.setAttribute("tabIndex", "0");
+    this.resetTabIndex();
+  }
+
+  private resetTabIndex = () => {
+    this.removeItemsTabIndex();
+    this.focusedItem = undefined;
+
+    const item = this.items[0]?.querySelector('[role="option"]') as HTMLElement;
+
+    (this.selectAllEl || item)?.setAttribute("tabIndex", "0");
+  };
+
+  private removeItemsTabIndex() {
+    this.selectAllEl?.removeAttribute("tabIndex");
+    this.items.forEach((item) =>
+      item.querySelector('[role="option"]')?.removeAttribute("tabIndex")
+    );
   }
 
   private setItemDisabledState() {
@@ -402,9 +421,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       return;
     }
 
-    this.items.forEach((item) =>
-      item.querySelector('[role="option"]').removeAttribute("tabIndex")
-    );
+    this.removeItemsTabIndex();
 
     const item = this.items[index]?.querySelector(
       '[role="option"]'
@@ -433,9 +450,26 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   private focusPreviousItem() {
     const activeItemIndex = this.getActiveItemIndex();
-    const newIndex = Math.max(activeItemIndex - 1, 0);
 
-    this.focusItem(newIndex);
+    if (activeItemIndex <= 0 && this.showSelectAll) {
+      this.focusSelectAll();
+    } else {
+      const newIndex = Math.max(activeItemIndex - 1, 0);
+
+      this.focusItem(newIndex);
+    }
+  }
+
+  private focusSelectAll() {
+    if (!this.selectAllEl) {
+      return;
+    }
+
+    this.removeItemsTabIndex();
+
+    this.selectAllEl.setAttribute("tabIndex", "0");
+    this.selectAllEl.focus();
+    this.focusedItem = undefined;
   }
 
   private getActiveItemIndex(): number {
@@ -443,6 +477,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       ? this.items
           .map((item) => item.querySelector('[role="option"]'))
           .findIndex((item) => item === this.focusedItem)
+      : Boolean(this.selectAllEl)
+      ? -1
       : 0;
   }
 
@@ -541,6 +577,23 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     });
   }
 
+  private setSelectAllTabIndex() {
+    this.selectAllEl?.querySelector("input")?.setAttribute("tabindex", "-1");
+  }
+
+  private subscribeToSwirlPopover() {
+    this.swirlPopover = closestPassShadow(
+      this.el,
+      "swirl-popover"
+    ) as HTMLSwirlPopoverElement;
+
+    this.swirlPopover?.addEventListener("popoverClose", this.resetTabIndex);
+  }
+
+  private unsubscribeFromSwirlPopover() {
+    this.swirlPopover?.removeEventListener("popoverClose", this.resetTabIndex);
+  }
+
   render() {
     const ariaMultiselectable = this.multiSelect ? "true" : undefined;
     const tabIndex = Boolean(this.dragging) ? 0 : undefined;
@@ -569,7 +622,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           tabIndex={tabIndex}
         >
           {showSelectAll && (
-            <div role="option" class={selectAllClassName}>
+            <div
+              role="option"
+              class={selectAllClassName}
+              ref={(el) => (this.selectAllEl = el)}
+            >
               <swirl-checkbox
                 checked={selectAllState}
                 disabled={this.disabled}
