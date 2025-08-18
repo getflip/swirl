@@ -7,17 +7,11 @@
 }
 
 .option-list__select-all {
-  display: inline-flex;
   position: relative;
   width: 100%;
-  min-width: 15rem;
-  min-height: 3rem;
   padding: var(--s-space-12) var(--s-space-16);
   border-radius: var(--s-border-radius-sm);
-  align-items: center;
   background-color: var(--s-surface-overlay-default);
-  gap: var(--s-space-12);
-
 
   &:focus-visible {
     background-color: var(--s-surface-overlay-hovered);
@@ -37,8 +31,6 @@
   }
 
   @media (--from-desktop-without-touch) {
-    min-height: 0;
     padding: var(--s-space-8) var(--s-space-12);
-    gap: var(--s-space-8);
   }
 }
