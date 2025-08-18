@@ -48,6 +48,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Prop({ mutable: true }) value?: string[] = [];
 
   @State() assistiveText: string;
+  @State() selectAllState: SwirlCheckboxState = false;
 
   @Event() itemDrop: EventEmitter<{
     item: HTMLSwirlOptionListItemElement;
@@ -76,6 +77,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.setupDragDrop();
     this.setSectionSeparator();
     this.setSelectAllTabIndex();
+    this.setSelectAllState();
     this.subscribeToSwirlPopover();
   }
 
@@ -108,6 +110,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Watch("value")
   watchValue() {
     this.syncItemsWithValue();
+    this.setSelectAllState();
   }
 
   private onClick = (event: MouseEvent) => {
@@ -213,20 +216,22 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       this.setItemDisabledState();
       this.setItemContext();
       this.syncItemsWithValue();
+      this.setSelectAllState();
     });
 
     this.observer.observe(this.listboxEl, { childList: true, subtree: true });
   }
 
-  private getSelectAllState(): SwirlCheckboxState {
+  private setSelectAllState() {
     const total = this.items?.length || 0;
     const selectedCount = this.value?.length || 0;
 
-    return total === 0 || selectedCount === 0
-      ? false
-      : selectedCount === total
-      ? true
-      : "indeterminate";
+    this.selectAllState =
+      total === 0 || selectedCount === 0
+        ? false
+        : selectedCount === total
+        ? true
+        : "indeterminate";
   }
 
   private updateItems() {
@@ -603,7 +608,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     });
     const showSelectAll = this.multiSelect && this.showSelectAll;
     const selectAllId = `${this.optionListId || "option-list"}-select-all`;
-    const selectAllState = this.getSelectAllState();
 
     return (
       <Host>
@@ -628,7 +632,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
               ref={(el) => (this.selectAllEl = el)}
             >
               <swirl-checkbox
-                checked={selectAllState}
+                checked={this.selectAllState}
                 disabled={this.disabled}
                 inputId={selectAllId}
                 inputName={selectAllId}
