@@ -151,15 +151,20 @@
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
   align-items: center;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  border-bottom: var(--s-border-width-default) solid transparent;
   background-color: var(--s-background-default);
   gap: var(--s-space-12);
   grid-area: app-bar;
+  transition: border-bottom-color 0.2s ease;
 
   @media (--from-tablet) {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
   }
+}
+
+.console-layout--scrolled .console-layout__app-bar {
+  border-bottom-color: var(--s-border-default);
 }
 
 .console-layout__mobile-navigation-button {
@@ -254,18 +259,22 @@
   z-index: var(--s-z-20);
   display: flex;
   min-width: 0;
-  padding: var(--s-space-16);
   border-top: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: footer;
-
-  @media (--from-tablet) {
-    padding: var(--s-space-24) 2.5rem;
-  }
+  height: 4.25rem;
 }
 
 .console-layout__app-bar--custom {
   display: flex;
   min-width: 0;
   align-items: center;
+  padding: 0;
+  border-bottom: var(--s-border-width-default) solid transparent;
+  background-color: var(--s-background-default);
+  transition: border-bottom-color 0.2s ease;
+}
+
+.console-layout--scrolled .console-layout__app-bar--custom {
+  border-bottom-color: var(--s-border-default);
 }
