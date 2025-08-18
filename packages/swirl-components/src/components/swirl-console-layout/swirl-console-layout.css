@@ -47,6 +47,17 @@
   }
 }
 
+.console-layout--empty-app-bar.console-layout--has-footer {
+  & .console-layout__main {
+    @media (--from-tablet) {
+      grid-template-areas:
+        "content"
+        "footer";
+      grid-template-rows: 1fr auto;
+    }
+  }
+}
+
 .console-layout__sidebar {
   position: fixed;
   z-index: var(--s-z-30);
@@ -121,6 +132,14 @@
   grid-template-areas:
     "app-bar"
     "content";
+}
+
+.console-layout--has-footer .console-layout__main {
+  grid-template-rows: 4rem 1fr auto;
+  grid-template-areas:
+    "app-bar"
+    "content"
+    "footer";
 }
 
 .console-layout__app-bar {
@@ -227,4 +246,26 @@
 .console-layout__content-header-tools {
   display: flex;
   flex-shrink: 0;
+}
+
+.console-layout__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--s-z-20);
+  display: flex;
+  min-width: 0;
+  padding: var(--s-space-16);
+  border-top: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
+  grid-area: footer;
+
+  @media (--from-tablet) {
+    padding: var(--s-space-24) 2.5rem;
+  }
+}
+
+.console-layout__app-bar--custom {
+  display: flex;
+  min-width: 0;
+  align-items: center;
 }

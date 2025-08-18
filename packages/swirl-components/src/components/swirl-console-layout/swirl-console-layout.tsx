@@ -14,8 +14,10 @@ import classnames from "classnames";
 import { isMobileViewport } from "../../utils";
 
 /**
+ * @slot app-bar - Custom app bar content (replaces the default app bar when provided)
  * @slot content - The main content
  * @slot content-header-tools - Button positioned next to the heading
+ * @slot footer - Footer content positioned at the bottom of the layout
  * @slot heading - The main content's heading (only rendered if "heading" prop is not set).
  * @slot navigation - The main navigation
  * @slot overlays - Overlays like dialogs, modals and toasts
@@ -43,6 +45,8 @@ export class SwirlConsoleLayout {
   @Prop() subheading?: string;
 
   @State() sidebarActive: boolean;
+  @State() hasAppBarSlot: boolean = false;
+  @State() hasFooterSlot: boolean = false;
 
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
@@ -56,7 +60,18 @@ export class SwirlConsoleLayout {
       } else {
         this.deactivateSidebar();
       }
+
+      // Check for slot content
+      this.checkSlotContent();
     });
+  }
+
+  private checkSlotContent() {
+    const appBarSlot = this.el.querySelector('[slot="app-bar"]');
+    const footerSlot = this.el.querySelector('[slot="footer"]');
+
+    this.hasAppBarSlot = Boolean(appBarSlot);
+    this.hasFooterSlot = Boolean(footerSlot);
   }
 
   @Listen("resize", { target: "window" })
@@ -169,7 +184,9 @@ export class SwirlConsoleLayout {
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
       "console-layout--empty-app-bar":
-        !Boolean(this.appName) && !this.showHelpButton,
+        !Boolean(this.appName) && !this.showHelpButton && !this.hasAppBarSlot,
+      "console-layout--has-footer": this.hasFooterSlot,
+      "console-layout--custom-app-bar": this.hasAppBarSlot,
     });
 
     return (
@@ -230,44 +247,50 @@ export class SwirlConsoleLayout {
             aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
             class="console-layout__main"
           >
-            <header class="console-layout__app-bar">
-              <span class="console-layout__mobile-navigation-button">
-                <swirl-button
-                  swirlAriaExpanded={String(this.sidebarActive)}
-                  hideLabel
-                  icon={
-                    this.sidebarActive
-                      ? "<swirl-icon-close></swirl-icon-close>"
-                      : "<swirl-icon-menu></swirl-icon-menu>"
-                  }
-                  label={
-                    this.sidebarActive
-                      ? this.hideNavigationButtonLabel
-                      : this.showNavigationButtonLabel
-                  }
-                  onClick={this.onMobileNavigationToggleClick}
-                ></swirl-button>
-              </span>
-              <div class="console-layout__app-name">
-                {this.appName && (
-                  <swirl-heading
-                    as="h1"
-                    headingId="app-name"
-                    level={4}
-                    text={this.appName}
-                  ></swirl-heading>
-                )}
+            {this.hasAppBarSlot ? (
+              <div class="console-layout__app-bar console-layout__app-bar--custom">
+                <slot name="app-bar"></slot>
               </div>
-              {this.showHelpButton && (
-                <swirl-button
-                  class="console-layout__help-button"
-                  hideLabel
-                  icon="<swirl-icon-help></swirl-icon-help>"
-                  label={this.helpButonLabel}
-                  onClick={this.onHelpButtonClick}
-                ></swirl-button>
-              )}
-            </header>
+            ) : (
+              <header class="console-layout__app-bar">
+                <span class="console-layout__mobile-navigation-button">
+                  <swirl-button
+                    swirlAriaExpanded={String(this.sidebarActive)}
+                    hideLabel
+                    icon={
+                      this.sidebarActive
+                        ? "<swirl-icon-close></swirl-icon-close>"
+                        : "<swirl-icon-menu></swirl-icon-menu>"
+                    }
+                    label={
+                      this.sidebarActive
+                        ? this.hideNavigationButtonLabel
+                        : this.showNavigationButtonLabel
+                    }
+                    onClick={this.onMobileNavigationToggleClick}
+                  ></swirl-button>
+                </span>
+                <div class="console-layout__app-name">
+                  {this.appName && (
+                    <swirl-heading
+                      as="h1"
+                      headingId="app-name"
+                      level={4}
+                      text={this.appName}
+                    ></swirl-heading>
+                  )}
+                </div>
+                {this.showHelpButton && (
+                  <swirl-button
+                    class="console-layout__help-button"
+                    hideLabel
+                    icon="<swirl-icon-help></swirl-icon-help>"
+                    label={this.helpButonLabel}
+                    onClick={this.onHelpButtonClick}
+                  ></swirl-button>
+                )}
+              </header>
+            )}
             <section
               aria-labelledby="heading"
               class="console-layout__content"
@@ -315,6 +338,11 @@ export class SwirlConsoleLayout {
                 <slot name="content"></slot>
               </div>
             </section>
+            {this.hasFooterSlot && (
+              <footer class="console-layout__footer">
+                <slot name="footer"></slot>
+              </footer>
+            )}
             <div class="console-layout__overlays">
               <slot name="overlays"></slot>
             </div>
