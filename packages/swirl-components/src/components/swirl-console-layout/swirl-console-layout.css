@@ -258,11 +258,12 @@
   bottom: 0;
   z-index: var(--s-z-20);
   display: flex;
+  flex-shrink: 0;
   min-width: 0;
   border-top: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: footer;
-  height: 4.25rem;
+  width: 100%;
 }
 
 .console-layout__app-bar--custom {
