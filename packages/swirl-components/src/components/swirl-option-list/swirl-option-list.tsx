@@ -614,6 +614,19 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
         <swirl-visually-hidden role="alert">
           {this.assistiveText}
         </swirl-visually-hidden>
+        {showSelectAll && (
+          <swirl-checkbox
+            class={selectAllClassName}
+            onClick={this.onClick}
+            onKeyDown={this.onKeyDown}
+            ref={(el) => (this.selectAllEl = el)}
+            checked={this.selectAllState}
+            disabled={this.disabled}
+            inputId={selectAllId}
+            inputName={selectAllId}
+            label={this.selectAllLabel}
+          ></swirl-checkbox>
+        )}
         <div
           aria-label={this.label}
           aria-multiselectable={ariaMultiselectable}
@@ -625,21 +638,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           role="listbox"
           tabIndex={tabIndex}
         >
-          {showSelectAll && (
-            <div
-              role="option"
-              class={selectAllClassName}
-              ref={(el) => (this.selectAllEl = el)}
-            >
-              <swirl-checkbox
-                checked={this.selectAllState}
-                disabled={this.disabled}
-                inputId={selectAllId}
-                inputName={selectAllId}
-                label={this.selectAllLabel}
-              ></swirl-checkbox>
-            </div>
-          )}
           <slot onSlotchange={this.setSectionSeparator}></slot>
         </div>
       </Host>

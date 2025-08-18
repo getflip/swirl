@@ -177,10 +177,8 @@ describe("swirl-option-list", () => {
     });
 
     const selectAll = page.root.querySelector(".option-list__select-all");
-    const firstChild = page.root.querySelector(".option-list").children[0];
 
     expect(selectAll).not.toBeNull();
-    expect(firstChild).toBe(selectAll);
   });
 
   it("toggles all items when clicking select all", async () => {
@@ -213,11 +211,7 @@ describe("swirl-option-list", () => {
     });
 
     const getCheckboxState = () =>
-      (
-        page.root.querySelector(
-          ".option-list__select-all swirl-checkbox"
-        ) as unknown as SwirlCheckbox
-      ).checked;
+      page.root.querySelector("swirl-checkbox").checked;
 
     // None selected -> unchecked (false)
     expect(getCheckboxState()).toBe(false);
@@ -254,7 +248,7 @@ describe("swirl-option-list", () => {
       ).toBeTruthy();
 
       // ArrowDown -> focus first item
-      optionList.dispatchEvent(
+      focused.dispatchEvent(
         new KeyboardEvent("keydown", { code: "ArrowDown" })
       );
       await page.waitForChanges();
@@ -282,12 +276,6 @@ describe("swirl-option-list", () => {
 
       const optionList = page.root.querySelector(".option-list");
 
-      // Move to an item first
-      optionList.dispatchEvent(
-        new KeyboardEvent("keydown", { code: "ArrowDown" })
-      );
-      await page.waitForChanges();
-
       // End -> last item
       optionList.dispatchEvent(new KeyboardEvent("keydown", { code: "End" }));
       await page.waitForChanges();
@@ -299,8 +287,8 @@ describe("swirl-option-list", () => {
         '[role="option"]'
       ) as HTMLElement;
       expect(focused).toBe(lastItemRole);
-      //
-      // // Home -> first item
+
+      // Home -> select all
       optionList.dispatchEvent(new KeyboardEvent("keydown", { code: "Home" }));
       await page.waitForChanges();
       focused = page.root.querySelector('[tabindex="0"]');
