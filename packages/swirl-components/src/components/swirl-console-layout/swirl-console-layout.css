@@ -151,20 +151,15 @@
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
   align-items: center;
-  border-bottom: var(--s-border-width-default) solid transparent;
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   gap: var(--s-space-12);
   grid-area: app-bar;
-  transition: border-bottom-color 0.2s ease;
 
   @media (--from-tablet) {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
   }
-}
-
-.console-layout--scrolled .console-layout__app-bar {
-  border-bottom-color: var(--s-border-default);
 }
 
 .console-layout__mobile-navigation-button {
@@ -273,9 +268,9 @@
   padding: 0;
   border-bottom: var(--s-border-width-default) solid transparent;
   background-color: var(--s-background-default);
-  transition: border-bottom-color 0.2s ease;
 }
 
-.console-layout--scrolled .console-layout__app-bar--custom {
+.console-layout--main-scrollable:not(.console-layout--main-scrolled-to-top)
+  .console-layout__app-bar--custom {
   border-bottom-color: var(--s-border-default);
 }

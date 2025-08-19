@@ -11,7 +11,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { isMobileViewport } from "../../utils";
+import { debounce, isMobileViewport } from "../../utils";
 
 /**
  * @slot app-bar - Custom app bar content (replaces the default app bar when provided)
@@ -47,7 +47,11 @@ export class SwirlConsoleLayout {
   @State() sidebarActive: boolean;
   @State() hasAppBarSlot: boolean = false;
   @State() hasFooterSlot: boolean = false;
-  @State() isScrolled: boolean = false;
+  @State() mainScrollState = {
+    scrollable: false,
+    scrolledToTop: false,
+    scrolledToBottom: false,
+  };
 
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
@@ -66,15 +70,9 @@ export class SwirlConsoleLayout {
       // Check for slot content
       this.checkSlotContent();
 
-      // Setup scroll listener
-      this.setupScrollListener();
+      // Update initial scroll state
+      this.updateMainScrollState();
     });
-  }
-
-  disconnectedCallback() {
-    if (this.mainEl) {
-      this.mainEl.removeEventListener("scroll", this.onScroll);
-    }
   }
 
   private checkSlotContent() {
@@ -85,17 +83,27 @@ export class SwirlConsoleLayout {
     this.hasFooterSlot = Boolean(footerSlot);
   }
 
-  private setupScrollListener() {
-    if (this.mainEl) {
-      this.mainEl.addEventListener("scroll", this.onScroll);
+  private updateMainScrollState() {
+    const newMainScrollState = {
+      scrollable: this.mainEl.scrollHeight > this.mainEl.clientHeight,
+      scrolledToTop: this.mainEl.scrollTop === 0,
+      scrolledToBottom:
+        Math.round(this.mainEl.scrollTop + this.mainEl.clientHeight) >=
+        this.mainEl.scrollHeight,
+    };
+
+    if (
+      Object.keys(newMainScrollState).some(
+        (key) => newMainScrollState[key] !== this.mainScrollState[key]
+      )
+    ) {
+      this.mainScrollState = newMainScrollState;
     }
   }
 
-  private onScroll = () => {
-    if (this.mainEl) {
-      this.isScrolled = this.mainEl.scrollTop > 0;
-    }
-  };
+  private onMainScroll = debounce(() => {
+    this.updateMainScrollState();
+  }, 16);
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
@@ -210,7 +218,11 @@ export class SwirlConsoleLayout {
         !Boolean(this.appName) && !this.showHelpButton && !this.hasAppBarSlot,
       "console-layout--has-footer": this.hasFooterSlot,
       "console-layout--custom-app-bar": this.hasAppBarSlot,
-      "console-layout--scrolled": this.isScrolled,
+      "console-layout--main-scrollable": this.mainScrollState.scrollable,
+      "console-layout--main-scrolled-to-top":
+        this.mainScrollState.scrolledToTop,
+      "console-layout--main-scrolled-to-bottom":
+        this.mainScrollState.scrolledToBottom,
     });
 
     return (
@@ -270,6 +282,7 @@ export class SwirlConsoleLayout {
           <main
             aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
             class="console-layout__main"
+            onScroll={this.onMainScroll}
             ref={(el) => (this.mainEl = el)}
           >
             {this.hasAppBarSlot ? (
