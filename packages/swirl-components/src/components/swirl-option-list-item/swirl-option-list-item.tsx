@@ -91,7 +91,8 @@ export class SwirlOptionListItem {
 
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
-    const ariaSelected = String(this.selected);
+    const ariaSelected = this.indeterminate ? undefined : String(this.selected);
+    const ariaChecked = this.indeterminate ? "mixed" : String(this.selected);
 
     const showCheckbox = this.context === "multi-select";
     const showIcon = Boolean(this.icon) && this.context === "single-select";
@@ -116,7 +117,7 @@ export class SwirlOptionListItem {
       <Host>
         <div
           aria-checked={
-            this.swirlAriaRole === "menuitemradio" ? ariaSelected : undefined
+            this.swirlAriaRole === "menuitemradio" ? ariaChecked : undefined
           }
           aria-describedby={
             Boolean(this.description)

@@ -99,7 +99,7 @@ describe("swirl-option-list-item", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-option-list-item context="multi-select" indeterminate="true" label="Option List Item" value="Value">
-        <div aria-labelledby="${id}-label" aria-selected="false" class="option-list-item option-list-item--context-multi-select option-list-item--indeterminate" id="${id}" part="option-list-item" role="option">
+        <div aria-labelledby="${id}-label" class="option-list-item option-list-item--context-multi-select option-list-item--indeterminate" id="${id}" part="option-list-item" role="option">
           <span class="option-list-item__checkbox">
             <span class="option-list-item__checkbox-box">
               <span class="option-list-item__checkbox-indeterminate-icon"></span>
