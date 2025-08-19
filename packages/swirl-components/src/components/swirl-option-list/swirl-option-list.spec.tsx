@@ -6,7 +6,7 @@ jest.mock("../../utils", () => ({
 }));
 
 import { MockElement } from "@stencil/core/mock-doc";
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, SpecPage } from "@stencil/core/testing";
 import { SwirlOptionListItem } from "../swirl-option-list-item/swirl-option-list-item";
 import { SwirlCheckbox } from "../swirl-checkbox/swirl-checkbox";
 
@@ -41,6 +41,12 @@ import { SwirlOptionList } from "./swirl-option-list";
   constructor() {}
   disconnect() {}
   observe() {}
+};
+
+const getSelectAllItem = (page: SpecPage) => {
+  const selectAll = page.root.querySelector("swirl-option-list-item");
+
+  return selectAll.label === "Select all" ? selectAll : undefined;
 };
 
 describe("swirl-option-list", () => {
@@ -176,7 +182,7 @@ describe("swirl-option-list", () => {
       html: templateWithSelectAll,
     });
 
-    const selectAll = page.root.querySelector(".option-list__select-all");
+    const selectAll = getSelectAllItem(page);
 
     expect(selectAll).not.toBeNull();
   });
@@ -190,7 +196,12 @@ describe("swirl-option-list", () => {
     const spy = jest.fn();
     page.root.addEventListener("valueChange", spy);
 
-    const selectAll = page.root.querySelector(".option-list__select-all");
+    const selectAll = getSelectAllItem(page);
+
+    closestPassShadowSky.mockImplementation(() =>
+      selectAll.querySelector('[role="option"]')
+    );
+
     selectAll.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     await page.waitForChanges();
 
@@ -204,32 +215,29 @@ describe("swirl-option-list", () => {
     expect(spy.mock.calls[1][0].detail).toEqual([]);
   });
 
-  it("updates select-all checkbox state based on selection", async () => {
+  it("updates select-all state based on selection", async () => {
     const page = await newSpecPage({
       components: [SwirlOptionList, SwirlOptionListItem, SwirlCheckbox],
       html: templateWithSelectAll,
     });
 
-    const getCheckboxState = () =>
-      page.root.querySelector("swirl-checkbox").checked;
-
     // None selected -> unchecked (false)
-    expect(getCheckboxState()).toBe(false);
+    expect(page.rootInstance.selectAllState).toBe(false);
 
     // Partial selection -> indeterminate
     page.root.value = ["1"];
     await page.waitForChanges();
-    expect(getCheckboxState()).toBe("indeterminate");
+    expect(page.rootInstance.selectAllState).toBe("indeterminate");
 
     // All selected -> checked (true)
     page.root.value = ["1", "2", "3"];
     await page.waitForChanges();
-    expect(getCheckboxState()).toBe(true);
+    expect(page.rootInstance.selectAllState).toBe(true);
 
     // Back to none -> false
     page.root.value = [];
     await page.waitForChanges();
-    expect(getCheckboxState()).toBe(false);
+    expect(page.rootInstance.selectAllState).toBe(false);
   });
 
   describe("keyboard navigation and selection", () => {
@@ -243,19 +251,15 @@ describe("swirl-option-list", () => {
 
       // Initially, select-all should be the focusable element
       let focused = page.root.querySelector('[tabindex="0"]');
-      expect(
-        focused?.classList.contains("option-list__select-all")
-      ).toBeTruthy();
+      expect(getSelectAllItem(page)?.contains(focused)).toBeTruthy();
 
       // ArrowDown -> focus first item
-      focused.dispatchEvent(
+      optionList.dispatchEvent(
         new KeyboardEvent("keydown", { code: "ArrowDown" })
       );
       await page.waitForChanges();
       focused = page.root.querySelector('[tabindex="0"]');
-      expect(
-        focused?.classList.contains("option-list__select-all")
-      ).toBeFalsy();
+      expect(getSelectAllItem(page)?.contains(focused)).toBeFalsy();
 
       // ArrowUp -> back to select-all
       optionList.dispatchEvent(
@@ -263,9 +267,7 @@ describe("swirl-option-list", () => {
       );
       await page.waitForChanges();
       focused = page.root.querySelector('[tabindex="0"]');
-      expect(
-        focused?.classList.contains("option-list__select-all")
-      ).toBeTruthy();
+      expect(getSelectAllItem(page)?.contains(focused)).toBeTruthy();
     });
 
     it("Home focuses select all and End focuses last item", async () => {
@@ -292,9 +294,7 @@ describe("swirl-option-list", () => {
       optionList.dispatchEvent(new KeyboardEvent("keydown", { code: "Home" }));
       await page.waitForChanges();
       focused = page.root.querySelector('[tabindex="0"]');
-      expect(
-        focused?.classList.contains("option-list__select-all")
-      ).toBeTruthy();
+      expect(getSelectAllItem(page)?.contains(focused)).toBeTruthy();
     });
 
     it("Space/Enter select focused option and Space on select-all selects all", async () => {
@@ -335,9 +335,7 @@ describe("swirl-option-list", () => {
         new KeyboardEvent("keydown", { code: "ArrowUp" })
       );
       await page.waitForChanges();
-      const selectAll = page.root.querySelector(
-        ".option-list__select-all"
-      ) as HTMLElement;
+      const selectAll = getSelectAllItem(page);
 
       // Press Space on select-all to select all
       const spaceOnSelectAll = new KeyboardEvent("keydown", {
