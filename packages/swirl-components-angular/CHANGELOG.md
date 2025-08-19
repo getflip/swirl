@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.364.0
+
+### Minor Changes
+
+- [#1183](https://github.com/getflip/swirl/pull/1183)
+  [`617f4f7c`](https://github.com/getflip/swirl/commit/617f4f7cf42f32176ff4597fea021527db535599)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Improve
+  keyboard navigation in swirl-option-list
+
+* [#1183](https://github.com/getflip/swirl/pull/1183)
+  [`617f4f7c`](https://github.com/getflip/swirl/commit/617f4f7cf42f32176ff4597fea021527db535599)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add select all
+  option to swirl-option-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`617f4f7c`](https://github.com/getflip/swirl/commit/617f4f7cf42f32176ff4597fea021527db535599),
+  [`617f4f7c`](https://github.com/getflip/swirl/commit/617f4f7cf42f32176ff4597fea021527db535599)]:
+  - @getflip/swirl-components@0.364.0
+
 ## 0.363.6
 
 ### Patch Changes
