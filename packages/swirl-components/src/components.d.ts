@@ -3129,6 +3129,11 @@ export namespace Components {
         "multiSelect"?: boolean;
         "optionListId"?: string;
         /**
+          * @default "Select all"
+         */
+        "selectAllLabel"?: string;
+        "showSelectAll"?: boolean;
+        /**
           * @default []
          */
         "value"?: string[];
@@ -3152,6 +3157,10 @@ export namespace Components {
         "dragging"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default false
+         */
+        "indeterminate"?: boolean;
         "label": string;
         /**
           * @default false
@@ -11229,6 +11238,11 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
         /**
+          * @default "Select all"
+         */
+        "selectAllLabel"?: string;
+        "showSelectAll"?: boolean;
+        /**
           * @default []
          */
         "value"?: string[];
@@ -11252,6 +11266,10 @@ declare namespace LocalJSX {
         "dragging"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default false
+         */
+        "indeterminate"?: boolean;
         "label": string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         /**

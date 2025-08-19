@@ -15,6 +15,7 @@ import {
   querySelectorAllDeep,
   SwirlFormInput,
 } from "../../utils";
+import { v4 as uuid } from "uuid";
 
 @Component({
   /**
@@ -41,9 +42,12 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Prop() label?: string;
   @Prop() optionListId?: string;
   @Prop() multiSelect?: boolean;
+  @Prop() showSelectAll?: boolean;
+  @Prop() selectAllLabel?: string = "Select all";
   @Prop({ mutable: true }) value?: string[] = [];
 
   @State() assistiveText: string;
+  @State() selectAllState: boolean | "indeterminate" = false;
 
   @Event() itemDrop: EventEmitter<{
     item: HTMLSwirlOptionListItemElement;
@@ -58,7 +62,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private items: HTMLSwirlOptionListItemElement[];
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
+  private selectAllEl: HTMLSwirlOptionListItemElement | undefined;
+  private selectAllValue = uuid();
   private sortable: Sortable;
+  private swirlPopover: HTMLSwirlPopoverElement | undefined;
 
   componentDidLoad() {
     this.updateItems();
@@ -69,6 +76,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.syncItemsWithValue();
     this.setupDragDrop();
     this.setSectionSeparator();
+    this.setSelectAllState();
+    this.subscribeToSwirlPopover();
   }
 
   componentDidRender() {
@@ -76,6 +85,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   disconnectedCallback() {
+    this.unsubscribeFromSwirlPopover();
     this.observer?.disconnect();
     this.sortable?.destroy();
   }
@@ -99,6 +109,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Watch("value")
   watchValue() {
     this.syncItemsWithValue();
+    this.setSelectAllState();
   }
 
   private onClick = (event: MouseEvent) => {
@@ -106,7 +117,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     const target = event.target as HTMLElement;
     const item = target?.closest("swirl-option-list-item");
-
     const composedTarget = event.composedPath()[0] as HTMLElement;
     const clickedOption = Boolean(
       closestPassShadow(composedTarget, '[role="option"]')
@@ -117,7 +127,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       return;
     }
 
-    this.selectItem(this.items.findIndex((i) => i.value === item.value));
+    if (item.value === this.selectAllValue) {
+      this.selectAllChanged();
+    } else {
+      this.selectItem(this.items.findIndex((i) => i.value === item.value));
+    }
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -152,8 +166,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       const optionFocused = Boolean(
         closestPassShadow(target, '[role="option"]')
       );
+      const selectAllFocused =
+        target?.closest("swirl-option-list-item")?.value ===
+        this.selectAllValue;
 
-      if (!optionFocused) {
+      if (!optionFocused && !selectAllFocused) {
         return;
       }
 
@@ -161,12 +178,18 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
       if (Boolean(this.dragging)) {
         this.stopDrag(this.dragging);
+      } else if (selectAllFocused) {
+        this.selectAllChanged();
       } else {
         this.selectFocusedItem();
       }
     } else if (event.code === "Home") {
       event.preventDefault();
-      this.focusItem(0);
+      if (this.showSelectAll) {
+        this.focusSelectAll();
+      } else {
+        this.focusItem(0);
+      }
     } else if (event.code === "End") {
       event.preventDefault();
       this.focusItem(this.items.length - 1);
@@ -191,28 +214,58 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       this.setItemDisabledState();
       this.setItemContext();
       this.syncItemsWithValue();
+      this.setSelectAllState();
     });
 
     this.observer.observe(this.listboxEl, { childList: true, subtree: true });
+  }
+
+  private setSelectAllState() {
+    const total = this.items?.length || 0;
+    const selectedCount = this.value?.length || 0;
+
+    this.selectAllState =
+      total === 0 || selectedCount === 0
+        ? false
+        : selectedCount === total
+        ? true
+        : "indeterminate";
   }
 
   private updateItems() {
     this.items = querySelectorAllDeep<HTMLSwirlOptionListItemElement>(
       this.el,
       "swirl-option-list-item"
-    );
+    ).filter((item) => item.value !== this.selectAllValue);
 
-    this.items.forEach((item) =>
-      item.querySelector('[role="option"]')?.removeAttribute("tabIndex")
-    );
+    const hasTabIndexElement =
+      this.selectAllEl?.querySelector('[tabindex="0"]') ||
+      this.items.some((item) => item.querySelector('[tabindex="0"]'));
 
-    const item = this.items[0]?.querySelector('[role="option"]') as HTMLElement;
-
-    if (!Boolean(item)) {
+    if (hasTabIndexElement) {
       return;
     }
 
-    item.setAttribute("tabIndex", "0");
+    this.resetTabIndex();
+  }
+
+  private resetTabIndex = () => {
+    this.removeItemsTabIndex();
+    this.focusedItem = undefined;
+
+    const item = this.items[0]?.querySelector('[role="option"]');
+    const selectAllItem = this.selectAllEl?.querySelector('[role="option"]');
+
+    (selectAllItem || item)?.setAttribute("tabIndex", "0");
+  };
+
+  private removeItemsTabIndex() {
+    this.selectAllEl
+      ?.querySelector('[role="option"]')
+      ?.removeAttribute("tabIndex");
+    this.items.forEach((item) =>
+      item.querySelector('[role="option"]')?.removeAttribute("tabIndex")
+    );
   }
 
   private setItemDisabledState() {
@@ -244,7 +297,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     this.sortable = Sortable.create(this.listboxEl, {
       animation: 150,
-      draggable: "swirl-option-list-item",
+      draggable: 'swirl-option-list-item[allow-drag="true"]',
       handle: ".option-list-item__drag-handle",
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({
@@ -288,6 +341,21 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       });
     }
   }
+
+  private selectAllChanged = () => {
+    if (this.disabled) {
+      return;
+    }
+
+    const total = this.items?.length || 0;
+    const selectedCount = this.value?.length || 0;
+
+    if (selectedCount === total) {
+      this.updateValue([]);
+    } else {
+      this.updateValue(this.items.map((item) => item.value));
+    }
+  };
 
   private selectItem(index: number) {
     if (this.disabled) {
@@ -359,9 +427,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       return;
     }
 
-    this.items.forEach((item) =>
-      item.querySelector('[role="option"]').removeAttribute("tabIndex")
-    );
+    this.removeItemsTabIndex();
 
     const item = this.items[index]?.querySelector(
       '[role="option"]'
@@ -390,9 +456,30 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   private focusPreviousItem() {
     const activeItemIndex = this.getActiveItemIndex();
-    const newIndex = Math.max(activeItemIndex - 1, 0);
 
-    this.focusItem(newIndex);
+    if (activeItemIndex <= 0 && this.showSelectAll) {
+      this.focusSelectAll();
+    } else {
+      const newIndex = Math.max(activeItemIndex - 1, 0);
+
+      this.focusItem(newIndex);
+    }
+  }
+
+  private focusSelectAll() {
+    const selectAllItem = this.selectAllEl?.querySelector(
+      '[role="option"]'
+    ) as HTMLElement;
+
+    if (!selectAllItem) {
+      return;
+    }
+
+    this.removeItemsTabIndex();
+
+    selectAllItem.setAttribute("tabIndex", "0");
+    selectAllItem.focus();
+    this.focusedItem = undefined;
   }
 
   private getActiveItemIndex(): number {
@@ -400,6 +487,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       ? this.items
           .map((item) => item.querySelector('[role="option"]'))
           .findIndex((item) => item === this.focusedItem)
+      : Boolean(this.selectAllEl)
+      ? -1
       : 0;
   }
 
@@ -463,7 +552,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private moveDraggedItemUp() {
     const prevSibling = this.dragging.previousElementSibling;
 
-    if (!Boolean(prevSibling)) {
+    if (!Boolean(prevSibling) || prevSibling === this.selectAllEl) {
       return;
     }
 
@@ -498,9 +587,23 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     });
   }
 
+  private subscribeToSwirlPopover() {
+    this.swirlPopover = closestPassShadow(
+      this.el,
+      "swirl-popover"
+    ) as HTMLSwirlPopoverElement;
+
+    this.swirlPopover?.addEventListener("popoverClose", this.resetTabIndex);
+  }
+
+  private unsubscribeFromSwirlPopover() {
+    this.swirlPopover?.removeEventListener("popoverClose", this.resetTabIndex);
+  }
+
   render() {
     const ariaMultiselectable = this.multiSelect ? "true" : undefined;
     const tabIndex = Boolean(this.dragging) ? 0 : undefined;
+    const showSelectAll = this.multiSelect && this.showSelectAll;
 
     return (
       <Host>
@@ -518,6 +621,17 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           role="listbox"
           tabIndex={tabIndex}
         >
+          {showSelectAll && (
+            <swirl-option-list-item
+              ref={(el) => (this.selectAllEl = el)}
+              label={this.selectAllLabel}
+              disabled={this.disabled}
+              context="multi-select"
+              selected={this.selectAllState === true}
+              indeterminate={this.selectAllState === "indeterminate"}
+              value={this.selectAllValue}
+            ></swirl-option-list-item>
+          )}
           <slot onSlotchange={this.setSectionSeparator}></slot>
         </div>
       </Host>
