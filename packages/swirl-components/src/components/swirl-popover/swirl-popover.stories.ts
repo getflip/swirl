@@ -96,38 +96,3 @@ SwirlPopover.args = {
   id: "popover",
   label: "Popover",
 };
-
-const OptionListTemplate = (args) => {
-  const container = document.createElement("div");
-  const trigger = document.createElement("swirl-popover-trigger");
-  const element = generateStoryElement(
-    "swirl-popover",
-    args
-  ) as HTMLSwirlPopoverElement;
-
-  trigger.setAttribute("swirl-popover", "popover-with-option-list");
-  trigger.innerHTML = `
-    <swirl-button label="Trigger popover"></swirl-button>
-  `;
-
-  element.innerHTML = `
-    <swirl-option-list show-select-all multi-select>
-      <swirl-option-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Option item 1"></swirl-option-list-item>
-      <swirl-option-list-item value="2" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option item 2"></swirl-option-list-item>
-      <swirl-option-list-item value="3" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option item 3"></swirl-option-list-item>
-      <swirl-option-list-item value="4" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option item 4"></swirl-option-list-item>
-      <swirl-option-list-item value="5" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option item 5"></swirl-option-list-item>
-      <swirl-option-list-item value="6" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option item 6"></swirl-option-list-item>
-    </swirl-option-list>
-  `;
-  container.append("\n  ", trigger, "\n  ", element);
-
-  return container;
-};
-
-export const OptionListPopover = OptionListTemplate.bind({});
-
-OptionListPopover.args = {
-  id: "popover-with-option-list",
-  label: "Popover with option list",
-};
