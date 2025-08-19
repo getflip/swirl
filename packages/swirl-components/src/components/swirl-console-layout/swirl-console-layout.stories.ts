@@ -40,7 +40,7 @@ const TemplateWithBothSlots = (args) => {
   const element = generateStoryElement("swirl-console-layout", args);
 
   element.innerHTML = `
-    <swirl-app-bar slot="app-bar" showBackButton >
+    <swirl-app-bar slot="app-bar">
       <swirl-button
         slot="heading"
         icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
@@ -59,9 +59,9 @@ const TemplateWithBothSlots = (args) => {
     </swirl-app-bar>
     <swirl-box padding="24" slot="navigation">
       <div style="display: flex; flex-direction: column; gap: 8px;">
-        <a href="#" style="text-decoration: none; color: inherit;">Dashboard</a>
-        <a href="#" style="text-decoration: none; color: inherit;">Users</a>
-        <a href="#" style="text-decoration: none; color: inherit;">Settings</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Users</a>
+        <a href="#">Settings</a>
       </div>
     </swirl-box>
     <div slot="user">
@@ -87,17 +87,11 @@ const TemplateWithBothSlots = (args) => {
             <swirl-heading level="4" text="Dashboard Item ${
               i + 1
             }"></swirl-heading>
-            <p>Dashboard item ${
-              i + 1
-            } content. This demonstrates how the layout behaves with extensive content that requires scrolling. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <div style="margin-top: 12px; display: flex; gap: 8px;">
               <swirl-button label="View" variant="flat" size="sm"></swirl-button>
               <swirl-button label="Edit" variant="flat" size="sm"></swirl-button>
-              ${
-                i % 4 === 0
-                  ? '<swirl-button label="Delete" intent="critical" variant="flat" size="sm"></swirl-button>'
-                  : ""
-              }
+              <swirl-button label="Delete" intent="critical" variant="flat" size="sm"></swirl-button>
             </div>
           </div>
         `
@@ -113,7 +107,7 @@ const TemplateWithBothSlots = (args) => {
     <swirl-box padding="16">
       <swirl-stack align="center"justify="end" orientation="horizontal" spacing="8" width="100%" >
         <swirl-button label="Cancel" variant="flat"></swirl-button>
-        <swirl-button label="Save" intent="primary"></swirl-button>
+        <swirl-button label="Save" intent="primary" variant="flat"></swirl-button>
       </swirl-stack>
       </swirl-box>
     </div>
@@ -127,4 +121,5 @@ export const WithCustomAppBarAndFooter = TemplateWithBothSlots.bind({});
 WithCustomAppBarAndFooter.args = {
   heading: "Dashboard Content",
   subheading: "Complete custom layout example",
+  maxContentWidth: "600px",
 };
