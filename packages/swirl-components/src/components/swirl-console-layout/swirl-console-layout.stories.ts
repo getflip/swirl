@@ -65,10 +65,14 @@ const TemplateWithBothSlots = (args) => {
       </div>
     </swirl-box>
     <div slot="user">
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <swirl-avatar label="John Doe" size="s"></swirl-avatar>
-        <swirl-text>John Doe</swirl-text>
-      </div>
+      <swirl-box padding-inline-end="16" height="100%">
+        <swirl-stack justify="center" align="center" height="100%">
+          <swirl-stack align="center" orientation="horizontal" spacing="8">
+            <swirl-avatar label="John Doe" size="s"></swirl-avatar>
+            <swirl-text>John Doe</swirl-text>
+          </swirl-stack>
+        </swirl-stack>
+    </swirl-box>
     </div>
     <div slot="content">
       <div style="padding: 20px;">
@@ -104,10 +108,12 @@ const TemplateWithBothSlots = (args) => {
       </div>
     </div>
     <div slot="footer" style="width: 100%;">
-    <swirl-box padding="16">
+    <swirl-box padding-inline-end="16" height="100%" >
+    <swirl-stack justify="center" align="center" height="100%">
       <swirl-stack align="center"justify="end" orientation="horizontal" spacing="8" width="100%" >
         <swirl-button label="Cancel" variant="flat"></swirl-button>
         <swirl-button label="Save" intent="primary" variant="flat"></swirl-button>
+      </swirl-stack>
       </swirl-stack>
       </swirl-box>
     </div>
