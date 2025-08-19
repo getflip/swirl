@@ -297,7 +297,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     this.sortable = Sortable.create(this.listboxEl, {
       animation: 150,
-      draggable: "swirl-option-list-item",
+      draggable: 'swirl-option-list-item[allow-drag="true"]',
       handle: ".option-list-item__drag-handle",
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({
@@ -552,7 +552,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private moveDraggedItemUp() {
     const prevSibling = this.dragging.previousElementSibling;
 
-    if (!Boolean(prevSibling)) {
+    if (!Boolean(prevSibling) || prevSibling === this.selectAllEl) {
       return;
     }
 
