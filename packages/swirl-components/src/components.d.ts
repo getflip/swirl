@@ -3157,6 +3157,10 @@ export namespace Components {
         "dragging"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default false
+         */
+        "indeterminate"?: boolean;
         "label": string;
         /**
           * @default false
@@ -11262,6 +11266,10 @@ declare namespace LocalJSX {
         "dragging"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default false
+         */
+        "indeterminate"?: boolean;
         "label": string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         /**

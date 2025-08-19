@@ -40,6 +40,7 @@ export class SwirlOptionListItem {
   @Prop() iconBadge?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
+  @Prop() indeterminate?: boolean = false;
   @Prop() swirlAriaRole?: SwirlOptionListItemRole = "option";
   @Prop() value!: string;
 
@@ -106,6 +107,7 @@ export class SwirlOptionListItem {
         "option-list-item--draggable": this.allowDrag,
         "option-list-item--dragging": this.dragging,
         "option-list-item--selected": this.selected,
+        "option-list-item--indeterminate": this.indeterminate && !this.selected,
         "option-list-item--show-avatar": showAvatar,
       }
     );
@@ -155,6 +157,9 @@ export class SwirlOptionListItem {
                     class="option-list-item__checkbox-icon"
                     size={16}
                   ></swirl-icon-check-strong>
+                )}
+                {!this.selected && this.indeterminate && (
+                  <span class="option-list-item__checkbox-indeterminate-icon"></span>
                 )}
               </span>
             </span>

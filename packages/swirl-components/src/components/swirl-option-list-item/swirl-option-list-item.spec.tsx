@@ -83,4 +83,36 @@ describe("swirl-option-list-item", () => {
 
     expect(spy).toHaveBeenCalled();
   });
+
+  it("renders indeterminate state in multi-select", async () => {
+    const page = await newSpecPage({
+      components: [SwirlOptionListItem],
+      html: `<swirl-option-list-item
+              context="multi-select"
+              indeterminate="true"
+              label="Option List Item"
+              value="Value">
+            </swirl-option-list-item>`,
+    });
+
+    const id = page.root.children[0].id;
+
+    expect(page.root).toEqualHtml(`
+      <swirl-option-list-item context="multi-select" indeterminate="true" label="Option List Item" value="Value">
+        <div aria-labelledby="${id}-label" aria-selected="false" class="option-list-item option-list-item--context-multi-select option-list-item--indeterminate" id="${id}" part="option-list-item" role="option">
+          <span class="option-list-item__checkbox">
+            <span class="option-list-item__checkbox-box">
+              <span class="option-list-item__checkbox-indeterminate-icon"></span>
+            </span>
+          </span>
+          <span class="option-list-item__avatar"></span>
+          <span class="option-list-item__label-container">
+            <span class="option-list-item__label" id="${id}-label" part="option-list-item__label">
+              Option List Item
+            </span>
+          </span>
+        </div>
+      </swirl-option-list-item>
+    `);
+  });
 });
