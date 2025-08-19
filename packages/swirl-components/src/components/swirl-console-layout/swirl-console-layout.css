@@ -274,3 +274,19 @@
   .console-layout__app-bar--custom {
   border-bottom-color: var(--s-border-default);
 }
+
+/* Hide empty slot containers */
+.console-layout:not(.console-layout--has-custom-app-bar)
+  .console-layout__app-bar--custom {
+  display: none;
+}
+
+.console-layout:not(.console-layout--has-footer) .console-layout__footer {
+  display: none;
+}
+
+/* Hide default app bar when custom app bar has content */
+.console-layout--has-custom-app-bar
+  .console-layout__app-bar:not(.console-layout__app-bar--custom) {
+  display: none;
+}
