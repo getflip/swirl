@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.365.0
+
+### Minor Changes
+
+- [#1184](https://github.com/getflip/swirl/pull/1184)
+  [`736d3ef4`](https://github.com/getflip/swirl/commit/736d3ef4ff5b7105b1e57aa9cbba17e00aa48130)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add slots
+  for custom app-bar and footer in SwirlConsoleLayout
+
+### Patch Changes
+
+- [#1186](https://github.com/getflip/swirl/pull/1186)
+  [`bfce6e07`](https://github.com/getflip/swirl/commit/bfce6e076550738a1739d5daa6af3e2f8941fd4b)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix focus in
+  swirl-option-list
+
 ## 0.364.0
 
 ### Minor Changes
