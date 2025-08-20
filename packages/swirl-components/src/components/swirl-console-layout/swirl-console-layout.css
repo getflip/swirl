@@ -4,6 +4,7 @@
   display: block;
   width: 100%;
   height: 100vh;
+  --console-footer-height: 4.25rem;
 
   & * {
     box-sizing: border-box;
@@ -47,6 +48,17 @@
   }
 }
 
+.console-layout--empty-app-bar.console-layout--has-footer {
+  & .console-layout__main {
+    @media (--from-tablet) {
+      grid-template-areas:
+        "content"
+        "footer";
+      grid-template-rows: 1fr min-content;
+    }
+  }
+}
+
 .console-layout__sidebar {
   position: fixed;
   z-index: var(--s-z-30);
@@ -61,7 +73,7 @@
   border-right: var(--s-border-width-default) solid var(--s-border-default);
   transition: transform 0.15s, box-shadow 0.15s;
   transform: translate3d(-100%, 0, 0);
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr min-content;
   grid-template-areas:
     "header"
     "navigation"
@@ -102,11 +114,12 @@
 
 .console-layout__user {
   overflow: hidden;
-  margin-top: var(--s-border-width-default);
-  padding: var(--s-space-16) var(--s-space-24) var(--s-space-24);
+  padding: var(--s-space-16) var(--s-space-24);
   border-top: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: user;
+  min-height: var(--console-footer-height);
+  box-sizing: border-box;
 }
 
 .console-layout__main {
@@ -121,6 +134,14 @@
   grid-template-areas:
     "app-bar"
     "content";
+}
+
+.console-layout--has-footer .console-layout__main {
+  grid-template-rows: 4rem 1fr min-content;
+  grid-template-areas:
+    "app-bar"
+    "content"
+    "footer";
 }
 
 .console-layout__app-bar {
@@ -227,4 +248,49 @@
 .console-layout__content-header-tools {
   display: flex;
   flex-shrink: 0;
+}
+
+.console-layout__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--s-z-20);
+  display: flex;
+  flex-shrink: 0;
+  min-width: 0;
+  border-top: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
+  grid-area: footer;
+  width: 100%;
+  min-height: var(--console-footer-height);
+  box-sizing: border-box;
+}
+
+.console-layout__app-bar--custom {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: 0;
+  border-bottom: var(--s-border-width-default) solid transparent;
+  background-color: var(--s-background-default);
+}
+
+.console-layout--main-scrollable:not(.console-layout--main-scrolled-to-top)
+  .console-layout__app-bar--custom {
+  border-bottom-color: var(--s-border-default);
+}
+
+/* Hide empty slot containers */
+.console-layout:not(.console-layout--has-custom-app-bar)
+  .console-layout__app-bar--custom {
+  display: none;
+}
+
+.console-layout:not(.console-layout--has-footer) .console-layout__footer {
+  display: none;
+}
+
+/* Hide default app bar when custom app bar has content */
+.console-layout--has-custom-app-bar
+  .console-layout__app-bar:not(.console-layout__app-bar--custom) {
+  display: none;
 }

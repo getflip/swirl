@@ -11,11 +11,13 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { isMobileViewport } from "../../utils";
+import { debounce, isMobileViewport } from "../../utils";
 
 /**
+ * @slot app-bar - Custom app bar content (replaces the default app bar when provided)
  * @slot content - The main content
  * @slot content-header-tools - Button positioned next to the heading
+ * @slot footer - Footer content positioned at the bottom of the layout
  * @slot heading - The main content's heading (only rendered if "heading" prop is not set).
  * @slot navigation - The main navigation
  * @slot overlays - Overlays like dialogs, modals and toasts
@@ -43,11 +45,17 @@ export class SwirlConsoleLayout {
   @Prop() subheading?: string;
 
   @State() sidebarActive: boolean;
+  @State() mainScrollState = {
+    scrollable: false,
+    scrolledToTop: false,
+    scrolledToBottom: false,
+  };
 
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
 
   private sidebarEl: HTMLElement;
+  private mainEl: HTMLElement;
 
   componentDidLoad() {
     queueMicrotask(() => {
@@ -56,8 +64,33 @@ export class SwirlConsoleLayout {
       } else {
         this.deactivateSidebar();
       }
+
+      // Update initial scroll state
+      this.updateMainScrollState();
     });
   }
+
+  private updateMainScrollState() {
+    const newMainScrollState = {
+      scrollable: this.mainEl.scrollHeight > this.mainEl.clientHeight,
+      scrolledToTop: this.mainEl.scrollTop === 0,
+      scrolledToBottom:
+        Math.round(this.mainEl.scrollTop + this.mainEl.clientHeight) >=
+        this.mainEl.scrollHeight,
+    };
+
+    if (
+      Object.keys(newMainScrollState).some(
+        (key) => newMainScrollState[key] !== this.mainScrollState[key]
+      )
+    ) {
+      this.mainScrollState = newMainScrollState;
+    }
+  }
+
+  private onMainScroll = debounce(() => {
+    this.updateMainScrollState();
+  }, 16);
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
@@ -166,10 +199,20 @@ export class SwirlConsoleLayout {
         }
       : undefined;
 
+    const hasAppBarSlot = Boolean(this.el.querySelector('[slot="app-bar"]'));
+    const hasFooterSlot = Boolean(this.el.querySelector('[slot="footer"]'));
+
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
       "console-layout--empty-app-bar":
-        !Boolean(this.appName) && !this.showHelpButton,
+        !Boolean(this.appName) && !this.showHelpButton && !hasAppBarSlot,
+      "console-layout--has-footer": hasFooterSlot,
+      "console-layout--has-custom-app-bar": hasAppBarSlot,
+      "console-layout--main-scrollable": this.mainScrollState.scrollable,
+      "console-layout--main-scrolled-to-top":
+        this.mainScrollState.scrolledToTop,
+      "console-layout--main-scrolled-to-bottom":
+        this.mainScrollState.scrolledToBottom,
     });
 
     return (
@@ -229,7 +272,12 @@ export class SwirlConsoleLayout {
           <main
             aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
             class="console-layout__main"
+            onScroll={this.onMainScroll}
+            ref={(el) => (this.mainEl = el)}
           >
+            <header class="console-layout__app-bar console-layout__app-bar--custom">
+              <slot name="app-bar"></slot>
+            </header>
             <header class="console-layout__app-bar">
               <span class="console-layout__mobile-navigation-button">
                 <swirl-button
@@ -315,6 +363,9 @@ export class SwirlConsoleLayout {
                 <slot name="content"></slot>
               </div>
             </section>
+            <footer class="console-layout__footer">
+              <slot name="footer"></slot>
+            </footer>
             <div class="console-layout__overlays">
               <slot name="overlays"></slot>
             </div>
