@@ -130,7 +130,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     if (item.value === this.selectAllValue) {
       this.selectAllChanged();
     } else {
-      this.selectItem(this.items.findIndex((i) => i.value === item.value));
+      const index = this.items.findIndex((i) => i.value === item.value);
+
+      this.focusItem(index);
+      this.selectItem(index);
     }
   };
 
@@ -383,8 +386,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     } else {
       this.updateValue(this.value.filter((v) => v !== item.value));
     }
-
-    this.focusItem(index);
   }
 
   private updateValue(value: string[]) {
