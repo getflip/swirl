@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.365.1
+
+### Patch Changes
+
+- [#1188](https://github.com/getflip/swirl/pull/1188)
+  [`3e57ec157`](https://github.com/getflip/swirl/commit/3e57ec157ac11c8eb11b91bf84f8797d3f7aff52)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust
+  swirl-avatar 2xl sizes
+
 ## 0.365.0
 
 ### Minor Changes
