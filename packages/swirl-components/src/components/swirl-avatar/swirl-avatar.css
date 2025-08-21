@@ -196,15 +196,15 @@
   &.avatar--variant-square,
   &.avatar--variant-square .avatar__image,
   &.avatar--variant-square .avatar__initials {
-    border-radius: 2.25rem;
+    border-radius: 1.25rem;
   }
 
   & .avatar__tool {
-    transform: none;
+    transform: translate3d(-25%, -25%, 0px);
   }
 
   & .avatar__tool--position-top {
-    transform: none;
+    transform: translate3d(-25%, 25%, 0px);
   }
 }
 
