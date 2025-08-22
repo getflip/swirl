@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.368.1
+
+### Patch Changes
+
+- [#1198](https://github.com/getflip/swirl/pull/1198)
+  [`aa161f898`](https://github.com/getflip/swirl/commit/aa161f89813919db141771df5e89fa2802106fd8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-avatar-group layouting
+  issue
+
+* [#1190](https://github.com/getflip/swirl/pull/1190)
+  [`39ce274d7`](https://github.com/getflip/swirl/commit/39ce274d78725161b2c78a629d0849a0bdcd2edf)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Fix dynamic
+  slot detection in SwirlConsoleLayout
+
+* Updated dependencies
+  [[`aa161f898`](https://github.com/getflip/swirl/commit/aa161f89813919db141771df5e89fa2802106fd8),
+  [`39ce274d7`](https://github.com/getflip/swirl/commit/39ce274d78725161b2c78a629d0849a0bdcd2edf)]:
+  - @getflip/swirl-components@0.368.1
+
 ## 0.368.0
 
 ### Minor Changes
