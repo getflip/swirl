@@ -8,6 +8,9 @@
 
 .avatar-group {
   position: relative;
+}
+
+.avatar-group--diagonal-stack {
   display: inline-grid;
   grid-template-rows: repeat(9, 1fr);
   grid-template-columns: repeat(9, 1fr);
@@ -15,8 +18,8 @@
   & ::slotted(*:first-of-type) {
     z-index: 1;
     display: inline-flex;
-    box-shadow: 0 0 0 0.25rem var(--swirl-avatar-group-border-color);
     border-radius: 50%;
+    box-shadow: 0 0 0 0.25rem var(--swirl-avatar-group-border-color);
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 4;
@@ -32,13 +35,35 @@
     grid-row-start: 1;
     grid-row-end: 7;
   }
+
+  & .avatar-group__badge {
+    position: absolute;
+    right: calc(-1 * var(--s-space-4));
+    bottom: calc(-1 * var(--s-space-4));
+  }
+}
+
+.avatar-group--horizontal-stack {
+  display: inline-flex;
+
+  & .avatar-group__badge {
+    display: none;
+  }
+
+  & ::slotted(*) {
+    z-index: 1;
+    display: inline-flex;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.125rem var(--swirl-avatar-group-border-color);
+  }
+
+  & ::slotted(*:not(:first-of-type)) {
+    margin-left: calc(-1 * var(--s-space-4));
+  }
 }
 
 .avatar-group__badge {
-  position: absolute;
   z-index: 2;
-  right: calc(-1 * var(--s-space-4));
-  bottom: calc(-1 * var(--s-space-4));
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
