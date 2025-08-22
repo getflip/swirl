@@ -13,6 +13,7 @@ export type SwirlAvatarGroupLayout = "diagonal" | "horizontal";
 })
 export class SwirlAvatarGroup {
   @Prop() badge?: string;
+  @Prop() label?: string;
   @Prop() layout?: SwirlAvatarGroupLayout = "diagonal";
 
   @State() avatars: HTMLSwirlAvatarElement[] = [];
@@ -71,7 +72,7 @@ export class SwirlAvatarGroup {
 
     return (
       <Host>
-        <div class={className} role="group">
+        <div aria-label={this.label} class={className} role="group">
           <slot onSlotchange={this.onSlotChange}></slot>
           {this.badge && (
             <span
