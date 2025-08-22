@@ -50,12 +50,27 @@ export class SwirlConsoleLayout {
     scrolledToTop: false,
     scrolledToBottom: false,
   };
-
+  @State() hasCustomAppBar: boolean;
+  @State() hasFooter: boolean;
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
 
   private sidebarEl: HTMLElement;
   private mainEl: HTMLElement;
+  private mutationObserver: MutationObserver;
+
+  componentWillLoad() {
+    this.mutationObserver = new MutationObserver(() => {
+      this.updateCustomAppBarStatus();
+      this.updateFooterStatus();
+    });
+
+    this.mutationObserver.observe(this.el, { childList: true });
+    queueMicrotask(() => {
+      this.updateCustomAppBarStatus();
+      this.updateFooterStatus();
+    });
+  }
 
   componentDidLoad() {
     queueMicrotask(() => {
@@ -68,6 +83,18 @@ export class SwirlConsoleLayout {
       // Update initial scroll state
       this.updateMainScrollState();
     });
+  }
+
+  disconnectedCallback() {
+    this.mutationObserver?.disconnect();
+  }
+
+  private updateCustomAppBarStatus() {
+    this.hasCustomAppBar = Boolean(this.el.querySelector('[slot="app-bar"]'));
+  }
+
+  private updateFooterStatus() {
+    this.hasFooter = Boolean(this.el.querySelector('[slot="footer"]'));
   }
 
   private updateMainScrollState() {
@@ -199,15 +226,15 @@ export class SwirlConsoleLayout {
         }
       : undefined;
 
-    const hasAppBarSlot = Boolean(this.el.querySelector('[slot="app-bar"]'));
-    const hasFooterSlot = Boolean(this.el.querySelector('[slot="footer"]'));
+    this.updateCustomAppBarStatus();
+    this.updateFooterStatus();
 
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
       "console-layout--empty-app-bar":
-        !Boolean(this.appName) && !this.showHelpButton && !hasAppBarSlot,
-      "console-layout--has-footer": hasFooterSlot,
-      "console-layout--has-custom-app-bar": hasAppBarSlot,
+        !Boolean(this.appName) && !this.showHelpButton && !this.hasCustomAppBar,
+      "console-layout--has-footer": this.hasFooter,
+      "console-layout--has-custom-app-bar": this.hasCustomAppBar,
       "console-layout--main-scrollable": this.mainScrollState.scrollable,
       "console-layout--main-scrolled-to-top":
         this.mainScrollState.scrolledToTop,
