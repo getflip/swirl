@@ -5,6 +5,7 @@
   width: 100%;
   height: 100vh;
   --console-footer-height: 4.25rem;
+  --console-app-bar-height: 3.5rem;
 
   & * {
     box-sizing: border-box;
@@ -130,14 +131,14 @@
   height: 100%;
   grid-area: main;
   gap: var(--s-border-width-default);
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: var(--console-app-bar-height) 1fr;
   grid-template-areas:
     "app-bar"
     "content";
 }
 
 .console-layout--has-footer .console-layout__main {
-  grid-template-rows: 4rem 1fr min-content;
+  grid-template-rows: var(--console-app-bar-height) 1fr min-content;
   grid-template-areas:
     "app-bar"
     "content"
@@ -197,6 +198,10 @@
   @media (--from-tablet) {
     padding: 2.5rem;
   }
+}
+
+.console-layout--has-custom-app-bar .console-layout__content {
+  padding-top: var(--s-space-16);
 }
 
 .console-layout__integration {

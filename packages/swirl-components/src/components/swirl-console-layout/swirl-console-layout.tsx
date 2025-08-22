@@ -50,7 +50,8 @@ export class SwirlConsoleLayout {
     scrolledToTop: false,
     scrolledToBottom: false,
   };
-
+  @State() hasCustomAppBar: boolean;
+  @State() hasFooter: boolean;
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
 
@@ -67,8 +68,20 @@ export class SwirlConsoleLayout {
 
       // Update initial scroll state
       this.updateMainScrollState();
+
+      // Update initial slot states
+      this.updateCustomAppBarStatus();
+      this.updateFooterStatus();
     });
   }
+
+  private updateCustomAppBarStatus = () => {
+    this.hasCustomAppBar = Boolean(this.el.querySelector('[slot="app-bar"]'));
+  };
+
+  private updateFooterStatus = () => {
+    this.hasFooter = Boolean(this.el.querySelector('[slot="footer"]'));
+  };
 
   private updateMainScrollState() {
     const newMainScrollState = {
@@ -199,15 +212,15 @@ export class SwirlConsoleLayout {
         }
       : undefined;
 
-    const hasAppBarSlot = Boolean(this.el.querySelector('[slot="app-bar"]'));
-    const hasFooterSlot = Boolean(this.el.querySelector('[slot="footer"]'));
+    this.updateCustomAppBarStatus();
+    this.updateFooterStatus();
 
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
       "console-layout--empty-app-bar":
-        !Boolean(this.appName) && !this.showHelpButton && !hasAppBarSlot,
-      "console-layout--has-footer": hasFooterSlot,
-      "console-layout--has-custom-app-bar": hasAppBarSlot,
+        !Boolean(this.appName) && !this.showHelpButton && !this.hasCustomAppBar,
+      "console-layout--has-footer": this.hasFooter,
+      "console-layout--has-custom-app-bar": this.hasCustomAppBar,
       "console-layout--main-scrollable": this.mainScrollState.scrollable,
       "console-layout--main-scrolled-to-top":
         this.mainScrollState.scrolledToTop,
@@ -276,7 +289,10 @@ export class SwirlConsoleLayout {
             ref={(el) => (this.mainEl = el)}
           >
             <header class="console-layout__app-bar console-layout__app-bar--custom">
-              <slot name="app-bar"></slot>
+              <slot
+                name="app-bar"
+                onSlotchange={this.updateCustomAppBarStatus}
+              ></slot>
             </header>
             <header class="console-layout__app-bar">
               <span class="console-layout__mobile-navigation-button">
@@ -364,7 +380,7 @@ export class SwirlConsoleLayout {
               </div>
             </section>
             <footer class="console-layout__footer">
-              <slot name="footer"></slot>
+              <slot name="footer" onSlotchange={this.updateFooterStatus}></slot>
             </footer>
             <div class="console-layout__overlays">
               <slot name="overlays"></slot>
