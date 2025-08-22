@@ -40,7 +40,7 @@ SwirlAvatarGroup.args = {
   badge: `<swirl-badge aria-label="3 new messages" label="3"></swirl-badge>`,
 };
 
-const TemplateWithHorizontalStack = (args) => {
+const TemplateWithHorizontalLayout = (args) => {
   const element = generateStoryElement("swirl-avatar-group", args);
 
   element.innerHTML = `
@@ -52,6 +52,8 @@ const TemplateWithHorizontalStack = (args) => {
   return element;
 };
 
-export const WithHorizontalStack = TemplateWithHorizontalStack.bind({});
+export const WithHorizontalLayout = TemplateWithHorizontalLayout.bind({});
 
-WithHorizontalStack.args = {};
+WithHorizontalLayout.args = {
+  layout: "horizontal",
+};

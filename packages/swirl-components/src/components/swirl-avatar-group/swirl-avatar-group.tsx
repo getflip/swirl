@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlAvatarGroupLayout = "diagonal" | "horizontal";
+
 /**
  * @slot slot - Your avatar components
  */
@@ -11,6 +13,7 @@ import classnames from "classnames";
 })
 export class SwirlAvatarGroup {
   @Prop() badge?: string;
+  @Prop() layout?: SwirlAvatarGroupLayout = "diagonal";
 
   @State() avatars: HTMLSwirlAvatarElement[] = [];
 
@@ -56,11 +59,13 @@ export class SwirlAvatarGroup {
   }
 
   render() {
-    const className = classnames("avatar-group", {
-      "avatar-group--has-badge": Boolean(this.badge),
-      "avatar-group--horizontal-stack": this.avatars.length > 2,
-      "avatar-group--diagonal-stack": this.avatars.length <= 2,
-    });
+    const className = classnames(
+      "avatar-group",
+      `avatar-group--${this.layout}-stack`,
+      {
+        "avatar-group--has-badge": Boolean(this.badge),
+      }
+    );
 
     const badgeClassName = classnames("avatar-group__badge");
 

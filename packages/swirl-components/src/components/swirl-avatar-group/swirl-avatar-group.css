@@ -36,6 +36,10 @@
     grid-row-end: 7;
   }
 
+  & ::slotted(*:nth-of-type(n + 3)) {
+    display: none;
+  }
+
   & .avatar-group__badge {
     position: absolute;
     right: calc(-1 * var(--s-space-4));
@@ -63,7 +67,7 @@
 }
 
 .avatar-group__badge {
-  z-index: 2;
+  z-index: 3;
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
