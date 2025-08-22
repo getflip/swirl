@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.368.0
+
+### Minor Changes
+
+- [#1195](https://github.com/getflip/swirl/pull/1195)
+  [`6f2f3af19`](https://github.com/getflip/swirl/commit/6f2f3af1911851df599e69be57fb923bcd5fe7a9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow swirl-avatar-group to be
+  used with nested avatars (e.g. nested in a tooltip)
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6f2f3af19`](https://github.com/getflip/swirl/commit/6f2f3af1911851df599e69be57fb923bcd5fe7a9)]:
+  - @getflip/swirl-components@0.368.0
+
 ## 0.367.0
 
 ### Minor Changes
