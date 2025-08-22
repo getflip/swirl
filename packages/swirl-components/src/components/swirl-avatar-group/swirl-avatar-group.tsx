@@ -16,7 +16,7 @@ export class SwirlAvatarGroup {
   @Prop() label?: string;
   @Prop() layout?: SwirlAvatarGroupLayout = "diagonal";
 
-  @State() avatars: HTMLSwirlAvatarElement[] = [];
+  @State() avatars: HTMLElement[] = [];
 
   private badgeEl: HTMLElement;
 
@@ -38,11 +38,9 @@ export class SwirlAvatarGroup {
   }
 
   private onSlotChange = (event: Event) => {
-    this.avatars = (event.target as HTMLSlotElement)
-      .assignedElements()
-      .filter(
-        (el) => el.tagName.toLowerCase() === "swirl-avatar"
-      ) as HTMLSwirlAvatarElement[];
+    this.avatars = (
+      event.target as HTMLSlotElement
+    ).assignedElements() as HTMLElement[];
 
     this.layOutAvatars();
   };
@@ -50,10 +48,12 @@ export class SwirlAvatarGroup {
   private layOutAvatars() {
     if (this.avatars.length <= 2) {
       this.avatars.forEach((avatar) => {
+        avatar.style.position = "";
         avatar.style.zIndex = "";
       });
     } else {
       this.avatars.forEach((avatar, index) => {
+        avatar.style.position = "relative";
         avatar.style.zIndex = String(this.avatars.length - index);
       });
     }

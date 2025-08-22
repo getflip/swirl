@@ -410,6 +410,7 @@ export namespace Components {
     }
     interface SwirlAvatarGroup {
         "badge"?: string;
+        "label"?: string;
         /**
           * @default "diagonal"
          */
@@ -8616,6 +8617,7 @@ declare namespace LocalJSX {
     }
     interface SwirlAvatarGroup {
         "badge"?: string;
+        "label"?: string;
         /**
           * @default "diagonal"
          */

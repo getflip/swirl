@@ -681,6 +681,10 @@
           "description": ""
         },
         {
+          "name": "label",
+          "description": ""
+        },
+        {
           "name": "layout",
           "description": "",
           "values": [

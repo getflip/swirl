@@ -45,7 +45,9 @@ const TemplateWithHorizontalLayout = (args) => {
 
   element.innerHTML = `
     <swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="3xs"></swirl-avatar>
-    <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="3xs"></swirl-avatar>
+    <swirl-tooltip content="Test">
+      <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="3xs"></swirl-avatar>
+    </swirl-tooltip>
     <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=c" size="3xs"></swirl-avatar>
   `;
 
