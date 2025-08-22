@@ -82,9 +82,6 @@ export class SwirlConsoleLayout {
 
       // Update initial scroll state
       this.updateMainScrollState();
-
-      // Update initial scroll state
-      this.updateMainScrollState();
     });
   }
 

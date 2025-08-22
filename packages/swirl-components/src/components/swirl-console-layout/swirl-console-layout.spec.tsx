@@ -2,6 +2,12 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlConsoleLayout } from "./swirl-console-layout";
 
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 describe("swirl-console-layout", () => {
   it("renders its contents", async () => {
     const page = await newSpecPage({
