@@ -6,6 +6,7 @@
   height: 100vh;
   --console-footer-height: 4.25rem;
   --console-app-bar-height: 3.5rem;
+  --console-sidebar-width: 18rem;
 
   & * {
     box-sizing: border-box;
@@ -20,7 +21,7 @@
   grid-template-areas: "main";
 
   @media (--from-tablet) {
-    grid-template-columns: 20rem 1fr;
+    grid-template-columns: var(--console-sidebar-width) 1fr;
     grid-template-areas: "sidebar main";
   }
 }
