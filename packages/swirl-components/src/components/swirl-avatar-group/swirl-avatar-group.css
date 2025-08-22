@@ -15,7 +15,7 @@
   grid-template-rows: repeat(9, 1fr);
   grid-template-columns: repeat(9, 1fr);
 
-  & ::slotted(*:first-of-type) {
+  & ::slotted(*:first-child) {
     z-index: 1;
     display: inline-flex;
     border-radius: 50%;
@@ -26,7 +26,7 @@
     grid-row-end: 10;
   }
 
-  & ::slotted(*:nth-of-type(2)) {
+  & ::slotted(*:nth-child(2)) {
     z-index: 0;
     display: inline-flex;
     border-radius: 50%;
@@ -36,7 +36,7 @@
     grid-row-end: 7;
   }
 
-  & ::slotted(*:nth-of-type(n + 3)) {
+  & ::slotted(*:nth-child(n + 3)) {
     display: none;
   }
 
@@ -61,7 +61,7 @@
     box-shadow: 0 0 0 0.125rem var(--swirl-avatar-group-border-color);
   }
 
-  & ::slotted(*:not(:first-of-type)) {
+  & ::slotted(*:not(:first-child)) {
     margin-left: calc(-1 * var(--s-space-4));
   }
 }
