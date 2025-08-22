@@ -46,7 +46,7 @@ export class SwirlAvatarGroup {
   };
 
   private layOutAvatars() {
-    if (this.avatars.length <= 2) {
+    if (this.layout === "diagonal") {
       this.avatars.forEach((avatar) => {
         avatar.style.position = "";
         avatar.style.zIndex = "";
