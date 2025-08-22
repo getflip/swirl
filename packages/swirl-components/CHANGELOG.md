@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.366.0
+
+### Minor Changes
+
+- [#1191](https://github.com/getflip/swirl/pull/1191)
+  [`c61136d50`](https://github.com/getflip/swirl/commit/c61136d50cd2da7b2934e55836cdc54d2fc191cf)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "horizontal"
+  swirl-avatar-group variant
+
 ## 0.365.1
 
 ### Patch Changes
