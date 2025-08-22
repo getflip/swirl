@@ -313,7 +313,10 @@ export class SwirlPopover {
   }
 
   private getFocusableChildren() {
-    return querySelectorAllDeep(this.el, '[role="menuitem"], [role="listbox"]');
+    return querySelectorAllDeep(
+      this.el,
+      '[role="menuitem"], [role="menuitemradio"], [role="option"]'
+    );
   }
 
   private adjustWidth() {

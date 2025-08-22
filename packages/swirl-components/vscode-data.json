@@ -17443,6 +17443,14 @@
           "description": ""
         },
         {
+          "name": "select-all-label",
+          "description": ""
+        },
+        {
+          "name": "show-select-all",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
@@ -17497,6 +17505,10 @@
         },
         {
           "name": "icon-badge",
+          "description": ""
+        },
+        {
+          "name": "indeterminate",
           "description": ""
         },
         {
