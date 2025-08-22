@@ -17,7 +17,7 @@ describe("swirl-avatar-group", () => {
     expect(page.root).toEqualHtml(`
       <swirl-avatar-group badge="<swirl-badge aria-label=&quot;3 new messages&quot; label=&quot;3&quot;></swirl-badge>">
         <mock:shadow-root>
-          <div class="avatar-group avatar-group--has-badge" role="group">
+          <div class="avatar-group avatar-group--diagonal-stack avatar-group--has-badge" role="group">
             <slot></slot>
             <span class="avatar-group__badge">
               <swirl-badge aria-label="3 new messages" label="3" size="s"></swirl-badge>

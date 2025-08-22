@@ -679,6 +679,18 @@
         {
           "name": "badge",
           "description": ""
+        },
+        {
+          "name": "layout",
+          "description": "",
+          "values": [
+            {
+              "name": "diagonal"
+            },
+            {
+              "name": "horizontal"
+            }
+          ]
         }
       ]
     },

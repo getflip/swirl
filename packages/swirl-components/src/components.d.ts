@@ -14,6 +14,7 @@ import { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+import { SwirlAvatarGroupLayout } from "./components/swirl-avatar-group/swirl-avatar-group";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 import { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
@@ -92,6 +93,7 @@ export { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+export { SwirlAvatarGroupLayout } from "./components/swirl-avatar-group/swirl-avatar-group";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 export { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
@@ -408,6 +410,10 @@ export namespace Components {
     }
     interface SwirlAvatarGroup {
         "badge"?: string;
+        /**
+          * @default "diagonal"
+         */
+        "layout"?: SwirlAvatarGroupLayout;
     }
     interface SwirlBadge {
         "icon"?: string;
@@ -8610,6 +8616,10 @@ declare namespace LocalJSX {
     }
     interface SwirlAvatarGroup {
         "badge"?: string;
+        /**
+          * @default "diagonal"
+         */
+        "layout"?: SwirlAvatarGroupLayout;
     }
     interface SwirlBadge {
         "icon"?: string;
