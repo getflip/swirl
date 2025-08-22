@@ -15,10 +15,8 @@ import { debounce, isMobileViewport } from "../../utils";
 
 /**
  * @slot app-bar - Custom app bar content (replaces the default app bar when provided)
- * @slot app-bar - Custom app bar content (replaces the default app bar when provided)
  * @slot content - The main content
  * @slot content-header-tools - Button positioned next to the heading
- * @slot footer - Footer content positioned at the bottom of the layout
  * @slot footer - Footer content positioned at the bottom of the layout
  * @slot heading - The main content's heading (only rendered if "heading" prop is not set).
  * @slot navigation - The main navigation
