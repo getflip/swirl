@@ -57,20 +57,6 @@ export class SwirlConsoleLayout {
 
   private sidebarEl: HTMLElement;
   private mainEl: HTMLElement;
-  private mutationObserver: MutationObserver;
-
-  componentWillLoad() {
-    this.mutationObserver = new MutationObserver(() => {
-      this.updateCustomAppBarStatus();
-      this.updateFooterStatus();
-    });
-
-    this.mutationObserver.observe(this.el, { childList: true });
-    queueMicrotask(() => {
-      this.updateCustomAppBarStatus();
-      this.updateFooterStatus();
-    });
-  }
 
   componentDidLoad() {
     queueMicrotask(() => {
@@ -82,20 +68,20 @@ export class SwirlConsoleLayout {
 
       // Update initial scroll state
       this.updateMainScrollState();
+
+      // Update initial slot states
+      this.updateCustomAppBarStatus();
+      this.updateFooterStatus();
     });
   }
 
-  disconnectedCallback() {
-    this.mutationObserver?.disconnect();
-  }
-
-  private updateCustomAppBarStatus() {
+  private updateCustomAppBarStatus = () => {
     this.hasCustomAppBar = Boolean(this.el.querySelector('[slot="app-bar"]'));
-  }
+  };
 
-  private updateFooterStatus() {
+  private updateFooterStatus = () => {
     this.hasFooter = Boolean(this.el.querySelector('[slot="footer"]'));
-  }
+  };
 
   private updateMainScrollState() {
     const newMainScrollState = {
@@ -303,7 +289,10 @@ export class SwirlConsoleLayout {
             ref={(el) => (this.mainEl = el)}
           >
             <header class="console-layout__app-bar console-layout__app-bar--custom">
-              <slot name="app-bar"></slot>
+              <slot
+                name="app-bar"
+                onSlotchange={this.updateCustomAppBarStatus}
+              ></slot>
             </header>
             <header class="console-layout__app-bar">
               <span class="console-layout__mobile-navigation-button">
@@ -391,7 +380,7 @@ export class SwirlConsoleLayout {
               </div>
             </section>
             <footer class="console-layout__footer">
-              <slot name="footer"></slot>
+              <slot name="footer" onSlotchange={this.updateFooterStatus}></slot>
             </footer>
             <div class="console-layout__overlays">
               <slot name="overlays"></slot>

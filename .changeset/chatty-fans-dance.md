@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Fix dynamic slot detection with MutationObserver in SwirlConsoleLayout
+Fix dynamic slot detection in SwirlConsoleLayout
