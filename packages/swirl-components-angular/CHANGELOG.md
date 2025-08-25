@@ -1,5 +1,32 @@
 # @getflip/swirl-components-angular
 
+## 0.369.0
+
+### Minor Changes
+
+- [#1201](https://github.com/getflip/swirl/pull/1201)
+  [`4f47190c1`](https://github.com/getflip/swirl/commit/4f47190c1a01a44b9ceefbac9e193ead24c4263b)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Change edit
+  icon
+
+### Patch Changes
+
+- [#1199](https://github.com/getflip/swirl/pull/1199)
+  [`fcd4025f2`](https://github.com/getflip/swirl/commit/fcd4025f2d87a14b2fc08d8c1e6634602ba29a05)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Adjust
+  spacing for SwirlTreeNavigationItem and width of SwirlConsoleLayout
+
+* [#1200](https://github.com/getflip/swirl/pull/1200)
+  [`09be1b145`](https://github.com/getflip/swirl/commit/09be1b145f70e82b611ec154adef4348b9c20a87)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Show
+  scrollbar only for content (not appBar) and prevent layout jumps in
+  SwirlConsoleLayout
+* Updated dependencies
+  [[`4f47190c1`](https://github.com/getflip/swirl/commit/4f47190c1a01a44b9ceefbac9e193ead24c4263b),
+  [`fcd4025f2`](https://github.com/getflip/swirl/commit/fcd4025f2d87a14b2fc08d8c1e6634602ba29a05),
+  [`09be1b145`](https://github.com/getflip/swirl/commit/09be1b145f70e82b611ec154adef4348b9c20a87)]:
+  - @getflip/swirl-components@0.369.0
+
 ## 0.368.1
 
 ### Patch Changes
