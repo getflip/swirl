@@ -6,7 +6,7 @@
   height: 100vh;
   --console-footer-height: 4.25rem;
   --console-app-bar-height: 3.5rem;
-  --console-sidebar-width: 18rem;
+  --console-sidebar-width: 18.5rem;
 
   & * {
     box-sizing: border-box;
