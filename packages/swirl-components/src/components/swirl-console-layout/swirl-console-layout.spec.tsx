@@ -53,16 +53,18 @@ describe("swirl-console-layout", () => {
                 </div>
               </header>
               <section aria-labelledby="heading" class="console-layout__content">
-                <header class="console-layout__content-header">
-                  <div class="console-layout__heading-container">
-                    <swirl-heading as="h2" class="console-layout__heading" headingid="heading" level="1" text="Heading"></swirl-heading>
+                <div class="console-layout__content-container">
+                  <header class="console-layout__content-header">
+                    <div class="console-layout__heading-container">
+                      <swirl-heading as="h2" class="console-layout__heading" headingid="heading" level="1" text="Heading"></swirl-heading>
+                    </div>
+                    <div class="console-layout__content-header-tools">
+                      <slot name="content-header-tools"></slot>
+                    </div>
+                  </header>
+                  <div class="console-layout__integration">
+                    <slot name="content"></slot>
                   </div>
-                  <div class="console-layout__content-header-tools">
-                    <slot name="content-header-tools"></slot>
-                  </div>
-                </header>
-                <div class="console-layout__integration">
-                  <slot name="content"></slot>
                 </div>
               </section>
               <footer class="console-layout__footer">

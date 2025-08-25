@@ -126,8 +126,7 @@
 
 .console-layout__main {
   display: grid;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   grid-area: main;
@@ -189,6 +188,9 @@
 }
 
 .console-layout__content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   display: flex;
   min-width: 0;
   padding: var(--s-space-16);
