@@ -33,7 +33,7 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--tree-nav-item-label-weight, var(--s-font-weight-medium));
   line-height: var(--s-line-height-sm);
-  border-radius: var(--s-border-radius-sm);
+  border-radius: var(--s-border-radius-base);
 }
 
 /* Link states */
