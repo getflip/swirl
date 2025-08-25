@@ -45,7 +45,7 @@ export class SwirlConsoleLayout {
   @Prop() subheading?: string;
 
   @State() sidebarActive: boolean;
-  @State() mainScrollState = {
+  @State() contentScrollState = {
     scrollable: false,
     scrolledToTop: false,
     scrolledToBottom: false,
@@ -67,7 +67,7 @@ export class SwirlConsoleLayout {
       }
 
       // Update initial scroll state
-      this.updateMainScrollState();
+      this.updateContentScrollState();
 
       // Update initial slot states
       this.updateCustomAppBarStatus();
@@ -83,12 +83,12 @@ export class SwirlConsoleLayout {
     this.hasFooter = Boolean(this.el.querySelector('[slot="footer"]'));
   };
 
-  private updateMainScrollState() {
+  private updateContentScrollState() {
     if (!this.contentEl) {
       return;
     }
 
-    const newMainScrollState = {
+    const newContentScrollState = {
       scrollable: this.contentEl.scrollHeight > this.contentEl.clientHeight,
       scrolledToTop: this.contentEl.scrollTop === 0,
       scrolledToBottom:
@@ -97,16 +97,16 @@ export class SwirlConsoleLayout {
     };
 
     if (
-      Object.keys(newMainScrollState).some(
-        (key) => newMainScrollState[key] !== this.mainScrollState[key]
+      Object.keys(newContentScrollState).some(
+        (key) => newContentScrollState[key] !== this.contentScrollState[key]
       )
     ) {
-      this.mainScrollState = newMainScrollState;
+      this.contentScrollState = newContentScrollState;
     }
   }
 
   private onMainScroll = debounce(() => {
-    this.updateMainScrollState();
+    this.updateContentScrollState();
   }, 16);
 
   @Listen("resize", { target: "window" })
@@ -225,11 +225,11 @@ export class SwirlConsoleLayout {
         !Boolean(this.appName) && !this.showHelpButton && !this.hasCustomAppBar,
       "console-layout--has-footer": this.hasFooter,
       "console-layout--has-custom-app-bar": this.hasCustomAppBar,
-      "console-layout--main-scrollable": this.mainScrollState.scrollable,
+      "console-layout--main-scrollable": this.contentScrollState.scrollable,
       "console-layout--main-scrolled-to-top":
-        this.mainScrollState.scrolledToTop,
+        this.contentScrollState.scrolledToTop,
       "console-layout--main-scrolled-to-bottom":
-        this.mainScrollState.scrolledToBottom,
+        this.contentScrollState.scrolledToBottom,
     });
 
     return (
