@@ -92,6 +92,17 @@
   }
 }
 
+.app-bar:not(.app-bar--has-heading) {
+  .app-bar__center-controls {
+    display: flex;
+  }
+
+  .app-bar__heading {
+    display: none;
+  }
+}
+
+
 .app-bar__right-controls {
   display: flex;
   min-width: 0;

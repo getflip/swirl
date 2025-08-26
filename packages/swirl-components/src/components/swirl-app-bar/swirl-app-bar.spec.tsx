@@ -25,7 +25,7 @@ describe("swirl-app-bar", () => {
     expect(page.root).toEqualHtml(`
       <swirl-app-bar>
         <mock:shadow-root>
-          <div class="app-bar app-bar--has-cta app-bar--has-right-controls" style="padding-inline-end: var(--s-space-16); padding-inline-start: var(--s-space-16);">
+          <div class="app-bar app-bar--has-cta app-bar--has-heading app-bar--has-right-controls" style="padding-inline-end: var(--s-space-16); padding-inline-start: var(--s-space-16);">
             <div class="app-bar__cta">
               <slot name="cta"></slot>
             </div>
