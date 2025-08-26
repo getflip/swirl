@@ -98,10 +98,12 @@ export class SwirlAppBar {
     const hasRightControls = Boolean(
       this.el.querySelector('[slot="right-controls"]')
     );
+    const hasHeading = Boolean(this.el.querySelector('[slot="heading"]'));
 
     const className = classnames("app-bar", {
       "app-bar--has-cta": this.hasCta,
       "app-bar--has-right-controls": hasRightControls,
+      "app-bar--has-heading": hasHeading,
     });
 
     const styles = {
