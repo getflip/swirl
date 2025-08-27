@@ -193,22 +193,33 @@
   scrollbar-gutter: stable;
   display: flex;
   min-width: 0;
-  padding: var(--s-space-16);
+  padding: 0 var(--s-space-16);
   background-color: var(--s-background-default);
   flex-direction: column;
   grid-area: content;
 
   @media (--from-tablet) {
-    padding: 2.5rem;
+    padding: 0 2.5rem;
   }
 }
 
-.console-layout--has-custom-app-bar .console-layout__content {
-  padding-top: var(--s-space-16);
+.console-layout__content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .console-layout__integration {
   flex-grow: 1;
+  padding-bottom: var(--s-space-16);
+
+  @media (--from-tablet) {
+    padding-bottom: 2.5rem;
+  }
+
+  width: 100%;
 }
 
 .console-layout__logo {
@@ -237,6 +248,17 @@
   margin-bottom: var(--s-space-24);
   flex-shrink: 0;
   gap: var(--s-space-16);
+  padding-top: var(--s-space-16);
+
+  @media (--from-tablet) {
+    padding-top: 2.5rem;
+  }
+
+  width: 100%;
+}
+
+.console-layout--has-custom-app-bar .console-layout__content-header {
+  padding-top: var(--s-space-16);
 }
 
 .console-layout__back-button {
