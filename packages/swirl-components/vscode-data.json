@@ -307,6 +307,10 @@
           "description": ""
         },
         {
+          "name": "show-heading",
+          "description": ""
+        },
+        {
           "name": "show-stepper-controls",
           "description": ""
         },

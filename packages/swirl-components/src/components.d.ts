@@ -261,6 +261,10 @@ export namespace Components {
         "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
+        /**
+          * @default true
+         */
+        "showHeading"?: boolean;
         "showStepperControls"?: boolean;
         /**
           * @default "Next item"
@@ -8485,6 +8489,10 @@ declare namespace LocalJSX {
         "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
+        /**
+          * @default true
+         */
+        "showHeading"?: boolean;
         "showStepperControls"?: boolean;
         /**
           * @default "Next item"

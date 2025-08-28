@@ -44,6 +44,7 @@ export class SwirlAppBar {
   @Prop() stepDownButtonLabel?: string = "Next item";
   @Prop() showBackButton?: boolean;
   @Prop() showCloseButton?: boolean;
+  @Prop() showHeading?: boolean = true;
   @Prop() showStepperControls?: boolean;
 
   @State() hasCta: boolean;
@@ -103,7 +104,7 @@ export class SwirlAppBar {
     const className = classnames("app-bar", {
       "app-bar--has-cta": this.hasCta,
       "app-bar--has-right-controls": hasRightControls,
-      "app-bar--has-heading": hasHeading,
+      "app-bar--has-heading": hasHeading && this.showHeading,
     });
 
     const styles = {
