@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.370.1
+
+### Patch Changes
+
+- [#1205](https://github.com/getflip/swirl/pull/1205)
+  [`7f4e72d7f`](https://github.com/getflip/swirl/commit/7f4e72d7f8ff40e22e3b91f14cfee1fcd3df3dde)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Fix
+  content-container height of SwirlConsoleLayout
+
+- Updated dependencies
+  [[`7f4e72d7f`](https://github.com/getflip/swirl/commit/7f4e72d7f8ff40e22e3b91f14cfee1fcd3df3dde)]:
+  - @getflip/swirl-components@0.370.1
+
 ## 0.370.0
 
 ### Minor Changes
