@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.371.0
+
+### Minor Changes
+
+- [#1206](https://github.com/getflip/swirl/pull/1206)
+  [`726655d03`](https://github.com/getflip/swirl/commit/726655d0330ae3c54a997dbd54467dd41a709de3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "show-heading" prop to
+  swirl-app-bar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`726655d03`](https://github.com/getflip/swirl/commit/726655d0330ae3c54a997dbd54467dd41a709de3)]:
+  - @getflip/swirl-components@0.371.0
+
 ## 0.370.1
 
 ### Patch Changes
