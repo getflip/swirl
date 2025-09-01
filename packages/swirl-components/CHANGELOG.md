@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.372.0
+
+### Minor Changes
+
+- [#1209](https://github.com/getflip/swirl/pull/1209)
+  [`e60527e66`](https://github.com/getflip/swirl/commit/e60527e66967a684ad9b6af8c2ff2cdea9839324)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - BREAKING:
+  Change allowHtml default value to false in swirl-resource-list-item
+
 ## 0.371.0
 
 ### Minor Changes
