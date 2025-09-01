@@ -20,6 +20,16 @@
     }
   }
 
+  &(.separator--color-critical) {
+    & .separator__line {
+      background-color: var(--s-border-critical);
+    }
+
+    & .separator__label {
+      color: var(--s-text-subdued);
+    }
+  }
+
   &(.separator--color-strong) {
     & .separator__line {
       background-color: var(--s-border-strong);
