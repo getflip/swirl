@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.373.0
+
+### Minor Changes
+
+- [#1211](https://github.com/getflip/swirl/pull/1211)
+  [`d3ea0998a`](https://github.com/getflip/swirl/commit/d3ea0998ad28542bb6a0bbec76668a8422af8a11)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "critical" color to
+  swirl-separator
+
 ## 0.372.0
 
 ### Minor Changes
