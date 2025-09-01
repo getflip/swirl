@@ -18682,6 +18682,9 @@
           "description": "",
           "values": [
             {
+              "name": "critical"
+            },
+            {
               "name": "default"
             },
             {
@@ -18696,6 +18699,9 @@
           "name": "color",
           "description": "",
           "values": [
+            {
+              "name": "critical"
+            },
             {
               "name": "default"
             },

@@ -1,7 +1,11 @@
 import { Component, Fragment, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlSeparatorColor = "default" | "strong" | "highlight";
+export type SwirlSeparatorColor =
+  | "critical"
+  | "default"
+  | "strong"
+  | "highlight";
 export type SwirlSeparatorOrientation = "horizontal" | "vertical";
 
 export type SwirlSeparatorSpacing =
