@@ -3490,9 +3490,6 @@ export namespace Components {
         "active"?: boolean;
         "alignItems"?: string;
         "allowDrag"?: boolean;
-        /**
-          * @default true
-         */
         "allowHtml"?: boolean;
         /**
           * @default false
@@ -11600,9 +11597,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "alignItems"?: string;
         "allowDrag"?: boolean;
-        /**
-          * @default true
-         */
         "allowHtml"?: boolean;
         /**
           * @default false

@@ -35,7 +35,7 @@ export class SwirlResourceListItem {
 
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
-  @Prop() allowHtml?: boolean = true;
+  @Prop() allowHtml?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() compact?: boolean;
   @Prop() description?: string;
