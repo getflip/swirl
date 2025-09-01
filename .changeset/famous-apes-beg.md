@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Change allowHtml default value to false in swirl-resource-list-item
+BREAKING: Change allowHtml default value to false in swirl-resource-list-item
