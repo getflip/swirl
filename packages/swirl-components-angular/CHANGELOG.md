@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.373.1
+
+### Patch Changes
+
+- [#1213](https://github.com/getflip/swirl/pull/1213)
+  [`e1b66b21a`](https://github.com/getflip/swirl/commit/e1b66b21a203fa74a46488a5826fd6d6d69b6261)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix header
+  overflow in swirl-pdf-reader
+
+- Updated dependencies
+  [[`e1b66b21a`](https://github.com/getflip/swirl/commit/e1b66b21a203fa74a46488a5826fd6d6d69b6261)]:
+  - @getflip/swirl-components@0.373.1
+
 ## 0.373.0
 
 ### Minor Changes
