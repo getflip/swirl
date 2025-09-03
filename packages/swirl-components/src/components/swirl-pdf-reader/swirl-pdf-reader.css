@@ -80,6 +80,7 @@
   flex-grow: 1;
   align-items: center;
   gap: var(--s-space-8);
+  min-width: 0;
 
   @media (--from-tablet) {
     flex-basis: calc(100 / 3 * 1%);
@@ -89,6 +90,7 @@
 
 .pdf-reader__header-right {
   justify-content: flex-end;
+  flex-shrink: 0;
 }
 
 .pdf-reader__header-center {
