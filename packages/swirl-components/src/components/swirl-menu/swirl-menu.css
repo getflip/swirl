@@ -50,7 +50,7 @@
     }
   }
 
-  & :not(.menu--root) {
+  &:not(.menu--root) {
     & .menu__menu {
       z-index: 1;
       max-width: 22.5rem;
@@ -104,4 +104,9 @@
 
 .menu__menu {
   background-color: var(--s-surface-overlay-default);
+  /* z-index: 1;
+  max-width: 22.5rem;
+  border-radius: var(--s-border-radius-base);
+  box-shadow: var(--s-shadow-level-1);
+  padding: var(--s-space-4); */
 }
