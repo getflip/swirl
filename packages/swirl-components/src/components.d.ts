@@ -845,6 +845,10 @@ export namespace Components {
     }
     interface SwirlDatePicker {
         /**
+          * @default true
+         */
+        "constrained": boolean;
+        /**
           * @default () => false
          */
         "disableDate"?: (date: Date) => boolean;
@@ -9047,6 +9051,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        /**
+          * @default true
+         */
+        "constrained"?: boolean;
         /**
           * @default () => false
          */
