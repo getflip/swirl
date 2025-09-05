@@ -12,6 +12,7 @@ import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datep
 import { getISODateString, removeTimezoneOffset } from "../../utils";
 
 import "wc-datepicker";
+import classnames from "classnames";
 
 // Extend Locale interface with getWeekInfo data
 // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo)
@@ -34,6 +35,7 @@ export class SwirlDatePicker {
 
   @Prop() disableDate?: (date: Date) => boolean = () => false;
   @Prop({ mutable: true }) firstDayOfWeek?: number = 0;
+  @Prop() fixedMaxWidth: boolean = true;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() range?: boolean;
@@ -76,9 +78,14 @@ export class SwirlDatePicker {
         ? getISODateString(this.startDate)
         : undefined;
 
+    const className = classnames({
+      "date-picker--fixed-max-width": this.fixedMaxWidth,
+    });
+
     return (
       <Host onClick={this.onClick}>
         <wc-datepicker
+          class={className}
           elementClassName="date-picker"
           disableDate={this.disableDate}
           firstDayOfWeek={this.firstDayOfWeek}

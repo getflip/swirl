@@ -852,6 +852,10 @@ export namespace Components {
           * @default 0
          */
         "firstDayOfWeek"?: number;
+        /**
+          * @default true
+         */
+        "fixedMaxWidth": boolean;
         "labels"?: WCDatepickerLabels;
         /**
           * @default "en-US"
@@ -9055,6 +9059,10 @@ declare namespace LocalJSX {
           * @default 0
          */
         "firstDayOfWeek"?: number;
+        /**
+          * @default true
+         */
+        "fixedMaxWidth"?: boolean;
         "labels"?: WCDatepickerLabels;
         /**
           * @default "en-US"

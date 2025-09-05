@@ -13,7 +13,7 @@ describe("swirl-date-picker", () => {
     expect(page.root).toEqualHtml(`
       <swirl-date-picker range="true">
         <mock:shadow-root>
-          <wc-datepicker elementclassname="date-picker" firstdayofweek="7" locale="en-US" range=""></wc-datepicker>
+          <wc-datepicker  class="date-picker--fixed-max-width" elementclassname="date-picker" firstdayofweek="7" locale="en-US" range=""></wc-datepicker>
         </mock:shadow-root>
       </swirl-date-picker>
     `);

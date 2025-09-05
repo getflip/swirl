@@ -2477,6 +2477,10 @@
           "description": ""
         },
         {
+          "name": "fixed-max-width",
+          "description": ""
+        },
+        {
           "name": "labels",
           "description": ""
         },
