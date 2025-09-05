@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.375.0
+
+### Minor Changes
+
+- [#1216](https://github.com/getflip/swirl/pull/1216)
+  [`de8f31cd8`](https://github.com/getflip/swirl/commit/de8f31cd8f196504321c3b5ffd6642023ea944cd)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add constrained
+  prop to constrain size in swirl-date-picker
+
 ## 0.374.0
 
 ### Minor Changes
