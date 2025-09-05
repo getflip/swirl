@@ -17,7 +17,7 @@
 
 }
 
-.date-picker--constrained .date-picker {
+.date-picker--fixed-max-width .date-picker {
   @media (--from-tablet) {
     max-width: 17.5rem;
   }

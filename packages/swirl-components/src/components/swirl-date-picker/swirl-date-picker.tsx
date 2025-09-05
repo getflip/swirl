@@ -33,9 +33,9 @@ interface LocaleWithWeekInfo extends Intl.Locale {
 export class SwirlDatePicker {
   @Element() el: HTMLElement;
 
-  @Prop() constrained: boolean = true;
   @Prop() disableDate?: (date: Date) => boolean = () => false;
   @Prop({ mutable: true }) firstDayOfWeek?: number = 0;
+  @Prop() fixedMaxWidth: boolean = true;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() range?: boolean;
@@ -79,7 +79,7 @@ export class SwirlDatePicker {
         : undefined;
 
     const className = classnames({
-      "date-picker--constrained": this.constrained,
+      "date-picker--fixed-max-width": this.fixedMaxWidth,
     });
 
     return (

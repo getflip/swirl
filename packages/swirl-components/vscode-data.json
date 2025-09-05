@@ -2469,15 +2469,15 @@
       },
       "attributes": [
         {
-          "name": "constrained",
-          "description": ""
-        },
-        {
           "name": "disable-date",
           "description": ""
         },
         {
           "name": "first-day-of-week",
+          "description": ""
+        },
+        {
+          "name": "fixed-max-width",
           "description": ""
         },
         {

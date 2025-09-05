@@ -845,10 +845,6 @@ export namespace Components {
     }
     interface SwirlDatePicker {
         /**
-          * @default true
-         */
-        "constrained": boolean;
-        /**
           * @default () => false
          */
         "disableDate"?: (date: Date) => boolean;
@@ -856,6 +852,10 @@ export namespace Components {
           * @default 0
          */
         "firstDayOfWeek"?: number;
+        /**
+          * @default true
+         */
+        "fixedMaxWidth": boolean;
         "labels"?: WCDatepickerLabels;
         /**
           * @default "en-US"
@@ -9052,10 +9052,6 @@ declare namespace LocalJSX {
     }
     interface SwirlDatePicker {
         /**
-          * @default true
-         */
-        "constrained"?: boolean;
-        /**
           * @default () => false
          */
         "disableDate"?: (date: Date) => boolean;
@@ -9063,6 +9059,10 @@ declare namespace LocalJSX {
           * @default 0
          */
         "firstDayOfWeek"?: number;
+        /**
+          * @default true
+         */
+        "fixedMaxWidth"?: boolean;
         "labels"?: WCDatepickerLabels;
         /**
           * @default "en-US"
