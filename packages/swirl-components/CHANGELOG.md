@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.376.0
+
+### Minor Changes
+
+- [#1218](https://github.com/getflip/swirl/pull/1218)
+  [`5962420cb`](https://github.com/getflip/swirl/commit/5962420cb283f5ab1e0c61fb4fc6e9de2a00e3b8)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add EmojiSymbol
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5962420cb`](https://github.com/getflip/swirl/commit/5962420cb283f5ab1e0c61fb4fc6e9de2a00e3b8)]:
+  - @getflip/swirl-icons@0.70.0
+
 ## 0.375.0
 
 ### Minor Changes
