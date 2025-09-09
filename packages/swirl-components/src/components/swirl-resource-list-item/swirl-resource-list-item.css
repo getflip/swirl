@@ -218,10 +218,7 @@
   width: 100%;
   min-width: 0;
   margin: 0;
-  padding-top: var(--s-space-12);
-  padding-right: 0;
-  padding-bottom: var(--s-space-12);
-  padding-left: var(--s-space-8);
+  padding: var(--s-space-12) var(--s-space-8);
   align-items: flex-start;
   border: none;
   border-radius: var(--s-border-radius-sm);
@@ -260,7 +257,6 @@
   }
 
   @media (--from-desktop-without-touch) {
-    padding: var(--s-space-12) var(--s-space-8);
     line-height: var(--s-line-height-base);
   }
 }
