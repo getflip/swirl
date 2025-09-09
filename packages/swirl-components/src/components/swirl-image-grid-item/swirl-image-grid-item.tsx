@@ -228,29 +228,18 @@ export class SwirlImageGridItem {
           )}
 
           {this.showGifControls && (
-            <swirl-stack
-              class="image-grid-item__gif-controls"
-              orientation="horizontal"
-              spacing="4"
-            >
-              <button
-                class="image-grid-item__gif-controls__icon image-grid-item__gif-controls__icon--button"
-                onClick={this.handleControlClick}
-                type="button"
-                aria-label={
-                  this.gifPaused ? this.gifPlayLabel : this.gifPauseLabel
-                }
-              >
-                {this.gifPaused ? (
-                  <swirl-icon-play-arrow size={20}></swirl-icon-play-arrow>
-                ) : (
-                  <swirl-icon-pause size={20}></swirl-icon-pause>
-                )}
-              </button>
-              <div class="image-grid-item__gif-controls__icon image-grid-item__gif-controls__icon--label">
-                <swirl-icon-gif size={20}></swirl-icon-gif>
-              </div>
-            </swirl-stack>
+            <swirl-button
+              class="image-grid-item__gif-control-button"
+              label={this.gifPaused ? this.gifPlayLabel : this.gifPauseLabel}
+              icon="<swirl-icon-gif></swirl-icon-gif>"
+              variant="on-image"
+              pill
+              hideLabel
+              swirlAriaLabel={
+                this.gifPaused ? this.gifPlayLabel : this.gifPauseLabel
+              }
+              onClick={this.handleControlClick}
+            ></swirl-button>
           )}
           {this.loaded &&
             !this.error &&
