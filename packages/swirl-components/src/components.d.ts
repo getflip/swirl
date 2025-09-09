@@ -1748,6 +1748,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconEmojiSymbols {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconError {
         "color"?: SwirlIconColor1;
         /**
@@ -5943,6 +5950,12 @@ declare global {
         prototype: HTMLSwirlIconEmojiSatisfiedElement;
         new (): HTMLSwirlIconEmojiSatisfiedElement;
     };
+    interface HTMLSwirlIconEmojiSymbolsElement extends Components.SwirlIconEmojiSymbols, HTMLStencilElement {
+    }
+    var HTMLSwirlIconEmojiSymbolsElement: {
+        prototype: HTMLSwirlIconEmojiSymbolsElement;
+        new (): HTMLSwirlIconEmojiSymbolsElement;
+    };
     interface HTMLSwirlIconErrorElement extends Components.SwirlIconError, HTMLStencilElement {
     }
     var HTMLSwirlIconErrorElement: {
@@ -8126,6 +8139,7 @@ declare global {
         "swirl-icon-edit-note": HTMLSwirlIconEditNoteElement;
         "swirl-icon-emoji-mood": HTMLSwirlIconEmojiMoodElement;
         "swirl-icon-emoji-satisfied": HTMLSwirlIconEmojiSatisfiedElement;
+        "swirl-icon-emoji-symbols": HTMLSwirlIconEmojiSymbolsElement;
         "swirl-icon-error": HTMLSwirlIconErrorElement;
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
@@ -9919,6 +9933,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEmojiSatisfied {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconEmojiSymbols {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -12842,6 +12863,7 @@ declare namespace LocalJSX {
         "swirl-icon-edit-note": SwirlIconEditNote;
         "swirl-icon-emoji-mood": SwirlIconEmojiMood;
         "swirl-icon-emoji-satisfied": SwirlIconEmojiSatisfied;
+        "swirl-icon-emoji-symbols": SwirlIconEmojiSymbols;
         "swirl-icon-error": SwirlIconError;
         "swirl-icon-expand-less": SwirlIconExpandLess;
         "swirl-icon-expand-more": SwirlIconExpandMore;
@@ -13258,6 +13280,7 @@ declare module "@stencil/core" {
             "swirl-icon-edit-note": LocalJSX.SwirlIconEditNote & JSXBase.HTMLAttributes<HTMLSwirlIconEditNoteElement>;
             "swirl-icon-emoji-mood": LocalJSX.SwirlIconEmojiMood & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiMoodElement>;
             "swirl-icon-emoji-satisfied": LocalJSX.SwirlIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSatisfiedElement>;
+            "swirl-icon-emoji-symbols": LocalJSX.SwirlIconEmojiSymbols & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSymbolsElement>;
             "swirl-icon-error": LocalJSX.SwirlIconError & JSXBase.HTMLAttributes<HTMLSwirlIconErrorElement>;
             "swirl-icon-expand-less": LocalJSX.SwirlIconExpandLess & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.SwirlIconExpandMore & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
