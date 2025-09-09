@@ -358,6 +358,10 @@
   flex-direction: column;
   align-self: flex-start;
   gap: var(--s-space-2);
+
+  &:not(:has(.resource-list-item__meta-text)) {
+    align-self: center;
+  }
 }
 
 .resource-list-item__meta-text {

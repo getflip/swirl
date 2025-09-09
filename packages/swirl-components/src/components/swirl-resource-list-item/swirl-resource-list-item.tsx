@@ -303,7 +303,9 @@ export class SwirlResourceListItem {
             </span>
             {showMeta && (
               <span class="resource-list-item__meta">
-                <span class="resource-list-item__meta-text">{this.meta}</span>
+                {this.meta && (
+                  <span class="resource-list-item__meta-text">{this.meta}</span>
+                )}
                 <span
                   class="resource-list-item__badges"
                   ref={(el) => (this.badgesContainer = el)}
