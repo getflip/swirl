@@ -142,8 +142,11 @@
       opacity: 1;
     }
 
-    & .resource-list-item__meta {
-      pointer-events: none;
+    & .resource-list-item__badges {
+      padding-right: calc(var(--s-resource-list-item-control-size) + var(--s-space-8));
+    }
+
+    & .resource-list-item__meta-text {
       opacity: 0;
     }
   }
@@ -313,6 +316,7 @@
   right: var(--s-space-8);
   transform: translateY(-50%);
   z-index: 2;
+  transition: opacity 0.1s;
 }
 
 .resource-list-item__checkbox {
@@ -363,6 +367,7 @@
 .resource-list-item__badges {
   display: inline-flex;
   width: max-content;
+  transition: padding 0.1s;
 }
 
 .resource-list-item__drag-handle {

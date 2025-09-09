@@ -27,7 +27,7 @@ describe("swirl-resource-list-item", () => {
             <span class="resource-list-item__media">
               <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
             </span>
-            <span class="resource-list-item__label-container">
+            <span class="resource-list-item__label-container" style="padding-right: calc(0px + var(--s-space-16));">
               <span class="resource-list-item__label" id="${id}">
                 Label
               </span>
