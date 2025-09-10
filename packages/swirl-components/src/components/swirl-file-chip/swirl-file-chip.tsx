@@ -8,14 +8,14 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import { saveAs } from "file-saver";
 import classnames from "classnames";
+import { saveAs } from "file-saver";
 import {
   isAudioMimeType,
   isCompressedArchiveMimeType,
   isDocumentMimeType,
-  isImageMimeType,
   isPdfMimeType,
+  isSupportedImageMimeType,
   isVideoMimeType,
 } from "../../utils";
 
@@ -100,7 +100,7 @@ export class SwirlFileChip {
   }
 
   private setFileType() {
-    if (isImageMimeType(this.type)) {
+    if (isSupportedImageMimeType(this.type)) {
       this.fileType = "image";
     } else if (isVideoMimeType(this.type)) {
       this.fileType = "video";

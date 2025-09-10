@@ -8,18 +8,11 @@ import {
   Prop,
 } from "@stencil/core";
 import { saveAs } from "file-saver";
+import { isSupportedImageMimeType } from "../../utils";
 import {
   SwirlFileViewerPdfViewMode,
   SwirlFileViewerPdfZoom,
 } from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-
-const supportedImageMimeTypes = [
-  "image/jpeg",
-  "image/png",
-  "image/avif",
-  "image/gif",
-  "image/webp",
-];
 
 @Component({
   shadow: true,
@@ -91,7 +84,7 @@ export class SwirlFileViewer {
   render() {
     const unsupportedType =
       !Boolean(this.type) ||
-      (!supportedImageMimeTypes.includes(this.type) &&
+      (!isSupportedImageMimeType(this.type) &&
         !this.type.startsWith("video/") &&
         !this.type.startsWith("audio/") &&
         this.type !== "text/plain" &&
@@ -104,7 +97,7 @@ export class SwirlFileViewer {
           {this.type && this.active && (
             <div class="file-viewer__file">
               {/* images */}
-              {supportedImageMimeTypes.includes(this.type) && (
+              {isSupportedImageMimeType(this.type) && (
                 <swirl-file-viewer-image
                   description={this.description}
                   errorMessage={this.errorMessage}
