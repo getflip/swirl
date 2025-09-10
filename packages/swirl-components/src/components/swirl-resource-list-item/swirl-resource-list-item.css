@@ -144,11 +144,6 @@
       opacity: 1;
       width: auto;
     }
-
-    & .resource-list-item__meta-text {
-      opacity: 0;
-      width: 0;
-    }
   }
 
   & .resource-list-item__control {
