@@ -65,9 +65,6 @@ export class SwirlResourceListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
-  private controlContainer: HTMLElement;
-  private badgesContainer: HTMLElement;
-  private labelContainer: HTMLElement;
   private elementId = uuid();
   private iconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
@@ -91,10 +88,6 @@ export class SwirlResourceListItem {
     }
   }
 
-  componentDidRender() {
-    this.forceStyles();
-  }
-
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
   }
@@ -111,21 +104,6 @@ export class SwirlResourceListItem {
     const icon = this.iconEl?.children[0];
 
     icon?.setAttribute("size", smallIcon ? "20" : "24");
-  }
-
-  private forceStyles() {
-    const controlWidth = this.controlContainer?.getBoundingClientRect().width;
-
-    this.labelContainer?.style.setProperty(
-      "paddingRight",
-      !this.showMeta && Boolean(this.controlContainer)
-        ? `calc(${controlWidth}px + var(--s-space-16))`
-        : undefined
-    );
-    this.badgesContainer?.style.setProperty(
-      "--s-resource-list-item-control-size",
-      `${controlWidth}px`
-    );
   }
 
   private updateIconSize(smallIcon: boolean) {
@@ -281,7 +259,6 @@ export class SwirlResourceListItem {
               </span>
             )}
             <span
-              ref={(el) => (this.labelContainer = el)}
               class="resource-list-item__label-container"
               style={labelContainerStyles}
             >
@@ -306,14 +283,17 @@ export class SwirlResourceListItem {
                 {this.meta && (
                   <span class="resource-list-item__meta-text">{this.meta}</span>
                 )}
-                <span
-                  class="resource-list-item__badges"
-                  ref={(el) => (this.badgesContainer = el)}
-                >
+                <span class="resource-list-item__badges">
                   <slot name="badges"></slot>
                 </span>
               </span>
             )}
+            <span
+              class="resource-list-item__control"
+              onClick={this.onControlClick}
+            >
+              <slot name="control"></slot>
+            </span>
           </Tag>
           {this.selectable && (
             <span aria-hidden="true" class="resource-list-item__checkbox">
@@ -324,13 +304,6 @@ export class SwirlResourceListItem {
               </span>
             </span>
           )}
-          <span
-            class="resource-list-item__control"
-            onClick={this.onControlClick}
-            ref={(el) => (this.controlContainer = el)}
-          >
-            <slot name="control"></slot>
-          </span>
           {showMenu && (
             <swirl-popover-trigger swirlPopover={this.menuTriggerId}>
               <swirl-button

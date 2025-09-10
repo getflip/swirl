@@ -140,6 +140,7 @@
     & .resource-list-item__control {
       pointer-events: auto;
       opacity: 1;
+      width: auto;
     }
 
     & .resource-list-item__badges {
@@ -148,12 +149,14 @@
 
     & .resource-list-item__meta-text {
       opacity: 0;
+      width: 0;
     }
   }
 
   & .resource-list-item__control {
     pointer-events: none;
     opacity: 0;
+    width: 0;
   }
 }
 
@@ -307,12 +310,7 @@
 }
 
 .resource-list-item__control {
-  position: absolute;
-  top: 50%;
-  right: var(--s-space-8);
-  transform: translateY(-50%);
-  z-index: 2;
-  transition: opacity 0.1s;
+  align-self: center;
 }
 
 .resource-list-item__checkbox {
@@ -367,7 +365,6 @@
 .resource-list-item__badges {
   display: inline-flex;
   width: max-content;
-  transition: padding 0.1s;
 }
 
 .resource-list-item__drag-handle {
