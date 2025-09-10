@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.378.0
+
+### Minor Changes
+
+- [#1222](https://github.com/getflip/swirl/pull/1222)
+  [`3e7868b10`](https://github.com/getflip/swirl/commit/3e7868b101d10d7c895025ded7216830c25eb30f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust hover
+  behavior in swirl-resource-list-item
+
+* [#1223](https://github.com/getflip/swirl/pull/1223)
+  [`6249a45a8`](https://github.com/getflip/swirl/commit/6249a45a84cfb570a6bd2c9effcdade7cd460465)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Improve gif
+  controls in swirl-image-grid-item
+
 ## 0.377.0
 
 ### Minor Changes
