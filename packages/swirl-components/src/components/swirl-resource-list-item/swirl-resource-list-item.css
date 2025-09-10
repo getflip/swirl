@@ -145,6 +145,17 @@
       position: static;
       transform: none;
     }
+
+    & .resource-list-item__meta {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  & .resource-list-item__meta {
+    margin-right: calc(-1 * var(--s-space-16));
+    padding-right: var(--s-space-16);
+    transition: margin 0.1s;
   }
 
   & .resource-list-item__control {
@@ -154,6 +165,7 @@
     top: 50%;
     right: var(--s-space-8);
     transform: translateY(-50%);
+    transition: opacity 0.1s;
   }
 }
 
@@ -349,6 +361,7 @@
   flex-direction: column;
   align-self: flex-start;
   gap: var(--s-space-2);
+  transition: transform 0.2s;
 
   &:not(:has(.resource-list-item__meta-text)) {
     align-self: center;
