@@ -142,14 +142,18 @@
     & .resource-list-item__control {
       pointer-events: auto;
       opacity: 1;
-      width: auto;
+      position: static;
+      transform: none;
     }
   }
 
   & .resource-list-item__control {
     pointer-events: none;
     opacity: 0;
-    width: 0;
+    position: absolute;
+    top: 50%;
+    right: var(--s-space-8);
+    transform: translateY(-50%);
   }
 }
 
