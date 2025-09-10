@@ -65,7 +65,6 @@ export class SwirlResourceListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
-  private controlContainer: HTMLElement;
   private elementId = uuid();
   private iconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
@@ -91,6 +90,14 @@ export class SwirlResourceListItem {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+  }
+
+  private get hasBadges() {
+    return Boolean(this.el.querySelector("[slot='badges']"));
+  }
+
+  private get showMeta() {
+    return (Boolean(this.meta) || this.hasBadges) && !this.selectable;
   }
 
   private forceIconProps(smallIcon: boolean) {
@@ -180,7 +187,7 @@ export class SwirlResourceListItem {
 
     const disabled = this.disabled && !Boolean(this.href);
 
-    const hasBadges = Boolean(this.el.querySelector("[slot='badges']"));
+    const hasBadges = this.hasBadges;
     const hasControl = this.el.querySelector("[slot='control']");
     const hasMenu = Boolean(this.menuTriggerId) || hasControl;
 
@@ -189,7 +196,7 @@ export class SwirlResourceListItem {
     const showControlOnFocus = hasControl && (Boolean(this.meta) || hasBadges);
     const showMenu =
       Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
-    const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
+    const showMeta = this.showMeta;
 
     const ariaLabel = Boolean(this.swirlAriaLabel)
       ? this.swirlAriaLabel
@@ -200,12 +207,6 @@ export class SwirlResourceListItem {
     const containerRole = hostRole === "row" ? "gridcell" : undefined;
 
     const labelContainerStyles = {
-      paddingRight:
-        !showMeta && Boolean(this.controlContainer)
-          ? `calc(${
-              this.controlContainer?.getBoundingClientRect().width
-            }px + var(--s-space-16))`
-          : undefined,
       minHeight: this.labelMinHeight ?? undefined,
     };
 
@@ -279,12 +280,20 @@ export class SwirlResourceListItem {
             </span>
             {showMeta && (
               <span class="resource-list-item__meta">
-                <span class="resource-list-item__meta-text">{this.meta}</span>
+                {this.meta && (
+                  <span class="resource-list-item__meta-text">{this.meta}</span>
+                )}
                 <span class="resource-list-item__badges">
                   <slot name="badges"></slot>
                 </span>
               </span>
             )}
+            <span
+              class="resource-list-item__control"
+              onClick={this.onControlClick}
+            >
+              <slot name="control"></slot>
+            </span>
           </Tag>
           {this.selectable && (
             <span aria-hidden="true" class="resource-list-item__checkbox">
@@ -295,13 +304,6 @@ export class SwirlResourceListItem {
               </span>
             </span>
           )}
-          <span
-            class="resource-list-item__control"
-            onClick={this.onControlClick}
-            ref={(el) => (this.controlContainer = el)}
-          >
-            <slot name="control"></slot>
-          </span>
           {showMenu && (
             <swirl-popover-trigger swirlPopover={this.menuTriggerId}>
               <swirl-button
