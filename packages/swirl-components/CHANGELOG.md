@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.377.0
+
+### Minor Changes
+
+- [#1220](https://github.com/getflip/swirl/pull/1220)
+  [`f524690fe`](https://github.com/getflip/swirl/commit/f524690fe4be8491ed402990e6a4440afbd1ba1c)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add person-check icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f524690fe`](https://github.com/getflip/swirl/commit/f524690fe4be8491ed402990e6a4440afbd1ba1c)]:
+  - @getflip/swirl-icons@0.71.0
+
 ## 0.376.0
 
 ### Minor Changes
