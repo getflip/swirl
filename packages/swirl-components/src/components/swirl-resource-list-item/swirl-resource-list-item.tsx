@@ -174,6 +174,7 @@ export class SwirlResourceListItem {
   };
 
   private onControlClick = (event: MouseEvent) => {
+    event.preventDefault();
     event.stopPropagation();
   };
 
