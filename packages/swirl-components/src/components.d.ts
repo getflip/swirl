@@ -2315,6 +2315,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconPersonCheck {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPersonOff {
         "color"?: SwirlIconColor1;
         /**
@@ -6436,6 +6443,12 @@ declare global {
         prototype: HTMLSwirlIconPersonElement;
         new (): HTMLSwirlIconPersonElement;
     };
+    interface HTMLSwirlIconPersonCheckElement extends Components.SwirlIconPersonCheck, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPersonCheckElement: {
+        prototype: HTMLSwirlIconPersonCheckElement;
+        new (): HTMLSwirlIconPersonCheckElement;
+    };
     interface HTMLSwirlIconPersonOffElement extends Components.SwirlIconPersonOff, HTMLStencilElement {
     }
     var HTMLSwirlIconPersonOffElement: {
@@ -8220,6 +8233,7 @@ declare global {
         "swirl-icon-pause-circle": HTMLSwirlIconPauseCircleElement;
         "swirl-icon-people-alt": HTMLSwirlIconPeopleAltElement;
         "swirl-icon-person": HTMLSwirlIconPersonElement;
+        "swirl-icon-person-check": HTMLSwirlIconPersonCheckElement;
         "swirl-icon-person-off": HTMLSwirlIconPersonOffElement;
         "swirl-icon-phone": HTMLSwirlIconPhoneElement;
         "swirl-icon-photo-camera": HTMLSwirlIconPhotoCameraElement;
@@ -10500,6 +10514,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPerson {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPersonCheck {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -12944,6 +12965,7 @@ declare namespace LocalJSX {
         "swirl-icon-pause-circle": SwirlIconPauseCircle;
         "swirl-icon-people-alt": SwirlIconPeopleAlt;
         "swirl-icon-person": SwirlIconPerson;
+        "swirl-icon-person-check": SwirlIconPersonCheck;
         "swirl-icon-person-off": SwirlIconPersonOff;
         "swirl-icon-phone": SwirlIconPhone;
         "swirl-icon-photo-camera": SwirlIconPhotoCamera;
@@ -13361,6 +13383,7 @@ declare module "@stencil/core" {
             "swirl-icon-pause-circle": LocalJSX.SwirlIconPauseCircle & JSXBase.HTMLAttributes<HTMLSwirlIconPauseCircleElement>;
             "swirl-icon-people-alt": LocalJSX.SwirlIconPeopleAlt & JSXBase.HTMLAttributes<HTMLSwirlIconPeopleAltElement>;
             "swirl-icon-person": LocalJSX.SwirlIconPerson & JSXBase.HTMLAttributes<HTMLSwirlIconPersonElement>;
+            "swirl-icon-person-check": LocalJSX.SwirlIconPersonCheck & JSXBase.HTMLAttributes<HTMLSwirlIconPersonCheckElement>;
             "swirl-icon-person-off": LocalJSX.SwirlIconPersonOff & JSXBase.HTMLAttributes<HTMLSwirlIconPersonOffElement>;
             "swirl-icon-phone": LocalJSX.SwirlIconPhone & JSXBase.HTMLAttributes<HTMLSwirlIconPhoneElement>;
             "swirl-icon-photo-camera": LocalJSX.SwirlIconPhotoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconPhotoCameraElement>;
