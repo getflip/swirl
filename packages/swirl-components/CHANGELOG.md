@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.379.0
+
+### Minor Changes
+
+- [#1224](https://github.com/getflip/swirl/pull/1224)
+  [`34f9a7ae9`](https://github.com/getflip/swirl/commit/34f9a7ae99a973fc84e9127b13a8a4f08781882f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Whitelist supported image formats
+  in the swirl-file-viewer
+
 ## 0.378.0
 
 ### Minor Changes
