@@ -224,31 +224,19 @@ button.image-grid-item {
   }
 }
 
-.image-grid-item__gif-controls {
+.image-grid-item__gif-control-button {
   position: absolute;
-  z-index: 1;
-  bottom: var(--s-space-8);
-  left: var(--s-space-8);
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
 
-  .image-grid-item__gif-controls__icon {
-    display: flex;
-    padding: var(--s-space-2);
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--s-border-radius-s);
-    color: var(--s-icon-on-image);
-    background-color: var(--s-surface-on-image-default);
-  }
-
-  .image-grid-item__gif-controls__icon--button {
-    border: none;
-    cursor: pointer;
-  }
-
-  .image-grid-item__gif-controls__icon--label {
-    padding-left: var(--s-space-8);
-    padding-right: var(--s-space-8);
-  }
+.image-grid-item:hover > .image-grid-item__gif-control-button,
+.image-grid-item:focus-within > .image-grid-item__gif-control-button {
+  opacity: 1;
 }
 
 .image-grid-item__overlay {
