@@ -323,8 +323,14 @@ export function getCircularArrayIndex(
   return ((index % arrayLength) + arrayLength) % arrayLength;
 }
 
-export function isImageMimeType(mimeType: string): boolean {
-  return mimeType.startsWith("image/");
+export function isSupportedImageMimeType(mimeType: string): boolean {
+  return [
+    "image/jpeg",
+    "image/png",
+    "image/avif",
+    "image/gif",
+    "image/webp",
+  ].includes(mimeType);
 }
 
 export function isVideoMimeType(mimeType: string): boolean {
