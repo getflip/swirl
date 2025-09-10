@@ -13,6 +13,14 @@ import {
   SwirlFileViewerPdfZoom,
 } from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
+const supportedImageMimeTypes = [
+  "image/jpeg",
+  "image/png",
+  "image/avif",
+  "image/gif",
+  "image/webp",
+];
+
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer.css",
@@ -83,7 +91,7 @@ export class SwirlFileViewer {
   render() {
     const unsupportedType =
       !Boolean(this.type) ||
-      (!this.type.startsWith("image/") &&
+      (!supportedImageMimeTypes.includes(this.type) &&
         !this.type.startsWith("video/") &&
         !this.type.startsWith("audio/") &&
         this.type !== "text/plain" &&
@@ -96,7 +104,7 @@ export class SwirlFileViewer {
           {this.type && this.active && (
             <div class="file-viewer__file">
               {/* images */}
-              {this.type.startsWith("image/") && (
+              {supportedImageMimeTypes.includes(this.type) && (
                 <swirl-file-viewer-image
                   description={this.description}
                   errorMessage={this.errorMessage}
