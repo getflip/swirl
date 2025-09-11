@@ -351,12 +351,13 @@
 .resource-list-item__meta {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  min-height: 3rem;
   color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
   flex-direction: column;
   align-self: flex-start;
   gap: var(--s-space-2);
-  transition: transform 0.2s;
 
   &:not(:has(.resource-list-item__meta-text)) {
     align-self: center;
@@ -364,7 +365,12 @@
 }
 
 .resource-list-item__meta-text {
+  line-height: var(--s-line-height-base);
   white-space: nowrap;
+
+  @media (--from-desktop-without-touch) {
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .resource-list-item__badges {
