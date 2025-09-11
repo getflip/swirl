@@ -198,6 +198,7 @@ export class SwirlImageGridItem {
       "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
       "image-grid-item--loaded": this.loaded,
+      "image-grid-item--gif-paused": this.gifPaused,
     });
 
     return (
