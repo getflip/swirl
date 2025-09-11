@@ -234,7 +234,7 @@ export class SwirlResourceListItem {
 
     return (
       <Host role={hostRole}>
-        <div class={className} role={containerRole}>
+        <div class={className} role={containerRole} onClick={this.onClick}>
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
@@ -246,7 +246,6 @@ export class SwirlResourceListItem {
             style={{ alignItems: this.alignItems }}
             href={href}
             disabled={disabled}
-            onClick={this.onClick}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
             part="resource-list-item__content"
