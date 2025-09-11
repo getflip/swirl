@@ -235,7 +235,8 @@ button.image-grid-item {
 }
 
 .image-grid-item:hover > .image-grid-item__gif-control-button,
-.image-grid-item:focus-within > .image-grid-item__gif-control-button {
+.image-grid-item:focus-within > .image-grid-item__gif-control-button,
+.image-grid-item--gif-paused > .image-grid-item__gif-control-button {
   opacity: 1;
 }
 
