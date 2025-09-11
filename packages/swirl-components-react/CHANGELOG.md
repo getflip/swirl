@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.379.1
+
+### Patch Changes
+
+- [#1229](https://github.com/getflip/swirl/pull/1229)
+  [`6953bc2bf`](https://github.com/getflip/swirl/commit/6953bc2bf08320dc632a94813fe95d325488e722)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Show control
+  button when gif is paused in swirl-image-grid-item
+
+* [#1227](https://github.com/getflip/swirl/pull/1227)
+  [`1ff2754e2`](https://github.com/getflip/swirl/commit/1ff2754e2086af65a7f51df1015a8e698e493a6a)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  swirl-resource-list-item control slot
+
+* Updated dependencies
+  [[`6953bc2bf`](https://github.com/getflip/swirl/commit/6953bc2bf08320dc632a94813fe95d325488e722),
+  [`1ff2754e2`](https://github.com/getflip/swirl/commit/1ff2754e2086af65a7f51df1015a8e698e493a6a)]:
+  - @getflip/swirl-components@0.379.1
+
 ## 0.379.0
 
 ### Minor Changes
