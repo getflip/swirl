@@ -351,8 +351,6 @@
 .resource-list-item__meta {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  min-height: 3rem;
   color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
   flex-direction: column;
@@ -366,10 +364,12 @@
 
 .resource-list-item__meta-text {
   line-height: var(--s-line-height-base);
+  margin-top: var(--s-space-2);
   white-space: nowrap;
 
   @media (--from-desktop-without-touch) {
     line-height: var(--s-line-height-sm);
+    margin-top: var(--s-space-4);
   }
 }
 
