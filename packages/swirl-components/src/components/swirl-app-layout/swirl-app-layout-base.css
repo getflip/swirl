@@ -294,6 +294,7 @@
       right: 0;
       bottom: 0;
       width: min(40%, 25rem);
+      z-index: 3;
       border-left: var(--s-border-width-default) solid var(--s-border-default);
       box-shadow: var(--s-shadow-level-3);
     }
@@ -526,7 +527,6 @@
 }
 
 .app-layout__navigation {
-  z-index: 1;
   overflow-y: auto;
   border-right: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
@@ -618,7 +618,6 @@
 }
 
 .app-layout__sidebar {
-  z-index: 3;
   display: grid;
   width: 100%;
   height: 100%;
