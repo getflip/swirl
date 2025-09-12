@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.379.2
+
+### Patch Changes
+
+- [#1230](https://github.com/getflip/swirl/pull/1230)
+  [`d07d943e1`](https://github.com/getflip/swirl/commit/d07d943e1c2f8539829411129c14930b7052df48)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust
+  swirl-resource-list-item styles
+
+- Updated dependencies
+  [[`d07d943e1`](https://github.com/getflip/swirl/commit/d07d943e1c2f8539829411129c14930b7052df48)]:
+  - @getflip/swirl-components@0.379.2
+
 ## 0.379.1
 
 ### Patch Changes
