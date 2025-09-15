@@ -1,5 +1,25 @@
 # @getflip/swirl-components-angular
 
+## 0.379.4
+
+### Patch Changes
+
+- [#1234](https://github.com/getflip/swirl/pull/1234)
+  [`f4dd56412`](https://github.com/getflip/swirl/commit/f4dd56412d3fe4d4d976297f31c588885d5bb12b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix jitter issue of hovered
+  swirl-resource-list-item
+
+* [#1235](https://github.com/getflip/swirl/pull/1235)
+  [`6daf2bf05`](https://github.com/getflip/swirl/commit/6daf2bf05efd08f3a8a6e1feb50f233683c5842a)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Remove
+  --swirl-ghost-button-background-default token override in
+  swirl-resource-list-item
+
+* Updated dependencies
+  [[`f4dd56412`](https://github.com/getflip/swirl/commit/f4dd56412d3fe4d4d976297f31c588885d5bb12b),
+  [`6daf2bf05`](https://github.com/getflip/swirl/commit/6daf2bf05efd08f3a8a6e1feb50f233683c5842a)]:
+  - @getflip/swirl-components@0.379.4
+
 ## 0.379.3
 
 ### Patch Changes
