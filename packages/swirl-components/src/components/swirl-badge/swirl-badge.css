@@ -125,6 +125,11 @@
   background-color: var(--s-decorative-radish-surface);
 }
 
+.badge--intent-strong {
+  color: var(--s-text-on-status);
+  background-color: var(--s-interactive-neutral-default);
+}
+
 .badge--variant-dot {
   width: 1.5rem;
   min-width: 0;
