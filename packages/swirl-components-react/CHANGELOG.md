@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.379.3
+
+### Patch Changes
+
+- [#1232](https://github.com/getflip/swirl/pull/1232)
+  [`9e66219ea`](https://github.com/getflip/swirl/commit/9e66219ea23ed383ca8e4f959509415ed0772caf)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust z-index
+  in swirl-app-layout
+
+- Updated dependencies
+  [[`9e66219ea`](https://github.com/getflip/swirl/commit/9e66219ea23ed383ca8e4f959509415ed0772caf)]:
+  - @getflip/swirl-components@0.379.3
+
 ## 0.379.2
 
 ### Patch Changes
