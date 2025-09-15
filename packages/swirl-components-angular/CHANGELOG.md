@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.380.0
+
+### Minor Changes
+
+- [#1237](https://github.com/getflip/swirl/pull/1237)
+  [`34c051f03`](https://github.com/getflip/swirl/commit/34c051f031b6e567e548fb48af9d411ed5c0c28c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add strong
+  intent to swirl-badge
+
+### Patch Changes
+
+- Updated dependencies
+  [[`34c051f03`](https://github.com/getflip/swirl/commit/34c051f031b6e567e548fb48af9d411ed5c0c28c)]:
+  - @getflip/swirl-components@0.380.0
+
 ## 0.379.4
 
 ### Patch Changes
