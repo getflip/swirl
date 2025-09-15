@@ -62,7 +62,6 @@ const Template = (args) => {
   popover.animation = "scale-in-y";
   popover.label = "Options";
   popover.placement = "bottom-end";
-  popover.returnFocusToTrigger = false;
 
   popover.innerHTML = `
     <swirl-action-list>
