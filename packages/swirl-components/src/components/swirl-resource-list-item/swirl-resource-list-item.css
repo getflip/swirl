@@ -50,10 +50,6 @@
 .resource-list-item--interactive {
   cursor: pointer;
 
-  &:hover {
-    --swirl-ghost-button-background-default: var(--s-background-hovered);
-  }
-
   & .resource-list-item__content {
     cursor: pointer;
 
