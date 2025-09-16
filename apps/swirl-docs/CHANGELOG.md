@@ -1,5 +1,18 @@
 # swirl-docs
 
+## 0.3.149
+
+### Patch Changes
+
+- [#1240](https://github.com/getflip/swirl/pull/1240)
+  [`c524e984d`](https://github.com/getflip/swirl/commit/c524e984dab74608cd9809fe6e4a29a9878d64be)
+  Thanks [@danizep](https://github.com/danizep)! - Allow search engine indexing
+
+- Updated dependencies
+  [[`771770686`](https://github.com/getflip/swirl/commit/771770686dc8aae4eb01f16dd585c206b14bd32e)]:
+  - @getflip/swirl-components@0.381.0
+  - @getflip/swirl-components-react@0.381.0
+
 ## 0.3.148
 
 ### Patch Changes

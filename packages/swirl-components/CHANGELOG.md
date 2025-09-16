@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.381.0
+
+### Minor Changes
+
+- [#1239](https://github.com/getflip/swirl/pull/1239)
+  [`771770686`](https://github.com/getflip/swirl/commit/771770686dc8aae4eb01f16dd585c206b14bd32e)
+  Thanks [@danizep](https://github.com/danizep)! - Add disabled text color to
+  SwirlText
+
 ## 0.380.0
 
 ### Minor Changes
