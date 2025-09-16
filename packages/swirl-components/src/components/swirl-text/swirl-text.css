@@ -31,6 +31,10 @@
   color: var(--s-text-default);
 }
 
+.text--color-disabled {
+  color: var(--s-text-disabled);
+}
+
 .text--color-highlight {
   color: var(--s-text-highlight);
 }

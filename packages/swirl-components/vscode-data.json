@@ -20902,6 +20902,9 @@
               "name": "default"
             },
             {
+              "name": "disabled"
+            },
+            {
               "name": "highlight"
             },
             {
