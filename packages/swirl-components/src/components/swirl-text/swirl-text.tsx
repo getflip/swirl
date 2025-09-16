@@ -8,6 +8,7 @@ export type SwirlTextAlign = "start" | "center" | "end";
 export type SwirlTextColor =
   | "critical"
   | "default"
+  | "disabled"
   | "highlight"
   | "on-action-primary"
   | "on-image"
