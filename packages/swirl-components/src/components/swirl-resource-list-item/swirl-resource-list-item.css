@@ -10,7 +10,7 @@
   }
 
   &[aria-selected="true"] {
-    & .resource-list-item__content {
+    & .resource-list-item {
       background-color: var(--swirl-resource-list-item-background-hovered);
 
       & .resource-list-item__media,
