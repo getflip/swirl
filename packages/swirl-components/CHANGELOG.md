@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.381.1
+
+### Patch Changes
+
+- [#1242](https://github.com/getflip/swirl/pull/1242)
+  [`5c4c3ec0e`](https://github.com/getflip/swirl/commit/5c4c3ec0ebf57fecf2812334ebf84d837560f3bf)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix background
+  color in swirl-resource-list-item
+
 ## 0.381.0
 
 ### Minor Changes
