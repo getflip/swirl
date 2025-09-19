@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.382.0
+
+### Minor Changes
+
+- [#1244](https://github.com/getflip/swirl/pull/1244)
+  [`9afd52e95`](https://github.com/getflip/swirl/commit/9afd52e95ec50d26533f9b8d79e7742949b98b75)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add optional suffix to
+  swirl-tab-bar tabs
+
 ## 0.381.1
 
 ### Patch Changes
