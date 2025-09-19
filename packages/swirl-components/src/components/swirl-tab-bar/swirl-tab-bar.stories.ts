@@ -25,19 +25,21 @@ SwirlTabBar.args = {
     {
       active: false,
       id: "tab1",
-      label: "Tab #1",
+      label: "A Tab",
+      suffix: "2",
     },
     {
       active: true,
       icon: '<swirl-icon glyph="emoji-mood" size="20"></swirl-icon>',
       id: "tab2",
-      label: "Tab #2",
+      label: "Another Tab",
+      suffix: "12",
     },
     {
       active: false,
       icon: '<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>',
       id: "tab3",
-      label: "Tab #3",
+      label: "Yet Another Tab",
     },
   ],
 };

@@ -15,6 +15,7 @@ export type SwirlTabBarTab = {
   icon?: string;
   id: string;
   label: string;
+  suffix?: string;
 };
 
 export type SwirlTabBarJustify = "start" | "evenly";
@@ -160,7 +161,12 @@ export class SwirlTabBar {
                 {tab.icon && (
                   <span class="tab-bar__tab-icon" innerHTML={tab.icon}></span>
                 )}
-                <span class={labelClassName}>{tab.label}</span>
+                <span class={labelClassName}>
+                  {tab.label}
+                  {tab.suffix && (
+                    <span class="tab-bar__tab-suffix">{tab.suffix}</span>
+                  )}
+                </span>
               </button>
             );
           })}
