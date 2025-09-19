@@ -14,6 +14,7 @@ describe("swirl-tab-bar", () => {
         active: false,
         id: "tab1",
         label: "Tab #1",
+        suffix: "2",
       },
       {
         active: true,
@@ -35,6 +36,7 @@ describe("swirl-tab-bar", () => {
           <button aria-controls="tab1" aria-selected="false" class="tab-bar__tab tab-bar__tab--variant-default" id="tab-tab1" role="tab" tabindex="-1" type="button">
             <span class="tab-bar__tab-label">
               Tab #1
+              <span class="tab-bar__tab-suffix">2</span>
             </span>
           </button>
           <button aria-controls="tab2" aria-selected="true" class="tab-bar__tab tab-bar__tab--variant-default tab-bar__tab--active" id="tab-tab2" role="tab" tabindex="0" type="button">
