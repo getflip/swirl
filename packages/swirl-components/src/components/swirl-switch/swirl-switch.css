@@ -62,8 +62,7 @@
 .switch--hide-content {
   display: inline-block;
 
-  & .switch__label,
-  & .switch__description {
+  & .switch__content {
     position: absolute;
     display: inline;
     overflow: hidden;
