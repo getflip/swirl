@@ -51,7 +51,7 @@ export class SwirlShellNavigationItem {
         iconEl.tagName.startsWith("SWIRL-EMOJI") ||
         iconEl.tagName.startsWith("SWIRL-SYMBOL"))
     ) {
-      iconEl.setAttribute("size", smallIcon ? "20" : "24");
+      iconEl.setAttribute("size", smallIcon ? "20" : "32");
     }
   }
 

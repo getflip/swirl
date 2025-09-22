@@ -13,8 +13,6 @@ export class SwirlSymbolImage {
   @Prop() size: SwirlSymbolSize = 24;
 
   render() {
-    const viewBoxSize = this.size === 20 ? 24 : this.size;
-
     const className = classnames(
       "swirl-symbol",
       `swirl-symbol--size-${this.size}`
@@ -26,7 +24,7 @@ export class SwirlSymbolImage {
         fill="none"
         height={this.size}
         part="symbol"
-        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
+        viewBox="0 0 24 24"
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
