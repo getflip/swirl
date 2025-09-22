@@ -19436,6 +19436,10 @@
           "description": ""
         },
         {
+          "name": "hide-description",
+          "description": ""
+        },
+        {
           "name": "hide-label",
           "description": ""
         },
