@@ -3814,6 +3814,7 @@ export namespace Components {
           * @default false
          */
         "disabled"?: boolean;
+        "hideDescription"?: boolean;
         "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
@@ -11955,6 +11956,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "hideDescription"?: boolean;
         "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;

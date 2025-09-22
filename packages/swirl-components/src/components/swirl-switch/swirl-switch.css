@@ -11,9 +11,9 @@
 
 .switch {
   display: inline-flex;
+  width: 100%;
   align-items: center;
   touch-action: none;
-  width: 100%;
 
   &:focus-within .switch__control {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
@@ -59,8 +59,28 @@
   }
 }
 
+.switch--hide-content {
+  display: inline-block;
+
+  & .switch__label,
+  & .switch__description {
+    position: absolute;
+    display: inline;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    white-space: nowrap;
+    word-wrap: normal;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+
 .switch__control {
   position: relative;
+  display: block;
   width: 2.75rem;
   height: 1.5rem;
   flex-shrink: 0;
@@ -102,23 +122,23 @@
 }
 
 .switch__content {
-  margin-left: var(--s-space-12);
   position: relative;
   z-index: 1;
+  margin-left: var(--s-space-12);
 }
 
 .switch__label {
+  overflow: hidden;
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .switch__description {
+  color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-normal);
   line-height: var(--s-line-height-sm);
-  color: var(--s-text-subdued);
 }
