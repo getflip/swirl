@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.383.0
+
+### Minor Changes
+
+- [#1247](https://github.com/getflip/swirl/pull/1247)
+  [`3f9fcd342`](https://github.com/getflip/swirl/commit/3f9fcd342b4e9822a982ddbbd195608fc32a05ed)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-description" prop to
+  swirl-switch
+
+### Patch Changes
+
+- [#1247](https://github.com/getflip/swirl/pull/1247)
+  [`3f9fcd342`](https://github.com/getflip/swirl/commit/3f9fcd342b4e9822a982ddbbd195608fc32a05ed)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-switch width if no
+  visual label or description is present
+
+- Updated dependencies
+  [[`3f9fcd342`](https://github.com/getflip/swirl/commit/3f9fcd342b4e9822a982ddbbd195608fc32a05ed),
+  [`3f9fcd342`](https://github.com/getflip/swirl/commit/3f9fcd342b4e9822a982ddbbd195608fc32a05ed)]:
+  - @getflip/swirl-components@0.383.0
+
 ## 0.382.0
 
 ### Minor Changes
