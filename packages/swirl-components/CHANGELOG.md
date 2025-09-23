@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.386.0
+
+### Minor Changes
+
+- [#1253](https://github.com/getflip/swirl/pull/1253)
+  [`421cdd122`](https://github.com/getflip/swirl/commit/421cdd1220b7b8e9274b80cdda39910e5cee7bdf)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "openPicker" method to
+  swirl-date-input
+
 ## 0.385.0
 
 ### Minor Changes
