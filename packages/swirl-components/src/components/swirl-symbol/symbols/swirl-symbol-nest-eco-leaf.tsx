@@ -1,0 +1,40 @@
+// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h, Prop } from "@stencil/core";
+import { SwirlSymbolSize } from "../swirl-symbol.types";
+import classnames from "classnames";
+
+@Component({
+  shadow: true,
+  styleUrl: "../swirl-symbol.css",
+  tag: "swirl-symbol-nest-eco-leaf",
+})
+export class SwirlSymbolNestEcoLeaf {
+  @Prop() size: SwirlSymbolSize = 24;
+
+  render() {
+    const className = classnames(
+      "swirl-symbol",
+      `swirl-symbol--size-${this.size}`
+    );
+
+    return (
+      <svg
+        class={className}
+        fill="none"
+        height={this.size}
+        part="symbol"
+        viewBox="0 0 24 24"
+        width={this.size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Fragment>
+          <path
+            d="M4.3 19.7C4.11667 19.5167 4.025 19.2833 4.025 19C4.025 18.7167 4.11667 18.4833 4.3 18.3L5.675 16.925C5.14167 16.2417 4.72917 15.4833 4.4375 14.65C4.14583 13.8167 4 12.9333 4 12C4 9.76667 4.775 7.875 6.325 6.325C7.875 4.775 9.76667 4 12 4H18C18.55 4 19.0208 4.19583 19.4125 4.5875C19.8042 4.97917 20 5.45 20 6V12C20 14.2333 19.225 16.125 17.675 17.675C16.125 19.225 14.2333 20 12 20C11.0667 20 10.1875 19.8542 9.3625 19.5625C8.5375 19.2708 7.78333 18.8583 7.1 18.325L5.7 19.7C5.51667 19.8833 5.28333 19.975 5 19.975C4.71667 19.975 4.48333 19.8833 4.3 19.7ZM8.35 15.65C8.53333 15.8667 8.76667 15.9708 9.05 15.9625C9.33333 15.9542 9.575 15.85 9.775 15.65L13.7 11.725C13.9 11.525 14 11.2875 14 11.0125C14 10.7375 13.9 10.5 13.7 10.3C13.5167 10.1167 13.2833 10.025 13 10.025C12.7167 10.025 12.4833 10.1167 12.3 10.3L8.35 14.25C8.16667 14.4333 8.075 14.6625 8.075 14.9375C8.075 15.2125 8.16667 15.45 8.35 15.65Z"
+            fill="currentColor"
+          />
+        </Fragment>
+      </svg>
+    );
+  }
+}

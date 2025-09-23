@@ -1,0 +1,40 @@
+// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h, Prop } from "@stencil/core";
+import { SwirlSymbolSize } from "../swirl-symbol.types";
+import classnames from "classnames";
+
+@Component({
+  shadow: true,
+  styleUrl: "../swirl-symbol.css",
+  tag: "swirl-symbol-shopping-bag",
+})
+export class SwirlSymbolShoppingBag {
+  @Prop() size: SwirlSymbolSize = 24;
+
+  render() {
+    const className = classnames(
+      "swirl-symbol",
+      `swirl-symbol--size-${this.size}`
+    );
+
+    return (
+      <svg
+        class={className}
+        fill="none"
+        height={this.size}
+        part="symbol"
+        viewBox="0 0 24 24"
+        width={this.size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Fragment>
+          <path
+            d="M6 22C5.45 22 4.97917 21.8042 4.5875 21.4125C4.19583 21.0208 4 20.55 4 20V8C4 7.45 4.19583 6.97917 4.5875 6.5875C4.97917 6.19583 5.45 6 6 6H8C8 4.9 8.39167 3.95833 9.175 3.175C9.95833 2.39167 10.9 2 12 2C13.1 2 14.0417 2.39167 14.825 3.175C15.6083 3.95833 16 4.9 16 6H18C18.55 6 19.0208 6.19583 19.4125 6.5875C19.8042 6.97917 20 7.45 20 8V20C20 20.55 19.8042 21.0208 19.4125 21.4125C19.0208 21.8042 18.55 22 18 22H6ZM10 6H14C14 5.45 13.8042 4.97917 13.4125 4.5875C13.0208 4.19583 12.55 4 12 4C11.45 4 10.9792 4.19583 10.5875 4.5875C10.1958 4.97917 10 5.45 10 6ZM15 11C15.2833 11 15.5208 10.9042 15.7125 10.7125C15.9042 10.5208 16 10.2833 16 10V8H14V10C14 10.2833 14.0958 10.5208 14.2875 10.7125C14.4792 10.9042 14.7167 11 15 11ZM9 11C9.28333 11 9.52083 10.9042 9.7125 10.7125C9.90417 10.5208 10 10.2833 10 10V8H8V10C8 10.2833 8.09583 10.5208 8.2875 10.7125C8.47917 10.9042 8.71667 11 9 11Z"
+            fill="currentColor"
+          />
+        </Fragment>
+      </svg>
+    );
+  }
+}
