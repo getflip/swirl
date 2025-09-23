@@ -63,7 +63,7 @@
   }
 
   &:hover:not(.resource-list-item--disabled),
-  &:focus:not(.resource-list-item--disabled) {
+  &:focus-visible:not(.resource-list-item--disabled) {
     background-color: var(--swirl-resource-list-item-background-hovered);
 
     & .resource-list-item__media,
