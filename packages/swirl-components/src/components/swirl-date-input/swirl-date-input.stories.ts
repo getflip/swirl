@@ -37,10 +37,6 @@ const Template = (args) => {
   addAttributesToElement(formControl, { ...args, label: "Date" });
   formControl.append("\n  ", element, "\n");
 
-  setTimeout(() => {
-    element.openPicker();
-  }, 3000);
-
   return formControl;
 };
 
