@@ -3837,6 +3837,12 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolAcUnit {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolAccountCircle {
         /**
           * @default 24
@@ -3861,7 +3867,37 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolAutorenew {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolBackup {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolBadge {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolBarcodeReader {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolBarcodeScanner {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolBatteryHoriz {
         /**
           * @default 24
          */
@@ -3873,7 +3909,31 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolBolt {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolBookmark {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolCalendar {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolCampaign {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolCardsStar {
         /**
           * @default 24
          */
@@ -3885,7 +3945,25 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolConstruction {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolContacts {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolCoronavirus {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolDesignServices {
         /**
           * @default 24
          */
@@ -3903,6 +3981,18 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolDiversity {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolDraw {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolEditCalendar {
         /**
           * @default 24
@@ -3915,13 +4005,37 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolEmergency {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolEmojiFoodBeverage {
         /**
           * @default 24
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolEngineering {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolEventMenu {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolExplore {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolExtension {
         /**
           * @default 24
          */
@@ -3951,6 +4065,12 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolFlight {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolFolder {
         /**
           * @default 24
@@ -3969,7 +4089,37 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolHealing {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolHealthAndSafety {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolHelp {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolHomeRepairService {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolHomeStorage {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolIdCard {
         /**
           * @default 24
          */
@@ -3993,7 +4143,25 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolInventory {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolInventory2 {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolIos {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolKey {
         /**
           * @default 24
          */
@@ -4023,6 +4191,12 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolLocalShipping {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolLocationOn {
         /**
           * @default 24
@@ -4035,7 +4209,31 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolMap {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolMapsHomeWork {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolMenuBook {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolMop {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolNestEcoLeaf {
         /**
           * @default 24
          */
@@ -4053,7 +4251,43 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolOrders {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolPackage {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolPalette {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolPartlyCloudyDay {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolPedalBike {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolPercentDiscount {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolPets {
         /**
           * @default 24
          */
@@ -4065,13 +4299,37 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolPointOfSale {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolPolicy {
         /**
           * @default 24
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolPrecisionManufacturing {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolPrint {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolPushPin {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolRecycling {
         /**
           * @default 24
          */
@@ -4101,6 +4359,12 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolRocketLaunch {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolRoom {
         /**
           * @default 24
@@ -4113,7 +4377,25 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolSchool {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolSell {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolSettingsVoice {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolShoppingBag {
         /**
           * @default 24
          */
@@ -4131,6 +4413,18 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolSpa {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolSportsSoccer {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolStar {
         /**
           * @default 24
@@ -4143,13 +4437,67 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolTask {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolTasks {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolThumbsUpDown {
         /**
           * @default 24
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolTimer {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolToolsPowerDrill {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolTrain {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolTrophy {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolTwitter {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolVideo {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolWarehouse {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolWaterDrop {
         /**
           * @default 24
          */
@@ -4168,6 +4516,12 @@ export namespace Components {
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolWeibo {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
+    interface SwirlSymbolWifi {
         /**
           * @default 24
          */
@@ -7355,6 +7709,12 @@ declare global {
         prototype: HTMLSwirlSymbolElement;
         new (): HTMLSwirlSymbolElement;
     };
+    interface HTMLSwirlSymbolAcUnitElement extends Components.SwirlSymbolAcUnit, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolAcUnitElement: {
+        prototype: HTMLSwirlSymbolAcUnitElement;
+        new (): HTMLSwirlSymbolAcUnitElement;
+    };
     interface HTMLSwirlSymbolAccountCircleElement extends Components.SwirlSymbolAccountCircle, HTMLStencilElement {
     }
     var HTMLSwirlSymbolAccountCircleElement: {
@@ -7379,11 +7739,41 @@ declare global {
         prototype: HTMLSwirlSymbolAnnouncementElement;
         new (): HTMLSwirlSymbolAnnouncementElement;
     };
+    interface HTMLSwirlSymbolAutorenewElement extends Components.SwirlSymbolAutorenew, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolAutorenewElement: {
+        prototype: HTMLSwirlSymbolAutorenewElement;
+        new (): HTMLSwirlSymbolAutorenewElement;
+    };
     interface HTMLSwirlSymbolBackupElement extends Components.SwirlSymbolBackup, HTMLStencilElement {
     }
     var HTMLSwirlSymbolBackupElement: {
         prototype: HTMLSwirlSymbolBackupElement;
         new (): HTMLSwirlSymbolBackupElement;
+    };
+    interface HTMLSwirlSymbolBadgeElement extends Components.SwirlSymbolBadge, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolBadgeElement: {
+        prototype: HTMLSwirlSymbolBadgeElement;
+        new (): HTMLSwirlSymbolBadgeElement;
+    };
+    interface HTMLSwirlSymbolBarcodeReaderElement extends Components.SwirlSymbolBarcodeReader, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolBarcodeReaderElement: {
+        prototype: HTMLSwirlSymbolBarcodeReaderElement;
+        new (): HTMLSwirlSymbolBarcodeReaderElement;
+    };
+    interface HTMLSwirlSymbolBarcodeScannerElement extends Components.SwirlSymbolBarcodeScanner, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolBarcodeScannerElement: {
+        prototype: HTMLSwirlSymbolBarcodeScannerElement;
+        new (): HTMLSwirlSymbolBarcodeScannerElement;
+    };
+    interface HTMLSwirlSymbolBatteryHorizElement extends Components.SwirlSymbolBatteryHoriz, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolBatteryHorizElement: {
+        prototype: HTMLSwirlSymbolBatteryHorizElement;
+        new (): HTMLSwirlSymbolBatteryHorizElement;
     };
     interface HTMLSwirlSymbolBeachAccessElement extends Components.SwirlSymbolBeachAccess, HTMLStencilElement {
     }
@@ -7391,11 +7781,35 @@ declare global {
         prototype: HTMLSwirlSymbolBeachAccessElement;
         new (): HTMLSwirlSymbolBeachAccessElement;
     };
+    interface HTMLSwirlSymbolBoltElement extends Components.SwirlSymbolBolt, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolBoltElement: {
+        prototype: HTMLSwirlSymbolBoltElement;
+        new (): HTMLSwirlSymbolBoltElement;
+    };
     interface HTMLSwirlSymbolBookmarkElement extends Components.SwirlSymbolBookmark, HTMLStencilElement {
     }
     var HTMLSwirlSymbolBookmarkElement: {
         prototype: HTMLSwirlSymbolBookmarkElement;
         new (): HTMLSwirlSymbolBookmarkElement;
+    };
+    interface HTMLSwirlSymbolCalendarElement extends Components.SwirlSymbolCalendar, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolCalendarElement: {
+        prototype: HTMLSwirlSymbolCalendarElement;
+        new (): HTMLSwirlSymbolCalendarElement;
+    };
+    interface HTMLSwirlSymbolCampaignElement extends Components.SwirlSymbolCampaign, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolCampaignElement: {
+        prototype: HTMLSwirlSymbolCampaignElement;
+        new (): HTMLSwirlSymbolCampaignElement;
+    };
+    interface HTMLSwirlSymbolCardsStarElement extends Components.SwirlSymbolCardsStar, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolCardsStarElement: {
+        prototype: HTMLSwirlSymbolCardsStarElement;
+        new (): HTMLSwirlSymbolCardsStarElement;
     };
     interface HTMLSwirlSymbolCloudElement extends Components.SwirlSymbolCloud, HTMLStencilElement {
     }
@@ -7403,11 +7817,29 @@ declare global {
         prototype: HTMLSwirlSymbolCloudElement;
         new (): HTMLSwirlSymbolCloudElement;
     };
+    interface HTMLSwirlSymbolConstructionElement extends Components.SwirlSymbolConstruction, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolConstructionElement: {
+        prototype: HTMLSwirlSymbolConstructionElement;
+        new (): HTMLSwirlSymbolConstructionElement;
+    };
+    interface HTMLSwirlSymbolContactsElement extends Components.SwirlSymbolContacts, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolContactsElement: {
+        prototype: HTMLSwirlSymbolContactsElement;
+        new (): HTMLSwirlSymbolContactsElement;
+    };
     interface HTMLSwirlSymbolCoronavirusElement extends Components.SwirlSymbolCoronavirus, HTMLStencilElement {
     }
     var HTMLSwirlSymbolCoronavirusElement: {
         prototype: HTMLSwirlSymbolCoronavirusElement;
         new (): HTMLSwirlSymbolCoronavirusElement;
+    };
+    interface HTMLSwirlSymbolDesignServicesElement extends Components.SwirlSymbolDesignServices, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolDesignServicesElement: {
+        prototype: HTMLSwirlSymbolDesignServicesElement;
+        new (): HTMLSwirlSymbolDesignServicesElement;
     };
     interface HTMLSwirlSymbolDesktopWindowsElement extends Components.SwirlSymbolDesktopWindows, HTMLStencilElement {
     }
@@ -7421,6 +7853,18 @@ declare global {
         prototype: HTMLSwirlSymbolDirectionsCarFilledElement;
         new (): HTMLSwirlSymbolDirectionsCarFilledElement;
     };
+    interface HTMLSwirlSymbolDiversityElement extends Components.SwirlSymbolDiversity, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolDiversityElement: {
+        prototype: HTMLSwirlSymbolDiversityElement;
+        new (): HTMLSwirlSymbolDiversityElement;
+    };
+    interface HTMLSwirlSymbolDrawElement extends Components.SwirlSymbolDraw, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolDrawElement: {
+        prototype: HTMLSwirlSymbolDrawElement;
+        new (): HTMLSwirlSymbolDrawElement;
+    };
     interface HTMLSwirlSymbolEditCalendarElement extends Components.SwirlSymbolEditCalendar, HTMLStencilElement {
     }
     var HTMLSwirlSymbolEditCalendarElement: {
@@ -7433,17 +7877,41 @@ declare global {
         prototype: HTMLSwirlSymbolEmailElement;
         new (): HTMLSwirlSymbolEmailElement;
     };
+    interface HTMLSwirlSymbolEmergencyElement extends Components.SwirlSymbolEmergency, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolEmergencyElement: {
+        prototype: HTMLSwirlSymbolEmergencyElement;
+        new (): HTMLSwirlSymbolEmergencyElement;
+    };
     interface HTMLSwirlSymbolEmojiFoodBeverageElement extends Components.SwirlSymbolEmojiFoodBeverage, HTMLStencilElement {
     }
     var HTMLSwirlSymbolEmojiFoodBeverageElement: {
         prototype: HTMLSwirlSymbolEmojiFoodBeverageElement;
         new (): HTMLSwirlSymbolEmojiFoodBeverageElement;
     };
+    interface HTMLSwirlSymbolEngineeringElement extends Components.SwirlSymbolEngineering, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolEngineeringElement: {
+        prototype: HTMLSwirlSymbolEngineeringElement;
+        new (): HTMLSwirlSymbolEngineeringElement;
+    };
     interface HTMLSwirlSymbolEventMenuElement extends Components.SwirlSymbolEventMenu, HTMLStencilElement {
     }
     var HTMLSwirlSymbolEventMenuElement: {
         prototype: HTMLSwirlSymbolEventMenuElement;
         new (): HTMLSwirlSymbolEventMenuElement;
+    };
+    interface HTMLSwirlSymbolExploreElement extends Components.SwirlSymbolExplore, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolExploreElement: {
+        prototype: HTMLSwirlSymbolExploreElement;
+        new (): HTMLSwirlSymbolExploreElement;
+    };
+    interface HTMLSwirlSymbolExtensionElement extends Components.SwirlSymbolExtension, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolExtensionElement: {
+        prototype: HTMLSwirlSymbolExtensionElement;
+        new (): HTMLSwirlSymbolExtensionElement;
     };
     interface HTMLSwirlSymbolFacebookElement extends Components.SwirlSymbolFacebook, HTMLStencilElement {
     }
@@ -7469,6 +7937,12 @@ declare global {
         prototype: HTMLSwirlSymbolFlagElement;
         new (): HTMLSwirlSymbolFlagElement;
     };
+    interface HTMLSwirlSymbolFlightElement extends Components.SwirlSymbolFlight, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolFlightElement: {
+        prototype: HTMLSwirlSymbolFlightElement;
+        new (): HTMLSwirlSymbolFlightElement;
+    };
     interface HTMLSwirlSymbolFolderElement extends Components.SwirlSymbolFolder, HTMLStencilElement {
     }
     var HTMLSwirlSymbolFolderElement: {
@@ -7487,11 +7961,41 @@ declare global {
         prototype: HTMLSwirlSymbolGroupsElement;
         new (): HTMLSwirlSymbolGroupsElement;
     };
+    interface HTMLSwirlSymbolHealingElement extends Components.SwirlSymbolHealing, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolHealingElement: {
+        prototype: HTMLSwirlSymbolHealingElement;
+        new (): HTMLSwirlSymbolHealingElement;
+    };
+    interface HTMLSwirlSymbolHealthAndSafetyElement extends Components.SwirlSymbolHealthAndSafety, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolHealthAndSafetyElement: {
+        prototype: HTMLSwirlSymbolHealthAndSafetyElement;
+        new (): HTMLSwirlSymbolHealthAndSafetyElement;
+    };
     interface HTMLSwirlSymbolHelpElement extends Components.SwirlSymbolHelp, HTMLStencilElement {
     }
     var HTMLSwirlSymbolHelpElement: {
         prototype: HTMLSwirlSymbolHelpElement;
         new (): HTMLSwirlSymbolHelpElement;
+    };
+    interface HTMLSwirlSymbolHomeRepairServiceElement extends Components.SwirlSymbolHomeRepairService, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolHomeRepairServiceElement: {
+        prototype: HTMLSwirlSymbolHomeRepairServiceElement;
+        new (): HTMLSwirlSymbolHomeRepairServiceElement;
+    };
+    interface HTMLSwirlSymbolHomeStorageElement extends Components.SwirlSymbolHomeStorage, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolHomeStorageElement: {
+        prototype: HTMLSwirlSymbolHomeStorageElement;
+        new (): HTMLSwirlSymbolHomeStorageElement;
+    };
+    interface HTMLSwirlSymbolIdCardElement extends Components.SwirlSymbolIdCard, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolIdCardElement: {
+        prototype: HTMLSwirlSymbolIdCardElement;
+        new (): HTMLSwirlSymbolIdCardElement;
     };
     interface HTMLSwirlSymbolImageElement extends Components.SwirlSymbolImage, HTMLStencilElement {
     }
@@ -7511,11 +8015,29 @@ declare global {
         prototype: HTMLSwirlSymbolInstagramElement;
         new (): HTMLSwirlSymbolInstagramElement;
     };
+    interface HTMLSwirlSymbolInventoryElement extends Components.SwirlSymbolInventory, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolInventoryElement: {
+        prototype: HTMLSwirlSymbolInventoryElement;
+        new (): HTMLSwirlSymbolInventoryElement;
+    };
+    interface HTMLSwirlSymbolInventory2Element extends Components.SwirlSymbolInventory2, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolInventory2Element: {
+        prototype: HTMLSwirlSymbolInventory2Element;
+        new (): HTMLSwirlSymbolInventory2Element;
+    };
     interface HTMLSwirlSymbolIosElement extends Components.SwirlSymbolIos, HTMLStencilElement {
     }
     var HTMLSwirlSymbolIosElement: {
         prototype: HTMLSwirlSymbolIosElement;
         new (): HTMLSwirlSymbolIosElement;
+    };
+    interface HTMLSwirlSymbolKeyElement extends Components.SwirlSymbolKey, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolKeyElement: {
+        prototype: HTMLSwirlSymbolKeyElement;
+        new (): HTMLSwirlSymbolKeyElement;
     };
     interface HTMLSwirlSymbolLanguageElement extends Components.SwirlSymbolLanguage, HTMLStencilElement {
     }
@@ -7541,6 +8063,12 @@ declare global {
         prototype: HTMLSwirlSymbolLinkedinElement;
         new (): HTMLSwirlSymbolLinkedinElement;
     };
+    interface HTMLSwirlSymbolLocalShippingElement extends Components.SwirlSymbolLocalShipping, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolLocalShippingElement: {
+        prototype: HTMLSwirlSymbolLocalShippingElement;
+        new (): HTMLSwirlSymbolLocalShippingElement;
+    };
     interface HTMLSwirlSymbolLocationOnElement extends Components.SwirlSymbolLocationOn, HTMLStencilElement {
     }
     var HTMLSwirlSymbolLocationOnElement: {
@@ -7553,11 +8081,35 @@ declare global {
         prototype: HTMLSwirlSymbolLoyaltyElement;
         new (): HTMLSwirlSymbolLoyaltyElement;
     };
+    interface HTMLSwirlSymbolMapElement extends Components.SwirlSymbolMap, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolMapElement: {
+        prototype: HTMLSwirlSymbolMapElement;
+        new (): HTMLSwirlSymbolMapElement;
+    };
     interface HTMLSwirlSymbolMapsHomeWorkElement extends Components.SwirlSymbolMapsHomeWork, HTMLStencilElement {
     }
     var HTMLSwirlSymbolMapsHomeWorkElement: {
         prototype: HTMLSwirlSymbolMapsHomeWorkElement;
         new (): HTMLSwirlSymbolMapsHomeWorkElement;
+    };
+    interface HTMLSwirlSymbolMenuBookElement extends Components.SwirlSymbolMenuBook, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolMenuBookElement: {
+        prototype: HTMLSwirlSymbolMenuBookElement;
+        new (): HTMLSwirlSymbolMenuBookElement;
+    };
+    interface HTMLSwirlSymbolMopElement extends Components.SwirlSymbolMop, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolMopElement: {
+        prototype: HTMLSwirlSymbolMopElement;
+        new (): HTMLSwirlSymbolMopElement;
+    };
+    interface HTMLSwirlSymbolNestEcoLeafElement extends Components.SwirlSymbolNestEcoLeaf, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolNestEcoLeafElement: {
+        prototype: HTMLSwirlSymbolNestEcoLeafElement;
+        new (): HTMLSwirlSymbolNestEcoLeafElement;
     };
     interface HTMLSwirlSymbolNotificationsElement extends Components.SwirlSymbolNotifications, HTMLStencilElement {
     }
@@ -7571,11 +8123,47 @@ declare global {
         prototype: HTMLSwirlSymbolOpenInNewElement;
         new (): HTMLSwirlSymbolOpenInNewElement;
     };
+    interface HTMLSwirlSymbolOrdersElement extends Components.SwirlSymbolOrders, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolOrdersElement: {
+        prototype: HTMLSwirlSymbolOrdersElement;
+        new (): HTMLSwirlSymbolOrdersElement;
+    };
+    interface HTMLSwirlSymbolPackageElement extends Components.SwirlSymbolPackage, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPackageElement: {
+        prototype: HTMLSwirlSymbolPackageElement;
+        new (): HTMLSwirlSymbolPackageElement;
+    };
+    interface HTMLSwirlSymbolPaletteElement extends Components.SwirlSymbolPalette, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPaletteElement: {
+        prototype: HTMLSwirlSymbolPaletteElement;
+        new (): HTMLSwirlSymbolPaletteElement;
+    };
+    interface HTMLSwirlSymbolPartlyCloudyDayElement extends Components.SwirlSymbolPartlyCloudyDay, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPartlyCloudyDayElement: {
+        prototype: HTMLSwirlSymbolPartlyCloudyDayElement;
+        new (): HTMLSwirlSymbolPartlyCloudyDayElement;
+    };
     interface HTMLSwirlSymbolPedalBikeElement extends Components.SwirlSymbolPedalBike, HTMLStencilElement {
     }
     var HTMLSwirlSymbolPedalBikeElement: {
         prototype: HTMLSwirlSymbolPedalBikeElement;
         new (): HTMLSwirlSymbolPedalBikeElement;
+    };
+    interface HTMLSwirlSymbolPercentDiscountElement extends Components.SwirlSymbolPercentDiscount, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPercentDiscountElement: {
+        prototype: HTMLSwirlSymbolPercentDiscountElement;
+        new (): HTMLSwirlSymbolPercentDiscountElement;
+    };
+    interface HTMLSwirlSymbolPetsElement extends Components.SwirlSymbolPets, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPetsElement: {
+        prototype: HTMLSwirlSymbolPetsElement;
+        new (): HTMLSwirlSymbolPetsElement;
     };
     interface HTMLSwirlSymbolPinterestElement extends Components.SwirlSymbolPinterest, HTMLStencilElement {
     }
@@ -7583,17 +8171,41 @@ declare global {
         prototype: HTMLSwirlSymbolPinterestElement;
         new (): HTMLSwirlSymbolPinterestElement;
     };
+    interface HTMLSwirlSymbolPointOfSaleElement extends Components.SwirlSymbolPointOfSale, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPointOfSaleElement: {
+        prototype: HTMLSwirlSymbolPointOfSaleElement;
+        new (): HTMLSwirlSymbolPointOfSaleElement;
+    };
     interface HTMLSwirlSymbolPolicyElement extends Components.SwirlSymbolPolicy, HTMLStencilElement {
     }
     var HTMLSwirlSymbolPolicyElement: {
         prototype: HTMLSwirlSymbolPolicyElement;
         new (): HTMLSwirlSymbolPolicyElement;
     };
+    interface HTMLSwirlSymbolPrecisionManufacturingElement extends Components.SwirlSymbolPrecisionManufacturing, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPrecisionManufacturingElement: {
+        prototype: HTMLSwirlSymbolPrecisionManufacturingElement;
+        new (): HTMLSwirlSymbolPrecisionManufacturingElement;
+    };
+    interface HTMLSwirlSymbolPrintElement extends Components.SwirlSymbolPrint, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolPrintElement: {
+        prototype: HTMLSwirlSymbolPrintElement;
+        new (): HTMLSwirlSymbolPrintElement;
+    };
     interface HTMLSwirlSymbolPushPinElement extends Components.SwirlSymbolPushPin, HTMLStencilElement {
     }
     var HTMLSwirlSymbolPushPinElement: {
         prototype: HTMLSwirlSymbolPushPinElement;
         new (): HTMLSwirlSymbolPushPinElement;
+    };
+    interface HTMLSwirlSymbolRecyclingElement extends Components.SwirlSymbolRecycling, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolRecyclingElement: {
+        prototype: HTMLSwirlSymbolRecyclingElement;
+        new (): HTMLSwirlSymbolRecyclingElement;
     };
     interface HTMLSwirlSymbolRedeemElement extends Components.SwirlSymbolRedeem, HTMLStencilElement {
     }
@@ -7619,6 +8231,12 @@ declare global {
         prototype: HTMLSwirlSymbolRoadmapElement;
         new (): HTMLSwirlSymbolRoadmapElement;
     };
+    interface HTMLSwirlSymbolRocketLaunchElement extends Components.SwirlSymbolRocketLaunch, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolRocketLaunchElement: {
+        prototype: HTMLSwirlSymbolRocketLaunchElement;
+        new (): HTMLSwirlSymbolRocketLaunchElement;
+    };
     interface HTMLSwirlSymbolRoomElement extends Components.SwirlSymbolRoom, HTMLStencilElement {
     }
     var HTMLSwirlSymbolRoomElement: {
@@ -7631,11 +8249,29 @@ declare global {
         prototype: HTMLSwirlSymbolSavingsElement;
         new (): HTMLSwirlSymbolSavingsElement;
     };
+    interface HTMLSwirlSymbolSchoolElement extends Components.SwirlSymbolSchool, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolSchoolElement: {
+        prototype: HTMLSwirlSymbolSchoolElement;
+        new (): HTMLSwirlSymbolSchoolElement;
+    };
+    interface HTMLSwirlSymbolSellElement extends Components.SwirlSymbolSell, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolSellElement: {
+        prototype: HTMLSwirlSymbolSellElement;
+        new (): HTMLSwirlSymbolSellElement;
+    };
     interface HTMLSwirlSymbolSettingsVoiceElement extends Components.SwirlSymbolSettingsVoice, HTMLStencilElement {
     }
     var HTMLSwirlSymbolSettingsVoiceElement: {
         prototype: HTMLSwirlSymbolSettingsVoiceElement;
         new (): HTMLSwirlSymbolSettingsVoiceElement;
+    };
+    interface HTMLSwirlSymbolShoppingBagElement extends Components.SwirlSymbolShoppingBag, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolShoppingBagElement: {
+        prototype: HTMLSwirlSymbolShoppingBagElement;
+        new (): HTMLSwirlSymbolShoppingBagElement;
     };
     interface HTMLSwirlSymbolShoppingCartElement extends Components.SwirlSymbolShoppingCart, HTMLStencilElement {
     }
@@ -7649,6 +8285,18 @@ declare global {
         prototype: HTMLSwirlSymbolSmartphoneElement;
         new (): HTMLSwirlSymbolSmartphoneElement;
     };
+    interface HTMLSwirlSymbolSpaElement extends Components.SwirlSymbolSpa, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolSpaElement: {
+        prototype: HTMLSwirlSymbolSpaElement;
+        new (): HTMLSwirlSymbolSpaElement;
+    };
+    interface HTMLSwirlSymbolSportsSoccerElement extends Components.SwirlSymbolSportsSoccer, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolSportsSoccerElement: {
+        prototype: HTMLSwirlSymbolSportsSoccerElement;
+        new (): HTMLSwirlSymbolSportsSoccerElement;
+    };
     interface HTMLSwirlSymbolStarElement extends Components.SwirlSymbolStar, HTMLStencilElement {
     }
     var HTMLSwirlSymbolStarElement: {
@@ -7661,17 +8309,71 @@ declare global {
         prototype: HTMLSwirlSymbolSupervisorAccountElement;
         new (): HTMLSwirlSymbolSupervisorAccountElement;
     };
+    interface HTMLSwirlSymbolTaskElement extends Components.SwirlSymbolTask, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolTaskElement: {
+        prototype: HTMLSwirlSymbolTaskElement;
+        new (): HTMLSwirlSymbolTaskElement;
+    };
+    interface HTMLSwirlSymbolTasksElement extends Components.SwirlSymbolTasks, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolTasksElement: {
+        prototype: HTMLSwirlSymbolTasksElement;
+        new (): HTMLSwirlSymbolTasksElement;
+    };
     interface HTMLSwirlSymbolThumbsUpDownElement extends Components.SwirlSymbolThumbsUpDown, HTMLStencilElement {
     }
     var HTMLSwirlSymbolThumbsUpDownElement: {
         prototype: HTMLSwirlSymbolThumbsUpDownElement;
         new (): HTMLSwirlSymbolThumbsUpDownElement;
     };
+    interface HTMLSwirlSymbolTimerElement extends Components.SwirlSymbolTimer, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolTimerElement: {
+        prototype: HTMLSwirlSymbolTimerElement;
+        new (): HTMLSwirlSymbolTimerElement;
+    };
+    interface HTMLSwirlSymbolToolsPowerDrillElement extends Components.SwirlSymbolToolsPowerDrill, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolToolsPowerDrillElement: {
+        prototype: HTMLSwirlSymbolToolsPowerDrillElement;
+        new (): HTMLSwirlSymbolToolsPowerDrillElement;
+    };
+    interface HTMLSwirlSymbolTrainElement extends Components.SwirlSymbolTrain, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolTrainElement: {
+        prototype: HTMLSwirlSymbolTrainElement;
+        new (): HTMLSwirlSymbolTrainElement;
+    };
+    interface HTMLSwirlSymbolTrophyElement extends Components.SwirlSymbolTrophy, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolTrophyElement: {
+        prototype: HTMLSwirlSymbolTrophyElement;
+        new (): HTMLSwirlSymbolTrophyElement;
+    };
     interface HTMLSwirlSymbolTwitterElement extends Components.SwirlSymbolTwitter, HTMLStencilElement {
     }
     var HTMLSwirlSymbolTwitterElement: {
         prototype: HTMLSwirlSymbolTwitterElement;
         new (): HTMLSwirlSymbolTwitterElement;
+    };
+    interface HTMLSwirlSymbolVideoElement extends Components.SwirlSymbolVideo, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolVideoElement: {
+        prototype: HTMLSwirlSymbolVideoElement;
+        new (): HTMLSwirlSymbolVideoElement;
+    };
+    interface HTMLSwirlSymbolWarehouseElement extends Components.SwirlSymbolWarehouse, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolWarehouseElement: {
+        prototype: HTMLSwirlSymbolWarehouseElement;
+        new (): HTMLSwirlSymbolWarehouseElement;
+    };
+    interface HTMLSwirlSymbolWaterDropElement extends Components.SwirlSymbolWaterDrop, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolWaterDropElement: {
+        prototype: HTMLSwirlSymbolWaterDropElement;
+        new (): HTMLSwirlSymbolWaterDropElement;
     };
     interface HTMLSwirlSymbolWbSunnyElement extends Components.SwirlSymbolWbSunny, HTMLStencilElement {
     }
@@ -7690,6 +8392,12 @@ declare global {
     var HTMLSwirlSymbolWeiboElement: {
         prototype: HTMLSwirlSymbolWeiboElement;
         new (): HTMLSwirlSymbolWeiboElement;
+    };
+    interface HTMLSwirlSymbolWifiElement extends Components.SwirlSymbolWifi, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolWifiElement: {
+        prototype: HTMLSwirlSymbolWifiElement;
+        new (): HTMLSwirlSymbolWifiElement;
     };
     interface HTMLSwirlSymbolWorkElement extends Components.SwirlSymbolWork, HTMLStencilElement {
     }
@@ -8348,62 +9056,121 @@ declare global {
         "swirl-status-indicator": HTMLSwirlStatusIndicatorElement;
         "swirl-switch": HTMLSwirlSwitchElement;
         "swirl-symbol": HTMLSwirlSymbolElement;
+        "swirl-symbol-ac-unit": HTMLSwirlSymbolAcUnitElement;
         "swirl-symbol-account-circle": HTMLSwirlSymbolAccountCircleElement;
         "swirl-symbol-alternate-email": HTMLSwirlSymbolAlternateEmailElement;
         "swirl-symbol-android": HTMLSwirlSymbolAndroidElement;
         "swirl-symbol-announcement": HTMLSwirlSymbolAnnouncementElement;
+        "swirl-symbol-autorenew": HTMLSwirlSymbolAutorenewElement;
         "swirl-symbol-backup": HTMLSwirlSymbolBackupElement;
+        "swirl-symbol-badge": HTMLSwirlSymbolBadgeElement;
+        "swirl-symbol-barcode-reader": HTMLSwirlSymbolBarcodeReaderElement;
+        "swirl-symbol-barcode-scanner": HTMLSwirlSymbolBarcodeScannerElement;
+        "swirl-symbol-battery-horiz": HTMLSwirlSymbolBatteryHorizElement;
         "swirl-symbol-beach-access": HTMLSwirlSymbolBeachAccessElement;
+        "swirl-symbol-bolt": HTMLSwirlSymbolBoltElement;
         "swirl-symbol-bookmark": HTMLSwirlSymbolBookmarkElement;
+        "swirl-symbol-calendar": HTMLSwirlSymbolCalendarElement;
+        "swirl-symbol-campaign": HTMLSwirlSymbolCampaignElement;
+        "swirl-symbol-cards-star": HTMLSwirlSymbolCardsStarElement;
         "swirl-symbol-cloud": HTMLSwirlSymbolCloudElement;
+        "swirl-symbol-construction": HTMLSwirlSymbolConstructionElement;
+        "swirl-symbol-contacts": HTMLSwirlSymbolContactsElement;
         "swirl-symbol-coronavirus": HTMLSwirlSymbolCoronavirusElement;
+        "swirl-symbol-design-services": HTMLSwirlSymbolDesignServicesElement;
         "swirl-symbol-desktop-windows": HTMLSwirlSymbolDesktopWindowsElement;
         "swirl-symbol-directions-car-filled": HTMLSwirlSymbolDirectionsCarFilledElement;
+        "swirl-symbol-diversity": HTMLSwirlSymbolDiversityElement;
+        "swirl-symbol-draw": HTMLSwirlSymbolDrawElement;
         "swirl-symbol-edit-calendar": HTMLSwirlSymbolEditCalendarElement;
         "swirl-symbol-email": HTMLSwirlSymbolEmailElement;
+        "swirl-symbol-emergency": HTMLSwirlSymbolEmergencyElement;
         "swirl-symbol-emoji-food-beverage": HTMLSwirlSymbolEmojiFoodBeverageElement;
+        "swirl-symbol-engineering": HTMLSwirlSymbolEngineeringElement;
         "swirl-symbol-event-menu": HTMLSwirlSymbolEventMenuElement;
+        "swirl-symbol-explore": HTMLSwirlSymbolExploreElement;
+        "swirl-symbol-extension": HTMLSwirlSymbolExtensionElement;
         "swirl-symbol-facebook": HTMLSwirlSymbolFacebookElement;
         "swirl-symbol-favorite": HTMLSwirlSymbolFavoriteElement;
         "swirl-symbol-fitness-center": HTMLSwirlSymbolFitnessCenterElement;
         "swirl-symbol-flag": HTMLSwirlSymbolFlagElement;
+        "swirl-symbol-flight": HTMLSwirlSymbolFlightElement;
         "swirl-symbol-folder": HTMLSwirlSymbolFolderElement;
         "swirl-symbol-globe": HTMLSwirlSymbolGlobeElement;
         "swirl-symbol-groups": HTMLSwirlSymbolGroupsElement;
+        "swirl-symbol-healing": HTMLSwirlSymbolHealingElement;
+        "swirl-symbol-health-and-safety": HTMLSwirlSymbolHealthAndSafetyElement;
         "swirl-symbol-help": HTMLSwirlSymbolHelpElement;
+        "swirl-symbol-home-repair-service": HTMLSwirlSymbolHomeRepairServiceElement;
+        "swirl-symbol-home-storage": HTMLSwirlSymbolHomeStorageElement;
+        "swirl-symbol-id-card": HTMLSwirlSymbolIdCardElement;
         "swirl-symbol-image": HTMLSwirlSymbolImageElement;
         "swirl-symbol-info-menu": HTMLSwirlSymbolInfoMenuElement;
         "swirl-symbol-instagram": HTMLSwirlSymbolInstagramElement;
+        "swirl-symbol-inventory": HTMLSwirlSymbolInventoryElement;
+        "swirl-symbol-inventory-2": HTMLSwirlSymbolInventory2Element;
         "swirl-symbol-ios": HTMLSwirlSymbolIosElement;
+        "swirl-symbol-key": HTMLSwirlSymbolKeyElement;
         "swirl-symbol-language": HTMLSwirlSymbolLanguageElement;
         "swirl-symbol-leaderboard": HTMLSwirlSymbolLeaderboardElement;
         "swirl-symbol-lightbulb": HTMLSwirlSymbolLightbulbElement;
         "swirl-symbol-linkedin": HTMLSwirlSymbolLinkedinElement;
+        "swirl-symbol-local-shipping": HTMLSwirlSymbolLocalShippingElement;
         "swirl-symbol-location-on": HTMLSwirlSymbolLocationOnElement;
         "swirl-symbol-loyalty": HTMLSwirlSymbolLoyaltyElement;
+        "swirl-symbol-map": HTMLSwirlSymbolMapElement;
         "swirl-symbol-maps-home-work": HTMLSwirlSymbolMapsHomeWorkElement;
+        "swirl-symbol-menu-book": HTMLSwirlSymbolMenuBookElement;
+        "swirl-symbol-mop": HTMLSwirlSymbolMopElement;
+        "swirl-symbol-nest-eco-leaf": HTMLSwirlSymbolNestEcoLeafElement;
         "swirl-symbol-notifications": HTMLSwirlSymbolNotificationsElement;
         "swirl-symbol-open-in-new": HTMLSwirlSymbolOpenInNewElement;
+        "swirl-symbol-orders": HTMLSwirlSymbolOrdersElement;
+        "swirl-symbol-package": HTMLSwirlSymbolPackageElement;
+        "swirl-symbol-palette": HTMLSwirlSymbolPaletteElement;
+        "swirl-symbol-partly-cloudy-day": HTMLSwirlSymbolPartlyCloudyDayElement;
         "swirl-symbol-pedal-bike": HTMLSwirlSymbolPedalBikeElement;
+        "swirl-symbol-percent-discount": HTMLSwirlSymbolPercentDiscountElement;
+        "swirl-symbol-pets": HTMLSwirlSymbolPetsElement;
         "swirl-symbol-pinterest": HTMLSwirlSymbolPinterestElement;
+        "swirl-symbol-point-of-sale": HTMLSwirlSymbolPointOfSaleElement;
         "swirl-symbol-policy": HTMLSwirlSymbolPolicyElement;
+        "swirl-symbol-precision-manufacturing": HTMLSwirlSymbolPrecisionManufacturingElement;
+        "swirl-symbol-print": HTMLSwirlSymbolPrintElement;
         "swirl-symbol-push-pin": HTMLSwirlSymbolPushPinElement;
+        "swirl-symbol-recycling": HTMLSwirlSymbolRecyclingElement;
         "swirl-symbol-redeem": HTMLSwirlSymbolRedeemElement;
         "swirl-symbol-report-problem": HTMLSwirlSymbolReportProblemElement;
         "swirl-symbol-restaurant": HTMLSwirlSymbolRestaurantElement;
         "swirl-symbol-roadmap": HTMLSwirlSymbolRoadmapElement;
+        "swirl-symbol-rocket-launch": HTMLSwirlSymbolRocketLaunchElement;
         "swirl-symbol-room": HTMLSwirlSymbolRoomElement;
         "swirl-symbol-savings": HTMLSwirlSymbolSavingsElement;
+        "swirl-symbol-school": HTMLSwirlSymbolSchoolElement;
+        "swirl-symbol-sell": HTMLSwirlSymbolSellElement;
         "swirl-symbol-settings-voice": HTMLSwirlSymbolSettingsVoiceElement;
+        "swirl-symbol-shopping-bag": HTMLSwirlSymbolShoppingBagElement;
         "swirl-symbol-shopping-cart": HTMLSwirlSymbolShoppingCartElement;
         "swirl-symbol-smartphone": HTMLSwirlSymbolSmartphoneElement;
+        "swirl-symbol-spa": HTMLSwirlSymbolSpaElement;
+        "swirl-symbol-sports-soccer": HTMLSwirlSymbolSportsSoccerElement;
         "swirl-symbol-star": HTMLSwirlSymbolStarElement;
         "swirl-symbol-supervisor-account": HTMLSwirlSymbolSupervisorAccountElement;
+        "swirl-symbol-task": HTMLSwirlSymbolTaskElement;
+        "swirl-symbol-tasks": HTMLSwirlSymbolTasksElement;
         "swirl-symbol-thumbs-up-down": HTMLSwirlSymbolThumbsUpDownElement;
+        "swirl-symbol-timer": HTMLSwirlSymbolTimerElement;
+        "swirl-symbol-tools-power-drill": HTMLSwirlSymbolToolsPowerDrillElement;
+        "swirl-symbol-train": HTMLSwirlSymbolTrainElement;
+        "swirl-symbol-trophy": HTMLSwirlSymbolTrophyElement;
         "swirl-symbol-twitter": HTMLSwirlSymbolTwitterElement;
+        "swirl-symbol-video": HTMLSwirlSymbolVideoElement;
+        "swirl-symbol-warehouse": HTMLSwirlSymbolWarehouseElement;
+        "swirl-symbol-water-drop": HTMLSwirlSymbolWaterDropElement;
         "swirl-symbol-wb-sunny": HTMLSwirlSymbolWbSunnyElement;
         "swirl-symbol-wechat": HTMLSwirlSymbolWechatElement;
         "swirl-symbol-weibo": HTMLSwirlSymbolWeiboElement;
+        "swirl-symbol-wifi": HTMLSwirlSymbolWifiElement;
         "swirl-symbol-work": HTMLSwirlSymbolWorkElement;
         "swirl-symbol-xing": HTMLSwirlSymbolXingElement;
         "swirl-symbol-youtube": HTMLSwirlSymbolYoutubeElement;
@@ -11976,6 +12743,12 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolAcUnit {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolAccountCircle {
         /**
           * @default 24
@@ -12000,7 +12773,37 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolAutorenew {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolBackup {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolBadge {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolBarcodeReader {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolBarcodeScanner {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolBatteryHoriz {
         /**
           * @default 24
          */
@@ -12012,7 +12815,31 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolBolt {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolBookmark {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolCalendar {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolCampaign {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolCardsStar {
         /**
           * @default 24
          */
@@ -12024,7 +12851,25 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolConstruction {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolContacts {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolCoronavirus {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolDesignServices {
         /**
           * @default 24
          */
@@ -12042,6 +12887,18 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolDiversity {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolDraw {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolEditCalendar {
         /**
           * @default 24
@@ -12054,13 +12911,37 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolEmergency {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolEmojiFoodBeverage {
         /**
           * @default 24
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolEngineering {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolEventMenu {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolExplore {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolExtension {
         /**
           * @default 24
          */
@@ -12090,6 +12971,12 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolFlight {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolFolder {
         /**
           * @default 24
@@ -12108,7 +12995,37 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolHealing {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolHealthAndSafety {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolHelp {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolHomeRepairService {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolHomeStorage {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolIdCard {
         /**
           * @default 24
          */
@@ -12132,7 +13049,25 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolInventory {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolInventory2 {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolIos {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolKey {
         /**
           * @default 24
          */
@@ -12162,6 +13097,12 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolLocalShipping {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolLocationOn {
         /**
           * @default 24
@@ -12174,7 +13115,31 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolMap {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolMapsHomeWork {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolMenuBook {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolMop {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolNestEcoLeaf {
         /**
           * @default 24
          */
@@ -12192,7 +13157,43 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolOrders {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolPackage {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolPalette {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolPartlyCloudyDay {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolPedalBike {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolPercentDiscount {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolPets {
         /**
           * @default 24
          */
@@ -12204,13 +13205,37 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolPointOfSale {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolPolicy {
         /**
           * @default 24
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolPrecisionManufacturing {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolPrint {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolPushPin {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolRecycling {
         /**
           * @default 24
          */
@@ -12240,6 +13265,12 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolRocketLaunch {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolRoom {
         /**
           * @default 24
@@ -12252,7 +13283,25 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolSchool {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolSell {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolSettingsVoice {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolShoppingBag {
         /**
           * @default 24
          */
@@ -12270,6 +13319,18 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolSpa {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolSportsSoccer {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolStar {
         /**
           * @default 24
@@ -12282,13 +13343,67 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolTask {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolTasks {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolThumbsUpDown {
         /**
           * @default 24
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolTimer {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolToolsPowerDrill {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolTrain {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolTrophy {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolTwitter {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolVideo {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolWarehouse {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolWaterDrop {
         /**
           * @default 24
          */
@@ -12307,6 +13422,12 @@ declare namespace LocalJSX {
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolWeibo {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
+    interface SwirlSymbolWifi {
         /**
           * @default 24
          */
@@ -13081,62 +14202,121 @@ declare namespace LocalJSX {
         "swirl-status-indicator": SwirlStatusIndicator;
         "swirl-switch": SwirlSwitch;
         "swirl-symbol": SwirlSymbol;
+        "swirl-symbol-ac-unit": SwirlSymbolAcUnit;
         "swirl-symbol-account-circle": SwirlSymbolAccountCircle;
         "swirl-symbol-alternate-email": SwirlSymbolAlternateEmail;
         "swirl-symbol-android": SwirlSymbolAndroid;
         "swirl-symbol-announcement": SwirlSymbolAnnouncement;
+        "swirl-symbol-autorenew": SwirlSymbolAutorenew;
         "swirl-symbol-backup": SwirlSymbolBackup;
+        "swirl-symbol-badge": SwirlSymbolBadge;
+        "swirl-symbol-barcode-reader": SwirlSymbolBarcodeReader;
+        "swirl-symbol-barcode-scanner": SwirlSymbolBarcodeScanner;
+        "swirl-symbol-battery-horiz": SwirlSymbolBatteryHoriz;
         "swirl-symbol-beach-access": SwirlSymbolBeachAccess;
+        "swirl-symbol-bolt": SwirlSymbolBolt;
         "swirl-symbol-bookmark": SwirlSymbolBookmark;
+        "swirl-symbol-calendar": SwirlSymbolCalendar;
+        "swirl-symbol-campaign": SwirlSymbolCampaign;
+        "swirl-symbol-cards-star": SwirlSymbolCardsStar;
         "swirl-symbol-cloud": SwirlSymbolCloud;
+        "swirl-symbol-construction": SwirlSymbolConstruction;
+        "swirl-symbol-contacts": SwirlSymbolContacts;
         "swirl-symbol-coronavirus": SwirlSymbolCoronavirus;
+        "swirl-symbol-design-services": SwirlSymbolDesignServices;
         "swirl-symbol-desktop-windows": SwirlSymbolDesktopWindows;
         "swirl-symbol-directions-car-filled": SwirlSymbolDirectionsCarFilled;
+        "swirl-symbol-diversity": SwirlSymbolDiversity;
+        "swirl-symbol-draw": SwirlSymbolDraw;
         "swirl-symbol-edit-calendar": SwirlSymbolEditCalendar;
         "swirl-symbol-email": SwirlSymbolEmail;
+        "swirl-symbol-emergency": SwirlSymbolEmergency;
         "swirl-symbol-emoji-food-beverage": SwirlSymbolEmojiFoodBeverage;
+        "swirl-symbol-engineering": SwirlSymbolEngineering;
         "swirl-symbol-event-menu": SwirlSymbolEventMenu;
+        "swirl-symbol-explore": SwirlSymbolExplore;
+        "swirl-symbol-extension": SwirlSymbolExtension;
         "swirl-symbol-facebook": SwirlSymbolFacebook;
         "swirl-symbol-favorite": SwirlSymbolFavorite;
         "swirl-symbol-fitness-center": SwirlSymbolFitnessCenter;
         "swirl-symbol-flag": SwirlSymbolFlag;
+        "swirl-symbol-flight": SwirlSymbolFlight;
         "swirl-symbol-folder": SwirlSymbolFolder;
         "swirl-symbol-globe": SwirlSymbolGlobe;
         "swirl-symbol-groups": SwirlSymbolGroups;
+        "swirl-symbol-healing": SwirlSymbolHealing;
+        "swirl-symbol-health-and-safety": SwirlSymbolHealthAndSafety;
         "swirl-symbol-help": SwirlSymbolHelp;
+        "swirl-symbol-home-repair-service": SwirlSymbolHomeRepairService;
+        "swirl-symbol-home-storage": SwirlSymbolHomeStorage;
+        "swirl-symbol-id-card": SwirlSymbolIdCard;
         "swirl-symbol-image": SwirlSymbolImage;
         "swirl-symbol-info-menu": SwirlSymbolInfoMenu;
         "swirl-symbol-instagram": SwirlSymbolInstagram;
+        "swirl-symbol-inventory": SwirlSymbolInventory;
+        "swirl-symbol-inventory-2": SwirlSymbolInventory2;
         "swirl-symbol-ios": SwirlSymbolIos;
+        "swirl-symbol-key": SwirlSymbolKey;
         "swirl-symbol-language": SwirlSymbolLanguage;
         "swirl-symbol-leaderboard": SwirlSymbolLeaderboard;
         "swirl-symbol-lightbulb": SwirlSymbolLightbulb;
         "swirl-symbol-linkedin": SwirlSymbolLinkedin;
+        "swirl-symbol-local-shipping": SwirlSymbolLocalShipping;
         "swirl-symbol-location-on": SwirlSymbolLocationOn;
         "swirl-symbol-loyalty": SwirlSymbolLoyalty;
+        "swirl-symbol-map": SwirlSymbolMap;
         "swirl-symbol-maps-home-work": SwirlSymbolMapsHomeWork;
+        "swirl-symbol-menu-book": SwirlSymbolMenuBook;
+        "swirl-symbol-mop": SwirlSymbolMop;
+        "swirl-symbol-nest-eco-leaf": SwirlSymbolNestEcoLeaf;
         "swirl-symbol-notifications": SwirlSymbolNotifications;
         "swirl-symbol-open-in-new": SwirlSymbolOpenInNew;
+        "swirl-symbol-orders": SwirlSymbolOrders;
+        "swirl-symbol-package": SwirlSymbolPackage;
+        "swirl-symbol-palette": SwirlSymbolPalette;
+        "swirl-symbol-partly-cloudy-day": SwirlSymbolPartlyCloudyDay;
         "swirl-symbol-pedal-bike": SwirlSymbolPedalBike;
+        "swirl-symbol-percent-discount": SwirlSymbolPercentDiscount;
+        "swirl-symbol-pets": SwirlSymbolPets;
         "swirl-symbol-pinterest": SwirlSymbolPinterest;
+        "swirl-symbol-point-of-sale": SwirlSymbolPointOfSale;
         "swirl-symbol-policy": SwirlSymbolPolicy;
+        "swirl-symbol-precision-manufacturing": SwirlSymbolPrecisionManufacturing;
+        "swirl-symbol-print": SwirlSymbolPrint;
         "swirl-symbol-push-pin": SwirlSymbolPushPin;
+        "swirl-symbol-recycling": SwirlSymbolRecycling;
         "swirl-symbol-redeem": SwirlSymbolRedeem;
         "swirl-symbol-report-problem": SwirlSymbolReportProblem;
         "swirl-symbol-restaurant": SwirlSymbolRestaurant;
         "swirl-symbol-roadmap": SwirlSymbolRoadmap;
+        "swirl-symbol-rocket-launch": SwirlSymbolRocketLaunch;
         "swirl-symbol-room": SwirlSymbolRoom;
         "swirl-symbol-savings": SwirlSymbolSavings;
+        "swirl-symbol-school": SwirlSymbolSchool;
+        "swirl-symbol-sell": SwirlSymbolSell;
         "swirl-symbol-settings-voice": SwirlSymbolSettingsVoice;
+        "swirl-symbol-shopping-bag": SwirlSymbolShoppingBag;
         "swirl-symbol-shopping-cart": SwirlSymbolShoppingCart;
         "swirl-symbol-smartphone": SwirlSymbolSmartphone;
+        "swirl-symbol-spa": SwirlSymbolSpa;
+        "swirl-symbol-sports-soccer": SwirlSymbolSportsSoccer;
         "swirl-symbol-star": SwirlSymbolStar;
         "swirl-symbol-supervisor-account": SwirlSymbolSupervisorAccount;
+        "swirl-symbol-task": SwirlSymbolTask;
+        "swirl-symbol-tasks": SwirlSymbolTasks;
         "swirl-symbol-thumbs-up-down": SwirlSymbolThumbsUpDown;
+        "swirl-symbol-timer": SwirlSymbolTimer;
+        "swirl-symbol-tools-power-drill": SwirlSymbolToolsPowerDrill;
+        "swirl-symbol-train": SwirlSymbolTrain;
+        "swirl-symbol-trophy": SwirlSymbolTrophy;
         "swirl-symbol-twitter": SwirlSymbolTwitter;
+        "swirl-symbol-video": SwirlSymbolVideo;
+        "swirl-symbol-warehouse": SwirlSymbolWarehouse;
+        "swirl-symbol-water-drop": SwirlSymbolWaterDrop;
         "swirl-symbol-wb-sunny": SwirlSymbolWbSunny;
         "swirl-symbol-wechat": SwirlSymbolWechat;
         "swirl-symbol-weibo": SwirlSymbolWeibo;
+        "swirl-symbol-wifi": SwirlSymbolWifi;
         "swirl-symbol-work": SwirlSymbolWork;
         "swirl-symbol-xing": SwirlSymbolXing;
         "swirl-symbol-youtube": SwirlSymbolYoutube;
@@ -13499,62 +14679,121 @@ declare module "@stencil/core" {
             "swirl-status-indicator": LocalJSX.SwirlStatusIndicator & JSXBase.HTMLAttributes<HTMLSwirlStatusIndicatorElement>;
             "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;
             "swirl-symbol": LocalJSX.SwirlSymbol & JSXBase.HTMLAttributes<HTMLSwirlSymbolElement>;
+            "swirl-symbol-ac-unit": LocalJSX.SwirlSymbolAcUnit & JSXBase.HTMLAttributes<HTMLSwirlSymbolAcUnitElement>;
             "swirl-symbol-account-circle": LocalJSX.SwirlSymbolAccountCircle & JSXBase.HTMLAttributes<HTMLSwirlSymbolAccountCircleElement>;
             "swirl-symbol-alternate-email": LocalJSX.SwirlSymbolAlternateEmail & JSXBase.HTMLAttributes<HTMLSwirlSymbolAlternateEmailElement>;
             "swirl-symbol-android": LocalJSX.SwirlSymbolAndroid & JSXBase.HTMLAttributes<HTMLSwirlSymbolAndroidElement>;
             "swirl-symbol-announcement": LocalJSX.SwirlSymbolAnnouncement & JSXBase.HTMLAttributes<HTMLSwirlSymbolAnnouncementElement>;
+            "swirl-symbol-autorenew": LocalJSX.SwirlSymbolAutorenew & JSXBase.HTMLAttributes<HTMLSwirlSymbolAutorenewElement>;
             "swirl-symbol-backup": LocalJSX.SwirlSymbolBackup & JSXBase.HTMLAttributes<HTMLSwirlSymbolBackupElement>;
+            "swirl-symbol-badge": LocalJSX.SwirlSymbolBadge & JSXBase.HTMLAttributes<HTMLSwirlSymbolBadgeElement>;
+            "swirl-symbol-barcode-reader": LocalJSX.SwirlSymbolBarcodeReader & JSXBase.HTMLAttributes<HTMLSwirlSymbolBarcodeReaderElement>;
+            "swirl-symbol-barcode-scanner": LocalJSX.SwirlSymbolBarcodeScanner & JSXBase.HTMLAttributes<HTMLSwirlSymbolBarcodeScannerElement>;
+            "swirl-symbol-battery-horiz": LocalJSX.SwirlSymbolBatteryHoriz & JSXBase.HTMLAttributes<HTMLSwirlSymbolBatteryHorizElement>;
             "swirl-symbol-beach-access": LocalJSX.SwirlSymbolBeachAccess & JSXBase.HTMLAttributes<HTMLSwirlSymbolBeachAccessElement>;
+            "swirl-symbol-bolt": LocalJSX.SwirlSymbolBolt & JSXBase.HTMLAttributes<HTMLSwirlSymbolBoltElement>;
             "swirl-symbol-bookmark": LocalJSX.SwirlSymbolBookmark & JSXBase.HTMLAttributes<HTMLSwirlSymbolBookmarkElement>;
+            "swirl-symbol-calendar": LocalJSX.SwirlSymbolCalendar & JSXBase.HTMLAttributes<HTMLSwirlSymbolCalendarElement>;
+            "swirl-symbol-campaign": LocalJSX.SwirlSymbolCampaign & JSXBase.HTMLAttributes<HTMLSwirlSymbolCampaignElement>;
+            "swirl-symbol-cards-star": LocalJSX.SwirlSymbolCardsStar & JSXBase.HTMLAttributes<HTMLSwirlSymbolCardsStarElement>;
             "swirl-symbol-cloud": LocalJSX.SwirlSymbolCloud & JSXBase.HTMLAttributes<HTMLSwirlSymbolCloudElement>;
+            "swirl-symbol-construction": LocalJSX.SwirlSymbolConstruction & JSXBase.HTMLAttributes<HTMLSwirlSymbolConstructionElement>;
+            "swirl-symbol-contacts": LocalJSX.SwirlSymbolContacts & JSXBase.HTMLAttributes<HTMLSwirlSymbolContactsElement>;
             "swirl-symbol-coronavirus": LocalJSX.SwirlSymbolCoronavirus & JSXBase.HTMLAttributes<HTMLSwirlSymbolCoronavirusElement>;
+            "swirl-symbol-design-services": LocalJSX.SwirlSymbolDesignServices & JSXBase.HTMLAttributes<HTMLSwirlSymbolDesignServicesElement>;
             "swirl-symbol-desktop-windows": LocalJSX.SwirlSymbolDesktopWindows & JSXBase.HTMLAttributes<HTMLSwirlSymbolDesktopWindowsElement>;
             "swirl-symbol-directions-car-filled": LocalJSX.SwirlSymbolDirectionsCarFilled & JSXBase.HTMLAttributes<HTMLSwirlSymbolDirectionsCarFilledElement>;
+            "swirl-symbol-diversity": LocalJSX.SwirlSymbolDiversity & JSXBase.HTMLAttributes<HTMLSwirlSymbolDiversityElement>;
+            "swirl-symbol-draw": LocalJSX.SwirlSymbolDraw & JSXBase.HTMLAttributes<HTMLSwirlSymbolDrawElement>;
             "swirl-symbol-edit-calendar": LocalJSX.SwirlSymbolEditCalendar & JSXBase.HTMLAttributes<HTMLSwirlSymbolEditCalendarElement>;
             "swirl-symbol-email": LocalJSX.SwirlSymbolEmail & JSXBase.HTMLAttributes<HTMLSwirlSymbolEmailElement>;
+            "swirl-symbol-emergency": LocalJSX.SwirlSymbolEmergency & JSXBase.HTMLAttributes<HTMLSwirlSymbolEmergencyElement>;
             "swirl-symbol-emoji-food-beverage": LocalJSX.SwirlSymbolEmojiFoodBeverage & JSXBase.HTMLAttributes<HTMLSwirlSymbolEmojiFoodBeverageElement>;
+            "swirl-symbol-engineering": LocalJSX.SwirlSymbolEngineering & JSXBase.HTMLAttributes<HTMLSwirlSymbolEngineeringElement>;
             "swirl-symbol-event-menu": LocalJSX.SwirlSymbolEventMenu & JSXBase.HTMLAttributes<HTMLSwirlSymbolEventMenuElement>;
+            "swirl-symbol-explore": LocalJSX.SwirlSymbolExplore & JSXBase.HTMLAttributes<HTMLSwirlSymbolExploreElement>;
+            "swirl-symbol-extension": LocalJSX.SwirlSymbolExtension & JSXBase.HTMLAttributes<HTMLSwirlSymbolExtensionElement>;
             "swirl-symbol-facebook": LocalJSX.SwirlSymbolFacebook & JSXBase.HTMLAttributes<HTMLSwirlSymbolFacebookElement>;
             "swirl-symbol-favorite": LocalJSX.SwirlSymbolFavorite & JSXBase.HTMLAttributes<HTMLSwirlSymbolFavoriteElement>;
             "swirl-symbol-fitness-center": LocalJSX.SwirlSymbolFitnessCenter & JSXBase.HTMLAttributes<HTMLSwirlSymbolFitnessCenterElement>;
             "swirl-symbol-flag": LocalJSX.SwirlSymbolFlag & JSXBase.HTMLAttributes<HTMLSwirlSymbolFlagElement>;
+            "swirl-symbol-flight": LocalJSX.SwirlSymbolFlight & JSXBase.HTMLAttributes<HTMLSwirlSymbolFlightElement>;
             "swirl-symbol-folder": LocalJSX.SwirlSymbolFolder & JSXBase.HTMLAttributes<HTMLSwirlSymbolFolderElement>;
             "swirl-symbol-globe": LocalJSX.SwirlSymbolGlobe & JSXBase.HTMLAttributes<HTMLSwirlSymbolGlobeElement>;
             "swirl-symbol-groups": LocalJSX.SwirlSymbolGroups & JSXBase.HTMLAttributes<HTMLSwirlSymbolGroupsElement>;
+            "swirl-symbol-healing": LocalJSX.SwirlSymbolHealing & JSXBase.HTMLAttributes<HTMLSwirlSymbolHealingElement>;
+            "swirl-symbol-health-and-safety": LocalJSX.SwirlSymbolHealthAndSafety & JSXBase.HTMLAttributes<HTMLSwirlSymbolHealthAndSafetyElement>;
             "swirl-symbol-help": LocalJSX.SwirlSymbolHelp & JSXBase.HTMLAttributes<HTMLSwirlSymbolHelpElement>;
+            "swirl-symbol-home-repair-service": LocalJSX.SwirlSymbolHomeRepairService & JSXBase.HTMLAttributes<HTMLSwirlSymbolHomeRepairServiceElement>;
+            "swirl-symbol-home-storage": LocalJSX.SwirlSymbolHomeStorage & JSXBase.HTMLAttributes<HTMLSwirlSymbolHomeStorageElement>;
+            "swirl-symbol-id-card": LocalJSX.SwirlSymbolIdCard & JSXBase.HTMLAttributes<HTMLSwirlSymbolIdCardElement>;
             "swirl-symbol-image": LocalJSX.SwirlSymbolImage & JSXBase.HTMLAttributes<HTMLSwirlSymbolImageElement>;
             "swirl-symbol-info-menu": LocalJSX.SwirlSymbolInfoMenu & JSXBase.HTMLAttributes<HTMLSwirlSymbolInfoMenuElement>;
             "swirl-symbol-instagram": LocalJSX.SwirlSymbolInstagram & JSXBase.HTMLAttributes<HTMLSwirlSymbolInstagramElement>;
+            "swirl-symbol-inventory": LocalJSX.SwirlSymbolInventory & JSXBase.HTMLAttributes<HTMLSwirlSymbolInventoryElement>;
+            "swirl-symbol-inventory-2": LocalJSX.SwirlSymbolInventory2 & JSXBase.HTMLAttributes<HTMLSwirlSymbolInventory2Element>;
             "swirl-symbol-ios": LocalJSX.SwirlSymbolIos & JSXBase.HTMLAttributes<HTMLSwirlSymbolIosElement>;
+            "swirl-symbol-key": LocalJSX.SwirlSymbolKey & JSXBase.HTMLAttributes<HTMLSwirlSymbolKeyElement>;
             "swirl-symbol-language": LocalJSX.SwirlSymbolLanguage & JSXBase.HTMLAttributes<HTMLSwirlSymbolLanguageElement>;
             "swirl-symbol-leaderboard": LocalJSX.SwirlSymbolLeaderboard & JSXBase.HTMLAttributes<HTMLSwirlSymbolLeaderboardElement>;
             "swirl-symbol-lightbulb": LocalJSX.SwirlSymbolLightbulb & JSXBase.HTMLAttributes<HTMLSwirlSymbolLightbulbElement>;
             "swirl-symbol-linkedin": LocalJSX.SwirlSymbolLinkedin & JSXBase.HTMLAttributes<HTMLSwirlSymbolLinkedinElement>;
+            "swirl-symbol-local-shipping": LocalJSX.SwirlSymbolLocalShipping & JSXBase.HTMLAttributes<HTMLSwirlSymbolLocalShippingElement>;
             "swirl-symbol-location-on": LocalJSX.SwirlSymbolLocationOn & JSXBase.HTMLAttributes<HTMLSwirlSymbolLocationOnElement>;
             "swirl-symbol-loyalty": LocalJSX.SwirlSymbolLoyalty & JSXBase.HTMLAttributes<HTMLSwirlSymbolLoyaltyElement>;
+            "swirl-symbol-map": LocalJSX.SwirlSymbolMap & JSXBase.HTMLAttributes<HTMLSwirlSymbolMapElement>;
             "swirl-symbol-maps-home-work": LocalJSX.SwirlSymbolMapsHomeWork & JSXBase.HTMLAttributes<HTMLSwirlSymbolMapsHomeWorkElement>;
+            "swirl-symbol-menu-book": LocalJSX.SwirlSymbolMenuBook & JSXBase.HTMLAttributes<HTMLSwirlSymbolMenuBookElement>;
+            "swirl-symbol-mop": LocalJSX.SwirlSymbolMop & JSXBase.HTMLAttributes<HTMLSwirlSymbolMopElement>;
+            "swirl-symbol-nest-eco-leaf": LocalJSX.SwirlSymbolNestEcoLeaf & JSXBase.HTMLAttributes<HTMLSwirlSymbolNestEcoLeafElement>;
             "swirl-symbol-notifications": LocalJSX.SwirlSymbolNotifications & JSXBase.HTMLAttributes<HTMLSwirlSymbolNotificationsElement>;
             "swirl-symbol-open-in-new": LocalJSX.SwirlSymbolOpenInNew & JSXBase.HTMLAttributes<HTMLSwirlSymbolOpenInNewElement>;
+            "swirl-symbol-orders": LocalJSX.SwirlSymbolOrders & JSXBase.HTMLAttributes<HTMLSwirlSymbolOrdersElement>;
+            "swirl-symbol-package": LocalJSX.SwirlSymbolPackage & JSXBase.HTMLAttributes<HTMLSwirlSymbolPackageElement>;
+            "swirl-symbol-palette": LocalJSX.SwirlSymbolPalette & JSXBase.HTMLAttributes<HTMLSwirlSymbolPaletteElement>;
+            "swirl-symbol-partly-cloudy-day": LocalJSX.SwirlSymbolPartlyCloudyDay & JSXBase.HTMLAttributes<HTMLSwirlSymbolPartlyCloudyDayElement>;
             "swirl-symbol-pedal-bike": LocalJSX.SwirlSymbolPedalBike & JSXBase.HTMLAttributes<HTMLSwirlSymbolPedalBikeElement>;
+            "swirl-symbol-percent-discount": LocalJSX.SwirlSymbolPercentDiscount & JSXBase.HTMLAttributes<HTMLSwirlSymbolPercentDiscountElement>;
+            "swirl-symbol-pets": LocalJSX.SwirlSymbolPets & JSXBase.HTMLAttributes<HTMLSwirlSymbolPetsElement>;
             "swirl-symbol-pinterest": LocalJSX.SwirlSymbolPinterest & JSXBase.HTMLAttributes<HTMLSwirlSymbolPinterestElement>;
+            "swirl-symbol-point-of-sale": LocalJSX.SwirlSymbolPointOfSale & JSXBase.HTMLAttributes<HTMLSwirlSymbolPointOfSaleElement>;
             "swirl-symbol-policy": LocalJSX.SwirlSymbolPolicy & JSXBase.HTMLAttributes<HTMLSwirlSymbolPolicyElement>;
+            "swirl-symbol-precision-manufacturing": LocalJSX.SwirlSymbolPrecisionManufacturing & JSXBase.HTMLAttributes<HTMLSwirlSymbolPrecisionManufacturingElement>;
+            "swirl-symbol-print": LocalJSX.SwirlSymbolPrint & JSXBase.HTMLAttributes<HTMLSwirlSymbolPrintElement>;
             "swirl-symbol-push-pin": LocalJSX.SwirlSymbolPushPin & JSXBase.HTMLAttributes<HTMLSwirlSymbolPushPinElement>;
+            "swirl-symbol-recycling": LocalJSX.SwirlSymbolRecycling & JSXBase.HTMLAttributes<HTMLSwirlSymbolRecyclingElement>;
             "swirl-symbol-redeem": LocalJSX.SwirlSymbolRedeem & JSXBase.HTMLAttributes<HTMLSwirlSymbolRedeemElement>;
             "swirl-symbol-report-problem": LocalJSX.SwirlSymbolReportProblem & JSXBase.HTMLAttributes<HTMLSwirlSymbolReportProblemElement>;
             "swirl-symbol-restaurant": LocalJSX.SwirlSymbolRestaurant & JSXBase.HTMLAttributes<HTMLSwirlSymbolRestaurantElement>;
             "swirl-symbol-roadmap": LocalJSX.SwirlSymbolRoadmap & JSXBase.HTMLAttributes<HTMLSwirlSymbolRoadmapElement>;
+            "swirl-symbol-rocket-launch": LocalJSX.SwirlSymbolRocketLaunch & JSXBase.HTMLAttributes<HTMLSwirlSymbolRocketLaunchElement>;
             "swirl-symbol-room": LocalJSX.SwirlSymbolRoom & JSXBase.HTMLAttributes<HTMLSwirlSymbolRoomElement>;
             "swirl-symbol-savings": LocalJSX.SwirlSymbolSavings & JSXBase.HTMLAttributes<HTMLSwirlSymbolSavingsElement>;
+            "swirl-symbol-school": LocalJSX.SwirlSymbolSchool & JSXBase.HTMLAttributes<HTMLSwirlSymbolSchoolElement>;
+            "swirl-symbol-sell": LocalJSX.SwirlSymbolSell & JSXBase.HTMLAttributes<HTMLSwirlSymbolSellElement>;
             "swirl-symbol-settings-voice": LocalJSX.SwirlSymbolSettingsVoice & JSXBase.HTMLAttributes<HTMLSwirlSymbolSettingsVoiceElement>;
+            "swirl-symbol-shopping-bag": LocalJSX.SwirlSymbolShoppingBag & JSXBase.HTMLAttributes<HTMLSwirlSymbolShoppingBagElement>;
             "swirl-symbol-shopping-cart": LocalJSX.SwirlSymbolShoppingCart & JSXBase.HTMLAttributes<HTMLSwirlSymbolShoppingCartElement>;
             "swirl-symbol-smartphone": LocalJSX.SwirlSymbolSmartphone & JSXBase.HTMLAttributes<HTMLSwirlSymbolSmartphoneElement>;
+            "swirl-symbol-spa": LocalJSX.SwirlSymbolSpa & JSXBase.HTMLAttributes<HTMLSwirlSymbolSpaElement>;
+            "swirl-symbol-sports-soccer": LocalJSX.SwirlSymbolSportsSoccer & JSXBase.HTMLAttributes<HTMLSwirlSymbolSportsSoccerElement>;
             "swirl-symbol-star": LocalJSX.SwirlSymbolStar & JSXBase.HTMLAttributes<HTMLSwirlSymbolStarElement>;
             "swirl-symbol-supervisor-account": LocalJSX.SwirlSymbolSupervisorAccount & JSXBase.HTMLAttributes<HTMLSwirlSymbolSupervisorAccountElement>;
+            "swirl-symbol-task": LocalJSX.SwirlSymbolTask & JSXBase.HTMLAttributes<HTMLSwirlSymbolTaskElement>;
+            "swirl-symbol-tasks": LocalJSX.SwirlSymbolTasks & JSXBase.HTMLAttributes<HTMLSwirlSymbolTasksElement>;
             "swirl-symbol-thumbs-up-down": LocalJSX.SwirlSymbolThumbsUpDown & JSXBase.HTMLAttributes<HTMLSwirlSymbolThumbsUpDownElement>;
+            "swirl-symbol-timer": LocalJSX.SwirlSymbolTimer & JSXBase.HTMLAttributes<HTMLSwirlSymbolTimerElement>;
+            "swirl-symbol-tools-power-drill": LocalJSX.SwirlSymbolToolsPowerDrill & JSXBase.HTMLAttributes<HTMLSwirlSymbolToolsPowerDrillElement>;
+            "swirl-symbol-train": LocalJSX.SwirlSymbolTrain & JSXBase.HTMLAttributes<HTMLSwirlSymbolTrainElement>;
+            "swirl-symbol-trophy": LocalJSX.SwirlSymbolTrophy & JSXBase.HTMLAttributes<HTMLSwirlSymbolTrophyElement>;
             "swirl-symbol-twitter": LocalJSX.SwirlSymbolTwitter & JSXBase.HTMLAttributes<HTMLSwirlSymbolTwitterElement>;
+            "swirl-symbol-video": LocalJSX.SwirlSymbolVideo & JSXBase.HTMLAttributes<HTMLSwirlSymbolVideoElement>;
+            "swirl-symbol-warehouse": LocalJSX.SwirlSymbolWarehouse & JSXBase.HTMLAttributes<HTMLSwirlSymbolWarehouseElement>;
+            "swirl-symbol-water-drop": LocalJSX.SwirlSymbolWaterDrop & JSXBase.HTMLAttributes<HTMLSwirlSymbolWaterDropElement>;
             "swirl-symbol-wb-sunny": LocalJSX.SwirlSymbolWbSunny & JSXBase.HTMLAttributes<HTMLSwirlSymbolWbSunnyElement>;
             "swirl-symbol-wechat": LocalJSX.SwirlSymbolWechat & JSXBase.HTMLAttributes<HTMLSwirlSymbolWechatElement>;
             "swirl-symbol-weibo": LocalJSX.SwirlSymbolWeibo & JSXBase.HTMLAttributes<HTMLSwirlSymbolWeiboElement>;
+            "swirl-symbol-wifi": LocalJSX.SwirlSymbolWifi & JSXBase.HTMLAttributes<HTMLSwirlSymbolWifiElement>;
             "swirl-symbol-work": LocalJSX.SwirlSymbolWork & JSXBase.HTMLAttributes<HTMLSwirlSymbolWorkElement>;
             "swirl-symbol-xing": LocalJSX.SwirlSymbolXing & JSXBase.HTMLAttributes<HTMLSwirlSymbolXingElement>;
             "swirl-symbol-youtube": LocalJSX.SwirlSymbolYoutube & JSXBase.HTMLAttributes<HTMLSwirlSymbolYoutubeElement>;

@@ -36,6 +36,7 @@ class FlipLegacyIcons {
   static const IconData email = IconData(0xea1c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData emergency = IconData(0xea1d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData emoji_food_beverage = IconData(0xea1e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData engineering = IconData(0xea1f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData event_menu = IconData(0xea20, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData explore = IconData(0xea21, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData extension = IconData(0xea22, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -58,6 +59,7 @@ class FlipLegacyIcons {
   static const IconData instagram = IconData(0xea33, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData inventory = IconData(0xea34, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData ios = IconData(0xea36, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData key = IconData(0xea37, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData language = IconData(0xea38, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData leaderboard = IconData(0xea39, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData lightbulb = IconData(0xea3a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -74,6 +76,7 @@ class FlipLegacyIcons {
   static const IconData open_in_new = IconData(0xea45, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData orders = IconData(0xea46, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData package = IconData(0xea47, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData palette = IconData(0xea48, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData partly_cloudy_day = IconData(0xea49, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData pedal_bike = IconData(0xea4a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData percent_discount = IconData(0xea4b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -84,6 +87,7 @@ class FlipLegacyIcons {
   static const IconData precision_manufacturing = IconData(0xea50, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData print = IconData(0xea51, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData push_pin = IconData(0xea52, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData recycling = IconData(0xea53, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData redeem = IconData(0xea54, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData report_problem = IconData(0xea55, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData restaurant = IconData(0xea56, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -104,6 +108,7 @@ class FlipLegacyIcons {
   static const IconData task = IconData(0xea65, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tasks = IconData(0xea66, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData thumbs_up_down = IconData(0xea67, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData timer = IconData(0xea68, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tools_power_drill = IconData(0xea69, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData train = IconData(0xea6a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData trophy = IconData(0xea6b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -114,6 +119,7 @@ class FlipLegacyIcons {
   static const IconData wb_sunny = IconData(0xea70, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData wechat = IconData(0xea71, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData weibo = IconData(0xea72, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData wifi = IconData(0xea73, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData work = IconData(0xea74, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData xing = IconData(0xea75, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData youtube = IconData(0xea76, fontFamily: _kFontFam, fontPackage: _kFontPkg);

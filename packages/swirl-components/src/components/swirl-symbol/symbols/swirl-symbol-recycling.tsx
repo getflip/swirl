@@ -7,7 +7,7 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "../swirl-symbol.css",
-  tag: "swirl-symbol-recycling ",
+  tag: "swirl-symbol-recycling",
 })
 export class SwirlSymbolRecycling {
   @Prop() size: SwirlSymbolSize = 24;

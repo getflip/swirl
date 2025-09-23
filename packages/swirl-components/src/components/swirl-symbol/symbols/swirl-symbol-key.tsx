@@ -7,7 +7,7 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "../swirl-symbol.css",
-  tag: "swirl-symbol-key ",
+  tag: "swirl-symbol-key",
 })
 export class SwirlSymbolKey {
   @Prop() size: SwirlSymbolSize = 24;

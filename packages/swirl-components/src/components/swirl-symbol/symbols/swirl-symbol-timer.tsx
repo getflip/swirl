@@ -7,7 +7,7 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "../swirl-symbol.css",
-  tag: "swirl-symbol-timer ",
+  tag: "swirl-symbol-timer",
 })
 export class SwirlSymbolTimer {
   @Prop() size: SwirlSymbolSize = 24;
