@@ -5,6 +5,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Method,
   Prop,
   State,
   Watch,
@@ -101,6 +102,14 @@ export class SwirlDateInput {
     if (newValue !== oldValue) {
       this.updateValue();
     }
+  }
+
+  /**
+   * Opens the date picker popover.
+   */
+  @Method()
+  async openPicker() {
+    this.pickerPopover.open(this.el);
   }
 
   private focus(): void {

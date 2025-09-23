@@ -832,6 +832,10 @@ export namespace Components {
          */
         "locale"?: string;
         /**
+          * Opens the date picker popover.
+         */
+        "openPicker": () => Promise<void>;
+        /**
           * @default "yyyy-mm-dd"
          */
         "placeholder"?: string;

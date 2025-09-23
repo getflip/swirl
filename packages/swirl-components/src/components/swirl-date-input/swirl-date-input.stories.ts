@@ -29,7 +29,10 @@ export default {
 
 const Template = (args) => {
   const formControl = document.createElement("swirl-form-control");
-  const element = generateStoryElement("swirl-date-input", args);
+  const element = generateStoryElement(
+    "swirl-date-input",
+    args
+  ) as HTMLSwirlDateInputElement;
 
   addAttributesToElement(formControl, { ...args, label: "Date" });
   formControl.append("\n  ", element, "\n");

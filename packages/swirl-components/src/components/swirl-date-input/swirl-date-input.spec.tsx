@@ -326,4 +326,18 @@ describe("swirl-date-input", () => {
 
     expect(input.readOnly).toBeFalsy();
   });
+
+  it("opens the picker when openPicker method is called", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const popover = page.root.querySelector("swirl-popover");
+    const spy = jest.fn();
+
+    Object.defineProperty(popover, "open", { value: spy });
+    await page.root.openPicker();
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
