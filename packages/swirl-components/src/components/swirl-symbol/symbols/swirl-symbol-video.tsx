@@ -1,0 +1,40 @@
+// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h, Prop } from "@stencil/core";
+import { SwirlSymbolSize } from "../swirl-symbol.types";
+import classnames from "classnames";
+
+@Component({
+  shadow: true,
+  styleUrl: "../swirl-symbol.css",
+  tag: "swirl-symbol-video",
+})
+export class SwirlSymbolVideo {
+  @Prop() size: SwirlSymbolSize = 24;
+
+  render() {
+    const className = classnames(
+      "swirl-symbol",
+      `swirl-symbol--size-${this.size}`
+    );
+
+    return (
+      <svg
+        class={className}
+        fill="none"
+        height={this.size}
+        part="symbol"
+        viewBox="0 0 24 24"
+        width={this.size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Fragment>
+          <path
+            d="M10.275 16L15.85 12.425C16 12.325 16.075 12.1833 16.075 12C16.075 11.8167 16 11.675 15.85 11.575L10.275 8C10.1083 7.88333 9.9375 7.875 9.7625 7.975C9.5875 8.075 9.5 8.225 9.5 8.425V15.575C9.5 15.775 9.5875 15.925 9.7625 16.025C9.9375 16.125 10.1083 16.1167 10.275 16ZM4 20C3.45 20 2.97917 19.8042 2.5875 19.4125C2.19583 19.0208 2 18.55 2 18V6C2 5.45 2.19583 4.97917 2.5875 4.5875C2.97917 4.19583 3.45 4 4 4H20C20.55 4 21.0208 4.19583 21.4125 4.5875C21.8042 4.97917 22 5.45 22 6V18C22 18.55 21.8042 19.0208 21.4125 19.4125C21.0208 19.8042 20.55 20 20 20H4ZM4 18H20V6H4V18Z"
+            fill="currentColor"
+          />
+        </Fragment>
+      </svg>
+    );
+  }
+}

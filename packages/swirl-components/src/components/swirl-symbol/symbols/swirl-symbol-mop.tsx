@@ -1,0 +1,40 @@
+// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h, Prop } from "@stencil/core";
+import { SwirlSymbolSize } from "../swirl-symbol.types";
+import classnames from "classnames";
+
+@Component({
+  shadow: true,
+  styleUrl: "../swirl-symbol.css",
+  tag: "swirl-symbol-mop",
+})
+export class SwirlSymbolMop {
+  @Prop() size: SwirlSymbolSize = 24;
+
+  render() {
+    const className = classnames(
+      "swirl-symbol",
+      `swirl-symbol--size-${this.size}`
+    );
+
+    return (
+      <svg
+        class={className}
+        fill="none"
+        height={this.size}
+        part="symbol"
+        viewBox="0 0 24 24"
+        width={this.size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Fragment>
+          <path
+            d="M3.55001 21H6.00001V19C6.00001 18.7167 6.09585 18.4792 6.28751 18.2875C6.47918 18.0958 6.71668 18 7.00001 18C7.28335 18 7.52085 18.0958 7.71251 18.2875C7.90418 18.4792 8.00001 18.7167 8.00001 19V21H11V19C11 18.7167 11.0958 18.4792 11.2875 18.2875C11.4792 18.0958 11.7167 18 12 18C12.2833 18 12.5208 18.0958 12.7125 18.2875C12.9042 18.4792 13 18.7167 13 19V21H16V19C16 18.7167 16.0958 18.4792 16.2875 18.2875C16.4792 18.0958 16.7167 18 17 18C17.2833 18 17.5208 18.0958 17.7125 18.2875C17.9042 18.4792 18 18.7167 18 19V21H20.45L19.45 17H4.55001L3.55001 21ZM20.45 23H3.55001C2.90001 23 2.37501 22.7417 1.97501 22.225C1.57501 21.7083 1.45835 21.1333 1.62501 20.5L3.00001 15V13C3.00001 12.45 3.19585 11.9792 3.58751 11.5875C3.97918 11.1958 4.45001 11 5.00001 11H9.00001V4C9.00001 3.16667 9.29168 2.45833 9.87501 1.875C10.4583 1.29167 11.1667 1 12 1C12.8333 1 13.5417 1.29167 14.125 1.875C14.7083 2.45833 15 3.16667 15 4V11H19C19.55 11 20.0208 11.1958 20.4125 11.5875C20.8042 11.9792 21 12.45 21 13V15L22.375 20.5C22.5917 21.1333 22.4958 21.7083 22.0875 22.225C21.6792 22.7417 21.1333 23 20.45 23Z"
+            fill="currentColor"
+          />
+        </Fragment>
+      </svg>
+    );
+  }
+}
