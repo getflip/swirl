@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.72.0
+
+### Minor Changes
+
+- [#1252](https://github.com/getflip/swirl/pull/1252)
+  [`c033a3022`](https://github.com/getflip/swirl/commit/c033a3022d8a2febbe35e47e21a83a2b7f3edb79)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Use
+  focus-visible instead of focus for swirl resource list items
+
 ## 0.71.0
 
 ### Minor Changes
