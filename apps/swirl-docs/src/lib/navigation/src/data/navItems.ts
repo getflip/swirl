@@ -35,11 +35,6 @@ export const navItems: NavItem[] = [
         url: "https://base.flip-app.com/openapi/external/post",
         isExternal: true,
       },
-      {
-        title: "Public Users- and Groups-Sync-API",
-        url: "https://base.flip-app.com/openapi/external/sync",
-        isExternal: true,
-      },
     ],
   },
   {
