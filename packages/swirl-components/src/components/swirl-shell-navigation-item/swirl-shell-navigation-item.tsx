@@ -27,6 +27,7 @@ export class SwirlShellNavigationItem {
   @Prop() label!: string;
   @Prop() markAsNew?: boolean;
   @Prop() markAsNewLabel?: string = "New";
+  @Prop() useCustomIconSize?: boolean = false;
   @Prop() target?: string;
   @Prop() variant: SwirlShellNavigationItemVariant = "default";
   @Prop() withGradient?: boolean;
@@ -40,6 +41,10 @@ export class SwirlShellNavigationItem {
   }
 
   private forceIconProps() {
+    if (this.useCustomIconSize) {
+      return;
+    }
+
     const iconEl = this.el.querySelector("[slot='icon']");
     const smallIcon =
       (this.hideLabel && this.variant === "app-icon") ||
