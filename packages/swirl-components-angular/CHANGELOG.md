@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.389.0
+
+### Minor Changes
+
+- [#1259](https://github.com/getflip/swirl/pull/1259)
+  [`a1b0e6ee7`](https://github.com/getflip/swirl/commit/a1b0e6ee72fe5bcb71d3ed16a835e06cbca308ed)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Allow custom
+  Sizes for Shell Nav Items
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a1b0e6ee7`](https://github.com/getflip/swirl/commit/a1b0e6ee72fe5bcb71d3ed16a835e06cbca308ed)]:
+  - @getflip/swirl-components@0.389.0
+
 ## 0.388.0
 
 ### Minor Changes
