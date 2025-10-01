@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.388.0
+
+### Minor Changes
+
+- [#1258](https://github.com/getflip/swirl/pull/1258)
+  [`8ae031c09`](https://github.com/getflip/swirl/commit/8ae031c0989ab20ba657ec1a7327984ca2deda98)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - All swirl-tag
+  variants now have the same size
+
 ## 0.387.0
 
 ### Minor Changes
