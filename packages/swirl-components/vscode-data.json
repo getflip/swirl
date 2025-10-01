@@ -18853,6 +18853,18 @@
           ]
         },
         {
+          "name": "semantics",
+          "description": "",
+          "values": [
+            {
+              "name": "none"
+            },
+            {
+              "name": "separator"
+            }
+          ]
+        },
+        {
           "name": "spacing",
           "description": "",
           "values": [

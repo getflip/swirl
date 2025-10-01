@@ -8,6 +8,8 @@ export type SwirlSeparatorColor =
   | "highlight";
 export type SwirlSeparatorOrientation = "horizontal" | "vertical";
 
+export type SwirlSeparatorSemantics = "separator" | "none";
+
 export type SwirlSeparatorSpacing =
   | "0"
   | "2"
@@ -28,6 +30,7 @@ export class SwirlSeparator {
   @Prop({ mutable: true }) color?: SwirlSeparatorColor = "default";
   @Prop() label?: string;
   @Prop() orientation?: SwirlSeparatorOrientation = "horizontal";
+  @Prop() semantics?: SwirlSeparatorSemantics = "separator";
   @Prop() spacing?: SwirlSeparatorSpacing = "8";
 
   componentWillLoad() {
@@ -61,11 +64,16 @@ export class SwirlSeparator {
       `separator--orientation-${this.orientation}`
     );
 
+    const attributes =
+      this.semantics === "separator"
+        ? { "aria-orientation": this.orientation }
+        : {};
+
     return (
       <Host
-        aria-orientation={this.orientation}
+        {...attributes}
         class={className}
-        role="separator"
+        role={this.semantics}
         style={styles}
       >
         <span class="separator__line"></span>

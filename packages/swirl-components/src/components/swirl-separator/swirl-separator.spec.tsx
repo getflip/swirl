@@ -64,4 +64,19 @@ describe("swirl-separator", () => {
       </swirl-separator>
     `);
   });
+
+  it("renders without role", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSeparator],
+      html: `<swirl-separator semantics="none"></swirl-separator>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-separator class="separator separator--color-default separator--orientation-horizontal" role="none" semantics="none" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
+        <mock:shadow-root>
+          <span class="separator__line"></span>
+        </mock:shadow-root>
+      </swirl-separator>
+    `);
+  });
 });
