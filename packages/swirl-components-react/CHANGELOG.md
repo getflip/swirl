@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.389.1
+
+### Patch Changes
+
+- [#1260](https://github.com/getflip/swirl/pull/1260)
+  [`231f55085`](https://github.com/getflip/swirl/commit/231f550854f5a418f2fe803f6f1f9120b2e2a82b)
+  Thanks [@danizep](https://github.com/danizep)! - Add semantics prop to
+  separator and fix a11y issue on SwirlResourceListSection with separator
+- Updated dependencies
+  [[`231f55085`](https://github.com/getflip/swirl/commit/231f550854f5a418f2fe803f6f1f9120b2e2a82b)]:
+  - @getflip/swirl-components@0.389.1
+
 ## 0.389.0
 
 ### Minor Changes
