@@ -1,5 +1,19 @@
 # swirl-docs
 
+## 0.3.157
+
+### Patch Changes
+
+- [#1256](https://github.com/getflip/swirl/pull/1256)
+  [`167603a43`](https://github.com/getflip/swirl/commit/167603a433622ca9bf842c94306aa26eec1a004a)
+  Thanks [@danizep](https://github.com/danizep)! - Remove link of deprecated
+  Public Users and Groups Sync API
+
+- Updated dependencies
+  [[`8ae031c09`](https://github.com/getflip/swirl/commit/8ae031c0989ab20ba657ec1a7327984ca2deda98)]:
+  - @getflip/swirl-components@0.388.0
+  - @getflip/swirl-components-react@0.388.0
+
 ## 0.3.156
 
 ### Patch Changes
