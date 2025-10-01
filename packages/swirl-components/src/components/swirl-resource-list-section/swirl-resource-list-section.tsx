@@ -25,7 +25,10 @@ export class SwirlResourceListSection {
     return (
       <Host>
         {this.hasSeparator && (
-          <swirl-separator spacing={this.separatorSpacing}></swirl-separator>
+          <swirl-separator
+            spacing={this.separatorSpacing}
+            semantics="none"
+          ></swirl-separator>
         )}
         <div aria-labelledby="label" role={role}>
           <span
