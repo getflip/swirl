@@ -19,6 +19,9 @@
   line-height: var(--s-line-height-sm);
   white-space: nowrap;
   gap: var(--s-space-4);
+  border-style: solid;
+  border-width: var(--s-border-width-default);
+  border-color: transparent;
 }
 
 .tag--size-s {
@@ -30,8 +33,6 @@
 }
 
 .tag--variant-outline {
-  border-style: solid;
-  border-width: var(--s-border-width-default);
   border-color: var(--s-border-strong);
 }
 
