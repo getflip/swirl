@@ -81,6 +81,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() swirlRole?: string;
   @Prop() type?: SwirlTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
+  @Prop() readonly?: boolean;
 
   @State() iconSize: 20 | 24 = 24;
   @State() showPassword = false;
@@ -251,12 +252,15 @@ export class SwirlTextInput implements SwirlFormInput {
         ? String(this.invalid)
         : undefined;
 
-    const showStepper = this.type === "number" && !this.disabled;
-    const showPasswordToggle = this.type === "password" && !this.disabled;
+    const showStepper =
+      this.type === "number" && !this.disabled && !this.readonly;
+    const showPasswordToggle =
+      this.type === "password" && !this.disabled && !this.readonly;
 
     const showClearButton =
       this.clearable &&
       !this.disabled &&
+      !this.readonly &&
       Boolean(this.value) &&
       !showPasswordToggle &&
       !showStepper &&
@@ -319,6 +323,7 @@ export class SwirlTextInput implements SwirlFormInput {
             step={this.type === "number" ? this.step : undefined}
             type={type}
             value={this.value}
+            readonly={this.readonly}
           >
             {this.rows > 1 && this.value}
           </Tag>
