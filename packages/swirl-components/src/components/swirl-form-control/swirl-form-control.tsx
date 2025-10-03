@@ -46,6 +46,7 @@ export class SwirlFormControl {
   @Prop() labelPosition?: SwirlFormControlLabelPosition = "inside";
   @Prop() tooltip?: string;
   @Prop() secondaryLabel?: string;
+  // Currently only supported in swirl-text-input
   @Prop() readonly?: boolean;
 
   @State() hasFocus: boolean;
