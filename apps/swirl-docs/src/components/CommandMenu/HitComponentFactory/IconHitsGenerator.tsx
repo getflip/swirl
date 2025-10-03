@@ -5,12 +5,20 @@ import { IconsMetaData } from "src/pages/icons";
 import { AlgoliaRecordHits, HitComponentGenerator } from ".";
 import { Hit } from "./Hit";
 
+type IconHit = AlgoliaRecord & {
+  iconName?: string;
+};
+
 export class IconHitsGenerator implements HitComponentGenerator {
   icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
 
   type: AlgoliaRecord["type"] = "icon";
   generateHits(hits: AlgoliaRecordHits, onSelected?: () => void): JSX.Element {
-    if (hits.length === 0) {
+    const iconHits = this.getIconHits(hits).filter(
+      ({ iconName }) => iconName !== undefined
+    );
+
+    if (iconHits.length === 0) {
       return <></>;
     }
 
@@ -22,16 +30,14 @@ export class IconHitsGenerator implements HitComponentGenerator {
           </h3>
         }
       >
-        {hits.map((hit) => {
+        {iconHits.map((hit) => {
           return (
             <Hit
               key={hit.objectID}
               title={hit.title}
               icon={
                 <i
-                  className={`swirl-icons-${this.getIconName(
-                    hit.title
-                  )}16 text-icon-default w-5 h-5`}
+                  className={`swirl-icons-${hit.iconName}16 text-icon-default w-5 h-5`}
                 ></i>
               }
               handleOnSelect={() => {
@@ -49,7 +55,14 @@ export class IconHitsGenerator implements HitComponentGenerator {
     );
   }
 
-  private getIconName(title: string) {
-    return this.icons[title].name;
+  private getIconName(title: string): string | undefined {
+    return this.icons[title]?.name;
+  }
+
+  private getIconHits(hits: AlgoliaRecordHits): IconHit[] {
+    return hits.map((hit) => ({
+      ...hit,
+      iconName: this.getIconName(hit.title),
+    }));
   }
 }
