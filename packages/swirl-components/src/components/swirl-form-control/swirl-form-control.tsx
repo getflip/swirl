@@ -46,6 +46,8 @@ export class SwirlFormControl {
   @Prop() labelPosition?: SwirlFormControlLabelPosition = "inside";
   @Prop() tooltip?: string;
   @Prop() secondaryLabel?: string;
+  // Currently only supported in swirl-text-input
+  @Prop() readonly?: boolean;
 
   @State() hasFocus: boolean;
   @State() inputValue: string;
@@ -63,6 +65,7 @@ export class SwirlFormControl {
     this.associateDescriptionWithInputElement();
     this.associateLabelWithInputElement();
     this.setInputElementDisabledState();
+    this.setInputElementReadonlyState();
     this.setInputElementInlineState();
     this.setInputElementInvalidState();
     this.setInputElementLabel();
@@ -94,6 +97,19 @@ export class SwirlFormControl {
       this.inputEl.setAttribute("disabled", "true");
     } else {
       this.inputEl.removeAttribute("disabled");
+    }
+  }
+
+  @Watch("readonly")
+  setInputElementReadonlyState() {
+    if (!Boolean(this.inputEl)) {
+      return;
+    }
+
+    if (this.readonly) {
+      this.inputEl.setAttribute("readonly", "true");
+    } else {
+      this.inputEl.removeAttribute("readonly");
     }
   }
 

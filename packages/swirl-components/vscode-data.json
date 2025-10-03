@@ -3178,6 +3178,10 @@
           ]
         },
         {
+          "name": "readonly",
+          "description": ""
+        },
+        {
           "name": "secondary-label",
           "description": ""
         },
@@ -19060,6 +19064,10 @@
           "description": ""
         },
         {
+          "name": "use-custom-icon-size",
+          "description": ""
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [
@@ -21954,6 +21962,10 @@
         },
         {
           "name": "prefix-label",
+          "description": ""
+        },
+        {
+          "name": "readonly",
           "description": ""
         },
         {
