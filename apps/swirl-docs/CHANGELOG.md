@@ -1,5 +1,13 @@
 # swirl-docs
 
+## 0.3.160
+
+### Patch Changes
+
+- [#1264](https://github.com/getflip/swirl/pull/1264)
+  [`08857da8c`](https://github.com/getflip/swirl/commit/08857da8cb08a2e07157ff7ea5b526fd5482e6ae)
+  Thanks [@danizep](https://github.com/danizep)! - Fix getflip.dev search
+
 ## 0.3.159
 
 ### Patch Changes
