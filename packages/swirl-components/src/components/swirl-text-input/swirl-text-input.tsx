@@ -275,7 +275,6 @@ export class SwirlTextInput implements SwirlFormInput {
       {
         "text-input--auto-grow": this.autoGrow,
         "text-input--clearable": this.clearable,
-        "text-input--disabled": this.disabled,
         "text-input--disable-dynamic-width":
           this.disableDynamicWidth || Boolean(this.placeholder),
         "text-input--has-suffix": Boolean(this.suffixLabel),
