@@ -51,9 +51,10 @@ export class SwirlDateInput {
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
+  @Prop() readonly?: boolean;
 
   @State() iconSize: 20 | 24 = 24;
-  @State() readonly: boolean = false;
+  @State() isInPickOnlyMode: boolean = false;
 
   @Event() invalidInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
@@ -71,7 +72,7 @@ export class SwirlDateInput {
     ).indexOf(this.el);
 
     this.id = `swirl-date-input-${index}`;
-    this.setReadOnly(true);
+    this.setIsInPickOnlyMode(true);
   }
 
   componentDidLoad() {
@@ -125,6 +126,10 @@ export class SwirlDateInput {
   private onClick = (event: MouseEvent) => {
     event.preventDefault();
 
+    if (this.readonly) {
+      return;
+    }
+
     if (this.preferredInputMode === "pick") {
       this.pickerPopover.open(this.el);
 
@@ -135,6 +140,10 @@ export class SwirlDateInput {
   };
 
   private onMouseDown = () => {
+    if (this.readonly) {
+      return;
+    }
+
     if (this.preferredInputMode === "pick") {
       this.pickerPopover.close();
     }
@@ -145,11 +154,15 @@ export class SwirlDateInput {
   };
 
   private onBlur = (event: FocusEvent) => {
+    if (this.readonly) {
+      return;
+    }
+
     const popoverReceivingFocus = this.pickerPopover.contains(
       event.relatedTarget as HTMLElement
     );
 
-    this.setReadOnly(!popoverReceivingFocus);
+    this.setIsInPickOnlyMode(!popoverReceivingFocus);
   };
 
   private onPickDate = (event: CustomEvent<Date | Date[]>) => {
@@ -162,7 +175,7 @@ export class SwirlDateInput {
     this.inputEl.value = format(newDateValue, this.pattern);
     this.mask.updateValue();
 
-    this.setReadOnly(true);
+    this.setIsInPickOnlyMode(true);
     this.pickerPopover.close();
   };
 
@@ -185,11 +198,11 @@ export class SwirlDateInput {
     }
   }
 
-  private setReadOnly(readOnly: boolean) {
+  private setIsInPickOnlyMode(isInPickOnlyMode: boolean) {
     if (this.preferredInputMode === "pick" && isMobileViewport()) {
-      this.readonly = readOnly;
+      this.isInPickOnlyMode = isInPickOnlyMode;
     } else {
-      this.readonly = false;
+      this.isInPickOnlyMode = false;
     }
   }
 
@@ -304,7 +317,7 @@ export class SwirlDateInput {
             autoFocus={this.autoFocus}
             class="date-input__input"
             disabled={this.disabled}
-            readonly={this.readonly}
+            readonly={this.isInPickOnlyMode || this.readonly}
             id={this.id}
             inputmode="numeric"
             onClick={this.onClick}
@@ -317,19 +330,21 @@ export class SwirlDateInput {
             type="text"
           />
 
-          <swirl-popover-trigger swirlPopover={`popover-${this.id}`}>
-            <button
-              aria-label={this.datePickerTriggerLabel}
-              class="date-input__date-picker-button"
-              disabled={this.disabled}
-              type="button"
-            >
-              <swirl-icon-today size={this.iconSize}></swirl-icon-today>
-            </button>
-          </swirl-popover-trigger>
+          {!this.readonly && (
+            <swirl-popover-trigger swirlPopover={`popover-${this.id}`}>
+              <button
+                aria-label={this.datePickerTriggerLabel}
+                class="date-input__date-picker-button"
+                disabled={this.disabled}
+                type="button"
+              >
+                <swirl-icon-today size={this.iconSize}></swirl-icon-today>
+              </button>
+            </swirl-popover-trigger>
+          )}
         </div>
 
-        {!this.disabled && (
+        {!(this.disabled || this.readonly) && (
           <swirl-popover
             animation="scale-in-y"
             class="date-input__date-picker-popover"

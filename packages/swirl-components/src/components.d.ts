@@ -745,6 +745,7 @@ export namespace Components {
          */
         "pickerLabel"?: string;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -843,6 +844,7 @@ export namespace Components {
           * @default "input"
          */
         "preferredInputMode"?: "input" | "pick";
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -4852,6 +4854,7 @@ export namespace Components {
           * @default "hh:mm"
          */
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -9770,6 +9773,7 @@ declare namespace LocalJSX {
          */
         "pickerLabel"?: string;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -9856,6 +9860,7 @@ declare namespace LocalJSX {
           * @default "input"
          */
         "preferredInputMode"?: "input" | "pick";
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -13756,6 +13761,7 @@ declare namespace LocalJSX {
           * @default "hh:mm"
          */
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;

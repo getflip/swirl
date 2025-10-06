@@ -36,6 +36,7 @@ export class SwirlColorInput {
   @Prop() placeholder?: string;
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
+  @Prop() readonly?: boolean;
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
@@ -128,9 +129,11 @@ export class SwirlColorInput {
             spellcheck="false"
             type="text"
             value={this.value}
+            readonly={this.readonly}
           />
           <swirl-popover-trigger swirlPopover={this.pickerId}>
             <button
+              disabled={this.readonly}
               aria-label={this.pickerButtonLabel}
               class="color-input__preview-button"
               style={{

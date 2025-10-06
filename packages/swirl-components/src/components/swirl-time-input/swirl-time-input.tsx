@@ -41,6 +41,7 @@ export class SwirlTimeInput {
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
+  @Prop() readonly?: boolean;
 
   @State() iconSize: 20 | 24 = 24;
 
@@ -227,6 +228,7 @@ export class SwirlTimeInput {
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             type="text"
+            readonly={this.readonly}
           />
 
           <span class="time-input__icon">

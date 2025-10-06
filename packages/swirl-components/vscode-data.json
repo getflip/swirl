@@ -2266,6 +2266,10 @@
           "description": ""
         },
         {
+          "name": "readonly",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },
@@ -2449,6 +2453,10 @@
               "name": "pick"
             }
           ]
+        },
+        {
+          "name": "readonly",
+          "description": ""
         },
         {
           "name": "required",
@@ -22186,6 +22194,10 @@
         },
         {
           "name": "placeholder",
+          "description": ""
+        },
+        {
+          "name": "readonly",
           "description": ""
         },
         {

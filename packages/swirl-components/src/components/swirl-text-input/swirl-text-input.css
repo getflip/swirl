@@ -40,7 +40,7 @@
 
 .text-input--disabled {
   & .text-input__character-counter {
-    color: var(--s-text-disabled);
+    color: var(--s-text-subdued);
   }
 }
 
@@ -148,7 +148,7 @@
   }
 
   &:disabled {
-    color: var(--s-text-disabled);
+    color: var(--s-text-subdued);
     background-color: transparent;
   }
 

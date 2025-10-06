@@ -261,6 +261,7 @@ export class SwirlFormControl {
       `form-control--label-position-${this.labelPosition}`,
       {
         "form-control--disabled": this.disabled,
+        "form-control--readonly": this.readonly,
         "form-control--has-character-counter": hasCharacterCounter,
         "form-control--has-focus": this.hasFocus,
         "form-control--has-placeholder": hasPlaceholder,
