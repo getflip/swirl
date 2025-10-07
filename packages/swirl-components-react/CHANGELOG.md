@@ -1,5 +1,21 @@
 # @getflip/swirl-components-react
 
+## 0.390.0
+
+### Minor Changes
+
+- [#1263](https://github.com/getflip/swirl/pull/1263)
+  [`dce133942`](https://github.com/getflip/swirl/commit/dce133942f9a62ef17f7482b4d8ccf41906eaae2)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add readonly
+  state to swirl-text-input, swirl-date-input, swirl-time-input,
+  swirl-color-input. Adjust disabled and readonly styles of swirl-form-control.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dce133942`](https://github.com/getflip/swirl/commit/dce133942f9a62ef17f7482b4d8ccf41906eaae2)]:
+  - @getflip/swirl-components@0.390.0
+
 ## 0.389.1
 
 ### Patch Changes
