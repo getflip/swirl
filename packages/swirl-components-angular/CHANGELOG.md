@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.391.0
+
+### Minor Changes
+
+- [#1266](https://github.com/getflip/swirl/pull/1266)
+  [`826ddfc6d`](https://github.com/getflip/swirl/commit/826ddfc6d2e1d2c84d8473c42c20d35136ed0cde)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add neutral
+  color to swirl-avatar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`826ddfc6d`](https://github.com/getflip/swirl/commit/826ddfc6d2e1d2c84d8473c42c20d35136ed0cde)]:
+  - @getflip/swirl-components@0.391.0
+
 ## 0.390.0
 
 ### Minor Changes
