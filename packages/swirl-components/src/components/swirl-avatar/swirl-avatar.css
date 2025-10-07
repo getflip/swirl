@@ -257,6 +257,13 @@
   }
 }
 
+.avatar--color-neutral {
+  & .avatar__initials {
+    color: var(--s-text-subdued);
+    background-color: var(--s-surface-neutral-subdued);
+  }
+}
+
 .avatar__image {
   overflow: hidden;
   width: 100%;

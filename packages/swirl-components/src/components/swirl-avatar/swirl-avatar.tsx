@@ -23,6 +23,7 @@ export type SwirlAvatarColor =
   | "chilli"
   | "grape"
   | "kiwi"
+  | "neutral"
   | "pumpkin"
   | "radish";
 
