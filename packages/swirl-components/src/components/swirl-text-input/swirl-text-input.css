@@ -38,12 +38,6 @@
   }
 }
 
-.text-input--disabled {
-  & .text-input__character-counter {
-    color: var(--s-text-disabled);
-  }
-}
-
 .text-input--font-size-sm {
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
@@ -148,7 +142,7 @@
   }
 
   &:disabled {
-    color: var(--s-text-disabled);
+    color: var(--s-text-subdued);
     background-color: transparent;
   }
 

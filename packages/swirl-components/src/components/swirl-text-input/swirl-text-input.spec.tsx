@@ -27,7 +27,7 @@ describe("swirl-text-input", () => {
                       spell-check="false"
                       type="url"
                       value="Value">
-        <div class="text-input text-input--disabled text-input--font-size-default text-input--type-url">
+        <div class="text-input text-input--font-size-default text-input--type-url">
           <input aria-describedby="id"
                  aria-disabled="true"
                  aria-invalid="true"
@@ -149,5 +149,29 @@ describe("swirl-text-input", () => {
     page.rootInstance.blurInput();
 
     expect(spy).toHaveBeenCalled();
+  });
+
+  it("renders in a readonly state", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTextInput],
+      html: `<swirl-text-input
+              readonly="true"
+              value="Value">
+            </swirl-text-input>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-text-input readonly="true" value="Value">
+        <div class="text-input text-input--font-size-default text-input--type-text">
+          <input 
+            autocomplete="on" 
+            class="text-input__input"
+            readonly
+            type="text"
+            value="Value"
+          >
+        </div>
+      </swirl-text-input>
+    `);
   });
 });

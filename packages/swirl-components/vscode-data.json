@@ -2266,6 +2266,10 @@
           "description": ""
         },
         {
+          "name": "readonly",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },
@@ -2449,6 +2453,10 @@
               "name": "pick"
             }
           ]
+        },
+        {
+          "name": "readonly",
+          "description": ""
         },
         {
           "name": "required",
@@ -3176,6 +3184,10 @@
               "name": "outside"
             }
           ]
+        },
+        {
+          "name": "readonly",
+          "description": ""
         },
         {
           "name": "secondary-label",
@@ -19060,6 +19072,10 @@
           "description": ""
         },
         {
+          "name": "use-custom-icon-size",
+          "description": ""
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [
@@ -21957,6 +21973,10 @@
           "description": ""
         },
         {
+          "name": "readonly",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },
@@ -22174,6 +22194,10 @@
         },
         {
           "name": "placeholder",
+          "description": ""
+        },
+        {
+          "name": "readonly",
           "description": ""
         },
         {

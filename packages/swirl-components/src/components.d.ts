@@ -745,6 +745,7 @@ export namespace Components {
          */
         "pickerLabel"?: string;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -843,6 +844,7 @@ export namespace Components {
           * @default "input"
          */
         "preferredInputMode"?: "input" | "pick";
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -1198,6 +1200,7 @@ export namespace Components {
           * @default "inside"
          */
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "readonly"?: boolean;
         "secondaryLabel"?: string;
         "tooltip"?: string;
     }
@@ -3739,6 +3742,10 @@ export namespace Components {
         "markAsNewLabel"?: string;
         "target"?: string;
         /**
+          * @default false
+         */
+        "useCustomIconSize"?: boolean;
+        /**
           * @default "default"
          */
         "variant": SwirlShellNavigationItemVariant;
@@ -4758,6 +4765,7 @@ export namespace Components {
         "passwordToggleLabel"?: string;
         "placeholder"?: string;
         "prefixLabel"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         /**
           * @default 1
@@ -4846,6 +4854,7 @@ export namespace Components {
           * @default "hh:mm"
          */
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -9764,6 +9773,7 @@ declare namespace LocalJSX {
          */
         "pickerLabel"?: string;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -9850,6 +9860,7 @@ declare namespace LocalJSX {
           * @default "input"
          */
         "preferredInputMode"?: "input" | "pick";
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -10175,6 +10186,7 @@ declare namespace LocalJSX {
           * @default "inside"
          */
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "readonly"?: boolean;
         "secondaryLabel"?: string;
         "tooltip"?: string;
     }
@@ -12652,6 +12664,10 @@ declare namespace LocalJSX {
         "markAsNewLabel"?: string;
         "target"?: string;
         /**
+          * @default false
+         */
+        "useCustomIconSize"?: boolean;
+        /**
           * @default "default"
          */
         "variant"?: SwirlShellNavigationItemVariant;
@@ -13666,6 +13682,7 @@ declare namespace LocalJSX {
         "passwordToggleLabel"?: string;
         "placeholder"?: string;
         "prefixLabel"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         /**
           * @default 1
@@ -13744,6 +13761,7 @@ declare namespace LocalJSX {
           * @default "hh:mm"
          */
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
