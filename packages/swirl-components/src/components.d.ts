@@ -4934,6 +4934,10 @@ export namespace Components {
          */
         "delay"?: number;
         /**
+          * @default false
+         */
+        "initiallyVisible": boolean;
+        /**
           * @default "top"
          */
         "position"?: SwirlTooltipPosition;
@@ -13824,6 +13828,10 @@ declare namespace LocalJSX {
           * @default 200
          */
         "delay"?: number;
+        /**
+          * @default false
+         */
+        "initiallyVisible"?: boolean;
         /**
           * @default "top"
          */

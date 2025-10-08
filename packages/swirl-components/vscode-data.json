@@ -22381,6 +22381,10 @@
           "description": ""
         },
         {
+          "name": "initially-visible",
+          "description": ""
+        },
+        {
           "name": "position",
           "description": "",
           "values": [

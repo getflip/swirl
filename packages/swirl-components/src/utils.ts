@@ -365,3 +365,11 @@ export function isDocumentMimeType(mimeType: string): boolean {
     mimeType.startsWith("application/vnd.apple.pages")
   );
 }
+
+export function getPixelsFromRemToken(token: string): number {
+  return (
+    +getComputedStyle(document.documentElement)
+      .getPropertyValue(token)
+      .replace("rem", "") * 16
+  );
+}

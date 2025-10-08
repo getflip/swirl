@@ -97,4 +97,39 @@ describe("swirl-tooltip", () => {
 
     expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
   });
+
+  it("shows tooltip initially and doesn't show again after click", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom" initially-visible="true"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
+    });
+
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible);
+
+    const referenceEl = page.root.shadowRoot.querySelector(
+      ".tooltip__reference"
+    ) as HTMLElement;
+
+    referenceEl.click();
+
+    await new Promise((resolve) => setTimeout(resolve));
+    page.waitForChanges();
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
+
+    page.root.dispatchEvent(new MouseEvent("mouseenter"));
+
+    page.waitForChanges();
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
+
+    referenceEl.dispatchEvent(new FocusEvent("focusin"));
+
+    page.waitForChanges();
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
+  });
 });
