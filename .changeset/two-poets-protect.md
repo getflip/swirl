@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Add `initiallyVisible` prop to swirl-tooltip, add shift paddings
+Add isPromo prop to swirl-tooltip. Add shift paddings.

@@ -37,7 +37,12 @@ export class SwirlTooltip {
   @Prop() delay?: number = 200;
   @Prop() position?: SwirlTooltipPosition = "top";
   @Prop() positioning?: Strategy = "absolute";
-  @Prop() initiallyVisible = false;
+  /**
+   * If set to true, tooltip will be initially visible.
+   * It will only be dismissible via a click and will not reappear.
+   * Tooltip will have a blue background color.
+   */
+  @Prop() isPromo = false;
 
   @State() actualPosition: ComputePositionReturn;
   @State() arrowStyles: { [key: string]: string };
@@ -63,7 +68,7 @@ export class SwirlTooltip {
 
   @Listen("mouseleave")
   onMouseLeave() {
-    if (!this.initiallyVisible) {
+    if (!this.isPromo) {
       this.hide();
     }
   }
@@ -93,14 +98,14 @@ export class SwirlTooltip {
   componentDidLoad() {
     this.updateOptions();
 
-    if (this.initiallyVisible) {
+    if (this.isPromo) {
       this.show();
       this.canShow = false;
     }
   }
 
   private onKeydown = (event: KeyboardEvent) => {
-    if (event.code === "Escape" && !this.initiallyVisible) {
+    if (event.code === "Escape" && !this.isPromo) {
       this.hide();
     }
   };
@@ -212,6 +217,7 @@ export class SwirlTooltip {
       {
         "tooltip--active": this.active,
         "tooltip--visible": this.visible,
+        "tooltip--promo": this.isPromo,
       }
     );
 
@@ -221,7 +227,7 @@ export class SwirlTooltip {
           <span
             class="tooltip__reference"
             aria-describedby="tooltip"
-            onFocusout={!this.initiallyVisible && this.hide}
+            onFocusout={!this.isPromo && this.hide}
             onClick={this.hide}
             onFocusin={this.show}
           >
