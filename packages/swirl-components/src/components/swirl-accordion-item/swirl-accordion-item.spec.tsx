@@ -9,6 +9,7 @@ describe("swirl-accordion-item", () => {
       html: `
         <swirl-accordion>
           <swirl-accordion-item description="Description" heading="heading" item-id="item-id">
+          <div slot="trailing">trailing</div>
             Content
           </swirl-accordion-item>
         </swirl-accordion>
@@ -31,6 +32,7 @@ describe("swirl-accordion-item", () => {
                     Description
                   </swirl-text>
                 </span>
+                <slot name="trailing"></slot>
                 <span class="accordion-item__icon">
                   <swirl-icon glyph="chevron-right" size="20"></swirl-icon>
                 </span>
@@ -41,6 +43,7 @@ describe("swirl-accordion-item", () => {
             </div>
           </div>
         </mock:shadow-root>
+        <div slot="trailing">trailing</div>
         Content
       </swirl-accordion-item>
     `);
