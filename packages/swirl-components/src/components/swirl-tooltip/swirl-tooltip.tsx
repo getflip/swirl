@@ -47,7 +47,7 @@ export class SwirlTooltip {
   @State() actualPosition: ComputePositionReturn;
   @State() arrowStyles: { [key: string]: string };
   @State() visible = false;
-  @State() canShow = true;
+  @State() isPromoShown = false;
 
   private disableAutoUpdate: () => void;
 
@@ -100,7 +100,7 @@ export class SwirlTooltip {
 
     if (this.isPromo) {
       this.show();
-      this.canShow = false;
+      this.isPromoShown = true;
     }
   }
 
@@ -140,7 +140,7 @@ export class SwirlTooltip {
   };
 
   private show = () => {
-    if (!this.active || !this.canShow) {
+    if (!this.active || (this.isPromo && this.isPromoShown)) {
       return;
     }
 
