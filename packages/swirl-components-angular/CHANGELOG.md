@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.393.0
+
+### Minor Changes
+
+- [#1270](https://github.com/getflip/swirl/pull/1270)
+  [`674463b03`](https://github.com/getflip/swirl/commit/674463b032a3bf6058661e9d508a339238d3c705)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add trailing
+  slot to swirl-accordion-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`674463b03`](https://github.com/getflip/swirl/commit/674463b032a3bf6058661e9d508a339238d3c705)]:
+  - @getflip/swirl-components@0.393.0
+
 ## 0.392.0
 
 ### Minor Changes
