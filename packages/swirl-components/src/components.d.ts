@@ -4934,6 +4934,11 @@ export namespace Components {
          */
         "delay"?: number;
         /**
+          * If set to true, tooltip will be initially visible. It will only be dismissible via a click and will not reappear. Tooltip will have a blue background color.
+          * @default false
+         */
+        "isPromo": boolean;
+        /**
           * @default "top"
          */
         "position"?: SwirlTooltipPosition;
@@ -13824,6 +13829,11 @@ declare namespace LocalJSX {
           * @default 200
          */
         "delay"?: number;
+        /**
+          * If set to true, tooltip will be initially visible. It will only be dismissible via a click and will not reappear. Tooltip will have a blue background color.
+          * @default false
+         */
+        "isPromo"?: boolean;
         /**
           * @default "top"
          */

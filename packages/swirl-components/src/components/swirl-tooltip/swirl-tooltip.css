@@ -99,6 +99,11 @@
   background-color: var(--s-surface-neutral-default);
 }
 
+.tooltip--promo .tooltip__bubble,
+.tooltip--promo .tooltip__arrow {
+  background-color: var(--s-surface-info-default);
+}
+
 @keyframes tooltip-fade-in {
   from {
     opacity: 0;

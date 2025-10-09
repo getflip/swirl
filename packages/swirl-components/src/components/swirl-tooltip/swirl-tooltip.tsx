@@ -20,6 +20,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getPixelsFromRemToken } from "../../utils";
 
 export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
 
@@ -36,10 +37,17 @@ export class SwirlTooltip {
   @Prop() delay?: number = 200;
   @Prop() position?: SwirlTooltipPosition = "top";
   @Prop() positioning?: Strategy = "absolute";
+  /**
+   * If set to true, tooltip will be initially visible.
+   * It will only be dismissible via a click and will not reappear.
+   * Tooltip will have a blue background color.
+   */
+  @Prop() isPromo = false;
 
   @State() actualPosition: ComputePositionReturn;
   @State() arrowStyles: { [key: string]: string };
   @State() visible = false;
+  @State() isPromoShown = false;
 
   private disableAutoUpdate: () => void;
 
@@ -60,7 +68,9 @@ export class SwirlTooltip {
 
   @Listen("mouseleave")
   onMouseLeave() {
-    this.hide();
+    if (!this.isPromo) {
+      this.hide();
+    }
   }
 
   @Listen("resize", { target: "window" })
@@ -87,10 +97,15 @@ export class SwirlTooltip {
 
   componentDidLoad() {
     this.updateOptions();
+
+    if (this.isPromo) {
+      this.show();
+      this.isPromoShown = true;
+    }
   }
 
   private onKeydown = (event: KeyboardEvent) => {
-    if (event.code === "Escape") {
+    if (event.code === "Escape" && !this.isPromo) {
       this.hide();
     }
   };
@@ -125,7 +140,7 @@ export class SwirlTooltip {
   };
 
   private show = () => {
-    if (!this.active) {
+    if (!this.active || (this.isPromo && this.isPromoShown)) {
       return;
     }
 
@@ -173,13 +188,23 @@ export class SwirlTooltip {
   };
 
   private updateOptions = () => {
-    const margin =
-      +getComputedStyle(document.documentElement)
-        .getPropertyValue("--s-space-12")
-        .replace("rem", "") * 16;
+    const margin = getPixelsFromRemToken("--s-space-12");
+    const shiftPaddingY = getPixelsFromRemToken("--s-space-8");
+    const shiftPaddingX = getPixelsFromRemToken("--s-space-16");
 
     this.options = {
-      middleware: [offset(margin), shift(), flip()],
+      middleware: [
+        offset(margin),
+        shift({
+          padding: {
+            top: shiftPaddingY,
+            bottom: shiftPaddingY,
+            left: shiftPaddingX,
+            right: shiftPaddingX,
+          },
+        }),
+        flip(),
+      ],
       placement: this.position,
       strategy: this.positioning,
     };
@@ -192,6 +217,7 @@ export class SwirlTooltip {
       {
         "tooltip--active": this.active,
         "tooltip--visible": this.visible,
+        "tooltip--promo": this.isPromo,
       }
     );
 
@@ -201,7 +227,7 @@ export class SwirlTooltip {
           <span
             class="tooltip__reference"
             aria-describedby="tooltip"
-            onFocusout={this.hide}
+            onFocusout={!this.isPromo && this.hide}
             onClick={this.hide}
             onFocusin={this.show}
           >
