@@ -13,6 +13,9 @@ import { v4 as uuid } from "uuid";
 import { SwirlHeadingLevel } from "../swirl-heading/swirl-heading";
 import classnames from "classnames";
 
+/**
+ * @slot trailing - Trailing slot for content to be displayed before the expand icon.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-accordion-item.css",
@@ -116,6 +119,7 @@ export class SwirlAccordionItem {
                   </swirl-text>
                 )}
               </span>
+              <slot name="trailing"></slot>
               <span class="accordion-item__icon">
                 {!this.expanded && (
                   <swirl-icon glyph="chevron-right" size={20}></swirl-icon>

@@ -17,6 +17,7 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-accordion-item", args);
 
   element.innerHTML = `
+    <swirl-text slot="trailing" color="subdued">Trailing slot</swirl-text>
     <swirl-stack spacing="16">
       <swirl-text size="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
