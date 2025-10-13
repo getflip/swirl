@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.394.0
+
+### Minor Changes
+
+- [#1272](https://github.com/getflip/swirl/pull/1272)
+  [`2df4752a7`](https://github.com/getflip/swirl/commit/2df4752a7df83abf3351ac96c23004aad6ded1da)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add semantics
+  prop to swirl-avatar-group
+
 ## 0.393.0
 
 ### Minor Changes
