@@ -702,6 +702,18 @@
               "name": "horizontal"
             }
           ]
+        },
+        {
+          "name": "semantics",
+          "description": "",
+          "values": [
+            {
+              "name": "group"
+            },
+            {
+              "name": "list"
+            }
+          ]
         }
       ]
     },

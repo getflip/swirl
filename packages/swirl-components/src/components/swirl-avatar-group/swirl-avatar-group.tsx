@@ -2,6 +2,7 @@ import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlAvatarGroupLayout = "diagonal" | "horizontal";
+export type SwirlAvatarGroupSemantics = "list" | "group";
 
 /**
  * @slot slot - Your avatar components
@@ -15,6 +16,7 @@ export class SwirlAvatarGroup {
   @Prop() badge?: string;
   @Prop() label?: string;
   @Prop() layout?: SwirlAvatarGroupLayout = "diagonal";
+  @Prop() semantics?: SwirlAvatarGroupSemantics = "group";
 
   @State() avatars: HTMLElement[] = [];
 
@@ -72,7 +74,7 @@ export class SwirlAvatarGroup {
 
     return (
       <Host>
-        <div aria-label={this.label} class={className} role="group">
+        <div aria-label={this.label} class={className} role={this.semantics}>
           <slot onSlotchange={this.onSlotChange}></slot>
           {this.badge && (
             <span
