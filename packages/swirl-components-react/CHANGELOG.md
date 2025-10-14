@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.394.1
+
+### Patch Changes
+
+- [#1274](https://github.com/getflip/swirl/pull/1274)
+  [`ebf651743`](https://github.com/getflip/swirl/commit/ebf651743f3a6d6e89d075e0837434f2524fb057)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent primary modal content
+  from displacing secondary content
+
+- Updated dependencies
+  [[`ebf651743`](https://github.com/getflip/swirl/commit/ebf651743f3a6d6e89d075e0837434f2524fb057)]:
+  - @getflip/swirl-components@0.394.1
+
 ## 0.394.0
 
 ### Minor Changes
