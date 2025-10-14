@@ -531,8 +531,9 @@
   display: flex;
   overflow: hidden;
   overflow-y: auto;
-  flex-grow: 1;
+  min-width: 0;
   flex-basis: 100%;
+  flex-grow: 1;
   flex-direction: column;
 }
 
@@ -551,6 +552,7 @@
   overflow: visible;
   overflow-x: hidden;
   overflow-y: auto;
+  min-width: 0;
   max-width: none;
   max-height: 40%;
   padding-right: var(--s-space-16);
