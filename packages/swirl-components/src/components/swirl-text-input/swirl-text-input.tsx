@@ -86,6 +86,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @State() iconSize: 20 | 24 = 24;
   @State() showPassword = false;
 
+  @Event() cleared: EventEmitter<void>;
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
@@ -159,11 +160,12 @@ export class SwirlTextInput implements SwirlFormInput {
     }
   }
 
-  private clear = () => {
+  private handleClearClick = () => {
     this.inputEl.value = "";
     this.value = "";
     this.valueChange.emit("");
     this.inputEl.focus();
+    this.cleared.emit();
   };
 
   private onChange = (event: Event) => {
@@ -331,7 +333,7 @@ export class SwirlTextInput implements SwirlFormInput {
             <button
               aria-label={this.clearButtonLabel}
               class="text-input__clear-button"
-              onClick={this.clear}
+              onClick={this.handleClearClick}
               part="text-input__clear-button"
               type="button"
             >

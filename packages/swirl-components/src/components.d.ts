@@ -8550,6 +8550,7 @@ declare global {
         new (): HTMLSwirlTextElement;
     };
     interface HTMLSwirlTextInputElementEventMap {
+        "cleared": void;
         "inputBlur": FocusEvent;
         "inputFocus": FocusEvent;
         "valueChange": string;
@@ -13686,6 +13687,7 @@ declare namespace LocalJSX {
         "maxLength"?: number;
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
+        "onCleared"?: (event: SwirlTextInputCustomEvent<void>) => void;
         "onInputBlur"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
