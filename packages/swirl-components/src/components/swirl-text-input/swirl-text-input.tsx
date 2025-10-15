@@ -262,8 +262,7 @@ export class SwirlTextInput implements SwirlFormInput {
       !this.readonly &&
       Boolean(this.value) &&
       !showPasswordToggle &&
-      !showStepper &&
-      !this.showCharacterCounter;
+      !showStepper;
 
     const type =
       this.type === "password" && this.showPassword ? "text" : this.type;
@@ -274,7 +273,7 @@ export class SwirlTextInput implements SwirlFormInput {
       `text-input--type-${this.type}`,
       {
         "text-input--auto-grow": this.autoGrow,
-        "text-input--clearable": this.clearable,
+        "text-input--clearable": showClearButton,
         "text-input--disable-dynamic-width":
           this.disableDynamicWidth || Boolean(this.placeholder),
         "text-input--has-suffix": Boolean(this.suffixLabel),
