@@ -22004,6 +22004,10 @@
           "description": ""
         },
         {
+          "name": "show-character-counter-near-limit",
+          "description": ""
+        },
+        {
           "name": "spell-check",
           "description": ""
         },

@@ -4776,6 +4776,7 @@ export namespace Components {
          */
         "rows"?: number;
         "showCharacterCounter"?: boolean;
+        "showCharacterCounterNearLimit"?: boolean;
         "spellCheck"?: boolean;
         "step"?: number;
         "suffixLabel"?: string;
@@ -13704,6 +13705,7 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
         "showCharacterCounter"?: boolean;
+        "showCharacterCounterNearLimit"?: boolean;
         "spellCheck"?: boolean;
         "step"?: number;
         "suffixLabel"?: string;

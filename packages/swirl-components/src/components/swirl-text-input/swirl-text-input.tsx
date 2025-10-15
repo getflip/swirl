@@ -71,6 +71,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() required?: boolean;
   @Prop() rows?: number = 1;
   @Prop() showCharacterCounter?: boolean;
+  @Prop() showCharacterCounterNearLimit?: boolean;
   @Prop() spellCheck?: boolean;
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
@@ -266,6 +267,12 @@ export class SwirlTextInput implements SwirlFormInput {
       !showPasswordToggle &&
       !showStepper;
 
+    const characterNumber = this.value?.length ?? 0;
+    const showCharacterCounter =
+      this.showCharacterCounter &&
+      (!this.showCharacterCounterNearLimit ||
+        characterNumber >= this.maxLength * 0.8);
+
     const type =
       this.type === "password" && this.showPassword ? "text" : this.type;
 
@@ -384,12 +391,12 @@ export class SwirlTextInput implements SwirlFormInput {
               </button>
             </span>
           )}
-          {this.showCharacterCounter && (
+          {showCharacterCounter && (
             <span class="text-input__character-counter" aria-live="polite">
               <swirl-visually-hidden>
                 {this.characterCounterLabel}
               </swirl-visually-hidden>
-              {this.value?.length || 0}{" "}
+              {characterNumber}{" "}
               {Boolean(this.maxLength) ? `/ ${this.maxLength}` : ""}
             </span>
           )}
