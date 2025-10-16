@@ -1,5 +1,32 @@
 # @getflip/swirl-components-react
 
+## 0.395.0
+
+### Minor Changes
+
+- [#1276](https://github.com/getflip/swirl/pull/1276)
+  [`777ca6239`](https://github.com/getflip/swirl/commit/777ca62390d8c344217d464e83d9b37ed29a2698)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add cleared
+  event to swirl-text-input
+
+* [#1276](https://github.com/getflip/swirl/pull/1276)
+  [`777ca6239`](https://github.com/getflip/swirl/commit/777ca62390d8c344217d464e83d9b37ed29a2698)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  showCharacterCounterNearLimit prop to swirl-text-input
+
+- [#1276](https://github.com/getflip/swirl/pull/1276)
+  [`777ca6239`](https://github.com/getflip/swirl/commit/777ca62390d8c344217d464e83d9b37ed29a2698)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Allow clear
+  button to be shown together with character count in swirl-text-input
+
+### Patch Changes
+
+- Updated dependencies
+  [[`777ca6239`](https://github.com/getflip/swirl/commit/777ca62390d8c344217d464e83d9b37ed29a2698),
+  [`777ca6239`](https://github.com/getflip/swirl/commit/777ca62390d8c344217d464e83d9b37ed29a2698),
+  [`777ca6239`](https://github.com/getflip/swirl/commit/777ca62390d8c344217d464e83d9b37ed29a2698)]:
+  - @getflip/swirl-components@0.395.0
+
 ## 0.394.1
 
 ### Patch Changes
