@@ -4662,6 +4662,7 @@ export namespace Components {
     }
     interface SwirlTag {
         "bordered"?: boolean;
+        "hideLabel"?: boolean;
         "icon"?: string;
         /**
           * @default "start"
@@ -13588,6 +13589,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTag {
         "bordered"?: boolean;
+        "hideLabel"?: boolean;
         "icon"?: string;
         /**
           * @default "start"

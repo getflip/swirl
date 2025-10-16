@@ -32,6 +32,7 @@ export type SwirlTagIconPosition = "start" | "end";
 export class SwirlTag {
   @Element() el: HTMLElement;
 
+  @Prop() hideLabel?: boolean;
   @Prop() icon?: string;
   @Prop() iconPosition: SwirlTagIconPosition = "start";
   @Prop() intent?: SwirlTagIntent = "default";
@@ -83,7 +84,8 @@ export class SwirlTag {
       `tag--icon-position-${this.iconPosition}`,
       `tag--intent-${this.intent}`,
       `tag--size-${this.size}`,
-      `tag--variant-${this.variant}`
+      `tag--variant-${this.variant}`,
+      { "tag--hide-label": this.hideLabel }
     );
 
     return (
@@ -96,7 +98,11 @@ export class SwirlTag {
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span class="tag__label">{this.label}</span>
+          {!this.hideLabel ? (
+            <span class="tag__label">{this.label}</span>
+          ) : (
+            <swirl-visually-hidden>{this.label}</swirl-visually-hidden>
+          )}
           {this.removable && (
             <button
               aria-label={this.removalButtonLabel}
