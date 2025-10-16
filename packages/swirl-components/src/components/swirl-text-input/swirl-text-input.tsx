@@ -87,7 +87,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @State() iconSize: 20 | 24 = 24;
   @State() showPassword = false;
 
-  @Event() cleared: EventEmitter<void>;
+  @Event() clear: EventEmitter<void>;
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
@@ -166,7 +166,7 @@ export class SwirlTextInput implements SwirlFormInput {
     this.value = "";
     this.valueChange.emit("");
     this.inputEl.focus();
-    this.cleared.emit();
+    this.clear.emit();
   };
 
   private onChange = (event: Event) => {
@@ -267,11 +267,11 @@ export class SwirlTextInput implements SwirlFormInput {
       !showPasswordToggle &&
       !showStepper;
 
-    const characterNumber = this.value?.length ?? 0;
+    const characterCount = this.value?.length ?? 0;
     const showCharacterCounter =
       this.showCharacterCounter &&
       (!this.showCharacterCounterNearLimit ||
-        characterNumber >= this.maxLength * 0.8);
+        characterCount >= this.maxLength * 0.8);
 
     const type =
       this.type === "password" && this.showPassword ? "text" : this.type;
@@ -396,7 +396,7 @@ export class SwirlTextInput implements SwirlFormInput {
               <swirl-visually-hidden>
                 {this.characterCounterLabel}
               </swirl-visually-hidden>
-              {characterNumber}{" "}
+              {characterCount}{" "}
               {Boolean(this.maxLength) ? `/ ${this.maxLength}` : ""}
             </span>
           )}

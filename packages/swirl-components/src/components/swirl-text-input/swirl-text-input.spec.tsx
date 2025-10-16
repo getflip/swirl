@@ -68,9 +68,9 @@ describe("swirl-text-input", () => {
       components: [SwirlTextInput],
       html: `<swirl-text-input clearable="true" value="Value"></swirl-text-input>`,
     });
-    const clearedSpy = jest.fn();
+    const clearSpy = jest.fn();
 
-    page.root.addEventListener("cleared", clearedSpy);
+    page.root.addEventListener("clear", clearSpy);
 
     expect(page.root.value).toBe("Value");
 
@@ -78,7 +78,7 @@ describe("swirl-text-input", () => {
       .querySelector<HTMLButtonElement>(".text-input__clear-button")
       .click();
 
-    expect(clearedSpy).toHaveBeenCalled();
+    expect(clearSpy).toHaveBeenCalled();
     expect(page.root.value).toBe("");
   });
 
