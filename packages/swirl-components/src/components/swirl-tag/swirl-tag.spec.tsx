@@ -44,6 +44,25 @@ describe("swirl-tag", () => {
     `);
   });
 
+  it("renders with hidden label", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTag],
+      html: `<swirl-tag hide-label="true" intent="info" label="Label"></swirl-tag>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-tag hide-label="true" intent="info" label="Label">
+        <mock:shadow-root>
+          <span class="tag tag--hide-label tag--icon-position-start tag--intent-info tag--size-m tag--variant-default" part="tag">
+            <swirl-visually-hidden>
+              Label
+            </swirl-visually-hidden>
+          </span>
+        </mock:shadow-root>
+      </swirl-tag>
+    `);
+  });
+
   it("renders the label with outline variant when bordered is set", async () => {
     const page = await newSpecPage({
       components: [SwirlTag],

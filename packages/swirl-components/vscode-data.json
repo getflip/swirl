@@ -21592,6 +21592,10 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "icon",
           "description": ""
         },

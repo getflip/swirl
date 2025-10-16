@@ -18,7 +18,6 @@
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
   white-space: nowrap;
-  gap: var(--s-space-4);
   border-style: solid;
   border-width: var(--s-border-width-default);
   border-color: transparent;
@@ -30,6 +29,31 @@
 
 .tag--size-m {
   padding: var(--s-space-2) var(--s-space-8);
+}
+
+.tag--icon-position-end {
+  & .tag__icon {
+    margin-right: calc(-1 * var(--s-space-4));
+    margin-left: var(--s-space-4);
+    order: 2;
+  }
+}
+
+.tag--hide-label {
+  padding-right: 0;
+  padding-left: 0;
+
+  &.tag--size-s {
+    & .tag__icon {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  & .tag__icon {
+    margin-right: var(--s-space-2);
+    margin-left: var(--s-space-2);
+  }
 }
 
 .tag--variant-outline {
@@ -170,17 +194,10 @@
 
 .tag__icon {
   display: inline-flex;
+  margin-right: var(--s-space-4);
   margin-left: calc(-1 * var(--s-space-4));
   flex-shrink: 0;
   order: 0;
-}
-
-.tag--icon-position-end {
-  & .tag__icon {
-    margin-right: calc(-1 * var(--s-space-4));
-    margin-left: 0;
-    order: 2;
-  }
 }
 
 .tag__label {
@@ -194,6 +211,7 @@
 .tag__removal-button {
   display: inline-flex;
   margin-right: calc(-1 * var(--s-space-4));
+  margin-left: var(--s-space-4);
   padding: 0;
   border: none;
   color: var(--s-icon-strong);
