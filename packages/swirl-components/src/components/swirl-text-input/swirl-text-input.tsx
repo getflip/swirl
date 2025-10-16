@@ -71,6 +71,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() required?: boolean;
   @Prop() rows?: number = 1;
   @Prop() showCharacterCounter?: boolean;
+  @Prop() showCharacterCounterNearLimit?: boolean;
   @Prop() spellCheck?: boolean;
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
@@ -86,6 +87,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @State() iconSize: 20 | 24 = 24;
   @State() showPassword = false;
 
+  @Event() clear: EventEmitter<void>;
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
@@ -159,11 +161,12 @@ export class SwirlTextInput implements SwirlFormInput {
     }
   }
 
-  private clear = () => {
+  private handleClearClick = () => {
     this.inputEl.value = "";
     this.value = "";
     this.valueChange.emit("");
     this.inputEl.focus();
+    this.clear.emit();
   };
 
   private onChange = (event: Event) => {
@@ -262,8 +265,13 @@ export class SwirlTextInput implements SwirlFormInput {
       !this.readonly &&
       Boolean(this.value) &&
       !showPasswordToggle &&
-      !showStepper &&
-      !this.showCharacterCounter;
+      !showStepper;
+
+    const characterCount = this.value?.length ?? 0;
+    const showCharacterCounter =
+      this.showCharacterCounter &&
+      (!this.showCharacterCounterNearLimit ||
+        characterCount >= this.maxLength * 0.8);
 
     const type =
       this.type === "password" && this.showPassword ? "text" : this.type;
@@ -274,7 +282,7 @@ export class SwirlTextInput implements SwirlFormInput {
       `text-input--type-${this.type}`,
       {
         "text-input--auto-grow": this.autoGrow,
-        "text-input--clearable": this.clearable,
+        "text-input--clearable": showClearButton,
         "text-input--disable-dynamic-width":
           this.disableDynamicWidth || Boolean(this.placeholder),
         "text-input--has-suffix": Boolean(this.suffixLabel),
@@ -332,7 +340,7 @@ export class SwirlTextInput implements SwirlFormInput {
             <button
               aria-label={this.clearButtonLabel}
               class="text-input__clear-button"
-              onClick={this.clear}
+              onClick={this.handleClearClick}
               part="text-input__clear-button"
               type="button"
             >
@@ -383,12 +391,12 @@ export class SwirlTextInput implements SwirlFormInput {
               </button>
             </span>
           )}
-          {this.showCharacterCounter && (
+          {showCharacterCounter && (
             <span class="text-input__character-counter" aria-live="polite">
               <swirl-visually-hidden>
                 {this.characterCounterLabel}
               </swirl-visually-hidden>
-              {this.value?.length || 0}{" "}
+              {characterCount}{" "}
               {Boolean(this.maxLength) ? `/ ${this.maxLength}` : ""}
             </span>
           )}

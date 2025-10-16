@@ -30,6 +30,10 @@
 .text-input--type-number,
 .text-input--type-password {
   padding-right: calc(1.5rem + var(--s-space-8));
+
+  .text-input__character-counter {
+    padding-right: calc(1.5rem + var(--s-space-8));
+  }
 }
 
 .text-input--show-password {

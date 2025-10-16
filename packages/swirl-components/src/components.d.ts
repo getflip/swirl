@@ -4776,6 +4776,7 @@ export namespace Components {
          */
         "rows"?: number;
         "showCharacterCounter"?: boolean;
+        "showCharacterCounterNearLimit"?: boolean;
         "spellCheck"?: boolean;
         "step"?: number;
         "suffixLabel"?: string;
@@ -8550,6 +8551,7 @@ declare global {
         new (): HTMLSwirlTextElement;
     };
     interface HTMLSwirlTextInputElementEventMap {
+        "clear": void;
         "inputBlur": FocusEvent;
         "inputFocus": FocusEvent;
         "valueChange": string;
@@ -13686,6 +13688,7 @@ declare namespace LocalJSX {
         "maxLength"?: number;
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
+        "onClear"?: (event: SwirlTextInputCustomEvent<void>) => void;
         "onInputBlur"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
@@ -13702,6 +13705,7 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
         "showCharacterCounter"?: boolean;
+        "showCharacterCounterNearLimit"?: boolean;
         "spellCheck"?: boolean;
         "step"?: number;
         "suffixLabel"?: string;
