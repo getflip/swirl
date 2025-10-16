@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.396.0
+
+### Minor Changes
+
+- [#1278](https://github.com/getflip/swirl/pull/1278)
+  [`fd0bdb1af`](https://github.com/getflip/swirl/commit/fd0bdb1af5838be7997eec6a3278349da0a0edc6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-label" prop to
+  swirl-tag
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fd0bdb1af`](https://github.com/getflip/swirl/commit/fd0bdb1af5838be7997eec6a3278349da0a0edc6)]:
+  - @getflip/swirl-components@0.396.0
+
 ## 0.395.0
 
 ### Minor Changes
