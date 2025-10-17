@@ -140,7 +140,8 @@ export class SwirlTimeInput {
       .replace(/(?<!H)H(?!H)/g, "HH")
       .replace(/(?<!h)h(?!h)/g, "hh")
       .replace(/(?<!m)m(?!m)/g, "mm")
-      .replace(/(?<!s)s(?!s)/g, "ss");
+      .replace(/(?<!s)s(?!s)/g, "ss")
+      .replace(/(?<!a)a(?!a)/g, "aa"); // Handle single 'a' to 'aa' for AM/PM
 
     this.mask = IMask(this.inputEl, {
       mask: Date,
@@ -173,6 +174,11 @@ export class SwirlTimeInput {
           mask: IMask.MaskedRange,
           from: 0,
           to: 59,
+          maxLength: 2,
+        },
+        aa: {
+          mask: IMask.MaskedEnum,
+          enum: ["AM", "PM"],
           maxLength: 2,
         },
       },
