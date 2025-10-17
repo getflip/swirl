@@ -63,17 +63,33 @@ describe("swirl-time-input", () => {
 
     expect(spy.mock.calls[1][0].detail).toBe("12:30:20");
   });
-});
 
-it("corrects partial input values", async () => {
-  const page = await newSpecPage({
-    components: [SwirlTimeInput],
-    html: `<swirl-time-input></swirl-time-input>`,
+  it("corrects partial input values", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTimeInput],
+      html: `<swirl-time-input></swirl-time-input>`,
+    });
+
+    const input = page.root.querySelector("input");
+    input.value = "4:30";
+    input.dispatchEvent(new Event("input"));
+
+    expect(input.value).toBe("04:30");
   });
 
-  const input = page.root.querySelector("input");
-  input.value = "4:30";
-  input.dispatchEvent(new Event("input"));
+  it("handle format with day period", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTimeInput],
+      html: `<swirl-time-input value="14:30:00"></swirl-time-input>`,
+    });
 
-  expect(input.value).toBe("04:30");
+    const input = page.root.querySelector("input");
+
+    expect(input.value).toBe("14:30");
+
+    page.root.format = "hh:mm:ss a";
+    await page.waitForChanges();
+
+    expect(input.value).toBe("02:30:00 PM");
+  });
 });
