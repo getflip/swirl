@@ -77,7 +77,7 @@ describe("swirl-time-input", () => {
     expect(input.value).toBe("04:30");
   });
 
-  it("handle format with day period", async () => {
+  it("handle format with day period in upper case", async () => {
     const page = await newSpecPage({
       components: [SwirlTimeInput],
       html: `<swirl-time-input value="14:30:00"></swirl-time-input>`,
@@ -91,5 +91,35 @@ describe("swirl-time-input", () => {
     await page.waitForChanges();
 
     expect(input.value).toBe("02:30:00 PM");
+  });
+
+  it("handle format with day period in lower case", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTimeInput],
+      html: `<swirl-time-input value="14:30:00"></swirl-time-input>`,
+    });
+
+    const input = page.root.querySelector("input");
+
+    expect(input.value).toBe("14:30");
+
+    page.root.format = "hh:mm:ss aaa";
+    await page.waitForChanges();
+
+    expect(input.value).toBe("02:30:00 pm");
+  });
+
+  it("handle format with day period in lower case when entering numbers", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTimeInput],
+      html: `<swirl-time-input format="hh:mm aaa"></swirl-time-input>`,
+    });
+
+    const input = page.root.querySelector("input");
+
+    page.root.value = "12:30 pm";
+    await page.waitForChanges();
+
+    expect(input.value).toBe("12:30 pm");
   });
 });

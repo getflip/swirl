@@ -92,12 +92,38 @@ export class SwirlTimeInput {
   watchValue(newValue: string, oldValue: string) {
     if (newValue !== oldValue) {
       this.valueChange.emit(newValue);
-      this.mask.value = newValue;
+
+      // Parse and format the value properly for the mask
+      if (this.mask && newValue) {
+        const pattern = this.getPattern();
+
+        // Try to parse with internal format first, then display format
+        let dateValue = parse(newValue, internalTimeFormat, new Date());
+        if (!isValid(dateValue)) {
+          dateValue = parse(newValue, pattern, new Date());
+        }
+
+        if (isValid(dateValue)) {
+          const formattedValue = format(dateValue, pattern);
+          this.mask.value = formattedValue;
+        }
+      } else if (this.mask && !newValue) {
+        this.mask.value = "";
+      }
     }
   }
 
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;
+  }
+
+  private getPattern() {
+    return this.format
+      .replace(/(?<!H)H(?!H)/g, "HH")
+      .replace(/(?<!h)h(?!h)/g, "hh")
+      .replace(/(?<!m)m(?!m)/g, "mm")
+      .replace(/(?<!s)s(?!s)/g, "ss")
+      .replace(/(?<!a)a(?!a)/g, "aa");
   }
 
   private onBlur = (event: FocusEvent) => {
@@ -136,12 +162,7 @@ export class SwirlTimeInput {
     this.mask?.destroy();
 
     // Due to automatic padding with 0s, we need to replace single characters with full length blocks.
-    const pattern = this.format
-      .replace(/(?<!H)H(?!H)/g, "HH")
-      .replace(/(?<!h)h(?!h)/g, "hh")
-      .replace(/(?<!m)m(?!m)/g, "mm")
-      .replace(/(?<!s)s(?!s)/g, "ss")
-      .replace(/(?<!a)a(?!a)/g, "aa"); // Handle single 'a' to 'aa' for AM/PM
+    const pattern = this.getPattern();
 
     this.mask = IMask(this.inputEl, {
       mask: Date,
@@ -178,8 +199,13 @@ export class SwirlTimeInput {
         },
         aa: {
           mask: IMask.MaskedEnum,
-          enum: ["AM", "PM"],
+          enum: ["AM", "PM", "A", "P"],
           maxLength: 2,
+        },
+        aaa: {
+          mask: IMask.MaskedEnum,
+          enum: ["am", "pm", "a", "p"],
+          maxLength: 3,
         },
       },
 
