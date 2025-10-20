@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.397.0
+
+### Minor Changes
+
+- [#1283](https://github.com/getflip/swirl/pull/1283)
+  [`dcee7dcbe`](https://github.com/getflip/swirl/commit/dcee7dcbe2a9b3b8f22180ebb761ef19fc7fb867)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "cursor" prop to swirl-button
+
 ## 0.396.0
 
 ### Minor Changes
