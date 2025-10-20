@@ -20,6 +20,44 @@ export type SwirlButtonVariant =
   | "on-image"
   | "outline";
 
+export type SwirlButtonCursor =
+  | "auto"
+  | "default"
+  | "none"
+  | "context-menu"
+  | "help"
+  | "pointer"
+  | "progress"
+  | "wait"
+  | "cell"
+  | "crosshair"
+  | "text"
+  | "vertical-text"
+  | "alias"
+  | "copy"
+  | "move"
+  | "no-drop"
+  | "not-allowed"
+  | "grab"
+  | "grabbing"
+  | "e-resize"
+  | "n-resize"
+  | "ne-resize"
+  | "nw-resize"
+  | "s-resize"
+  | "se-resize"
+  | "sw-resize"
+  | "w-resize"
+  | "ew-resize"
+  | "ns-resize"
+  | "nesw-resize"
+  | "nwse-resize"
+  | "col-resize"
+  | "row-resize"
+  | "all-scroll"
+  | "zoom-in"
+  | "zoom-out";
+
 /**
  * @slot icon - Icon to be displayed inside the button.
  * @slot tag - Tag to be displayed inside the button.
@@ -40,32 +78,33 @@ export type SwirlButtonVariant =
 export class SwirlButton {
   @Element() el: HTMLElement;
 
-  @Prop() elevated?: boolean;
+  @Prop() cursor?: SwirlButtonCursor = "pointer";
   @Prop() disabled?: boolean;
   @Prop() download?: string;
-  @Prop() swirlAriaControls?: string;
-  @Prop() swirlAriaCurrent?: string;
-  @Prop() swirlAriaDescribedby?: string;
-  @Prop() swirlAriaExpanded?: string;
-  @Prop() swirlAriaHaspopup?: string;
-  @Prop() swirlAriaLabel?: string;
+  @Prop() elevated?: boolean;
   @Prop() form?: string;
   @Prop() hideLabel?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() iconPosition: SwirlButtonIconPosition = "start";
   @Prop() intent?: SwirlButtonIntent = "default";
+  @Prop() inheritFontSize?: boolean;
   @Prop() label!: string;
   @Prop() name?: string;
   @Prop() pill?: boolean;
   @Prop() pressed?: boolean;
   @Prop() size?: SwirlButtonSize = "m";
+  @Prop() swirlAriaControls?: string;
+  @Prop() swirlAriaCurrent?: string;
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlAriaHaspopup?: string;
+  @Prop() swirlAriaLabel?: string;
   @Prop() target?: string;
   @Prop() textAlign?: SwirlButtonTextAlign = "center";
   @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
-  @Prop() inheritFontSize?: boolean;
 
   private buttonEl: HTMLElement;
   private iconEl: HTMLElement;
@@ -180,11 +219,14 @@ export class SwirlButton {
           target={isLink ? this.target : undefined}
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}
-          style={
-            this.inheritFontSize
-              ? { fontSize: "inherit", lineHeight: "inherit" }
-              : {}
-          }
+          style={{
+            cursor:
+              !this.disabled && this.cursor !== "pointer"
+                ? this.cursor
+                : undefined,
+            fontSize: this.inheritFontSize ? "inherit" : undefined,
+            lineHeight: this.inheritFontSize ? "inherit" : undefined,
+          }}
         >
           {Boolean(this.icon) && (
             <span

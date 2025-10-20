@@ -52,4 +52,18 @@ describe("swirl-button", () => {
     expect(page.root.children[0].getAttribute("href")).toBe("#");
     expect(page.root.children[0].getAttribute("target")).toBe("_blank");
   });
+
+  it("renders with passed cursor", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button cursor="help" label="Label"></swirl-button>`,
+    });
+
+    expect(page.root.querySelector("button").style.cursor).toBe("help");
+
+    page.root.setAttribute("disabled", "true");
+    await page.waitForChanges();
+
+    expect(page.root.querySelector("button").style.cursor).toBe("");
+  });
 });

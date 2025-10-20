@@ -82,6 +82,8 @@
 
   --swirl-text-input-placeholder-size: var(--s-font-size-base);
 
+  --swirl-form-control-label-background-color: transparent;
+
   @media (--from-desktop-without-touch) {
     --swirl-button-border-top-right-radius: var(--s-border-radius-sm);
     --swirl-button-border-top-left-radius: var(--s-border-radius-sm);

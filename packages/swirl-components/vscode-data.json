@@ -1210,6 +1210,120 @@
       },
       "attributes": [
         {
+          "name": "cursor",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "auto"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "context-menu"
+            },
+            {
+              "name": "help"
+            },
+            {
+              "name": "pointer"
+            },
+            {
+              "name": "progress"
+            },
+            {
+              "name": "wait"
+            },
+            {
+              "name": "cell"
+            },
+            {
+              "name": "crosshair"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "vertical-text"
+            },
+            {
+              "name": "alias"
+            },
+            {
+              "name": "copy"
+            },
+            {
+              "name": "move"
+            },
+            {
+              "name": "no-drop"
+            },
+            {
+              "name": "not-allowed"
+            },
+            {
+              "name": "grab"
+            },
+            {
+              "name": "grabbing"
+            },
+            {
+              "name": "e-resize"
+            },
+            {
+              "name": "n-resize"
+            },
+            {
+              "name": "ne-resize"
+            },
+            {
+              "name": "nw-resize"
+            },
+            {
+              "name": "s-resize"
+            },
+            {
+              "name": "se-resize"
+            },
+            {
+              "name": "sw-resize"
+            },
+            {
+              "name": "w-resize"
+            },
+            {
+              "name": "ew-resize"
+            },
+            {
+              "name": "ns-resize"
+            },
+            {
+              "name": "nesw-resize"
+            },
+            {
+              "name": "nwse-resize"
+            },
+            {
+              "name": "col-resize"
+            },
+            {
+              "name": "row-resize"
+            },
+            {
+              "name": "all-scroll"
+            },
+            {
+              "name": "zoom-in"
+            },
+            {
+              "name": "zoom-out"
+            }
+          ]
+        },
+        {
           "name": "disabled",
           "description": ""
         },

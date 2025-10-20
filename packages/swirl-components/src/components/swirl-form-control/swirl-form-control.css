@@ -326,6 +326,7 @@
   color: var(--s-text-subdued);
   flex-direction: column;
   gap: var(--s-space-2);
+  background-color: var(--swirl-form-control-label-background-color);
 }
 
 .form-control__secondary-label {
