@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.397.1
+
+### Patch Changes
+
+- [#1282](https://github.com/getflip/swirl/pull/1282)
+  [`60466922e`](https://github.com/getflip/swirl/commit/60466922e32000b7e8bf82c7c2bfc26bf53dd7d1)
+  Thanks [@v-escobar](https://github.com/v-escobar)! - Add support for day
+  period on time-input component
+
+- Updated dependencies
+  [[`60466922e`](https://github.com/getflip/swirl/commit/60466922e32000b7e8bf82c7c2bfc26bf53dd7d1)]:
+  - @getflip/swirl-components@0.397.1
+
 ## 0.397.0
 
 ### Minor Changes
