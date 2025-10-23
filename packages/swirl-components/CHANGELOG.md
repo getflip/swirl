@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.397.2
+
+### Patch Changes
+
+- [#1286](https://github.com/getflip/swirl/pull/1286)
+  [`640a70ef3`](https://github.com/getflip/swirl/commit/640a70ef318451ca441bfb0eaa2650a4ed6fb302)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  border-color to pressed swirl-chip
+
 ## 0.397.1
 
 ### Patch Changes
