@@ -120,6 +120,7 @@
   &.chip--pressed {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
+    border-color: var(--s-action-primary-default);
 
     &:hover {
       background-color: var(--s-action-primary-hovered);
