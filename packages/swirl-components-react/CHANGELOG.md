@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.398.0
+
+### Minor Changes
+
+- [#1288](https://github.com/getflip/swirl/pull/1288)
+  [`6c52517ec`](https://github.com/getflip/swirl/commit/6c52517eca1a1d80512e880aa377b04ee3b6e153)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add
+  `clearable` prop and `ghost` variant to SwirlSearch
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6c52517ec`](https://github.com/getflip/swirl/commit/6c52517eca1a1d80512e880aa377b04ee3b6e153)]:
+  - @getflip/swirl-components@0.398.0
+
 ## 0.397.2
 
 ### Patch Changes
