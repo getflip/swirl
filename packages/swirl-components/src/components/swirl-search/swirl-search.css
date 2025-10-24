@@ -22,6 +22,12 @@
   }
 }
 
+.search--variant-ghost {
+  & .search__input {
+    background-color: transparent;
+  }
+}
+
 .search--disabled {
   & .search__icon {
     color: var(--s-icon-disabled);

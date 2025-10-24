@@ -10,7 +10,7 @@ import {
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
-export type SwirlSearchVariant = "filled" | "outline";
+export type SwirlSearchVariant = "filled" | "outline" | "ghost";
 
 @Component({
   /**
