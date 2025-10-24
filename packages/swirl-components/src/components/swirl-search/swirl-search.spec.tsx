@@ -69,4 +69,44 @@ describe("swirl-search", () => {
 
     expect(spy).toHaveBeenCalledTimes(4);
   });
+
+  it("does not render clear button when clearable is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSearch],
+      html: `<swirl-search clearable="false"></swirl-search>`,
+    });
+
+    expect(page.root.querySelector(".search__clear-button")).toBeNull();
+  });
+
+  it("clears the input when the clear button is clicked", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSearch],
+      html: `<swirl-search value="initial text"></swirl-search>`,
+    });
+
+    const clearButton = page.root.querySelector(
+      ".search__clear-button"
+    ) as HTMLButtonElement;
+    expect(clearButton).not.toBeNull();
+    const input = page.root.querySelector("input") as HTMLInputElement;
+    const changeSpy = jest.fn();
+
+    page.root.addEventListener("valueChange", changeSpy);
+
+    // Verify initial state
+    expect(input.value).toBe("initial text");
+
+    // Click clear button
+    clearButton.click();
+    await page.waitForChanges();
+
+    // Verify clear functionality
+    expect(input.value).toBe("");
+    expect(changeSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: "",
+      })
+    );
+  });
 });

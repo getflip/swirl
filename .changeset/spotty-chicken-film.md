@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Add `ghost` variant to SwirlSearch
+Add `clearable` prop and `ghost` variant to SwirlSearch

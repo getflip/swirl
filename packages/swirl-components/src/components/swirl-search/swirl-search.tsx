@@ -34,6 +34,7 @@ export class SwirlSearch {
   @Prop() placeholder?: string = "Search …";
   @Prop({ mutable: true }) value?: string;
   @Prop() variant?: SwirlSearchVariant = "filled";
+  @Prop() clearable?: boolean = true;
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
@@ -134,7 +135,7 @@ export class SwirlSearch {
             type="search"
             value={this.value}
           />
-          {!this.disabled && (
+          {!this.disabled && this.clearable && (
             <button
               aria-label={this.clearButtonLabel}
               class="search__clear-button"
