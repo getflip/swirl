@@ -3585,6 +3585,10 @@ export namespace Components {
           * @default "Clear search term"
          */
         "clearButtonLabel"?: string;
+        /**
+          * @default true
+         */
+        "clearable"?: boolean;
         "disabled"?: boolean;
         "inputId"?: string;
         "inputName"?: string;
@@ -12523,6 +12527,10 @@ declare namespace LocalJSX {
           * @default "Clear search term"
          */
         "clearButtonLabel"?: string;
+        /**
+          * @default true
+         */
+        "clearable"?: boolean;
         "disabled"?: boolean;
         "inputId"?: string;
         "inputName"?: string;
