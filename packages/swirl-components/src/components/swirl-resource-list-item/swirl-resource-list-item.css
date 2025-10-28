@@ -109,7 +109,7 @@
   }
 
   & .resource-list-item__label-container {
-    min-height: 2.5rem;
+    min-height: 2rem;
   }
 }
 
@@ -161,6 +161,7 @@
       opacity: 1;
       position: static;
       transform: none;
+      margin: calc(-1 * var(--s-space-2)) 0;
     }
 
     & .resource-list-item__meta {
@@ -274,6 +275,7 @@
 .resource-list-item__label-container {
   position: relative;
   display: flex;
+  height: 100%;
   min-width: 0;
   min-height: 3rem;
   padding-right: var(--s-space-16);
