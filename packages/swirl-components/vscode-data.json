@@ -1214,13 +1214,22 @@
           "description": "",
           "values": [
             {
+              "name": "text"
+            },
+            {
+              "name": "copy"
+            },
+            {
+              "name": "progress"
+            },
+            {
               "name": "default"
             },
             {
-              "name": "auto"
+              "name": "none"
             },
             {
-              "name": "none"
+              "name": "auto"
             },
             {
               "name": "context-menu"
@@ -1232,9 +1241,6 @@
               "name": "pointer"
             },
             {
-              "name": "progress"
-            },
-            {
               "name": "wait"
             },
             {
@@ -1244,16 +1250,10 @@
               "name": "crosshair"
             },
             {
-              "name": "text"
-            },
-            {
               "name": "vertical-text"
             },
             {
               "name": "alias"
-            },
-            {
-              "name": "copy"
             },
             {
               "name": "move"
@@ -18824,6 +18824,10 @@
           "description": ""
         },
         {
+          "name": "clearable",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
@@ -18853,6 +18857,9 @@
           "values": [
             {
               "name": "filled"
+            },
+            {
+              "name": "ghost"
             },
             {
               "name": "outline"
