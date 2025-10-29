@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.399.1
+
+### Patch Changes
+
+- [#1292](https://github.com/getflip/swirl/pull/1292)
+  [`7b2c0d1e0`](https://github.com/getflip/swirl/commit/7b2c0d1e05d01e2e576225944be1209927636ee7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Use a contrasting avatar
+  background color when used inside a hovered or pressed card
+
 ## 0.399.0
 
 ### Minor Changes
