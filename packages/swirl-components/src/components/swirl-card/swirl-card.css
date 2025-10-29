@@ -43,10 +43,14 @@ button.card,
   cursor: pointer;
 
   &:hover {
+    --swirl-avatar-background-color: var(--s-surface-raised-hovered);
+
     background-color: var(--swirl-card-background-hovered);
   }
 
   &:active {
+    --swirl-avatar-background-color: var(--s-surface-raised-pressed);
+
     background-color: var(--swirl-card-background-pressed);
   }
 
