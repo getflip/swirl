@@ -109,4 +109,25 @@ describe("swirl-search", () => {
       })
     );
   });
+
+  it("emits clear event when the clear button is clicked", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSearch],
+      html: `<swirl-search value="test value"></swirl-search>`,
+    });
+
+    const clearButton = page.root.querySelector(
+      ".search__clear-button"
+    ) as HTMLButtonElement;
+
+    expect(clearButton).not.toBeNull();
+
+    const clearSpy = jest.fn();
+    page.root.addEventListener("clear", clearSpy);
+
+    clearButton.click();
+    await page.waitForChanges();
+
+    expect(clearSpy).toHaveBeenCalledTimes(1);
+  });
 });
