@@ -36,6 +36,7 @@ export class SwirlSearch {
   @Prop() variant?: SwirlSearchVariant = "filled";
   @Prop() clearable?: boolean = true;
 
+  @Event() clear: EventEmitter<void>;
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() inputInput: EventEmitter<string>;
@@ -82,10 +83,11 @@ export class SwirlSearch {
     }
   }
 
-  private clear = () => {
+  private handleClear = () => {
     this.input.value = "";
     this.input.focus();
     this.valueChange.emit("");
+    this.clear.emit();
   };
 
   private onBlur = (event: FocusEvent) => {
@@ -139,7 +141,7 @@ export class SwirlSearch {
             <button
               aria-label={this.clearButtonLabel}
               class="search__clear-button"
-              onClick={this.clear}
+              onClick={this.handleClear}
               type="button"
             >
               <swirl-icon-cancel></swirl-icon-cancel>

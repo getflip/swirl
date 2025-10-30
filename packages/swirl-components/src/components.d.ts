@@ -7625,6 +7625,7 @@ declare global {
         new (): HTMLSwirlResourceListSectionElement;
     };
     interface HTMLSwirlSearchElementEventMap {
+        "clear": void;
         "inputBlur": FocusEvent;
         "inputFocus": FocusEvent;
         "inputInput": string;
@@ -12535,6 +12536,7 @@ declare namespace LocalJSX {
         "inputId"?: string;
         "inputName"?: string;
         "label"?: string;
+        "onClear"?: (event: SwirlSearchCustomEvent<void>) => void;
         "onInputBlur"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
         "onInputInput"?: (event: SwirlSearchCustomEvent<string>) => void;
