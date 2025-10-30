@@ -19112,26 +19112,6 @@
           ]
         },
         {
-          "name": "sidebar-active",
-          "description": ""
-        },
-        {
-          "name": "sidebar-toggle-badge",
-          "description": ""
-        },
-        {
-          "name": "sidebar-toggle-badge-aria-label",
-          "description": ""
-        },
-        {
-          "name": "sidebar-toggle-icon",
-          "description": ""
-        },
-        {
-          "name": "sidebar-toggle-label",
-          "description": ""
-        },
-        {
           "name": "skip-link-label",
           "description": ""
         }
