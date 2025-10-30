@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.400.0
+
+### Minor Changes
+
+- [#1294](https://github.com/getflip/swirl/pull/1294)
+  [`9d5e834ca`](https://github.com/getflip/swirl/commit/9d5e834ca27d9c6ece643c96e5bab17ccab4bf10)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add clear event
+  to swirl-search
+
 ## 0.399.1
 
 ### Patch Changes
