@@ -25,16 +25,16 @@
     "lint": "tsc"
   },
   "dependencies": {
-    "fix-tsup-cjs": "^1.2.0",
-    "oas": "^25.3.0",
-    "oas-normalize": "^11.0.0",
-    "prettier": "^3.0.3",
-    "yargs": "^17.7.2"
+    "fix-tsup-cjs": "1.2.0",
+    "oas": "25.3.0",
+    "oas-normalize": "11.0.0",
+    "prettier": "3.0.3",
+    "yargs": "17.7.2"
   },
   "devDependencies": {
     "tsup": "7.2.0",
     "tsx": "4.7.0",
-    "typescript": "^5.2.2"
+    "typescript": "5.2.2"
   },
   "author": "Flip GmbH",
   "license": "ISC"
