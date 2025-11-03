@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.401.0
+
+### Minor Changes
+
+- [#1300](https://github.com/getflip/swirl/pull/1300)
+  [`7c7659972`](https://github.com/getflip/swirl/commit/7c76599722e39754bec8e4964cab80c86ff5e9e1)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add boundary
+  padding to swirl-popover's shift
+
+### Patch Changes
+
+- [#1298](https://github.com/getflip/swirl/pull/1298)
+  [`a38524a34`](https://github.com/getflip/swirl/commit/a38524a3452de9972994cfa471fc204b670d1ea9)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Autoselect
+  readonly swirl-text-input
+
+- Updated dependencies
+  [[`7c7659972`](https://github.com/getflip/swirl/commit/7c76599722e39754bec8e4964cab80c86ff5e9e1),
+  [`a38524a34`](https://github.com/getflip/swirl/commit/a38524a3452de9972994cfa471fc204b670d1ea9)]:
+  - @getflip/swirl-components@0.401.0
+
 ## 0.400.0
 
 ### Minor Changes
