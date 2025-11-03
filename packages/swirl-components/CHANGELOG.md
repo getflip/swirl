@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.402.0
+
+### Minor Changes
+
+- [#1296](https://github.com/getflip/swirl/pull/1296)
+  [`08be55b55`](https://github.com/getflip/swirl/commit/08be55b55792e9cdb4ea0178a49d372565ecbb9a)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Remove
+  sidebar from shell layout
+
 ## 0.401.0
 
 ### Minor Changes
