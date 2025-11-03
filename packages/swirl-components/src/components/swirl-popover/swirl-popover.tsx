@@ -23,6 +23,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import {
   getActiveElement,
+  getPixelsFromRemToken,
   isMobileViewport,
   querySelectorAllDeep,
 } from "../../utils";
@@ -362,9 +363,18 @@ export class SwirlPopover {
         ? { mainAxis: this.offset, crossAxis: 0 }
         : { mainAxis: this.offset[0], crossAxis: this.offset[1] };
 
+    const shiftPaddingX = getPixelsFromRemToken("--s-space-16");
+
+    const shiftWithPadding = shift({
+      padding: {
+        left: shiftPaddingX,
+        right: shiftPaddingX,
+      },
+    });
+
     const middleware = this.enableFlip
-      ? [offset(offsetOptions), shift(), flip()]
-      : [offset(offsetOptions), shift()];
+      ? [offset(offsetOptions), shiftWithPadding, flip()]
+      : [offset(offsetOptions), shiftWithPadding];
 
     this.position = await computePosition(
       this.triggerEl,
