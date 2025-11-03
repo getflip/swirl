@@ -13,7 +13,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
-import { debounce, isDesktopViewport } from "../../utils";
+import { isDesktopViewport } from "../../utils";
 import { SwirlShellNavigationItemVariant } from "../swirl-shell-navigation-item/swirl-shell-navigation-item";
 
 const SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY =
@@ -21,7 +21,6 @@ const SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY =
 const SECONDARY_NAVIGATION_VIEW_STORAGE_KEY =
   "SWIRL_SHELL_SECONDARY_NAVIGATION_VIEW_STATE";
 const NAVIGATION_COLLAPSE_STORAGE_KEY = "SWIRL_SHELL_NAVIGATION_COLLAPSE_STATE";
-const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
 
 export type SwirlShellLayoutSecondaryNavView = "grid" | "list";
 
@@ -39,8 +38,6 @@ export type SwirlShellLayoutSecondaryNavGridItemVariant = Exclude<
  * @slot nav - Items shown in the lower sidebar part.
  * @slot mobile-logo - Logo shown inside the mobile navigation drawer.
  * @slot default - Contents of the main area.
- * @slot sidebar-app-bar - Contents of the right sidebar header.
- * @slot sidebar - Contents of the right sidebar.
  */
 @Component({
   scoped: true,
@@ -66,14 +63,8 @@ export class SwirlShellLayout {
   @Prop() navigationLabel?: string = "Main";
   @Prop() secondaryNavCollapseLabel?: string = "Show less";
   @Prop() secondaryNavExpandLabel?: string = "Show more";
-  @Prop({ mutable: true }) sidebarActive?: boolean;
-  @Prop() sidebarToggleBadge?: string | boolean;
-  @Prop() sidebarToggleBadgeAriaLabel?: string;
-  @Prop() sidebarToggleIcon?: string = "notifications";
-  @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
   @Prop() skipLinkLabel?: string = "Skip to main content";
 
-  @Event() sidebarToggleClick: EventEmitter<MouseEvent>;
   @Event() skipLinkClick: EventEmitter<MouseEvent>;
 
   @State() isDesktopViewport: boolean = true;
@@ -81,29 +72,16 @@ export class SwirlShellLayout {
   @State() navigationCollapsed?: boolean;
   @State() secondaryNavCollapsed?: boolean;
   @State() secondaryNavView?: SwirlShellLayoutSecondaryNavView = "list";
-  @State() sidebarScrollState = {
-    scrollable: false,
-    scrolledToTop: false,
-  };
 
   private focusTrap: focusTrap.FocusTrap;
   private mainNavItems: HTMLSwirlShellNavigationItemElement[];
   private navElement: HTMLElement;
   private navMutationObserver: MutationObserver;
   private secondaryNavItems: HTMLSwirlShellNavigationItemElement[];
-  private sidebarContentEl: HTMLElement;
 
   componentWillLoad() {
     this.isDesktopViewport = isDesktopViewport();
     this.collectNavItems();
-
-    const restoredSidebarState =
-      localStorage.getItem(SIDEBAR_STORAGE_KEY) === "true";
-
-    this.sidebarActive =
-      this.sidebarActive === undefined
-        ? restoredSidebarState
-        : this.sidebarActive;
 
     const restoredNavigationCollapseState =
       localStorage.getItem(NAVIGATION_COLLAPSE_STORAGE_KEY) === "true";
@@ -132,10 +110,6 @@ export class SwirlShellLayout {
     this.navMutationObserver.observe(this.navElement, {
       childList: true,
       subtree: true,
-    });
-
-    queueMicrotask(() => {
-      this.updateSidebarScrollState();
     });
   }
 
@@ -181,11 +155,6 @@ export class SwirlShellLayout {
 
     this.toggleNavItemLabels();
     this.setSecondaryNavItemsTiled();
-  }
-
-  @Watch("sidebarActive")
-  watchSidebarActive() {
-    localStorage.setItem(SIDEBAR_STORAGE_KEY, String(this.sidebarActive));
   }
 
   @Listen("resize", { target: "window" })
@@ -301,30 +270,7 @@ export class SwirlShellLayout {
     }
   }
 
-  private updateSidebarScrollState() {
-    const newSidebarScrollState = {
-      scrollable:
-        this.sidebarContentEl.scrollHeight > this.sidebarContentEl.clientHeight,
-      scrolledToTop: this.sidebarContentEl.scrollTop === 0,
-    };
-
-    if (
-      Object.keys(newSidebarScrollState).some(
-        (key) => newSidebarScrollState[key] !== this.sidebarScrollState[key]
-      )
-    ) {
-      this.sidebarScrollState = newSidebarScrollState;
-    }
-  }
-
-  private onSidebarScroll = debounce(() => {
-    this.updateSidebarScrollState();
-  }, 16);
-
   render() {
-    const hasSidebarToggleBadgeWithLabel =
-      this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
-
     const mainNavCollapsed = this.navigationCollapsed && this.isDesktopViewport;
 
     const hasSecondaryNav = Boolean(
@@ -337,10 +283,6 @@ export class SwirlShellLayout {
       "shell-layout--has-secondary-nav": hasSecondaryNav,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
       "shell-layout--navigation-collapsed": mainNavCollapsed,
-      "shell-layout--sidebar-active": this.sidebarActive,
-      "shell-layout--sidebar-scrollable": this.sidebarScrollState.scrollable,
-      "shell-layout--sidebar-scrolled-to-top":
-        this.sidebarScrollState.scrolledToTop,
     });
 
     return (
@@ -410,33 +352,6 @@ export class SwirlShellLayout {
             </div>
             <div class="shell-layout__header-right">
               <slot name="right-header-tools"></slot>
-              <button
-                class="shell-layout__header-tool shell-layout__sidebar-toggle"
-                onClick={this.sidebarToggleClick.emit}
-                type="button"
-              >
-                <swirl-icon
-                  glyph={this.sidebarToggleIcon}
-                  size={20}
-                ></swirl-icon>
-                <swirl-visually-hidden>
-                  {this.sidebarToggleLabel}
-                </swirl-visually-hidden>
-                {this.sidebarToggleBadge && (
-                  <swirl-badge
-                    aria-label={this.sidebarToggleBadgeAriaLabel}
-                    label={
-                      !hasSidebarToggleBadgeWithLabel
-                        ? this.sidebarToggleBadgeAriaLabel
-                        : String(this.sidebarToggleBadge)
-                    }
-                    size="xs"
-                    variant={
-                      !hasSidebarToggleBadgeWithLabel ? "dot" : "default"
-                    }
-                  ></swirl-badge>
-                )}
-              </button>
               <slot name="avatar"></slot>
             </div>
           </header>
@@ -533,23 +448,6 @@ export class SwirlShellLayout {
           <main class="shell-layout__main" id="main-content">
             <slot></slot>
           </main>
-          <aside
-            class="shell-layout__sidebar"
-            {...{ inert: this.sidebarActive ? undefined : true }}
-          >
-            <div class="shell-layout__sidebar-body">
-              <div class="shell-layout__sidebar-app-bar">
-                <slot name="sidebar-app-bar"></slot>
-              </div>
-              <div
-                class="shell-layout__sidebar-content"
-                onScroll={this.onSidebarScroll}
-                ref={(el) => (this.sidebarContentEl = el)}
-              >
-                <slot name="sidebar"></slot>
-              </div>
-            </div>
-          </aside>
         </div>
       </Host>
     );

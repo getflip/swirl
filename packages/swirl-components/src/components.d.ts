@@ -3714,17 +3714,6 @@ export namespace Components {
           * Opens the mobile navigation.
          */
         "showMobileNavigation": () => Promise<void>;
-        "sidebarActive"?: boolean;
-        "sidebarToggleBadge"?: string | boolean;
-        "sidebarToggleBadgeAriaLabel"?: string;
-        /**
-          * @default "notifications"
-         */
-        "sidebarToggleIcon"?: string;
-        /**
-          * @default "Toggle sidebar"
-         */
-        "sidebarToggleLabel"?: string;
         /**
           * @default "Skip to main content"
          */
@@ -7670,7 +7659,6 @@ declare global {
         new (): HTMLSwirlSeparatorElement;
     };
     interface HTMLSwirlShellLayoutElementEventMap {
-        "sidebarToggleClick": MouseEvent;
         "skipLinkClick": MouseEvent;
     }
     interface HTMLSwirlShellLayoutElement extends Components.SwirlShellLayout, HTMLStencilElement {
@@ -12644,7 +12632,6 @@ declare namespace LocalJSX {
           * @default "Main"
          */
         "navigationLabel"?: string;
-        "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         /**
           * @default "Show less"
@@ -12658,17 +12645,6 @@ declare namespace LocalJSX {
           * @default "tiled"
          */
         "secondaryNavGridLayoutVariant"?: SwirlShellLayoutSecondaryNavGridItemVariant;
-        "sidebarActive"?: boolean;
-        "sidebarToggleBadge"?: string | boolean;
-        "sidebarToggleBadgeAriaLabel"?: string;
-        /**
-          * @default "notifications"
-         */
-        "sidebarToggleIcon"?: string;
-        /**
-          * @default "Toggle sidebar"
-         */
-        "sidebarToggleLabel"?: string;
         /**
           * @default "Skip to main content"
          */
