@@ -232,7 +232,7 @@ export class SwirlTextInput implements SwirlFormInput {
   };
 
   private handleAutoSelect(event: FocusEvent) {
-    if (!this.autoSelect) {
+    if (!(this.autoSelect || this.readonly)) {
       return;
     }
 
