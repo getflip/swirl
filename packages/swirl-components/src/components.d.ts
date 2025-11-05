@@ -55,6 +55,7 @@ import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
+import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 import { SwirlShellLayoutSecondaryNavGridItemVariant } from "./components/swirl-shell-layout/swirl-shell-layout";
@@ -80,7 +81,7 @@ import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
-import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+import { SwirlTooltipPosition as SwirlTooltipPosition1 } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
@@ -134,6 +135,7 @@ export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
+export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 export { SwirlShellLayoutSecondaryNavGridItemVariant } from "./components/swirl-shell-layout/swirl-shell-layout";
@@ -159,7 +161,7 @@ export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 export { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
-export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+export { SwirlTooltipPosition as SwirlTooltipPosition1 } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
@@ -3553,6 +3555,11 @@ export namespace Components {
         "interactive"?: boolean;
         "label": string;
         "labelMinHeight"?: string;
+        "labelTooltip"?: string;
+        /**
+          * @default "top"
+         */
+        "labelTooltipPosition"?: SwirlTooltipPosition;
         /**
           * @default "medium"
          */
@@ -4948,7 +4955,7 @@ export namespace Components {
         /**
           * @default "top"
          */
-        "position"?: SwirlTooltipPosition;
+        "position"?: SwirlTooltipPosition1;
         /**
           * @default "absolute"
          */
@@ -12482,6 +12489,11 @@ declare namespace LocalJSX {
         "interactive"?: boolean;
         "label": string;
         "labelMinHeight"?: string;
+        "labelTooltip"?: string;
+        /**
+          * @default "top"
+         */
+        "labelTooltipPosition"?: SwirlTooltipPosition;
         /**
           * @default "medium"
          */
@@ -13849,7 +13861,7 @@ declare namespace LocalJSX {
         /**
           * @default "top"
          */
-        "position"?: SwirlTooltipPosition;
+        "position"?: SwirlTooltipPosition1;
         /**
           * @default "absolute"
          */

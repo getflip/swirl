@@ -18675,6 +18675,28 @@
           "description": ""
         },
         {
+          "name": "label-tooltip",
+          "description": ""
+        },
+        {
+          "name": "label-tooltip-position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "top"
+            }
+          ]
+        },
+        {
           "name": "label-weight",
           "description": "",
           "values": [

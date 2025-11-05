@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlResourceListItem } from "./swirl-resource-list-item";
+import { SwirlTooltip } from "../swirl-tooltip/swirl-tooltip";
 
 describe("swirl-resource-list-item", () => {
   it("renders label, description and media", async () => {
@@ -168,5 +169,26 @@ describe("swirl-resource-list-item", () => {
       page.root.querySelector<HTMLElement>(".resource-list-item__description")
         .innerText
     ).toBe("<button>Description</button>");
+  });
+
+  it("renders label with tooltip when labelTooltip is provided", async () => {
+    const page = await newSpecPage({
+      components: [SwirlResourceListItem, SwirlTooltip],
+      html: `
+        <div role="grid">
+          <swirl-resource-list-item
+            label="Label with tooltip"
+            label-tooltip="This is a tooltip"
+            label-tooltip-position="right"
+          ></swirl-resource-list-item>
+        </div>
+      `,
+    });
+
+    const tooltip = page.root.querySelector("swirl-tooltip");
+
+    expect(tooltip).not.toBeNull();
+    expect(tooltip.content).toBe("This is a tooltip");
+    expect(tooltip.position).toBe("right");
   });
 });

@@ -12,6 +12,7 @@ import {
   State,
 } from "@stencil/core";
 import { DesktopMediaQuery } from "../../services/media-query.service";
+import { SwirlTooltipPosition } from "../swirl-tooltip/swirl-tooltip";
 
 export type SwirlResourceListItemLabelWeight =
   | "medium"
@@ -51,6 +52,8 @@ export class SwirlResourceListItem {
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() labelWrap?: boolean;
   @Prop() labelMinHeight?: string;
+  @Prop() labelTooltip?: string;
+  @Prop() labelTooltipPosition?: SwirlTooltipPosition = "top";
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -211,6 +214,16 @@ export class SwirlResourceListItem {
       minHeight: this.labelMinHeight ?? undefined,
     };
 
+    const renderLabel = () => (
+      <span
+        class="resource-list-item__label"
+        id={this.elementId}
+        innerHTML={this.allowHtml ? this.label : undefined}
+      >
+        {!this.allowHtml && this.label}
+      </span>
+    );
+
     const className = classnames(
       "resource-list-item",
       `resource-list-item--label-weight-${this.labelWeight}`,
@@ -262,13 +275,17 @@ export class SwirlResourceListItem {
               class="resource-list-item__label-container"
               style={labelContainerStyles}
             >
-              <span
-                class="resource-list-item__label"
-                id={this.elementId}
-                innerHTML={this.allowHtml ? this.label : undefined}
-              >
-                {!this.allowHtml && this.label}
-              </span>
+              {this.labelTooltip ? (
+                <swirl-tooltip
+                  content={this.labelTooltip}
+                  position={this.labelTooltipPosition}
+                  positioning="fixed"
+                >
+                  {renderLabel()}
+                </swirl-tooltip>
+              ) : (
+                renderLabel()
+              )}
               {this.description && (
                 <span
                   class="resource-list-item__description"
