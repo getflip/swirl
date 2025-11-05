@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.404.0
+
+### Minor Changes
+
+- [#1302](https://github.com/getflip/swirl/pull/1302)
+  [`cb285a988`](https://github.com/getflip/swirl/commit/cb285a988f75fe777e3646e18f3388af09efe227)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add label
+  tooltip to swirl-resource-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`cb285a988`](https://github.com/getflip/swirl/commit/cb285a988f75fe777e3646e18f3388af09efe227)]:
+  - @getflip/swirl-components@0.404.0
+
 ## 0.403.0
 
 ### Minor Changes
