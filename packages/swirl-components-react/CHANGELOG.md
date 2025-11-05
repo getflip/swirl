@@ -1,5 +1,21 @@
 # @getflip/swirl-components-react
 
+## 0.403.0
+
+### Minor Changes
+
+- [#1304](https://github.com/getflip/swirl/pull/1304)
+  [`422e0d83d`](https://github.com/getflip/swirl/commit/422e0d83d28e2bae23d8aa809c12626189d52a2a)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! -
+  `swirl-popover-trigger` clicks now toggle the popovers instead of only opening
+  them
+
+### Patch Changes
+
+- Updated dependencies
+  [[`422e0d83d`](https://github.com/getflip/swirl/commit/422e0d83d28e2bae23d8aa809c12626189d52a2a)]:
+  - @getflip/swirl-components@0.403.0
+
 ## 0.402.0
 
 ### Minor Changes
