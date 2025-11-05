@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.405.0
+
+### Minor Changes
+
+- [#1303](https://github.com/getflip/swirl/pull/1303)
+  [`0ac43717c`](https://github.com/getflip/swirl/commit/0ac43717c4418298a4f818ecb83ac2837292e44c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Replace isPromo
+  prop with intent and trigger in swirl-tooltip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0ac43717c`](https://github.com/getflip/swirl/commit/0ac43717c4418298a4f818ecb83ac2837292e44c)]:
+  - @getflip/swirl-components@0.405.0
+
 ## 0.404.0
 
 ### Minor Changes
