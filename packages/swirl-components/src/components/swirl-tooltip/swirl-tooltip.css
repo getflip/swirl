@@ -99,7 +99,7 @@
   background-color: var(--s-surface-neutral-default);
 }
 
-.tooltip--intent-primary {
+.tooltip--intent-info {
   .tooltip__bubble, .tooltip__arrow {
     background-color: var(--s-surface-info-default);
   }

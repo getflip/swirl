@@ -24,7 +24,7 @@ import classnames from "classnames";
 import { getPixelsFromRemToken } from "../../utils";
 
 export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
-export type SwirlTooltipIntent = "default" | "primary";
+export type SwirlTooltipIntent = "default" | "info";
 export type SwirlTooltipTrigger = "hover" | "focus";
 
 @Component({
