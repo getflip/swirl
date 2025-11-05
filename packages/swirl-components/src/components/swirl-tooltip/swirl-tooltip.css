@@ -99,9 +99,10 @@
   background-color: var(--s-surface-neutral-default);
 }
 
-.tooltip--promo .tooltip__bubble,
-.tooltip--promo .tooltip__arrow {
-  background-color: var(--s-surface-info-default);
+.tooltip--intent-primary {
+  .tooltip__bubble, .tooltip__arrow {
+    background-color: var(--s-surface-info-default);
+  }
 }
 
 @keyframes tooltip-fade-in {

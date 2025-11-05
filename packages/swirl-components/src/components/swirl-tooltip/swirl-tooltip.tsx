@@ -23,6 +23,7 @@ import classnames from "classnames";
 import { getPixelsFromRemToken } from "../../utils";
 
 export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
+export type SwirlTooltipIntent = "default" | "primary";
 
 @Component({
   shadow: true,
@@ -35,6 +36,7 @@ export class SwirlTooltip {
   @Prop() active = true;
   @Prop() content!: string;
   @Prop() delay?: number = 200;
+  @Prop() intent: SwirlTooltipIntent = "default";
   @Prop() position?: SwirlTooltipPosition = "top";
   @Prop() positioning?: Strategy = "absolute";
   /**
@@ -214,10 +216,10 @@ export class SwirlTooltip {
     const className = classnames(
       "tooltip",
       `tooltip--actual-placement-${this.actualPosition?.placement}`,
+      `tooltip--intent-${this.intent}`,
       {
         "tooltip--active": this.active,
         "tooltip--visible": this.visible,
-        "tooltip--promo": this.isPromo,
       }
     );
 
