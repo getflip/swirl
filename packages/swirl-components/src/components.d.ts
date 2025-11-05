@@ -3407,6 +3407,10 @@ export namespace Components {
           * @default true
          */
         "returnFocusToTrigger"?: boolean;
+        /**
+          * Toggles the popover.
+         */
+        "toggle": (triggerEl?: HTMLElement) => Promise<void>;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
