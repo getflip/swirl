@@ -2,10 +2,8 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlTooltip } from "./swirl-tooltip";
 
-const expectedVisible = (isPromo = false) => `
-<span class="tooltip tooltip--active tooltip--actual-placement-undefined ${
-  isPromo ? "tooltip--promo" : ""
-} tooltip--visible">
+const expectedVisible = `
+<span class="tooltip tooltip--active tooltip--actual-placement-undefined tooltip--intent-default tooltip--visible">
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
@@ -19,10 +17,8 @@ const expectedVisible = (isPromo = false) => `
   </span>
 </span>`;
 
-const expectedHidden = (isPromo = false) => `
-<span class="tooltip tooltip--active tooltip--actual-placement-top ${
-  isPromo ? "tooltip--promo" : ""
-}">
+const expectedHidden = `
+<span class="tooltip tooltip--active tooltip--actual-placement-top tooltip--intent-default">
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
@@ -68,14 +64,14 @@ describe("swirl-tooltip", () => {
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible());
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible);
 
     referenceEl.dispatchEvent(new FocusEvent("focusout"));
 
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden());
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
   });
 
   it("shows/hides the positioned popper on mouseenter/mouseleave", async () => {
@@ -92,48 +88,51 @@ describe("swirl-tooltip", () => {
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible());
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible);
 
     page.root.dispatchEvent(new MouseEvent("mouseleave"));
 
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden());
+    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
   });
 
-  it("renders the promo tooltip", async () => {
+  it("should not show tooltip on hover when trigger doesn't include 'hover'", async () => {
     const page = await newSpecPage({
       components: [SwirlTooltip],
-      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom" is-promo="true"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
     });
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible(true));
-
-    const referenceEl = page.root.shadowRoot.querySelector(
-      ".tooltip__reference"
-    ) as HTMLElement;
-
-    referenceEl.click();
-
-    await new Promise((resolve) => setTimeout(resolve));
-    page.waitForChanges();
-    await new Promise((resolve) => setTimeout(resolve));
-
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden(true));
+    page.root.trigger = ["focus"];
+    await page.waitForChanges();
 
     page.root.dispatchEvent(new MouseEvent("mouseenter"));
 
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden(true));
+    expect(page.root.shadowRoot.querySelector(".tooltip--visible")).toBeNull();
+  });
+
+  it("should not show tooltip on focus when trigger doesn't include 'focus'", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
+    });
+
+    page.root.trigger = ["hover"];
+    await page.waitForChanges();
+
+    const referenceEl = page.root.shadowRoot.querySelector(
+      ".tooltip__reference"
+    ) as HTMLElement;
 
     referenceEl.dispatchEvent(new FocusEvent("focusin"));
 
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden(true));
+    expect(page.root.shadowRoot.querySelector(".tooltip--visible")).toBeNull();
   });
 });

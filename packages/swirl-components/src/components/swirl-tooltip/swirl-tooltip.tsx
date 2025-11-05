@@ -15,6 +15,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
@@ -23,6 +24,8 @@ import classnames from "classnames";
 import { getPixelsFromRemToken } from "../../utils";
 
 export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
+export type SwirlTooltipIntent = "default" | "info";
+export type SwirlTooltipTrigger = "hover" | "focus";
 
 @Component({
   shadow: true,
@@ -35,19 +38,14 @@ export class SwirlTooltip {
   @Prop() active = true;
   @Prop() content!: string;
   @Prop() delay?: number = 200;
+  @Prop() intent: SwirlTooltipIntent = "default";
   @Prop() position?: SwirlTooltipPosition = "top";
   @Prop() positioning?: Strategy = "absolute";
-  /**
-   * If set to true, tooltip will be initially visible.
-   * It will only be dismissible via a click and will not reappear.
-   * Tooltip will have a blue background color.
-   */
-  @Prop() isPromo = false;
+  @Prop() trigger: SwirlTooltipTrigger[] = ["focus", "hover"];
 
   @State() actualPosition: ComputePositionReturn;
   @State() arrowStyles: { [key: string]: string };
   @State() visible = false;
-  @State() isPromoShown = false;
 
   private disableAutoUpdate: () => void;
 
@@ -63,12 +61,14 @@ export class SwirlTooltip {
 
   @Listen("mouseenter")
   onMouseEnter() {
-    this.showWithDelay();
+    if (this.trigger.includes("hover")) {
+      this.showWithDelay();
+    }
   }
 
   @Listen("mouseleave")
   onMouseLeave() {
-    if (!this.isPromo) {
+    if (this.trigger.includes("hover")) {
       this.hide();
     }
   }
@@ -97,15 +97,57 @@ export class SwirlTooltip {
 
   componentDidLoad() {
     this.updateOptions();
+  }
 
-    if (this.isPromo) {
-      this.show();
-      this.isPromoShown = true;
+  @Method()
+  async show() {
+    if (!this.active) {
+      return;
     }
+
+    this.visible = true;
+
+    requestAnimationFrame(() => {
+      const referenceElement = this.el.children[0] as HTMLElement;
+
+      if (!Boolean(referenceElement)) {
+        return;
+      }
+
+      this.reposition();
+      this.disableAutoUpdate = autoUpdate(
+        referenceElement,
+        this.popperEl,
+        this.reposition.bind(this)
+      );
+    });
+  }
+
+  @Method()
+  async hide() {
+    if (Boolean(this.showTimeout)) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = undefined;
+    }
+
+    this.visible = false;
+    this.disableAutoUpdate?.();
   }
 
   private onKeydown = (event: KeyboardEvent) => {
-    if (event.code === "Escape" && !this.isPromo) {
+    if (event.code === "Escape") {
+      this.hide();
+    }
+  };
+
+  private onFocusIn = () => {
+    if (this.trigger.includes("focus")) {
+      this.show();
+    }
+  };
+
+  private onFocusOut = () => {
+    if (this.trigger.includes("focus")) {
       this.hide();
     }
   };
@@ -139,29 +181,6 @@ export class SwirlTooltip {
     };
   };
 
-  private show = () => {
-    if (!this.active || (this.isPromo && this.isPromoShown)) {
-      return;
-    }
-
-    this.visible = true;
-
-    requestAnimationFrame(() => {
-      const referenceElement = this.el.children[0] as HTMLElement;
-
-      if (!Boolean(referenceElement)) {
-        return;
-      }
-
-      this.reposition();
-      this.disableAutoUpdate = autoUpdate(
-        referenceElement,
-        this.popperEl,
-        this.reposition.bind(this)
-      );
-    });
-  };
-
   private showWithDelay = () => {
     if (!this.active) {
       return;
@@ -175,16 +194,6 @@ export class SwirlTooltip {
     this.showTimeout = setTimeout(() => {
       this.show();
     }, this.delay);
-  };
-
-  private hide = () => {
-    if (Boolean(this.showTimeout)) {
-      clearTimeout(this.showTimeout);
-      this.showTimeout = undefined;
-    }
-
-    this.visible = false;
-    this.disableAutoUpdate?.();
   };
 
   private updateOptions = () => {
@@ -214,10 +223,10 @@ export class SwirlTooltip {
     const className = classnames(
       "tooltip",
       `tooltip--actual-placement-${this.actualPosition?.placement}`,
+      `tooltip--intent-${this.intent}`,
       {
         "tooltip--active": this.active,
         "tooltip--visible": this.visible,
-        "tooltip--promo": this.isPromo,
       }
     );
 
@@ -227,9 +236,9 @@ export class SwirlTooltip {
           <span
             class="tooltip__reference"
             aria-describedby="tooltip"
-            onFocusout={!this.isPromo && this.hide}
+            onFocusout={this.onFocusOut}
             onClick={this.hide}
-            onFocusin={this.show}
+            onFocusin={this.onFocusIn}
           >
             <slot></slot>
           </span>
