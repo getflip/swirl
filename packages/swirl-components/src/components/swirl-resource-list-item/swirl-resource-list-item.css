@@ -279,7 +279,6 @@
   min-width: 0;
   min-height: 3rem;
   padding-right: var(--s-space-16);
-  flex-grow: 1;
   justify-content: center;
   flex-direction: column;
 }
