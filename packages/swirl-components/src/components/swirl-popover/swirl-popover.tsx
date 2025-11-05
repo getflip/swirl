@@ -252,7 +252,19 @@ export class SwirlPopover {
     return this.active && !this.closing;
   }
 
-  toggle = (event: Event) => {
+  /**
+   * Toggles the popover.
+   */
+  @Method()
+  public async toggle(triggerEl?: HTMLElement) {
+    if (this.active) {
+      this.close();
+    } else {
+      this.open(triggerEl);
+    }
+  }
+
+  togglePopover = (event: Event) => {
     event.stopPropagation();
 
     if (this.active) {
@@ -281,7 +293,7 @@ export class SwirlPopover {
     }
 
     this.triggerEl.addEventListener("click", (event) => {
-      this.toggle(event);
+      this.togglePopover(event);
     });
   }
 

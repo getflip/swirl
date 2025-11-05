@@ -179,7 +179,7 @@ export class SwirlPopoverTrigger {
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
-    popoverEl.open(triggerEl);
+    popoverEl.toggle(triggerEl);
 
     popoverEl.addEventListener(
       "popoverOpen",
