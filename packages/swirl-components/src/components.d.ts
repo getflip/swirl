@@ -81,7 +81,7 @@ import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
-import { SwirlTooltipIntent, SwirlTooltipPosition as SwirlTooltipPosition1 } from "./components/swirl-tooltip/swirl-tooltip";
+import { SwirlTooltipIntent, SwirlTooltipPosition as SwirlTooltipPosition1, SwirlTooltipTrigger } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
@@ -161,7 +161,7 @@ export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 export { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
-export { SwirlTooltipIntent, SwirlTooltipPosition as SwirlTooltipPosition1 } from "./components/swirl-tooltip/swirl-tooltip";
+export { SwirlTooltipIntent, SwirlTooltipPosition as SwirlTooltipPosition1, SwirlTooltipTrigger } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
@@ -4952,11 +4952,6 @@ export namespace Components {
          */
         "intent": SwirlTooltipIntent;
         /**
-          * If set to true, tooltip will be initially visible. It will only be dismissible via a click and will not reappear. Tooltip will have a blue background color.
-          * @default false
-         */
-        "isPromo": boolean;
-        /**
           * @default "top"
          */
         "position"?: SwirlTooltipPosition1;
@@ -4964,6 +4959,10 @@ export namespace Components {
           * @default "absolute"
          */
         "positioning"?: Strategy;
+        /**
+          * @default ["focus", "hover"]
+         */
+        "trigger": SwirlTooltipTrigger[];
     }
     interface SwirlTreeNavigation {
         "label": string;
@@ -13862,11 +13861,6 @@ declare namespace LocalJSX {
          */
         "intent"?: SwirlTooltipIntent;
         /**
-          * If set to true, tooltip will be initially visible. It will only be dismissible via a click and will not reappear. Tooltip will have a blue background color.
-          * @default false
-         */
-        "isPromo"?: boolean;
-        /**
           * @default "top"
          */
         "position"?: SwirlTooltipPosition1;
@@ -13874,6 +13868,10 @@ declare namespace LocalJSX {
           * @default "absolute"
          */
         "positioning"?: Strategy;
+        /**
+          * @default ["focus", "hover"]
+         */
+        "trigger"?: SwirlTooltipTrigger[];
     }
     interface SwirlTreeNavigation {
         "label": string;

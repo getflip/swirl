@@ -22536,10 +22536,6 @@
           ]
         },
         {
-          "name": "is-promo",
-          "description": "If set to true, tooltip will be initially visible.\nIt will only be dismissible via a click and will not reappear.\nTooltip will have a blue background color."
-        },
-        {
           "name": "position",
           "description": "",
           "values": [
@@ -22568,6 +22564,10 @@
               "name": "fixed"
             }
           ]
+        },
+        {
+          "name": "trigger",
+          "description": ""
         }
       ]
     },
