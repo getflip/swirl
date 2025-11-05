@@ -214,6 +214,16 @@ export class SwirlResourceListItem {
       minHeight: this.labelMinHeight ?? undefined,
     };
 
+    const renderLabel = () => (
+      <span
+        class="resource-list-item__label"
+        id={this.elementId}
+        innerHTML={this.allowHtml ? this.label : undefined}
+      >
+        {!this.allowHtml && this.label}
+      </span>
+    );
+
     const className = classnames(
       "resource-list-item",
       `resource-list-item--label-weight-${this.labelWeight}`,
@@ -271,22 +281,10 @@ export class SwirlResourceListItem {
                   position={this.labelTooltipPosition}
                   positioning="fixed"
                 >
-                  <span
-                    class="resource-list-item__label"
-                    id={this.elementId}
-                    innerHTML={this.allowHtml ? this.label : undefined}
-                  >
-                    {!this.allowHtml && this.label}
-                  </span>
+                  {renderLabel()}
                 </swirl-tooltip>
               ) : (
-                <span
-                  class="resource-list-item__label"
-                  id={this.elementId}
-                  innerHTML={this.allowHtml ? this.label : undefined}
-                >
-                  {!this.allowHtml && this.label}
-                </span>
+                renderLabel()
               )}
               {this.description && (
                 <span
