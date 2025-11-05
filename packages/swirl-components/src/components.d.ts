@@ -4947,6 +4947,7 @@ export namespace Components {
           * @default 200
          */
         "delay"?: number;
+        "hide": () => Promise<void>;
         /**
           * @default "default"
          */
@@ -4959,6 +4960,7 @@ export namespace Components {
           * @default "absolute"
          */
         "positioning"?: Strategy;
+        "show": () => Promise<void>;
         /**
           * @default ["focus", "hover"]
          */

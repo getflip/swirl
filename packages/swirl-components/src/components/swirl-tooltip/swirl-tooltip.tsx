@@ -15,6 +15,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
@@ -98,6 +99,41 @@ export class SwirlTooltip {
     this.updateOptions();
   }
 
+  @Method()
+  async show() {
+    if (!this.active) {
+      return;
+    }
+
+    this.visible = true;
+
+    requestAnimationFrame(() => {
+      const referenceElement = this.el.children[0] as HTMLElement;
+
+      if (!Boolean(referenceElement)) {
+        return;
+      }
+
+      this.reposition();
+      this.disableAutoUpdate = autoUpdate(
+        referenceElement,
+        this.popperEl,
+        this.reposition.bind(this)
+      );
+    });
+  }
+
+  @Method()
+  async hide() {
+    if (Boolean(this.showTimeout)) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = undefined;
+    }
+
+    this.visible = false;
+    this.disableAutoUpdate?.();
+  }
+
   private onKeydown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       this.hide();
@@ -145,29 +181,6 @@ export class SwirlTooltip {
     };
   };
 
-  private show = () => {
-    if (!this.active) {
-      return;
-    }
-
-    this.visible = true;
-
-    requestAnimationFrame(() => {
-      const referenceElement = this.el.children[0] as HTMLElement;
-
-      if (!Boolean(referenceElement)) {
-        return;
-      }
-
-      this.reposition();
-      this.disableAutoUpdate = autoUpdate(
-        referenceElement,
-        this.popperEl,
-        this.reposition.bind(this)
-      );
-    });
-  };
-
   private showWithDelay = () => {
     if (!this.active) {
       return;
@@ -181,16 +194,6 @@ export class SwirlTooltip {
     this.showTimeout = setTimeout(() => {
       this.show();
     }, this.delay);
-  };
-
-  private hide = () => {
-    if (Boolean(this.showTimeout)) {
-      clearTimeout(this.showTimeout);
-      this.showTimeout = undefined;
-    }
-
-    this.visible = false;
-    this.disableAutoUpdate?.();
   };
 
   private updateOptions = () => {
