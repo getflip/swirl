@@ -22536,6 +22536,10 @@
           ]
         },
         {
+          "name": "max-width",
+          "description": ""
+        },
+        {
           "name": "position",
           "description": "",
           "values": [

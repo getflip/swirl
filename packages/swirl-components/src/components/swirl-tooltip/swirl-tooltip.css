@@ -64,7 +64,6 @@
   position: absolute;
   z-index: var(--s-z-40);
   display: none;
-  max-width: 17.5rem;
   opacity: 0;
 }
 
@@ -79,6 +78,7 @@
   color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
   line-height: var(--s-line-height-base);
+  text-align: start;
   box-shadow: var(--s-shadow-level-2);
 
   @media (--from-desktop-without-touch) {
@@ -100,7 +100,8 @@
 }
 
 .tooltip--intent-info {
-  .tooltip__bubble, .tooltip__arrow {
+  .tooltip__bubble,
+  .tooltip__arrow {
     background-color: var(--s-surface-info-default);
   }
 }

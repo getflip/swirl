@@ -39,6 +39,7 @@ export class SwirlTooltip {
   @Prop() content!: string;
   @Prop() delay?: number = 200;
   @Prop() intent: SwirlTooltipIntent = "default";
+  @Prop() maxWidth?: string = "17.5rem";
   @Prop() position?: SwirlTooltipPosition = "top";
   @Prop() positioning?: Strategy = "absolute";
   @Prop() trigger: SwirlTooltipTrigger[] = ["focus", "hover"];
@@ -253,6 +254,7 @@ export class SwirlTooltip {
                 ? `${this.actualPosition?.x}px`
                 : "",
               position: this.positioning,
+              maxWidth: this.maxWidth,
             }}
           >
             {this.visible && (
