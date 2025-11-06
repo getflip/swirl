@@ -369,6 +369,14 @@
     "z-auto": {
       "value": "auto",
       "type": "zIndex"
+    },
+    "blur-m": {
+      "value": 16,
+      "type": "number"
+    },
+    "blur-l": {
+      "value": 24,
+      "type": "number"
     }
   },
   "core-colors": {
@@ -999,6 +1007,40 @@
         "description": "Usually used for containers on images"
       }
     },
+    "translucent-low": {
+      "default": {
+        "value": "rgba(255,255,255,0.8)",
+        "type": "color",
+        "description": "Used for surface with a backdrop blur and low transparency"
+      },
+      "hovered": {
+        "value": "rgba(0,0,0,0.05)",
+        "type": "color",
+        "description": "Used for hovers on translucent low"
+      },
+      "pressed": {
+        "value": "rgba(0,0,0,0.1)",
+        "type": "color",
+        "description": "Used for pressed state on translucent low"
+      }
+    },
+    "translucent-medium": {
+      "default": {
+        "value": "rgba(242,242,242,0.6)",
+        "type": "color",
+        "description": "Used for surface with a backdrop blur and low transparency"
+      },
+      "hovered": {
+        "value": "rgba(255,255,255,0.8)",
+        "type": "color",
+        "description": "Used for hovers on translucent medium"
+      },
+      "pressed": {
+        "value": "rgba(255,255,255,1)",
+        "type": "color",
+        "description": "Used for hovers on translucent medium"
+      }
+    },
     "border": {
       "strong": {
         "value": "{core.gray.04}",
@@ -1039,6 +1081,16 @@
         "value": "#AEC9F6",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
+      },
+      "on-translucent": {
+        "value": "rgba(0,0,0,0.1)",
+        "type": "color",
+        "description": "Used for borders on surfaces with a translucent effect"
+      },
+      "translucent-outline": {
+        "value": "rgba(255,255,255,0.5)",
+        "type": "color",
+        "description": "Used for outlinesof elements with a translucent effect"
       }
     },
     "text": {
@@ -1477,7 +1529,7 @@
             "type": "dropShadow",
             "x": "0",
             "y": "4",
-            "blur": "8",
+            "blur": "12",
             "spread": "0"
           }
         ],
@@ -1680,6 +1732,40 @@
         "description": "Usually used for containers on images"
       }
     },
+    "translucent-low": {
+      "default": {
+        "value": "rgba(43,43,43,0.8)",
+        "type": "color",
+        "description": "Used for surface with a backdrop blur and low transparency"
+      },
+      "hovered": {
+        "value": "rgba(255,255,255,0.05)",
+        "type": "color",
+        "description": "Used for hovers on translucent low"
+      },
+      "pressed": {
+        "value": "rgba(255,255,255,0.1)",
+        "type": "color",
+        "description": "Used for pressed state on translucent low"
+      }
+    },
+    "translucent-medium": {
+      "default": {
+        "value": "rgba(43,43,43,0.6)",
+        "type": "color",
+        "description": "Used for surface with a backdrop blur and low transparency"
+      },
+      "hovered": {
+        "value": "rgba(255,255,255,0.2)",
+        "type": "color",
+        "description": "Used for hovers on translucent medium"
+      },
+      "pressed": {
+        "value": "rgba(255,255,255,0.3)",
+        "type": "color",
+        "description": "Used for hovers on translucent medium"
+      }
+    },
     "border": {
       "strong": {
         "value": "rgba(255, 255, 255, 0.20)",
@@ -1720,6 +1806,16 @@
         "value": "#5C76AE",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
+      },
+      "on-translucent": {
+        "value": "rgba(255,255,255,0.1)",
+        "type": "color",
+        "description": "Used for borders on surfaces with a translucent effect"
+      },
+      "translucent-outline": {
+        "value": "rgba(255,255,255,0.1)",
+        "type": "color",
+        "description": "Used for outlinesof elements with a translucent effect"
       }
     },
     "text": {
@@ -2158,7 +2254,7 @@
             "type": "dropShadow",
             "x": "0",
             "y": "4",
-            "blur": "8",
+            "blur": "12",
             "spread": "0"
           }
         ],
