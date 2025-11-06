@@ -44,8 +44,7 @@
 
 .popover--closing {
   & .popover__backdrop {
-    animation: 0.15s popover-fade-out;
-    animation-fill-mode: forwards;
+    animation: 0.15s popover-fade-out forwards;
 
     @media (prefers-reduced-motion) {
       animation: none;
@@ -53,11 +52,10 @@
   }
 
   & .popover__content {
-    animation: 0.15s popover-slide-out;
-    animation-fill-mode: forwards;
+    animation: 0.15s popover-slide-out forwards;
 
     @media (--from-tablet) {
-      animation: 0.15s popover-fade-out;
+      animation: 0.15s popover-fade-out forwards;
     }
 
     @media (prefers-reduced-motion) {
@@ -86,8 +84,7 @@
 
     &.popover--closing {
       & .popover__content {
-        animation: 0.15s popover-fade-out;
-        animation-fill-mode: forwards;
+        animation: 0.15s popover-fade-out forwards;
 
         @media (prefers-reduced-motion) {
           animation: none;
