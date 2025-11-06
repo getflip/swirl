@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.407.0
+
+### Minor Changes
+
+- [#1310](https://github.com/getflip/swirl/pull/1310)
+  [`1dc0b8789`](https://github.com/getflip/swirl/commit/1dc0b87892e038e55b5058a3f4166e0583e21239)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add max-width prop to
+  swirl-tooltip
+
 ## 0.406.0
 
 ### Minor Changes
