@@ -7,7 +7,7 @@ const expectedVisible = `
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="position: absolute;">
+  <span class="tooltip__popper" style="position: absolute; max-width: 17.5rem;">
     <span class="tooltip__bubble" id="tooltip" part="tooltip__bubble" role="tooltip">
       <span class="tooltip__content">
         Tooltip
@@ -22,7 +22,7 @@ const expectedHidden = `
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="position: absolute; top: 0px; left: NaNpx;">
+  <span class="tooltip__popper" style="position: absolute; max-width: 17.5rem; top: 0px; left: NaNpx;">
     <span class="tooltip__arrow" style="visibility: hidden;"></span>
   </span>
 </span>`;
@@ -134,5 +134,25 @@ describe("swirl-tooltip", () => {
     await new Promise((resolve) => setTimeout(resolve));
 
     expect(page.root.shadowRoot.querySelector(".tooltip--visible")).toBeNull();
+  });
+
+  it("respects the max-width setting", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector<HTMLElement>(".tooltip__popper").style
+        .maxWidth
+    ).toBe("17.5rem");
+
+    page.root.setAttribute("max-width", "10rem");
+    await page.waitForChanges();
+
+    expect(
+      page.root.shadowRoot.querySelector<HTMLElement>(".tooltip__popper").style
+        .maxWidth
+    ).toBe("10rem");
   });
 });

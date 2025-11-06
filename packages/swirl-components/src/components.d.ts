@@ -4953,6 +4953,10 @@ export namespace Components {
          */
         "intent": SwirlTooltipIntent;
         /**
+          * @default "17.5rem"
+         */
+        "maxWidth"?: string;
+        /**
           * @default "top"
          */
         "position"?: SwirlTooltipPosition1;
@@ -13862,6 +13866,10 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "intent"?: SwirlTooltipIntent;
+        /**
+          * @default "17.5rem"
+         */
+        "maxWidth"?: string;
         /**
           * @default "top"
          */
