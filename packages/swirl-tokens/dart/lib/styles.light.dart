@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 25 Jul 2025 12:31:10 GMT
+// Generated on Fri, 07 Nov 2025 07:20:28 GMT
 
 
 
@@ -29,11 +29,14 @@ class SwirlDesignTokensLight {
     static const backgroundDefault = Color(0xFFFFFFFF); /* Usually used for the page background and elements that should not elevate from the background. */
     static const backgroundHovered = Color(0xFFF2F2F2); /* Used if a component with “Background/Default” has a hovered state. */
     static const backgroundPressed = Color(0xFFEAEAEA); /* Used if a component with “Background/Default” has a pressed state. */
+    static const blurL = "24";
+    static const blurM = "16";
     static const borderCritical = Color(0xFFD50636); /* Usally used as an border on critical components. */
     static const borderDefault = Color(0xFFEAEAEA); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF0037AF); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF145AF5); /* Usally used as an border on info components. */
     static const borderOnHighlight = Color(0xFFAEC9F6); /* Used as border color on containers that have an highlight surface */
+    static const borderOnTranslucent = Color(0x1A000000); /* Used for borders on surfaces with a translucent effect */
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
@@ -44,6 +47,7 @@ class SwirlDesignTokensLight {
     static const borderRadiusXs = 2.00;
     static const borderStrong = Color(0xFFCFCFCF); /* Usually used for high emphasis borders. */
     static const borderSuccess = Color(0xFF088108); /* Usally used as an border on success components. */
+    static const borderTranslucentOutline = Color(0x80FFFFFF); /* Used for outlinesof elements with a translucent effect */
     static const borderWarning = Color(0xFF935806); /* Usally used as an border on warning components. */
     static const borderWidth0 = 0.00;
     static const borderWidthDefault = 1.00;
@@ -224,7 +228,7 @@ class SwirlDesignTokensLight {
     static const lineHeightXs = 16.00;
     static const onSurfaceHighlightDefault = Color(0xFFD5E2FF); /* Used to place containers on “Surface Highlight/Default”. */
     static const shadowLevel1 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x0A171717), offset: Offset(0, 1), blurRadius: 4)];
-    static const shadowLevel2 = [BoxShadow(color: Color(0x33171717), offset: Offset(0, 4), blurRadius: 8)];
+    static const shadowLevel2 = [BoxShadow(color: Color(0x33171717), offset: Offset(0, 4), blurRadius: 12)];
     static const shadowLevel3 = [BoxShadow(color: Color(0x1F171717), offset: Offset(0, 12), blurRadius: 32), BoxShadow(color: Color(0x14171717), offset: Offset(0, 4), blurRadius: 12)];
     static const space0 = 0.00;
     static const space12 = 12.00;
@@ -278,6 +282,12 @@ class SwirlDesignTokensLight {
     static const textSubdued = Color(0xFF6E6E6E); /* Used for low emphasis text. */
     static const textSuccess = Color(0xFF088108); /* Used as success text color */
     static const textWarning = Color(0xFF935806); /* Used as warning text color */
+    static const translucentLowDefault = Color(0xCCFFFFFF); /* Used for surface with a backdrop blur and low transparency */
+    static const translucentLowHovered = Color(0x0D000000); /* Used for hovers on translucent low */
+    static const translucentLowPressed = Color(0x1A000000); /* Used for pressed state on translucent low */
+    static const translucentMediumDefault = Color(0x99F2F2F2); /* Used for surface with a backdrop blur and low transparency */
+    static const translucentMediumHovered = Color(0xCCFFFFFF); /* Used for hovers on translucent medium */
+    static const translucentMediumPressed = Color(0xFFFFFFFF); /* Used for hovers on translucent medium */
     static const z0 = "0";
     static const z10 = "10";
     static const z20 = "20";

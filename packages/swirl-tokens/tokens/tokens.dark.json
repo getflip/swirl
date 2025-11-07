@@ -224,6 +224,14 @@
     "value": "auto",
     "type": "zIndex"
   },
+  "blur-m": {
+    "value": 16,
+    "type": "number"
+  },
+  "blur-l": {
+    "value": 24,
+    "type": "number"
+  },
   "core-gray-10": {
     "value": "rgba(43, 43, 43, 1)",
     "type": "color"
@@ -775,6 +783,36 @@
     "type": "color",
     "comment": "Usually used for containers on images"
   },
+  "translucent-low-default": {
+    "value": "rgba(43,43,43,0.8)",
+    "type": "color",
+    "comment": "Used for surface with a backdrop blur and low transparency"
+  },
+  "translucent-low-hovered": {
+    "value": "rgba(255,255,255,0.05)",
+    "type": "color",
+    "comment": "Used for hovers on translucent low"
+  },
+  "translucent-low-pressed": {
+    "value": "rgba(255,255,255,0.1)",
+    "type": "color",
+    "comment": "Used for pressed state on translucent low"
+  },
+  "translucent-medium-default": {
+    "value": "rgba(43,43,43,0.6)",
+    "type": "color",
+    "comment": "Used for surface with a backdrop blur and low transparency"
+  },
+  "translucent-medium-hovered": {
+    "value": "rgba(255,255,255,0.2)",
+    "type": "color",
+    "comment": "Used for hovers on translucent medium"
+  },
+  "translucent-medium-pressed": {
+    "value": "rgba(255,255,255,0.3)",
+    "type": "color",
+    "comment": "Used for hovers on translucent medium"
+  },
   "border-strong": {
     "value": "rgba(255, 255, 255, 0.20)",
     "type": "color",
@@ -814,6 +852,16 @@
     "value": "rgba(92, 118, 174, 1)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
+  },
+  "border-on-translucent": {
+    "value": "rgba(255,255,255,0.1)",
+    "type": "color",
+    "comment": "Used for borders on surfaces with a translucent effect"
+  },
+  "border-translucent-outline": {
+    "value": "rgba(255,255,255,0.1)",
+    "type": "color",
+    "comment": "Used for outlinesof elements with a translucent effect"
   },
   "text-default": {
     "value": "{core-gray-01}",
@@ -1212,7 +1260,7 @@
         "type": "dropShadow",
         "x": "0",
         "y": "4",
-        "blur": "8",
+        "blur": "12",
         "spread": "0"
       }
     ],
