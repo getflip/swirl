@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.408.0
+
+### Minor Changes
+
+- [#1312](https://github.com/getflip/swirl/pull/1312)
+  [`68007d000`](https://github.com/getflip/swirl/commit/68007d0009cad338476eafc57235047f39c565d7)
+  Thanks [@lukasballier](https://github.com/lukasballier)! - Add translucent
+  tokens and update shadow token
+
+### Patch Changes
+
+- Updated dependencies
+  [[`68007d000`](https://github.com/getflip/swirl/commit/68007d0009cad338476eafc57235047f39c565d7)]:
+  - @getflip/swirl-tokens@2.10.0
+
 ## 0.407.0
 
 ### Minor Changes
