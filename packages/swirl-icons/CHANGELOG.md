@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.73.0
+
+### Minor Changes
+
+- [#1314](https://github.com/getflip/swirl/pull/1314)
+  [`7e1577b5a`](https://github.com/getflip/swirl/commit/7e1577b5a281e20b7a4fe7198ef1d639246b9a46)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add home-filled
+  icon
+
 ## 0.72.0
 
 ### Minor Changes
