@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.410.0
+
+### Minor Changes
+
+- [#1316](https://github.com/getflip/swirl/pull/1316)
+  [`1a311ae30`](https://github.com/getflip/swirl/commit/1a311ae30a806d25bd2941e936833c8f980451d5)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Update blur
+  tokens to dimension type
+
+### Patch Changes
+
+- Updated dependencies
+  [[`1a311ae30`](https://github.com/getflip/swirl/commit/1a311ae30a806d25bd2941e936833c8f980451d5)]:
+  - @getflip/swirl-tokens@2.11.0
+
 ## 0.409.0
 
 ### Minor Changes
