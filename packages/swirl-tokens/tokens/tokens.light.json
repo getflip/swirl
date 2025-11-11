@@ -225,12 +225,12 @@
     "type": "zIndex"
   },
   "blur-m": {
-    "value": 16,
-    "type": "number"
+    "value": "16px",
+    "type": "dimension"
   },
   "blur-l": {
-    "value": 24,
-    "type": "number"
+    "value": "24px",
+    "type": "dimension"
   },
   "core-gray-10": {
     "value": "rgba(43, 43, 43, 1)",

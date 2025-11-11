@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 07 Nov 2025 07:20:28 GMT
+// Generated on Tue, 11 Nov 2025 08:51:12 GMT
 
 
 
@@ -29,8 +29,8 @@ class SwirlDesignTokensLight {
     static const backgroundDefault = Color(0xFFFFFFFF); /* Usually used for the page background and elements that should not elevate from the background. */
     static const backgroundHovered = Color(0xFFF2F2F2); /* Used if a component with “Background/Default” has a hovered state. */
     static const backgroundPressed = Color(0xFFEAEAEA); /* Used if a component with “Background/Default” has a pressed state. */
-    static const blurL = "24";
-    static const blurM = "16";
+    static const blurL = "24px";
+    static const blurM = "16px";
     static const borderCritical = Color(0xFFD50636); /* Usally used as an border on critical components. */
     static const borderDefault = Color(0xFFEAEAEA); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF0037AF); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
