@@ -16,35 +16,35 @@ import { getActiveElement } from "../../utils";
 const ANIMATION_DURATION_MS = 300;
 
 /**
- * @slot slot - Overlay content
+ * @slot slot - Modal content
  */
 @Component({
   shadow: false,
-  styleUrl: "swirl-translucent-overlay.css",
-  tag: "swirl-translucent-overlay",
+  styleUrl: "swirl-modal-shell.css",
+  tag: "swirl-modal-shell",
 })
-export class SwirlTranslucentOverlay {
-  @Prop() overlayAriaLabel!: string;
-  @Prop() closeButtonAriaLabel!: string;
+export class SwirlModalShell {
+  @Prop() label!: string;
+  @Prop() closeButtonLabel!: string;
 
-  @Event() closeOverlay: EventEmitter<void>;
+  @Event() closeModal: EventEmitter<void>;
 
   @State() isClosing = true;
 
   private focusTrap: focusTrap.FocusTrap | undefined;
-  private overlayContentEl: HTMLElement;
+  private modalContentEl: HTMLElement;
 
   componentDidLoad() {
     requestAnimationFrame(() => {
       this.setupFocusTrap();
-      disableBodyScroll(this.overlayContentEl);
+      disableBodyScroll(this.modalContentEl);
       this.isClosing = false;
     });
   }
 
   disconnectedCallback() {
     this.focusTrap?.deactivate();
-    enableBodyScroll(this.overlayContentEl);
+    enableBodyScroll(this.modalContentEl);
   }
 
   @Method()
@@ -52,7 +52,7 @@ export class SwirlTranslucentOverlay {
     this.isClosing = true;
 
     setTimeout(() => {
-      this.closeOverlay.emit();
+      this.closeModal.emit();
     }, ANIMATION_DURATION_MS);
   }
 
@@ -71,7 +71,7 @@ export class SwirlTranslucentOverlay {
   };
 
   private setupFocusTrap() {
-    this.focusTrap = focusTrap.createFocusTrap(this.overlayContentEl, {
+    this.focusTrap = focusTrap.createFocusTrap(this.modalContentEl, {
       allowOutsideClick: true,
       setReturnFocus: getActiveElement() as HTMLElement,
       escapeDeactivates: false,
@@ -81,28 +81,31 @@ export class SwirlTranslucentOverlay {
   }
 
   render() {
-    const className = classnames("overlay", {
-      "overlay--closing": this.isClosing,
+    const className = classnames("modal-shell", {
+      "modal-shell--closing": this.isClosing,
     });
 
     return (
       <Host>
         <section
-          aria-label={this.overlayAriaLabel}
+          aria-label={this.label}
           role="dialog"
           aria-modal="true"
           class={className}
           onKeyDown={this.onKeyDown}
         >
-          <div class="overlay__backdrop" onClick={this.onBackdropClick}></div>
           <div
-            class="overlay__content"
-            ref={(el) => (this.overlayContentEl = el)}
+            class="modal-shell__backdrop"
+            onClick={this.onBackdropClick}
+          ></div>
+          <div
+            class="modal-shell__content"
+            ref={(el) => (this.modalContentEl = el)}
           >
             <swirl-box paddingBlockStart="16" paddingBlockEnd="16">
               <swirl-button
                 icon="<swirl-icon-close color='strong'></swirl-icon-close>"
-                label={this.closeButtonAriaLabel}
+                label={this.closeButtonLabel}
                 hideLabel
                 variant="plain"
                 onClick={this.onCloseButtonClick}

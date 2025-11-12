@@ -3159,6 +3159,11 @@ export namespace Components {
          */
         "variant"?: SwirlModalVariant;
     }
+    interface SwirlModalShell {
+        "close": () => Promise<void>;
+        "closeButtonLabel": string;
+        "label": string;
+    }
     interface SwirlOptionList {
         /**
           * @default true
@@ -4977,11 +4982,6 @@ export namespace Components {
          */
         "trigger": SwirlTooltipTrigger[];
     }
-    interface SwirlTranslucentOverlay {
-        "close": () => Promise<void>;
-        "closeButtonAriaLabel": string;
-        "overlayAriaLabel": string;
-    }
     interface SwirlTreeNavigation {
         "label": string;
     }
@@ -5179,6 +5179,10 @@ export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlModalElement;
 }
+export interface SwirlModalShellCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlModalShellElement;
+}
 export interface SwirlOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlOptionListElement;
@@ -5274,10 +5278,6 @@ export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlToggleGroupElement;
-}
-export interface SwirlTranslucentOverlayCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSwirlTranslucentOverlayElement;
 }
 export interface SwirlTreeNavigationItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -7448,6 +7448,23 @@ declare global {
         prototype: HTMLSwirlModalElement;
         new (): HTMLSwirlModalElement;
     };
+    interface HTMLSwirlModalShellElementEventMap {
+        "closeModal": void;
+    }
+    interface HTMLSwirlModalShellElement extends Components.SwirlModalShell, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlModalShellElementEventMap>(type: K, listener: (this: HTMLSwirlModalShellElement, ev: SwirlModalShellCustomEvent<HTMLSwirlModalShellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlModalShellElementEventMap>(type: K, listener: (this: HTMLSwirlModalShellElement, ev: SwirlModalShellCustomEvent<HTMLSwirlModalShellElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlModalShellElement: {
+        prototype: HTMLSwirlModalShellElement;
+        new (): HTMLSwirlModalShellElement;
+    };
     interface HTMLSwirlOptionListElementEventMap {
         "itemDrop": {
     item: HTMLSwirlOptionListItemElement;
@@ -8724,23 +8741,6 @@ declare global {
         prototype: HTMLSwirlTooltipElement;
         new (): HTMLSwirlTooltipElement;
     };
-    interface HTMLSwirlTranslucentOverlayElementEventMap {
-        "closeOverlay": void;
-    }
-    interface HTMLSwirlTranslucentOverlayElement extends Components.SwirlTranslucentOverlay, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLSwirlTranslucentOverlayElementEventMap>(type: K, listener: (this: HTMLSwirlTranslucentOverlayElement, ev: SwirlTranslucentOverlayCustomEvent<HTMLSwirlTranslucentOverlayElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLSwirlTranslucentOverlayElementEventMap>(type: K, listener: (this: HTMLSwirlTranslucentOverlayElement, ev: SwirlTranslucentOverlayCustomEvent<HTMLSwirlTranslucentOverlayElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLSwirlTranslucentOverlayElement: {
-        prototype: HTMLSwirlTranslucentOverlayElement;
-        new (): HTMLSwirlTranslucentOverlayElement;
-    };
     interface HTMLSwirlTreeNavigationElement extends Components.SwirlTreeNavigation, HTMLStencilElement {
     }
     var HTMLSwirlTreeNavigationElement: {
@@ -9116,6 +9116,7 @@ declare global {
         "swirl-menu": HTMLSwirlMenuElement;
         "swirl-menu-item": HTMLSwirlMenuItemElement;
         "swirl-modal": HTMLSwirlModalElement;
+        "swirl-modal-shell": HTMLSwirlModalShellElement;
         "swirl-option-list": HTMLSwirlOptionListElement;
         "swirl-option-list-item": HTMLSwirlOptionListItemElement;
         "swirl-option-list-section": HTMLSwirlOptionListSectionElement;
@@ -9280,7 +9281,6 @@ declare global {
         "swirl-toggle-group": HTMLSwirlToggleGroupElement;
         "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
-        "swirl-translucent-overlay": HTMLSwirlTranslucentOverlayElement;
         "swirl-tree-navigation": HTMLSwirlTreeNavigationElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
         "swirl-tree-view": HTMLSwirlTreeViewElement;
@@ -12149,6 +12149,11 @@ declare namespace LocalJSX {
          */
         "variant"?: SwirlModalVariant;
     }
+    interface SwirlModalShell {
+        "closeButtonLabel": string;
+        "label": string;
+        "onCloseModal"?: (event: SwirlModalShellCustomEvent<void>) => void;
+    }
     interface SwirlOptionList {
         /**
           * @default true
@@ -13931,11 +13936,6 @@ declare namespace LocalJSX {
          */
         "trigger"?: SwirlTooltipTrigger[];
     }
-    interface SwirlTranslucentOverlay {
-        "closeButtonAriaLabel": string;
-        "onCloseOverlay"?: (event: SwirlTranslucentOverlayCustomEvent<void>) => void;
-        "overlayAriaLabel": string;
-    }
     interface SwirlTreeNavigation {
         "label": string;
     }
@@ -14310,6 +14310,7 @@ declare namespace LocalJSX {
         "swirl-menu": SwirlMenu;
         "swirl-menu-item": SwirlMenuItem;
         "swirl-modal": SwirlModal;
+        "swirl-modal-shell": SwirlModalShell;
         "swirl-option-list": SwirlOptionList;
         "swirl-option-list-item": SwirlOptionListItem;
         "swirl-option-list-section": SwirlOptionListSection;
@@ -14474,7 +14475,6 @@ declare namespace LocalJSX {
         "swirl-toggle-group": SwirlToggleGroup;
         "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
-        "swirl-translucent-overlay": SwirlTranslucentOverlay;
         "swirl-tree-navigation": SwirlTreeNavigation;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
         "swirl-tree-view": SwirlTreeView;
@@ -14789,6 +14789,7 @@ declare module "@stencil/core" {
             "swirl-menu": LocalJSX.SwirlMenu & JSXBase.HTMLAttributes<HTMLSwirlMenuElement>;
             "swirl-menu-item": LocalJSX.SwirlMenuItem & JSXBase.HTMLAttributes<HTMLSwirlMenuItemElement>;
             "swirl-modal": LocalJSX.SwirlModal & JSXBase.HTMLAttributes<HTMLSwirlModalElement>;
+            "swirl-modal-shell": LocalJSX.SwirlModalShell & JSXBase.HTMLAttributes<HTMLSwirlModalShellElement>;
             "swirl-option-list": LocalJSX.SwirlOptionList & JSXBase.HTMLAttributes<HTMLSwirlOptionListElement>;
             "swirl-option-list-item": LocalJSX.SwirlOptionListItem & JSXBase.HTMLAttributes<HTMLSwirlOptionListItemElement>;
             "swirl-option-list-section": LocalJSX.SwirlOptionListSection & JSXBase.HTMLAttributes<HTMLSwirlOptionListSectionElement>;
@@ -14953,7 +14954,6 @@ declare module "@stencil/core" {
             "swirl-toggle-group": LocalJSX.SwirlToggleGroup & JSXBase.HTMLAttributes<HTMLSwirlToggleGroupElement>;
             "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
-            "swirl-translucent-overlay": LocalJSX.SwirlTranslucentOverlay & JSXBase.HTMLAttributes<HTMLSwirlTranslucentOverlayElement>;
             "swirl-tree-navigation": LocalJSX.SwirlTreeNavigation & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
             "swirl-tree-view": LocalJSX.SwirlTreeView & JSXBase.HTMLAttributes<HTMLSwirlTreeViewElement>;

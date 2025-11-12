@@ -6,7 +6,7 @@
   }
 }
 
-.overlay {
+.modal-shell {
   position: fixed;
   z-index: var(--s-z-40);
   display: flex;
@@ -15,7 +15,7 @@
   inset: 0;
 }
 
-.overlay__backdrop {
+.modal-shell__backdrop {
   position: fixed;
   inset: 0;
   z-index: 1;
@@ -26,7 +26,7 @@
   transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
 }
 
-.overlay__content {
+.modal-shell__content {
   position: relative;
   z-index: 2;
   max-height: 100%;
@@ -39,13 +39,13 @@
     transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1.1);
 }
 
-.overlay--closing {
-  .overlay__backdrop {
+.modal-shell--closing {
+  .modal-shell__backdrop {
     opacity: 0;
     backdrop-filter: blur(0px);
   }
 
-  .overlay__content {
+  .modal-shell__content {
     opacity: 0;
     transform: scale(1.1);
   }

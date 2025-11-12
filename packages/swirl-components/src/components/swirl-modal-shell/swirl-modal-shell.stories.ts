@@ -1,14 +1,14 @@
 import { generateStoryElement } from "../../utils";
-import Docs from "./swirl-translucent-overlay.mdx";
+import Docs from "./swirl-modal-shell.mdx";
 
 export default {
-  component: "swirl-translucent-overlay",
+  component: "swirl-modal-shel,",
   tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<swirl-translucent-overlay overlay-aria-label="Overlay" close-button-aria-label="Close">
+        code: `<swirl-modal-shell label="Modal" close-button-label="Close">
   <swirl-text>
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
     eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -20,11 +20,11 @@ export default {
     Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
     sit amet.
   </swirl-text>
-</swirl-translucent-overlay>`,
+</swirl-modal-shell>`,
       },
     },
   },
-  title: "Components/SwirlTranslucentOverlay",
+  title: "Components/SwirlModalShell",
 };
 
 const Template = (args) => {
@@ -33,17 +33,17 @@ const Template = (args) => {
   container.style.background =
     "linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%)";
   const trigger = document.createElement("swirl-button");
-  trigger.label = "Open overlay";
+  trigger.label = "Open modal";
 
   let isOpen = false;
-  let element: HTMLSwirlTranslucentOverlayElement;
+  let element: HTMLSwirlModalShellElement;
 
-  const updateOverlay = () => {
+  const updateModal = () => {
     if (isOpen) {
       element = generateStoryElement(
-        "swirl-translucent-overlay",
+        "swirl-modal-shell",
         args
-      ) as HTMLSwirlTranslucentOverlayElement;
+      ) as HTMLSwirlModalShellElement;
 
       element.innerHTML = `
         <swirl-box width="400px">
@@ -57,23 +57,23 @@ const Template = (args) => {
         </swirl-box>
         `;
 
-      element.addEventListener("closeOverlay", handleClose);
+      element.addEventListener("closeModal", handleClose);
 
       container.appendChild(element);
     } else {
-      element.removeEventListener("closeOverlay", handleClose);
+      element.removeEventListener("closeModal", handleClose);
       element.parentElement.removeChild(element);
     }
   };
 
   const handleClose = () => {
     isOpen = false;
-    updateOverlay();
+    updateModal();
   };
 
   const handleOpen = () => {
     isOpen = true;
-    updateOverlay();
+    updateModal();
   };
 
   trigger.addEventListener("click", handleOpen);
@@ -83,9 +83,9 @@ const Template = (args) => {
   return container;
 };
 
-export const SwirlTranslucentOverlay = Template.bind({});
+export const SwirlModalShell = Template.bind({});
 
-SwirlTranslucentOverlay.args = {
-  overlayAriaLabel: "Overlay",
-  closeButtonAriaLabel: "Close",
+SwirlModalShell.args = {
+  label: "Modal",
+  closeButtonLabel: "Close",
 };

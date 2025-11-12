@@ -1,0 +1,54 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-modal-shell.stories";
+
+<Meta title="Components/SwirlModalShell" />
+
+# SwirlModalShell
+
+The SwirlModalShell component is a simple modal component that provides the
+translucent backdrop, traps the focus and blocks body scrolls.
+
+The modal opens as soons as it's rendered, and should be removed from the DOM by
+listening to the `closeModal` event.
+
+If there's a need to close it manually, use the public `close` function which
+will smoothly animate the closing.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-modal-shell)**
+
+## Usage
+
+<Canvas of={Stories.SwirlModalShell} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlModalShell} />
+
+## Theming
+
+| Variable                         | Usage                         |
+| -------------------------------- | ----------------------------- |
+| `--s-translucent-medium-default` | Background color of the modal |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+
+| ARIA            | Usage                                         |
+| --------------- | --------------------------------------------- |
+| `role="dialog"` |                                               |
+| `aria-modal`    | Set to `true` on the modal container element. |
+| `aria-label`    | Used to provide the modal's accessible label. |
+
+### Keyboard
+
+| Key            | Action            |
+| -------------- | ----------------- |
+| <kbd>ESC</kbd> | Closes the modal. |
+
+### Focus handling
+
+- Focus is moved to the first tabbable element when the modal is opened.
+- Focus is trapped inside the modal, if it is open.
+- After closing, the focus is returned to the last focused element.
