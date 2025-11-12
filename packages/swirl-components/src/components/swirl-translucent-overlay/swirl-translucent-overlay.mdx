@@ -1,0 +1,54 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-translucent-overlay.stories";
+
+<Meta title="Components/SwirlTranslucentOverlay" />
+
+# SwirlTranslucentOverlay
+
+The SwirlTranslucentOverlay component is a simple overlay component that
+provides the translucent backdrop, traps the focus and blocks body scrolls.
+
+The overlay opens as soons as it's rendered, and should be removed from the DOM
+by listening to the `closeOverlay` event.
+
+If there's a need to close it manually, use the public `close` function which
+will smoothly animate the closing.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-translucent-overlay)**
+
+## Usage
+
+<Canvas of={Stories.SwirlTranslucentOverlay} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlTranslucentOverlay} />
+
+## Theming
+
+| Variable                         | Usage                         |
+| -------------------------------- | ----------------------------- |
+| `--s-translucent-medium-default` | Background color of the modal |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+
+| ARIA            | Usage                                           |
+| --------------- | ----------------------------------------------- |
+| `role="dialog"` |                                                 |
+| `aria-modal`    | Set to `true` on the overlay container element. |
+| `aria-label`    | Used to provide the overlay's accessible label. |
+
+### Keyboard
+
+| Key            | Action              |
+| -------------- | ------------------- |
+| <kbd>ESC</kbd> | Closes the overlay. |
+
+### Focus handling
+
+- Focus is moved to the first tabbable element when the overlay is opened.
+- Focus is trapped inside the overlay, if it is open.
+- After closing, the focus is returned to the last focused element.

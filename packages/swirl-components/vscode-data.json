@@ -22634,6 +22634,23 @@
       ]
     },
     {
+      "name": "swirl-translucent-overlay",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-aria-label",
+          "description": ""
+        },
+        {
+          "name": "overlay-aria-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-tree-navigation",
       "description": {
         "kind": "markdown",
