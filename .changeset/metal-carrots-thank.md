@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Implement swirl-translucent-overlay component
+Implement swirl-modal-shell component
