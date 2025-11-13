@@ -3159,6 +3159,11 @@ export namespace Components {
          */
         "variant"?: SwirlModalVariant;
     }
+    interface SwirlModalShell {
+        "close": () => Promise<void>;
+        "closeButtonLabel": string;
+        "label": string;
+    }
     interface SwirlOptionList {
         /**
           * @default true
@@ -5173,6 +5178,10 @@ export interface SwirlMenuCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlModalElement;
+}
+export interface SwirlModalShellCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlModalShellElement;
 }
 export interface SwirlOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -7439,6 +7448,23 @@ declare global {
         prototype: HTMLSwirlModalElement;
         new (): HTMLSwirlModalElement;
     };
+    interface HTMLSwirlModalShellElementEventMap {
+        "closeModal": void;
+    }
+    interface HTMLSwirlModalShellElement extends Components.SwirlModalShell, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlModalShellElementEventMap>(type: K, listener: (this: HTMLSwirlModalShellElement, ev: SwirlModalShellCustomEvent<HTMLSwirlModalShellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlModalShellElementEventMap>(type: K, listener: (this: HTMLSwirlModalShellElement, ev: SwirlModalShellCustomEvent<HTMLSwirlModalShellElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlModalShellElement: {
+        prototype: HTMLSwirlModalShellElement;
+        new (): HTMLSwirlModalShellElement;
+    };
     interface HTMLSwirlOptionListElementEventMap {
         "itemDrop": {
     item: HTMLSwirlOptionListItemElement;
@@ -9090,6 +9116,7 @@ declare global {
         "swirl-menu": HTMLSwirlMenuElement;
         "swirl-menu-item": HTMLSwirlMenuItemElement;
         "swirl-modal": HTMLSwirlModalElement;
+        "swirl-modal-shell": HTMLSwirlModalShellElement;
         "swirl-option-list": HTMLSwirlOptionListElement;
         "swirl-option-list-item": HTMLSwirlOptionListItemElement;
         "swirl-option-list-section": HTMLSwirlOptionListSectionElement;
@@ -12122,6 +12149,11 @@ declare namespace LocalJSX {
          */
         "variant"?: SwirlModalVariant;
     }
+    interface SwirlModalShell {
+        "closeButtonLabel": string;
+        "label": string;
+        "onCloseModal"?: (event: SwirlModalShellCustomEvent<void>) => void;
+    }
     interface SwirlOptionList {
         /**
           * @default true
@@ -14278,6 +14310,7 @@ declare namespace LocalJSX {
         "swirl-menu": SwirlMenu;
         "swirl-menu-item": SwirlMenuItem;
         "swirl-modal": SwirlModal;
+        "swirl-modal-shell": SwirlModalShell;
         "swirl-option-list": SwirlOptionList;
         "swirl-option-list-item": SwirlOptionListItem;
         "swirl-option-list-section": SwirlOptionListSection;
@@ -14756,6 +14789,7 @@ declare module "@stencil/core" {
             "swirl-menu": LocalJSX.SwirlMenu & JSXBase.HTMLAttributes<HTMLSwirlMenuElement>;
             "swirl-menu-item": LocalJSX.SwirlMenuItem & JSXBase.HTMLAttributes<HTMLSwirlMenuItemElement>;
             "swirl-modal": LocalJSX.SwirlModal & JSXBase.HTMLAttributes<HTMLSwirlModalElement>;
+            "swirl-modal-shell": LocalJSX.SwirlModalShell & JSXBase.HTMLAttributes<HTMLSwirlModalShellElement>;
             "swirl-option-list": LocalJSX.SwirlOptionList & JSXBase.HTMLAttributes<HTMLSwirlOptionListElement>;
             "swirl-option-list-item": LocalJSX.SwirlOptionListItem & JSXBase.HTMLAttributes<HTMLSwirlOptionListItemElement>;
             "swirl-option-list-section": LocalJSX.SwirlOptionListSection & JSXBase.HTMLAttributes<HTMLSwirlOptionListSectionElement>;

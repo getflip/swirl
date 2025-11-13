@@ -17742,6 +17742,23 @@
       ]
     },
     {
+      "name": "swirl-modal-shell",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-option-list",
       "description": {
         "kind": "markdown",
