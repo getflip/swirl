@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.411.0
+
+### Minor Changes
+
+- [#1318](https://github.com/getflip/swirl/pull/1318)
+  [`4c9386b49`](https://github.com/getflip/swirl/commit/4c9386b495a2797973b91f67e54984283d31431e)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Implement
+  swirl-modal-shell component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4c9386b49`](https://github.com/getflip/swirl/commit/4c9386b495a2797973b91f67e54984283d31431e)]:
+  - @getflip/swirl-components@0.411.0
+
 ## 0.410.0
 
 ### Minor Changes
