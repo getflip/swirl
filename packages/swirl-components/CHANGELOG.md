@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.411.1
+
+### Patch Changes
+
+- [#1320](https://github.com/getflip/swirl/pull/1320)
+  [`2fc3f21e2`](https://github.com/getflip/swirl/commit/2fc3f21e28ea835bd92e320eccaf8d2957aedb68)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Adjust
+  swirl-badge border color in swirl-shell-navigation-item
+
 ## 0.411.0
 
 ### Minor Changes
