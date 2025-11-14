@@ -39,6 +39,10 @@
   container-type: size;
   gap: var(--s-space-12);
 
+  & .shell-navigation-item__badge {
+    --swirl-badge-border-color: var(--s-surface-overlay-default);
+  }
+
   &:hover {
     background-color: var(--s-surface-sunken-hovered);
 
@@ -293,6 +297,10 @@
 
   @media (--from-desktop) {
     background-color: var(--s-surface-sunken-default);
+
+    & .shell-navigation-item__badge {
+      --swirl-badge-border-color: var(--s-surface-sunken-default);
+    }
   }
 }
 
