@@ -105,6 +105,7 @@
   white-space: pre;
   vertical-align: top;
   user-select: none;
+  pointer-events: none;
   opacity: 0;
 
   @media (--from-desktop-without-touch) {
