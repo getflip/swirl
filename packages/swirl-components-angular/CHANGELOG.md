@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.411.2
+
+### Patch Changes
+
+- [#1322](https://github.com/getflip/swirl/pull/1322)
+  [`18327acf9`](https://github.com/getflip/swirl/commit/18327acf98e1c8eeed0f9835264a3fe8dbba0102)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Block clicks in
+  standalone label of swirl-select
+
+- Updated dependencies
+  [[`18327acf9`](https://github.com/getflip/swirl/commit/18327acf98e1c8eeed0f9835264a3fe8dbba0102)]:
+  - @getflip/swirl-components@0.411.2
+
 ## 0.411.1
 
 ### Patch Changes
