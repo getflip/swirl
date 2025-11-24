@@ -161,7 +161,7 @@
       opacity: 1;
       position: static;
       transform: none;
-      margin: calc(-1 * var(--s-space-2)) 0;
+      margin: calc(-1 * var(--s-space-4)) 0;
     }
 
     & .resource-list-item__meta {
