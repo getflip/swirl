@@ -1534,6 +1534,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconCheckboxFilled {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconChevronLeft {
         "color"?: SwirlIconColor1;
         /**
@@ -6175,6 +6182,12 @@ declare global {
         prototype: HTMLSwirlIconCheckStrongElement;
         new (): HTMLSwirlIconCheckStrongElement;
     };
+    interface HTMLSwirlIconCheckboxFilledElement extends Components.SwirlIconCheckboxFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCheckboxFilledElement: {
+        prototype: HTMLSwirlIconCheckboxFilledElement;
+        new (): HTMLSwirlIconCheckboxFilledElement;
+    };
     interface HTMLSwirlIconChevronLeftElement extends Components.SwirlIconChevronLeft, HTMLStencilElement {
     }
     var HTMLSwirlIconChevronLeftElement: {
@@ -8913,6 +8926,7 @@ declare global {
         "swirl-icon-check-circle-filled": HTMLSwirlIconCheckCircleFilledElement;
         "swirl-icon-check-small": HTMLSwirlIconCheckSmallElement;
         "swirl-icon-check-strong": HTMLSwirlIconCheckStrongElement;
+        "swirl-icon-checkbox-filled": HTMLSwirlIconCheckboxFilledElement;
         "swirl-icon-chevron-left": HTMLSwirlIconChevronLeftElement;
         "swirl-icon-chevron-right": HTMLSwirlIconChevronRightElement;
         "swirl-icon-close": HTMLSwirlIconCloseElement;
@@ -10582,6 +10596,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckStrong {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCheckboxFilled {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -14107,6 +14128,7 @@ declare namespace LocalJSX {
         "swirl-icon-check-circle-filled": SwirlIconCheckCircleFilled;
         "swirl-icon-check-small": SwirlIconCheckSmall;
         "swirl-icon-check-strong": SwirlIconCheckStrong;
+        "swirl-icon-checkbox-filled": SwirlIconCheckboxFilled;
         "swirl-icon-chevron-left": SwirlIconChevronLeft;
         "swirl-icon-chevron-right": SwirlIconChevronRight;
         "swirl-icon-close": SwirlIconClose;
@@ -14586,6 +14608,7 @@ declare module "@stencil/core" {
             "swirl-icon-check-circle-filled": LocalJSX.SwirlIconCheckCircleFilled & JSXBase.HTMLAttributes<HTMLSwirlIconCheckCircleFilledElement>;
             "swirl-icon-check-small": LocalJSX.SwirlIconCheckSmall & JSXBase.HTMLAttributes<HTMLSwirlIconCheckSmallElement>;
             "swirl-icon-check-strong": LocalJSX.SwirlIconCheckStrong & JSXBase.HTMLAttributes<HTMLSwirlIconCheckStrongElement>;
+            "swirl-icon-checkbox-filled": LocalJSX.SwirlIconCheckboxFilled & JSXBase.HTMLAttributes<HTMLSwirlIconCheckboxFilledElement>;
             "swirl-icon-chevron-left": LocalJSX.SwirlIconChevronLeft & JSXBase.HTMLAttributes<HTMLSwirlIconChevronLeftElement>;
             "swirl-icon-chevron-right": LocalJSX.SwirlIconChevronRight & JSXBase.HTMLAttributes<HTMLSwirlIconChevronRightElement>;
             "swirl-icon-close": LocalJSX.SwirlIconClose & JSXBase.HTMLAttributes<HTMLSwirlIconCloseElement>;
