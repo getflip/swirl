@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.74.0
+
+### Minor Changes
+
+- [#1326](https://github.com/getflip/swirl/pull/1326)
+  [`351776d0d`](https://github.com/getflip/swirl/commit/351776d0d787b1bc659e45d69631bba7c35e21af)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  checkbox-filled icon
+
 ## 0.73.0
 
 ### Minor Changes

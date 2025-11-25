@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.413.0
+
+### Minor Changes
+
+- [#1326](https://github.com/getflip/swirl/pull/1326)
+  [`351776d0d`](https://github.com/getflip/swirl/commit/351776d0d787b1bc659e45d69631bba7c35e21af)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  checkbox-filled icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`351776d0d`](https://github.com/getflip/swirl/commit/351776d0d787b1bc659e45d69631bba7c35e21af)]:
+  - @getflip/swirl-icons@0.74.0
+
 ## 0.412.0
 
 ### Minor Changes
