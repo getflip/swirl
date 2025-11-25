@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.412.0
+
+### Minor Changes
+
+- [#1324](https://github.com/getflip/swirl/pull/1324)
+  [`77e9ab811`](https://github.com/getflip/swirl/commit/77e9ab811ab7f663830dc3f5576206278cd51943)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Move scroll
+  container to parent in swirl-modal-shell
+
+### Patch Changes
+
+- [#1324](https://github.com/getflip/swirl/pull/1324)
+  [`77e9ab811`](https://github.com/getflip/swirl/commit/77e9ab811ab7f663830dc3f5576206278cd51943)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix control
+  button position in swirl-resource-list-item
+
 ## 0.411.2
 
 ### Patch Changes
