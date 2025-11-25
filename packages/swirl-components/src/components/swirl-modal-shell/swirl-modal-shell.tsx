@@ -49,11 +49,9 @@ export class SwirlModalShell {
 
   @Method()
   async close() {
-    console.log("close");
     this.isClosing = true;
 
     setTimeout(() => {
-      console.log(this);
       this.closeModal.emit();
     }, ANIMATION_DURATION_MS);
   }
