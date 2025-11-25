@@ -11,12 +11,11 @@ describe("swirl-modal-shell", () => {
     expect(page.root).toEqualHtml(`
       <swirl-modal-shell label="Modal" close-button-label="Close">
         <section aria-label="Modal" role="dialog" aria-modal="true" class="modal-shell modal-shell--closing">
-          <div class="modal-shell__backdrop"></div>
           <div class="modal-shell__content">
             <swirl-box paddingblockend="16" paddingblockstart="16">
               <swirl-button hidelabel="" icon="<swirl-icon-close color='strong'></swirl-icon-close>" label="Close" variant="plain"></swirl-button>
             </swirl-box>
-            Content
+            <div>Content</div>
           </div>
         </section>
       </swirl-modal-shell>
