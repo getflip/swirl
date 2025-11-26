@@ -370,12 +370,16 @@
       "value": "auto",
       "type": "zIndex"
     },
+    "blur-s": {
+      "value": "4px",
+      "type": "dimension"
+    },
     "blur-m": {
-      "value": "16px",
+      "value": "8px",
       "type": "dimension"
     },
     "blur-l": {
-      "value": "24px",
+      "value": "16px",
       "type": "dimension"
     }
   },
