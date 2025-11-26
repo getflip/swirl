@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.413.1
+
+### Patch Changes
+
+- [#1328](https://github.com/getflip/swirl/pull/1328)
+  [`ffb327aa1`](https://github.com/getflip/swirl/commit/ffb327aa14b066f988aae5a408b60f5b09742c2f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Remove strange
+  surrounding ring in swirl-avatar-group
+
+* [#1328](https://github.com/getflip/swirl/pull/1328)
+  [`ffb327aa1`](https://github.com/getflip/swirl/commit/ffb327aa14b066f988aae5a408b60f5b09742c2f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update
+  checkbox-filled icon
+
+* Updated dependencies
+  [[`ffb327aa1`](https://github.com/getflip/swirl/commit/ffb327aa14b066f988aae5a408b60f5b09742c2f),
+  [`ffb327aa1`](https://github.com/getflip/swirl/commit/ffb327aa14b066f988aae5a408b60f5b09742c2f)]:
+  - @getflip/swirl-components@0.413.1
+
 ## 0.413.0
 
 ### Minor Changes
