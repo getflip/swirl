@@ -289,7 +289,7 @@ export class SwirlDateInput {
         this.invalidInput.emit(this.value);
       }
     } else {
-      this.valueChange.emit(undefined);
+      this.valueChange.emit("");
     }
   }
 
