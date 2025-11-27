@@ -41,7 +41,7 @@
     background-color: var(--swirl-ghost-button-background-pressed);
   }
 
-  &--elevated {
+  & --elevated {
     box-shadow: var(--s-shadow-level-2);
   }
 
@@ -420,6 +420,38 @@
     color: var(--s-icon-strong);
   }
 }
+
+.button--variant-translucent {
+  color: var(--s-text-default);
+  outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
+  outline-offset: calc(var(--s-border-width-default) * -1);
+  background: var(--s-translucent-medium-default);
+  box-shadow: var(--s-shadow-level-2);
+  backdrop-filter: blur(var(--s-blur-s));
+
+  &:hover {
+    background: var(--s-translucent-medium-hovered);
+  }
+
+  &:active {
+    background: var(--s-translucent-medium-pressed);
+  }
+
+  & .button__icon {
+    color: var(--s-icon-strong);
+  }
+
+  &:disabled,
+  &.button--disabled {
+    color: var(--s-text-subdued);
+    background: var(--s-translucent-medium-default);
+
+    & .button__icon {
+      color: var(--s-icon-default);
+    }
+  }
+}
+
 
 .button--icon-position-end {
   & .button__icon {
