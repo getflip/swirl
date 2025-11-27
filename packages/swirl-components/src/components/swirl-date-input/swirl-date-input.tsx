@@ -275,6 +275,14 @@ export class SwirlDateInput {
       },
     });
 
+    // Listen for when the mask is cleared to reset the value
+    this.mask.on("accept", () => {
+      if (this.mask.value === "") {
+        this.value = "";
+        this.valueChange.emit("");
+      }
+    });
+
     this.updateValue();
   }
 
@@ -288,8 +296,6 @@ export class SwirlDateInput {
       } else {
         this.invalidInput.emit(this.value);
       }
-    } else {
-      this.valueChange.emit("");
     }
   }
 
