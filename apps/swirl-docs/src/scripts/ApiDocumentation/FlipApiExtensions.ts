@@ -16,6 +16,13 @@ export class FlipApiExtensions {
     return !!operation.getExtension("x-flip-internal");
   }
 
+  static getIgnoreRule(operation: Operation, rule: string): boolean {
+    return (
+      operation.getExtension("x-flip-ignore-rules") === rule ||
+      operation.getExtension("x-flip-ignore-rules-critical") === rule
+    );
+  }
+
   static getExperimental(operation: Operation): boolean {
     return !!operation.getExtension("x-flip-experimental");
   }
