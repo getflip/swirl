@@ -34,6 +34,7 @@ export class EndpointMapper {
     );
 
     if (
+      !FlipApiExtensions.getIgnoreRule(operation, "DD-01") &&
       requestBody?.[0]?.schema.type &&
       requestBody?.[0]?.schema.type !== "object"
     ) {
