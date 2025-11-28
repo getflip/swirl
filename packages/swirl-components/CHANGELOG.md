@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.413.2
+
+### Patch Changes
+
+- [#1331](https://github.com/getflip/swirl/pull/1331)
+  [`e53dfa458`](https://github.com/getflip/swirl/commit/e53dfa458e28b01db2e4f15098545f267600b6bc)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix swirl-date-input
+  missing change-emit when cleared
+
 ## 0.413.1
 
 ### Patch Changes
