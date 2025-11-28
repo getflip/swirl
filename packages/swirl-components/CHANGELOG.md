@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.414.0
+
+### Minor Changes
+
+- [#1332](https://github.com/getflip/swirl/pull/1332)
+  [`07f64d117`](https://github.com/getflip/swirl/commit/07f64d1171e18f2cda01ea2bf75d813ca650c8ae)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add
+  `hideContentHeader` property to the SwirlConsoleLayout
+
 ## 0.413.2
 
 ### Patch Changes
