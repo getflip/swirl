@@ -18,7 +18,8 @@ export type SwirlButtonVariant =
   | "plain"
   | "floating"
   | "on-image"
-  | "outline";
+  | "outline"
+  | "translucent";
 
 export type SwirlButtonCursor =
   | "auto"

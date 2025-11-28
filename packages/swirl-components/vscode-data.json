@@ -1493,6 +1493,9 @@
             },
             {
               "name": "plain"
+            },
+            {
+              "name": "translucent"
             }
           ]
         }
@@ -2997,6 +3000,9 @@
             },
             {
               "name": "plain"
+            },
+            {
+              "name": "translucent"
             }
           ]
         }
