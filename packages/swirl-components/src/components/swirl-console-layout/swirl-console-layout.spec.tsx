@@ -228,4 +228,34 @@ describe("swirl-console-layout", () => {
     );
     expect(layoutContainer).not.toHaveClass("console-layout--has-footer");
   });
+
+  it("hides content header and applies fullscreen class when showContentFullscreen is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlConsoleLayout],
+      html: `
+        <swirl-console-layout app-name="App name" heading="Heading" show-content-fullscreen="true">
+          <div slot="navigation">Navigation</div>
+          <div slot="content">Content</div>
+        </swirl-console-layout>
+      `,
+    });
+
+    const shadowRoot = page.root.shadowRoot;
+    const layoutContainer = shadowRoot.querySelector(".console-layout");
+
+    // Check that the fullscreen CSS class is applied
+    expect(layoutContainer).toHaveClass("console-layout--fullscreen-content");
+
+    // Check that the content header is not rendered
+    const contentHeader = shadowRoot.querySelector(
+      ".console-layout__content-header"
+    );
+    expect(contentHeader).toBeNull();
+
+    // Check that the content integration div is still rendered
+    const contentIntegration = shadowRoot.querySelector(
+      ".console-layout__integration"
+    );
+    expect(contentIntegration).not.toBeNull();
+  });
 });
