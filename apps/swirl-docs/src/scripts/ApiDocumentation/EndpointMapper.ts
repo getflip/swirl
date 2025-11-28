@@ -34,6 +34,7 @@ export class EndpointMapper {
     );
 
     if (
+      !FlipApiExtensions.getIgnoreRule(operation, "DD-01") &&
       requestBody?.[0]?.schema.type &&
       requestBody?.[0]?.schema.type !== "object"
     ) {
@@ -113,7 +114,7 @@ export class EndpointMapper {
         type,
         title: label,
         parameters: this.getEndpointTopLevelSchema(parameter.schema) ?? [],
-      }
+      };
     });
   }
 
@@ -133,18 +134,27 @@ export class EndpointMapper {
     });
   }
 
-  private toOperationSchemaObject(name: string, prop: SchemaObject, parentObject?: SchemaObject): OperationSchemaObject {
-    const hiddenProps = parentObject ?
-      (FlipApiExtensions.getHiddenParams(parentObject) || [])
+  private toOperationSchemaObject(
+    name: string,
+    prop: SchemaObject,
+    parentObject?: SchemaObject
+  ): OperationSchemaObject {
+    const hiddenProps = parentObject
+      ? FlipApiExtensions.getHiddenParams(parentObject) || []
       : [];
 
-    const requiredPropsInParent = this.determineRequiredProperties(parentObject);
+    const requiredPropsInParent =
+      this.determineRequiredProperties(parentObject);
     const childProperties = prop.properties || {};
     const hasRequiredFlag = typeof prop.required === "boolean" && prop.required;
 
     if (prop.type == "array") {
       // If the property is an array, we want to render the items only.
-      return this.toOperationSchemaObject(name, prop.items as SchemaObject, prop);
+      return this.toOperationSchemaObject(
+        name,
+        prop.items as SchemaObject,
+        prop
+      );
     }
 
     return {
@@ -152,8 +162,11 @@ export class EndpointMapper {
       array: parentObject?.type === "array", // Used to determine whether this property is rendered as part of an array.
       type: prop.type as OperationSchemaObject["type"],
       description: prop.description || "",
-      required: hasRequiredFlag || requiredPropsInParent.includes(name) || false,
-      properties: Object.entries(childProperties).map(([name, child]) => this.toOperationSchemaObject(name, child, prop)),
+      required:
+        hasRequiredFlag || requiredPropsInParent.includes(name) || false,
+      properties: Object.entries(childProperties).map(([name, child]) =>
+        this.toOperationSchemaObject(name, child, prop)
+      ),
       hidden: hiddenProps.includes(name),
       enum: prop.enum as string[],
     };
