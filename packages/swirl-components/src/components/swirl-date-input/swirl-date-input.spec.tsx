@@ -94,6 +94,24 @@ describe("swirl-date-input", () => {
     expect(spy.mock.calls[2][0].detail).toBe("2022-12-01");
   });
 
+  it("fires valueChange events for empty values", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput],
+      html: `<swirl-date-input value="2022-12-11" format="yyyy-MM-dd"></swirl-date-input>`,
+    });
+
+    const spy = jest.fn();
+    const input = page.root.querySelector("input");
+
+    page.root.addEventListener("valueChange", spy);
+
+    input.value = "";
+    input.dispatchEvent(new Event("input"));
+
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy.mock.calls[0][0].detail).toBe("");
+  });
+
   it("fires invalidInput event for invalid value", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput],
