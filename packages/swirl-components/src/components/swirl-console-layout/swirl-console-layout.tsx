@@ -43,6 +43,7 @@ export class SwirlConsoleLayout {
   @Prop() showHelpButton?: boolean;
   @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() subheading?: string;
+  @Prop() showContentFullscreen?: boolean;
 
   @State() sidebarActive: boolean;
   @State() contentScrollState = {
@@ -230,6 +231,7 @@ export class SwirlConsoleLayout {
         this.contentScrollState.scrolledToTop,
       "console-layout--main-scrolled-to-bottom":
         this.contentScrollState.scrolledToBottom,
+      "console-layout--fullscreen-content": this.showContentFullscreen,
     });
 
     return (
@@ -341,47 +343,49 @@ export class SwirlConsoleLayout {
               ref={(el) => (this.contentEl = el)}
             >
               <div class="console-layout__content-container">
-                <header
-                  class="console-layout__content-header"
-                  style={contentStyles}
-                >
-                  {this.showBackButton && (
-                    <swirl-button
-                      class="console-layout__back-button"
-                      hideLabel
-                      icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
-                      label={this.backButonLabel}
-                      onClick={this.onBackButtonClick}
-                    ></swirl-button>
-                  )}
-                  {Boolean(this.heading) && (
-                    <div class="console-layout__heading-container">
-                      <swirl-heading
-                        as={Boolean(this.appName) ? "h2" : "h1"}
-                        class="console-layout__heading"
-                        headingId="heading"
-                        level={1}
-                        text={this.heading}
-                      ></swirl-heading>
-                      {this.subheading && (
-                        <swirl-text
-                          class="console-layout__subheading"
-                          color="subdued"
-                        >
-                          {this.subheading}
-                        </swirl-text>
-                      )}
+                {!this.showContentFullscreen && (
+                  <header
+                    class="console-layout__content-header"
+                    style={contentStyles}
+                  >
+                    {this.showBackButton && (
+                      <swirl-button
+                        class="console-layout__back-button"
+                        hideLabel
+                        icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
+                        label={this.backButonLabel}
+                        onClick={this.onBackButtonClick}
+                      ></swirl-button>
+                    )}
+                    {Boolean(this.heading) && (
+                      <div class="console-layout__heading-container">
+                        <swirl-heading
+                          as={Boolean(this.appName) ? "h2" : "h1"}
+                          class="console-layout__heading"
+                          headingId="heading"
+                          level={1}
+                          text={this.heading}
+                        ></swirl-heading>
+                        {this.subheading && (
+                          <swirl-text
+                            class="console-layout__subheading"
+                            color="subdued"
+                          >
+                            {this.subheading}
+                          </swirl-text>
+                        )}
+                      </div>
+                    )}
+                    {!Boolean(this.heading) && (
+                      <div class="console-layout__heading-container">
+                        <slot name="heading"></slot>
+                      </div>
+                    )}
+                    <div class="console-layout__content-header-tools">
+                      <slot name="content-header-tools"></slot>
                     </div>
-                  )}
-                  {!Boolean(this.heading) && (
-                    <div class="console-layout__heading-container">
-                      <slot name="heading"></slot>
-                    </div>
-                  )}
-                  <div class="console-layout__content-header-tools">
-                    <slot name="content-header-tools"></slot>
-                  </div>
-                </header>
+                  </header>
+                )}
                 <div class="console-layout__integration" style={contentStyles}>
                   <slot name="content"></slot>
                 </div>

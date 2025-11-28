@@ -2499,6 +2499,10 @@
           "description": ""
         },
         {
+          "name": "show-content-fullscreen",
+          "description": ""
+        },
+        {
           "name": "show-help-button",
           "description": ""
         },
