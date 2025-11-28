@@ -2479,6 +2479,10 @@
           "description": ""
         },
         {
+          "name": "hide-content-header",
+          "description": ""
+        },
+        {
           "name": "hide-navigation-button-label",
           "description": ""
         },

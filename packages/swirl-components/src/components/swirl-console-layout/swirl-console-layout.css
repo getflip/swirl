@@ -324,3 +324,14 @@
   .console-layout__app-bar:not(.console-layout__app-bar--custom) {
   display: none;
 }
+
+/* Hide content header mode - remove padding and hide content header */
+.console-layout--hide-content-header .console-layout__content {
+  padding: 0;
+  overflow: hidden;
+  scrollbar-gutter: auto;
+}
+
+.console-layout--hide-content-header .console-layout__integration {
+  padding-bottom: 0;
+}

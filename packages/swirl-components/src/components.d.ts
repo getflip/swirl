@@ -778,6 +778,7 @@ export namespace Components {
           * @default "Help"
          */
         "helpButonLabel"?: string;
+        "hideContentHeader"?: boolean;
         /**
           * @default "Hide main navigation"
          */
@@ -9888,6 +9889,7 @@ declare namespace LocalJSX {
           * @default "Help"
          */
         "helpButonLabel"?: string;
+        "hideContentHeader"?: boolean;
         /**
           * @default "Hide main navigation"
          */
