@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.415.0
+
+### Minor Changes
+
+- [#1330](https://github.com/getflip/swirl/pull/1330)
+  [`dec171a6f`](https://github.com/getflip/swirl/commit/dec171a6f813a0a8906dc32396497f44d2297195)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add translucent
+  button variant
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dec171a6f`](https://github.com/getflip/swirl/commit/dec171a6f813a0a8906dc32396497f44d2297195)]:
+  - @getflip/swirl-components@0.415.0
+
 ## 0.414.0
 
 ### Minor Changes

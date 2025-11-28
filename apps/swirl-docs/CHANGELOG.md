@@ -1,5 +1,21 @@
 # swirl-docs
 
+## 0.3.193
+
+### Patch Changes
+
+- [#1335](https://github.com/getflip/swirl/pull/1335)
+  [`a0654f687`](https://github.com/getflip/swirl/commit/a0654f68766d4efa3fad38b6276569c8902c803e)
+  Thanks [@danizep](https://github.com/danizep)! - Ignore resquest body type
+  check when ignore rule flag is set
+
+- Updated dependencies
+  [[`dec171a6f`](https://github.com/getflip/swirl/commit/dec171a6f813a0a8906dc32396497f44d2297195),
+  [`dec171a6f`](https://github.com/getflip/swirl/commit/dec171a6f813a0a8906dc32396497f44d2297195)]:
+  - @getflip/swirl-components@0.415.0
+  - @getflip/swirl-components-react@0.415.0
+  - @getflip/swirl-tokens@2.12.0
+
 ## 0.3.192
 
 ### Patch Changes
