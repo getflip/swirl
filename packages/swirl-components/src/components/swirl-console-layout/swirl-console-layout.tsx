@@ -43,7 +43,7 @@ export class SwirlConsoleLayout {
   @Prop() showHelpButton?: boolean;
   @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() subheading?: string;
-  @Prop() showContentFullscreen?: boolean;
+  @Prop() hideContentHeader?: boolean;
 
   @State() sidebarActive: boolean;
   @State() contentScrollState = {
@@ -231,7 +231,7 @@ export class SwirlConsoleLayout {
         this.contentScrollState.scrolledToTop,
       "console-layout--main-scrolled-to-bottom":
         this.contentScrollState.scrolledToBottom,
-      "console-layout--fullscreen-content": this.showContentFullscreen,
+      "console-layout--hide-content-header": this.hideContentHeader,
     });
 
     return (
@@ -343,7 +343,7 @@ export class SwirlConsoleLayout {
               ref={(el) => (this.contentEl = el)}
             >
               <div class="console-layout__content-container">
-                {!this.showContentFullscreen && (
+                {!this.hideContentHeader && (
                   <header
                     class="console-layout__content-header"
                     style={contentStyles}

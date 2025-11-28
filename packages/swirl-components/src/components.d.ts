@@ -778,6 +778,7 @@ export namespace Components {
           * @default "Help"
          */
         "helpButonLabel"?: string;
+        "hideContentHeader"?: boolean;
         /**
           * @default "Hide main navigation"
          */
@@ -796,7 +797,6 @@ export namespace Components {
          */
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
-        "showContentFullscreen"?: boolean;
         "showHelpButton"?: boolean;
         /**
           * @default "Show main navigation"
@@ -9889,6 +9889,7 @@ declare namespace LocalJSX {
           * @default "Help"
          */
         "helpButonLabel"?: string;
+        "hideContentHeader"?: boolean;
         /**
           * @default "Hide main navigation"
          */
@@ -9905,7 +9906,6 @@ declare namespace LocalJSX {
         "onBackButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "showBackButton"?: boolean;
-        "showContentFullscreen"?: boolean;
         "showHelpButton"?: boolean;
         /**
           * @default "Show main navigation"

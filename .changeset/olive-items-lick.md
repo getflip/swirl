@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Add `showContentFullscreen` property to the SwirlConsoleLayout
+Add `hideContentHeader` property to the SwirlConsoleLayout

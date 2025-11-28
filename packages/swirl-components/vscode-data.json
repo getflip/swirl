@@ -2479,6 +2479,10 @@
           "description": ""
         },
         {
+          "name": "hide-content-header",
+          "description": ""
+        },
+        {
           "name": "hide-navigation-button-label",
           "description": ""
         },
@@ -2496,10 +2500,6 @@
         },
         {
           "name": "show-back-button",
-          "description": ""
-        },
-        {
-          "name": "show-content-fullscreen",
           "description": ""
         },
         {

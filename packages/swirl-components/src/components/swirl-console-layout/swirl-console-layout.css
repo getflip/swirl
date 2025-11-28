@@ -325,13 +325,13 @@
   display: none;
 }
 
-/* Fullscreen content mode - remove padding and hide content header */
-.console-layout--fullscreen-content .console-layout__content {
+/* Hide content header mode - remove padding and hide content header */
+.console-layout--hide-content-header .console-layout__content {
   padding: 0;
   overflow: hidden;
   scrollbar-gutter: auto;
 }
 
-.console-layout--fullscreen-content .console-layout__integration {
+.console-layout--hide-content-header .console-layout__integration {
   padding-bottom: 0;
 }
