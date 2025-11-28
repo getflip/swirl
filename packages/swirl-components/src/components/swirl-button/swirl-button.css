@@ -41,7 +41,7 @@
     background-color: var(--swirl-ghost-button-background-pressed);
   }
 
-  & --elevated {
+  &--elevated {
     box-shadow: var(--s-shadow-level-2);
   }
 
