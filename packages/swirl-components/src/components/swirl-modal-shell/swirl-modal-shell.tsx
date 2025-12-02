@@ -32,19 +32,19 @@ export class SwirlModalShell {
   @State() isClosing = true;
 
   private focusTrap: focusTrap.FocusTrap | undefined;
-  private modalEl: HTMLElement;
+  private modalContentEl: HTMLElement;
 
   componentDidLoad() {
     requestAnimationFrame(() => {
       this.setupFocusTrap();
-      disableBodyScroll(this.modalEl);
+      disableBodyScroll(this.modalContentEl);
       this.isClosing = false;
     });
   }
 
   disconnectedCallback() {
     this.focusTrap?.deactivate();
-    enableBodyScroll(this.modalEl);
+    enableBodyScroll(this.modalContentEl);
   }
 
   @Method()
@@ -62,21 +62,16 @@ export class SwirlModalShell {
     }
   };
 
-  private onContentClick = (event: MouseEvent) => {
-    event.stopPropagation();
-  };
-
-  private onCloseButtonClick = (event: MouseEvent) => {
-    event.stopPropagation();
+  private onBackdropClick = () => {
     this.close();
   };
 
-  private onModalClick = () => {
+  private onCloseButtonClick = () => {
     this.close();
   };
 
   private setupFocusTrap() {
-    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
+    this.focusTrap = focusTrap.createFocusTrap(this.modalContentEl, {
       allowOutsideClick: true,
       setReturnFocus: getActiveElement() as HTMLElement,
       escapeDeactivates: false,
@@ -97,11 +92,16 @@ export class SwirlModalShell {
           role="dialog"
           aria-modal="true"
           class={className}
-          onClick={this.onModalClick}
           onKeyDown={this.onKeyDown}
-          ref={(el) => (this.modalEl = el)}
         >
-          <div class="modal-shell__content">
+          <div
+            class="modal-shell__backdrop"
+            onClick={this.onBackdropClick}
+          ></div>
+          <div
+            class="modal-shell__content"
+            ref={(el) => (this.modalContentEl = el)}
+          >
             <swirl-box paddingBlockStart="16" paddingBlockEnd="16">
               <swirl-button
                 icon="<swirl-icon-close color='strong'></swirl-icon-close>"
@@ -112,9 +112,7 @@ export class SwirlModalShell {
               ></swirl-button>
             </swirl-box>
 
-            <div onClick={this.onContentClick}>
-              <slot></slot>
-            </div>
+            <slot></slot>
           </div>
         </section>
       </Host>

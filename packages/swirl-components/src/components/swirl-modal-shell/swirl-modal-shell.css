@@ -13,16 +13,24 @@
   justify-content: center;
   align-items: center;
   inset: 0;
-  overflow-y: auto;
+}
+
+.modal-shell__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
   background-color: var(--s-translucent-medium-default);
-  transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
+
+  opacity: 1;
   backdrop-filter: blur(var(--s-blur-l));
+  transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
 }
 
 .modal-shell__content {
   position: relative;
   z-index: 2;
   max-height: 100%;
+  overflow-y: auto;
   padding: var(--s-space-24);
 
   opacity: 1;
@@ -32,8 +40,10 @@
 }
 
 .modal-shell--closing {
-  opacity: 0;
-  backdrop-filter: blur(0px);
+  .modal-shell__backdrop {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
 
   .modal-shell__content {
     opacity: 0;
