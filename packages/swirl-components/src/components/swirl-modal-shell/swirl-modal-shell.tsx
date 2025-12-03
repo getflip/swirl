@@ -32,19 +32,19 @@ export class SwirlModalShell {
   @State() isClosing = true;
 
   private focusTrap: focusTrap.FocusTrap | undefined;
-  private modalContentEl: HTMLElement;
+  private modalEl: HTMLElement;
 
   componentDidLoad() {
     requestAnimationFrame(() => {
       this.setupFocusTrap();
-      disableBodyScroll(this.modalContentEl);
+      disableBodyScroll(this.modalEl);
       this.isClosing = false;
     });
   }
 
   disconnectedCallback() {
     this.focusTrap?.deactivate();
-    enableBodyScroll(this.modalContentEl);
+    enableBodyScroll(this.modalEl);
   }
 
   @Method()
@@ -71,7 +71,7 @@ export class SwirlModalShell {
   };
 
   private setupFocusTrap() {
-    this.focusTrap = focusTrap.createFocusTrap(this.modalContentEl, {
+    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
       allowOutsideClick: true,
       setReturnFocus: getActiveElement() as HTMLElement,
       escapeDeactivates: false,
@@ -93,27 +93,25 @@ export class SwirlModalShell {
           aria-modal="true"
           class={className}
           onKeyDown={this.onKeyDown}
+          ref={(el) => (this.modalEl = el)}
         >
           <div
             class="modal-shell__backdrop"
             onClick={this.onBackdropClick}
           ></div>
-          <div
-            class="modal-shell__content"
-            ref={(el) => (this.modalContentEl = el)}
-          >
-            <swirl-box paddingBlockStart="16" paddingBlockEnd="16">
-              <swirl-button
-                icon="<swirl-icon-close color='strong'></swirl-icon-close>"
-                label={this.closeButtonLabel}
-                hideLabel
-                variant="plain"
-                onClick={this.onCloseButtonClick}
-              ></swirl-button>
-            </swirl-box>
 
+          <div class="modal-shell__content">
             <slot></slot>
           </div>
+
+          <swirl-button
+            class="modal-shell__close-button"
+            icon="<swirl-icon-close color='strong'></swirl-icon-close>"
+            label={this.closeButtonLabel}
+            hideLabel
+            variant="translucent"
+            onClick={this.onCloseButtonClick}
+          ></swirl-button>
         </section>
       </Host>
     );

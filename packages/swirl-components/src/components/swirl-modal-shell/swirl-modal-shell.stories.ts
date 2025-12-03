@@ -2,7 +2,7 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-modal-shell.mdx";
 
 export default {
-  component: "swirl-modal-shel,",
+  component: "swirl-modal-shell,",
   tags: ["autodocs"],
   parameters: {
     docs: {
