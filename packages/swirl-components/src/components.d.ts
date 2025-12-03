@@ -1857,6 +1857,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconForward {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFullscreen {
         "color"?: SwirlIconColor1;
         /**
@@ -6459,6 +6466,12 @@ declare global {
         prototype: HTMLSwirlIconFormatListBulletedElement;
         new (): HTMLSwirlIconFormatListBulletedElement;
     };
+    interface HTMLSwirlIconForwardElement extends Components.SwirlIconForward, HTMLStencilElement {
+    }
+    var HTMLSwirlIconForwardElement: {
+        prototype: HTMLSwirlIconForwardElement;
+        new (): HTMLSwirlIconForwardElement;
+    };
     interface HTMLSwirlIconFullscreenElement extends Components.SwirlIconFullscreen, HTMLStencilElement {
     }
     var HTMLSwirlIconFullscreenElement: {
@@ -8973,6 +8986,7 @@ declare global {
         "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
         "swirl-icon-format-h-one": HTMLSwirlIconFormatHOneElement;
         "swirl-icon-format-list-bulleted": HTMLSwirlIconFormatListBulletedElement;
+        "swirl-icon-forward": HTMLSwirlIconForwardElement;
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
         "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
         "swirl-icon-gif": HTMLSwirlIconGifElement;
@@ -10920,6 +10934,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFormatListBulleted {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconForward {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -14176,6 +14197,7 @@ declare namespace LocalJSX {
         "swirl-icon-folder-shared": SwirlIconFolderShared;
         "swirl-icon-format-h-one": SwirlIconFormatHOne;
         "swirl-icon-format-list-bulleted": SwirlIconFormatListBulleted;
+        "swirl-icon-forward": SwirlIconForward;
         "swirl-icon-fullscreen": SwirlIconFullscreen;
         "swirl-icon-fullscreen-exit": SwirlIconFullscreenExit;
         "swirl-icon-gif": SwirlIconGif;
@@ -14656,6 +14678,7 @@ declare module "@stencil/core" {
             "swirl-icon-folder-shared": LocalJSX.SwirlIconFolderShared & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
             "swirl-icon-format-h-one": LocalJSX.SwirlIconFormatHOne & JSXBase.HTMLAttributes<HTMLSwirlIconFormatHOneElement>;
             "swirl-icon-format-list-bulleted": LocalJSX.SwirlIconFormatListBulleted & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListBulletedElement>;
+            "swirl-icon-forward": LocalJSX.SwirlIconForward & JSXBase.HTMLAttributes<HTMLSwirlIconForwardElement>;
             "swirl-icon-fullscreen": LocalJSX.SwirlIconFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
             "swirl-icon-fullscreen-exit": LocalJSX.SwirlIconFullscreenExit & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
             "swirl-icon-gif": LocalJSX.SwirlIconGif & JSXBase.HTMLAttributes<HTMLSwirlIconGifElement>;
