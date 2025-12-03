@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.416.0
+
+### Minor Changes
+
+- [#1337](https://github.com/getflip/swirl/pull/1337)
+  [`0b61c48e4`](https://github.com/getflip/swirl/commit/0b61c48e4ce0da661a88e55860e305a080e63414)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Adjust close
+  button in swirl-modal-shell
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0b61c48e4`](https://github.com/getflip/swirl/commit/0b61c48e4ce0da661a88e55860e305a080e63414)]:
+  - @getflip/swirl-components@0.416.0
+
 ## 0.415.0
 
 ### Minor Changes
