@@ -8,13 +8,8 @@
 
 .modal-shell {
   position: fixed;
-  z-index: var(--s-z-40);
   inset: 0;
-  overflow-y: auto;
-  display: grid;
-  padding: var(--s-space-24);
-  justify-content: center;
-  align-items: center;
+  z-index: var(--s-z-40);
 }
 
 .modal-shell__backdrop {
@@ -27,11 +22,29 @@
   transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
 }
 
-.modal-shell__content {
-  position: relative;
+.modal-shell__scroll-container {
+  overflow-y: auto;
+  position: fixed;
+  inset: 0;
   z-index: 2;
-  max-height: 100%;
+  display: grid;
+  padding: var(--s-space-24);
+  justify-content: center;
+  align-items: center;
+}
 
+.modal-shell__scroll-container__content {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.2s ease-out,
+    transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1.1);
+}
+
+.modal-shell__close-button {
+  position: fixed;
+  top: var(--s-space-16);
+  right: var(--s-space-16);
+  z-index: 3;
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.2s ease-out,
@@ -44,20 +57,9 @@
     backdrop-filter: blur(0px);
   }
 
-  .modal-shell__content,
+  .modal-shell__scroll-container__content,
   .modal-shell__close-button {
     opacity: 0;
     transform: scale(1.1);
   }
-}
-
-.modal-shell__close-button {
-  position: fixed;
-  top: var(--s-space-16);
-  right: var(--s-space-16);
-  z-index: 3;
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.2s ease-out,
-    transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1.1);
 }

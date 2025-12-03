@@ -62,12 +62,8 @@ export class SwirlModalShell {
     }
   };
 
-  private onBackdropClick = () => {
-    this.close();
-  };
-
-  private onCloseButtonClick = () => {
-    this.close();
+  private onContentClick = (event: Event) => {
+    event.stopPropagation();
   };
 
   private setupFocusTrap() {
@@ -79,6 +75,10 @@ export class SwirlModalShell {
 
     this.focusTrap.activate();
   }
+
+  private onClose = () => {
+    this.close();
+  };
 
   render() {
     const className = classnames("modal-shell", {
@@ -95,13 +95,15 @@ export class SwirlModalShell {
           onKeyDown={this.onKeyDown}
           ref={(el) => (this.modalEl = el)}
         >
-          <div
-            class="modal-shell__backdrop"
-            onClick={this.onBackdropClick}
-          ></div>
+          <div class="modal-shell__backdrop"></div>
 
-          <div class="modal-shell__content">
-            <slot></slot>
+          <div class="modal-shell__scroll-container" onClick={this.onClose}>
+            <div
+              class="modal-shell__scroll-container__content"
+              onClick={this.onContentClick}
+            >
+              <slot></slot>
+            </div>
           </div>
 
           <swirl-button
@@ -110,7 +112,7 @@ export class SwirlModalShell {
             label={this.closeButtonLabel}
             hideLabel
             variant="translucent"
-            onClick={this.onCloseButtonClick}
+            onClick={this.onClose}
           ></swirl-button>
         </section>
       </Host>
