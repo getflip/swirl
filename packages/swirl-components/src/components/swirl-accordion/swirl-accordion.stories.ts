@@ -17,6 +17,7 @@ const Template = (args) => {
 
   element.innerHTML = `
   <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 1" initially-open item-id="item-1">
+    <swirl-avatar slot="media" icon="<swirl-icon-groups></swirl-icon-groups>"></swirl-avatar>
     <swirl-stack spacing="16">
       <swirl-text size="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod

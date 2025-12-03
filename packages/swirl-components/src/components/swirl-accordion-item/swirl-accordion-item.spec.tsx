@@ -26,6 +26,7 @@ describe("swirl-accordion-item", () => {
           <div class="accordion-item">
             <h2 class="accordion-item__heading">
               <button aria-controls="item-id" aria-expanded="false" class="accordion-item__toggle" id="${headingId}" type="button">
+                <slot name="media"></slot>
                 <span class="accordion-item__toggle-text">
                   heading
                   <swirl-text as="span" color="subdued" size="sm">

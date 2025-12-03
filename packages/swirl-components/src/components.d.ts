@@ -177,6 +177,10 @@ export namespace Components {
           * Expands an accordion item.
          */
         "expandItem": (itemId: string) => Promise<void>;
+        /**
+          * @default false
+         */
+        "multiExpand": boolean;
     }
     interface SwirlAccordionItem {
         /**
@@ -9308,6 +9312,10 @@ declare namespace LocalJSX {
     interface FileManager {
     }
     interface SwirlAccordion {
+        /**
+          * @default false
+         */
+        "multiExpand"?: boolean;
         "onExpandedItemChange"?: (event: SwirlAccordionCustomEvent<string>) => void;
     }
     interface SwirlAccordionItem {

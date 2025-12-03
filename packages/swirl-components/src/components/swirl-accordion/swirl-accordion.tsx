@@ -6,6 +6,7 @@ import {
   h,
   Host,
   Method,
+  Prop,
 } from "@stencil/core";
 
 @Component({
@@ -14,6 +15,8 @@ import {
   tag: "swirl-accordion",
 })
 export class SwirlAccordion {
+  @Prop() multiExpand: boolean = false;
+
   @Element() el: HTMLElement;
 
   @Event() expandedItemChange: EventEmitter<string>;
@@ -68,6 +71,10 @@ export class SwirlAccordion {
   }
 
   private collapseInactiveItems(activeItem: HTMLSwirlAccordionItemElement) {
+    if (this.multiExpand) {
+      return;
+    }
+
     Array.from(this.el.querySelectorAll("swirl-accordion-item")).forEach(
       (item) => {
         if (item !== activeItem) {
