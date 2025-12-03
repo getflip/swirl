@@ -210,7 +210,6 @@ export class SwirlTimeInput {
           return "";
         }
         this.value = format(date, internalTimeFormat);
-        console.log(this.value);
 
         return format(date, pattern);
       },
