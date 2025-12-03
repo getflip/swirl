@@ -8,7 +8,7 @@ export default {
       table: {
         type: {
           detail:
-            '"hh", "HH", "mm", "ss", "aa", "aaa" and separators (e.g. ":", ".", ",")',
+            '"hh", "HH", "mm", "ss", "aa" and separators (e.g. ":", ".", ",")',
           summary: "Allowed patterns",
         },
       },
