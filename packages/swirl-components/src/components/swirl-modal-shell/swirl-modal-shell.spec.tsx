@@ -12,8 +12,10 @@ describe("swirl-modal-shell", () => {
       <swirl-modal-shell label="Modal" close-button-label="Close">
         <section aria-label="Modal" role="dialog" aria-modal="true" class="modal-shell modal-shell--closing">
           <div class="modal-shell__backdrop"></div>
-          <div class="modal-shell__content">
-            Content
+          <div class="modal-shell__scroll-container">
+            <div class="modal-shell__scroll-container__content">
+              Content
+            </div>
           </div>
           <swirl-button class="modal-shell__close-button" hidelabel="" icon="<swirl-icon-close color='strong'></swirl-icon-close>" label="Close" variant="translucent"></swirl-button>
         </section>
