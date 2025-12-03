@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.417.0
+
+### Minor Changes
+
+- [#1341](https://github.com/getflip/swirl/pull/1341)
+  [`597dc3fc4`](https://github.com/getflip/swirl/commit/597dc3fc4ceac8ba81216034afb73ab04ebc300f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add forward
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`597dc3fc4`](https://github.com/getflip/swirl/commit/597dc3fc4ceac8ba81216034afb73ab04ebc300f)]:
+  - @getflip/swirl-icons@0.75.0
+
 ## 0.416.0
 
 ### Minor Changes
