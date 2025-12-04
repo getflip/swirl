@@ -62,17 +62,8 @@ export class SwirlModalShell {
     }
   };
 
-  private onContentClick = (event: MouseEvent) => {
+  private onContentClick = (event: Event) => {
     event.stopPropagation();
-  };
-
-  private onCloseButtonClick = (event: MouseEvent) => {
-    event.stopPropagation();
-    this.close();
-  };
-
-  private onModalClick = () => {
-    this.close();
   };
 
   private setupFocusTrap() {
@@ -84,6 +75,10 @@ export class SwirlModalShell {
 
     this.focusTrap.activate();
   }
+
+  private onClose = () => {
+    this.close();
+  };
 
   render() {
     const className = classnames("modal-shell", {
@@ -97,25 +92,28 @@ export class SwirlModalShell {
           role="dialog"
           aria-modal="true"
           class={className}
-          onClick={this.onModalClick}
           onKeyDown={this.onKeyDown}
           ref={(el) => (this.modalEl = el)}
         >
-          <div class="modal-shell__content">
-            <swirl-box paddingBlockStart="16" paddingBlockEnd="16">
-              <swirl-button
-                icon="<swirl-icon-close color='strong'></swirl-icon-close>"
-                label={this.closeButtonLabel}
-                hideLabel
-                variant="plain"
-                onClick={this.onCloseButtonClick}
-              ></swirl-button>
-            </swirl-box>
+          <div class="modal-shell__backdrop"></div>
 
-            <div onClick={this.onContentClick}>
+          <div class="modal-shell__scroll-container" onClick={this.onClose}>
+            <div
+              class="modal-shell__scroll-container__content"
+              onClick={this.onContentClick}
+            >
               <slot></slot>
             </div>
           </div>
+
+          <swirl-button
+            class="modal-shell__close-button"
+            icon="<swirl-icon-close color='strong'></swirl-icon-close>"
+            label={this.closeButtonLabel}
+            hideLabel
+            variant="translucent"
+            onClick={this.onClose}
+          ></swirl-button>
         </section>
       </Host>
     );

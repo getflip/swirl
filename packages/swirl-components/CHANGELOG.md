@@ -1,5 +1,29 @@
 # @getflip/swirl-components
 
+## 0.417.0
+
+### Minor Changes
+
+- [#1341](https://github.com/getflip/swirl/pull/1341)
+  [`597dc3fc4`](https://github.com/getflip/swirl/commit/597dc3fc4ceac8ba81216034afb73ab04ebc300f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add forward
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`597dc3fc4`](https://github.com/getflip/swirl/commit/597dc3fc4ceac8ba81216034afb73ab04ebc300f)]:
+  - @getflip/swirl-icons@0.75.0
+
+## 0.416.0
+
+### Minor Changes
+
+- [#1337](https://github.com/getflip/swirl/pull/1337)
+  [`0b61c48e4`](https://github.com/getflip/swirl/commit/0b61c48e4ce0da661a88e55860e305a080e63414)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Adjust close
+  button in swirl-modal-shell
+
 ## 0.415.0
 
 ### Minor Changes
