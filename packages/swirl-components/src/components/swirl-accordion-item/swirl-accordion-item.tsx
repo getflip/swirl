@@ -9,11 +9,12 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 import { SwirlHeadingLevel } from "../swirl-heading/swirl-heading";
-import classnames from "classnames";
 
 /**
+ * @slot media - Media slot for content to be displayed before the content.
  * @slot trailing - Trailing slot for content to be displayed before the expand icon.
  */
 @Component({
@@ -111,6 +112,7 @@ export class SwirlAccordionItem {
               onClick={this.onHeadingClick}
               type="button"
             >
+              <slot name="media"></slot>
               <span class="accordion-item__toggle-text">
                 {this.heading}
                 {this.description && (

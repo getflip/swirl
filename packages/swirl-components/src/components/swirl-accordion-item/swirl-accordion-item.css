@@ -54,6 +54,7 @@
   padding: 0;
   padding-top: var(--s-space-16);
   padding-bottom: var(--s-space-16);
+  padding-left: var(--s-space-8);
   align-items: center;
   border: none;
   color: var(--s-text-default);
