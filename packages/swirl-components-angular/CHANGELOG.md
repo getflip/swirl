@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.418.0
+
+### Minor Changes
+
+- [#1339](https://github.com/getflip/swirl/pull/1339)
+  [`6bd7798c2`](https://github.com/getflip/swirl/commit/6bd7798c2efefc6c49062710f2d65a6cc09f88bf)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - ADd
+  additional Accordion functionality
+
+* [#1338](https://github.com/getflip/swirl/pull/1338)
+  [`3935cdf22`](https://github.com/getflip/swirl/commit/3935cdf22cb6ed871d407117e7f8f2780dc3575c)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Fix am/pm
+  Input
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6bd7798c2`](https://github.com/getflip/swirl/commit/6bd7798c2efefc6c49062710f2d65a6cc09f88bf),
+  [`3935cdf22`](https://github.com/getflip/swirl/commit/3935cdf22cb6ed871d407117e7f8f2780dc3575c)]:
+  - @getflip/swirl-components@0.418.0
+
 ## 0.417.0
 
 ### Minor Changes
