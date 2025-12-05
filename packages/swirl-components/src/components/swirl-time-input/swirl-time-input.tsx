@@ -171,6 +171,7 @@ export class SwirlTimeInput {
       lazy: true,
       overwrite: true,
       eager: "append",
+      prepareChar: (str) => str.toUpperCase(),
 
       blocks: {
         HH: {
@@ -199,13 +200,8 @@ export class SwirlTimeInput {
         },
         aa: {
           mask: IMask.MaskedEnum,
-          enum: ["AM", "PM", "A", "P"],
+          enum: ["AM", "PM"],
           maxLength: 2,
-        },
-        aaa: {
-          mask: IMask.MaskedEnum,
-          enum: ["am", "pm", "a", "p"],
-          maxLength: 3,
         },
       },
 
@@ -214,6 +210,7 @@ export class SwirlTimeInput {
           return "";
         }
         this.value = format(date, internalTimeFormat);
+
         return format(date, pattern);
       },
       parse: (str: string) => {
