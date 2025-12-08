@@ -52,12 +52,13 @@ describe("swirl-shell-navigation-item", () => {
   it("renders as link when href is set", async () => {
     const page = await newSpecPage({
       components: [SwirlShellNavigationItem],
-      html: `<swirl-shell-navigation-item href="https://google.com" target="_blank" label="Label"></swirl-shell-navigation-item>`,
+      html: `<swirl-shell-navigation-item href="https://google.com" target="_blank" label="Label" swirl-aria-current="page"></swirl-shell-navigation-item>`,
     });
 
-    const link = page.root;
+    const link = page.root.shadowRoot.querySelector("a");
 
-    expect(link.href).toBe("https://google.com");
-    expect(link.target).toBe("_blank");
+    expect(link.href).toBe("https://google.com/");
+    expect(link.getAttribute("target")).toBe("_blank");
+    expect(link.getAttribute("aria-current")).toBe("page");
   });
 });

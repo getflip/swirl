@@ -3,6 +3,7 @@ import classnames from "classnames";
 
 export type SwirlLabelColor = "default" | "light" | "dark";
 export type SwirlShellNavigationItemVariant = "default" | "tiled" | "app-icon";
+export type SwirlShellNavigationItemAriaCurrent = "page" | "true";
 
 /**
  * @slot slot - image or icon to display
@@ -27,8 +28,9 @@ export class SwirlShellNavigationItem {
   @Prop() label!: string;
   @Prop() markAsNew?: boolean;
   @Prop() markAsNewLabel?: string = "New";
-  @Prop() useCustomIconSize?: boolean = false;
+  @Prop() swirlAriaCurrent?: SwirlShellNavigationItemAriaCurrent;
   @Prop() target?: string;
+  @Prop() useCustomIconSize?: boolean = false;
   @Prop() variant: SwirlShellNavigationItemVariant = "default";
   @Prop() withGradient?: boolean;
 
@@ -110,6 +112,7 @@ export class SwirlShellNavigationItem {
           positioning="fixed"
         >
           <Tag
+            aria-current={this.swirlAriaCurrent}
             class={tagClassNames}
             href={this.href}
             target={this.target}

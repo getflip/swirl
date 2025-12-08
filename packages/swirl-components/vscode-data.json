@@ -1866,6 +1866,30 @@
           ]
         },
         {
+          "name": "swirl-aria-current",
+          "description": "",
+          "values": [
+            {
+              "name": "date"
+            },
+            {
+              "name": "location"
+            },
+            {
+              "name": "page"
+            },
+            {
+              "name": "step"
+            },
+            {
+              "name": "time"
+            },
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
           "name": "swirl-aria-label",
           "description": ""
         },
@@ -19434,6 +19458,18 @@
         {
           "name": "mark-as-new-label",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-current",
+          "description": "",
+          "values": [
+            {
+              "name": "page"
+            },
+            {
+              "name": "true"
+            }
+          ]
         },
         {
           "name": "target",

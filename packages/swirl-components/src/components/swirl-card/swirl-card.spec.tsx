@@ -34,13 +34,13 @@ describe("swirl-card", () => {
   it("renders as a link", async () => {
     const page = await newSpecPage({
       components: [SwirlCard],
-      html: `<swirl-card href="#" link-target="_blank">Content</swirl-card>`,
+      html: `<swirl-card href="#" link-target="_blank" swirl-aria-current="page">Content</swirl-card>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-card href="#" link-target="_blank">
+      <swirl-card href="#" link-target="_blank" swirl-aria-current="page">
         <mock:shadow-root>
-          <a class="card card--elevation-level-3 card--intent-default card--interactive card--justify-content-start" href="#" rel="noreferrer" style="border-radius: var(--s-border-radius-base);" target="_blank">
+          <a aria-current="page" class="card card--elevation-level-3 card--intent-default card--interactive card--justify-content-start" href="#" rel="noreferrer" style="border-radius: var(--s-border-radius-base);" target="_blank">
             <div class="card__image">
               <slot name="image"></slot>
             </div>

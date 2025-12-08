@@ -43,6 +43,14 @@ export type SwirlCardPadding =
   | "24"
   | "32";
 
+export type SwirlCardAriaCurrent =
+  | "page"
+  | "step"
+  | "location"
+  | "date"
+  | "time"
+  | "true";
+
 /**
  * @slot content - The card contents
  * @slot image - Optional image or image grid
@@ -77,6 +85,7 @@ export class SwirlCard {
   @Prop() paddingBlockStart?: SwirlCardPadding;
   @Prop() paddingInlineEnd?: SwirlCardPadding;
   @Prop() paddingInlineStart?: SwirlCardPadding;
+  @Prop() swirlAriaCurrent?: SwirlCardAriaCurrent;
   @Prop() swirlAriaLabel?: string;
   @Prop() swirlAriaLabelledby?: string;
 
@@ -164,6 +173,7 @@ export class SwirlCard {
     return (
       <Host styles={{ height: this.height }}>
         <Tag
+          aria-current={this.swirlAriaCurrent}
           aria-label={this.swirlAriaLabel}
           aria-labelledby={this.swirlAriaLabelledby}
           class={className}
