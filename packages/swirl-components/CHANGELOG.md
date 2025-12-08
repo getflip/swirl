@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.418.0
+
+### Minor Changes
+
+- [#1339](https://github.com/getflip/swirl/pull/1339)
+  [`6bd7798c2`](https://github.com/getflip/swirl/commit/6bd7798c2efefc6c49062710f2d65a6cc09f88bf)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - ADd
+  additional Accordion functionality
+
+* [#1344](https://github.com/getflip/swirl/pull/1344)
+  [`9d113fd65`](https://github.com/getflip/swirl/commit/9d113fd65f88b945126874b0f62a6ccf8e6bd846)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "swirl-aria-current" prop to
+  swirl-resource-list-item
+
+- [#1338](https://github.com/getflip/swirl/pull/1338)
+  [`3935cdf22`](https://github.com/getflip/swirl/commit/3935cdf22cb6ed871d407117e7f8f2780dc3575c)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Fix am/pm
+  Input
+
 ## 0.417.0
 
 ### Minor Changes
