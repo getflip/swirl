@@ -1,7 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { SwirlResourceListItem } from "./swirl-resource-list-item";
 import { SwirlTooltip } from "../swirl-tooltip/swirl-tooltip";
+import { SwirlResourceListItem } from "./swirl-resource-list-item";
 
 describe("swirl-resource-list-item", () => {
   it("renders label, description and media", async () => {
@@ -48,7 +48,7 @@ describe("swirl-resource-list-item", () => {
       components: [SwirlResourceListItem],
       html: `
         <div role="grid">
-          <swirl-resource-list-item href="#" label="Label"></swirl-resource-list-item>
+          <swirl-resource-list-item href="#" label="Label" swirl-aria-current="page"></swirl-resource-list-item>
         </div>
       `,
     });
@@ -57,6 +57,7 @@ describe("swirl-resource-list-item", () => {
 
     expect(element.tagName).toBe("A");
     expect(element.getAttribute("href")).toBe("#");
+    expect(element.getAttribute("aria-current")).toBe("page");
   });
 
   it("renders as checkbox", async () => {

@@ -20,6 +20,14 @@ export type SwirlResourceListItemLabelWeight =
   | "semibold"
   | "bold";
 
+export type SwirlResourceListItemAriaCurrent =
+  | "page"
+  | "step"
+  | "location"
+  | "date"
+  | "time"
+  | "true";
+
 /**
  * @slot control - Used to add a menu button to the item
  * @slot badges - Badges displayed inside the item
@@ -58,6 +66,7 @@ export class SwirlResourceListItem {
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
   @Prop() selectable?: boolean;
+  @Prop() swirlAriaCurrent?: SwirlResourceListItemAriaCurrent;
   @Prop() swirlAriaLabel?: string;
   @Prop() value?: string;
   @Prop() alignItems?: string;
@@ -250,6 +259,7 @@ export class SwirlResourceListItem {
         <div class={className} role={containerRole} onClick={this.onClick}>
           <Tag
             aria-checked={ariaChecked}
+            aria-current={this.swirlAriaCurrent}
             aria-disabled={disabled ? "true" : undefined}
             aria-label={ariaLabel}
             aria-labelledby={
