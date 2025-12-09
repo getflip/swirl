@@ -2625,6 +2625,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconSection {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconSecure {
         "color"?: SwirlIconColor1;
         /**
@@ -7127,6 +7134,12 @@ declare global {
         prototype: HTMLSwirlIconSearchStrongElement;
         new (): HTMLSwirlIconSearchStrongElement;
     };
+    interface HTMLSwirlIconSectionElement extends Components.SwirlIconSection, HTMLStencilElement {
+    }
+    var HTMLSwirlIconSectionElement: {
+        prototype: HTMLSwirlIconSectionElement;
+        new (): HTMLSwirlIconSectionElement;
+    };
     interface HTMLSwirlIconSecureElement extends Components.SwirlIconSecure, HTMLStencilElement {
     }
     var HTMLSwirlIconSecureElement: {
@@ -9102,6 +9115,7 @@ declare global {
         "swirl-icon-screenshare-off": HTMLSwirlIconScreenshareOffElement;
         "swirl-icon-search": HTMLSwirlIconSearchElement;
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
+        "swirl-icon-section": HTMLSwirlIconSectionElement;
         "swirl-icon-secure": HTMLSwirlIconSecureElement;
         "swirl-icon-send": HTMLSwirlIconSendElement;
         "swirl-icon-settings": HTMLSwirlIconSettingsElement;
@@ -11715,6 +11729,13 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconSection {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconSecure {
         "color"?: SwirlIconColor1;
         /**
@@ -14320,6 +14341,7 @@ declare namespace LocalJSX {
         "swirl-icon-screenshare-off": SwirlIconScreenshareOff;
         "swirl-icon-search": SwirlIconSearch;
         "swirl-icon-search-strong": SwirlIconSearchStrong;
+        "swirl-icon-section": SwirlIconSection;
         "swirl-icon-secure": SwirlIconSecure;
         "swirl-icon-send": SwirlIconSend;
         "swirl-icon-settings": SwirlIconSettings;
@@ -14801,6 +14823,7 @@ declare module "@stencil/core" {
             "swirl-icon-screenshare-off": LocalJSX.SwirlIconScreenshareOff & JSXBase.HTMLAttributes<HTMLSwirlIconScreenshareOffElement>;
             "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
+            "swirl-icon-section": LocalJSX.SwirlIconSection & JSXBase.HTMLAttributes<HTMLSwirlIconSectionElement>;
             "swirl-icon-secure": LocalJSX.SwirlIconSecure & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
             "swirl-icon-send": LocalJSX.SwirlIconSend & JSXBase.HTMLAttributes<HTMLSwirlIconSendElement>;
             "swirl-icon-settings": LocalJSX.SwirlIconSettings & JSXBase.HTMLAttributes<HTMLSwirlIconSettingsElement>;
