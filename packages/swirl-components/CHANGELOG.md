@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.420.2
+
+### Patch Changes
+
+- [#1351](https://github.com/getflip/swirl/pull/1351)
+  [`2b845c6f9`](https://github.com/getflip/swirl/commit/2b845c6f9f4dfa2cd0d1f747eb8f3b133580009b)
+  Thanks [@v-escobar](https://github.com/v-escobar)! - Bump angular version to
+  19.2.17
+
 ## 0.420.1
 
 ### Patch Changes
