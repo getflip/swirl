@@ -20,7 +20,7 @@ import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 import { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 import { SwirlButtonCursor, SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
-import { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+import { SwirlCardAriaCurrent, SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-carousel/swirl-carousel";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
@@ -59,7 +59,7 @@ import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 import { SwirlShellLayoutSecondaryNavGridItemVariant } from "./components/swirl-shell-layout/swirl-shell-layout";
-import { SwirlLabelColor, SwirlShellNavigationItemVariant } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
+import { SwirlLabelColor, SwirlShellNavigationItemAriaCurrent, SwirlShellNavigationItemVariant } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -100,7 +100,7 @@ export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 export { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 export { SwirlButtonCursor, SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
-export { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+export { SwirlCardAriaCurrent, SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-carousel/swirl-carousel";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
@@ -139,7 +139,7 @@ export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 export { SwirlShellLayoutSecondaryNavGridItemVariant } from "./components/swirl-shell-layout/swirl-shell-layout";
-export { SwirlLabelColor, SwirlShellNavigationItemVariant } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
+export { SwirlLabelColor, SwirlShellNavigationItemAriaCurrent, SwirlShellNavigationItemVariant } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -622,6 +622,7 @@ export namespace Components {
         "paddingBlockStart"?: SwirlCardPadding;
         "paddingInlineEnd"?: SwirlCardPadding;
         "paddingInlineStart"?: SwirlCardPadding;
+        "swirlAriaCurrent"?: SwirlCardAriaCurrent;
         "swirlAriaLabel"?: string;
         "swirlAriaLabelledby"?: string;
     }
@@ -3784,6 +3785,7 @@ export namespace Components {
           * @default "New"
          */
         "markAsNewLabel"?: string;
+        "swirlAriaCurrent"?: SwirlShellNavigationItemAriaCurrent;
         "target"?: string;
         /**
           * @default false
@@ -9749,6 +9751,7 @@ declare namespace LocalJSX {
         "paddingBlockStart"?: SwirlCardPadding;
         "paddingInlineEnd"?: SwirlCardPadding;
         "paddingInlineStart"?: SwirlCardPadding;
+        "swirlAriaCurrent"?: SwirlCardAriaCurrent;
         "swirlAriaLabel"?: string;
         "swirlAriaLabelledby"?: string;
     }
@@ -12804,6 +12807,7 @@ declare namespace LocalJSX {
           * @default "New"
          */
         "markAsNewLabel"?: string;
+        "swirlAriaCurrent"?: SwirlShellNavigationItemAriaCurrent;
         "target"?: string;
         /**
           * @default false
