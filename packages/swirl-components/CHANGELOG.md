@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.419.0
+
+### Minor Changes
+
+- [#1345](https://github.com/getflip/swirl/pull/1345)
+  [`826b61977`](https://github.com/getflip/swirl/commit/826b619773a37a0e95ebdc92f2f5be292b78cfdb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-aria-current prop to
+  swirl-card and swirl-shell-navigation-item
+
 ## 0.418.0
 
 ### Minor Changes
