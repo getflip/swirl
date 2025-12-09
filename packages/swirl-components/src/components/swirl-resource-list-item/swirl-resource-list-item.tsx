@@ -12,6 +12,7 @@ import {
   State,
 } from "@stencil/core";
 import { DesktopMediaQuery } from "../../services/media-query.service";
+import { SwirlResourceListSemantics } from "../swirl-resource-list/swirl-resource-list";
 import { SwirlTooltipPosition } from "../swirl-tooltip/swirl-tooltip";
 
 export type SwirlResourceListItemLabelWeight =
@@ -80,12 +81,15 @@ export class SwirlResourceListItem {
   private elementId = uuid();
   private iconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
+  private parentSemantics: SwirlResourceListSemantics | undefined;
 
   componentWillLoad() {
     this.updateMediaState();
   }
 
   componentDidLoad() {
+    this.parentSemantics = this.el.closest("swirl-resource-list")?.semantics;
+
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
       this.forceIconProps(isDesktop);
       this.updateIconSize(isDesktop);
@@ -136,6 +140,10 @@ export class SwirlResourceListItem {
   }
 
   private makeControlFocusable() {
+    if (this.parentSemantics !== "grid") {
+      return;
+    }
+
     const control = this.getControl();
 
     if (!Boolean(control)) {
@@ -146,6 +154,10 @@ export class SwirlResourceListItem {
   }
 
   private makeControlUnfocusable() {
+    if (this.parentSemantics !== "grid") {
+      return;
+    }
+
     const control = this.getControl();
 
     if (!Boolean(control)) {
