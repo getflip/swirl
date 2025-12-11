@@ -58,8 +58,8 @@ export class SwirlRadioGroup {
         event.stopPropagation();
 
         if (radio.checked === true || radio.checked === "true") {
-          this.valueChange.emit(radio.value);
           this.value = radio.value;
+          this.valueChange.emit(radio.value);
 
           this.radioButtons.forEach((r, k) => {
             if (String(k) === key) {
