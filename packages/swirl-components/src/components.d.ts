@@ -2065,6 +2065,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconLanguage {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconLightMode {
         "color"?: SwirlIconColor1;
         /**
@@ -6654,6 +6661,12 @@ declare global {
         prototype: HTMLSwirlIconKeyboardHideElement;
         new (): HTMLSwirlIconKeyboardHideElement;
     };
+    interface HTMLSwirlIconLanguageElement extends Components.SwirlIconLanguage, HTMLStencilElement {
+    }
+    var HTMLSwirlIconLanguageElement: {
+        prototype: HTMLSwirlIconLanguageElement;
+        new (): HTMLSwirlIconLanguageElement;
+    };
     interface HTMLSwirlIconLightModeElement extends Components.SwirlIconLightMode, HTMLStencilElement {
     }
     var HTMLSwirlIconLightModeElement: {
@@ -9035,6 +9048,7 @@ declare global {
         "swirl-icon-key": HTMLSwirlIconKeyElement;
         "swirl-icon-keyboard": HTMLSwirlIconKeyboardElement;
         "swirl-icon-keyboard-hide": HTMLSwirlIconKeyboardHideElement;
+        "swirl-icon-language": HTMLSwirlIconLanguageElement;
         "swirl-icon-light-mode": HTMLSwirlIconLightModeElement;
         "swirl-icon-like": HTMLSwirlIconLikeElement;
         "swirl-icon-link": HTMLSwirlIconLinkElement;
@@ -11163,6 +11177,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconKeyboardHide {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconLanguage {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -14261,6 +14282,7 @@ declare namespace LocalJSX {
         "swirl-icon-key": SwirlIconKey;
         "swirl-icon-keyboard": SwirlIconKeyboard;
         "swirl-icon-keyboard-hide": SwirlIconKeyboardHide;
+        "swirl-icon-language": SwirlIconLanguage;
         "swirl-icon-light-mode": SwirlIconLightMode;
         "swirl-icon-like": SwirlIconLike;
         "swirl-icon-link": SwirlIconLink;
@@ -14743,6 +14765,7 @@ declare module "@stencil/core" {
             "swirl-icon-key": LocalJSX.SwirlIconKey & JSXBase.HTMLAttributes<HTMLSwirlIconKeyElement>;
             "swirl-icon-keyboard": LocalJSX.SwirlIconKeyboard & JSXBase.HTMLAttributes<HTMLSwirlIconKeyboardElement>;
             "swirl-icon-keyboard-hide": LocalJSX.SwirlIconKeyboardHide & JSXBase.HTMLAttributes<HTMLSwirlIconKeyboardHideElement>;
+            "swirl-icon-language": LocalJSX.SwirlIconLanguage & JSXBase.HTMLAttributes<HTMLSwirlIconLanguageElement>;
             "swirl-icon-light-mode": LocalJSX.SwirlIconLightMode & JSXBase.HTMLAttributes<HTMLSwirlIconLightModeElement>;
             "swirl-icon-like": LocalJSX.SwirlIconLike & JSXBase.HTMLAttributes<HTMLSwirlIconLikeElement>;
             "swirl-icon-link": LocalJSX.SwirlIconLink & JSXBase.HTMLAttributes<HTMLSwirlIconLinkElement>;
