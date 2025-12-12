@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.421.0
+
+### Minor Changes
+
+- [#1355](https://github.com/getflip/swirl/pull/1355)
+  [`e6c034143`](https://github.com/getflip/swirl/commit/e6c0341430a2e5fae1d835edd9d0bb947c0e9e8f)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add language
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e6c034143`](https://github.com/getflip/swirl/commit/e6c0341430a2e5fae1d835edd9d0bb947c0e9e8f)]:
+  - @getflip/swirl-components@0.421.0
+
 ## 0.420.3
 
 ### Patch Changes
