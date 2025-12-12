@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.420.3
+
+### Patch Changes
+
+- [#1353](https://github.com/getflip/swirl/pull/1353)
+  [`7a2bc484d`](https://github.com/getflip/swirl/commit/7a2bc484dd524b5a9a9dc06b466a87ce8594326f)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  `swirl-radio-group` value accessor flow
+
 ## 0.420.2
 
 ### Patch Changes
