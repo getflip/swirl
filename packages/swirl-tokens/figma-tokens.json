@@ -920,6 +920,23 @@
         "description": "Used if a component with “On Surface/Default” has a pressed state."
       }
     },
+    "surface-raised-50": {
+      "default": {
+        "value": "rgba(0,0,0,0.03)",
+        "type": "color",
+        "description": "Used for the new cell component"
+      },
+      "hovered": {
+        "value": "rgba(0,0,0,0.06)",
+        "type": "color",
+        "description": "Used for the new cell component in hovered state\n"
+      },
+      "pressed": {
+        "value": "rgba(0,0,0,0.09)",
+        "type": "color",
+        "description": "Needed for the new cell component in pressed state"
+      }
+    },
     "surface-highlight": {
       "default": {
         "value": "{core.customer-color-light.2-default}",
@@ -1643,6 +1660,23 @@
         "value": "{core.gray.07}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a pressed state."
+      }
+    },
+    "surface-raised-50": {
+      "default": {
+        "value": "rgba(255,255,255,0.03)",
+        "type": "color",
+        "description": "Needed for the new cell component"
+      },
+      "hovered": {
+        "value": "rgba(255,255,255,0.06)",
+        "type": "color",
+        "description": "Needed for the new cell component in hovered state"
+      },
+      "pressed": {
+        "value": "rgba(255,255,255,0.09)",
+        "type": "color",
+        "description": "Needed for the new cell component in pressed state"
       }
     },
     "surface-highlight": {
