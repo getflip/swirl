@@ -920,6 +920,23 @@
         "description": "Used if a component with “On Surface/Default” has a pressed state."
       }
     },
+    "surface-raised-50": {
+      "default": {
+        "value": "rgba(0,0,0,0.03)",
+        "type": "color",
+        "description": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
+      },
+      "hovered": {
+        "value": "rgba(0,0,0,0.06)",
+        "type": "color",
+        "description": "Used if a component with `surface-raised-50` has a hovered state."
+      },
+      "pressed": {
+        "value": "rgba(0,0,0,0.09)",
+        "type": "color",
+        "description": "Used if a component with `surface-raised-50` has a pressed state."
+      }
+    },
     "surface-highlight": {
       "default": {
         "value": "{core.customer-color-light.2-default}",
@@ -1643,6 +1660,23 @@
         "value": "{core.gray.07}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a pressed state."
+      }
+    },
+    "surface-raised-50": {
+      "default": {
+        "value": "rgba(255,255,255,0.03)",
+        "type": "color",
+        "description": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
+      },
+      "hovered": {
+        "value": "rgba(255,255,255,0.06)",
+        "type": "color",
+        "description": "Used if a component with `surface-raised-50` has a hovered state."
+      },
+      "pressed": {
+        "value": "rgba(255,255,255,0.09)",
+        "type": "color",
+        "description": "Used if a component with `surface-raised-50` has a pressed state."
       }
     },
     "surface-highlight": {
@@ -2740,11 +2774,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }

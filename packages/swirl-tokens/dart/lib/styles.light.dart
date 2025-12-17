@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 09 Dec 2025 10:20:59 GMT
+// Generated on Wed, 17 Dec 2025 13:10:03 GMT
 
 
 
@@ -259,6 +259,9 @@ class SwirlDesignTokensLight {
     static const surfaceOverlayHovered = Color(0xFFF2F2F2); /* Used if a component with “Surface Overlay/Default” has a hovered state. */
     static const surfaceOverlayPressed = Color(0xFFEAEAEA); /* Used if a component with “Surface Overlay/Default” has a pressed state. */
     static const surfacePressed = Color(0xFFEAEAEA); /* Used if a component with “Surface/Default” has a pressed state. */
+    static const surfaceRaised50Default = Color(0x08000000); /* Usually used for elements that need contrast on surfaces or background with a 50% opacity */
+    static const surfaceRaised50Hovered = Color(0x0F000000); /* Used if a component with `surface-raised-50` has a hovered state. */
+    static const surfaceRaised50Pressed = Color(0x17000000); /* Used if a component with `surface-raised-50` has a pressed state. */
     static const surfaceRaisedDefault = Color(0xFFF2F2F2); /* Usually used for elements that need contrast on surfaces or background */
     static const surfaceRaisedHovered = Color(0xFFEAEAEA); /* Used if a component with “On Surface/Default” has a hovered state. */
     static const surfaceRaisedPressed = Color(0xFFDFDFDF); /* Used if a component with “On Surface/Default” has a pressed state. */
