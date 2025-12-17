@@ -924,17 +924,17 @@
       "default": {
         "value": "rgba(0,0,0,0.03)",
         "type": "color",
-        "description": "Used for the new cell component"
+        "description": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
       },
       "hovered": {
         "value": "rgba(0,0,0,0.06)",
         "type": "color",
-        "description": "Used for the new cell component in hovered state\n"
+        "description": "Used if a component with `surface-raised-50` has a hovered state."
       },
       "pressed": {
         "value": "rgba(0,0,0,0.09)",
         "type": "color",
-        "description": "Needed for the new cell component in pressed state"
+        "description": "Used if a component with `surface-raised-50` has a pressed state."
       }
     },
     "surface-highlight": {
@@ -1666,17 +1666,17 @@
       "default": {
         "value": "rgba(255,255,255,0.03)",
         "type": "color",
-        "description": "Needed for the new cell component"
+        "description": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
       },
       "hovered": {
         "value": "rgba(255,255,255,0.06)",
         "type": "color",
-        "description": "Needed for the new cell component in hovered state"
+        "description": "Used if a component with `surface-raised-50` has a hovered state."
       },
       "pressed": {
         "value": "rgba(255,255,255,0.09)",
         "type": "color",
-        "description": "Needed for the new cell component in pressed state"
+        "description": "Used if a component with `surface-raised-50` has a pressed state."
       }
     },
     "surface-highlight": {
@@ -2774,11 +2774,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }

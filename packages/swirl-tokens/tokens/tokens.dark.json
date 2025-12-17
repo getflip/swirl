@@ -712,6 +712,21 @@
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a pressed state."
   },
+  "surface-raised-50-default": {
+    "value": "rgba(255,255,255,0.03)",
+    "type": "color",
+    "comment": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
+  },
+  "surface-raised-50-hovered": {
+    "value": "rgba(255,255,255,0.06)",
+    "type": "color",
+    "comment": "Used if a component with `surface-raised-50` has a hovered state."
+  },
+  "surface-raised-50-pressed": {
+    "value": "rgba(255,255,255,0.09)",
+    "type": "color",
+    "comment": "Used if a component with `surface-raised-50` has a pressed state."
+  },
   "surface-highlight-default": {
     "value": "{core-customer-color-dark-2-default}",
     "type": "color",
