@@ -57,7 +57,8 @@ export type SwirlCardAriaCurrent =
  * @slot floating-controls - Optional controls displayed on hover in the top right corner
  */
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-card.css",
   tag: "swirl-card",
 })
