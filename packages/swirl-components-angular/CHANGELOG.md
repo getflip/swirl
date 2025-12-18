@@ -1,5 +1,32 @@
 # @getflip/swirl-components-angular
 
+## 0.422.0
+
+### Minor Changes
+
+- [#1359](https://github.com/getflip/swirl/pull/1359)
+  [`a2ea5dc1f`](https://github.com/getflip/swirl/commit/a2ea5dc1f7f6691334a58067bfb000cc4249cb69)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add new
+  `surface-raised-50` tokens
+
+* [#1361](https://github.com/getflip/swirl/pull/1361)
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  customBackdropFilter to swirl-card
+
+### Patch Changes
+
+- [#1361](https://github.com/getflip/swirl/pull/1361)
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix swirl-card
+  custom background color
+
+- Updated dependencies
+  [[`a2ea5dc1f`](https://github.com/getflip/swirl/commit/a2ea5dc1f7f6691334a58067bfb000cc4249cb69),
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3),
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)]:
+  - @getflip/swirl-components@0.422.0
+
 ## 0.421.0
 
 ### Minor Changes
