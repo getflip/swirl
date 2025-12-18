@@ -2549,6 +2549,39 @@
       ]
     },
     {
+      "name": "swirl-data-cell",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "image",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "tooltip",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "vertical",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-date-input",
       "description": {
         "kind": "markdown",

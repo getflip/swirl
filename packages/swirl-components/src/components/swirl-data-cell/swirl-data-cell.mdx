@@ -1,0 +1,94 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-data-cell.stories";
+
+<Meta title="Components/SwirlDataCell" />
+
+# SwirlDataCell
+
+The SwirlDataCell component displays a label-value pair with optional media
+(icon or image), tooltip support, and a suffix slot for additional content.
+
+- **[Figma Design Specs](https://www.figma.com/design/aIsxMzrP5myDMpvxaRIHXB/Web-Components-2.0?node-id=149-1202&t=kECgsuHzhCNOBEZm-4)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-data-cell)**
+
+## Usage
+
+<Canvas of={Stories.SwirlDataCell} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlDataCell} />
+
+## Properties
+
+| Property   | Attribute  | Description                            | Type      | Default     |
+| ---------- | ---------- | -------------------------------------- | --------- | ----------- |
+| `icon`     | `icon`     | Optional icon HTML string              | `string`  | `undefined` |
+| `image`    | `image`    | Optional image URL                     | `string`  | `undefined` |
+| `label`    | `label`    | Required label text                    | `string`  | -           |
+| `tooltip`  | `tooltip`  | Optional tooltip content               | `string`  | `undefined` |
+| `value`    | `value`    | Optional value text                    | `string`  | `undefined` |
+| `vertical` | `vertical` | Force vertical layout (default: false) | `boolean` | `false`     |
+
+## Slots
+
+| Slot     | Description                                     |
+| -------- | ----------------------------------------------- |
+| `suffix` | Optional suffix content (e.g., buttons, badges) |
+
+## Media Display Priority
+
+The component follows a priority order for media display:
+
+1. **Image** - If `image` prop is provided and loads successfully
+2. **Icon** - If `icon` prop is provided (and no image)
+3. **None** - If neither image nor icon is provided
+
+When an icon is provided, the component uses `swirl-avatar` with
+`color="default"` (uses `--s-surface-default`). The avatar has a border using
+`--s-background-default`.
+
+## Responsive Behavior
+
+The component automatically switches to vertical layout on mobile devices
+(viewport width ≤ 767px) unless the `vertical` prop is explicitly set to `false`
+and the component is already in horizontal layout.
+
+## Examples
+
+### With Icon
+
+<Canvas of={Stories.WithIcon} sourceState="shown"></Canvas>
+
+### With Image
+
+<Canvas of={Stories.WithImage} sourceState="shown"></Canvas>
+
+### With Tooltip
+
+<Canvas of={Stories.WithTooltip} sourceState="shown"></Canvas>
+
+### With Suffix Slot
+
+<Canvas of={Stories.WithSuffix} sourceState="shown"></Canvas>
+
+### Vertical Layout
+
+<Canvas of={Stories.Vertical} sourceState="shown"></Canvas>
+
+## Theming
+
+| Variable                 | Usage                                     |
+| ------------------------ | ----------------------------------------- |
+| `--s-surface-raised-50`  | Background color (when applicable)        |
+| `--s-background-default` | Avatar border color                       |
+| `--s-surface-default`    | Avatar background color when icon is used |
+| `--s-text-subdued`       | Label text color                          |
+| `--s-text-default`       | Value text color                          |
+| `--s-space-*`            | Spacing tokens for gaps and padding       |
+
+## Accessibility
+
+The component uses semantic HTML and ARIA attributes:
+
+- `role="group"` on the host element to group related content
+- Proper label association for media elements
+- Tooltip integration follows accessibility best practices

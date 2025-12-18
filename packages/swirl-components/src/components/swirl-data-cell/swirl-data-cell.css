@@ -1,0 +1,101 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.data-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--s-space-8);
+  width: 100%;
+  padding: var(--s-space-12) var(--s-space-16);
+  background-color: var(--s-surface-raised-50);
+  border-radius: var(--s-border-radius-sm);
+}
+
+.data-cell--vertical {
+  align-items: flex-start;
+}
+
+.data-cell__media {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+
+  & ::part(avatar) {
+    border: 0.125rem solid var(--s-background-default);
+    box-sizing: border-box;
+  }
+
+  & swirl-avatar {
+    --swirl-avatar-background-color: var(--s-surface-default);
+  }
+}
+
+.data-cell__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-space-4);
+}
+
+.data-cell--vertical .data-cell__content {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-space-4);
+}
+
+.data-cell__label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--s-space-4);
+}
+
+.data-cell__label {
+  font-size: var(--s-font-size-sm);
+  line-height: var(--s-line-height-sm);
+  color: var(--s-text-subdued);
+  font-weight: var(--s-font-weight-normal);
+}
+
+.data-cell__value-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--s-space-4);
+}
+
+.data-cell__value {
+  font-size: var(--s-font-size-sm);
+  line-height: var(--s-line-height-sm);
+  color: var(--s-text-default);
+  font-weight: var(--s-font-weight-semibold);
+}
+
+.data-cell__suffix {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive: Switch to vertical layout on mobile */
+@media (--to-tablet) {
+  .data-cell:not(.data-cell--vertical) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-space-8);
+  }
+
+  .data-cell:not(.data-cell--vertical) .data-cell__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-space-4);
+  }
+}
