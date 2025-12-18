@@ -125,6 +125,9 @@ export class SwirlCard {
     const hasImage = Boolean(this.el.querySelector('[slot="image"]'));
 
     const styles = {
+      ...(this.customBackgroundColor
+        ? { "--swirl-card-background-default": this.customBackgroundColor }
+        : {}),
       borderRadius: swirlCardBorderRadiusTokens.includes(
         this.borderRadius as (typeof swirlCardBorderRadiusTokens)[number]
       )
@@ -136,7 +139,6 @@ export class SwirlCard {
     };
 
     const bodyStyles = {
-      backgroundColor: this.customBackgroundColor,
       padding: Boolean(this.padding)
         ? `var(--s-space-${this.padding})`
         : undefined,
