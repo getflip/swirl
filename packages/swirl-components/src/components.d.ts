@@ -590,6 +590,7 @@ export namespace Components {
           * @default "base"
          */
         "borderRadius"?: SwirlCardBorderRadius;
+        "customBackdropFilter"?: string;
         "customBackgroundColor"?: string;
         "elevated"?: boolean;
         /**
@@ -9750,6 +9751,7 @@ declare namespace LocalJSX {
           * @default "base"
          */
         "borderRadius"?: SwirlCardBorderRadius;
+        "customBackdropFilter"?: string;
         "customBackgroundColor"?: string;
         "elevated"?: boolean;
         /**
