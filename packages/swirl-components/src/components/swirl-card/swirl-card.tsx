@@ -67,6 +67,7 @@ export class SwirlCard {
   @Prop() as?: string = "div";
   @Prop() borderRadius?: SwirlCardBorderRadius = "base";
   @Prop() customBackgroundColor?: string;
+  @Prop() customBackdropFilter?: string;
   @Prop() elevated?: boolean;
   @Prop() elevationLevel?: SwirlCardElevationLevel = 3;
   @Prop() height?: string;
@@ -128,6 +129,7 @@ export class SwirlCard {
       ...(this.customBackgroundColor
         ? { "--swirl-card-background-default": this.customBackgroundColor }
         : {}),
+      backdropFilter: this.customBackdropFilter,
       borderRadius: swirlCardBorderRadiusTokens.includes(
         this.borderRadius as (typeof swirlCardBorderRadiusTokens)[number]
       )

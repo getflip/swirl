@@ -1600,6 +1600,10 @@
           "description": ""
         },
         {
+          "name": "custom-backdrop-filter",
+          "description": ""
+        },
+        {
           "name": "custom-background-color",
           "description": ""
         },
