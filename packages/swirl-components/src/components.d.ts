@@ -828,6 +828,14 @@ export namespace Components {
          */
         "vertical"?: boolean;
     }
+    interface SwirlDataCellStack {
+        "description"?: string;
+        /**
+          * @default false
+         */
+        "hideLabel"?: boolean;
+        "label"?: string;
+    }
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;

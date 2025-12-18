@@ -1,0 +1,68 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-data-cell-stack.stories";
+
+<Meta title="Components/SwirlDataCellStack" />
+
+# SwirlDataCellStack
+
+The SwirlDataCellStack component is a container for grouping multiple
+SwirlDataCell components with an optional label, description, and call-to-action
+slot.
+
+- **[Figma Design Specs](https://www.figma.com/design/aIsxMzrP5myDMpvxaRIHXB/Web-Components-2.0?node-id=147-680)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-data-cell-stack)**
+
+## Usage
+
+<Canvas of={Stories.SwirlDataCellStack} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlDataCellStack} />
+
+## Properties
+
+| Property      | Attribute     | Description                              | Type      | Default     |
+| ------------- | ------------- | ---------------------------------------- | --------- | ----------- |
+| `description` | `description` | Optional description text                | `string`  | `undefined` |
+| `hideLabel`   | `hide-label`  | Hide the label visually (default: false) | `boolean` | `false`     |
+| `label`       | `label`       | Optional label text                      | `string`  | `undefined` |
+
+## Slots
+
+| Slot      | Description                             |
+| --------- | --------------------------------------- |
+| `cta`     | Optional call-to-action (e.g., button)  |
+| (default) | The SwirlDataCell components to display |
+
+## Examples
+
+### With Label and Description
+
+<Canvas of={Stories.SwirlDataCellStack} sourceState="shown"></Canvas>
+
+### With Label Only
+
+<Canvas of={Stories.WithLabelOnly} sourceState="shown"></Canvas>
+
+### With CTA Slot
+
+<Canvas of={Stories.WithCTA} sourceState="shown"></Canvas>
+
+### Without Header
+
+<Canvas of={Stories.WithoutHeader} sourceState="shown"></Canvas>
+
+## Theming
+
+| Variable           | Usage                   |
+| ------------------ | ----------------------- |
+| `--s-text-default` | Label text color        |
+| `--s-text-subdued` | Description text color  |
+| `--s-space-*`      | Spacing tokens for gaps |
+
+## Accessibility
+
+The component uses semantic HTML structure:
+
+- Label and description are properly associated
+- When `hideLabel` is true, the label is still available for screen readers
+- Proper spacing and visual hierarchy for readability

@@ -2582,6 +2582,27 @@
       ]
     },
     {
+      "name": "swirl-data-cell-stack",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-date-input",
       "description": {
         "kind": "markdown",
