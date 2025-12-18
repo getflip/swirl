@@ -117,6 +117,10 @@ describe("swirl-data-cell", () => {
 
     const tooltip = page.root.shadowRoot.querySelector("swirl-tooltip");
     expect(tooltip?.getAttribute("content")).toBe("This is a tooltip");
+
+    const icon = page.root.shadowRoot.querySelector("swirl-icon-info");
+    expect(icon).toBeTruthy();
+    expect(icon?.getAttribute("size")).toBe("16");
   });
 
   it("renders with suffix slot", async () => {

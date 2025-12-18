@@ -32,12 +32,17 @@ export class SwirlDataCell {
       "data-cell--has-suffix": hasSuffix,
     });
 
-    const labelContent = this.tooltip ? (
-      <swirl-tooltip content={this.tooltip} position="top">
+    const labelContent = (
+      <span>
         <span class="data-cell__label">{this.label}</span>
-      </swirl-tooltip>
-    ) : (
-      <span class="data-cell__label">{this.label}</span>
+        {this.tooltip && (
+          <span class="data-cell__tooltip">
+            <swirl-tooltip content={this.tooltip} position="right">
+              <swirl-icon-info size={16} tabIndex={0}></swirl-icon-info>
+            </swirl-tooltip>
+          </span>
+        )}
+      </span>
     );
 
     return (

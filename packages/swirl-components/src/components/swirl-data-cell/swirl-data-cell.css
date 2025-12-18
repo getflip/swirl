@@ -66,6 +66,16 @@
   font-weight: var(--s-font-weight-normal);
 }
 
+.data-cell__tooltip {
+  display: inline-flex;
+  margin-left: var(--s-space-4);
+  vertical-align: middle;
+
+  & swirl-icon-info {
+    color: var(--s-text-subdued);
+  }
+}
+
 .data-cell__value-wrapper {
   display: flex;
   align-items: center;
