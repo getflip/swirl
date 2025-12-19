@@ -54,7 +54,7 @@ export class SwirlDataCell {
                 <swirl-avatar
                   label={this.label}
                   src={this.image}
-                  size="m"
+                  size="s"
                   part="data-cell__avatar"
                 ></swirl-avatar>
               )}
@@ -62,7 +62,7 @@ export class SwirlDataCell {
                 <swirl-avatar
                   label={this.label}
                   icon={this.icon}
-                  size="m"
+                  size="s"
                   part="data-cell__avatar"
                 ></swirl-avatar>
               )}

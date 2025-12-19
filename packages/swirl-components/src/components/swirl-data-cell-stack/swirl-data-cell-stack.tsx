@@ -28,14 +28,21 @@ export class SwirlDataCellStack {
     return (
       <Host>
         <div class={className} part="data-cell-stack">
-          {(showLabel || this.description) && (
+          {(showLabel || this.description || hasCta) && (
             <div class="data-cell-stack__header">
-              {showLabel && (
-                <div class="data-cell-stack__label">{this.label}</div>
-              )}
-              {this.description && (
-                <div class="data-cell-stack__description">
-                  {this.description}
+              <div class="data-cell-stack__header-content">
+                {showLabel && (
+                  <div class="data-cell-stack__label">{this.label}</div>
+                )}
+                {this.description && (
+                  <div class="data-cell-stack__description">
+                    {this.description}
+                  </div>
+                )}
+              </div>
+              {hasCta && (
+                <div class="data-cell-stack__cta">
+                  <slot name="cta"></slot>
                 </div>
               )}
             </div>
@@ -43,11 +50,6 @@ export class SwirlDataCellStack {
           <div class="data-cell-stack__cells">
             <slot></slot>
           </div>
-          {hasCta && (
-            <div class="data-cell-stack__cta">
-              <slot name="cta"></slot>
-            </div>
-          )}
         </div>
       </Host>
     );

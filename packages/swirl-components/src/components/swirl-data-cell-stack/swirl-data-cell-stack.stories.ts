@@ -20,7 +20,7 @@ const Template = (args) => {
 
   element.innerHTML = `
     <swirl-data-cell label="Name" value="John Doe" icon="<swirl-icon-person></swirl-icon-person>"></swirl-data-cell>
-    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-email></swirl-icon-email>"></swirl-data-cell>
+    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-data-cell>
     <swirl-data-cell label="Phone" value="+1 234 567 8900" icon="<swirl-icon-phone></swirl-icon-phone>"></swirl-data-cell>
   `;
 
@@ -34,64 +34,25 @@ SwirlDataCellStack.args = {
   description: "Basic user contact details",
 };
 
-export const WithLabelOnly = Template.bind({});
-
-WithLabelOnly.args = {
-  label: "User Information",
-};
-
-export const WithDescriptionOnly = Template.bind({});
-
-WithDescriptionOnly.args = {
-  description: "Basic user contact details",
-};
-
-export const WithCTA = Template.bind({});
-
-WithCTA.args = {
-  label: "User Information",
-  description: "Basic user contact details",
-};
-
-WithCTA.decorators = [
-  (story) => {
-    const element = story();
-    element.innerHTML = `
-      ${element.innerHTML}
-      <swirl-button slot="cta" label="Edit" variant="plain"></swirl-button>
-    `;
-    return element;
-  },
-];
-
-export const WithoutHeader = Template.bind({});
-
-WithoutHeader.args = {};
-
-export const WithHiddenLabel = Template.bind({});
-
-WithHiddenLabel.args = {
-  label: "User Information",
-  hideLabel: true,
-  description: "This label is hidden but available for screen readers",
-};
-
 export const MultipleStacks = () => {
   const container = document.createElement("div");
   container.style.display = "flex";
   container.style.flexDirection = "column";
   container.style.gap = "var(--s-space-24)";
 
+  // Stack with label and description
   const stack1 = generateStoryElement("swirl-data-cell-stack", {
-    label: "Contact Information",
-    description: "Primary contact details",
+    label: "User Information",
+    description: "Basic user contact details",
   });
   stack1.innerHTML = `
-    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-email></swirl-icon-email>"></swirl-data-cell>
+     <swirl-data-cell label="Name" value="John Doe" icon="<swirl-icon-person></swirl-icon-person>"></swirl-data-cell>
+    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-data-cell>
     <swirl-data-cell label="Phone" value="+1 234 567 8900" icon="<swirl-icon-phone></swirl-icon-phone>"></swirl-data-cell>
   `;
   container.appendChild(stack1);
 
+  // Stack with CTA
   const stack2 = generateStoryElement("swirl-data-cell-stack", {
     label: "Address",
     description: "Mailing address",
@@ -100,6 +61,7 @@ export const MultipleStacks = () => {
     <swirl-data-cell label="Street" value="123 Main St"></swirl-data-cell>
     <swirl-data-cell label="City" value="New York"></swirl-data-cell>
     <swirl-data-cell label="ZIP Code" value="10001"></swirl-data-cell>
+    <swirl-button slot="cta" label="Edit" variant="outline" icon="<swirl-icon-edit></swirl-icon-edit>"></swirl-button>
   `;
   container.appendChild(stack2);
 

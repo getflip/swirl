@@ -14,7 +14,9 @@ describe("swirl-data-cell", () => {
           <div class="data-cell" part="data-cell">
             <div class="data-cell__content">
               <div class="data-cell__label-wrapper">
-                <span class="data-cell__label">Name</span>
+                <span>
+                  <span class="data-cell__label">Name</span>
+                </span>
               </div>
               <div class="data-cell__value-wrapper">
                 <div class="data-cell__value">John Doe</div>
@@ -38,7 +40,9 @@ describe("swirl-data-cell", () => {
           <div class="data-cell" part="data-cell">
             <div class="data-cell__content">
               <div class="data-cell__label-wrapper">
-                <span class="data-cell__label">Name</span>
+                <span>
+                  <span class="data-cell__label">Name</span>
+                </span>
               </div>
             </div>
           </div>
@@ -60,7 +64,7 @@ describe("swirl-data-cell", () => {
     expect(avatar?.getAttribute("icon")).toBe(
       "<swirl-icon-email></swirl-icon-email>"
     );
-    expect(avatar?.getAttribute("size")).toBe("m");
+    expect(avatar?.getAttribute("size")).toBe("s");
   });
 
   it("renders with image", async () => {

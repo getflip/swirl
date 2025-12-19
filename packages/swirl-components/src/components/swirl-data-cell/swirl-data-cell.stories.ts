@@ -26,91 +26,37 @@ export const SwirlDataCell = Template.bind({});
 SwirlDataCell.args = {
   label: "Name",
   value: "John Doe",
-};
-
-export const WithIcon = Template.bind({});
-
-WithIcon.args = {
-  label: "Email",
-  value: "john.doe@example.com",
-  icon: "<swirl-icon-email></swirl-icon-email>",
-};
-
-export const WithImage = Template.bind({});
-
-WithImage.args = {
-  label: "Avatar",
-  value: "John Doe",
-  image: "/sample-2.jpg",
-};
-
-export const WithTooltip = Template.bind({});
-
-WithTooltip.args = {
-  label: "Status",
-  value: "Active",
-  tooltip: "This indicates the current status of the user",
-};
-
-export const WithSuffix = Template.bind({});
-
-WithSuffix.args = {
-  label: "Name",
-  value: "John Doe",
-};
-
-WithSuffix.decorators = [
-  (story) => {
-    const element = story();
-    element.innerHTML = `
-      ${element.innerHTML}
-      <swirl-button slot="suffix" label="Edit" variant="plain" icon="<swirl-icon-edit></swirl-icon-edit>" hide-label></swirl-button>
-    `;
-    return element;
-  },
-];
-
-export const Vertical = Template.bind({});
-
-Vertical.args = {
-  label: "Name",
-  value: "John Doe",
-  vertical: true,
+  tooltip: "This is a tooltip",
   icon: "<swirl-icon-person></swirl-icon-person>",
 };
 
-export const LabelOnly = Template.bind({});
-
-LabelOnly.args = {
-  label: "Description",
-};
-
 export const MultipleCells = () => {
-  const container = document.createElement("div");
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
-  container.style.gap = "var(--s-space-16)";
+  const stack = generateStoryElement("swirl-data-cell-stack", {});
 
-  const cell1 = generateStoryElement("swirl-data-cell", {
-    label: "Name",
-    value: "John Doe",
-    icon: "<swirl-icon-person></swirl-icon-person>",
-  });
-  container.appendChild(cell1);
+  stack.innerHTML = `
+    <!-- Basic cell -->
+    <swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>
 
-  const cell2 = generateStoryElement("swirl-data-cell", {
-    label: "Email",
-    value: "john.doe@example.com",
-    icon: "<swirl-icon-email></swirl-icon-email>",
-  });
-  container.appendChild(cell2);
+    <!-- With icon -->
+    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-data-cell>
 
-  const cell3 = generateStoryElement("swirl-data-cell", {
-    label: "Phone",
-    value: "+1 234 567 8900",
-    icon: "<swirl-icon-phone></swirl-icon-phone>",
-  });
-  container.appendChild(cell3);
+    <!-- With image -->
+    <swirl-data-cell label="Avatar" value="John Doe" image="/sample-2.jpg"></swirl-data-cell>
 
-  return container;
+    <!-- With tooltip -->
+    <swirl-data-cell label="Status" value="Active" tooltip="This indicates the current status of the user"></swirl-data-cell>
+
+    <!-- With suffix -->
+    <swirl-data-cell label="Name" value="John Doe">
+      <swirl-button slot="suffix" label="Edit" variant="plain" icon="<swirl-icon-edit></swirl-icon-edit>" hide-label></swirl-button>
+    </swirl-data-cell>
+
+    <!-- Vertical layout -->
+    <swirl-data-cell label="Name" value="John Doe" vertical icon="<swirl-icon-person></swirl-icon-person>"></swirl-data-cell>
+
+    <!-- Label only -->
+    <swirl-data-cell label="Description"></swirl-data-cell>
+  `;
+
+  return stack;
 };

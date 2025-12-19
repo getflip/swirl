@@ -33,36 +33,9 @@ slot.
 | `cta`     | Optional call-to-action (e.g., button)  |
 | (default) | The SwirlDataCell components to display |
 
-## Examples
-
-### With Label and Description
-
-<Canvas of={Stories.SwirlDataCellStack} sourceState="shown"></Canvas>
-
-### With Label Only
-
-<Canvas of={Stories.WithLabelOnly} sourceState="shown"></Canvas>
-
-### With CTA Slot
-
-<Canvas of={Stories.WithCTA} sourceState="shown"></Canvas>
-
-### Without Header
-
-<Canvas of={Stories.WithoutHeader} sourceState="shown"></Canvas>
-
 ## Theming
 
-| Variable           | Usage                   |
-| ------------------ | ----------------------- |
-| `--s-text-default` | Label text color        |
-| `--s-text-subdued` | Description text color  |
-| `--s-space-*`      | Spacing tokens for gaps |
-
-## Accessibility
-
-The component uses semantic HTML structure:
-
-- Label and description are properly associated
-- When `hideLabel` is true, the label is still available for screen readers
-- Proper spacing and visual hierarchy for readability
+| Variable           | Usage                  |
+| ------------------ | ---------------------- |
+| `--s-text-default` | Label text color       |
+| `--s-text-subdued` | Description text color |

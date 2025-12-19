@@ -18,7 +18,16 @@
 
 .data-cell-stack__header {
   display: flex;
+  align-items: flex-start;
+  gap: var(--s-space-8);
+  width: 100%;
+  justify-content: space-between;
+}
+
+.data-cell-stack__header-content {
+  display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--s-space-4);
 }
 
@@ -38,11 +47,36 @@
 .data-cell-stack__cells {
   display: flex;
   flex-direction: column;
-  gap: var(--s-space-16);
+  gap: var(--s-space-2);
+}
+
+/* First cell: large top corners, small bottom corners */
+.data-cell-stack__cells
+  ::slotted(swirl-data-cell:first-child:not(:last-child)) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-l)
+    var(--s-border-radius-l) var(--s-border-radius-s) var(--s-border-radius-s);
+}
+
+/* Last cell: small top corners, large bottom corners */
+.data-cell-stack__cells
+  ::slotted(swirl-data-cell:last-child:not(:first-child)) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-s)
+    var(--s-border-radius-s) var(--s-border-radius-l) var(--s-border-radius-l);
+}
+
+/* Middle cells: small corners on all sides */
+.data-cell-stack__cells
+  ::slotted(swirl-data-cell:not(:first-child):not(:last-child)) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-s);
+}
+
+/* Single cell: large corners on all sides (must come last to override) */
+.data-cell-stack__cells ::slotted(swirl-data-cell:first-child:last-child) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-l);
 }
 
 .data-cell-stack__cta {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  flex-shrink: 0;
 }

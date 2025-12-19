@@ -13,8 +13,10 @@ describe("swirl-data-cell-stack", () => {
         <mock:shadow-root>
           <div class="data-cell-stack" part="data-cell-stack">
             <div class="data-cell-stack__header">
-              <div class="data-cell-stack__label">User Information</div>
-              <div class="data-cell-stack__description">Basic user details</div>
+              <div class="data-cell-stack__header-content">
+                <div class="data-cell-stack__label">User Information</div>
+                <div class="data-cell-stack__description">Basic user details</div>
+              </div>
             </div>
             <div class="data-cell-stack__cells">
               <slot></slot>
