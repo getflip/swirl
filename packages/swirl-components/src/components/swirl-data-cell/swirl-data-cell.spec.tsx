@@ -8,24 +8,22 @@ describe("swirl-data-cell", () => {
       html: `<swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <swirl-data-cell label="Name" role="group" value="John Doe">
-        <mock:shadow-root>
-          <div class="data-cell" part="data-cell">
-            <div class="data-cell__content">
-              <div class="data-cell__label-wrapper">
-                <span>
-                  <span class="data-cell__label">Name</span>
-                </span>
-              </div>
-              <div class="data-cell__value-wrapper">
-                <div class="data-cell__value">John Doe</div>
-              </div>
-            </div>
-          </div>
-        </mock:shadow-root>
-      </swirl-data-cell>
-    `);
+    const label = page.root.shadowRoot.querySelector(".data-cell__label");
+    expect(label?.textContent).toBe("Name");
+    expect(label?.getAttribute("role")).toBe("term");
+    expect(label?.getAttribute("id")).toMatch(/^data-cell-.*-label$/);
+
+    const valueWrapper = page.root.shadowRoot.querySelector(
+      ".data-cell__value-wrapper"
+    );
+    expect(valueWrapper?.getAttribute("role")).toBe("definition");
+    expect(valueWrapper?.getAttribute("aria-labelledby")).toMatch(
+      /^data-cell-.*-label$/
+    );
+    expect(valueWrapper?.getAttribute("id")).toMatch(/^data-cell-.*-value$/);
+
+    const value = page.root.shadowRoot.querySelector(".data-cell__value");
+    expect(value?.textContent).toBe("John Doe");
   });
 
   it("renders with label only", async () => {
@@ -34,21 +32,15 @@ describe("swirl-data-cell", () => {
       html: `<swirl-data-cell label="Name"></swirl-data-cell>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <swirl-data-cell label="Name" role="group">
-        <mock:shadow-root>
-          <div class="data-cell" part="data-cell">
-            <div class="data-cell__content">
-              <div class="data-cell__label-wrapper">
-                <span>
-                  <span class="data-cell__label">Name</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </mock:shadow-root>
-      </swirl-data-cell>
-    `);
+    const label = page.root.shadowRoot.querySelector(".data-cell__label");
+    expect(label?.textContent).toBe("Name");
+    expect(label?.getAttribute("role")).toBe("term");
+    expect(label?.getAttribute("id")).toMatch(/^data-cell-.*-label$/);
+
+    const valueWrapper = page.root.shadowRoot.querySelector(
+      ".data-cell__value-wrapper"
+    );
+    expect(valueWrapper).toBeNull();
   });
 
   it("renders with icon", async () => {
@@ -167,6 +159,23 @@ describe("swirl-data-cell", () => {
 
     const host = page.root;
     expect(host.getAttribute("role")).toBe("group");
+
+    const label = page.root.shadowRoot.querySelector(".data-cell__label");
+    expect(label?.getAttribute("role")).toBe("term");
+    expect(label?.getAttribute("id")).toMatch(/^data-cell-.*-label$/);
+
+    const valueWrapper = page.root.shadowRoot.querySelector(
+      ".data-cell__value-wrapper"
+    );
+    expect(valueWrapper?.getAttribute("role")).toBe("definition");
+    expect(valueWrapper?.getAttribute("aria-labelledby")).toMatch(
+      /^data-cell-.*-label$/
+    );
+
+    const media = page.root.shadowRoot.querySelector(".data-cell__media");
+    if (media) {
+      expect(media.getAttribute("aria-hidden")).toBe("true");
+    }
   });
 
   it("renders with background and padding styles", async () => {

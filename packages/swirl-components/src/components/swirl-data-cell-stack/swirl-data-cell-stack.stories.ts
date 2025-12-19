@@ -61,7 +61,10 @@ export const MultipleStacks = () => {
     <swirl-data-cell label="Street" value="123 Main St"></swirl-data-cell>
     <swirl-data-cell label="City" value="New York"></swirl-data-cell>
     <swirl-data-cell label="ZIP Code" value="10001"></swirl-data-cell>
-    <swirl-button slot="cta" label="Edit" variant="outline" icon="<swirl-icon-edit></swirl-icon-edit>"></swirl-button>
+    <swirl-button-group slot="cta">
+      <swirl-button label="Edit" variant="ghost" icon="<swirl-icon-edit></swirl-icon-edit>"></swirl-button>
+      <swirl-button label="Delete" variant="ghost" icon="<swirl-icon-delete></swirl-icon-delete>"></swirl-button>
+    </swirl-button-group>
   `;
   container.appendChild(stack2);
 

@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { v4 as uuid } from "uuid";
 
 /**
  * @slot suffix - Optional suffix content (e.g., buttons, badges)
@@ -19,6 +20,8 @@ export class SwirlDataCell {
   @Prop() value?: string;
   @Prop() vertical?: boolean = false;
 
+  private elementId = `data-cell-${uuid()}`;
+
   render() {
     const showImage = Boolean(this.image);
     const showIcon = !showImage && Boolean(this.icon);
@@ -32,9 +35,14 @@ export class SwirlDataCell {
       "data-cell--has-suffix": hasSuffix,
     });
 
+    const labelId = `${this.elementId}-label`;
+    const valueId = `${this.elementId}-value`;
+
     const labelContent = (
       <span>
-        <span class="data-cell__label">{this.label}</span>
+        <span class="data-cell__label" id={labelId} role="term">
+          {this.label}
+        </span>
         {this.tooltip && (
           <span class="data-cell__tooltip">
             <swirl-tooltip content={this.tooltip} position="right">
@@ -49,7 +57,7 @@ export class SwirlDataCell {
       <Host role="group">
         <div class={className} part="data-cell">
           {hasMedia && (
-            <div class="data-cell__media">
+            <div class="data-cell__media" aria-hidden="true">
               {showImage && (
                 <swirl-avatar
                   label={this.label}
@@ -71,7 +79,12 @@ export class SwirlDataCell {
           <div class="data-cell__content">
             <div class="data-cell__label-wrapper">{labelContent}</div>
             {(this.value || hasSuffix) && (
-              <div class="data-cell__value-wrapper">
+              <div
+                class="data-cell__value-wrapper"
+                role="definition"
+                aria-labelledby={labelId}
+                id={valueId}
+              >
                 {this.value && <div class="data-cell__value">{this.value}</div>}
                 {hasSuffix && (
                   <div class="data-cell__suffix">

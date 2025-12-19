@@ -8,23 +8,39 @@ describe("swirl-data-cell-stack", () => {
       html: `<swirl-data-cell-stack label="User Information" description="Basic user details"></swirl-data-cell-stack>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <swirl-data-cell-stack label="User Information" description="Basic user details">
-        <mock:shadow-root>
-          <div class="data-cell-stack" part="data-cell-stack">
-            <div class="data-cell-stack__header">
-              <div class="data-cell-stack__header-content">
-                <div class="data-cell-stack__label">User Information</div>
-                <div class="data-cell-stack__description">Basic user details</div>
-              </div>
-            </div>
-            <div class="data-cell-stack__cells">
-              <slot></slot>
-            </div>
-          </div>
-        </mock:shadow-root>
-      </swirl-data-cell-stack>
-    `);
+    const stack = page.root.shadowRoot.querySelector(".data-cell-stack");
+    expect(stack?.getAttribute("role")).toBe("group");
+
+    const header = page.root.shadowRoot.querySelector(
+      "header.data-cell-stack__header"
+    );
+    expect(header).toBeTruthy();
+    expect(header?.getAttribute("id")).toMatch(/^data-cell-stack-header-/);
+
+    const label = page.root.shadowRoot.querySelector(
+      "h3.data-cell-stack__label"
+    );
+    expect(label?.textContent).toBe("User Information");
+    expect(label?.getAttribute("id")).toMatch(
+      /^data-cell-stack-header-.*-label$/
+    );
+
+    const description = page.root.shadowRoot.querySelector(
+      "p.data-cell-stack__description"
+    );
+    expect(description?.textContent).toBe("Basic user details");
+    expect(description?.getAttribute("id")).toMatch(
+      /^data-cell-stack-header-.*-description$/
+    );
+
+    const cells = page.root.shadowRoot.querySelector(".data-cell-stack__cells");
+    expect(cells?.getAttribute("role")).toBe("list");
+    expect(cells?.getAttribute("aria-labelledby")).toMatch(
+      /^data-cell-stack-header-.*-label$/
+    );
+    expect(cells?.getAttribute("aria-describedby")).toMatch(
+      /^data-cell-stack-header-.*-description$/
+    );
   });
 
   it("renders with label only", async () => {
@@ -34,12 +50,22 @@ describe("swirl-data-cell-stack", () => {
     });
 
     const header = page.root.shadowRoot.querySelector(
-      ".data-cell-stack__header"
+      "header.data-cell-stack__header"
     );
     expect(header).toBeTruthy();
 
-    const label = page.root.shadowRoot.querySelector(".data-cell-stack__label");
+    const label = page.root.shadowRoot.querySelector(
+      "h3.data-cell-stack__label"
+    );
     expect(label?.textContent).toBe("User Information");
+    expect(label?.getAttribute("id")).toMatch(
+      /^data-cell-stack-header-.*-label$/
+    );
+
+    const cells = page.root.shadowRoot.querySelector(".data-cell-stack__cells");
+    expect(cells?.getAttribute("aria-labelledby")).toMatch(
+      /^data-cell-stack-header-.*-label$/
+    );
   });
 
   it("renders with description only", async () => {
@@ -49,14 +75,22 @@ describe("swirl-data-cell-stack", () => {
     });
 
     const header = page.root.shadowRoot.querySelector(
-      ".data-cell-stack__header"
+      "header.data-cell-stack__header"
     );
     expect(header).toBeTruthy();
 
     const description = page.root.shadowRoot.querySelector(
-      ".data-cell-stack__description"
+      "p.data-cell-stack__description"
     );
     expect(description?.textContent).toBe("Basic user details");
+    expect(description?.getAttribute("id")).toMatch(
+      /^data-cell-stack-header-.*-description$/
+    );
+
+    const cells = page.root.shadowRoot.querySelector(".data-cell-stack__cells");
+    expect(cells?.getAttribute("aria-describedby")).toMatch(
+      /^data-cell-stack-header-.*-description$/
+    );
   });
 
   it("hides label when hideLabel is true", async () => {
@@ -65,7 +99,9 @@ describe("swirl-data-cell-stack", () => {
       html: `<swirl-data-cell-stack label="User Information" hide-label></swirl-data-cell-stack>`,
     });
 
-    const label = page.root.shadowRoot.querySelector(".data-cell-stack__label");
+    const label = page.root.shadowRoot.querySelector(
+      "h3.data-cell-stack__label"
+    );
     expect(label).toBeNull();
   });
 
@@ -113,5 +149,6 @@ describe("swirl-data-cell-stack", () => {
 
     const cells = page.root.shadowRoot.querySelector(".data-cell-stack__cells");
     expect(cells).toBeTruthy();
+    expect(cells?.getAttribute("role")).toBe("list");
   });
 });
