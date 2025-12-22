@@ -1,7 +1,9 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
+import classNames from "classnames";
 import { closestPassShadow } from "../../utils";
 
 export type SwirlTableColumnSort = "ascending" | "descending";
+export type SwirlTableColumnVariant = "default" | "sunken";
 
 /**
  * @slot slot - The column label.
@@ -14,6 +16,7 @@ export type SwirlTableColumnSort = "ascending" | "descending";
 export class SwirlTableColumn {
   @Element() el: HTMLElement;
 
+  @Prop() variant?: SwirlTableColumnVariant = "default";
   @Prop() sort?: SwirlTableColumnSort;
   @Prop() sortable?: boolean;
   @Prop() maxWidth?: string;
@@ -37,10 +40,16 @@ export class SwirlTableColumn {
       minWidth: this.minWidth || "",
     };
 
+    const variant = this.variant ?? "default";
+    const className = classNames("table-column", {
+      "table-column--default": variant === "default",
+      "table-column--sunken": variant === "sunken",
+    });
+
     return (
       <Host
         aria-sort={this.sort}
-        class="table-column"
+        class={className}
         role="columnheader"
         style={styles}
       >

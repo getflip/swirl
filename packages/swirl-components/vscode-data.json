@@ -21881,6 +21881,18 @@
           "description": ""
         },
         {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "sunken"
+            }
+          ]
+        },
+        {
           "name": "width",
           "description": ""
         }
