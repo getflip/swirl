@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.423.0
+
+### Minor Changes
+
+- [#1363](https://github.com/getflip/swirl/pull/1363)
+  [`42de30cdb`](https://github.com/getflip/swirl/commit/42de30cdb7c6aeaeb8e586cde76d4e297c721987)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add table column
+  sunken variant
+
+### Patch Changes
+
+- Updated dependencies
+  [[`42de30cdb`](https://github.com/getflip/swirl/commit/42de30cdb7c6aeaeb8e586cde76d4e297c721987)]:
+  - @getflip/swirl-components@0.423.0
+
 ## 0.422.0
 
 ### Minor Changes
