@@ -1,5 +1,39 @@
 # swirl-docs
 
+## 0.3.205
+
+### Patch Changes
+
+- Updated dependencies
+  [[`60320a04c`](https://github.com/getflip/swirl/commit/60320a04c4429e215dd1fb4cc5154f51011844c7)]:
+  - @getflip/swirl-components@0.423.1
+  - @getflip/swirl-components-react@0.423.1
+
+## 0.3.204
+
+### Patch Changes
+
+- Updated dependencies
+  [[`42de30cdb`](https://github.com/getflip/swirl/commit/42de30cdb7c6aeaeb8e586cde76d4e297c721987)]:
+  - @getflip/swirl-components@0.423.0
+  - @getflip/swirl-components-react@0.423.0
+
+## 0.3.203
+
+### Patch Changes
+
+- [#1357](https://github.com/getflip/swirl/pull/1357)
+  [`eb9ee7a1d`](https://github.com/getflip/swirl/commit/eb9ee7a1d310680c7c6a5ad8e2dd191c0d59f49a)
+  Thanks [@danizep](https://github.com/danizep)! - Fix NextJS vulnerability
+
+- Updated dependencies
+  [[`a2ea5dc1f`](https://github.com/getflip/swirl/commit/a2ea5dc1f7f6691334a58067bfb000cc4249cb69),
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3),
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)]:
+  - @getflip/swirl-components@0.422.0
+  - @getflip/swirl-components-react@0.422.0
+  - @getflip/swirl-tokens@2.13.0
+
 ## 0.3.202
 
 ### Patch Changes

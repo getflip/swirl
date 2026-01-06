@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1359](https://github.com/getflip/swirl/pull/1359)
+  [`a2ea5dc1f`](https://github.com/getflip/swirl/commit/a2ea5dc1f7f6691334a58067bfb000cc4249cb69)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add new
+  `surface-raised-50` tokens
+
 ## 2.12.0
 
 ### Minor Changes

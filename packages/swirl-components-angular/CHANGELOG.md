@@ -1,5 +1,60 @@
 # @getflip/swirl-components-angular
 
+## 0.423.1
+
+### Patch Changes
+
+- [#1365](https://github.com/getflip/swirl/pull/1365)
+  [`60320a04c`](https://github.com/getflip/swirl/commit/60320a04c4429e215dd1fb4cc5154f51011844c7)
+  Thanks [@paulrohrbeck](https://github.com/paulrohrbeck)! - Only add thumbnail
+  hover styles for devices that support it
+
+- Updated dependencies
+  [[`60320a04c`](https://github.com/getflip/swirl/commit/60320a04c4429e215dd1fb4cc5154f51011844c7)]:
+  - @getflip/swirl-components@0.423.1
+
+## 0.423.0
+
+### Minor Changes
+
+- [#1363](https://github.com/getflip/swirl/pull/1363)
+  [`42de30cdb`](https://github.com/getflip/swirl/commit/42de30cdb7c6aeaeb8e586cde76d4e297c721987)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add table column
+  sunken variant
+
+### Patch Changes
+
+- Updated dependencies
+  [[`42de30cdb`](https://github.com/getflip/swirl/commit/42de30cdb7c6aeaeb8e586cde76d4e297c721987)]:
+  - @getflip/swirl-components@0.423.0
+
+## 0.422.0
+
+### Minor Changes
+
+- [#1359](https://github.com/getflip/swirl/pull/1359)
+  [`a2ea5dc1f`](https://github.com/getflip/swirl/commit/a2ea5dc1f7f6691334a58067bfb000cc4249cb69)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Add new
+  `surface-raised-50` tokens
+
+* [#1361](https://github.com/getflip/swirl/pull/1361)
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  customBackdropFilter to swirl-card
+
+### Patch Changes
+
+- [#1361](https://github.com/getflip/swirl/pull/1361)
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix swirl-card
+  custom background color
+
+- Updated dependencies
+  [[`a2ea5dc1f`](https://github.com/getflip/swirl/commit/a2ea5dc1f7f6691334a58067bfb000cc4249cb69),
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3),
+  [`f0a9b6ec6`](https://github.com/getflip/swirl/commit/f0a9b6ec6146371a70e7016db90b6d61c054b9f3)]:
+  - @getflip/swirl-components@0.422.0
+
 ## 0.421.0
 
 ### Minor Changes

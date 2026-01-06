@@ -70,7 +70,7 @@ import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
-import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
+import { SwirlTableColumnSort, SwirlTableColumnVariant } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1, SwirlTabBarVariant as SwirlTabBarVariant1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
@@ -150,7 +150,7 @@ export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
-export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
+export { SwirlTableColumnSort, SwirlTableColumnVariant } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1, SwirlTabBarVariant as SwirlTabBarVariant1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
@@ -590,6 +590,7 @@ export namespace Components {
           * @default "base"
          */
         "borderRadius"?: SwirlCardBorderRadius;
+        "customBackdropFilter"?: string;
         "customBackgroundColor"?: string;
         "elevated"?: boolean;
         /**
@@ -4697,6 +4698,10 @@ export namespace Components {
         "sort"?: SwirlTableColumnSort;
         "sortable"?: boolean;
         "sticky"?: boolean;
+        /**
+          * @default "default"
+         */
+        "variant"?: SwirlTableColumnVariant;
         "width"?: string;
     }
     interface SwirlTableRow {
@@ -9781,6 +9786,7 @@ declare namespace LocalJSX {
           * @default "base"
          */
         "borderRadius"?: SwirlCardBorderRadius;
+        "customBackdropFilter"?: string;
         "customBackgroundColor"?: string;
         "elevated"?: boolean;
         /**
@@ -13775,6 +13781,10 @@ declare namespace LocalJSX {
         "sort"?: SwirlTableColumnSort;
         "sortable"?: boolean;
         "sticky"?: boolean;
+        /**
+          * @default "default"
+         */
+        "variant"?: SwirlTableColumnVariant;
         "width"?: string;
     }
     interface SwirlTableRow {
