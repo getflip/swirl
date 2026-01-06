@@ -151,4 +151,53 @@ describe("swirl-data-cell-stack", () => {
     expect(cells).toBeTruthy();
     expect(cells?.getAttribute("role")).toBe("list");
   });
+
+  it("should warn if provided with unallowed children", async () => {
+    const spy = jest.fn();
+    global.console.warn = spy;
+
+    const page = await newSpecPage({
+      components: [SwirlDataCellStack],
+      html: `
+        <swirl-data-cell-stack>
+          <div>Invalid child</div>
+        </swirl-data-cell-stack>
+      `,
+    });
+
+    // Trigger slotchange event
+    const slot = page.root.shadowRoot.querySelector("slot");
+    if (slot) {
+      slot.dispatchEvent(new Event("slotchange"));
+      await page.waitForChanges();
+    }
+
+    expect(spy).toHaveBeenCalledWith(
+      "[SwirlDataCellStack] Only swirl-data-cell elements are allowed as direct children."
+    );
+  });
+
+  it("should not warn if all children are swirl-data-cell elements", async () => {
+    const spy = jest.fn();
+    global.console.warn = spy;
+
+    const page = await newSpecPage({
+      components: [SwirlDataCellStack],
+      html: `
+        <swirl-data-cell-stack>
+          <swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>
+          <swirl-data-cell label="Email" value="john@example.com"></swirl-data-cell>
+        </swirl-data-cell-stack>
+      `,
+    });
+
+    // Trigger slotchange event
+    const slot = page.root.shadowRoot.querySelector("slot");
+    if (slot) {
+      slot.dispatchEvent(new Event("slotchange"));
+      await page.waitForChanges();
+    }
+
+    expect(spy).not.toHaveBeenCalled();
+  });
 });

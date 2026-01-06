@@ -20,6 +20,21 @@ export class SwirlDataCellStack {
 
   private headerId = `data-cell-stack-header-${uuid()}`;
 
+  private onSlotChange = (event: Event) => {
+    const slot = event.target as HTMLSlotElement;
+    const elements = slot.assignedElements();
+
+    const invalidElements = elements.filter(
+      (el) => el.tagName !== "SWIRL-DATA-CELL"
+    );
+
+    if (invalidElements.length > 0) {
+      console.warn(
+        "[SwirlDataCellStack] Only swirl-data-cell elements are allowed as direct children."
+      );
+    }
+  };
+
   render() {
     const hasCta = Boolean(this.el.querySelector('[slot="cta"]'));
     const showLabel = Boolean(this.label) && !this.hideLabel;
@@ -63,7 +78,7 @@ export class SwirlDataCellStack {
             aria-labelledby={labelId || undefined}
             aria-describedby={descriptionId || undefined}
           >
-            <slot></slot>
+            <slot onSlotchange={this.onSlotChange}></slot>
           </div>
         </div>
       </Host>
