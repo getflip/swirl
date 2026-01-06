@@ -94,12 +94,6 @@
 
 /* Responsive: Switch to vertical layout on mobile */
 @media (--to-tablet) {
-  .data-cell:not(.data-cell--vertical) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--s-space-8);
-  }
-
   .data-cell:not(.data-cell--vertical) .data-cell__content {
     flex-direction: column;
     align-items: flex-start;
