@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: inline-flex;
 
@@ -113,15 +115,19 @@
 
 .thumbnail__buttons {
   position: absolute;
-  opacity: 0;
   z-index: 1;
   top: var(--s-space-4);
   right: var(--s-space-4);
 }
 
-.thumbnail:hover {
+@media (--has-hover) {
   .thumbnail__buttons {
-    opacity: 1;
+    opacity: 0;
+  }
+  .thumbnail:hover {
+    .thumbnail__buttons {
+      opacity: 1;
+    }
   }
 }
 
