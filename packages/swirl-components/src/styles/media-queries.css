@@ -4,7 +4,7 @@
 @custom-media --from-large-desktop (min-width: 1440px);
 @custom-media --from-larger-desktop (min-width: 1800px);
 
-@custom-media --without-touch (hover: hover);
+@custom-media --has-hover (hover: hover);
 @custom-media --from-desktop-without-touch (min-width: 992px) and (max-width: 1439px) and (hover: hover),
   (min-width: 1440px);
 

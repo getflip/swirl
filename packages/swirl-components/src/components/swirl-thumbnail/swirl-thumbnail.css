@@ -120,7 +120,7 @@
   right: var(--s-space-4);
 }
 
-@media (--without-touch) {
+@media (--has-hover) {
   .thumbnail__buttons {
     opacity: 0;
   }
