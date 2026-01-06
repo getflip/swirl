@@ -19,9 +19,15 @@ const Template = (args) => {
   ) as HTMLSwirlDataCellStackElement;
 
   element.innerHTML = `
-    <swirl-data-cell label="Name" value="John Doe" icon="<swirl-icon-person></swirl-icon-person>"></swirl-data-cell>
-    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-data-cell>
-    <swirl-data-cell label="Phone" value="+1 234 567 8900" icon="<swirl-icon-phone></swirl-icon-phone>"></swirl-data-cell>
+    <swirl-data-cell label="Name" value="John Doe">
+      <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+    <swirl-data-cell label="Email" value="john.doe@example.com">
+      <swirl-avatar slot="media" label="Email" icon="<swirl-icon-mail></swirl-icon-mail>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+    <swirl-data-cell label="Phone" value="+1 234 567 8900">
+      <swirl-avatar slot="media" label="Phone" icon="<swirl-icon-phone></swirl-icon-phone>" size="s"></swirl-avatar>
+    </swirl-data-cell>
   `;
 
   return element;
@@ -46,9 +52,15 @@ export const MultipleStacks = () => {
     description: "Basic user contact details",
   });
   stack1.innerHTML = `
-     <swirl-data-cell label="Name" value="John Doe" icon="<swirl-icon-person></swirl-icon-person>"></swirl-data-cell>
-    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-data-cell>
-    <swirl-data-cell label="Phone" value="+1 234 567 8900" icon="<swirl-icon-phone></swirl-icon-phone>"></swirl-data-cell>
+    <swirl-data-cell label="Name" value="John Doe">
+      <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+    <swirl-data-cell label="Email" value="john.doe@example.com">
+      <swirl-avatar slot="media" label="Email" icon="<swirl-icon-mail></swirl-icon-mail>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+    <swirl-data-cell label="Phone" value="+1 234 567 8900">
+      <swirl-avatar slot="media" label="Phone" icon="<swirl-icon-phone></swirl-icon-phone>" size="s"></swirl-avatar>
+    </swirl-data-cell>
   `;
   container.appendChild(stack1);
 

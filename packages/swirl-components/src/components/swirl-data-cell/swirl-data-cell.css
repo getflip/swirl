@@ -28,13 +28,10 @@
   display: flex;
   align-items: center;
 
-  & ::part(avatar) {
-    border: 0.125rem solid var(--s-background-default);
-    box-sizing: border-box;
-  }
-
-  & swirl-avatar {
+  & ::slotted(swirl-avatar) {
     --swirl-avatar-background-color: var(--s-surface-default);
+    --swirl-avatar-border-width: 0.125rem;
+    --swirl-avatar-border-color: var(--s-background-default);
   }
 }
 

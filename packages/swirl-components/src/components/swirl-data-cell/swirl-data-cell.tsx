@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 
 /**
+ * @slot media - Optional media content (e.g., swirl-avatar, icons). Only swirl-avatar and icon elements are styled.
  * @slot suffix - Optional suffix content (e.g., buttons, badges)
  */
 @Component({
@@ -13,8 +14,6 @@ import { v4 as uuid } from "uuid";
 export class SwirlDataCell {
   @Element() el: HTMLElement;
 
-  @Prop() icon?: string;
-  @Prop() image?: string;
   @Prop() label!: string;
   @Prop() tooltip?: string;
   @Prop() value?: string;
@@ -23,9 +22,7 @@ export class SwirlDataCell {
   private elementId = `data-cell-${uuid()}`;
 
   render() {
-    const showImage = Boolean(this.image);
-    const showIcon = !showImage && Boolean(this.icon);
-    const hasMedia = showImage || showIcon;
+    const hasMedia = Boolean(this.el.querySelector('[slot="media"]'));
 
     const hasSuffix = Boolean(this.el.querySelector('[slot="suffix"]'));
 
@@ -58,22 +55,7 @@ export class SwirlDataCell {
         <div class={className} part="data-cell">
           {hasMedia && (
             <div class="data-cell__media" aria-hidden="true">
-              {showImage && (
-                <swirl-avatar
-                  label={this.label}
-                  src={this.image}
-                  size="s"
-                  part="data-cell__avatar"
-                ></swirl-avatar>
-              )}
-              {showIcon && (
-                <swirl-avatar
-                  label={this.label}
-                  icon={this.icon}
-                  size="s"
-                  part="data-cell__avatar"
-                ></swirl-avatar>
-              )}
+              <slot name="media"></slot>
             </div>
           )}
           <div class="data-cell__content">

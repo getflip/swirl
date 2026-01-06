@@ -818,8 +818,6 @@ export namespace Components {
         "toggleSidebar": () => Promise<void>;
     }
     interface SwirlDataCell {
-        "icon"?: string;
-        "image"?: string;
         "label": string;
         "tooltip"?: string;
         "value"?: string;
@@ -10001,8 +9999,6 @@ declare namespace LocalJSX {
         "subheading"?: string;
     }
     interface SwirlDataCell {
-        "icon"?: string;
-        "image"?: string;
         "label": string;
         "tooltip"?: string;
         "value"?: string;

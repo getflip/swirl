@@ -43,66 +43,55 @@ describe("swirl-data-cell", () => {
     expect(valueWrapper).toBeNull();
   });
 
-  it("renders with icon", async () => {
+  it("renders with media slot (avatar with icon)", async () => {
     const page = await newSpecPage({
       components: [SwirlDataCell],
-      html: `<swirl-data-cell label="Email" icon="<swirl-icon-email></swirl-icon-email>"></swirl-data-cell>`,
+      html: `
+        <swirl-data-cell label="Email">
+          <swirl-avatar slot="media" label="Email" icon="<swirl-icon-email></swirl-icon-email>" size="s"></swirl-avatar>
+        </swirl-data-cell>
+      `,
     });
 
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-media")).toBeTruthy();
 
-    const avatar = page.root.shadowRoot.querySelector("swirl-avatar");
-    expect(avatar?.getAttribute("icon")).toBe(
-      "<swirl-icon-email></swirl-icon-email>"
-    );
-    expect(avatar?.getAttribute("size")).toBe("s");
+    const media = page.root.shadowRoot.querySelector(".data-cell__media");
+    expect(media).toBeTruthy();
   });
 
-  it("renders with image", async () => {
-    // simulate successful image loading
-    global.Image = class Image {
-      constructor() {
-        setTimeout(() => {
-          (this as any).onload?.();
-        }, 0);
-      }
-    } as typeof Image;
-
+  it("renders with media slot (avatar with image)", async () => {
     const page = await newSpecPage({
       components: [SwirlDataCell],
-      html: `<swirl-data-cell label="Avatar" image="https://example.com/image.jpg"></swirl-data-cell>`,
+      html: `
+        <swirl-data-cell label="Avatar">
+          <swirl-avatar slot="media" label="Avatar" src="https://example.com/image.jpg" size="s"></swirl-avatar>
+        </swirl-data-cell>
+      `,
     });
-
-    await page.waitForChanges();
 
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-media")).toBeTruthy();
 
-    const avatar = page.root.shadowRoot.querySelector("swirl-avatar");
-    expect(avatar?.getAttribute("src")).toBe("https://example.com/image.jpg");
+    const media = page.root.shadowRoot.querySelector(".data-cell__media");
+    expect(media).toBeTruthy();
   });
 
-  it("prioritizes image over icon", async () => {
-    // simulate successful image loading
-    global.Image = class Image {
-      constructor() {
-        setTimeout(() => {
-          (this as any).onload?.();
-        }, 0);
-      }
-    } as typeof Image;
-
+  it("renders with media slot (avatar with initials)", async () => {
     const page = await newSpecPage({
       components: [SwirlDataCell],
-      html: `<swirl-data-cell label="Media" image="https://example.com/image.jpg" icon="<swirl-icon-email></swirl-icon-email>"></swirl-data-cell>`,
+      html: `
+        <swirl-data-cell label="User" value="John Doe">
+          <swirl-avatar slot="media" label="John Doe" src="https://example.com/image.jpg" initials="JD" size="s"></swirl-avatar>
+        </swirl-data-cell>
+      `,
     });
 
-    await page.waitForChanges();
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-media")).toBeTruthy();
 
-    const avatar = page.root.shadowRoot.querySelector("swirl-avatar");
-    expect(avatar?.getAttribute("src")).toBe("https://example.com/image.jpg");
-    expect(avatar?.getAttribute("icon")).toBeNull();
+    const media = page.root.shadowRoot.querySelector(".data-cell__media");
+    expect(media).toBeTruthy();
   });
 
   it("renders with tooltip", async () => {

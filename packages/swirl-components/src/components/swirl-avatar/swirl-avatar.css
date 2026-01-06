@@ -15,6 +15,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  border: var(--swirl-avatar-border-width, 0) solid
+    var(--swirl-avatar-border-color, transparent);
 }
 
 .avatar--has-icon {

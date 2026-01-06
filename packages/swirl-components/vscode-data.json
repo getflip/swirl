@@ -2556,14 +2556,6 @@
       },
       "attributes": [
         {
-          "name": "icon",
-          "description": ""
-        },
-        {
-          "name": "image",
-          "description": ""
-        },
-        {
           "name": "label",
           "description": ""
         },

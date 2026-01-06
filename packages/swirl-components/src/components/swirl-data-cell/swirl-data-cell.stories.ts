@@ -27,8 +27,20 @@ SwirlDataCell.args = {
   label: "Name",
   value: "John Doe",
   tooltip: "This is a tooltip",
-  icon: "<swirl-icon-person></swirl-icon-person>",
 };
+
+// Add media slot content to the default story
+SwirlDataCell.decorators = [
+  (story) => {
+    const element = story();
+    if (element) {
+      element.innerHTML = `
+        <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+      `;
+    }
+    return element;
+  },
+];
 
 export const MultipleCells = () => {
   const stack = generateStoryElement("swirl-data-cell-stack", {});
@@ -37,11 +49,20 @@ export const MultipleCells = () => {
     <!-- Basic cell -->
     <swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>
 
-    <!-- With icon -->
-    <swirl-data-cell label="Email" value="john.doe@example.com" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-data-cell>
+    <!-- With icon avatar -->
+    <swirl-data-cell label="Email" value="john.doe@example.com">
+      <swirl-avatar slot="media" label="Email" icon="<swirl-icon-mail></swirl-icon-mail>" size="s"></swirl-avatar>
+    </swirl-data-cell>
 
-    <!-- With image -->
-    <swirl-data-cell label="Avatar" value="John Doe" image="/sample-2.jpg"></swirl-data-cell>
+    <!-- With image avatar -->
+    <swirl-data-cell label="Avatar" value="John Doe">
+      <swirl-avatar slot="media" label="John Doe" src="/sample-2.jpg" size="s"></swirl-avatar>
+    </swirl-data-cell>
+
+    <!-- With avatar initials (placeholder while image loads) -->
+    <swirl-data-cell label="User" value="Jane Smith">
+      <swirl-avatar slot="media" label="Jane Smith" src="/sample-3.jpg" initials="JS" size="s"></swirl-avatar>
+    </swirl-data-cell>
 
     <!-- With tooltip -->
     <swirl-data-cell label="Status" value="Active" tooltip="This indicates the current status of the user"></swirl-data-cell>
@@ -52,7 +73,9 @@ export const MultipleCells = () => {
     </swirl-data-cell>
 
     <!-- Vertical layout -->
-    <swirl-data-cell label="Name" value="John Doe" vertical icon="<swirl-icon-person></swirl-icon-person>"></swirl-data-cell>
+    <swirl-data-cell label="Name" value="John Doe" vertical>
+      <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+    </swirl-data-cell>
 
     <!-- Label only -->
     <swirl-data-cell label="Description"></swirl-data-cell>
