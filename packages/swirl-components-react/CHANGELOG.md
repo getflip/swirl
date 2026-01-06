@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.423.1
+
+### Patch Changes
+
+- [#1365](https://github.com/getflip/swirl/pull/1365)
+  [`60320a04c`](https://github.com/getflip/swirl/commit/60320a04c4429e215dd1fb4cc5154f51011844c7)
+  Thanks [@paulrohrbeck](https://github.com/paulrohrbeck)! - Only add thumbnail
+  hover styles for devices that support it
+
+- Updated dependencies
+  [[`60320a04c`](https://github.com/getflip/swirl/commit/60320a04c4429e215dd1fb4cc5154f51011844c7)]:
+  - @getflip/swirl-components@0.423.1
+
 ## 0.423.0
 
 ### Minor Changes
