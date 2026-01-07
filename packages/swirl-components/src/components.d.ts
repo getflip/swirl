@@ -818,6 +818,23 @@ export namespace Components {
          */
         "toggleSidebar": () => Promise<void>;
     }
+    interface SwirlDataCell {
+        "label": string;
+        "tooltip"?: string;
+        "value"?: string;
+        /**
+          * @default false
+         */
+        "vertical"?: boolean;
+    }
+    interface SwirlDataCellStack {
+        "description"?: string;
+        /**
+          * @default false
+         */
+        "hideLabel"?: boolean;
+        "label"?: string;
+    }
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
@@ -5656,6 +5673,18 @@ declare global {
         prototype: HTMLSwirlConsoleLayoutElement;
         new (): HTMLSwirlConsoleLayoutElement;
     };
+    interface HTMLSwirlDataCellElement extends Components.SwirlDataCell, HTMLStencilElement {
+    }
+    var HTMLSwirlDataCellElement: {
+        prototype: HTMLSwirlDataCellElement;
+        new (): HTMLSwirlDataCellElement;
+    };
+    interface HTMLSwirlDataCellStackElement extends Components.SwirlDataCellStack, HTMLStencilElement {
+    }
+    var HTMLSwirlDataCellStackElement: {
+        prototype: HTMLSwirlDataCellStackElement;
+        new (): HTMLSwirlDataCellStackElement;
+    };
     interface HTMLSwirlDateInputElementEventMap {
         "invalidInput": string;
         "valueChange": string;
@@ -8910,6 +8939,8 @@ declare global {
         "swirl-color-input": HTMLSwirlColorInputElement;
         "swirl-columns": HTMLSwirlColumnsElement;
         "swirl-console-layout": HTMLSwirlConsoleLayoutElement;
+        "swirl-data-cell": HTMLSwirlDataCellElement;
+        "swirl-data-cell-stack": HTMLSwirlDataCellStackElement;
         "swirl-date-input": HTMLSwirlDateInputElement;
         "swirl-date-picker": HTMLSwirlDatePickerElement;
         "swirl-description-list": HTMLSwirlDescriptionListElement;
@@ -9972,6 +10003,23 @@ declare namespace LocalJSX {
          */
         "showNavigationButtonLabel"?: string;
         "subheading"?: string;
+    }
+    interface SwirlDataCell {
+        "label": string;
+        "tooltip"?: string;
+        "value"?: string;
+        /**
+          * @default false
+         */
+        "vertical"?: boolean;
+    }
+    interface SwirlDataCellStack {
+        "description"?: string;
+        /**
+          * @default false
+         */
+        "hideLabel"?: boolean;
+        "label"?: string;
     }
     interface SwirlDateInput {
         "autoFocus"?: boolean;
@@ -14149,6 +14197,8 @@ declare namespace LocalJSX {
         "swirl-color-input": SwirlColorInput;
         "swirl-columns": SwirlColumns;
         "swirl-console-layout": SwirlConsoleLayout;
+        "swirl-data-cell": SwirlDataCell;
+        "swirl-data-cell-stack": SwirlDataCellStack;
         "swirl-date-input": SwirlDateInput;
         "swirl-date-picker": SwirlDatePicker;
         "swirl-description-list": SwirlDescriptionList;
@@ -14632,6 +14682,8 @@ declare module "@stencil/core" {
             "swirl-color-input": LocalJSX.SwirlColorInput & JSXBase.HTMLAttributes<HTMLSwirlColorInputElement>;
             "swirl-columns": LocalJSX.SwirlColumns & JSXBase.HTMLAttributes<HTMLSwirlColumnsElement>;
             "swirl-console-layout": LocalJSX.SwirlConsoleLayout & JSXBase.HTMLAttributes<HTMLSwirlConsoleLayoutElement>;
+            "swirl-data-cell": LocalJSX.SwirlDataCell & JSXBase.HTMLAttributes<HTMLSwirlDataCellElement>;
+            "swirl-data-cell-stack": LocalJSX.SwirlDataCellStack & JSXBase.HTMLAttributes<HTMLSwirlDataCellStackElement>;
             "swirl-date-input": LocalJSX.SwirlDateInput & JSXBase.HTMLAttributes<HTMLSwirlDateInputElement>;
             "swirl-date-picker": LocalJSX.SwirlDatePicker & JSXBase.HTMLAttributes<HTMLSwirlDatePickerElement>;
             "swirl-description-list": LocalJSX.SwirlDescriptionList & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListElement>;
