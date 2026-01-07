@@ -14,12 +14,6 @@
   width: 100%;
 }
 
-.pagination--variant-simple {
-  & .pagination__list {
-    gap: 0;
-  }
-}
-
 .pagination__list {
   display: flex;
   margin: 0;
@@ -28,6 +22,7 @@
   align-items: center;
   line-height: var(--s-line-height-base);
   list-style: none;
+  gap: var(--s-space-4);
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);

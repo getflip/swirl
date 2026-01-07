@@ -1,5 +1,4 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
-import classnames from "classnames";
 import { debounce } from "../../utils";
 
 export type SwirlPaginationVariant = "default" | "simple" | "advanced";
@@ -113,14 +112,9 @@ export class SwirlPagination {
       this.pageLabel
     } ${this.pages.toLocaleString()}`;
 
-    const className = classnames(
-      "pagination",
-      `pagination--variant-${this.variant}`
-    );
-
     return (
       <Host>
-        <nav aria-label={this.label} class={className}>
+        <nav aria-label={this.label} class="pagination">
           <ul class="pagination__list" part="pagination__list">
             {this.showPageSizeSelect && (
               <li class="pagination__list-item">
