@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { closestPassShadow } from "../../utils";
 
 export type SwirlTableColumnSort = "ascending" | "descending";
-export type SwirlTableColumnVariant = "default" | "sunken";
+export type SwirlTableColumnVariant = "default" | "sunken" | "raised";
 
 /**
  * @slot slot - The column label.
@@ -44,6 +44,7 @@ export class SwirlTableColumn {
     const className = classNames("table-column", {
       "table-column--default": variant === "default",
       "table-column--sunken": variant === "sunken",
+      "table-column--raised": variant === "raised",
     });
 
     return (
