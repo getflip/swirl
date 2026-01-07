@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.424.0
+
+### Minor Changes
+
+- [#1362](https://github.com/getflip/swirl/pull/1362)
+  [`58cdb6d91`](https://github.com/getflip/swirl/commit/58cdb6d910d84a0a2b7ebda04f344ac7fd637745)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Implement
+  new `SwirlDataCellComponent` and `SwirlDataCellStackComponent`
+
+### Patch Changes
+
+- Updated dependencies
+  [[`58cdb6d91`](https://github.com/getflip/swirl/commit/58cdb6d910d84a0a2b7ebda04f344ac7fd637745)]:
+  - @getflip/swirl-components@0.424.0
+
 ## 0.423.1
 
 ### Patch Changes
