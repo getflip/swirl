@@ -12,7 +12,7 @@ describe("swirl-pagination", () => {
     expect(page.root).toEqualHtml(`
       <swirl-pagination label="Pagination" page="2" pages="20">
         <mock:shadow-root>
-          <nav aria-label="Pagination" class="pagination">
+          <nav aria-label="Pagination" class="pagination pagination--variant-default">
             <ul class="pagination__list" part="pagination__list">
               <li class="pagination__list-item">
                 <swirl-button class="pagination__first-page-button" hidelabel="" icon="<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>" intent="primary" label="First page"></swirl-button>
