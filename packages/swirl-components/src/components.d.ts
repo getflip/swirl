@@ -7812,6 +7812,8 @@ declare global {
         new (): HTMLSwirlSeparatorElement;
     };
     interface HTMLSwirlShellLayoutElementEventMap {
+        "historyBackClick": MouseEvent;
+        "historyForwardClick": MouseEvent;
         "skipLinkClick": MouseEvent;
     }
     interface HTMLSwirlShellLayoutElement extends Components.SwirlShellLayout, HTMLStencilElement {
@@ -12863,6 +12865,8 @@ declare namespace LocalJSX {
           * @default "Main"
          */
         "navigationLabel"?: string;
+        "onHistoryBackClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
+        "onHistoryForwardClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         /**
           * @default "Show less"

@@ -65,6 +65,8 @@ export class SwirlShellLayout {
   @Prop() secondaryNavExpandLabel?: string = "Show more";
   @Prop() skipLinkLabel?: string = "Skip to main content";
 
+  @Event() historyBackClick: EventEmitter<MouseEvent>;
+  @Event() historyForwardClick: EventEmitter<MouseEvent>;
   @Event() skipLinkClick: EventEmitter<MouseEvent>;
 
   @State() isDesktopViewport: boolean = true;
@@ -329,6 +331,7 @@ export class SwirlShellLayout {
               </swirl-tooltip>
               <a
                 class="shell-layout__header-tool"
+                onClick={this.historyBackClick.emit}
                 href="javascript:history.back()"
               >
                 <swirl-icon-arrow-back size={20}></swirl-icon-arrow-back>
@@ -338,6 +341,7 @@ export class SwirlShellLayout {
               </a>
               <a
                 class="shell-layout__header-tool"
+                onClick={this.historyForwardClick.emit}
                 href="javascript:history.forward()"
               >
                 <swirl-icon-arrow-forward size={20}></swirl-icon-arrow-forward>
