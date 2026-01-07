@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Fix swirl-pagination items gap in light and dark mode
+Fix swirl-button ghost variant disabled background-colour
