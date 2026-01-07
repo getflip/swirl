@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.425.0
+
+### Minor Changes
+
+- [#1372](https://github.com/getflip/swirl/pull/1372)
+  [`b93b279d0`](https://github.com/getflip/swirl/commit/b93b279d03fdac619e44f9c45c361f1d59400441)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "historyBackClick" and
+  "historyForwardClick" events to swirl-shell-layout
+
+* [#1369](https://github.com/getflip/swirl/pull/1369)
+  [`d72b624ab`](https://github.com/getflip/swirl/commit/d72b624ab7b33bf83f32fe20e3c801f8090a936a)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add table column
+  raised variant
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b93b279d0`](https://github.com/getflip/swirl/commit/b93b279d03fdac619e44f9c45c361f1d59400441),
+  [`d72b624ab`](https://github.com/getflip/swirl/commit/d72b624ab7b33bf83f32fe20e3c801f8090a936a)]:
+  - @getflip/swirl-components@0.425.0
+
 ## 0.424.0
 
 ### Minor Changes
