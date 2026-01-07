@@ -1,10 +1,16 @@
 :host {
+  --swirl-table-shadow-rgba: rgba(23, 23, 23, 0.04);
+
   position: relative;
   display: block;
 
   & * {
     box-sizing: border-box;
   }
+}
+
+:host-context(html.theme-dark) {
+  --swirl-table-shadow-rgba: rgba(0, 0, 0, 0.32);
 }
 
 .table--keyboard-move {
@@ -27,13 +33,14 @@
 }
 
 .table__container--scrolled {
-  --swirl-table-sticky-right-shadow: 4px 0 16px -4px rgba(23, 23, 23, 0.04),
-    2px 0 4px -2px rgba(23, 23, 23, 0.04);
+  --swirl-table-sticky-right-shadow: 4px 0 16px -4px var(--swirl-table-shadow-rgba),
+    2px 0 4px -2px var(--swirl-table-shadow-rgba);
 }
 
 .table__container--scrollable:not(.table__container--scrolled-to-end) {
-  --swirl-table-sticky-left-shadow: 0px 4px 16px 0px rgba(23, 23, 23, 0.04),
-    0px 1px 4px 0px rgba(23, 23, 23, 0.04);
+  --swirl-table-sticky-left-shadow: 0px 4px 16px 0px
+      var(--swirl-table-shadow-rgba),
+    0px 1px 4px 0px var(--swirl-table-shadow-rgba);
 }
 
 .table__table {
