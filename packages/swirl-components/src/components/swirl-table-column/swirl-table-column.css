@@ -47,6 +47,10 @@
     background-color: var(--s-surface-sunken-default);
   }
 
+  &(.table-column--raised) {
+    background-color: var(--s-surface-raised-default);
+  }
+
   & * {
     box-sizing: border-box;
   }
