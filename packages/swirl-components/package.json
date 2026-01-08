@@ -61,7 +61,7 @@
     "shave": "5.0.2",
     "sortablejs": "1.15.6",
     "vanilla-colorful": "0.7.2",
-    "wc-datepicker": "0.5.3"
+    "wc-datepicker": "0.9.3"
   },
   "devDependencies": {
     "@babel/core": "7.23.0",

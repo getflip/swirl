@@ -24790,10 +24790,10 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-wc-datepicker@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/wc-datepicker/-/wc-datepicker-0.5.3.tgz#92dc5faffb9e98c6421472a80304f3775d68747f"
-  integrity sha512-SiQaTV6yZwcVcF3oODA1SEoOa/EnCSO5PnwQi+mDCAkrqhdGMdimKrqzRHbE0zZCrNhFAWnV+ZW6vbTDQe0VpQ==
+wc-datepicker@0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/wc-datepicker/-/wc-datepicker-0.9.3.tgz#001ab4be271807e0f8aa57a598b1df83f562d653"
+  integrity sha512-Fsg6m1Ho+tQ2AJmTgQLm00bUU9S/eQp9+ps0OtSiGBYX5/85lMZazRdzpQTTPM0ouE9mT11bta+pQh34moLXuA==
   dependencies:
     "@stencil/core" "^2.13.0"
 
