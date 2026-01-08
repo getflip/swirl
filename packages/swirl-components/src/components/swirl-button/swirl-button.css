@@ -48,8 +48,11 @@
   &:disabled,
   &.button--disabled {
     color: var(--s-text-disabled);
-    background-color: var(--swirl-ghost-button-background-disabled);
     cursor: default;
+
+    &:where(:not(.button--variant-ghost)) {
+      background-color: var(--swirl-ghost-button-background-disabled);
+    }
 
     & .button__icon {
       color: var(--s-icon-disabled);
@@ -423,7 +426,8 @@
 
 .button--variant-translucent {
   color: var(--s-text-default);
-  outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
+  outline: var(--s-border-width-default) solid
+    var(--s-border-translucent-outline);
   outline-offset: calc(var(--s-border-width-default) * -1);
   background: var(--s-translucent-medium-default);
   box-shadow: var(--s-shadow-level-2);
@@ -451,7 +455,6 @@
     }
   }
 }
-
 
 .button--icon-position-end {
   & .button__icon {
