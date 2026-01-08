@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.426.0
+
+### Minor Changes
+
+- [#1375](https://github.com/getflip/swirl/pull/1375)
+  [`1cf082b28`](https://github.com/getflip/swirl/commit/1cf082b283bdd91a7b64fc75d4f65493d2ce8a44)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Upgrade to latest wc-datepicker
+  version to fix accessibility issues
+
+### Patch Changes
+
+- [#1371](https://github.com/getflip/swirl/pull/1371)
+  [`ac3f07784`](https://github.com/getflip/swirl/commit/ac3f07784b5f046eda86679b2e45391f790ded4f)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix swirl-button
+  ghost variant disabled background-colour
+
+- Updated dependencies
+  [[`ac3f07784`](https://github.com/getflip/swirl/commit/ac3f07784b5f046eda86679b2e45391f790ded4f),
+  [`1cf082b28`](https://github.com/getflip/swirl/commit/1cf082b283bdd91a7b64fc75d4f65493d2ce8a44)]:
+  - @getflip/swirl-components@0.426.0
+
 ## 0.425.0
 
 ### Minor Changes
