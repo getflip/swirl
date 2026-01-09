@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.426.1
+
+### Patch Changes
+
+- [#1373](https://github.com/getflip/swirl/pull/1373)
+  [`1f0b3bdd4`](https://github.com/getflip/swirl/commit/1f0b3bdd47edc59b04ba142fa9e32f8078e1232e)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix missing shadow in
+  table sticky columns for dark mode
+
+- Updated dependencies
+  [[`1f0b3bdd4`](https://github.com/getflip/swirl/commit/1f0b3bdd47edc59b04ba142fa9e32f8078e1232e)]:
+  - @getflip/swirl-components@0.426.1
+
 ## 0.426.0
 
 ### Minor Changes
