@@ -1,5 +1,5 @@
 :host {
-  --swirl-table-shadow-rgba: rgba(23, 23, 23, 0.04);
+  --swirl-table-shadow-rgba: rgba(23, 23, 23, 0.2);
 
   position: relative;
   display: block;
@@ -10,7 +10,7 @@
 }
 
 :host-context(html.theme-dark) {
-  --swirl-table-shadow-rgba: rgba(0, 0, 0, 0.32);
+  --swirl-table-shadow-rgba: rgba(0, 0, 0, 0.2);
 }
 
 .table--keyboard-move {
