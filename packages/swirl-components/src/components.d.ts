@@ -48,7 +48,7 @@ import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./compo
 import { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
+import { SwirlPopoverAnimation, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
 import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
@@ -128,7 +128,7 @@ export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./compo
 export { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
+export { SwirlPopoverAnimation, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
 export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
@@ -3459,7 +3459,7 @@ export namespace Components {
           * Open the popover.
           * @returns
          */
-        "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
+        "open": (triggerEl?: HTMLElement, disableFocus?: boolean, via?: SwirlPopoverControlMethod) => Promise<void>;
         /**
           * @default true
          */
@@ -3476,7 +3476,7 @@ export namespace Components {
         /**
           * Toggles the popover.
          */
-        "toggle": (triggerEl?: HTMLElement) => Promise<void>;
+        "toggle": (triggerEl?: HTMLElement, via?: SwirlPopoverControlMethod) => Promise<void>;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;

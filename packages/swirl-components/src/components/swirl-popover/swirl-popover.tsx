@@ -30,6 +30,8 @@ import {
 
 export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
 
+export type SwirlPopoverControlMethod = "click" | "hover" | "programmatic";
+
 /**
  * @slot slot - The popover content.
  */
@@ -66,6 +68,7 @@ export class SwirlPopover {
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
+  private openedVia?: SwirlPopoverControlMethod;
   private scrollContainer: HTMLDivElement;
   private triggerEl: HTMLElement | undefined;
 
@@ -187,7 +190,8 @@ export class SwirlPopover {
     setTimeout(() => {
       this.active = false;
       this.closing = false;
-      this.updateTriggerAttributes();
+      this.updateTriggerAttributes(this.openedVia);
+      this.openedVia = undefined;
     }, 150);
 
     this.unlockBodyScroll();
@@ -202,7 +206,11 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async open(triggerEl?: HTMLElement, disableFocus?: boolean) {
+  public async open(
+    triggerEl?: HTMLElement,
+    disableFocus?: boolean,
+    via?: SwirlPopoverControlMethod
+  ) {
     this.triggerEl = triggerEl || this.triggerEl;
 
     if (this.active || !Boolean(this.triggerEl)) {
@@ -212,8 +220,9 @@ export class SwirlPopover {
     this.adjustWidth();
 
     this.active = true;
+    this.openedVia = via;
 
-    this.updateTriggerAttributes();
+    this.updateTriggerAttributes(via);
 
     const focusableChildren = this.getFocusableChildren();
 
@@ -256,11 +265,14 @@ export class SwirlPopover {
    * Toggles the popover.
    */
   @Method()
-  public async toggle(triggerEl?: HTMLElement) {
+  public async toggle(
+    triggerEl?: HTMLElement,
+    via?: SwirlPopoverControlMethod
+  ) {
     if (this.active) {
       this.close();
     } else {
-      this.open(triggerEl);
+      this.open(triggerEl, undefined, via);
     }
   }
 
@@ -313,15 +325,23 @@ export class SwirlPopover {
     }
   };
 
-  private updateTriggerAttributes() {
+  private updateTriggerAttributes(
+    controlledVia?: "click" | "hover" | "programmatic"
+  ) {
     if (!Boolean(this.triggerEl)) {
       return;
     }
 
     const nativeTriggerEl = this.getNativeTriggerElement();
 
-    nativeTriggerEl.setAttribute("aria-controls", this.el.id);
-    nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
+    if (controlledVia !== "hover") {
+      nativeTriggerEl.setAttribute("aria-controls", this.el.id);
+      nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
+    } else {
+      nativeTriggerEl.removeAttribute("aria-controls");
+      nativeTriggerEl.removeAttribute("aria-expanded");
+    }
+
     nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 

@@ -64,6 +64,8 @@ export class SwirlPopoverTrigger {
 
   @Watch("triggerOnHover")
   watchHover() {
+    this.updateTriggerElAriaAttributes();
+
     clearTimeout(this.hoverDelayReference);
     clearTimeout(this.hoverLingerReference);
   }
@@ -130,7 +132,7 @@ export class SwirlPopoverTrigger {
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
-    popoverEl.open(triggerEl, true);
+    popoverEl.open(triggerEl, true, "hover");
 
     popoverEl.addEventListener(
       "popoverOpen",
@@ -179,7 +181,7 @@ export class SwirlPopoverTrigger {
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
-    popoverEl.toggle(triggerEl);
+    popoverEl.toggle(triggerEl, "click");
 
     popoverEl.addEventListener(
       "popoverOpen",
@@ -212,12 +214,24 @@ export class SwirlPopoverTrigger {
     const popoverId = this.getPopoverEl()?.id;
 
     if (triggerEl.tagName.startsWith("SWIRL-")) {
-      triggerEl.setAttribute("swirl-aria-controls", popoverId);
-      triggerEl.setAttribute("swirl-aria-expanded", String(open || "false"));
+      if (!this.triggerOnHover) {
+        triggerEl.setAttribute("swirl-aria-controls", popoverId);
+        triggerEl.setAttribute("swirl-aria-expanded", String(open || "false"));
+      } else {
+        triggerEl.removeAttribute("swirl-aria-controls");
+        triggerEl.removeAttribute("swirl-aria-expanded");
+      }
+
       triggerEl.setAttribute("swirl-aria-haspopup", "dialog");
     } else {
-      triggerEl.setAttribute("aria-controls", popoverId);
-      triggerEl.setAttribute("aria-expanded", String(open || "false"));
+      if (!this.triggerOnHover) {
+        triggerEl.setAttribute("aria-controls", popoverId);
+        triggerEl.setAttribute("aria-expanded", String(open || "false"));
+      } else {
+        triggerEl.removeAttribute("aria-controls");
+        triggerEl.removeAttribute("aria-expanded");
+      }
+
       triggerEl.setAttribute("aria-haspopup", "dialog");
     }
   };
