@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.426.2
+
+### Patch Changes
+
+- [#1377](https://github.com/getflip/swirl/pull/1377)
+  [`acb770af2`](https://github.com/getflip/swirl/commit/acb770af23dc6703d462d675c8d45eca079b009b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Don't set aria-expanded for
+  swirl-popover-trigger if related popover is triggered on hover
+
 ## 0.426.1
 
 ### Patch Changes
