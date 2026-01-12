@@ -11,12 +11,9 @@ describe("swirl-modal", () => {
 
     expect(page.root).toEqualHtml(`
      <swirl-modal label="Dialog">
-  <section
-    aria-hidden="true"
+  <dialog
     aria-label="Dialog"
-    aria-modal="true"
     class="modal modal--padded modal--sidebar-footer-padded modal--sidebar-padded modal--variant-default"
-    role="dialog"
   >
     <div class="modal__backdrop"></div>
     <div class="modal__body">
@@ -52,7 +49,7 @@ describe("swirl-modal", () => {
         <div class="modal__custom-footer"></div>
       </div>
     </div>
-  </section>
+  </dialog>
 </swirl-modal>
     `);
   });
@@ -101,12 +98,9 @@ describe("swirl-modal", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-modal has-sidebar-close-button="true" label="Dialog" sidebar-label="Sidebar label">
-   <section
-     aria-hidden="true"
+   <dialog
      aria-label="Dialog"
-     aria-modal="true"
      class="modal modal--has-sidebar-content modal--padded modal--sidebar-footer-padded modal--sidebar-padded modal--variant-default"
-     role="dialog"
    >
      <div class="modal__backdrop"></div>
      <div class="modal__body">
@@ -152,7 +146,7 @@ describe("swirl-modal", () => {
          <div class="modal__custom-footer"></div>
        </div>
      </div>
-   </section>
+   </dialog>
  </swirl-modal>
      `);
 

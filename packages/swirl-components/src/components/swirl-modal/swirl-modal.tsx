@@ -12,9 +12,7 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import * as focusTrap from "focus-trap";
 import { tabbable } from "tabbable";
-import { getActiveElement } from "../../utils";
 
 export type SwirlModalVariant = "default" | "drawer";
 
@@ -90,7 +88,7 @@ export class SwirlModal {
   @Event() secondaryAction: EventEmitter<MouseEvent>;
   @Event() sidebarClose: EventEmitter<void>;
 
-  @State() isOpen = false;
+  @State() opening = false;
   @State() isFullscreen = false;
   @State() isFullscreenTransitioning = false;
   @State() closing = false;
@@ -107,13 +105,14 @@ export class SwirlModal {
   @State() sidebarScrolledDown = false;
   @State() sidebarScrollable = false;
 
-  private focusTrap: focusTrap.FocusTrap | undefined;
-  private modalEl: HTMLElement;
+  private modalEl: HTMLDialogElement;
   private scrollContainer: HTMLElement;
   private sidebarScrollContainer: HTMLElement;
   private mutationObserver: MutationObserver;
 
   componentDidLoad() {
+    this.ensureOpening();
+    this.setDialogCustomProps();
     this.determineScrollStatus();
 
     this.updateCustomFooterStatus();
@@ -124,13 +123,11 @@ export class SwirlModal {
     this.updateSidebarFooterStatus();
   }
 
-  componentDidRender() {
-    this.focusTrap?.updateContainerElements(this.modalEl);
-  }
-
   disconnectedCallback() {
-    this.focusTrap?.deactivate();
     this.mutationObserver?.disconnect();
+    if (this.modalEl?.open) {
+      this.modalEl.close();
+    }
     this.unlockBodyScroll();
   }
 
@@ -144,26 +141,28 @@ export class SwirlModal {
    */
   @Method()
   async open() {
-    this.isOpen = true;
-    this.modalOpen.emit();
-    this.setupFocusTrap();
+    this.opening = true;
     this.setupMutationObserver();
 
-    setTimeout(() => {
-      this.lockBodyScroll();
-      this.determineScrollStatus();
-    });
+    requestAnimationFrame(() => {
+      if (!this.modalEl) {
+        return;
+      }
 
-    setTimeout(() => {
-      this.focusTrap?.activate();
+      this.modalEl.showModal();
+      this.modalOpen.emit();
       this.mutationObserver.observe(this.modalEl, {
         subtree: true,
         childList: true,
       });
-      this.handleAutoFocus();
-    }, 200);
-  }
+      this.lockBodyScroll();
+      this.determineScrollStatus();
 
+      setTimeout(() => {
+        this.handleAutoFocus();
+      }, 200);
+    });
+  }
   /**
    * Close the modal. Pass `true` to force close even if the modal is not closable.
    */
@@ -183,11 +182,8 @@ export class SwirlModal {
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.focusTrap?.deactivate();
       this.mutationObserver?.disconnect();
-      this.isOpen = false;
-      this.modalClose.emit();
-      this.closing = false;
+      this.modalEl.close();
     }, 150);
   }
 
@@ -207,8 +203,15 @@ export class SwirlModal {
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
+      event.preventDefault();
       this.close();
     }
+  };
+
+  private onClose = () => {
+    this.closing = false;
+    this.unlockBodyScroll();
+    this.modalClose.emit();
   };
 
   private onBackdropClick = () => {
@@ -336,26 +339,9 @@ export class SwirlModal {
     disableBodyScroll(this.sidebarScrollContainer);
   }
 
-  private setupFocusTrap() {
-    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
-      allowOutsideClick: true,
-      setReturnFocus: getActiveElement() as HTMLElement,
-
-      // We don't always close the modal when ESC is pressed. So we manage the
-      // deactivation of the focus trap manually.
-      escapeDeactivates: false,
-
-      tabbableOptions: {
-        getShadowRoot: (node) => {
-          return node.shadowRoot;
-        },
-      },
-    });
-  }
-
   private setupMutationObserver() {
     this.mutationObserver = new MutationObserver(() => {
-      if (!this.isOpen) {
+      if (!this.modalEl?.open) {
         return;
       }
 
@@ -373,6 +359,18 @@ export class SwirlModal {
 
     if (this.sidebarScrollContainer) {
       enableBodyScroll(this.sidebarScrollContainer);
+    }
+  }
+
+  private ensureOpening() {
+    if (this.opening && !this.modalEl?.open) {
+      this.open();
+    }
+  }
+
+  private setDialogCustomProps() {
+    if (!this.closable) {
+      this.modalEl.setAttribute("closedby", "none");
     }
   }
 
@@ -411,13 +409,11 @@ export class SwirlModal {
 
     return (
       <Host>
-        <section
-          aria-hidden={String(!this.isOpen)}
+        <dialog
           aria-label={this.label}
-          aria-modal="true"
           class={className}
+          onClose={this.onClose}
           onKeyDown={this.onKeyDown}
-          role="dialog"
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
@@ -604,7 +600,7 @@ export class SwirlModal {
               )}
             </div>
           </div>
-        </section>
+        </dialog>
       </Host>
     );
   }

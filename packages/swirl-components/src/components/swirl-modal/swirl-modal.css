@@ -47,7 +47,20 @@
   height: var(--swirl-modal-view-height);
   inset: 0;
 
-  &[aria-hidden="true"] {
+  /* Reset default dialog styles */
+  border: none;
+  padding: 0;
+  width: auto;
+  background: transparent;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+
+  &::backdrop {
+    display: none;
+  }
+
+  &:not([open]) {
     display: none;
   }
 }
