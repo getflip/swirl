@@ -25,6 +25,16 @@
 
 .tag--size-s {
   padding: var(--s-space-0) var(--s-space-4);
+
+  &.tag--icon-position-end {
+    & .tag__icon {
+      margin-right: calc(-1 * var(--s-space-2));
+    }
+  }
+
+  & .tag__icon {
+    margin-left: calc(-1 * var(--s-space-2));
+  }
 }
 
 .tag--size-m {
