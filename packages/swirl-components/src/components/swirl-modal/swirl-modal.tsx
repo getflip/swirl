@@ -13,6 +13,7 @@ import {
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
+import { tabbable } from "tabbable";
 import { getActiveElement } from "../../utils";
 
 export type SwirlModalVariant = "default" | "drawer";
@@ -110,6 +111,7 @@ export class SwirlModal {
   private modalEl: HTMLElement;
   private scrollContainer: HTMLElement;
   private sidebarScrollContainer: HTMLElement;
+  private mutationObserver: MutationObserver;
 
   componentDidLoad() {
     this.determineScrollStatus();
@@ -128,6 +130,7 @@ export class SwirlModal {
 
   disconnectedCallback() {
     this.focusTrap?.deactivate();
+    this.mutationObserver?.disconnect();
     this.unlockBodyScroll();
   }
 
@@ -144,6 +147,7 @@ export class SwirlModal {
     this.isOpen = true;
     this.modalOpen.emit();
     this.setupFocusTrap();
+    this.setupMutationObserver();
 
     setTimeout(() => {
       this.lockBodyScroll();
@@ -152,6 +156,10 @@ export class SwirlModal {
 
     setTimeout(() => {
       this.focusTrap?.activate();
+      this.mutationObserver.observe(this.modalEl, {
+        subtree: true,
+        childList: true,
+      });
       this.handleAutoFocus();
     }, 200);
   }
@@ -176,6 +184,7 @@ export class SwirlModal {
 
     setTimeout(() => {
       this.focusTrap?.deactivate();
+      this.mutationObserver?.disconnect();
       this.isOpen = false;
       this.modalClose.emit();
       this.closing = false;
@@ -341,6 +350,19 @@ export class SwirlModal {
           return node.shadowRoot;
         },
       },
+    });
+  }
+
+  private setupMutationObserver() {
+    this.mutationObserver = new MutationObserver(() => {
+      if (!this.isOpen) {
+        return;
+      }
+
+      // If focus moved to body, restore it
+      if (document.activeElement === document.body) {
+        tabbable(this.modalEl).at(0)?.focus();
+      }
     });
   }
 
