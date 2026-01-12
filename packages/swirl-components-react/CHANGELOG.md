@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.426.3
+
+### Patch Changes
+
+- [#1379](https://github.com/getflip/swirl/pull/1379)
+  [`c3fc293ea`](https://github.com/getflip/swirl/commit/c3fc293ea7d2450d857806a524b998966974ea61)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix icon padding for swirl-tag
+  with size "s"
+
+- Updated dependencies
+  [[`c3fc293ea`](https://github.com/getflip/swirl/commit/c3fc293ea7d2450d857806a524b998966974ea61)]:
+  - @getflip/swirl-components@0.426.3
+
 ## 0.426.2
 
 ### Patch Changes
