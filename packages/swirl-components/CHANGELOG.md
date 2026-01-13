@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.426.4
+
+### Patch Changes
+
+- [#1381](https://github.com/getflip/swirl/pull/1381)
+  [`bd4144a93`](https://github.com/getflip/swirl/commit/bd4144a934a1afda199ba684a6c3e84de4c11a16)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Patch Angular (19.2.18,
+  CVE-2025-66412)
+
 ## 0.426.3
 
 ### Patch Changes
