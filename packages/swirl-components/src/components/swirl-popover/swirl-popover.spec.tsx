@@ -51,7 +51,7 @@ describe("swirl-popover", () => {
         </swirl-popover-trigger>
         <swirl-popover id="popover" label="Popover" style="display: none;">
           <mock:shadow-root>
-            <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined">
+            <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined" popover="manual">
               <div aria-hidden="true" aria-label="Popover" class="popover__content" part="popover__content" role="dialog" tabindex="-1">
                 <span class="popover__handle"></span>
                 <div class="popover__scroll-container" part="popover__scroll-container">
