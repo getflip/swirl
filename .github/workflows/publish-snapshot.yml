@@ -1,0 +1,38 @@
+name: Publish Snapshot
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Snapshot tag (e.g., feature, beta, next)'
+        required: true
+        default: 'snapshot'
+
+jobs:
+  snapshot:
+    name: Publish snapshot release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: yarn install --ignore-scripts
+
+      - name: Build packages
+        run: yarn build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+
+      - name: Create snapshot versions
+        run: npx changeset version --snapshot ${{ github.event.inputs.tag }}
+
+      - name: Publish snapshot to npm
+        run: npx changeset publish --tag ${{ github.event.inputs.tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
