@@ -36,6 +36,7 @@ SwirlDataCell.decorators = [
     if (element) {
       element.innerHTML = `
         <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+        <swirl-tag slot="suffix" label="Active" intent="success"></swirl-tag>
       `;
     }
     return element;
@@ -69,7 +70,10 @@ export const MultipleCells = () => {
 
     <!-- With suffix -->
     <swirl-data-cell label="Name" value="John Doe">
-      <swirl-button slot="suffix" label="Edit" variant="plain" icon="<swirl-icon-edit></swirl-icon-edit>" hide-label></swirl-button>
+    <swirl-button-group slot="suffix">
+      <swirl-button label="Edit" variant="plain" icon="<swirl-icon-edit></swirl-icon-edit>" hide-label></swirl-button>
+      <swirl-button label="Delete" variant="plain" icon="<swirl-icon-delete></swirl-icon-delete>" hide-label></swirl-button>
+    </swirl-button-group>
     </swirl-data-cell>
 
     <!-- Vertical layout -->
