@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 
@@ -19,7 +19,57 @@ export class SwirlDataCell {
   @Prop() value?: string;
   @Prop() vertical?: boolean = false;
 
+  @State() isValueTruncated: boolean = false;
+
   private elementId = `data-cell-${uuid()}`;
+  private valueElement: HTMLElement;
+  private resizeObserver: ResizeObserver;
+
+  componentDidLoad() {
+    this.initResizeObserver();
+  }
+
+  componentDidUpdate() {
+    requestAnimationFrame(() => {
+      this.checkValueTruncation();
+    });
+  }
+
+  disconnectedCallback() {
+    this.resizeObserver?.disconnect();
+  }
+
+  private initResizeObserver() {
+    if (!this.resizeObserver) {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.checkValueTruncation();
+      });
+    }
+
+    requestAnimationFrame(() => {
+      if (this.valueElement) {
+        this.checkValueTruncation();
+        this.resizeObserver.observe(this.valueElement);
+      }
+    });
+  }
+
+  private setValueElementRef = (el: HTMLElement) => {
+    this.valueElement = el;
+    if (el && !this.resizeObserver) {
+      this.initResizeObserver();
+    }
+  };
+
+  private checkValueTruncation() {
+    if (!this.valueElement || this.vertical || !this.value) {
+      this.isValueTruncated = false;
+      return;
+    }
+
+    this.isValueTruncated =
+      this.valueElement.scrollWidth > this.valueElement.clientWidth;
+  }
 
   render() {
     const hasMedia = Boolean(this.el.querySelector('[slot="media"]'));
@@ -69,7 +119,21 @@ export class SwirlDataCell {
                 aria-labelledby={labelId}
                 id={valueId}
               >
-                {this.value && <div class="data-cell__value">{this.value}</div>}
+                {this.value &&
+                  (this.isValueTruncated && !this.vertical ? (
+                    <swirl-tooltip content={this.value} position="top">
+                      <div
+                        class="data-cell__value"
+                        ref={this.setValueElementRef}
+                      >
+                        {this.value}
+                      </div>
+                    </swirl-tooltip>
+                  ) : (
+                    <div class="data-cell__value" ref={this.setValueElementRef}>
+                      {this.value}
+                    </div>
+                  ))}
                 {hasSuffix && (
                   <div class="data-cell__suffix">
                     <slot name="suffix"></slot>
