@@ -1,19 +1,14 @@
-name: Publish Snapshot
+name: Publish beta release
 
 permissions:
   contents: read
 
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Snapshot tag (e.g., feature, beta, next)'
-        required: true
-        default: 'snapshot'
 
 jobs:
   snapshot:
-    name: Publish snapshot release
+    name: Publish beta release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,11 +25,11 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Create snapshot versions
-        run: npx changeset version --snapshot ${{ github.event.inputs.tag }}
+        run: npx changeset version --snapshot beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish snapshot to npm
-        run: npx changeset publish --tag ${{ github.event.inputs.tag }}
+        run: npx changeset publish --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
