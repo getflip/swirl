@@ -14,6 +14,7 @@ describe("swirl-modal", () => {
   <dialog
     aria-label="Dialog"
     class="modal modal--padded modal--sidebar-footer-padded modal--sidebar-padded modal--variant-default"
+    closedby="none"
   >
     <div class="modal__backdrop"></div>
     <div class="modal__body">
@@ -101,6 +102,7 @@ describe("swirl-modal", () => {
    <dialog
      aria-label="Dialog"
      class="modal modal--has-sidebar-content modal--padded modal--sidebar-footer-padded modal--sidebar-padded modal--variant-default"
+     closedby="none"
    >
      <div class="modal__backdrop"></div>
      <div class="modal__body">

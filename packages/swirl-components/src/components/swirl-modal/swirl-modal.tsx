@@ -369,9 +369,7 @@ export class SwirlModal {
   }
 
   private setDialogCustomProps() {
-    if (!this.closable) {
-      this.modalEl.setAttribute("closedby", "none");
-    }
+    this.modalEl.setAttribute("closedby", "none");
   }
 
   render() {
