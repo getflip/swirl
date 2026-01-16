@@ -3,6 +3,7 @@
 :host {
   position: relative;
   z-index: var(--s-z-40);
+  display: contents;
 
   & * {
     box-sizing: border-box;
@@ -17,6 +18,16 @@
   --swirl-resource-list-item-background-pressed: var(
     --s-surface-overlay-pressed
   );
+}
+
+.popover {
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  &::backdrop {
+    display: none;
+  }
 }
 
 .popover--active:not(.popover--closing) {
