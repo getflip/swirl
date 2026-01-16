@@ -5,6 +5,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Method,
   Prop,
   State,
   Watch,
@@ -95,6 +96,11 @@ export class SwirlResourceList {
   watchAllowDrag() {
     this.setItemAllowDragState();
     this.setupDragDrop();
+  }
+
+  @Method()
+  async resetFocus() {
+    this.focusItemAtIndex(0);
   }
 
   private collectItems() {

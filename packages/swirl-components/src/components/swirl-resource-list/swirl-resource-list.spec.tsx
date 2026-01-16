@@ -177,4 +177,36 @@ describe("swirl-resource-list", () => {
 
     expect(assistiveText.innerHTML).toBe("Current position: 1");
   });
+
+  it("resets focus to the first item", async () => {
+    const page = await newSpecPage({
+      components: [SwirlResourceList, SwirlResourceListItem],
+      html: template,
+    });
+
+    const items = Array.from(
+      page.root.querySelectorAll("swirl-resource-list-item")
+    );
+
+    const interactiveElements = items.map((item) =>
+      item.querySelector<HTMLElement>(".resource-list-item__content")
+    );
+
+    // update focused index with arrow down key
+    page.root.dispatchEvent(
+      new KeyboardEvent("keydown", { code: "ArrowDown" })
+    );
+    await page.waitForChanges();
+
+    expect(interactiveElements[0].getAttribute("tabIndex")).toBe("-1");
+    expect(interactiveElements[1].getAttribute("tabIndex")).toBe("0");
+
+    const component: SwirlResourceList = page.rootInstance;
+    await component.resetFocus();
+    await page.waitForChanges();
+
+    // verify tabIndex is updated to the first item
+    expect(interactiveElements[0].getAttribute("tabIndex")).toBe("0");
+    expect(interactiveElements[1].getAttribute("tabIndex")).toBe("-1");
+  });
 });
