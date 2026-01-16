@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.427.0
+
+### Minor Changes
+
+- [#1387](https://github.com/getflip/swirl/pull/1387)
+  [`512db747d`](https://github.com/getflip/swirl/commit/512db747d42b9ff3f83fb5c521667de3bc08a661)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add
+  resetFocus method o swirl-resource-list
+
+### Patch Changes
+
+- [#1382](https://github.com/getflip/swirl/pull/1382)
+  [`563d55f65`](https://github.com/getflip/swirl/commit/563d55f6534886d22740e8b1cc1db0c0dcb5a919)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure focus is
+  restores when focused element is removed from DOM in swirl-modal
+
+- Updated dependencies
+  [[`512db747d`](https://github.com/getflip/swirl/commit/512db747d42b9ff3f83fb5c521667de3bc08a661),
+  [`563d55f65`](https://github.com/getflip/swirl/commit/563d55f6534886d22740e8b1cc1db0c0dcb5a919)]:
+  - @getflip/swirl-components@0.427.0
+
 ## 0.426.4
 
 ### Patch Changes
