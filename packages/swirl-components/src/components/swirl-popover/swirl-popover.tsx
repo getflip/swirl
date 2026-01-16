@@ -66,6 +66,7 @@ export class SwirlPopover {
   @Event() popoverClose: EventEmitter<void>;
   @Event() popoverOpen: EventEmitter<{ position: ComputePositionReturn }>;
 
+  private popoverEl: HTMLElement;
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
   private openedVia?: SwirlPopoverControlMethod;
@@ -188,6 +189,8 @@ export class SwirlPopover {
     this.closing = true;
 
     setTimeout(() => {
+      this.popoverEl?.hidePopover();
+
       this.active = false;
       this.closing = false;
       this.updateTriggerAttributes(this.openedVia);
@@ -227,6 +230,8 @@ export class SwirlPopover {
     const focusableChildren = this.getFocusableChildren();
 
     requestAnimationFrame(async () => {
+      this.popoverEl?.showPopover();
+
       await this.reposition();
 
       this.popoverOpen.emit({ position: this.position });
@@ -461,8 +466,13 @@ export class SwirlPopover {
     );
 
     return (
-      <Host style={{ display: this.active ? "inline-flex" : "none" }}>
-        <div class={className} onKeyDown={this.onKeydown}>
+      <Host>
+        <div
+          popover="manual"
+          class={className}
+          onKeyDown={this.onKeydown}
+          ref={(el) => (this.popoverEl = el)}
+        >
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
