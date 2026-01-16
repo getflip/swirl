@@ -15,6 +15,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:packages": "turbo run build --filter='./packages/*'",
     "dev": "turbo run dev --parallel --filter='!error-code-generator' --filter='!swirl-components-angular' --filter='!swirl-components-react' --filter='!swirl-docs'",
     "dev:docs": "turbo run dev --filter='swirl-docs'",
     "lint": "turbo run lint",
@@ -26,7 +27,7 @@
     "changeset": "changeset",
     "generate": "cd packages/swirl-components && yarn generate",
     "prepare-dart-packages": "node packages/swirl-tokens/scripts/update-dart-package-version.js && node packages/swirl-icons/scripts/update-dart-package-version.js",
-    "release": "turbo run build --filter=!swirl-docs && changeset publish",
+    "release": "yarn build:packages && changeset publish",
     "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
     "prebuild": "patch-package"
   },

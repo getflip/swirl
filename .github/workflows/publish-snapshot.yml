@@ -25,12 +25,14 @@ jobs:
       - run: yarn install --ignore-scripts
 
       - name: Build packages
-        run: yarn build
+        run: yarn build:packages
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Create snapshot versions
         run: npx changeset version --snapshot ${{ github.event.inputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish snapshot to npm
         run: npx changeset publish --tag ${{ github.event.inputs.tag }}
