@@ -48,13 +48,6 @@ flex-direction: row-reverse;
   gap: var(--s-space-4);
 }
 
-
-
-.data-cell--no-label .data-cell__content,
-.data-cell--no-label .data-cell__value-wrapper,
-.data-cell--no-label .data-cell__input {
-  width: 100%;
-}
 .data-cell--vertical .data-cell__content {
   flex-direction: column;
   align-items: flex-start;

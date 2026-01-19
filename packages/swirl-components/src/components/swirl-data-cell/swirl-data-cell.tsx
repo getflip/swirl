@@ -35,7 +35,6 @@ export class SwirlDataCell {
       "data-cell--has-media": hasMedia,
       "data-cell--has-suffix": hasSuffix,
       "data-cell--has-content": hasContent,
-      "data-cell--no-label": !hasLabel,
       "data-cell--reverse": (hasCheckbox || hasRadio) && !hasSuffix,
     });
 
