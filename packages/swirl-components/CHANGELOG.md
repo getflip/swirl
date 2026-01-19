@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.427.1
+
+### Patch Changes
+
+- [#1392](https://github.com/getflip/swirl/pull/1392)
+  [`32bff9c4c`](https://github.com/getflip/swirl/commit/32bff9c4c9d077f5ea412b43f86c78cbbd82b053)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Truncate
+  value of SwirlDataCell in horizontal layout
+
 ## 0.427.0
 
 ### Minor Changes
