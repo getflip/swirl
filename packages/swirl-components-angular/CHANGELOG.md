@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.428.0
+
+### Minor Changes
+
+- [#1391](https://github.com/getflip/swirl/pull/1391)
+  [`b61908057`](https://github.com/getflip/swirl/commit/b619080574fb8e3daf0b339aa0de0b0f5edb4e64)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Fix
+  resource list reset focus method
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b61908057`](https://github.com/getflip/swirl/commit/b619080574fb8e3daf0b339aa0de0b0f5edb4e64)]:
+  - @getflip/swirl-components@0.428.0
+
 ## 0.427.1
 
 ### Patch Changes
