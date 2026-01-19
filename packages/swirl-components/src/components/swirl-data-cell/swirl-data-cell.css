@@ -23,6 +23,10 @@
   align-items: center;
 }
 
+.data-cell--reverse {
+flex-direction: row-reverse;
+}
+
 .data-cell__media {
   flex-shrink: 0;
   display: flex;
@@ -43,6 +47,8 @@
   justify-content: space-between;
   gap: var(--s-space-4);
 }
+
+
 
 .data-cell--no-label .data-cell__content,
 .data-cell--no-label .data-cell__value-wrapper,
@@ -100,6 +106,14 @@
 
 .data-cell__input {
   width: 100%;
+
+  /* apply white background color to form control inputs */
+  & ::slotted(swirl-form-control) {
+    --swirl-form-control-label-background-color: var(
+      --swirl-data-cell-input-background,
+      var(--s-surface-default)
+    );
+  }
 }
 
 /* Responsive: Switch to vertical layout on mobile */

@@ -26,6 +26,8 @@ export class SwirlDataCell {
     const hasMedia = Boolean(this.el.querySelector('[slot="media"]'));
     const hasSuffix = Boolean(this.el.querySelector('[slot="suffix"]'));
     const hasContent = Boolean(this.el.querySelector('[slot="content"]'));
+    const hasCheckbox = Boolean(this.el.querySelector('swirl-checkbox[slot="content"]'));
+    const hasRadio = Boolean(this.el.querySelector('swirl-radio[slot="content"]'));
     const hasLabel = Boolean(this.label);
 
     const className = classnames("data-cell", {
@@ -34,6 +36,7 @@ export class SwirlDataCell {
       "data-cell--has-suffix": hasSuffix,
       "data-cell--has-content": hasContent,
       "data-cell--no-label": !hasLabel,
+      "data-cell--reverse": (hasCheckbox || hasRadio) && !hasSuffix,
     });
 
     const labelId = `${this.elementId}-label`;
