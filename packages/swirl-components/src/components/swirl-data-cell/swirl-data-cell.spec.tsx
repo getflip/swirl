@@ -197,7 +197,7 @@ describe("swirl-data-cell", () => {
     const value = valueWrapper?.querySelector(".data-cell__value");
     expect(value?.textContent).toBe("John Doe");
 
-    const suffix = valueWrapper?.querySelector(".data-cell__suffix");
+    const suffix = page.root.shadowRoot.querySelector(".data-cell__suffix");
     expect(suffix).toBeTruthy();
   });
 
