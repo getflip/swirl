@@ -76,6 +76,18 @@ export const MultipleCells = () => {
     </swirl-button-group>
     </swirl-data-cell>
 
+    <!-- With long truncated value -->
+    <swirl-data-cell label="Description" value="The SwirlDataCell component displays a label-value pair with optional media slot (e.g., swirl-avatar, icons), tooltip support with an info icon, and a suffix slot for additional content.
+
+">
+      <swirl-tag slot="suffix" label="New" intent="info"></swirl-tag>
+    </swirl-data-cell>
+
+    <!-- With long value (no truncation) and vertical layout -->
+    <swirl-data-cell label="Description" value="The SwirlDataCell component displays a label-value pair with optional media slot (e.g., swirl-avatar, icons), tooltip support with an info icon, and a suffix slot for additional content." vertical>
+      <swirl-tag slot="suffix" label="New" intent="info"></swirl-tag>
+    </swirl-data-cell>
+
     <!-- Vertical layout -->
     <swirl-data-cell label="Name" value="John Doe" vertical>
       <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
