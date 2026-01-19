@@ -229,4 +229,91 @@ describe("swirl-data-cell", () => {
     expect(content).toBeTruthy();
     expect(dataCell?.querySelector(".data-cell__content")).toBeTruthy();
   });
+
+  it("renders with an input of type text", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Name">
+          <swirl-text-input slot="content" type="text" value="John Doe"></swirl-text-input>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const textInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    expect(textInput).toBeTruthy();
+    expect(textInput?.getAttribute("type")).toBe("text");
+  });
+
+  it("renders with an input of type email", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Email">
+          <swirl-text-input slot="content" type="email" value="john@example.com"></swirl-text-input>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const emailInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    expect(emailInput).toBeTruthy();
+    expect(emailInput?.getAttribute("type")).toBe("email");
+  });
+
+  it("renders with an input of type number", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Age">
+          <swirl-text-input slot="content" type="number" value="25"></swirl-text-input>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const numberInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    expect(numberInput).toBeTruthy();
+    expect(numberInput?.getAttribute("type")).toBe("number");
+  });
+
+  it("renders with a select input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Country">
+          <swirl-select slot="content" value="us">
+            <swirl-option value="us" label="United States"></swirl-option>
+            <swirl-option value="uk" label="United Kingdom"></swirl-option>
+          </swirl-select>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const selectInput = page.root.querySelector('swirl-select[slot="content"]');
+    expect(selectInput).toBeTruthy();
+    expect(selectInput?.getAttribute("value")).toBe("us");
+  });
 });

@@ -44,6 +44,11 @@
   gap: var(--s-space-4);
 }
 
+.data-cell--no-label .data-cell__content,
+.data-cell--no-label .data-cell__value-wrapper,
+.data-cell--no-label .data-cell__input {
+  width: 100%;
+}
 .data-cell--vertical .data-cell__content {
   flex-direction: column;
   align-items: flex-start;
@@ -79,6 +84,10 @@
   gap: var(--s-space-4);
 }
 
+.data-cell__value-wrapper--is-vertical {
+  width: 100%;
+}
+
 .data-cell__value {
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
@@ -90,6 +99,10 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
+}
+
+.data-cell__input {
+  width: 100%;
 }
 
 /* Responsive: Switch to vertical layout on mobile */

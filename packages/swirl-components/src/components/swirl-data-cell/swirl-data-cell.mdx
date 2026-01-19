@@ -7,7 +7,8 @@ import * as Stories from "./swirl-data-cell.stories";
 
 The SwirlDataCell component displays a label-value pair with optional media slot
 (e.g., swirl-avatar, icons), tooltip support with an info icon, and a suffix
-slot for additional content.
+slot for additional content. It also supports interactive form controls through
+the content slot, allowing for editable data cells with inputs and selects.
 
 - **[Figma Design Specs](https://www.figma.com/design/aIsxMzrP5myDMpvxaRIHXB/Web-Components-2.0?node-id=149-1202&t=kECgsuHzhCNOBEZm-4)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-data-cell)**
@@ -24,15 +25,58 @@ slot for additional content.
 | ---------- | ---------- | ----------------------------------------------------------- | --------- | ----------- |
 | `label`    | `label`    | Required label text                                         | `string`  | -           |
 | `tooltip`  | `tooltip`  | Optional tooltip content (displays info icon next to label) | `string`  | `undefined` |
-| `value`    | `value`    | Optional value text                                         | `string`  | `undefined` |
+| `value`    | `value`    | Optional value text (ignored when input slot is used)       | `string`  | `undefined` |
 | `vertical` | `vertical` | Force vertical layout (default: false)                      | `boolean` | `false`     |
 
 ## Slots
 
-| Slot     | Description                                     |
-| -------- | ----------------------------------------------- |
-| `media`  | Optional media content (e.g., swirl-avatar).    |
-| `suffix` | Optional suffix content (e.g., buttons, badges) |
+| Slot     | Description                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------- |
+| `media`  | Optional media content (e.g., swirl-avatar, icons).                                             |
+| `content`  | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
+| `suffix` | Optional suffix content (e.g., buttons, badges)                                                 |
+
+## Examples
+
+### With Input
+
+<Canvas of={Stories.WithInput} sourceState="shown"></Canvas>
+
+Use the `input` slot to make the data cell editable with form controls like
+`swirl-text-input`:
+
+```html
+<swirl-data-cell label="Name">
+  <swirl-text-input
+    slot="input"
+    value="John Doe"
+    placeholder="Enter name"
+  ></swirl-text-input>
+</swirl-data-cell>
+```
+
+### With Select
+
+<Canvas of={Stories.WithSelect} sourceState="shown"></Canvas>
+
+Use the `input` slot with `swirl-select` for dropdown selections:
+
+```html
+<swirl-data-cell label="Status">
+  <swirl-select slot="input" value="active">
+    <swirl-option-list>
+      <swirl-option-list-item
+        label="Active"
+        value="active"
+      ></swirl-option-list-item>
+      <swirl-option-list-item
+        label="Inactive"
+        value="inactive"
+      ></swirl-option-list-item>
+    </swirl-option-list>
+  </swirl-select>
+</swirl-data-cell>
+```
 
 ## Responsive Behavior
 
