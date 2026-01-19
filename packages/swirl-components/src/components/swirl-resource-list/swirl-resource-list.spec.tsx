@@ -202,11 +202,21 @@ describe("swirl-resource-list", () => {
     expect(interactiveElements[1].getAttribute("tabIndex")).toBe("0");
 
     const component: SwirlResourceList = page.rootInstance;
+
+    expect(component["focusedIndex"]).toBe(1);
+
     await component.resetFocus();
     await page.waitForChanges();
 
-    // verify tabIndex is updated to the first item
-    expect(interactiveElements[0].getAttribute("tabIndex")).toBe("0");
-    expect(interactiveElements[1].getAttribute("tabIndex")).toBe("-1");
+    expect(component["focusedIndex"]).toBe(0);
+
+    // trigger an arrow down and up to verify the reset works in practice
+    page.root.dispatchEvent(
+      new KeyboardEvent("keydown", { code: "ArrowDown" })
+    );
+    await page.waitForChanges();
+
+    // after arrow down from reset position, second item should be focused
+    expect(interactiveElements[1].getAttribute("tabIndex")).toBe("0");
   });
 });

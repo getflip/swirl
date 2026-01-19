@@ -100,7 +100,13 @@ export class SwirlResourceList {
 
   @Method()
   async resetFocus() {
-    this.focusItemAtIndex(0);
+    this.focusedIndex = 0;
+    this.removeItemsFromTabOrder();
+    this.enableItemFocus(this.items[0]);
+
+    if (Boolean(this.controllingElement)) {
+      this.items[0]?.setAttribute("aria-selected", "true");
+    }
   }
 
   private collectItems() {
