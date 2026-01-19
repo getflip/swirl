@@ -84,9 +84,6 @@
   gap: var(--s-space-4);
 }
 
-.data-cell__value-wrapper--is-vertical {
-  width: 100%;
-}
 
 .data-cell__value {
   font-size: var(--s-font-size-sm);

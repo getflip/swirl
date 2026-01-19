@@ -4,7 +4,7 @@ import { v4 as uuid } from "uuid";
 
 /**
  * @slot media - Optional media content (e.g., swirl-avatar, icons). Only swirl-avatar and icon elements are styled.
- * @slot input - Optional input element (e.g., swirl-text-input, swirl-select). When provided, the value prop is ignored.
+ * @slot content - Optional content element (e.g., swirl-text-input, swirl-select). When provided, the value prop is ignored.
  * @slot suffix - Optional suffix content (e.g., buttons, badges)
  */
 @Component({
@@ -27,7 +27,6 @@ export class SwirlDataCell {
     const hasSuffix = Boolean(this.el.querySelector('[slot="suffix"]'));
     const hasContent = Boolean(this.el.querySelector('[slot="content"]'));
     const hasLabel = Boolean(this.label);
-    const isVertical = this.vertical;
 
     const className = classnames("data-cell", {
       "data-cell--vertical": this.vertical,
@@ -67,9 +66,7 @@ export class SwirlDataCell {
             {hasLabel && <div class="data-cell__label-wrapper">{labelContent}</div>}
             {(hasContent || this.value || hasSuffix) && (
               <div
-                class={classnames("data-cell__value-wrapper", {
-                  "data-cell__value-wrapper--is-vertical": isVertical,
-                })}
+                class="data-cell__value-wrapper"
                 role="definition"
                 aria-labelledby={hasLabel ? labelId : undefined}
                 id={valueId}

@@ -159,3 +159,56 @@ export const WithSelect = () => {
 
   return stack;
 };
+
+export const WithCheckbox = () => {
+  const stack = generateStoryElement("swirl-data-cell-stack", {});
+
+  stack.innerHTML = `
+    <!-- Basic checkbox -->
+    <swirl-data-cell>
+      <swirl-checkbox slot="content" label="Subscribe to newsletter" input-id="checkbox-1" input-name="newsletter" checked="true"></swirl-checkbox>
+    </swirl-data-cell>
+
+    <!-- Checkbox with description -->
+    <swirl-data-cell>
+      <swirl-checkbox slot="content" label="Enable notifications" description="Receive updates about your account" input-id="checkbox-2" input-name="notifications" checked="false"></swirl-checkbox>
+    </swirl-data-cell>
+
+    <!-- Checkbox with media -->
+    <swirl-data-cell>
+      <swirl-avatar slot="media" label="Settings" icon="<swirl-icon-settings></swirl-icon-settings>" size="s"></swirl-avatar>
+      <swirl-checkbox slot="content" label="Enable 2FA" input-id="checkbox-3" input-name="2fa" checked="true"></swirl-checkbox>
+    </swirl-data-cell>
+
+    <!-- Checkbox with suffix -->
+    <swirl-data-cell>
+      <swirl-checkbox slot="content" label="Accept terms and conditions" input-id="checkbox-4" input-name="terms" checked="false"></swirl-checkbox>
+      <swirl-button slot="suffix" label="View" variant="plain" size="s"></swirl-button>
+    </swirl-data-cell>
+  `;
+
+  return stack;
+};
+
+export const WithRadioButton = () => {
+  const stack = generateStoryElement("swirl-data-cell-stack", {});
+
+  stack.innerHTML = `
+    <!-- Radio button group with each radio in its own data cell -->
+    <swirl-radio-group value="premium">
+      <swirl-data-cell>
+        <swirl-radio slot="content" label="Standard plan" description="Basic features included" input-id="radio-1" input-name="plan" value="standard"></swirl-radio>
+      </swirl-data-cell>
+
+      <swirl-data-cell>
+        <swirl-radio slot="content" label="Premium plan" description="All features included" input-id="radio-2" input-name="plan" value="premium"></swirl-radio>
+      </swirl-data-cell>
+
+      <swirl-data-cell>
+        <swirl-radio slot="content" label="Enterprise plan" description="Custom solutions" tooltip="Contact sales for pricing" input-id="radio-3" input-name="plan" value="enterprise"></swirl-radio>
+      </swirl-data-cell>
+    </swirl-radio-group>
+  `;
+
+  return stack;
+};

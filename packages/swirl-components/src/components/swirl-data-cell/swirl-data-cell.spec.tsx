@@ -316,4 +316,61 @@ describe("swirl-data-cell", () => {
     expect(selectInput).toBeTruthy();
     expect(selectInput?.getAttribute("value")).toBe("us");
   });
+
+  it("renders with a checkbox", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell>
+          <swirl-checkbox slot="content" label="Subscribe to newsletter" description="Receive updates about new features" input-id="newsletter" input-name="newsletter" checked="true"></swirl-checkbox>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const checkbox = page.root.querySelector('swirl-checkbox[slot="content"]');
+    expect(checkbox).toBeTruthy();
+    expect(checkbox?.getAttribute("label")).toBe("Subscribe to newsletter");
+    expect(checkbox?.getAttribute("description")).toBe("Receive updates about new features");
+    expect(checkbox?.getAttribute("checked")).toBe("true");
+  });
+
+  it("renders with radio button group", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-radio-group value="premium">
+          <swirl-data-cell>
+            <swirl-radio slot="content" label="Standard plan" description="Basic features included" input-id="radio-1" input-name="plan" value="standard"></swirl-radio>
+          </swirl-data-cell>
+          <swirl-data-cell>
+            <swirl-radio slot="content" label="Premium plan" description="All features included" input-id="radio-2" input-name="plan" value="premium"></swirl-radio>
+          </swirl-data-cell>
+          <swirl-data-cell>
+            <swirl-radio slot="content" label="Enterprise plan" description="Custom solutions" input-id="radio-3" input-name="plan" value="enterprise"></swirl-radio>
+          </swirl-data-cell>
+        </swirl-radio-group>
+      `,
+    });
+
+    const radioGroup = page.body.querySelector("swirl-radio-group");
+    expect(radioGroup).toBeTruthy();
+    expect(radioGroup?.getAttribute("value")).toBe("premium");
+
+    const dataCells = page.body.querySelectorAll("swirl-data-cell");
+    expect(dataCells.length).toBe(3);
+
+    const radios = page.body.querySelectorAll('swirl-radio[slot="content"]');
+    expect(radios.length).toBe(3);
+
+    expect(radios[0]?.getAttribute("label")).toBe("Standard plan");
+    expect(radios[0]?.getAttribute("value")).toBe("standard");
+    expect(radios[0]?.getAttribute("input-name")).toBe("plan");
+
+  });
 });
