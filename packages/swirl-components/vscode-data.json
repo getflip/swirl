@@ -1219,13 +1219,10 @@
           "description": "",
           "values": [
             {
-              "name": "text"
-            },
-            {
-              "name": "copy"
-            },
-            {
               "name": "progress"
+            },
+            {
+              "name": "text"
             },
             {
               "name": "default"
@@ -1235,6 +1232,9 @@
             },
             {
               "name": "auto"
+            },
+            {
+              "name": "copy"
             },
             {
               "name": "context-menu"

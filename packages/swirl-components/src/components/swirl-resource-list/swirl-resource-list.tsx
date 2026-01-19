@@ -100,7 +100,7 @@ export class SwirlResourceList {
 
   @Method()
   async resetFocus() {
-    this.focusItemAtIndex(0);
+    this.focusedIndex = 0;
   }
 
   private collectItems() {
