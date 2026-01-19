@@ -36,18 +36,20 @@ export class SwirlDataCell {
     const valueId = `${this.elementId}-value`;
 
     const labelContent = (
-      <span>
+      <swirl-stack orientation="horizontal" align="center" spacing="4">
         <span class="data-cell__label" id={labelId} role="term">
           {this.label}
         </span>
         {this.tooltip && (
-          <span class="data-cell__tooltip">
-            <swirl-tooltip content={this.tooltip} position="right">
-              <swirl-icon-info size={16} tabIndex={0}></swirl-icon-info>
-            </swirl-tooltip>
-          </span>
+          <swirl-tooltip
+            class="data-cell__tooltip"
+            content={this.tooltip}
+            position="right"
+          >
+            <swirl-icon-info size={16} tabIndex={0}></swirl-icon-info>
+          </swirl-tooltip>
         )}
-      </span>
+      </swirl-stack>
     );
 
     return (

@@ -36,6 +36,7 @@ SwirlDataCell.decorators = [
     if (element) {
       element.innerHTML = `
         <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+        <swirl-tag slot="suffix" label="Active" intent="success"></swirl-tag>
       `;
     }
     return element;
@@ -69,7 +70,22 @@ export const MultipleCells = () => {
 
     <!-- With suffix -->
     <swirl-data-cell label="Name" value="John Doe">
-      <swirl-button slot="suffix" label="Edit" variant="plain" icon="<swirl-icon-edit></swirl-icon-edit>" hide-label></swirl-button>
+    <swirl-button-group slot="suffix">
+      <swirl-button label="Edit" variant="plain" icon="<swirl-icon-edit></swirl-icon-edit>" hide-label></swirl-button>
+      <swirl-button label="Delete" variant="plain" icon="<swirl-icon-delete></swirl-icon-delete>" hide-label></swirl-button>
+    </swirl-button-group>
+    </swirl-data-cell>
+
+    <!-- With long truncated value -->
+    <swirl-data-cell label="Description" value="The SwirlDataCell component displays a label-value pair with optional media slot (e.g., swirl-avatar, icons), tooltip support with an info icon, and a suffix slot for additional content.
+
+">
+      <swirl-tag slot="suffix" label="New" intent="info"></swirl-tag>
+    </swirl-data-cell>
+
+    <!-- With long value (no truncation) and vertical layout -->
+    <swirl-data-cell label="Description" value="The SwirlDataCell component displays a label-value pair with optional media slot (e.g., swirl-avatar, icons), tooltip support with an info icon, and a suffix slot for additional content." vertical>
+      <swirl-tag slot="suffix" label="New" intent="info"></swirl-tag>
     </swirl-data-cell>
 
     <!-- Vertical layout -->
