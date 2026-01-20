@@ -9,13 +9,32 @@
 }
 
 .lightbox {
+  --swirl-lightbox-view-height: 100vh;
+
   position: fixed;
   z-index: var(--s-z-40);
+  display: block;
+  overflow: visible;
+  width: auto;
+  max-width: none;
+  height: var(--swirl-modal-view-height);
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: none;
   background-color: rgba(0, 0, 0, 1);
   inset: 0;
 
-  &[aria-hidden="true"] {
+  &::backdrop {
     display: none;
+  }
+
+  &:not([open]) {
+    display: none;
+  }
+
+  @supports (height: 100dvh) {
+    --swirl-lightbox-view-height: 100dvh;
   }
 
   @media (--from-tablet) {

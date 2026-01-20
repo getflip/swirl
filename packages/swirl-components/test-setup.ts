@@ -11,4 +11,10 @@ Object.assign(mockDoc.MockHTMLElement.prototype, {
   togglePopover() {
     return true;
   },
+  showModal() {
+    (this as any).open = true;
+  },
+  close() {
+    (this as any).open = false;
+  },
 });
