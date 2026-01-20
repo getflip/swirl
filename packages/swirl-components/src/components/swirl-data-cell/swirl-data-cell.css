@@ -19,12 +19,12 @@
   border-radius: var(--swirl-data-cell-border-radius, var(--s-border-radius-l));
 }
 
-.data-cell--vertical {
-  align-items: center;
+.data-cell--interactive {
+  cursor: pointer;
 }
 
-.data-cell--reverse {
-flex-direction: row-reverse;
+.data-cell--vertical {
+  align-items: center;
 }
 
 .data-cell__media {
@@ -46,6 +46,12 @@ flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
   gap: var(--s-space-4);
+}
+
+.data-cell--no-label .data-cell__content,
+.data-cell--no-label .data-cell__value-wrapper,
+.data-cell--no-label .data-cell__input {
+  width: 100%;
 }
 
 .data-cell--vertical .data-cell__content {
@@ -83,7 +89,6 @@ flex-direction: row-reverse;
   gap: var(--s-space-4);
 }
 
-
 .data-cell__value {
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
@@ -106,6 +111,12 @@ flex-direction: row-reverse;
       --swirl-data-cell-input-background,
       var(--s-surface-default)
     );
+  }
+
+  /* ensure checkbox and radio elements take full width */
+  & ::slotted(swirl-checkbox),
+  & ::slotted(swirl-radio) {
+    width: 100%;
   }
 }
 

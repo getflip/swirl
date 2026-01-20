@@ -190,16 +190,10 @@ export const WithCheckbox = () => {
       <swirl-checkbox slot="content" label="Enable notifications" description="Receive updates about your account" input-id="checkbox-2" input-name="notifications" checked="false"></swirl-checkbox>
     </swirl-data-cell>
 
-    <!-- Checkbox with media -->
+    <!-- Checkbox with media as suffix -->
     <swirl-data-cell>
-      <swirl-avatar slot="media" label="Settings" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+      <swirl-avatar slot="suffix" label="Settings" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
       <swirl-checkbox slot="content" label="Enable 2FA" description="Enable two-factor authentication" input-id="checkbox-3" input-name="2fa" checked="true"></swirl-checkbox>
-    </swirl-data-cell>
-
-    <!-- Checkbox with suffix -->
-    <swirl-data-cell>
-      <swirl-checkbox slot="content" label="Accept terms and conditions" input-id="checkbox-4" input-name="terms" checked="false"></swirl-checkbox>
-      <swirl-button slot="suffix" label="View" variant="plain" size="s"></swirl-button>
     </swirl-data-cell>
   `;
 
