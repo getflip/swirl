@@ -26,7 +26,7 @@ describe("swirl-lightbox", () => {
     expect(page.root).toEqualHtml(`
       <swirl-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
         <mock:shadow-root>
-          <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox lightbox--hide-toolbar" id="lightbox" role="dialog" tabindex="-1">
+          <dialog aria-label="Lightbox" class="lightbox lightbox--hide-toolbar" closedby="none" id="lightbox">
             <div class="lightbox__body" role="document">
               <header class="lightbox__header">
                 <button aria-label="Close" class="lightbox__close-button">
@@ -73,7 +73,7 @@ describe("swirl-lightbox", () => {
                 </swirl-action-list>
               </swirl-stack>
             </swirl-popover>
-          </section>
+          </dialog>
         </mock:shadow-root>
         <swirl-file-viewer active="true" aria-label="undefined" aria-roledescription="slide" description="Cute dog in a blaket." file="/sample.jpg" role="group" type="image/jpeg" style="transform: translate3d(-0%, 0, 0);"></swirl-file-viewer>
         <swirl-file-viewer active="true" aria-hidden="true" aria-label="undefined" aria-roledescription="slide" file="/sample.mp4\" role=\"group\" type=\"video/mp4\" style=\"transform: translate3d(-0%, 0, 0);\"></swirl-file-viewer>
@@ -93,8 +93,8 @@ describe("swirl-lightbox", () => {
 
     const closeSpy = jest.fn();
 
-    page.rootInstance.isOpen = true;
     page.rootInstance.close = closeSpy;
+    page.rootInstance.open();
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
@@ -195,7 +195,7 @@ describe("swirl-lightbox", () => {
       `,
     });
 
-    page.rootInstance.isOpen = true;
+    page.rootInstance.open();
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));

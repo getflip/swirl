@@ -8,8 +8,6 @@ on:
       - packages/swirl-components/**/*
   pull_request:
     types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
     paths:
       - packages/swirl-components/**/*
     # paths-ignore:
