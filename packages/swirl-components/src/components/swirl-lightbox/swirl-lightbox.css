@@ -17,7 +17,7 @@
   overflow: visible;
   width: auto;
   max-width: none;
-  height: var(--swirl-modal-view-height);
+  height: var(--swirl-lightbox-view-height);
   max-height: none;
   margin: 0;
   padding: 0;
