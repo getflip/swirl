@@ -1,0 +1,24 @@
+.toast-provider__stack {
+  position: fixed;
+  inset: unset;
+  bottom: var(--s-space-16);
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  margin: 0 var(--s-space-24);
+
+  border: none;
+  padding: 0;
+  background: none;
+  width: auto;
+  overflow: unset;
+
+  &::backdrop {
+    display: none;
+  }
+
+  & > * {
+    width: auto;
+    pointer-events: auto;
+  }
+}
