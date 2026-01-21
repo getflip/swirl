@@ -10,8 +10,6 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import * as focusTrap from "focus-trap";
-import { getActiveElement } from "../../utils";
 
 const ANIMATION_DURATION_MS = 300;
 
@@ -31,19 +29,22 @@ export class SwirlModalShell {
 
   @State() isClosing = true;
 
-  private focusTrap: focusTrap.FocusTrap | undefined;
-  private modalEl: HTMLElement;
+  private modalEl: HTMLDialogElement;
 
   componentDidLoad() {
+    this.setDialogCustomProps();
+
     requestAnimationFrame(() => {
-      this.setupFocusTrap();
+      this.modalEl.showModal();
       disableBodyScroll(this.modalEl);
       this.isClosing = false;
     });
   }
 
   disconnectedCallback() {
-    this.focusTrap?.deactivate();
+    if (this.modalEl?.open) {
+      this.modalEl.close();
+    }
     enableBodyScroll(this.modalEl);
   }
 
@@ -52,12 +53,18 @@ export class SwirlModalShell {
     this.isClosing = true;
 
     setTimeout(() => {
-      this.closeModal.emit();
+      this.modalEl.close();
     }, ANIMATION_DURATION_MS);
   }
 
+  private onDialogClose = () => {
+    this.closeModal.emit();
+  };
+
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
+      event.stopImmediatePropagation();
+      event.preventDefault();
       this.close();
     }
   };
@@ -66,19 +73,13 @@ export class SwirlModalShell {
     event.stopPropagation();
   };
 
-  private setupFocusTrap() {
-    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
-      allowOutsideClick: true,
-      setReturnFocus: getActiveElement() as HTMLElement,
-      escapeDeactivates: false,
-    });
-
-    this.focusTrap.activate();
-  }
-
   private onClose = () => {
     this.close();
   };
+
+  private setDialogCustomProps() {
+    this.modalEl.setAttribute("closedby", "none");
+  }
 
   render() {
     const className = classnames("modal-shell", {
@@ -87,11 +88,10 @@ export class SwirlModalShell {
 
     return (
       <Host>
-        <section
+        <dialog
           aria-label={this.label}
-          role="dialog"
-          aria-modal="true"
           class={className}
+          onClose={this.onDialogClose}
           onKeyDown={this.onKeyDown}
           ref={(el) => (this.modalEl = el)}
         >
@@ -114,7 +114,7 @@ export class SwirlModalShell {
             variant="translucent"
             onClick={this.onClose}
           ></swirl-button>
-        </section>
+        </dialog>
       </Host>
     );
   }
