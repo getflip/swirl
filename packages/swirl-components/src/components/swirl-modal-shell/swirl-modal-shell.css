@@ -10,6 +10,20 @@
   position: fixed;
   inset: 0;
   z-index: var(--s-z-40);
+
+  /* Reset default dialog styles */
+  border: none;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  background: transparent;
+
+  &::backdrop {
+    display: none;
+  }
 }
 
 .modal-shell__backdrop {
