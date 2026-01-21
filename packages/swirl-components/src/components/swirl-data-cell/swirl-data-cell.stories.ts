@@ -207,18 +207,18 @@ export const WithRadioButton = () => {
     <!-- Radio button group with each radio in its own data cell -->
     <swirl-radio-group value="premium">
       <swirl-data-cell>
-        <swirl-avatar slot="media" label="Standard plan" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
-        <swirl-radio slot="content" label="Standard plan" description="Basic features included" input-id="radio-1" input-name="plan" value="standard"></swirl-radio>
+      <swirl-radio slot="content" label="Standard plan" description="Basic features included" input-id="radio-1" input-name="plan" value="standard"></swirl-radio>
+      <swirl-avatar slot="suffix" label="Standard plan" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
       </swirl-data-cell>
 
       <swirl-data-cell>
-        <swirl-avatar slot="media" label="Premium plan" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
-        <swirl-radio slot="content" label="Premium plan" description="All features included" input-id="radio-2" input-name="plan" value="premium"></swirl-radio>
+      <swirl-radio slot="content" label="Premium plan" description="All features included" input-id="radio-2" input-name="plan" value="premium"></swirl-radio>
+      <swirl-avatar slot="suffix" label="Premium plan" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
       </swirl-data-cell>
 
       <swirl-data-cell>
-        <swirl-avatar slot="media" label="Enterprise plan" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
-        <swirl-radio slot="content" label="Enterprise plan" description="Custom solutions" tooltip="Contact sales for pricing" input-id="radio-3" input-name="plan" value="enterprise"></swirl-radio>
+      <swirl-radio slot="content" label="Enterprise plan" description="Custom solutions" tooltip="Contact sales for pricing" input-id="radio-3" input-name="plan" value="enterprise"></swirl-radio>
+      <swirl-avatar slot="suffix" label="Enterprise plan" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
       </swirl-data-cell>
     </swirl-radio-group>
   `;

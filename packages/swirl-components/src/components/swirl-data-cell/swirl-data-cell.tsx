@@ -1,4 +1,12 @@
-import { Component, Element, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 
@@ -20,7 +28,7 @@ export class SwirlDataCell {
   @Prop() value?: string;
   @Prop() vertical?: boolean = false;
 
-  @Event() swirlClick: EventEmitter<MouseEvent>;
+  @Event() valueChange: EventEmitter<MouseEvent>;
 
   private elementId = `data-cell-${uuid()}`;
 
@@ -30,14 +38,16 @@ export class SwirlDataCell {
     const hasRadio = target.contains(radio);
 
     if (hasRadio) {
-      const radioInput = radio?.querySelector('input[type="radio"]') as HTMLInputElement;
+      const radioInput = radio?.querySelector(
+        'input[type="radio"]'
+      ) as HTMLInputElement;
       radioInput.click();
     }
-  }
+  };
 
   private handleClick = (event: MouseEvent) => {
     this.handleRadioClick(event);
-    this.swirlClick.emit(event);
+    this.valueChange.emit(event);
   };
 
   render() {
@@ -45,8 +55,12 @@ export class SwirlDataCell {
     const hasSuffix = Boolean(this.el.querySelector('[slot="suffix"]'));
     const hasLabel = Boolean(this.label);
     const hasContent = Boolean(this.el.querySelector('[slot="content"]'));
-    const hasCheckbox = Boolean(this.el.querySelector('swirl-checkbox[slot="content"]'));
-    const hasRadio = Boolean(this.el.querySelector('swirl-radio[slot="content"]'));
+    const hasCheckbox = Boolean(
+      this.el.querySelector('swirl-checkbox[slot="content"]')
+    );
+    const hasRadio = Boolean(
+      this.el.querySelector('swirl-radio[slot="content"]')
+    );
 
     const className = classnames("data-cell", {
       "data-cell--vertical": this.vertical,
@@ -80,9 +94,9 @@ export class SwirlDataCell {
         <div
           class={className}
           part="data-cell"
-          onClick={(hasCheckbox || hasRadio) ? this.handleClick : undefined}
-          role={(hasCheckbox || hasRadio) ? "button" : undefined}
-          tabIndex={(hasCheckbox || hasRadio) ? 0 : undefined}
+          onClick={hasCheckbox || hasRadio ? this.handleClick : undefined}
+          role={hasCheckbox || hasRadio ? "button" : undefined}
+          tabIndex={hasCheckbox || hasRadio ? 0 : undefined}
         >
           {hasMedia && (
             <div class="data-cell__media" aria-hidden="true">
@@ -90,7 +104,9 @@ export class SwirlDataCell {
             </div>
           )}
           <div class="data-cell__content">
-            {hasLabel && <div class="data-cell__label-wrapper">{labelContent}</div>}
+            {hasLabel && (
+              <div class="data-cell__label-wrapper">{labelContent}</div>
+            )}
             {(hasContent || this.value || hasSuffix) && (
               <div
                 class="data-cell__value-wrapper"
@@ -108,11 +124,11 @@ export class SwirlDataCell {
               </div>
             )}
           </div>
-            {hasSuffix && (
-              <div class="data-cell__suffix">
-                <slot name="suffix"></slot>
-              </div>
-            )}
+          {hasSuffix && (
+            <div class="data-cell__suffix">
+              <slot name="suffix"></slot>
+            </div>
+          )}
         </div>
       </Host>
     );
