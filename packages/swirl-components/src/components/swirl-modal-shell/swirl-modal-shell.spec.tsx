@@ -10,7 +10,7 @@ describe("swirl-modal-shell", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-modal-shell label="Modal" close-button-label="Close">
-        <section aria-label="Modal" role="dialog" aria-modal="true" class="modal-shell modal-shell--closing">
+        <dialog aria-label="Modal" class="modal-shell modal-shell--closing" closedby="none">
           <div class="modal-shell__backdrop"></div>
           <div class="modal-shell__scroll-container">
             <div class="modal-shell__scroll-container__content">
@@ -18,7 +18,7 @@ describe("swirl-modal-shell", () => {
             </div>
           </div>
           <swirl-button class="modal-shell__close-button" hidelabel="" icon="<swirl-icon-close color='strong'></swirl-icon-close>" label="Close" variant="translucent"></swirl-button>
-        </section>
+        </dialog>
       </swirl-modal-shell>
     `);
   });
@@ -30,6 +30,11 @@ describe("swirl-modal-shell", () => {
     });
 
     const closeModalSpy = jest.fn();
+    const dialog = page.root.querySelector("dialog");
+
+    dialog.close = jest.fn(() => {
+      dialog.dispatchEvent(new Event("close"));
+    });
 
     const closeButton =
       page.root.querySelector<HTMLSwirlButtonElement>("swirl-button");
@@ -37,9 +42,7 @@ describe("swirl-modal-shell", () => {
     page.root.addEventListener("closeModal", closeModalSpy);
 
     closeButton.click();
-    page.root
-      .querySelector(".modal-shell")
-      .dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
+    dialog.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
 
     await new Promise((resolve) => setTimeout(resolve, 300));
 
