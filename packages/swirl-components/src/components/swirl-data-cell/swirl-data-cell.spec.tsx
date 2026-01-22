@@ -197,7 +197,7 @@ describe("swirl-data-cell", () => {
     const value = valueWrapper?.querySelector(".data-cell__value");
     expect(value?.textContent).toBe("John Doe");
 
-    const suffix = valueWrapper?.querySelector(".data-cell__suffix");
+    const suffix = page.root.shadowRoot.querySelector(".data-cell__suffix");
     expect(suffix).toBeTruthy();
   });
 
@@ -228,5 +228,149 @@ describe("swirl-data-cell", () => {
     // Content should be a child of the vertical data-cell
     expect(content).toBeTruthy();
     expect(dataCell?.querySelector(".data-cell__content")).toBeTruthy();
+  });
+
+  it("renders with an input of type text", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Name">
+          <swirl-text-input slot="content" type="text" value="John Doe"></swirl-text-input>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const textInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    expect(textInput).toBeTruthy();
+    expect(textInput?.getAttribute("type")).toBe("text");
+  });
+
+  it("renders with an input of type email", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Email">
+          <swirl-text-input slot="content" type="email" value="john@example.com"></swirl-text-input>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const emailInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    expect(emailInput).toBeTruthy();
+    expect(emailInput?.getAttribute("type")).toBe("email");
+  });
+
+  it("renders with an input of type number", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Age">
+          <swirl-text-input slot="content" type="number" value="25"></swirl-text-input>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const numberInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    expect(numberInput).toBeTruthy();
+    expect(numberInput?.getAttribute("type")).toBe("number");
+  });
+
+  it("renders with a select input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell label="Country">
+          <swirl-select slot="content" value="us">
+            <swirl-option value="us" label="United States"></swirl-option>
+            <swirl-option value="uk" label="United Kingdom"></swirl-option>
+          </swirl-select>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const selectInput = page.root.querySelector('swirl-select[slot="content"]');
+    expect(selectInput).toBeTruthy();
+    expect(selectInput?.getAttribute("value")).toBe("us");
+  });
+
+  it("renders with a checkbox", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell>
+          <swirl-checkbox slot="content" label="Subscribe to newsletter" description="Receive updates about new features" input-id="newsletter" input-name="newsletter" checked="true"></swirl-checkbox>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
+
+    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    expect(inputWrapper).toBeTruthy();
+
+    const checkbox = page.root.querySelector('swirl-checkbox[slot="content"]');
+    expect(checkbox).toBeTruthy();
+    expect(checkbox?.getAttribute("label")).toBe("Subscribe to newsletter");
+    expect(checkbox?.getAttribute("description")).toBe("Receive updates about new features");
+    expect(checkbox?.getAttribute("checked")).toBe("true");
+  });
+
+  it("renders with radio button group", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-radio-group value="premium">
+          <swirl-data-cell>
+            <swirl-radio slot="content" label="Standard plan" description="Basic features included" input-id="radio-1" input-name="plan" value="standard"></swirl-radio>
+          </swirl-data-cell>
+          <swirl-data-cell>
+            <swirl-radio slot="content" label="Premium plan" description="All features included" input-id="radio-2" input-name="plan" value="premium"></swirl-radio>
+          </swirl-data-cell>
+          <swirl-data-cell>
+            <swirl-radio slot="content" label="Enterprise plan" description="Custom solutions" input-id="radio-3" input-name="plan" value="enterprise"></swirl-radio>
+          </swirl-data-cell>
+        </swirl-radio-group>
+      `,
+    });
+
+    const radioGroup = page.body.querySelector("swirl-radio-group");
+    expect(radioGroup).toBeTruthy();
+    expect(radioGroup?.getAttribute("value")).toBe("premium");
+
+    const dataCells = page.body.querySelectorAll("swirl-data-cell");
+    expect(dataCells.length).toBe(3);
+
+    const radios = page.body.querySelectorAll('swirl-radio[slot="content"]');
+    expect(radios.length).toBe(3);
+
+    expect(radios[0]?.getAttribute("label")).toBe("Standard plan");
+    expect(radios[0]?.getAttribute("value")).toBe("standard");
+    expect(radios[0]?.getAttribute("input-name")).toBe("plan");
+
   });
 });

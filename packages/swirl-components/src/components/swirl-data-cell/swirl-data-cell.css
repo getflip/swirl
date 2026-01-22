@@ -19,6 +19,10 @@
   border-radius: var(--swirl-data-cell-border-radius, var(--s-border-radius-l));
 }
 
+.data-cell--interactive {
+  cursor: pointer;
+}
+
 .data-cell--vertical {
   align-items: center;
 }
@@ -42,6 +46,12 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--s-space-24);
+}
+
+.data-cell--no-label .data-cell__content,
+.data-cell--no-label .data-cell__value-wrapper,
+.data-cell--no-label .data-cell__input {
+  width: 100%;
 }
 
 .data-cell--vertical .data-cell__content {
@@ -114,6 +124,24 @@
 
 .data-cell__suffix {
   flex-shrink: 0;
+}
+
+.data-cell__input {
+  width: 100%;
+
+  /* apply white background color to form control inputs */
+  & ::slotted(swirl-form-control) {
+    --swirl-form-control-label-background-color: var(
+      --swirl-data-cell-input-background,
+      var(--s-surface-default)
+    );
+  }
+
+  /* ensure checkbox and radio elements take full width */
+  & ::slotted(swirl-checkbox),
+  & ::slotted(swirl-radio) {
+    width: 100%;
+  }
 }
 
 /* Responsive: Switch to vertical layout on mobile */

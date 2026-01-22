@@ -819,7 +819,7 @@ export namespace Components {
         "toggleSidebar": () => Promise<void>;
     }
     interface SwirlDataCell {
-        "label": string;
+        "label"?: string;
         "tooltip"?: string;
         "value"?: string;
         /**
@@ -5170,6 +5170,10 @@ export interface SwirlConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlConsoleLayoutElement;
 }
+export interface SwirlDataCellCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlDataCellElement;
+}
 export interface SwirlDateInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlDateInputElement;
@@ -5674,7 +5678,18 @@ declare global {
         prototype: HTMLSwirlConsoleLayoutElement;
         new (): HTMLSwirlConsoleLayoutElement;
     };
+    interface HTMLSwirlDataCellElementEventMap {
+        "swirlClick": MouseEvent;
+    }
     interface HTMLSwirlDataCellElement extends Components.SwirlDataCell, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDataCellElementEventMap>(type: K, listener: (this: HTMLSwirlDataCellElement, ev: SwirlDataCellCustomEvent<HTMLSwirlDataCellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDataCellElementEventMap>(type: K, listener: (this: HTMLSwirlDataCellElement, ev: SwirlDataCellCustomEvent<HTMLSwirlDataCellElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDataCellElement: {
         prototype: HTMLSwirlDataCellElement;
@@ -10008,7 +10023,8 @@ declare namespace LocalJSX {
         "subheading"?: string;
     }
     interface SwirlDataCell {
-        "label": string;
+        "label"?: string;
+        "onSwirlClick"?: (event: SwirlDataCellCustomEvent<MouseEvent>) => void;
         "tooltip"?: string;
         "value"?: string;
         /**
