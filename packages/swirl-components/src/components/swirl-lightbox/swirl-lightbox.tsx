@@ -5,7 +5,6 @@ import {
   EventEmitter,
   h,
   Host,
-  Listen,
   Method,
   Prop,
   State,
@@ -13,6 +12,7 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
+import { tabbable } from "tabbable";
 import { querySelectorAllDeep } from "../../utils";
 
 /**
@@ -52,6 +52,8 @@ export class SwirlLightbox {
   private menu: HTMLSwirlPopoverElement;
   private modalEl: HTMLDialogElement;
   private slidesContainer: HTMLElement;
+  private previousSlideButton: HTMLButtonElement;
+  private nextSlideButton: HTMLButtonElement;
 
   componentWillLoad() {
     this.registerSlides();
@@ -84,12 +86,7 @@ export class SwirlLightbox {
     this.activeSlideChange.emit(this.activeSlideIndex);
   }
 
-  @Listen("keydown", { target: "window" })
-  onKeyDown(event: KeyboardEvent) {
-    if (!this.modalEl.open) {
-      return;
-    }
-
+  onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
       event.preventDefault();
@@ -99,7 +96,7 @@ export class SwirlLightbox {
     } else if (event.code === "ArrowRight") {
       this.onNextSlideClick();
     }
-  }
+  };
 
   /**
    * Open the lightbox.
@@ -259,10 +256,26 @@ export class SwirlLightbox {
     this.activateSlide(
       Math.min(this.slides.length - 1, this.activeSlideIndex + 1)
     );
+
+    if (this.activeSlideIndex === this.slides.length - 1) {
+      if (this.slides.length > 1) {
+        this.previousSlideButton.focus();
+      } else {
+        tabbable(this.modalEl).at(0)?.focus();
+      }
+    }
   };
 
   private onPreviousSlideClick = () => {
     this.activateSlide(Math.max(0, this.activeSlideIndex - 1));
+
+    if (this.activeSlideIndex === 0) {
+      if (this.slides.length > 1) {
+        this.nextSlideButton.focus();
+      } else {
+        tabbable(this.modalEl).at(0)?.focus();
+      }
+    }
   };
 
   private registerSlides = () => {
@@ -420,6 +433,7 @@ export class SwirlLightbox {
           aria-label={this.label}
           class={className}
           id="lightbox"
+          onKeyDown={this.onKeyDown}
           onMouseDown={this.onPointerDown}
           onMouseMove={this.onPointerMove}
           onMouseOut={this.onPointerUp}
@@ -476,6 +490,7 @@ export class SwirlLightbox {
                 class="lightbox__previous-slide-button"
                 disabled={this.activeSlideIndex === 0}
                 onClick={this.onPreviousSlideClick}
+                ref={(el) => (this.previousSlideButton = el)}
               >
                 <swirl-icon-arrow-left></swirl-icon-arrow-left>
               </button>
@@ -484,6 +499,7 @@ export class SwirlLightbox {
                 class="lightbox__next-slide-button"
                 disabled={this.activeSlideIndex === this.slides.length - 1}
                 onClick={this.onNextSlideClick}
+                ref={(el) => (this.nextSlideButton = el)}
               >
                 <swirl-icon-arrow-right></swirl-icon-arrow-right>
               </button>
