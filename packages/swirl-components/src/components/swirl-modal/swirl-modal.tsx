@@ -37,8 +37,7 @@ export type SwirlModalSpacing =
  * @slot sidebar-footer - Optional custom footer below the Sidebar
  */
 @Component({
-  shadow: false,
-  scoped: true,
+  shadow: true,
   styleUrl: "swirl-modal.css",
   tag: "swirl-modal",
 })
@@ -201,6 +200,11 @@ export class SwirlModal {
     setTimeout(() => (this.isFullscreenTransitioning = false), 150);
   }
 
+  @Method()
+  async getScrollContainer(): Promise<HTMLElement | undefined> {
+    return this.scrollContainer;
+  }
+
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
@@ -242,37 +246,37 @@ export class SwirlModal {
 
   private updateCustomFooterStatus() {
     this.hasCustomFooter = Boolean(
-      this.el.querySelector('[slot="custom-footer"]')
+      this.el.querySelector(':scope > [slot="custom-footer"]')
     );
   }
 
   private updateCustomHeaderStatus() {
     this.hasCustomHeader = Boolean(
-      this.el.querySelector('[slot="custom-header"]')
+      this.el.querySelector(':scope > [slot="custom-header"]')
     );
   }
 
   private updateHeaderToolsStatus() {
     this.hasHeaderTools = Boolean(
-      this.el.querySelector('[slot="header-tools"]')
+      this.el.querySelector(':scope > [slot="header-tools"]')
     );
   }
 
   private updateSecondaryContentStatus() {
     this.hasSecondaryContent = Boolean(
-      this.el.querySelector('[slot="secondary-content"]')
+      this.el.querySelector(':scope > [slot="secondary-content"]')
     );
   }
 
   private updateSidebarContentStatus() {
     this.hasSidebarContent = Boolean(
-      this.el.querySelector('[slot="sidebar-content"]')
+      this.el.querySelector(':scope > [slot="sidebar-content"]')
     );
   }
 
   private updateSidebarFooterStatus() {
     this.hasSidebarFooter = Boolean(
-      this.el.querySelector('[slot="sidebar-footer"]')
+      this.el.querySelector(':scope > [slot="sidebar-footer"]')
     );
   }
 
@@ -418,6 +422,7 @@ export class SwirlModal {
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div
             class="modal__body"
+            part="modal__body"
             style={
               !this.isFullscreen
                 ? {
@@ -462,13 +467,13 @@ export class SwirlModal {
                 <slot name="sidebar-content"></slot>
               </div>
 
-              <div class="modal__sidebar-footer">
+              <div class="modal__sidebar-footer" part="modal__sidebar-footer">
                 <slot name="sidebar-footer"></slot>
               </div>
             </aside>
 
             <div class="modal__main-content">
-              <header class="modal__custom-header">
+              <header class="modal__custom-header" part="modal__custom-header">
                 <slot name="custom-header"></slot>
               </header>
               {(!this.hideLabel || !this.hideCloseButton) && (
@@ -530,12 +535,13 @@ export class SwirlModal {
                     flex: this.primaryContentFlex,
                   }}
                 >
-                  <div class="modal__header-tools">
+                  <div class="modal__header-tools" part="modal__header-tools">
                     <slot name="header-tools"></slot>
                   </div>
                   <div
                     class="modal__content"
                     onScroll={this.determineMainScrollStatus}
+                    part="modal__content"
                     ref={(el) => (this.scrollContainer = el)}
                   >
                     <slot></slot>
