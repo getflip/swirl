@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -14,12 +15,17 @@ import {
   SwirlFileViewerPdfZoom,
 } from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
+/**
+ * @slot watermark - Optional watermark image to be displayed in the bottom left corner. Only supported for image files.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer.css",
   tag: "swirl-file-viewer",
 })
 export class SwirlFileViewer {
+  @Element() el: HTMLElement;
+
   @Prop() active?: boolean = true;
   @Prop() autoplay?: boolean;
   @Prop() description?: string;
@@ -103,7 +109,9 @@ export class SwirlFileViewer {
                   errorMessage={this.errorMessage}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
-                ></swirl-file-viewer-image>
+                >
+                  <slot name="watermark" slot="watermark"></slot>
+                </swirl-file-viewer-image>
               )}
 
               {/* text files */}

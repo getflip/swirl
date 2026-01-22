@@ -11,14 +11,43 @@
 
 .file-viewer-image {
   display: inline-flex;
-  justify-content: center;
   margin: 0;
+  justify-content: center;
+}
+
+.file-viewer-image--show-watermark {
+  & .file-viewer-image__watermark {
+    display: inline-flex;
+  }
+}
+
+.file-viewer-image__container {
+  position: relative;
+  display: flex;
+  max-width: 100%;
 }
 
 .file-viewer-image__image {
-  pointer-events: auto;
   max-width: 100%;
+  pointer-events: auto;
   object-fit: contain;
+}
+
+.file-viewer-image__watermark {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--s-space-12);
+  left: var(--s-space-12);
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  pointer-events: none;
+
+  & ::slotted(img) {
+    width: 3rem;
+    height: auto;
+    pointer-events: none;
+  }
 }
 
 .file-viewer-image__spinner {

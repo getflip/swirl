@@ -10,7 +10,11 @@ import {
   State,
   Watch,
 } from "@stencil/core";
+import classnames from "classnames";
 
+/**
+ * @slot watermark - Optional watermark image to be displayed in the bottom left corner.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-image.css",
@@ -26,6 +30,7 @@ export class SwirlFileViewerImage {
 
   @State() error: boolean;
   @State() loading: boolean = true;
+  @State() transformed: boolean = false;
 
   @Event() activate: EventEmitter<HTMLElement>;
 
@@ -247,6 +252,12 @@ export class SwirlFileViewerImage {
     }
 
     this.imageEl.style.transform = `matrix(${this.zoom}, 0, 0, ${this.zoom}, ${this.panX}, ${this.panY})`;
+
+    const transformed = this.zoom !== 1 || this.panX !== 0 || this.panY !== 0;
+
+    if (transformed !== this.transformed) {
+      this.transformed = transformed;
+    }
   };
 
   private updateTransformOrigin = (x: number, y: number) => {
@@ -299,6 +310,13 @@ export class SwirlFileViewerImage {
   };
 
   render() {
+    const hasWatermark = !!this.el.querySelector('[slot="watermark"]');
+    const showWatermark = hasWatermark && !this.transformed && !this.loading;
+
+    const className = classnames("file-viewer-image", {
+      "file-viewer-image--show-watermark": showWatermark,
+    });
+
     return (
       <Host
         onDblClick={this.onDblClick}
@@ -316,13 +334,18 @@ export class SwirlFileViewerImage {
             message={this.errorMessage}
           ></swirl-inline-error>
         )}
-        <figure class="file-viewer-image">
-          <img
-            alt={this.description}
-            class="file-viewer-image__image"
-            ref={this.onImageElementUpdate}
-            src={this.file}
-          />
+        <figure class={className}>
+          <span class="file-viewer-image__container">
+            <img
+              alt={this.description}
+              class="file-viewer-image__image"
+              ref={this.onImageElementUpdate}
+              src={this.file}
+            />
+            <span class="file-viewer-image__watermark">
+              <slot name="watermark" />
+            </span>
+          </span>
           {this.loading && (
             <div class="file-viewer-image__spinner">
               <swirl-spinner></swirl-spinner>
