@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.430.0
+
+### Minor Changes
+
+- [#1402](https://github.com/getflip/swirl/pull/1402)
+  [`0405e888d`](https://github.com/getflip/swirl/commit/0405e888d458af8006fb8ec5314023d9f32b8818)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "watermark" slot to
+  swirl-file-viewer and swirl-image-grid-item
+
 ## 0.429.0
 
 ### Minor Changes
