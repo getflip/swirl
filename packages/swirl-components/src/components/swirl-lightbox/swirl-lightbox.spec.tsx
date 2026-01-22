@@ -99,7 +99,8 @@ describe("swirl-lightbox", () => {
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
 
-    page.win.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
+    const dialog = page.root.shadowRoot.querySelector("dialog");
+    dialog.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
 
     expect(closeSpy).toHaveBeenCalled();
   });
@@ -201,8 +202,9 @@ describe("swirl-lightbox", () => {
     await new Promise((resolve) => setTimeout(resolve, 300));
 
     const slides = page.rootInstance.slides;
+    const dialog = page.root.shadowRoot.querySelector("dialog");
 
-    page.win.dispatchEvent(
+    dialog.dispatchEvent(
       new KeyboardEvent("keydown", { code: "ArrowRight" })
     );
 
@@ -214,7 +216,7 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("true");
     expect(page.rootInstance.activeSlideIndex).toBe(1);
 
-    page.win.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
+    dialog.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));

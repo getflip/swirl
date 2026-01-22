@@ -38,6 +38,7 @@ export type SwirlModalSpacing =
  */
 @Component({
   shadow: false,
+  scoped: true,
   styleUrl: "swirl-modal.css",
   tag: "swirl-modal",
 })
@@ -80,13 +81,13 @@ export class SwirlModal {
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() hideScrolledHeaderBorder?: boolean;
 
-  @Event() toggleFullscreen: EventEmitter<boolean>;
-  @Event() modalClose: EventEmitter<void>;
-  @Event() modalOpen: EventEmitter<void>;
-  @Event() primaryAction: EventEmitter<MouseEvent>;
-  @Event() requestModalClose: EventEmitter<void>;
-  @Event() secondaryAction: EventEmitter<MouseEvent>;
-  @Event() sidebarClose: EventEmitter<void>;
+  @Event({ bubbles: false }) toggleFullscreen: EventEmitter<boolean>;
+  @Event({ bubbles: false }) modalClose: EventEmitter<void>;
+  @Event({ bubbles: false }) modalOpen: EventEmitter<void>;
+  @Event({ bubbles: false }) primaryAction: EventEmitter<MouseEvent>;
+  @Event({ bubbles: false }) requestModalClose: EventEmitter<void>;
+  @Event({ bubbles: false }) secondaryAction: EventEmitter<MouseEvent>;
+  @Event({ bubbles: false }) sidebarClose: EventEmitter<void>;
 
   @State() opening = false;
   @State() isFullscreen = false;
