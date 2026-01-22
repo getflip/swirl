@@ -18,6 +18,7 @@ const ANIMATION_DURATION_MS = 300;
  */
 @Component({
   shadow: false,
+  scoped: true,
   styleUrl: "swirl-modal-shell.css",
   tag: "swirl-modal-shell",
 })

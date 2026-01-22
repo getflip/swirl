@@ -38,6 +38,7 @@ export type SwirlModalSpacing =
  */
 @Component({
   shadow: false,
+  scoped: true,
   styleUrl: "swirl-modal.css",
   tag: "swirl-modal",
 })
