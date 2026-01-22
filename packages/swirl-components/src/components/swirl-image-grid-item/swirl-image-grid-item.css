@@ -144,18 +144,18 @@ button.image-grid-item {
 
   &:focus-visible {
     &:before {
-      content: "";
       position: absolute;
-      inset: 0;
-      border: 0.125rem solid var(--s-focus-default);
       z-index: 3;
+      border: 0.125rem solid var(--s-focus-default);
+      content: "";
+      inset: 0;
     }
     &:after {
-      content: "";
       position: absolute;
-      inset: 0;
-      border: 0.1875rem solid var(--s-background-default);
       z-index: 2;
+      border: 0.1875rem solid var(--s-background-default);
+      content: "";
+      inset: 0;
     }
   }
 }
@@ -173,6 +173,12 @@ button.image-grid-item {
   }
 }
 
+.image-grid-item--has-watermark {
+  & .image-grid-item__watermark {
+    display: inline-flex;
+  }
+}
+
 .image-grid-item__background {
   position: absolute;
   background-size: cover;
@@ -185,10 +191,27 @@ button.image-grid-item {
   display: inline-flex;
   width: 100%;
   height: 100%;
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
   object-fit: contain;
   object-position: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
+}
+
+.image-grid-item__watermark {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--s-space-8);
+  left: var(--s-space-8);
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  pointer-events: none;
+
+  & ::slotted(img) {
+    width: 3rem;
+    height: auto;
+    pointer-events: none;
+  }
 }
 
 .image-grid-item--loaded {
@@ -229,9 +252,9 @@ button.image-grid-item {
   z-index: 2;
   top: 50%;
   left: 50%;
+  transition: opacity 0.2s;
   transform: translate3d(-50%, -50%, 0);
   opacity: 0;
-  transition: opacity 0.2s;
 }
 
 .image-grid-item:hover > .image-grid-item__gif-control-button,

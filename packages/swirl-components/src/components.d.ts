@@ -5679,7 +5679,7 @@ declare global {
         new (): HTMLSwirlConsoleLayoutElement;
     };
     interface HTMLSwirlDataCellElementEventMap {
-        "swirlClick": MouseEvent;
+        "valueChange": MouseEvent;
     }
     interface HTMLSwirlDataCellElement extends Components.SwirlDataCell, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlDataCellElementEventMap>(type: K, listener: (this: HTMLSwirlDataCellElement, ev: SwirlDataCellCustomEvent<HTMLSwirlDataCellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -10024,7 +10024,7 @@ declare namespace LocalJSX {
     }
     interface SwirlDataCell {
         "label"?: string;
-        "onSwirlClick"?: (event: SwirlDataCellCustomEvent<MouseEvent>) => void;
+        "onValueChange"?: (event: SwirlDataCellCustomEvent<MouseEvent>) => void;
         "tooltip"?: string;
         "value"?: string;
         /**

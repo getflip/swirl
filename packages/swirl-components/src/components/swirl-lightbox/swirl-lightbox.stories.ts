@@ -39,7 +39,9 @@ const Template = (args) => {
 
   element.innerHTML = `
     <swirl-file-viewer description="Another cute dog in a blanket." file="/sample-2.jpg" thumbnail-url="/sample-2.jpg" type="image/jpeg" file-name="Cute dog"></swirl-file-viewer>
-    <swirl-file-viewer description="Cute dog in a blanket." file="/sample.jpg" thumbnail-url="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+    <swirl-file-viewer description="Cute dog in a blanket." file="/sample.jpg" thumbnail-url="/sample.jpg" type="image/jpeg">
+      <img alt="" src="/sample-watermark.svg" slot="watermark" />
+    </swirl-file-viewer>
     <swirl-file-viewer description="Black puppy." file="/sample-3.jpg" thumbnail-url="/sample-3.jpg" type="image/jpeg"></swirl-file-viewer>
     <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
     <swirl-file-viewer file="/sample-with-audio.mp4" type="video/mp4"></swirl-file-viewer>

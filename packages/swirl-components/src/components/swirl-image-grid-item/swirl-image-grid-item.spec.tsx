@@ -15,6 +15,9 @@ describe("swirl-image-grid-item", () => {
           <div class="image-grid-item">
             <div class="image-grid-item__background" style="background-image: url(/image.jpg);"></div>
             <img alt="Dog in a blanket" class="image-grid-item__image" src="/image.jpg">
+            <span class="image-grid-item__watermark">
+              <slot name="watermark"></slot>
+            </span>
             <swirl-skeleton-box borderradius="none" class="image-grid-item__skeleton" height="100%" width="100%"></swirl-skeleton-box>
           </div>
         </mock:shadow-root>
@@ -34,7 +37,10 @@ describe("swirl-image-grid-item", () => {
           <div class="image-grid-item">
             <div class="image-grid-item__background" style="background-image: url(/cat.gif);"></div>
             <img alt="Funny cat" class="image-grid-item__image" src="/cat.gif">
-             <swirl-button class="image-grid-item__gif-control-button" hidelabel="" icon="<swirl-icon-gif></swirl-icon-gif>" label="Pause GIF playback" pill="" swirlarialabel="Pause GIF playback" variant="on-image"></swirl-button>
+            <span class="image-grid-item__watermark">
+              <slot name="watermark"></slot>
+            </span>
+            <swirl-button class="image-grid-item__gif-control-button" hidelabel="" icon="<swirl-icon-gif></swirl-icon-gif>" label="Pause GIF playback" pill="" swirlarialabel="Pause GIF playback" variant="on-image"></swirl-button>
             <swirl-skeleton-box borderradius="none" class="image-grid-item__skeleton" height="100%" width="100%"></swirl-skeleton-box>
           </div>
         </mock:shadow-root>

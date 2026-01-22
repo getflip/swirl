@@ -39,12 +39,18 @@ describe("swirl-file-viewer", () => {
               <swirl-file-viewer-image>
                 <mock:shadow-root>
                   <figure class="file-viewer-image">
-                    <img alt="Description" class="file-viewer-image__image" src="https://picsum.photos/id/1025/1000/1000">
+                    <span class="file-viewer-image__container">
+                      <img alt="Description" class="file-viewer-image__image" src="https://picsum.photos/id/1025/1000/1000">
+                      <span class="file-viewer-image__watermark">
+                        <slot name="watermark"></slot>
+                      </span>
+                    </span>
                     <div class="file-viewer-image__spinner">
                       <swirl-spinner></swirl-spinner>
                     </div>
                   </figure>
                 </mock:shadow-root>
+                <slot name="watermark" slot="watermark"></slot>
               </swirl-file-viewer-image>
             </div>
           </div>
@@ -110,7 +116,10 @@ describe("swirl-file-viewer", () => {
   });
 
   it("renders plain text", async () => {
-    mockFetch.text("TEXT", 'https://www.w3.org/TR/2003/REC-PNG-20031110/iso_8859-1.txt');
+    mockFetch.text(
+      "TEXT",
+      "https://www.w3.org/TR/2003/REC-PNG-20031110/iso_8859-1.txt"
+    );
 
     const page = await newSpecPage({
       components: [SwirlFileViewer, SwirlFileViewerText],
@@ -139,7 +148,7 @@ describe("swirl-file-viewer", () => {
   });
 
   it("renders csv", async () => {
-    mockFetch.text("Col1,Col2,Col3\nCell1,Cell2,Cell3",'/sample.csv');
+    mockFetch.text("Col1,Col2,Col3\nCell1,Cell2,Cell3", "/sample.csv");
 
     const page = await newSpecPage({
       components: [SwirlFileViewer, SwirlFileViewerCsv],
@@ -274,7 +283,10 @@ describe("swirl-file-viewer", () => {
       ]),
     });
 
-    mockFetch.response(Object.assign(res, { blob: () => "Blob" }),'/sample.pdf');
+    mockFetch.response(
+      Object.assign(res, { blob: () => "Blob" }),
+      "/sample.pdf"
+    );
 
     const page = await newSpecPage({
       components: [SwirlFileViewer],
