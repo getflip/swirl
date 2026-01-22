@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.429.0
+
+### Minor Changes
+
+- [#1393](https://github.com/getflip/swirl/pull/1393)
+  [`56321f4cc`](https://github.com/getflip/swirl/commit/56321f4ccbd10cfbf3d14184aa0269014e843005)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add content
+  slot to swirl-data-cell
+
+### Patch Changes
+
+- Updated dependencies
+  [[`56321f4cc`](https://github.com/getflip/swirl/commit/56321f4ccbd10cfbf3d14184aa0269014e843005)]:
+  - @getflip/swirl-components@0.429.0
+
 ## 0.428.0
 
 ### Minor Changes
