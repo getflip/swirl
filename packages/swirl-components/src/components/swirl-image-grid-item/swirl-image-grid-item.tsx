@@ -3,6 +3,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Fragment,
   h,
   Host,
   Method,
@@ -19,6 +20,9 @@ export type SwirlImageGridItemLoading =
   | "eager"
   | "intersecting";
 
+/**
+ * @slot watermark - Optional watermark image to be displayed in the bottom left corner of the image.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-image-grid-item.css",
@@ -194,9 +198,12 @@ export class SwirlImageGridItem {
     const siblingCount =
       Math.min(this.el.parentElement?.children.length, 4) ?? 1;
 
+    const hasWatermark = !!this.el.querySelector('[slot="watermark"]');
+
     const className = classnames("image-grid-item", {
       "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
+      "image-grid-item--has-watermark": hasWatermark,
       "image-grid-item--loaded": this.loaded,
       "image-grid-item--gif-paused": this.gifPaused,
     });
@@ -213,15 +220,20 @@ export class SwirlImageGridItem {
             }}
           ></div>
           {showImage ? (
-            <img
-              alt={this.alt}
-              class="image-grid-item__image"
-              loading={
-                this.loading !== "intersecting" ? this.loading : undefined
-              }
-              ref={this.onImageElementUpdate}
-              src={this.computedSrc}
-            />
+            <Fragment>
+              <img
+                alt={this.alt}
+                class="image-grid-item__image"
+                loading={
+                  this.loading !== "intersecting" ? this.loading : undefined
+                }
+                ref={this.onImageElementUpdate}
+                src={this.computedSrc}
+              />
+              <span class="image-grid-item__watermark">
+                <slot name="watermark"></slot>
+              </span>
+            </Fragment>
           ) : (
             <div class="image-grid-item__loading-placeholder">
               <swirl-visually-hidden>{this.alt}</swirl-visually-hidden>

@@ -26,7 +26,10 @@ describe("swirl-image-grid", () => {
             <button class="image-grid-item" type="button">
               <div class="image-grid-item__background" style="background-image: url(/sample.jpg);"></div>
               <img alt="Cute dog in a blanket" class="image-grid-item__image" src="/sample.jpg">
-               <swirl-skeleton-box borderradius="none" class="image-grid-item__skeleton" height="100%" width="100%"></swirl-skeleton-box>
+              <span class="image-grid-item__watermark">
+                <slot name="watermark"></slot>
+              </span>
+              <swirl-skeleton-box borderradius="none" class="image-grid-item__skeleton" height="100%" width="100%"></swirl-skeleton-box>
             </button>
           </mock:shadow-root>
         </swirl-image-grid-item>
