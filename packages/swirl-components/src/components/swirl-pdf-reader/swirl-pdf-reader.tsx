@@ -128,15 +128,13 @@ export class SwirlPdfReader {
   async open() {
     this.opening = true;
 
-    requestAnimationFrame(() => {
-      if (!this.modalEl) {
-        return;
-      }
+    if (!this.modalEl) {
+      return;
+    }
 
-      this.modalEl.showModal();
-      this.active = true;
-      this.modalOpen.emit();
-    });
+    this.modalEl.showModal();
+    this.active = true;
+    this.modalOpen.emit();
   }
 
   /**

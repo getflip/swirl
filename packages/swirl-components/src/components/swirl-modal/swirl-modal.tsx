@@ -142,26 +142,24 @@ export class SwirlModal {
   @Method()
   async open() {
     this.opening = true;
+
+    if (!this.modalEl) {
+      return;
+    }
+
     this.setupMutationObserver();
-
-    requestAnimationFrame(() => {
-      if (!this.modalEl) {
-        return;
-      }
-
-      this.modalEl.showModal();
-      this.modalOpen.emit();
-      this.mutationObserver.observe(this.modalEl, {
-        subtree: true,
-        childList: true,
-      });
-      this.lockBodyScroll();
-      this.determineScrollStatus();
-
-      setTimeout(() => {
-        this.handleAutoFocus();
-      }, 200);
+    this.modalEl.showModal();
+    this.modalOpen.emit();
+    this.mutationObserver.observe(this.modalEl, {
+      subtree: true,
+      childList: true,
     });
+    this.lockBodyScroll();
+    this.determineScrollStatus();
+
+    setTimeout(() => {
+      this.handleAutoFocus();
+    }, 200);
   }
   /**
    * Close the modal. Pass `true` to force close even if the modal is not closable.
