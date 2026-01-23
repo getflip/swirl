@@ -172,7 +172,9 @@ export class SwirlModal {
       return;
     }
 
-    this.requestModalClose.emit();
+    if (!force) {
+      this.requestModalClose.emit();
+    }
 
     if (!this.closable && !force) {
       return;
