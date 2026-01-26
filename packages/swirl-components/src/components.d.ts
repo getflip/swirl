@@ -1270,7 +1270,7 @@ export namespace Components {
           * @default 24
          */
         "size": SwirlIconSize;
-        "wrapperColor": SwirlIconWrapperColor;
+        "wrapperColor"?: SwirlIconWrapperColor;
         /**
           * @default "m"
          */

@@ -38,7 +38,7 @@ export class SwirlIcon {
   @Prop() color?: SwirlIconColor;
   @Prop() glyph!: string;
   @Prop() size: SwirlIconSize = 24;
-  @Prop() wrapperColor: SwirlIconWrapperColor;
+  @Prop() wrapperColor?: SwirlIconWrapperColor;
   @Prop() wrapperSize?: SwirlIconWrapperSize = "m";
 
   render() {
