@@ -2930,6 +2930,17 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconWrapper {
+        /**
+          * @default "neutral"
+         */
+        "backgroundColor"?: BackgroundColor;
+        "icon": string;
+        /**
+          * @default "m"
+         */
+        "size"?: SwirlIconWrapperSize;
+    }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
         /**
@@ -7437,6 +7448,12 @@ declare global {
         prototype: HTMLSwirlIconWorkElement;
         new (): HTMLSwirlIconWorkElement;
     };
+    interface HTMLSwirlIconWrapperElement extends Components.SwirlIconWrapper, HTMLStencilElement {
+    }
+    var HTMLSwirlIconWrapperElement: {
+        prototype: HTMLSwirlIconWrapperElement;
+        new (): HTMLSwirlIconWrapperElement;
+    };
     interface HTMLSwirlImageGridElement extends Components.SwirlImageGrid, HTMLStencilElement {
     }
     var HTMLSwirlImageGridElement: {
@@ -9223,6 +9240,7 @@ declare global {
         "swirl-icon-web-asset": HTMLSwirlIconWebAssetElement;
         "swirl-icon-web-asset-off": HTMLSwirlIconWebAssetOffElement;
         "swirl-icon-work": HTMLSwirlIconWorkElement;
+        "swirl-icon-wrapper": HTMLSwirlIconWrapperElement;
         "swirl-image-grid": HTMLSwirlImageGridElement;
         "swirl-image-grid-item": HTMLSwirlImageGridItemElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
@@ -12103,6 +12121,17 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconWrapper {
+        /**
+          * @default "neutral"
+         */
+        "backgroundColor"?: BackgroundColor;
+        "icon"?: string;
+        /**
+          * @default "m"
+         */
+        "size"?: SwirlIconWrapperSize;
+    }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
         /**
@@ -14484,6 +14513,7 @@ declare namespace LocalJSX {
         "swirl-icon-web-asset": SwirlIconWebAsset;
         "swirl-icon-web-asset-off": SwirlIconWebAssetOff;
         "swirl-icon-work": SwirlIconWork;
+        "swirl-icon-wrapper": SwirlIconWrapper;
         "swirl-image-grid": SwirlImageGrid;
         "swirl-image-grid-item": SwirlImageGridItem;
         "swirl-inline-error": SwirlInlineError;
@@ -14969,6 +14999,7 @@ declare module "@stencil/core" {
             "swirl-icon-web-asset": LocalJSX.SwirlIconWebAsset & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetElement>;
             "swirl-icon-web-asset-off": LocalJSX.SwirlIconWebAssetOff & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetOffElement>;
             "swirl-icon-work": LocalJSX.SwirlIconWork & JSXBase.HTMLAttributes<HTMLSwirlIconWorkElement>;
+            "swirl-icon-wrapper": LocalJSX.SwirlIconWrapper & JSXBase.HTMLAttributes<HTMLSwirlIconWrapperElement>;
             "swirl-image-grid": LocalJSX.SwirlImageGrid & JSXBase.HTMLAttributes<HTMLSwirlImageGridElement>;
             "swirl-image-grid-item": LocalJSX.SwirlImageGridItem & JSXBase.HTMLAttributes<HTMLSwirlImageGridItemElement>;
             "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;
