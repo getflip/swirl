@@ -34,7 +34,7 @@ import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileVie
 import { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
-import { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
+import { SwirlIconColor, SwirlIconWrapperColor, SwirlIconWrapperSize } from "./components/swirl-icon/swirl-icon";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
 import { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
@@ -114,7 +114,7 @@ export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileVie
 export { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
-export { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
+export { SwirlIconColor, SwirlIconWrapperColor, SwirlIconWrapperSize } from "./components/swirl-icon/swirl-icon";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
 export { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
@@ -1270,6 +1270,11 @@ export namespace Components {
           * @default 24
          */
         "size": SwirlIconSize;
+        "wrapperColor": SwirlIconWrapperColor;
+        /**
+          * @default "m"
+         */
+        "wrapperSize"?: SwirlIconWrapperSize;
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
@@ -2929,17 +2934,6 @@ export namespace Components {
           * @default 24
          */
         "size": SwirlIconSize;
-    }
-    interface SwirlIconWrapper {
-        /**
-          * @default "neutral"
-         */
-        "backgroundColor"?: BackgroundColor;
-        "icon": string;
-        /**
-          * @default "m"
-         */
-        "size"?: SwirlIconWrapperSize;
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
@@ -7448,12 +7442,6 @@ declare global {
         prototype: HTMLSwirlIconWorkElement;
         new (): HTMLSwirlIconWorkElement;
     };
-    interface HTMLSwirlIconWrapperElement extends Components.SwirlIconWrapper, HTMLStencilElement {
-    }
-    var HTMLSwirlIconWrapperElement: {
-        prototype: HTMLSwirlIconWrapperElement;
-        new (): HTMLSwirlIconWrapperElement;
-    };
     interface HTMLSwirlImageGridElement extends Components.SwirlImageGrid, HTMLStencilElement {
     }
     var HTMLSwirlImageGridElement: {
@@ -9240,7 +9228,6 @@ declare global {
         "swirl-icon-web-asset": HTMLSwirlIconWebAssetElement;
         "swirl-icon-web-asset-off": HTMLSwirlIconWebAssetOffElement;
         "swirl-icon-work": HTMLSwirlIconWorkElement;
-        "swirl-icon-wrapper": HTMLSwirlIconWrapperElement;
         "swirl-image-grid": HTMLSwirlImageGridElement;
         "swirl-image-grid-item": HTMLSwirlImageGridItemElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
@@ -10461,6 +10448,11 @@ declare namespace LocalJSX {
           * @default 24
          */
         "size"?: SwirlIconSize;
+        "wrapperColor"?: SwirlIconWrapperColor;
+        /**
+          * @default "m"
+         */
+        "wrapperSize"?: SwirlIconWrapperSize;
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
@@ -12120,17 +12112,6 @@ declare namespace LocalJSX {
           * @default 24
          */
         "size"?: SwirlIconSize;
-    }
-    interface SwirlIconWrapper {
-        /**
-          * @default "neutral"
-         */
-        "backgroundColor"?: BackgroundColor;
-        "icon"?: string;
-        /**
-          * @default "m"
-         */
-        "size"?: SwirlIconWrapperSize;
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
@@ -14513,7 +14494,6 @@ declare namespace LocalJSX {
         "swirl-icon-web-asset": SwirlIconWebAsset;
         "swirl-icon-web-asset-off": SwirlIconWebAssetOff;
         "swirl-icon-work": SwirlIconWork;
-        "swirl-icon-wrapper": SwirlIconWrapper;
         "swirl-image-grid": SwirlImageGrid;
         "swirl-image-grid-item": SwirlImageGridItem;
         "swirl-inline-error": SwirlInlineError;
@@ -14999,7 +14979,6 @@ declare module "@stencil/core" {
             "swirl-icon-web-asset": LocalJSX.SwirlIconWebAsset & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetElement>;
             "swirl-icon-web-asset-off": LocalJSX.SwirlIconWebAssetOff & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetOffElement>;
             "swirl-icon-work": LocalJSX.SwirlIconWork & JSXBase.HTMLAttributes<HTMLSwirlIconWorkElement>;
-            "swirl-icon-wrapper": LocalJSX.SwirlIconWrapper & JSXBase.HTMLAttributes<HTMLSwirlIconWrapperElement>;
             "swirl-image-grid": LocalJSX.SwirlImageGrid & JSXBase.HTMLAttributes<HTMLSwirlImageGridElement>;
             "swirl-image-grid-item": LocalJSX.SwirlImageGridItem & JSXBase.HTMLAttributes<HTMLSwirlImageGridItemElement>;
             "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;

@@ -31,3 +31,13 @@ SwirlIcon.args = {
   glyph: "notifications",
   size: "24",
 };
+
+export const SwirlIconWithWrapper = Template.bind({});
+
+SwirlIconWithWrapper.args = {
+  glyph: "edit",
+  color: "info",
+  size: "20",
+  wrapperColor: "blueberry",
+  wrapperSize: "xl",
+};
