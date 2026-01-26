@@ -3578,6 +3578,57 @@
         {
           "name": "size",
           "description": ""
+        },
+        {
+          "name": "wrapper-color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "neutral"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
+            }
+          ]
+        },
+        {
+          "name": "wrapper-size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
         }
       ]
     },

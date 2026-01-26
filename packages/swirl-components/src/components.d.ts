@@ -34,7 +34,7 @@ import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileVie
 import { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
-import { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
+import { SwirlIconColor, SwirlIconWrapperColor, SwirlIconWrapperSize } from "./components/swirl-icon/swirl-icon";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
 import { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
@@ -114,7 +114,7 @@ export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileVie
 export { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
-export { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
+export { SwirlIconColor, SwirlIconWrapperColor, SwirlIconWrapperSize } from "./components/swirl-icon/swirl-icon";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
 export { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
@@ -1270,6 +1270,11 @@ export namespace Components {
           * @default 24
          */
         "size": SwirlIconSize;
+        "wrapperColor"?: SwirlIconWrapperColor;
+        /**
+          * @default "m"
+         */
+        "wrapperSize"?: SwirlIconWrapperSize;
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
@@ -10443,6 +10448,11 @@ declare namespace LocalJSX {
           * @default 24
          */
         "size"?: SwirlIconSize;
+        "wrapperColor"?: SwirlIconWrapperColor;
+        /**
+          * @default "m"
+         */
+        "wrapperSize"?: SwirlIconWrapperSize;
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;

@@ -8,3 +8,68 @@
   max-width: 100%;
   max-height: 100%;
 }
+
+.icon-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--s-border-radius-full-round);
+  background-color: var(--s-surface-raised-default);
+}
+
+.icon-wrapper--size-xs {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-wrapper--size-s {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-wrapper--size-m {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-wrapper--size-l {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-wrapper--size-xl {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-wrapper--background-color-neutral {
+  background-color: var(--s-surface-raised-default);
+}
+
+.icon-wrapper--background-color-banana {
+  background-color: var(--s-decorative-banana-surface-subdued);
+}
+
+.icon-wrapper--background-color-blueberry {
+  background-color: var(--s-decorative-blueberry-surface-subdued);
+}
+
+.icon-wrapper--background-color-chilli {
+  background-color: var(--s-decorative-chilli-surface-subdued);
+}
+
+.icon-wrapper--background-color-grape {
+  background-color: var(--s-decorative-grape-surface-subdued);
+}
+
+.icon-wrapper--background-color-kiwi {
+  background-color: var(--s-decorative-kiwi-surface-subdued);
+}
+
+.icon-wrapper--background-color-pumpkin {
+  background-color: var(--s-decorative-pumpkin-surface-subdued);
+}
+
+.icon-wrapper--background-color-radish {
+  background-color: var(--s-decorative-radish-surface-subdued);
+}
