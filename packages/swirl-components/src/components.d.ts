@@ -3160,6 +3160,7 @@ export namespace Components {
           * @default "Full screen"
          */
         "fullscreenEnableButtonLabel"?: string;
+        "getScrollContainer": () => Promise<HTMLElement | undefined>;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;
