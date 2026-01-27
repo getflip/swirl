@@ -105,15 +105,13 @@ export class SwirlLightbox {
   async open() {
     this.opening = true;
 
-    requestAnimationFrame(() => {
-      if (!this.modalEl) {
-        return;
-      }
+    if (!this.modalEl) {
+      return;
+    }
 
-      this.modalEl.showModal();
-      this.lockBodyScroll();
-      this.activateSlide(this.activeSlideIndex || 0);
-    });
+    this.modalEl.showModal();
+    this.lockBodyScroll();
+    this.activateSlide(this.activeSlideIndex || 0);
   }
 
   /**

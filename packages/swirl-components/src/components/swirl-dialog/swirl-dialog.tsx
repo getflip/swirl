@@ -69,14 +69,12 @@ export class SwirlDialog {
   async open() {
     this.opening = true;
 
-    requestAnimationFrame(() => {
-      if (!this.dialogEl) {
-        return;
-      }
+    if (!this.dialogEl) {
+      return;
+    }
 
-      this.dialogEl.showModal();
-      this.dialogOpen.emit();
-    });
+    this.dialogEl.showModal();
+    this.dialogOpen.emit();
   }
 
   /**
