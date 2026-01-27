@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.431.0
+
+### Minor Changes
+
+- [#1405](https://github.com/getflip/swirl/pull/1405)
+  [`213e0c9c1`](https://github.com/getflip/swirl/commit/213e0c9c19320f7c9e9f4ea0c59e73ad10e88e7c)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add Icon
+  backgroundColor support
+
 ## 0.430.0
 
 ### Minor Changes
