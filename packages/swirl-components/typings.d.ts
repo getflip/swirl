@@ -11,3 +11,7 @@ interface HTMLElement {
   hidePopover(): void;
   togglePopover(force?: boolean): boolean;
 }
+
+interface ToggleEvent extends Event {
+  newState: string;
+}
