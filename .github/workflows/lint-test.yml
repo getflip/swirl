@@ -12,8 +12,6 @@ on:
       - packages/swirl-tokens/dart/lib/styles.light.dart
   pull_request:
     types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
     paths-ignore:
       - apps/swirl-docs/**/*
       - packages/swirl-icons/dart/lib/fonts/flip-legacy-icons.ttf

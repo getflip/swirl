@@ -126,6 +126,7 @@ export const config: Config = {
       "^.+\\.(ts|tsx|js|jsx|css)$": "@stencil/core/testing/jest-preprocessor",
     },
     transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
+    setupFilesAfterEnv: ["<rootDir>/test-setup.ts"],
   },
   watchIgnoredRegex: [/pdf\.worker\.min\.js/, /vscode-data\.json/],
 };

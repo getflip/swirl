@@ -29,9 +29,10 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
             <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
             <swirl-toast dismisslabel="Dismiss" icon="<lip-icon-mail></swirl-icon-mail>" intent="success" toastid="toast-2">Toast 2</swirl-toast>
+            <slot></slot>
           </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>
@@ -44,8 +45,9 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
             <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
+            <slot></slot>
           </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>
@@ -58,7 +60,9 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack spacing="12"></swirl-stack>
+          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
+            <slot></slot>
+          </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>
     `);
@@ -200,5 +204,175 @@ describe("swirl-toast-provider", () => {
     expect(result.intent).toBe(fullToast.intent);
     expect(result.duration).toBe(fullToast.duration);
     expect(result.toastId).toBe(fullToast.toastId);
+  });
+
+  it("should show popover when toasts are added", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+
+    await page.waitForChanges();
+
+    expect(showPopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should hide popover when all toasts are cleared", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+
+    await page.waitForChanges();
+
+    hidePopoverSpy.mockClear();
+
+    await toastProvider.clearAll();
+    await page.waitForChanges();
+
+    expect(hidePopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should hide popover when last toast is dismissed", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+
+    await page.waitForChanges();
+
+    hidePopoverSpy.mockClear();
+
+    await toastProvider.dismiss("test-toast");
+    await page.waitForChanges();
+
+    expect(hidePopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should keep popover open when dismissing one of multiple toasts", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Toast 1",
+      toastId: "toast-1",
+    });
+
+    await toastProvider.toast({
+      content: "Toast 2",
+      toastId: "toast-2",
+    });
+
+    await page.waitForChanges();
+
+    showPopoverSpy.mockClear();
+    hidePopoverSpy.mockClear();
+
+    await toastProvider.dismiss("toast-1");
+    await page.waitForChanges();
+
+    expect(showPopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should show popover when slotted toast is added", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+    const slotEl = page.root.shadowRoot.querySelector("slot");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    const slottedToast = document.createElement("swirl-toast");
+    slottedToast.setAttribute("toast-id", "slotted-toast");
+    toastProvider.appendChild(slottedToast);
+
+    slotEl.dispatchEvent(new Event("slotchange"));
+    await page.waitForChanges();
+
+    expect(showPopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should hide popover when slotted toast is removed", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `
+          <swirl-toast-provider>
+            <swirl-toast toast-id="slotted-toast">Slotted Toast</swirl-toast>
+          </swirl-toast-provider>
+        `,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+    const slotEl = page.root.shadowRoot.querySelector("slot");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    const slottedToast = toastProvider.querySelector("swirl-toast");
+    slottedToast.remove();
+
+    slotEl.dispatchEvent(new Event("slotchange"));
+    await page.waitForChanges();
+
+    expect(hidePopoverSpy).toHaveBeenCalled();
   });
 });

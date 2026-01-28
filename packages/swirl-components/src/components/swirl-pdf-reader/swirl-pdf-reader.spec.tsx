@@ -12,7 +12,7 @@ describe("swirl-pdf-reader", () => {
     expect(page.root).toEqualHtml(`
       <swirl-pdf-reader file="/sample.pdf" label="PDF Reader">
         <mock:shadow-root>
-          <section aria-hidden="true" aria-label="PDF Reader" aria-modal="true" class="pdf-reader" id="pdf-reader" role="dialog" tabindex="-1">
+          <dialog aria-label="PDF Reader" class="pdf-reader" closedby="none" id="pdf-reader">
             <div class="pdf-reader__body" role="document">
               <header class="pdf-reader__header">
                 <span class="pdf-reader__header-left">
@@ -112,7 +112,7 @@ describe("swirl-pdf-reader", () => {
                 </swirl-action-list>
               </swirl-stack>
             </swirl-popover>
-          </section>
+          </dialog>
         </mock:shadow-root>
       </swirl-pdf-reader>
     `);
