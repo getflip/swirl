@@ -12,7 +12,7 @@ describe("swirl-dialog", () => {
     expect(page.root).toEqualHtml(`
       <swirl-dialog label="Dialog">
         <mock:shadow-root>
-          <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none">
+          <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none" role="alertdialog">
             <div class="dialog__backdrop"></div>
             <div class="dialog__body" part="dialog__body" role="document">
               <h2 class="dialog__heading" part="dialog__heading" id="label">
@@ -39,7 +39,7 @@ describe("swirl-dialog", () => {
     expect(page.root).toEqualHtml(`
       <swirl-dialog label="Dialog">
         <mock:shadow-root>
-          <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none">
+          <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none" role="alertdialog">
             <div class="dialog__backdrop"></div>
             <div class="dialog__body" part="dialog__body" role="document">
               <h2 class="dialog__heading" part="dialog__heading" id="label">

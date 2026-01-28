@@ -135,6 +135,7 @@ export class SwirlDialog {
           class={className}
           onClose={this.onClose}
           onKeyDown={this.onKeyDown}
+          role="alertdialog"
           ref={(el) => (this.dialogEl = el)}
         >
           <div class="dialog__backdrop" onClick={this.onBackdropClick}></div>
