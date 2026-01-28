@@ -72,3 +72,78 @@ const Template = () => {
 };
 
 export const SwirlToastProvider = Template.bind({});
+
+const WithModalTemplate = () => {
+  const contents = [
+    "Hello World",
+    "This is toast text with multiple lines. Try to keep the info as short as possible.",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+  ];
+
+  const intents: SwirlToastIntent[] = ["default", "critical", "success"];
+
+  const container = document.createElement("div");
+  const toastProvider = generateStoryElement(
+    "swirl-toast-provider",
+    {}
+  ) as HTMLSwirlToastProviderElement;
+
+  // Button to open modal
+  const openModalButton = document.createElement("swirl-button");
+  openModalButton.variant = "flat";
+  openModalButton.label = "Open Modal";
+  openModalButton.style.marginRight = "0.5rem";
+  openModalButton.style.marginBottom = "1rem";
+
+  // Button to create toast outside modal
+  const createToastButton = document.createElement("swirl-button");
+  createToastButton.label = "Create Toast (outside modal)";
+  createToastButton.style.marginBottom = "1rem";
+
+  // Create modal
+  const modal = document.createElement("swirl-modal");
+  modal.label = "Modal with Toast";
+  modal.setAttribute("primary-action-label", "Close");
+
+  const modalContent = document.createElement("div");
+  modalContent.innerHTML = `
+    <p style="margin-bottom: 1rem;">Click the button below to create a toast while this modal is open. The toast should be interactive.</p>
+  `;
+
+  const createToastInModalButton = document.createElement("swirl-button");
+  createToastInModalButton.variant = "flat";
+  createToastInModalButton.label = "Create Toast (inside modal)";
+
+  modalContent.appendChild(createToastInModalButton);
+  modal.appendChild(modalContent);
+
+  // Event handlers
+  const createToast = () => {
+    toastProvider.toast({
+      content: [...contents].sort(() => Math.random() - 0.5)[0],
+      duration: 6000,
+      icon: "<swirl-icon-mail></swirl-icon-mail>",
+      intent: [...intents].sort(() => Math.random() - 0.5)[0],
+    });
+  };
+
+  openModalButton.addEventListener("click", () => modal.open());
+  createToastButton.addEventListener("click", createToast);
+  createToastInModalButton.addEventListener("click", createToast);
+  modal.addEventListener("primaryAction", () => modal.close());
+
+  container.append(openModalButton, createToastButton, modal, toastProvider);
+
+  return container;
+};
+
+export const WithModal = WithModalTemplate.bind({});
+
+WithModal.parameters = {
+  docs: {
+    description: {
+      story:
+        "Demonstrates that toasts remain interactive when a modal dialog is open. The toast provider automatically moves into the topmost open dialog to ensure toasts are not blocked by the modal backdrop.",
+    },
+  },
+};
