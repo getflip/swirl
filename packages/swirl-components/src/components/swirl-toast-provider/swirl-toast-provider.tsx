@@ -16,11 +16,15 @@ import { SwirlDialogToggleEvent } from "../../utils";
 export type SwirlToastConfig = {
   accessibleDismissLabel?: string;
   content: string;
+  actionLabel?: string;
+  dismissOnAction?: boolean;
   dismissLabel?: string;
   duration?: number;
   icon?: string;
   intent?: SwirlToastIntent;
   toastId?: string;
+  onDismiss?: (toastId: string) => void;
+  onAction?: (toastId: string) => void;
 };
 
 export type SwirlToastMessage = SwirlToastConfig & {
@@ -61,6 +65,14 @@ export class SwirlToastProvider {
    */
   @Method()
   async dismiss(toastId: string) {
+    const toast = this.toasts.find((toast) => toastId === toast.toastId);
+
+    if (!toast) {
+      return;
+    }
+
+    toast.onDismiss?.(toast.toastId);
+
     this.toasts = [...this.toasts].filter((toast) => toast.toastId !== toastId);
   }
 
@@ -123,10 +135,22 @@ export class SwirlToastProvider {
     }
   }
 
-  onDismiss = (event: SwirlToastCustomEvent<string>) => {
-    this.toasts = [...this.toasts].filter(
-      (toast) => toast.toastId !== event.detail
-    );
+  private onAction = (event: SwirlToastCustomEvent<string>) => {
+    const toast = this.toasts.find(({ toastId }) => toastId === event.detail);
+
+    if (!toast) {
+      return;
+    }
+
+    toast.onAction?.(toast.toastId);
+
+    if (toast.dismissOnAction) {
+      this.dismiss(event.detail);
+    }
+  };
+
+  private onDismiss = (event: SwirlToastCustomEvent<string>) => {
+    this.dismiss(event.detail);
   };
 
   private onDialogOpen(dialog: HTMLDialogElement) {
@@ -179,13 +203,19 @@ export class SwirlToastProvider {
           ref={(el) => (this.popoverEl = el)}
         >
           {this.toasts.map((toast) => {
-            const props = { ...toast, content: undefined };
+            const props = {
+              ...toast,
+              content: undefined,
+              onDismiss: undefined,
+              onAction: undefined,
+            };
 
             return (
               <swirl-toast
                 key={toast.toastId}
-                onDismiss={this.onDismiss}
                 {...props}
+                onDismiss={this.onDismiss}
+                onAction={this.onAction}
               >
                 {toast.content}
               </swirl-toast>

@@ -4952,6 +4952,7 @@ export namespace Components {
           * @default "Dismiss"
          */
         "accessibleDismissLabel"?: string;
+        "actionLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
         /**
@@ -8786,6 +8787,7 @@ declare global {
         new (): HTMLSwirlTimeInputElement;
     };
     interface HTMLSwirlToastElementEventMap {
+        "action": string;
         "dismiss": string;
     }
     interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
@@ -14032,6 +14034,7 @@ declare namespace LocalJSX {
           * @default "Dismiss"
          */
         "accessibleDismissLabel"?: string;
+        "actionLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
         /**
@@ -14043,6 +14046,7 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "intent"?: SwirlToastIntent;
+        "onAction"?: (event: SwirlToastCustomEvent<string>) => void;
         "onDismiss"?: (event: SwirlToastCustomEvent<string>) => void;
         "toastId": string;
     }

@@ -180,6 +180,8 @@ describe("swirl-toast-provider", () => {
     const fullToast: SwirlToastConfig = {
       content: "Full Toast",
       accessibleDismissLabel: "Close notification",
+      actionLabel: "Undo",
+      dismissOnAction: true,
       dismissLabel: "Dismiss",
       icon: "<swirl-icon-info></swirl-icon-info>",
       intent: "success",
@@ -196,11 +198,172 @@ describe("swirl-toast-provider", () => {
     expect(result.accessibleDismissLabel).toBe(
       fullToast.accessibleDismissLabel
     );
+    expect(result.actionLabel).toBe(fullToast.actionLabel);
+    expect(result.dismissOnAction).toBe(fullToast.dismissOnAction);
     expect(result.dismissLabel).toBe(fullToast.dismissLabel);
     expect(result.icon).toBe(fullToast.icon);
     expect(result.intent).toBe(fullToast.intent);
     expect(result.duration).toBe(fullToast.duration);
     expect(result.toastId).toBe(fullToast.toastId);
+  });
+
+  it("should render toast with actionLabel when provided", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+
+    await toastProvider.toast({
+      content: "Toast with action",
+      actionLabel: "Undo",
+      toastId: "action-toast",
+    });
+
+    await page.waitForChanges();
+
+    const toastEl = page.root.shadowRoot.querySelector("swirl-toast");
+    expect(toastEl.getAttribute("actionlabel")).toBe("Undo");
+  });
+
+  it("should call onAction callback with toastId when action event is fired", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const onActionSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast with action callback",
+      actionLabel: "Undo",
+      toastId: "action-callback-toast",
+      onAction: onActionSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Call the provider's onAction handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onAction({ detail: "action-callback-toast" });
+
+    await page.waitForChanges();
+
+    expect(onActionSpy).toHaveBeenCalledWith("action-callback-toast");
+  });
+
+  it("should call onDismiss callback with toastId when dismiss event is fired", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const onDismissSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast with dismiss callback",
+      toastId: "dismiss-callback-toast",
+      onDismiss: onDismissSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Call the provider's onDismiss handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onDismiss({ detail: "dismiss-callback-toast" });
+
+    await page.waitForChanges();
+
+    expect(onDismissSpy).toHaveBeenCalledWith("dismiss-callback-toast");
+  });
+
+  it("should dismiss toast and call onDismiss after onAction when dismissOnAction is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    const onActionSpy = jest.fn();
+    const onDismissSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast with dismissOnAction",
+      actionLabel: "Undo",
+      toastId: "dismiss-on-action-toast",
+      dismissOnAction: true,
+      onAction: onActionSpy,
+      onDismiss: onDismissSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Verify toast is rendered
+    let toasts = page.root.shadowRoot.querySelectorAll("swirl-toast");
+    expect(toasts.length).toBe(1);
+
+    // Call the provider's onAction handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onAction({ detail: "dismiss-on-action-toast" });
+
+    await page.waitForChanges();
+
+    expect(onActionSpy).toHaveBeenCalledWith("dismiss-on-action-toast");
+    expect(onDismissSpy).toHaveBeenCalledWith("dismiss-on-action-toast");
+
+    // Verify toast was removed from DOM
+    toasts = page.root.shadowRoot.querySelectorAll("swirl-toast");
+    expect(toasts.length).toBe(0);
+  });
+
+  it("should not dismiss toast or call onDismiss after onAction when dismissOnAction is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    const onActionSpy = jest.fn();
+    const onDismissSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast without dismissOnAction",
+      actionLabel: "Undo",
+      toastId: "no-dismiss-on-action-toast",
+      dismissOnAction: false,
+      onAction: onActionSpy,
+      onDismiss: onDismissSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Call the provider's onAction handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onAction({ detail: "no-dismiss-on-action-toast" });
+
+    await page.waitForChanges();
+
+    expect(onActionSpy).toHaveBeenCalledWith("no-dismiss-on-action-toast");
+    expect(onDismissSpy).not.toHaveBeenCalled();
+
+    // Verify toast was NOT removed from DOM
+    const toasts = page.root.shadowRoot.querySelectorAll("swirl-toast");
+    expect(toasts.length).toBe(1);
   });
 
   it("should show popover when toasts are added", async () => {
