@@ -224,14 +224,14 @@ describe("swirl-modal", () => {
     );
   });
 
-  it("emits swirlDialogToggle event when modal is toggled", async () => {
+  it("emits toggleDialog event when modal is toggled", async () => {
     const page = await newSpecPage({
       components: [SwirlModal],
       html: `<swirl-modal label="Modal">Content</swirl-modal>`,
     });
 
     const toggleSpy = jest.fn();
-    page.root.addEventListener("swirlDialogToggle", toggleSpy);
+    page.root.addEventListener("toggleDialog", toggleSpy);
 
     const dialogEl = page.root.shadowRoot.querySelector("dialog");
 

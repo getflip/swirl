@@ -103,7 +103,7 @@ export class SwirlToastProvider {
     }
   }
 
-  @Listen("swirlDialogToggle", { target: "document" })
+  @Listen("toggleDialog", { target: "document" })
   handleDialogToggle(event: CustomEvent<SwirlDialogToggleEvent>): void {
     const { newState, dialog } = event.detail;
 

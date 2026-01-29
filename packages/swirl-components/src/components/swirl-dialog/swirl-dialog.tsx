@@ -37,7 +37,7 @@ export class SwirlDialog {
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
   @Event({ bubbles: true, composed: true })
-  swirlDialogToggle: EventEmitter<SwirlDialogToggleEvent>;
+  toggleDialog: EventEmitter<SwirlDialogToggleEvent>;
 
   @State() closing = false;
   @State() opening = false;
@@ -102,7 +102,7 @@ export class SwirlDialog {
   };
 
   onToggle = (event: ToggleEvent) => {
-    this.swirlDialogToggle.emit({
+    this.toggleDialog.emit({
       newState: event.newState as SwirlDialogToggleEvent["newState"],
       dialog: this.dialogEl,
     });

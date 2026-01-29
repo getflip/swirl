@@ -320,7 +320,7 @@ describe("swirl-toast-provider", () => {
     expect(showPopoverSpy).toHaveBeenCalled();
   });
 
-  it("should move into dialog when swirlDialogToggle event with 'open' is received and toasts are showing", async () => {
+  it("should move into dialog when toggleDialog event with 'open' is received and toasts are showing", async () => {
     const page = await newSpecPage({
       components: [SwirlToastProvider],
       html: `
@@ -352,8 +352,8 @@ describe("swirl-toast-provider", () => {
     // Verify initial position
     expect(toastProvider.parentElement).toBe(container);
 
-    // Dispatch swirlDialogToggle event with "open" state
-    const toggleEvent = new CustomEvent("swirlDialogToggle", {
+    // Dispatch toggleDialog event with "open" state
+    const toggleEvent = new CustomEvent("toggleDialog", {
       bubbles: true,
       composed: true,
       detail: { newState: "open", dialog },
@@ -386,9 +386,9 @@ describe("swirl-toast-provider", () => {
     // Verify initial position
     expect(toastProvider.parentElement).toBe(container);
 
-    // Dispatch swirlDialogToggle event with "open" state (no toasts)
+    // Dispatch toggleDialog event with "open" state (no toasts)
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "open", dialog },
@@ -401,7 +401,7 @@ describe("swirl-toast-provider", () => {
     expect(toastProvider.parentElement).toBe(container);
   });
 
-  it("should restore to original position when swirlDialogToggle event with 'closed' is received", async () => {
+  it("should restore to original position when toggleDialog event with 'closed' is received", async () => {
     const page = await newSpecPage({
       components: [SwirlToastProvider],
       html: `
@@ -432,7 +432,7 @@ describe("swirl-toast-provider", () => {
 
     // Open dialog
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "open", dialog },
@@ -444,7 +444,7 @@ describe("swirl-toast-provider", () => {
 
     // Close dialog
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "closed", dialog },
@@ -490,7 +490,7 @@ describe("swirl-toast-provider", () => {
 
     // Open first dialog
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "open", dialog: dialog1 },
@@ -501,7 +501,7 @@ describe("swirl-toast-provider", () => {
 
     // Open second dialog (nested)
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "open", dialog: dialog2 },
@@ -512,7 +512,7 @@ describe("swirl-toast-provider", () => {
 
     // Close second dialog - should move back to first dialog
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "closed", dialog: dialog2 },
@@ -523,7 +523,7 @@ describe("swirl-toast-provider", () => {
 
     // Close first dialog - should restore to original position
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "closed", dialog: dialog1 },
@@ -560,7 +560,7 @@ describe("swirl-toast-provider", () => {
     page.body.appendChild(dialog);
 
     document.dispatchEvent(
-      new CustomEvent("swirlDialogToggle", {
+      new CustomEvent("toggleDialog", {
         bubbles: true,
         composed: true,
         detail: { newState: "open", dialog },

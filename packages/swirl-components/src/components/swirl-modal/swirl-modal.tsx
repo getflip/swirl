@@ -89,7 +89,7 @@ export class SwirlModal {
   @Event({ bubbles: false }) secondaryAction: EventEmitter<MouseEvent>;
   @Event({ bubbles: false }) sidebarClose: EventEmitter<void>;
   @Event({ bubbles: true, composed: true })
-  swirlDialogToggle: EventEmitter<SwirlDialogToggleEvent>;
+  toggleDialog: EventEmitter<SwirlDialogToggleEvent>;
 
   @State() opening = false;
   @State() isFullscreen = false;
@@ -223,7 +223,7 @@ export class SwirlModal {
   };
 
   onToggle = (event: ToggleEvent) => {
-    this.swirlDialogToggle.emit({
+    this.toggleDialog.emit({
       newState: event.newState as SwirlDialogToggleEvent["newState"],
       dialog: this.modalEl,
     });

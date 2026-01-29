@@ -5741,7 +5741,7 @@ declare global {
         "dialogOpen": void;
         "primaryAction": MouseEvent;
         "secondaryAction": MouseEvent;
-        "swirlDialogToggle": SwirlDialogToggleEvent;
+        "toggleDialog": SwirlDialogToggleEvent;
     }
     interface HTMLSwirlDialogElement extends Components.SwirlDialog, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlDialogElementEventMap>(type: K, listener: (this: HTMLSwirlDialogElement, ev: SwirlDialogCustomEvent<HTMLSwirlDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7532,7 +7532,7 @@ declare global {
         "requestModalClose": void;
         "secondaryAction": MouseEvent;
         "sidebarClose": void;
-        "swirlDialogToggle": SwirlDialogToggleEvent;
+        "toggleDialog": SwirlDialogToggleEvent;
     }
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -10120,7 +10120,7 @@ declare namespace LocalJSX {
         "onDialogOpen"?: (event: SwirlDialogCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
-        "onSwirlDialogToggle"?: (event: SwirlDialogCustomEvent<SwirlDialogToggleEvent>) => void;
+        "onToggleDialog"?: (event: SwirlDialogCustomEvent<SwirlDialogToggleEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
@@ -12275,7 +12275,7 @@ declare namespace LocalJSX {
         "onRequestModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onSidebarClose"?: (event: SwirlModalCustomEvent<void>) => void;
-        "onSwirlDialogToggle"?: (event: SwirlModalCustomEvent<SwirlDialogToggleEvent>) => void;
+        "onToggleDialog"?: (event: SwirlModalCustomEvent<SwirlDialogToggleEvent>) => void;
         "onToggleFullscreen"?: (event: SwirlModalCustomEvent<boolean>) => void;
         /**
           * @default true
