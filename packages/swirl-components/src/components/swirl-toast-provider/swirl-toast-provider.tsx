@@ -41,10 +41,8 @@ export class SwirlToastProvider {
   @State() private toasts: SwirlToastMessage[] = [];
 
   private popoverEl: HTMLElement;
-  private slotEl: HTMLSlotElement;
   private activeDialogStack: HTMLDialogElement[] = [];
   private originalParent: HTMLElement | null = null;
-  private originalNextSibling: Node | null = null;
 
   /**
    * Clear all toasts
@@ -89,6 +87,22 @@ export class SwirlToastProvider {
     return newToastWithId;
   }
 
+  componentWillLoad() {
+    this.originalParent = this.el.parentElement;
+  }
+
+  disconnectedCallback() {
+    // Recover the position of the element when it's disconnected from the DOM
+    if (!this.el.isConnected) {
+      // Remove any dialogs that are no longer in the DOM
+      this.activeDialogStack = this.activeDialogStack.filter(
+        (dialog) => dialog.isConnected
+      );
+
+      this.ensureCorrectPosition();
+    }
+  }
+
   @Listen("swirlDialogToggle", { target: "document" })
   handleDialogToggle(event: CustomEvent<SwirlDialogToggleEvent>): void {
     const { newState, dialog } = event.detail;
@@ -102,7 +116,11 @@ export class SwirlToastProvider {
 
   @Watch("toasts")
   onToastsChange() {
-    this.togglePopover();
+    if (this.toasts.length > 0) {
+      this.ensureCorrectPosition();
+    } else {
+      this.popoverEl.hidePopover();
+    }
   }
 
   onDismiss = (event: SwirlToastCustomEvent<string>) => {
@@ -111,84 +129,42 @@ export class SwirlToastProvider {
     );
   };
 
-  togglePopover = () => {
-    const internalToasts = this.toasts.length;
-    const slottedToasts = this.slotEl.assignedElements().length;
-
-    if (internalToasts + slottedToasts > 0) {
-      this.popoverEl.hidePopover();
-      this.popoverEl.showPopover();
-    } else {
-      this.popoverEl.hidePopover();
-    }
-  };
-
   private onDialogOpen(dialog: HTMLDialogElement) {
-    if (this.activeDialogStack.length === 0) {
-      this.originalParent = this.el.parentElement;
-      this.originalNextSibling = this.el.nextSibling;
-    }
-
     if (!this.activeDialogStack.includes(dialog)) {
       this.activeDialogStack.push(dialog);
     }
 
-    this.moveToDialog(dialog);
+    if (this.toasts.length > 0) {
+      this.ensureCorrectPosition();
+    }
   }
 
   private onDialogClose(dialog: HTMLDialogElement) {
-    const index = this.activeDialogStack.indexOf(dialog);
+    this.activeDialogStack = this.activeDialogStack.filter(
+      (currentDialog) => currentDialog != dialog
+    );
 
-    if (index > -1) {
-      this.activeDialogStack.splice(index, 1);
-    }
-
-    if (this.activeDialogStack.length > 0) {
-      const topDialog =
-        this.activeDialogStack[this.activeDialogStack.length - 1];
-
-      this.moveToDialog(topDialog);
-    } else {
-      this.restoreToOriginalPosition();
+    if (this.toasts.length > 0) {
+      this.ensureCorrectPosition();
     }
   }
 
-  private moveToDialog(dialog: HTMLDialogElement) {
-    this.moveElement(this.el, dialog, null);
-    this.refreshPopover();
-  }
+  /**
+   * Ensures that the toasts are positioned inside dialogs when they are open.
+   *
+   * This is necessary to allow toasts to be interactable when a dialog is open, otherwise the toasts would be inert.
+   */
+  private ensureCorrectPosition() {
+    const parent =
+      this.activeDialogStack[this.activeDialogStack.length - 1] ||
+      this.originalParent;
 
-  private restoreToOriginalPosition() {
-    if (!this.originalParent) return;
-
-    if (document.contains(this.originalParent)) {
-      this.moveElement(this.el, this.originalParent, this.originalNextSibling);
-    } else {
-      this.moveElement(this.el, document.body, null);
+    if (this.el.parentElement !== parent) {
+      parent.appendChild(this.el);
     }
-    this.refreshPopover();
 
-    this.originalParent = null;
-    this.originalNextSibling = null;
-  }
-
-  private moveElement(
-    element: HTMLElement,
-    target: HTMLElement,
-    reference: Node | null
-  ) {
-    if ("moveBefore" in HTMLElement.prototype) {
-      (target as any).moveBefore(element, reference);
-    } else {
-      target.insertBefore(element, reference);
-    }
-  }
-
-  private refreshPopover() {
-    if (this.popoverEl?.matches(":popover-open")) {
-      this.popoverEl.hidePopover();
-      this.popoverEl.showPopover();
-    }
+    this.popoverEl.hidePopover();
+    this.popoverEl.showPopover();
   }
 
   render() {
@@ -215,10 +191,6 @@ export class SwirlToastProvider {
               </swirl-toast>
             );
           })}
-          <slot
-            onSlotchange={this.togglePopover}
-            ref={(el: HTMLSlotElement) => (this.slotEl = el)}
-          ></slot>
         </swirl-stack>
       </Host>
     );
