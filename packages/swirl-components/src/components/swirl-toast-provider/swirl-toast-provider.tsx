@@ -1,6 +1,17 @@
-import { Component, h, Host, Method, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import { SwirlToastCustomEvent } from "../../components";
 import { SwirlToastIntent } from "../swirl-toast/swirl-toast";
+import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlToastConfig = {
   accessibleDismissLabel?: string;
@@ -23,12 +34,17 @@ export type SwirlToastMessage = SwirlToastConfig & {
   tag: "swirl-toast-provider",
 })
 export class SwirlToastProvider {
+  @Element() el: HTMLSwirlToastProviderElement;
+
   @Prop() globalDuration?: number;
 
   @State() private toasts: SwirlToastMessage[] = [];
 
   private popoverEl: HTMLElement;
   private slotEl: HTMLSlotElement;
+  private activeDialogStack: HTMLDialogElement[] = [];
+  private originalParent: HTMLElement | null = null;
+  private originalNextSibling: Node | null = null;
 
   /**
    * Clear all toasts
@@ -73,6 +89,17 @@ export class SwirlToastProvider {
     return newToastWithId;
   }
 
+  @Listen("swirlDialogToggle", { target: "document" })
+  handleDialogToggle(event: CustomEvent<SwirlDialogToggleEvent>): void {
+    const { newState, dialog } = event.detail;
+
+    if (newState === "open") {
+      this.onDialogOpen(dialog);
+    } else {
+      this.onDialogClose(dialog);
+    }
+  }
+
   @Watch("toasts")
   onToastsChange() {
     this.togglePopover();
@@ -95,6 +122,74 @@ export class SwirlToastProvider {
       this.popoverEl.hidePopover();
     }
   };
+
+  private onDialogOpen(dialog: HTMLDialogElement) {
+    if (this.activeDialogStack.length === 0) {
+      this.originalParent = this.el.parentElement;
+      this.originalNextSibling = this.el.nextSibling;
+    }
+
+    if (!this.activeDialogStack.includes(dialog)) {
+      this.activeDialogStack.push(dialog);
+    }
+
+    this.moveToDialog(dialog);
+  }
+
+  private onDialogClose(dialog: HTMLDialogElement) {
+    const index = this.activeDialogStack.indexOf(dialog);
+
+    if (index > -1) {
+      this.activeDialogStack.splice(index, 1);
+    }
+
+    if (this.activeDialogStack.length > 0) {
+      const topDialog =
+        this.activeDialogStack[this.activeDialogStack.length - 1];
+
+      this.moveToDialog(topDialog);
+    } else {
+      this.restoreToOriginalPosition();
+    }
+  }
+
+  private moveToDialog(dialog: HTMLDialogElement) {
+    this.moveElement(this.el, dialog, null);
+    this.refreshPopover();
+  }
+
+  private restoreToOriginalPosition() {
+    if (!this.originalParent) return;
+
+    if (document.contains(this.originalParent)) {
+      this.moveElement(this.el, this.originalParent, this.originalNextSibling);
+    } else {
+      this.moveElement(this.el, document.body, null);
+    }
+    this.refreshPopover();
+
+    this.originalParent = null;
+    this.originalNextSibling = null;
+  }
+
+  private moveElement(
+    element: HTMLElement,
+    target: HTMLElement,
+    reference: Node | null
+  ) {
+    if ("moveBefore" in HTMLElement.prototype) {
+      (target as any).moveBefore(element, reference);
+    } else {
+      target.insertBefore(element, reference);
+    }
+  }
+
+  private refreshPopover() {
+    if (this.popoverEl?.matches(":popover-open")) {
+      this.popoverEl.hidePopover();
+      this.popoverEl.showPopover();
+    }
+  }
 
   render() {
     return (

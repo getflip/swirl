@@ -223,4 +223,33 @@ describe("swirl-modal", () => {
       "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
     );
   });
+
+  it("emits swirlDialogToggle event when modal is toggled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `<swirl-modal label="Modal">Content</swirl-modal>`,
+    });
+
+    const toggleSpy = jest.fn();
+    page.root.addEventListener("swirlDialogToggle", toggleSpy);
+
+    const dialogEl = page.root.shadowRoot.querySelector("dialog");
+
+    // Simulate toggle event with "open" state
+    const openEvent = new Event("toggle") as any;
+    openEvent.newState = "open";
+    dialogEl.dispatchEvent(openEvent);
+
+    expect(toggleSpy).toHaveBeenCalledTimes(1);
+    expect(toggleSpy.mock.calls[0][0].detail.newState).toBe("open");
+    expect(toggleSpy.mock.calls[0][0].detail.dialog).toBe(dialogEl);
+
+    // Simulate toggle event with "closed" state
+    const closeEvent = new Event("toggle") as any;
+    closeEvent.newState = "closed";
+    dialogEl.dispatchEvent(closeEvent);
+
+    expect(toggleSpy).toHaveBeenCalledTimes(2);
+    expect(toggleSpy.mock.calls[1][0].detail.newState).toBe("closed");
+  });
 });
