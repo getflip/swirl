@@ -10,6 +10,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
+import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlDialogIntent = "primary" | "critical";
 
@@ -35,6 +36,8 @@ export class SwirlDialog {
   @Event() dialogOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
+  @Event({ bubbles: true, composed: true })
+  toggleDialog: EventEmitter<SwirlDialogToggleEvent>;
 
   @State() closing = false;
   @State() opening = false;
@@ -98,6 +101,13 @@ export class SwirlDialog {
     this.dialogClose.emit();
   };
 
+  onToggle = (event: ToggleEvent) => {
+    this.toggleDialog.emit({
+      newState: event.newState as SwirlDialogToggleEvent["newState"],
+      dialog: this.dialogEl,
+    });
+  };
+
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
@@ -135,6 +145,7 @@ export class SwirlDialog {
           class={className}
           onClose={this.onClose}
           onKeyDown={this.onKeyDown}
+          onToggle={this.onToggle}
           role="alertdialog"
           ref={(el) => (this.dialogEl = el)}
         >

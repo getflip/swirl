@@ -31,7 +31,6 @@
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
-  margin-top: calc(-1 * var(--s-space-2));
   margin-right: 0.625rem;
   flex-shrink: 0;
 
@@ -42,7 +41,6 @@
   @media (--from-desktop-without-touch) {
     width: 1.25rem;
     height: 1.25rem;
-    margin-top: 0;
   }
 }
 
@@ -62,11 +60,21 @@
   }
 }
 
+.toast__action-button {
+  --swirl-plain-button-text-color-default: var(--s-text-on-status);
+  --swirl-plain-button-text-color-hovered: var(--s-text-on-status);
+  --swirl-plain-button-text-color-pressed: var(--s-text-on-status);
+  margin-left: var(--s-space-16);
+
+  @media (--from-desktop-without-touch) {
+    margin-top: -1px;
+  }
+}
+
 .toast__dismiss-button {
   display: inline-flex;
   min-width: 1.5rem;
   height: 1.5rem;
-  margin-top: calc(-1 * var(--s-space-2));
   margin-left: var(--s-space-16);
   padding: 0;
   flex-shrink: 0;
@@ -78,6 +86,10 @@
   font: inherit;
   font-weight: var(--s-font-weight-semibold);
   cursor: pointer;
+
+  @media (--from-desktop-without-touch) {
+    margin-top: calc(-1 * var(--s-space-2));
+  }
 
   & ::part(icon) {
     color: var(--s-icon-on-status);

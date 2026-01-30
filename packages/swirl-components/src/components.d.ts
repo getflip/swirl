@@ -27,6 +27,7 @@ import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSi
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+import { SwirlDialogToggleEvent } from "./utils";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -107,6 +108,7 @@ export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSi
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+export { SwirlDialogToggleEvent } from "./utils";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -4950,6 +4952,7 @@ export namespace Components {
           * @default "Dismiss"
          */
         "accessibleDismissLabel"?: string;
+        "actionLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
         /**
@@ -5739,6 +5742,7 @@ declare global {
         "dialogOpen": void;
         "primaryAction": MouseEvent;
         "secondaryAction": MouseEvent;
+        "toggleDialog": SwirlDialogToggleEvent;
     }
     interface HTMLSwirlDialogElement extends Components.SwirlDialog, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlDialogElementEventMap>(type: K, listener: (this: HTMLSwirlDialogElement, ev: SwirlDialogCustomEvent<HTMLSwirlDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7529,6 +7533,7 @@ declare global {
         "requestModalClose": void;
         "secondaryAction": MouseEvent;
         "sidebarClose": void;
+        "toggleDialog": SwirlDialogToggleEvent;
     }
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -8782,6 +8787,7 @@ declare global {
         new (): HTMLSwirlTimeInputElement;
     };
     interface HTMLSwirlToastElementEventMap {
+        "action": string;
         "dismiss": string;
     }
     interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
@@ -10116,6 +10122,7 @@ declare namespace LocalJSX {
         "onDialogOpen"?: (event: SwirlDialogCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
+        "onToggleDialog"?: (event: SwirlDialogCustomEvent<SwirlDialogToggleEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
@@ -12270,6 +12277,7 @@ declare namespace LocalJSX {
         "onRequestModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onSidebarClose"?: (event: SwirlModalCustomEvent<void>) => void;
+        "onToggleDialog"?: (event: SwirlModalCustomEvent<SwirlDialogToggleEvent>) => void;
         "onToggleFullscreen"?: (event: SwirlModalCustomEvent<boolean>) => void;
         /**
           * @default true
@@ -14026,6 +14034,7 @@ declare namespace LocalJSX {
           * @default "Dismiss"
          */
         "accessibleDismissLabel"?: string;
+        "actionLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
         /**
@@ -14037,6 +14046,7 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "intent"?: SwirlToastIntent;
+        "onAction"?: (event: SwirlToastCustomEvent<string>) => void;
         "onDismiss"?: (event: SwirlToastCustomEvent<string>) => void;
         "toastId": string;
     }

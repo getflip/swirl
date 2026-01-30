@@ -22819,6 +22819,10 @@
           "description": ""
         },
         {
+          "name": "action-label",
+          "description": ""
+        },
+        {
           "name": "content",
           "description": ""
         },

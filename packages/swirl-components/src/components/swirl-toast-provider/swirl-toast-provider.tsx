@@ -1,15 +1,30 @@
-import { Component, h, Host, Method, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import { SwirlToastCustomEvent } from "../../components";
 import { SwirlToastIntent } from "../swirl-toast/swirl-toast";
+import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlToastConfig = {
   accessibleDismissLabel?: string;
   content: string;
+  actionLabel?: string;
+  dismissOnAction?: boolean;
   dismissLabel?: string;
   duration?: number;
   icon?: string;
   intent?: SwirlToastIntent;
   toastId?: string;
+  onDismiss?: (toastId: string) => void;
+  onAction?: (toastId: string) => void;
 };
 
 export type SwirlToastMessage = SwirlToastConfig & {
@@ -23,12 +38,15 @@ export type SwirlToastMessage = SwirlToastConfig & {
   tag: "swirl-toast-provider",
 })
 export class SwirlToastProvider {
+  @Element() el: HTMLSwirlToastProviderElement;
+
   @Prop() globalDuration?: number;
 
   @State() private toasts: SwirlToastMessage[] = [];
 
   private popoverEl: HTMLElement;
-  private slotEl: HTMLSlotElement;
+  private activeDialogStack: HTMLDialogElement[] = [];
+  private originalParent: HTMLElement | null = null;
 
   /**
    * Clear all toasts
@@ -47,6 +65,14 @@ export class SwirlToastProvider {
    */
   @Method()
   async dismiss(toastId: string) {
+    const toast = this.toasts.find((toast) => toastId === toast.toastId);
+
+    if (!toast) {
+      return;
+    }
+
+    toast.onDismiss?.(toast.toastId);
+
     this.toasts = [...this.toasts].filter((toast) => toast.toastId !== toastId);
   }
 
@@ -73,28 +99,97 @@ export class SwirlToastProvider {
     return newToastWithId;
   }
 
-  @Watch("toasts")
-  onToastsChange() {
-    this.togglePopover();
+  componentWillLoad() {
+    this.originalParent = this.el.parentElement;
   }
 
-  onDismiss = (event: SwirlToastCustomEvent<string>) => {
-    this.toasts = [...this.toasts].filter(
-      (toast) => toast.toastId !== event.detail
-    );
-  };
+  disconnectedCallback() {
+    // Recover the position of the element when it's disconnected from the DOM
+    if (!this.el.isConnected) {
+      // Remove any dialogs that are no longer in the DOM
+      this.activeDialogStack = this.activeDialogStack.filter(
+        (dialog) => dialog.isConnected
+      );
 
-  togglePopover = () => {
-    const internalToasts = this.toasts.length;
-    const slottedToasts = this.slotEl.assignedElements().length;
+      this.ensureCorrectPosition();
+    }
+  }
 
-    if (internalToasts + slottedToasts > 0) {
-      this.popoverEl.hidePopover();
-      this.popoverEl.showPopover();
+  @Listen("toggleDialog", { target: "document" })
+  handleDialogToggle(event: CustomEvent<SwirlDialogToggleEvent>): void {
+    const { newState, dialog } = event.detail;
+
+    if (newState === "open") {
+      this.onDialogOpen(dialog);
+    } else {
+      this.onDialogClose(dialog);
+    }
+  }
+
+  @Watch("toasts")
+  onToastsChange() {
+    if (this.toasts.length > 0) {
+      this.ensureCorrectPosition();
     } else {
       this.popoverEl.hidePopover();
     }
+  }
+
+  private onAction = (event: SwirlToastCustomEvent<string>) => {
+    const toast = this.toasts.find(({ toastId }) => toastId === event.detail);
+
+    if (!toast) {
+      return;
+    }
+
+    toast.onAction?.(toast.toastId);
+
+    if (toast.dismissOnAction) {
+      this.dismiss(event.detail);
+    }
   };
+
+  private onDismiss = (event: SwirlToastCustomEvent<string>) => {
+    this.dismiss(event.detail);
+  };
+
+  private onDialogOpen(dialog: HTMLDialogElement) {
+    if (!this.activeDialogStack.includes(dialog)) {
+      this.activeDialogStack.push(dialog);
+    }
+
+    if (this.toasts.length > 0) {
+      this.ensureCorrectPosition();
+    }
+  }
+
+  private onDialogClose(dialog: HTMLDialogElement) {
+    this.activeDialogStack = this.activeDialogStack.filter(
+      (currentDialog) => currentDialog != dialog
+    );
+
+    if (this.toasts.length > 0) {
+      this.ensureCorrectPosition();
+    }
+  }
+
+  /**
+   * Ensures that the toasts are positioned inside dialogs when they are open.
+   *
+   * This is necessary to allow toasts to be interactable when a dialog is open, otherwise the toasts would be inert.
+   */
+  private ensureCorrectPosition() {
+    const parent =
+      this.activeDialogStack[this.activeDialogStack.length - 1] ||
+      this.originalParent;
+
+    if (this.el.parentElement !== parent) {
+      parent.appendChild(this.el);
+    }
+
+    this.popoverEl.hidePopover();
+    this.popoverEl.showPopover();
+  }
 
   render() {
     return (
@@ -108,22 +203,24 @@ export class SwirlToastProvider {
           ref={(el) => (this.popoverEl = el)}
         >
           {this.toasts.map((toast) => {
-            const props = { ...toast, content: undefined };
+            const props = {
+              ...toast,
+              content: undefined,
+              onDismiss: undefined,
+              onAction: undefined,
+            };
 
             return (
               <swirl-toast
                 key={toast.toastId}
-                onDismiss={this.onDismiss}
                 {...props}
+                onDismiss={this.onDismiss}
+                onAction={this.onAction}
               >
                 {toast.content}
               </swirl-toast>
             );
           })}
-          <slot
-            onSlotchange={this.togglePopover}
-            ref={(el: HTMLSlotElement) => (this.slotEl = el)}
-          ></slot>
         </swirl-stack>
       </Host>
     );
