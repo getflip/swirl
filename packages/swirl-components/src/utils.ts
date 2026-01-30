@@ -1,5 +1,10 @@
 import { EventEmitter } from "@stencil/core";
 
+export type SwirlDialogToggleEvent = {
+  newState: "open" | "closed";
+  dialog: HTMLDialogElement;
+};
+
 export interface SwirlFormInput<ValueType = string> {
   disabled?: boolean;
   invalid?: boolean;

@@ -13,6 +13,7 @@ import {
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { tabbable } from "tabbable";
+import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlModalVariant = "default" | "drawer";
 
@@ -87,6 +88,8 @@ export class SwirlModal {
   @Event({ bubbles: false }) requestModalClose: EventEmitter<void>;
   @Event({ bubbles: false }) secondaryAction: EventEmitter<MouseEvent>;
   @Event({ bubbles: false }) sidebarClose: EventEmitter<void>;
+  @Event({ bubbles: true, composed: true })
+  toggleDialog: EventEmitter<SwirlDialogToggleEvent>;
 
   @State() opening = false;
   @State() isFullscreen = false;
@@ -217,6 +220,13 @@ export class SwirlModal {
     this.closing = false;
     this.unlockBodyScroll();
     this.modalClose.emit();
+  };
+
+  onToggle = (event: ToggleEvent) => {
+    this.toggleDialog.emit({
+      newState: event.newState as SwirlDialogToggleEvent["newState"],
+      dialog: this.modalEl,
+    });
   };
 
   private onBackdropClick = () => {
@@ -417,6 +427,7 @@ export class SwirlModal {
           class={className}
           onClose={this.onClose}
           onKeyDown={this.onKeyDown}
+          onToggle={this.onToggle}
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>

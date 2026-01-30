@@ -78,4 +78,55 @@ describe("swirl-toast", () => {
 
     expect(spy).not.toHaveBeenCalled();
   });
+
+  it("renders action button when actionLabel is provided", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToast],
+      html: `<swirl-toast action-label="Undo" toast-id="test-toast">Content</swirl-toast>`,
+    });
+
+    const actionButton = page.root.shadowRoot.querySelector(
+      ".toast__action-button"
+    );
+
+    expect(actionButton).not.toBeNull();
+    expect(actionButton.getAttribute("label")).toBe("Undo");
+  });
+
+  it("does not render action button when actionLabel is not provided", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToast],
+      html: `<swirl-toast toast-id="test-toast">Content</swirl-toast>`,
+    });
+
+    const actionButton = page.root.shadowRoot.querySelector(
+      ".toast__action-button"
+    );
+
+    expect(actionButton).toBeNull();
+  });
+
+  it("fires an 'action' event when action button is clicked", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToast],
+      html: `<swirl-toast action-label="Undo" toast-id="test-toast">Content</swirl-toast>`,
+    });
+
+    const spy = jest.fn();
+
+    page.root.addEventListener("action", spy);
+
+    const actionButton = page.root.shadowRoot.querySelector(
+      ".toast__action-button"
+    ) as HTMLElement;
+    actionButton.click();
+
+    await page.waitForChanges();
+
+    expect(spy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: "test-toast",
+      })
+    );
+  });
 });
