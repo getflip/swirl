@@ -31,18 +31,22 @@ ul.stack {
 
 .stack--align-start {
   align-items: flex-start;
+  text-align: initial; /* skip native behavior of setting text-align when using the align attribute */
 }
 
 .stack--align-center {
   align-items: center;
+  text-align: initial; /* skip native behavior of setting text-align when using the align attribute */
 }
 
 .stack--align-end {
   align-items: flex-end;
+  text-align: initial; /* skip native behavior of setting text-align when using the align attribute */
 }
 
 .stack--align-stretch {
   align-items: stretch;
+  text-align: initial; /* skip native behavior of setting text-align when using the align attribute */
 }
 
 .stack--justify-start {
