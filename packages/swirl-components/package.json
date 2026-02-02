@@ -42,7 +42,7 @@
     "storybook:build": "DESIGN_TOKEN_GLOB=\"../../node_modules/@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css\" storybook build"
   },
   "dependencies": {
-    "@floating-ui/dom": "1.0.1",
+    "@floating-ui/dom": "1.7.4",
     "@getflip/swirl-icons": "0.76.0",
     "@getflip/swirl-tokens": "2.13.0",
     "@stencil/core": "4.35.0",

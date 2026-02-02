@@ -162,7 +162,7 @@ export class SwirlTooltip {
 
     const middleware = [
       ...this.options.middleware.filter(
-        (middleware) => middleware.name !== "arrow"
+        (middleware) => middleware && middleware.name !== "arrow"
       ),
       arrow({ element: this.arrowElement, padding: 12 }),
     ];
