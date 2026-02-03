@@ -162,4 +162,20 @@ describe("swirl-form-control", () => {
     const tooltip = page.root.querySelector("swirl-tooltip");
     expect(tooltip).not.toBeNull();
   });
+
+  it("renders an asterisk when required is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" required="true">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
+      `,
+    });
+    const requiredIndicator = page.root.querySelector(
+      ".form-control__required-indicator"
+    );
+    expect(requiredIndicator).not.toBeNull();
+    expect(requiredIndicator.innerHTML).toBe("*");
+  });
 });
