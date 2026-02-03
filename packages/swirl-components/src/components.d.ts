@@ -1235,6 +1235,7 @@ export namespace Components {
          */
         "labelPosition"?: SwirlFormControlLabelPosition;
         "readonly"?: boolean;
+        "required"?: boolean;
         "secondaryLabel"?: string;
         "tooltip"?: string;
     }
@@ -10413,6 +10414,7 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: SwirlFormControlLabelPosition;
         "readonly"?: boolean;
+        "required"?: boolean;
         "secondaryLabel"?: string;
         "tooltip"?: string;
     }

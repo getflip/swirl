@@ -3408,6 +3408,10 @@
           "description": ""
         },
         {
+          "name": "required",
+          "description": ""
+        },
+        {
           "name": "secondary-label",
           "description": ""
         },

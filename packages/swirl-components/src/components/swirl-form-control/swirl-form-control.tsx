@@ -47,6 +47,7 @@ export class SwirlFormControl {
   @Prop() tooltip?: string;
   @Prop() secondaryLabel?: string;
   @Prop() readonly?: boolean;
+  @Prop() required?: boolean;
 
   @State() hasFocus: boolean;
   @State() inputValue: string;
@@ -295,6 +296,9 @@ export class SwirlFormControl {
               )}
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
+                {this.required && (
+                  <span class="form-control__required-indicator"> *</span>
+                )}
                 {this.secondaryLabel && this.labelPosition === "outside" && (
                   <span class="form-control__secondary-label">
                     {this.secondaryLabel}
