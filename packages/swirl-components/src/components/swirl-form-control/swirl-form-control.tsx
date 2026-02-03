@@ -297,7 +297,7 @@ export class SwirlFormControl {
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
                 {this.required && (
-                  <span class="form-control__required-indicator"> *</span>
+                  <span class="form-control__required-indicator">*</span>
                 )}
                 {this.secondaryLabel && this.labelPosition === "outside" && (
                   <span class="form-control__secondary-label">
