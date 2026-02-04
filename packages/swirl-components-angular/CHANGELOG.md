@@ -1,5 +1,79 @@
 # @getflip/swirl-components-angular
 
+## 0.432.0
+
+### Minor Changes
+
+- [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use the native
+  HTML dialog element for swirl-dialog
+
+* [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Extend
+  swirl-toast-provider to ensure it's positioned inside the top most layer
+
+- [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use the native
+  HTML dialog element for swirl-modal-shell
+
+* [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use the native
+  HTML dialog element for swirl-pdf-reader
+
+- [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use native
+  popover in swirl-popover
+
+* [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add action
+  button to swirl-toast
+
+- [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use the native
+  HTML dialog element for swirl-lightbox
+
+* [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use native
+  popover in swirl-toast-provider
+
+- [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix event
+  bubbling in swirl-modal, swirl-lightbox and swirl-action-list
+
+* [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use native
+  dialog in swirl-modal
+
+### Patch Changes
+
+- [#1390](https://github.com/getflip/swirl/pull/1390)
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Skip native
+  behavior of setting text-align when using the align attribute in swirl-stack
+- Updated dependencies
+  [[`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0),
+  [`e52d33fb0`](https://github.com/getflip/swirl/commit/e52d33fb0a0cfcee7151dba3928d11f219dcc2b0)]:
+  - @getflip/swirl-components@0.432.0
+
 ## 0.431.0
 
 ### Minor Changes
