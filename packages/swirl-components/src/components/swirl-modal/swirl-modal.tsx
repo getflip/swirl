@@ -12,9 +12,8 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import * as focusTrap from "focus-trap";
 import { tabbable } from "tabbable";
-import { getActiveElement } from "../../utils";
+import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlModalVariant = "default" | "drawer";
 
@@ -39,7 +38,7 @@ export type SwirlModalSpacing =
  * @slot sidebar-footer - Optional custom footer below the Sidebar
  */
 @Component({
-  shadow: false,
+  shadow: true,
   styleUrl: "swirl-modal.css",
   tag: "swirl-modal",
 })
@@ -82,15 +81,17 @@ export class SwirlModal {
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() hideScrolledHeaderBorder?: boolean;
 
-  @Event() toggleFullscreen: EventEmitter<boolean>;
-  @Event() modalClose: EventEmitter<void>;
-  @Event() modalOpen: EventEmitter<void>;
-  @Event() primaryAction: EventEmitter<MouseEvent>;
-  @Event() requestModalClose: EventEmitter<void>;
-  @Event() secondaryAction: EventEmitter<MouseEvent>;
-  @Event() sidebarClose: EventEmitter<void>;
+  @Event({ bubbles: false }) toggleFullscreen: EventEmitter<boolean>;
+  @Event({ bubbles: false }) modalClose: EventEmitter<void>;
+  @Event({ bubbles: false }) modalOpen: EventEmitter<void>;
+  @Event({ bubbles: false }) primaryAction: EventEmitter<MouseEvent>;
+  @Event({ bubbles: false }) requestModalClose: EventEmitter<void>;
+  @Event({ bubbles: false }) secondaryAction: EventEmitter<MouseEvent>;
+  @Event({ bubbles: false }) sidebarClose: EventEmitter<void>;
+  @Event({ bubbles: true, composed: true })
+  toggleDialog: EventEmitter<SwirlDialogToggleEvent>;
 
-  @State() isOpen = false;
+  @State() opening = false;
   @State() isFullscreen = false;
   @State() isFullscreenTransitioning = false;
   @State() closing = false;
@@ -107,13 +108,14 @@ export class SwirlModal {
   @State() sidebarScrolledDown = false;
   @State() sidebarScrollable = false;
 
-  private focusTrap: focusTrap.FocusTrap | undefined;
-  private modalEl: HTMLElement;
+  private modalEl: HTMLDialogElement;
   private scrollContainer: HTMLElement;
   private sidebarScrollContainer: HTMLElement;
   private mutationObserver: MutationObserver;
 
   componentDidLoad() {
+    this.ensureOpening();
+    this.setDialogCustomProps();
     this.determineScrollStatus();
 
     this.updateCustomFooterStatus();
@@ -124,13 +126,11 @@ export class SwirlModal {
     this.updateSidebarFooterStatus();
   }
 
-  componentDidRender() {
-    this.focusTrap?.updateContainerElements(this.modalEl);
-  }
-
   disconnectedCallback() {
-    this.focusTrap?.deactivate();
     this.mutationObserver?.disconnect();
+    if (this.modalEl?.open) {
+      this.modalEl.close();
+    }
     this.unlockBodyScroll();
   }
 
@@ -144,26 +144,26 @@ export class SwirlModal {
    */
   @Method()
   async open() {
-    this.isOpen = true;
-    this.modalOpen.emit();
-    this.setupFocusTrap();
+    this.opening = true;
+
+    if (!this.modalEl) {
+      return;
+    }
+
     this.setupMutationObserver();
-
-    setTimeout(() => {
-      this.lockBodyScroll();
-      this.determineScrollStatus();
+    this.modalEl.showModal();
+    this.modalOpen.emit();
+    this.mutationObserver.observe(this.modalEl, {
+      subtree: true,
+      childList: true,
     });
+    this.lockBodyScroll();
+    this.determineScrollStatus();
 
     setTimeout(() => {
-      this.focusTrap?.activate();
-      this.mutationObserver.observe(this.modalEl, {
-        subtree: true,
-        childList: true,
-      });
       this.handleAutoFocus();
     }, 200);
   }
-
   /**
    * Close the modal. Pass `true` to force close even if the modal is not closable.
    */
@@ -173,7 +173,9 @@ export class SwirlModal {
       return;
     }
 
-    this.requestModalClose.emit();
+    if (!force) {
+      this.requestModalClose.emit();
+    }
 
     if (!this.closable && !force) {
       return;
@@ -183,11 +185,8 @@ export class SwirlModal {
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.focusTrap?.deactivate();
       this.mutationObserver?.disconnect();
-      this.isOpen = false;
-      this.modalClose.emit();
-      this.closing = false;
+      this.modalEl.close();
     }, 150);
   }
 
@@ -204,11 +203,30 @@ export class SwirlModal {
     setTimeout(() => (this.isFullscreenTransitioning = false), 150);
   }
 
+  @Method()
+  async getScrollContainer(): Promise<HTMLElement | undefined> {
+    return this.scrollContainer;
+  }
+
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
+      event.preventDefault();
       this.close();
     }
+  };
+
+  private onClose = () => {
+    this.closing = false;
+    this.unlockBodyScroll();
+    this.modalClose.emit();
+  };
+
+  onToggle = (event: ToggleEvent) => {
+    this.toggleDialog.emit({
+      newState: event.newState as SwirlDialogToggleEvent["newState"],
+      dialog: this.modalEl,
+    });
   };
 
   private onBackdropClick = () => {
@@ -238,37 +256,37 @@ export class SwirlModal {
 
   private updateCustomFooterStatus() {
     this.hasCustomFooter = Boolean(
-      this.el.querySelector('[slot="custom-footer"]')
+      this.el.querySelector(':scope > [slot="custom-footer"]')
     );
   }
 
   private updateCustomHeaderStatus() {
     this.hasCustomHeader = Boolean(
-      this.el.querySelector('[slot="custom-header"]')
+      this.el.querySelector(':scope > [slot="custom-header"]')
     );
   }
 
   private updateHeaderToolsStatus() {
     this.hasHeaderTools = Boolean(
-      this.el.querySelector('[slot="header-tools"]')
+      this.el.querySelector(':scope > [slot="header-tools"]')
     );
   }
 
   private updateSecondaryContentStatus() {
     this.hasSecondaryContent = Boolean(
-      this.el.querySelector('[slot="secondary-content"]')
+      this.el.querySelector(':scope > [slot="secondary-content"]')
     );
   }
 
   private updateSidebarContentStatus() {
     this.hasSidebarContent = Boolean(
-      this.el.querySelector('[slot="sidebar-content"]')
+      this.el.querySelector(':scope > [slot="sidebar-content"]')
     );
   }
 
   private updateSidebarFooterStatus() {
     this.hasSidebarFooter = Boolean(
-      this.el.querySelector('[slot="sidebar-footer"]')
+      this.el.querySelector(':scope > [slot="sidebar-footer"]')
     );
   }
 
@@ -336,26 +354,9 @@ export class SwirlModal {
     disableBodyScroll(this.sidebarScrollContainer);
   }
 
-  private setupFocusTrap() {
-    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
-      allowOutsideClick: true,
-      setReturnFocus: getActiveElement() as HTMLElement,
-
-      // We don't always close the modal when ESC is pressed. So we manage the
-      // deactivation of the focus trap manually.
-      escapeDeactivates: false,
-
-      tabbableOptions: {
-        getShadowRoot: (node) => {
-          return node.shadowRoot;
-        },
-      },
-    });
-  }
-
   private setupMutationObserver() {
     this.mutationObserver = new MutationObserver(() => {
-      if (!this.isOpen) {
+      if (!this.modalEl?.open) {
         return;
       }
 
@@ -374,6 +375,16 @@ export class SwirlModal {
     if (this.sidebarScrollContainer) {
       enableBodyScroll(this.sidebarScrollContainer);
     }
+  }
+
+  private ensureOpening() {
+    if (this.opening && !this.modalEl?.open) {
+      this.open();
+    }
+  }
+
+  private setDialogCustomProps() {
+    this.modalEl.setAttribute("closedby", "none");
   }
 
   render() {
@@ -411,18 +422,18 @@ export class SwirlModal {
 
     return (
       <Host>
-        <section
-          aria-hidden={String(!this.isOpen)}
+        <dialog
           aria-label={this.label}
-          aria-modal="true"
           class={className}
+          onClose={this.onClose}
           onKeyDown={this.onKeyDown}
-          role="dialog"
+          onToggle={this.onToggle}
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div
             class="modal__body"
+            part="modal__body"
             style={
               !this.isFullscreen
                 ? {
@@ -467,13 +478,13 @@ export class SwirlModal {
                 <slot name="sidebar-content"></slot>
               </div>
 
-              <div class="modal__sidebar-footer">
+              <div class="modal__sidebar-footer" part="modal__sidebar-footer">
                 <slot name="sidebar-footer"></slot>
               </div>
             </aside>
 
             <div class="modal__main-content">
-              <header class="modal__custom-header">
+              <header class="modal__custom-header" part="modal__custom-header">
                 <slot name="custom-header"></slot>
               </header>
               {(!this.hideLabel || !this.hideCloseButton) && (
@@ -535,12 +546,13 @@ export class SwirlModal {
                     flex: this.primaryContentFlex,
                   }}
                 >
-                  <div class="modal__header-tools">
+                  <div class="modal__header-tools" part="modal__header-tools">
                     <slot name="header-tools"></slot>
                   </div>
                   <div
                     class="modal__content"
                     onScroll={this.determineMainScrollStatus}
+                    part="modal__content"
                     ref={(el) => (this.scrollContainer = el)}
                   >
                     <slot></slot>
@@ -604,7 +616,7 @@ export class SwirlModal {
               )}
             </div>
           </div>
-        </section>
+        </dialog>
       </Host>
     );
   }

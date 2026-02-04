@@ -5,7 +5,6 @@ import {
   EventEmitter,
   h,
   Host,
-  Listen,
   Method,
   Prop,
   State,
@@ -13,7 +12,7 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import * as focusTrap from "focus-trap";
+import { tabbable } from "tabbable";
 import { querySelectorAllDeep } from "../../utils";
 
 /**
@@ -42,36 +41,32 @@ export class SwirlLightbox {
 
   @State() activeSlideIndex: number = 0;
   @State() closing = false;
-  @State() isOpen = false;
+  @State() opening = false;
   @State() slides: HTMLSwirlFileViewerElement[];
 
   private activateSlideTimeout: NodeJS.Timeout;
   private closingTimeout: NodeJS.Timeout;
-  private containerObserver: MutationObserver;
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
-  private focusTrap: focusTrap.FocusTrap;
   private menu: HTMLSwirlPopoverElement;
-  private modalEl: HTMLElement;
+  private modalEl: HTMLDialogElement;
   private slidesContainer: HTMLElement;
+  private previousSlideButton: HTMLButtonElement;
+  private nextSlideButton: HTMLButtonElement;
 
   componentWillLoad() {
     this.registerSlides();
   }
 
   componentDidLoad() {
+    this.ensureOpening();
+    this.setDialogCustomProps();
     this.activateSlide(0);
   }
 
-  componentDidRender() {
-    this.focusTrap?.updateContainerElements(this.modalEl);
-  }
-
   disconnectedCallback() {
-    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
-    this.containerObserver?.disconnect();
 
     if (this.activateSlideTimeout) {
       clearTimeout(this.activateSlideTimeout);
@@ -80,6 +75,10 @@ export class SwirlLightbox {
     if (this.closingTimeout) {
       clearTimeout(this.closingTimeout);
     }
+
+    if (this.modalEl?.open) {
+      this.modalEl.close();
+    }
   }
 
   @Watch("activeSlideIndex")
@@ -87,68 +86,32 @@ export class SwirlLightbox {
     this.activeSlideChange.emit(this.activeSlideIndex);
   }
 
-  @Listen("keydown", { target: "window" })
-  onKeyDown(event: KeyboardEvent) {
-    if (!this.isOpen) {
-      return;
-    }
-
+  onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
+      event.preventDefault();
       this.close();
     } else if (event.code === "ArrowLeft") {
       this.onPreviousSlideClick();
     } else if (event.code === "ArrowRight") {
       this.onNextSlideClick();
     }
-  }
+  };
 
   /**
    * Open the lightbox.
    */
   @Method()
   async open() {
-    this.isOpen = true;
+    this.opening = true;
+
+    if (!this.modalEl) {
+      return;
+    }
+
+    this.modalEl.showModal();
     this.lockBodyScroll();
     this.activateSlide(this.activeSlideIndex || 0);
-
-    setTimeout(() => {
-      this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
-        allowOutsideClick: true,
-        checkCanFocusTrap: (containers) => {
-          this.containerObserver?.disconnect();
-
-          return new Promise((resolve) => {
-            const container = containers[0];
-
-            if (container.tabIndex !== -1) {
-              resolve();
-              return;
-            }
-
-            // wait for container to become focusable
-            this.containerObserver = new MutationObserver(() => {
-              if (container.tabIndex !== -1) {
-                this.containerObserver.disconnect();
-                resolve();
-              }
-            });
-
-            this.containerObserver.observe(container, {
-              attributes: true,
-              attributeFilter: ["tabindex"],
-            });
-          });
-        },
-        tabbableOptions: {
-          getShadowRoot: (node) => {
-            return node.shadowRoot;
-          },
-        },
-      });
-
-      this.focusTrap?.activate();
-    });
   }
 
   /**
@@ -161,7 +124,6 @@ export class SwirlLightbox {
     }
 
     this.closing = true;
-    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
 
     if (this.closingTimeout) {
@@ -170,9 +132,9 @@ export class SwirlLightbox {
     }
 
     this.closingTimeout = setTimeout(() => {
-      this.isOpen = false;
       this.resetImageZoom();
       this.stopAllMediaPlayers();
+      this.modalEl.close();
       this.closing = false;
       this.lightboxClose.emit();
     }, 150);
@@ -230,6 +192,16 @@ export class SwirlLightbox {
     this.resetImageZoom();
   }
 
+  private ensureOpening() {
+    if (this.opening && !this.modalEl?.open) {
+      this.open();
+    }
+  }
+
+  private setDialogCustomProps() {
+    this.modalEl.setAttribute("closedby", "none");
+  }
+
   private setSlideAttributes() {
     this.slides.forEach((slide) => {
       slide.setAttribute("active", "false");
@@ -282,10 +254,26 @@ export class SwirlLightbox {
     this.activateSlide(
       Math.min(this.slides.length - 1, this.activeSlideIndex + 1)
     );
+
+    if (this.activeSlideIndex === this.slides.length - 1) {
+      if (this.slides.length > 1) {
+        this.previousSlideButton.focus();
+      } else {
+        tabbable(this.modalEl).at(0)?.focus();
+      }
+    }
   };
 
   private onPreviousSlideClick = () => {
     this.activateSlide(Math.max(0, this.activeSlideIndex - 1));
+
+    if (this.activeSlideIndex === 0) {
+      if (this.slides.length > 1) {
+        this.nextSlideButton.focus();
+      } else {
+        tabbable(this.modalEl).at(0)?.focus();
+      }
+    }
   };
 
   private registerSlides = () => {
@@ -439,12 +427,11 @@ export class SwirlLightbox {
 
     return (
       <Host>
-        <section
-          aria-hidden={String(!this.isOpen)}
+        <dialog
           aria-label={this.label}
-          aria-modal="true"
           class={className}
           id="lightbox"
+          onKeyDown={this.onKeyDown}
           onMouseDown={this.onPointerDown}
           onMouseMove={this.onPointerMove}
           onMouseOut={this.onPointerUp}
@@ -453,8 +440,6 @@ export class SwirlLightbox {
           onTouchMove={this.onPointerMove}
           onTouchStart={this.onPointerDown}
           ref={(el) => (this.modalEl = el)}
-          role="dialog"
-          tabIndex={this.isOpen ? 0 : -1}
         >
           <div class="lightbox__body" role="document">
             <header class="lightbox__header">
@@ -503,6 +488,7 @@ export class SwirlLightbox {
                 class="lightbox__previous-slide-button"
                 disabled={this.activeSlideIndex === 0}
                 onClick={this.onPreviousSlideClick}
+                ref={(el) => (this.previousSlideButton = el)}
               >
                 <swirl-icon-arrow-left></swirl-icon-arrow-left>
               </button>
@@ -511,6 +497,7 @@ export class SwirlLightbox {
                 class="lightbox__next-slide-button"
                 disabled={this.activeSlideIndex === this.slides.length - 1}
                 onClick={this.onNextSlideClick}
+                ref={(el) => (this.nextSlideButton = el)}
               >
                 <swirl-icon-arrow-right></swirl-icon-arrow-right>
               </button>
@@ -564,7 +551,7 @@ export class SwirlLightbox {
               </swirl-stack>
             </swirl-popover>
           )}
-        </section>
+        </dialog>
       </Host>
     );
   }

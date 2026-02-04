@@ -34,9 +34,11 @@ export class SwirlActionList {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown" || event.code === "ArrowRight") {
       event.preventDefault();
+      event.stopPropagation();
       this.focusNextItem();
     } else if (event.code === "ArrowUp" || event.code === "ArrowLeft") {
       event.preventDefault();
+      event.stopPropagation();
       this.focusPreviousItem();
     }
   };

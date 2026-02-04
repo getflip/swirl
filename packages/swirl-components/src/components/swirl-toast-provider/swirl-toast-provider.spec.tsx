@@ -29,7 +29,7 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
             <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
             <swirl-toast dismisslabel="Dismiss" icon="<lip-icon-mail></swirl-icon-mail>" intent="success" toastid="toast-2">Toast 2</swirl-toast>
           </swirl-stack>
@@ -44,7 +44,7 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
             <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
           </swirl-stack>
         </mock:shadow-root>
@@ -58,7 +58,8 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack spacing="12"></swirl-stack>
+          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
+          </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>
     `);
@@ -179,6 +180,8 @@ describe("swirl-toast-provider", () => {
     const fullToast: SwirlToastConfig = {
       content: "Full Toast",
       accessibleDismissLabel: "Close notification",
+      actionLabel: "Undo",
+      dismissOnAction: true,
       dismissLabel: "Dismiss",
       icon: "<swirl-icon-info></swirl-icon-info>",
       intent: "success",
@@ -195,10 +198,541 @@ describe("swirl-toast-provider", () => {
     expect(result.accessibleDismissLabel).toBe(
       fullToast.accessibleDismissLabel
     );
+    expect(result.actionLabel).toBe(fullToast.actionLabel);
+    expect(result.dismissOnAction).toBe(fullToast.dismissOnAction);
     expect(result.dismissLabel).toBe(fullToast.dismissLabel);
     expect(result.icon).toBe(fullToast.icon);
     expect(result.intent).toBe(fullToast.intent);
     expect(result.duration).toBe(fullToast.duration);
     expect(result.toastId).toBe(fullToast.toastId);
+  });
+
+  it("should render toast with actionLabel when provided", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+
+    await toastProvider.toast({
+      content: "Toast with action",
+      actionLabel: "Undo",
+      toastId: "action-toast",
+    });
+
+    await page.waitForChanges();
+
+    const toastEl = page.root.shadowRoot.querySelector("swirl-toast");
+    expect(toastEl.getAttribute("actionlabel")).toBe("Undo");
+  });
+
+  it("should call onAction callback with toastId when action event is fired", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const onActionSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast with action callback",
+      actionLabel: "Undo",
+      toastId: "action-callback-toast",
+      onAction: onActionSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Call the provider's onAction handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onAction({ detail: "action-callback-toast" });
+
+    await page.waitForChanges();
+
+    expect(onActionSpy).toHaveBeenCalledWith("action-callback-toast");
+  });
+
+  it("should call onDismiss callback with toastId when dismiss event is fired", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const onDismissSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast with dismiss callback",
+      toastId: "dismiss-callback-toast",
+      onDismiss: onDismissSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Call the provider's onDismiss handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onDismiss({ detail: "dismiss-callback-toast" });
+
+    await page.waitForChanges();
+
+    expect(onDismissSpy).toHaveBeenCalledWith("dismiss-callback-toast");
+  });
+
+  it("should dismiss toast and call onDismiss after onAction when dismissOnAction is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    const onActionSpy = jest.fn();
+    const onDismissSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast with dismissOnAction",
+      actionLabel: "Undo",
+      toastId: "dismiss-on-action-toast",
+      dismissOnAction: true,
+      onAction: onActionSpy,
+      onDismiss: onDismissSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Verify toast is rendered
+    let toasts = page.root.shadowRoot.querySelectorAll("swirl-toast");
+    expect(toasts.length).toBe(1);
+
+    // Call the provider's onAction handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onAction({ detail: "dismiss-on-action-toast" });
+
+    await page.waitForChanges();
+
+    expect(onActionSpy).toHaveBeenCalledWith("dismiss-on-action-toast");
+    expect(onDismissSpy).toHaveBeenCalledWith("dismiss-on-action-toast");
+
+    // Verify toast was removed from DOM
+    toasts = page.root.shadowRoot.querySelectorAll("swirl-toast");
+    expect(toasts.length).toBe(0);
+  });
+
+  it("should not dismiss toast or call onDismiss after onAction when dismissOnAction is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    const onActionSpy = jest.fn();
+    const onDismissSpy = jest.fn();
+
+    await toastProvider.toast({
+      content: "Toast without dismissOnAction",
+      actionLabel: "Undo",
+      toastId: "no-dismiss-on-action-toast",
+      dismissOnAction: false,
+      onAction: onActionSpy,
+      onDismiss: onDismissSpy,
+    });
+
+    await page.waitForChanges();
+
+    // Call the provider's onAction handler directly with a mock event
+    const providerInstance = page.rootInstance;
+    providerInstance.onAction({ detail: "no-dismiss-on-action-toast" });
+
+    await page.waitForChanges();
+
+    expect(onActionSpy).toHaveBeenCalledWith("no-dismiss-on-action-toast");
+    expect(onDismissSpy).not.toHaveBeenCalled();
+
+    // Verify toast was NOT removed from DOM
+    const toasts = page.root.shadowRoot.querySelectorAll("swirl-toast");
+    expect(toasts.length).toBe(1);
+  });
+
+  it("should show popover when toasts are added", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+
+    await page.waitForChanges();
+
+    expect(showPopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should hide popover when all toasts are cleared", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+
+    await page.waitForChanges();
+
+    hidePopoverSpy.mockClear();
+
+    await toastProvider.clearAll();
+    await page.waitForChanges();
+
+    expect(hidePopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should hide popover when last toast is dismissed", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+
+    await page.waitForChanges();
+
+    hidePopoverSpy.mockClear();
+
+    await toastProvider.dismiss("test-toast");
+    await page.waitForChanges();
+
+    expect(hidePopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should keep popover open when dismissing one of multiple toasts", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    const showPopoverSpy = jest.fn();
+    const hidePopoverSpy = jest.fn();
+    popoverEl.showPopover = showPopoverSpy;
+    popoverEl.hidePopover = hidePopoverSpy;
+
+    await toastProvider.toast({
+      content: "Toast 1",
+      toastId: "toast-1",
+    });
+
+    await toastProvider.toast({
+      content: "Toast 2",
+      toastId: "toast-2",
+    });
+
+    await page.waitForChanges();
+
+    showPopoverSpy.mockClear();
+    hidePopoverSpy.mockClear();
+
+    await toastProvider.dismiss("toast-1");
+    await page.waitForChanges();
+
+    expect(showPopoverSpy).toHaveBeenCalled();
+  });
+
+  it("should move into dialog when toggleDialog event with 'open' is received and toasts are showing", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `
+          <div id="container">
+            <swirl-toast-provider></swirl-toast-provider>
+          </div>
+        `,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const container = page.body.querySelector("#container");
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    // Add a toast so the provider will move
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+    await page.waitForChanges();
+
+    // Create a mock dialog
+    const dialog = document.createElement("dialog");
+    page.body.appendChild(dialog);
+
+    // Verify initial position
+    expect(toastProvider.parentElement).toBe(container);
+
+    // Dispatch toggleDialog event with "open" state
+    const toggleEvent = new CustomEvent("toggleDialog", {
+      bubbles: true,
+      composed: true,
+      detail: { newState: "open", dialog },
+    });
+    document.dispatchEvent(toggleEvent);
+
+    await page.waitForChanges();
+
+    // Verify toast provider moved into dialog
+    expect(toastProvider.parentElement).toBe(dialog);
+  });
+
+  it("should not move into dialog when no toasts are showing", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `
+          <div id="container">
+            <swirl-toast-provider></swirl-toast-provider>
+          </div>
+        `,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const container = page.body.querySelector("#container");
+
+    // Create a mock dialog
+    const dialog = document.createElement("dialog");
+    page.body.appendChild(dialog);
+
+    // Verify initial position
+    expect(toastProvider.parentElement).toBe(container);
+
+    // Dispatch toggleDialog event with "open" state (no toasts)
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog },
+      })
+    );
+
+    await page.waitForChanges();
+
+    // Verify toast provider stayed in original position
+    expect(toastProvider.parentElement).toBe(container);
+  });
+
+  it("should restore to original position when toggleDialog event with 'closed' is received", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `
+          <div id="container">
+            <swirl-toast-provider></swirl-toast-provider>
+          </div>
+        `,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const container = page.body.querySelector("#container");
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    // Add a toast so the provider will move
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+    await page.waitForChanges();
+
+    // Create a mock dialog
+    const dialog = document.createElement("dialog");
+    page.body.appendChild(dialog);
+
+    // Open dialog
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog },
+      })
+    );
+
+    await page.waitForChanges();
+    expect(toastProvider.parentElement).toBe(dialog);
+
+    // Close dialog
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "closed", dialog },
+      })
+    );
+
+    await page.waitForChanges();
+
+    // Verify toast provider restored to original position
+    expect(toastProvider.parentElement).toBe(container);
+  });
+
+  it("should handle nested dialogs by moving to the topmost dialog", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `
+          <div id="container">
+            <swirl-toast-provider></swirl-toast-provider>
+          </div>
+        `,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const container = page.body.querySelector("#container");
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    // Add a toast so the provider will move
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+    await page.waitForChanges();
+
+    // Create two mock dialogs
+    const dialog1 = document.createElement("dialog");
+    const dialog2 = document.createElement("dialog");
+    page.body.appendChild(dialog1);
+    page.body.appendChild(dialog2);
+
+    // Open first dialog
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog: dialog1 },
+      })
+    );
+    await page.waitForChanges();
+    expect(toastProvider.parentElement).toBe(dialog1);
+
+    // Open second dialog (nested)
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog: dialog2 },
+      })
+    );
+    await page.waitForChanges();
+    expect(toastProvider.parentElement).toBe(dialog2);
+
+    // Close second dialog - should move back to first dialog
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "closed", dialog: dialog2 },
+      })
+    );
+    await page.waitForChanges();
+    expect(toastProvider.parentElement).toBe(dialog1);
+
+    // Close first dialog - should restore to original position
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "closed", dialog: dialog1 },
+      })
+    );
+    await page.waitForChanges();
+    expect(toastProvider.parentElement).toBe(container);
+  });
+
+  it("should refresh popover after moving to dialog", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Add a toast to open the popover
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+    await page.waitForChanges();
+
+    const hidePopoverSpy = jest.fn();
+    const showPopoverSpy = jest.fn();
+    popoverEl.hidePopover = hidePopoverSpy;
+    popoverEl.showPopover = showPopoverSpy;
+    (popoverEl as any).matches = () => true; // Mock :popover-open
+
+    // Create a mock dialog and trigger open
+    const dialog = document.createElement("dialog");
+    page.body.appendChild(dialog);
+
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog },
+      })
+    );
+    await page.waitForChanges();
+
+    // Verify popover was refreshed (hide then show)
+    expect(hidePopoverSpy).toHaveBeenCalled();
+    expect(showPopoverSpy).toHaveBeenCalled();
   });
 });

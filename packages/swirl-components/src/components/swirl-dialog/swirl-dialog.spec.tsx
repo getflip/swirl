@@ -12,7 +12,7 @@ describe("swirl-dialog", () => {
     expect(page.root).toEqualHtml(`
       <swirl-dialog label="Dialog">
         <mock:shadow-root>
-          <div aria-describedby="content" aria-hidden="true" aria-labelledby="label" aria-modal="true" class="dialog" role="alertdialog" tabindex="-1">
+          <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none" role="alertdialog">
             <div class="dialog__backdrop"></div>
             <div class="dialog__body" part="dialog__body" role="document">
               <h2 class="dialog__heading" part="dialog__heading" id="label">
@@ -23,7 +23,7 @@ describe("swirl-dialog", () => {
               </div>
               <div class="dialog__controls"></div>
             </div>
-          </div>
+          </dialog>
         </mock:shadow-root>
         Content
       </swirl-dialog>
@@ -39,7 +39,7 @@ describe("swirl-dialog", () => {
     expect(page.root).toEqualHtml(`
       <swirl-dialog label="Dialog">
         <mock:shadow-root>
-          <div aria-describedby="content" aria-hidden="true" aria-labelledby="label" aria-modal="true" class="dialog" role="alertdialog" tabindex="-1">
+          <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none" role="alertdialog">
             <div class="dialog__backdrop"></div>
             <div class="dialog__body" part="dialog__body" role="document">
               <h2 class="dialog__heading" part="dialog__heading" id="label">
@@ -54,7 +54,7 @@ describe("swirl-dialog", () => {
                  </div>
               </div>
             </div>
-          </div>
+          </dialog>
         </mock:shadow-root>
         <div slot="left-controls">Left</div>
       </swirl-dialog>
@@ -96,5 +96,34 @@ describe("swirl-dialog", () => {
 
     expect(primarySpy).toHaveBeenCalled();
     expect(secondarySpy).toHaveBeenCalled();
+  });
+
+  it("emits toggleDialog event when dialog is toggled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDialog],
+      html: `<swirl-dialog label="Dialog">Content</swirl-dialog>`,
+    });
+
+    const toggleSpy = jest.fn();
+    page.root.addEventListener("toggleDialog", toggleSpy);
+
+    const dialogEl = page.root.shadowRoot.querySelector("dialog");
+
+    // Simulate toggle event with "open" state
+    const openEvent = new Event("toggle") as any;
+    openEvent.newState = "open";
+    dialogEl.dispatchEvent(openEvent);
+
+    expect(toggleSpy).toHaveBeenCalledTimes(1);
+    expect(toggleSpy.mock.calls[0][0].detail.newState).toBe("open");
+    expect(toggleSpy.mock.calls[0][0].detail.dialog).toBe(dialogEl);
+
+    // Simulate toggle event with "closed" state
+    const closeEvent = new Event("toggle") as any;
+    closeEvent.newState = "closed";
+    dialogEl.dispatchEvent(closeEvent);
+
+    expect(toggleSpy).toHaveBeenCalledTimes(2);
+    expect(toggleSpy.mock.calls[1][0].detail.newState).toBe("closed");
   });
 });

@@ -19,6 +19,7 @@ export type SwirlToastIntent = "default" | "critical" | "success";
 })
 export class SwirlToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
+  @Prop() actionLabel?: string;
   @Prop() content?: string;
   @Prop() dismissLabel?: string;
   /**
@@ -29,6 +30,7 @@ export class SwirlToast {
   @Prop() intent?: SwirlToastIntent = "default";
   @Prop() toastId!: string;
 
+  @Event() action: EventEmitter<string>;
   @Event() dismiss: EventEmitter<string>;
 
   private dismissIconEl: HTMLElement;
@@ -82,6 +84,10 @@ export class SwirlToast {
     this.timeout = undefined;
   }
 
+  private onAction = () => {
+    this.action.emit(this.toastId);
+  };
+
   private onDismiss = () => {
     this.dismiss.emit(this.toastId);
   };
@@ -107,6 +113,14 @@ export class SwirlToast {
           >
             <slot></slot>
           </span>
+          {this.actionLabel && (
+            <swirl-button
+              class="toast__action-button"
+              label={this.actionLabel}
+              onClick={this.onAction}
+              variant="plain"
+            ></swirl-button>
+          )}
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}
             class="toast__dismiss-button"

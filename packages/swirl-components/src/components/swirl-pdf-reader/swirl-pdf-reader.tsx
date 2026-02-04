@@ -11,7 +11,6 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport, querySelectorAllDeep } from "../../utils";
@@ -55,6 +54,7 @@ export class SwirlPdfReader {
 
   @State() active = false;
   @State() closing = false;
+  @State() opening = false;
   @State() downloading = false;
   @State() loadingThumbnails = false;
   @State() thumbnails: HTMLCanvasElement[] = [];
@@ -67,8 +67,7 @@ export class SwirlPdfReader {
   private desktopZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4];
   private menu: HTMLSwirlPopoverElement;
   private mobileZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5];
-  private modal: A11yDialog;
-  private modalEl: HTMLElement;
+  private modalEl: HTMLDialogElement;
   private pdfViewer: HTMLSwirlFileViewerPdfElement;
   private viewer: HTMLSwirlFileViewerElement;
 
@@ -79,12 +78,25 @@ export class SwirlPdfReader {
   }
 
   componentDidLoad() {
-    this.modal = new A11yDialog(this.modalEl);
+    this.ensureOpening();
+    this.setDialogCustomProps();
   }
 
   disconnectedCallback() {
     this.unlockBodyScroll();
-    this.modal?.destroy();
+    if (this.modalEl?.open) {
+      this.modalEl.close();
+    }
+  }
+
+  private ensureOpening() {
+    if (this.opening && !this.modalEl?.open) {
+      this.open();
+    }
+  }
+
+  private setDialogCustomProps() {
+    this.modalEl.setAttribute("closedby", "none");
   }
 
   @Listen("resize", { target: "window" })
@@ -114,7 +126,13 @@ export class SwirlPdfReader {
    */
   @Method()
   async open() {
-    this.modal.show();
+    this.opening = true;
+
+    if (!this.modalEl) {
+      return;
+    }
+
+    this.modalEl.showModal();
     this.active = true;
     this.modalOpen.emit();
   }
@@ -133,12 +151,15 @@ export class SwirlPdfReader {
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.modal.hide();
-      this.closing = false;
-      this.active = false;
-      this.modalClose.emit();
+      this.modalEl.close();
     }, 150);
   }
+
+  private onClose = () => {
+    this.closing = false;
+    this.active = false;
+    this.modalClose.emit();
+  };
 
   private lockBodyScroll() {
     const scrollContainer = this.pdfViewer?.shadowRoot.querySelector(
@@ -185,6 +206,7 @@ export class SwirlPdfReader {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
+      event.preventDefault();
       this.close();
     }
   };
@@ -268,11 +290,11 @@ export class SwirlPdfReader {
 
     return (
       <Host>
-        <section
-          aria-hidden="true"
+        <dialog
           aria-label={this.label}
           class={className}
           id="pdf-reader"
+          onClose={this.onClose}
           onKeyDown={this.onKeyDown}
           ref={(el) => (this.modalEl = el)}
         >
@@ -526,7 +548,7 @@ export class SwirlPdfReader {
               </swirl-action-list>
             </swirl-stack>
           </swirl-popover>
-        </section>
+        </dialog>
       </Host>
     );
   }

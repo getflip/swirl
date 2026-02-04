@@ -9,8 +9,8 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import A11yDialog from "a11y-dialog";
 import classnames from "classnames";
+import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlDialogIntent = "primary" | "critical";
 
@@ -36,25 +36,33 @@ export class SwirlDialog {
   @Event() dialogOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
+  @Event({ bubbles: true, composed: true })
+  toggleDialog: EventEmitter<SwirlDialogToggleEvent>;
 
   @State() closing = false;
+  @State() opening = false;
 
-  private controlsContainerEl: HTMLElement;
-  private dialog: A11yDialog;
-  private dialogEl: HTMLDivElement;
+  private dialogEl: HTMLDialogElement;
 
   componentDidLoad() {
-    this.dialog = new A11yDialog(this.dialogEl);
-
-    this.dialog.on("show", () => {
-      this.controlsContainerEl
-        .querySelector<HTMLButtonElement>("swirl-button button")
-        ?.focus();
-    });
+    this.ensureOpening();
+    this.setDialogCustomProps();
   }
 
   disconnectedCallback() {
-    this.dialog?.destroy();
+    if (this.dialogEl?.open) {
+      this.dialogEl.close();
+    }
+  }
+
+  private ensureOpening() {
+    if (this.opening && !this.dialogEl?.open) {
+      this.open();
+    }
+  }
+
+  private setDialogCustomProps() {
+    this.dialogEl.setAttribute("closedby", "none");
   }
 
   /**
@@ -62,7 +70,13 @@ export class SwirlDialog {
    */
   @Method()
   async open() {
-    this.dialog.show();
+    this.opening = true;
+
+    if (!this.dialogEl) {
+      return;
+    }
+
+    this.dialogEl.showModal();
     this.dialogOpen.emit();
   }
 
@@ -78,15 +92,26 @@ export class SwirlDialog {
     this.closing = true;
 
     setTimeout(() => {
-      this.dialog.hide();
-      this.dialogClose.emit();
-      this.closing = false;
+      this.dialogEl.close();
     }, 150);
   }
+
+  private onClose = () => {
+    this.closing = false;
+    this.dialogClose.emit();
+  };
+
+  onToggle = (event: ToggleEvent) => {
+    this.toggleDialog.emit({
+      newState: event.newState as SwirlDialogToggleEvent["newState"],
+      dialog: this.dialogEl,
+    });
+  };
 
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
+      event.preventDefault();
       this.close();
     }
   };
@@ -107,20 +132,22 @@ export class SwirlDialog {
 
   render() {
     const className = classnames("dialog", { "dialog--closing": this.closing });
-    const hasLeftControls = Boolean(this.el.querySelector('[slot="left-controls"]'));
+    const hasLeftControls = Boolean(
+      this.el.querySelector('[slot="left-controls"]')
+    );
 
     return (
       <Host>
-        <div
+        <dialog
           aria-describedby="content"
-          aria-hidden="true"
           aria-labelledby={this.hideLabel ? undefined : "label"}
           aria-label={this.hideLabel ? this.label : undefined}
-          aria-modal="true"
           class={className}
+          onClose={this.onClose}
           onKeyDown={this.onKeyDown}
-          ref={(el) => (this.dialogEl = el)}
+          onToggle={this.onToggle}
           role="alertdialog"
+          ref={(el) => (this.dialogEl = el)}
         >
           <div class="dialog__backdrop" onClick={this.onBackdropClick}></div>
           <div class="dialog__body" part="dialog__body" role="document">
@@ -132,10 +159,7 @@ export class SwirlDialog {
             <div class="dialog__content" part="dialog__content" id="content">
               <slot></slot>
             </div>
-            <div
-              class="dialog__controls"
-              ref={(el) => (this.controlsContainerEl = el)}
-            >
+            <div class="dialog__controls">
               {hasLeftControls && (
                 <div class="dialog__left_controls">
                   <slot name="left-controls"></slot>
@@ -157,7 +181,7 @@ export class SwirlDialog {
               )}
             </div>
           </div>
-        </div>
+        </dialog>
       </Host>
     );
   }
