@@ -12,9 +12,8 @@
   min-height: var(--s-font-size-sm);
   background-color: var(--s-surface-raised-hovered);
 
-  &:before {
+  &:after {
     position: relative;
-    z-index: 1;
     display: block;
     width: 100%;
     height: 100%;
