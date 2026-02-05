@@ -10,12 +10,19 @@
   display: flex;
   max-width: 100%;
   padding: var(--s-space-12);
-  border-radius: var(--s-border-radius-sm);
   gap: var(--s-space-8);
 
   @media (--from-tablet) {
     padding: var(--s-space-16);
   }
+}
+
+.inline-notification--border-radius-xs {
+  border-radius: var(--s-border-radius-xs);
+}
+
+.inline-notification--border-radius-sm {
+  border-radius: var(--s-border-radius-sm);
 }
 
 .inline-notification--intent-info {

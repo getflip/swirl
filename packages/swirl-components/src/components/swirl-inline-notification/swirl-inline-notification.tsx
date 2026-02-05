@@ -9,6 +9,11 @@ export type SwirlInlineNotificationIntent =
   | "warning"
   | "info";
 
+const swirlNotificationBorderRadiusTokens = ["xs", "sm"] as const;
+export type SwirlNotificationBorderRadius =
+  | (typeof swirlNotificationBorderRadiusTokens)[number]
+  | string;
+
 @Component({
   shadow: true,
   styleUrl: "swirl-inline-notification.css",
@@ -19,11 +24,13 @@ export class SwirlInlineNotification {
   @Prop() hideHeading?: boolean;
   @Prop() importance?: SwirlInlineNotificationAriaRole = "status";
   @Prop() intent?: SwirlInlineNotificationIntent = "info";
+  @Prop() borderRadius?: SwirlNotificationBorderRadius = "sm";
 
   render() {
     const className = classnames(
       "inline-notification",
-      `inline-notification--intent-${this.intent}`
+      `inline-notification--intent-${this.intent}`,
+      `inline-notification--border-radius-${this.borderRadius}`
     );
 
     return (

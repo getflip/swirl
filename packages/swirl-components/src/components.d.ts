@@ -41,7 +41,7 @@ import { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl
 import { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
 import { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
-import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
+import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent, SwirlNotificationBorderRadius } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
 import { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 import { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
@@ -122,7 +122,7 @@ export { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl
 export { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
 export { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
-export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
+export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent, SwirlNotificationBorderRadius } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
 export { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 export { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
@@ -2980,6 +2980,10 @@ export namespace Components {
         "size"?: SwirlInlineErrorSize;
     }
     interface SwirlInlineNotification {
+        /**
+          * @default "sm"
+         */
+        "borderRadius"?: SwirlNotificationBorderRadius;
         "heading": string;
         "hideHeading"?: boolean;
         /**
@@ -12158,6 +12162,10 @@ declare namespace LocalJSX {
         "size"?: SwirlInlineErrorSize;
     }
     interface SwirlInlineNotification {
+        /**
+          * @default "sm"
+         */
+        "borderRadius"?: SwirlNotificationBorderRadius;
         "heading": string;
         "hideHeading"?: boolean;
         /**
