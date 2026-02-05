@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.432.1
+
+### Patch Changes
+
+- [#1413](https://github.com/getflip/swirl/pull/1413)
+  [`ed9c4bf18`](https://github.com/getflip/swirl/commit/ed9c4bf18cb2f364e18e1441ee08906ff7e2ebf3)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Replace :before
+  with z-index with :after in swirl-skeleton-box
+
 ## 0.432.0
 
 ### Minor Changes
