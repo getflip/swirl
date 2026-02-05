@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.433.0
+
+### Minor Changes
+
+- [#1415](https://github.com/getflip/swirl/pull/1415)
+  [`583ff0d3d`](https://github.com/getflip/swirl/commit/583ff0d3d22f6ec72b9f6bb3a0d5bb85eef66cf8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix floating
+  elements positioning
+
+### Patch Changes
+
+- Updated dependencies
+  [[`583ff0d3d`](https://github.com/getflip/swirl/commit/583ff0d3d22f6ec72b9f6bb3a0d5bb85eef66cf8)]:
+  - @getflip/swirl-components@0.433.0
+
 ## 0.432.1
 
 ### Patch Changes
