@@ -505,6 +505,8 @@ export namespace Components {
           * @default "visible"
          */
         "overflow"?: SwirlBoxOverflow;
+        "overflowX"?: SwirlBoxOverflow;
+        "overflowY"?: SwirlBoxOverflow;
         /**
           * @default "0"
          */
@@ -9729,6 +9731,8 @@ declare namespace LocalJSX {
           * @default "visible"
          */
         "overflow"?: SwirlBoxOverflow;
+        "overflowX"?: SwirlBoxOverflow;
+        "overflowY"?: SwirlBoxOverflow;
         /**
           * @default "0"
          */

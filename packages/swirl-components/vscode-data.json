@@ -1000,6 +1000,48 @@
           ]
         },
         {
+          "name": "overflow-x",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
+          "name": "overflow-y",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
           "name": "padding",
           "description": "",
           "values": [
