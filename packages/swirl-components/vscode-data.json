@@ -959,6 +959,10 @@
           "description": ""
         },
         {
+          "name": "hide-scrollbar",
+          "description": ""
+        },
+        {
           "name": "left",
           "description": ""
         },

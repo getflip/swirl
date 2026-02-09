@@ -61,6 +61,7 @@ export class SwirlBox {
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
   @Prop() height?: string;
+  @Prop() hideScrollbar?: boolean;
   @Prop() left?: string;
   @Prop() maxHeight?: string;
   @Prop() minHeight?: string;
@@ -182,6 +183,7 @@ export class SwirlBox {
         "box--bordered-inline-end": this.borderedInlineEnd,
         "box--bordered-inline-start": this.borderedInlineStart,
         "box--cover": this.cover,
+        "box--hide-scrollbar": this.hideScrollbar,
         "box--scrollable": this.scrollState.scrollable,
         "box--scrolled-to-top": this.scrollState.scrolledToTop,
         "box--scrolled-to-bottom": this.scrollState.scrolledToBottom,
