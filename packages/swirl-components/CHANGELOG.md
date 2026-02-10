@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.434.0
+
+### Minor Changes
+
+- [#1419](https://github.com/getflip/swirl/pull/1419)
+  [`69ae2c154`](https://github.com/getflip/swirl/commit/69ae2c154b86401e46149d2109f1766dabcb0b9b)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add overflowX,
+  overflowY and hideScrollbar props to swirl-box
+
 ## 0.433.0
 
 ### Minor Changes
