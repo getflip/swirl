@@ -41,7 +41,7 @@ export class SwirlTooltip {
   @Prop() intent: SwirlTooltipIntent = "default";
   @Prop() maxWidth?: string = "17.5rem";
   @Prop() position?: SwirlTooltipPosition = "top";
-  @Prop() positioning?: Strategy = "absolute";
+  @Prop() positioning?: Strategy;
   @Prop() trigger: SwirlTooltipTrigger[] = ["focus", "hover"];
 
   @State() actualPosition: ComputePositionReturn;
@@ -97,6 +97,11 @@ export class SwirlTooltip {
   }
 
   componentDidLoad() {
+    if (this.positioning !== undefined) {
+      console.warn(
+        '[Swirl] The "positioning" prop of swirl-tooltip is deprecated and will be removed with the next major release. "fixed" is now the default positioning strategy.'
+      );
+    }
     this.updateOptions();
   }
 
@@ -115,6 +120,7 @@ export class SwirlTooltip {
         return;
       }
 
+      this.popperEl?.showPopover();
       this.reposition();
       this.disableAutoUpdate = autoUpdate(
         referenceElement,
@@ -132,6 +138,7 @@ export class SwirlTooltip {
     }
 
     this.visible = false;
+    this.popperEl?.hidePopover();
     this.disableAutoUpdate?.();
   }
 
@@ -216,7 +223,7 @@ export class SwirlTooltip {
         flip(),
       ],
       placement: this.position,
-      strategy: this.positioning,
+      strategy: "fixed",
     };
   };
 
@@ -245,6 +252,7 @@ export class SwirlTooltip {
           </span>
           <span
             class="tooltip__popper"
+            popover="manual"
             ref={(el) => (this.popperEl = el)}
             style={{
               top: Boolean(this.actualPosition)
@@ -253,7 +261,6 @@ export class SwirlTooltip {
               left: Boolean(this.actualPosition)
                 ? `${this.actualPosition?.x}px`
                 : "",
-              position: this.positioning,
               maxWidth: this.maxWidth,
             }}
           >

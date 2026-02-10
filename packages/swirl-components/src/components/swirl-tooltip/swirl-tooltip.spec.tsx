@@ -7,7 +7,7 @@ const expectedVisible = `
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="position: absolute; max-width: 17.5rem;">
+  <span class="tooltip__popper" popover="manual" style="max-width: 17.5rem;">
     <span class="tooltip__bubble" id="tooltip" part="tooltip__bubble" role="tooltip">
       <span class="tooltip__content">
         Tooltip
@@ -22,7 +22,7 @@ const expectedHidden = `
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="position: absolute; max-width: 17.5rem; top: 0px; left: NaNpx;">
+  <span class="tooltip__popper" popover="manual" style="max-width: 17.5rem; top: 0px; left: NaNpx;">
     <span class="tooltip__arrow" style="visibility: hidden;"></span>
   </span>
 </span>`;
