@@ -12,6 +12,7 @@
   display: inline-flex;
   line-height: var(--s-line-height-base);
   cursor: pointer;
+  align-items: center;
 
   &:focus-within .radio__box {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
