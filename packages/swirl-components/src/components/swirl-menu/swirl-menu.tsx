@@ -4,6 +4,7 @@ import {
   ComputePositionReturn,
   flip,
   offset,
+  Placement,
   shift,
 } from "@floating-ui/dom";
 import {
@@ -42,6 +43,7 @@ export class SwirlMenu {
   @Prop({ mutable: true }) level?: number = 0;
   @Prop() mobileBackButtonLabel?: string = "Back";
   @Prop() mobileCloseMenuButtonLabel?: string = "Close menu";
+  @Prop() placement?: Placement = "right-start";
   @Prop() mobileDoneButtonLabel?: string = "Done";
   @Prop() value?: string;
   @Prop() variant?: SwirlMenuVariant = "action";
@@ -401,7 +403,7 @@ export class SwirlMenu {
     }
     requestAnimationFrame(async () => {
       this.position = await computePosition(trigger, this.menuContainer, {
-        placement: "right-start",
+        placement: this.placement,
         strategy: "fixed",
         middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift(), flip()],
       });
