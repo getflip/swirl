@@ -54,6 +54,14 @@
     border-block-end-color: var(--s-border-default);
   }
 
+  &(.box--hide-scrollbar) {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   &(.box--cover) {
     width: 100%;
     height: 100%;

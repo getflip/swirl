@@ -959,6 +959,10 @@
           "description": ""
         },
         {
+          "name": "hide-scrollbar",
+          "description": ""
+        },
+        {
           "name": "left",
           "description": ""
         },
@@ -980,6 +984,48 @@
         },
         {
           "name": "overflow",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
+          "name": "overflow-x",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
+          "name": "overflow-y",
           "description": "",
           "values": [
             {

@@ -496,6 +496,7 @@ export namespace Components {
         "cover"?: boolean;
         "grow"?: string;
         "height"?: string;
+        "hideScrollbar"?: boolean;
         "left"?: string;
         "maxHeight"?: string;
         "maxWidth"?: string;
@@ -505,6 +506,8 @@ export namespace Components {
           * @default "visible"
          */
         "overflow"?: SwirlBoxOverflow;
+        "overflowX"?: SwirlBoxOverflow;
+        "overflowY"?: SwirlBoxOverflow;
         /**
           * @default "0"
          */
@@ -9719,6 +9722,7 @@ declare namespace LocalJSX {
         "cover"?: boolean;
         "grow"?: string;
         "height"?: string;
+        "hideScrollbar"?: boolean;
         "left"?: string;
         "maxHeight"?: string;
         "maxWidth"?: string;
@@ -9729,6 +9733,8 @@ declare namespace LocalJSX {
           * @default "visible"
          */
         "overflow"?: SwirlBoxOverflow;
+        "overflowX"?: SwirlBoxOverflow;
+        "overflowY"?: SwirlBoxOverflow;
         /**
           * @default "0"
          */

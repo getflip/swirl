@@ -61,12 +61,15 @@ export class SwirlBox {
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
   @Prop() height?: string;
+  @Prop() hideScrollbar?: boolean;
   @Prop() left?: string;
   @Prop() maxHeight?: string;
   @Prop() minHeight?: string;
   @Prop() maxWidth?: string;
   @Prop() minWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
+  @Prop() overflowX?: SwirlBoxOverflow;
+  @Prop() overflowY?: SwirlBoxOverflow;
   @Prop() padding?: SwirlBoxPadding = "0";
   @Prop() paddingBlockEnd?: SwirlBoxPadding;
   @Prop() paddingBlockStart?: SwirlBoxPadding;
@@ -139,6 +142,8 @@ export class SwirlBox {
       maxWidth: this.maxWidth,
       minWidth: this.minWidth,
       overflow: this.overflow,
+      overflowX: this.overflowX,
+      overflowY: this.overflowY,
       padding: `var(--s-space-${this.padding})`,
       paddingBlockEnd: Boolean(this.paddingBlockEnd)
         ? `var(--s-space-${this.paddingBlockEnd})`
@@ -152,9 +157,12 @@ export class SwirlBox {
       paddingInlineStart: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
         : undefined,
-      position: Boolean(this.overflow)
-        ? this.position || "relative"
-        : this.position,
+      position:
+        Boolean(this.overflow) ||
+        Boolean(this.overflowX) ||
+        Boolean(this.overflowY)
+          ? this.position || "relative"
+          : this.position,
       right: this.right,
       top: this.top,
       width: this.cover ? "100%" : this.width,
@@ -175,6 +183,7 @@ export class SwirlBox {
         "box--bordered-inline-end": this.borderedInlineEnd,
         "box--bordered-inline-start": this.borderedInlineStart,
         "box--cover": this.cover,
+        "box--hide-scrollbar": this.hideScrollbar,
         "box--scrollable": this.scrollState.scrollable,
         "box--scrolled-to-top": this.scrollState.scrolledToTop,
         "box--scrolled-to-bottom": this.scrollState.scrolledToBottom,
