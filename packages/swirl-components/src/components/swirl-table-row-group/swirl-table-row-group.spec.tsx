@@ -39,7 +39,7 @@ describe("swirl-table-row-group", () => {
             <span aria-rowspan="0" class="table-row-group__label" role="rowheader">
               Label
               <span class="table-row-group__tooltip">
-                <swirl-tooltip content="Test" position="top" positioning="fixed">
+                <swirl-tooltip content="Test" position="top">
                   <swirl-icon-info class="table-row-group__tooltip-icon" size="16" tabindex="0"></swirl-icon-info>
                 </swirl-tooltip>
               </span>

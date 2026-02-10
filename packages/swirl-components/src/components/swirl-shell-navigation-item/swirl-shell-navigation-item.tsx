@@ -109,7 +109,6 @@ export class SwirlShellNavigationItem {
           content={tooltipContent}
           delay={100}
           position="right"
-          positioning="fixed"
         >
           <Tag
             aria-current={this.swirlAriaCurrent}

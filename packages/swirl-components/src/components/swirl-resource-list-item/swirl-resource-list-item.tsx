@@ -301,7 +301,6 @@ export class SwirlResourceListItem {
                 <swirl-tooltip
                   content={this.labelTooltip}
                   position={this.labelTooltipPosition}
-                  positioning="fixed"
                 >
                   {renderLabel()}
                 </swirl-tooltip>

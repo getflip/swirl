@@ -304,7 +304,6 @@ export class SwirlFormControl {
                   <span class="form-control__tooltip">
                     <swirl-tooltip
                       content={this.tooltip}
-                      positioning="fixed"
                       position="top"
                     >
                       <swirl-icon-help size={16} tabindex="0"></swirl-icon-help>

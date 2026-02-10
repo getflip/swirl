@@ -15,7 +15,7 @@ describe("swirl-shell-navigation-item", () => {
     expect(page.root).toMatchInlineSnapshot(`
       <swirl-shell-navigation-item label="Label">
         <template shadowrootmode="open">
-          <swirl-tooltip content="Label" delay="100" position="right" positioning="fixed">
+          <swirl-tooltip content="Label" delay="100" position="right">
             <button class="shell-navigation-item shell-navigation-item--default shell-navigation-item--has-app-icon" title="Label" type="button">
               <span class="shell-navigation-item__icon">
                 <slot name="icon"></slot>
