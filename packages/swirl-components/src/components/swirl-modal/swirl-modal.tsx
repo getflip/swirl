@@ -346,7 +346,7 @@ export class SwirlModal {
   };
 
   private handleAutoFocus() {
-    this.modalEl.querySelector<HTMLInputElement>("input[autofocus]")?.focus();
+    this.el.querySelector<HTMLInputElement>("input[autofocus]")?.focus();
   }
 
   private lockBodyScroll() {
