@@ -10,6 +10,12 @@ export default {
     },
   },
   title: "Components/SwirlInlineNotification",
+  argTypes: {
+    borderRadius: {
+      control: "select",
+      options: ["xs", "sm"],
+    },
+  },
 };
 
 const Template = (args) => {

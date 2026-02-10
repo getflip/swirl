@@ -12,7 +12,7 @@ describe("swirl-inline-notification", () => {
     expect(page.root).toEqualHtml(`
       <swirl-inline-notification heading="Heading">
         <mock:shadow-root>
-          <div aria-describedby="content" class="inline-notification inline-notification--intent-info" role="status" tabindex="0">
+          <div aria-describedby="content" class="inline-notification inline-notification--border-radius-sm inline-notification--intent-info" role="status" tabindex="0">
             <span aria-hidden="true" class="inline-notification__icon">
               <swirl-icon-info size="20"></swirl-icon-info>
             </span>
@@ -36,7 +36,7 @@ describe("swirl-inline-notification", () => {
     expect(page.root).toEqualHtml(`
       <swirl-inline-notification heading="Heading" intent="critical">
         <mock:shadow-root>
-          <div aria-describedby="content" class="inline-notification inline-notification--intent-critical" role="status" tabindex="0">
+          <div aria-describedby="content" class="inline-notification inline-notification--border-radius-sm inline-notification--intent-critical" role="status" tabindex="0">
             <span aria-hidden="true" class="inline-notification__icon">
               <swirl-icon-error size="20"></swirl-icon-error>
             </span>
@@ -49,5 +49,29 @@ describe("swirl-inline-notification", () => {
         Content
       </swirl-inline-notification>
     `);
+  });
+
+  it("renders with border radius xs", async () => {
+    const page = await newSpecPage({
+      components: [SwirlInlineNotification],
+      html: `<swirl-inline-notification heading="Heading" border-radius="xs">Content</swirl-inline-notification>`,
+    });
+
+    const element = page.root.shadowRoot.querySelector(".inline-notification");
+    expect(
+      element.classList.contains("inline-notification--border-radius-xs")
+    ).toBe(true);
+  });
+
+  it("renders with border radius sm, without border radius prop", async () => {
+    const page = await newSpecPage({
+      components: [SwirlInlineNotification],
+      html: `<swirl-inline-notification heading="Heading">Content</swirl-inline-notification>`,
+    });
+
+    const element = page.root.shadowRoot.querySelector(".inline-notification");
+    expect(
+      element.classList.contains("inline-notification--border-radius-sm")
+    ).toBe(true);
   });
 });

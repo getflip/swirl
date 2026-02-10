@@ -17537,6 +17537,10 @@
       },
       "attributes": [
         {
+          "name": "border-radius",
+          "description": ""
+        },
+        {
           "name": "heading",
           "description": ""
         },
