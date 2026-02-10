@@ -44,13 +44,13 @@ import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inli
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent, SwirlNotificationBorderRadius } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
 import { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
-import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
@@ -125,13 +125,13 @@ export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inli
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent, SwirlNotificationBorderRadius } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
 export { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
-export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
@@ -3110,6 +3110,10 @@ export namespace Components {
           * @default "Done"
          */
         "mobileDoneButtonLabel"?: string;
+        /**
+          * @default "right-start"
+         */
+        "placement"?: Placement;
         /**
           * Update the displayed active item.
           * @returns
@@ -12261,6 +12265,10 @@ declare namespace LocalJSX {
         "mobileDoneButtonLabel"?: string;
         "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
         "onValueChange"?: (event: SwirlMenuCustomEvent<string>) => void;
+        /**
+          * @default "right-start"
+         */
+        "placement"?: Placement;
         "value"?: string;
         /**
           * @default "action"
