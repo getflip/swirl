@@ -1,5 +1,31 @@
 # @getflip/swirl-components
 
+## 0.435.0
+
+### Minor Changes
+
+- [#1418](https://github.com/getflip/swirl/pull/1418)
+  [`f3543ba60`](https://github.com/getflip/swirl/commit/f3543ba60848d7a2c4322a8f0bfa30d19c3dcff8)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Vertically
+  center radio button
+
+* [#1422](https://github.com/getflip/swirl/pull/1422)
+  [`b43e30be0`](https://github.com/getflip/swirl/commit/b43e30be00ee91ccd55ca904901539ff6585c7fc)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add placement
+  prop to swirl-menu
+
+- [#1417](https://github.com/getflip/swirl/pull/1417)
+  [`a81c249b5`](https://github.com/getflip/swirl/commit/a81c249b53cf62941d29b096143dea275ba2fd9e)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add
+  borderRadius prop to InlineNotification
+
+### Patch Changes
+
+- [#1423](https://github.com/getflip/swirl/pull/1423)
+  [`431f0401c`](https://github.com/getflip/swirl/commit/431f0401ce28afe6613a6ce659c1168426ad107a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-modal auto-focus
+  handling
+
 ## 0.434.0
 
 ### Minor Changes
