@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.436.2
+
+### Patch Changes
+
+- [#1428](https://github.com/getflip/swirl/pull/1428)
+  [`de966a218`](https://github.com/getflip/swirl/commit/de966a2182993e0e22d738630b3afb5600d2b44e)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update
+  swirl-popover to define transform-origin per placement
+
+- Updated dependencies
+  [[`de966a218`](https://github.com/getflip/swirl/commit/de966a2182993e0e22d738630b3afb5600d2b44e)]:
+  - @getflip/swirl-components@0.436.2
+
 ## 0.436.1
 
 ### Patch Changes
