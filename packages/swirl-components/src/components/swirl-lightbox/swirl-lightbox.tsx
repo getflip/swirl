@@ -29,10 +29,7 @@ export class SwirlLightbox {
   @Prop() closeButtonLabel?: string = "Close modal";
   @Prop() downloadButtonEnabled?: boolean = true;
   @Prop() downloadButtonLabel?: string = "Download";
-  @Prop() hideMenu?: boolean;
   @Prop() label!: string;
-  @Prop() menuLabel?: string = "Slide options";
-  @Prop() menuTriggerLabel?: string = "Open slide menu";
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
 
@@ -49,7 +46,6 @@ export class SwirlLightbox {
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
-  private menu: HTMLSwirlPopoverElement;
   private modalEl: HTMLDialogElement;
   private slidesContainer: HTMLElement;
   private previousSlideButton: HTMLButtonElement;
@@ -146,8 +142,6 @@ export class SwirlLightbox {
    */
   @Method()
   async activateSlide(newActiveSlideIndex: number) {
-    this.menu?.close?.();
-
     this.dragging = false;
     this.activeSlideIndex = newActiveSlideIndex;
 
@@ -220,19 +214,6 @@ export class SwirlLightbox {
     });
   }
 
-  private getCurrentFileName() {
-    const activeSlide = this.slides[this.activeSlideIndex];
-    return activeSlide?.fileName || activeSlide?.file?.split("/").pop();
-  }
-
-  private getCurrentFileType() {
-    return this.slides[this.activeSlideIndex]?.type;
-  }
-
-  private getCurrentThumbnailUrl() {
-    return this.slides[this.activeSlideIndex]?.thumbnailUrl;
-  }
-
   private lockBodyScroll() {
     disableBodyScroll(this.el);
   }
@@ -247,7 +228,6 @@ export class SwirlLightbox {
 
   private onDownloadButtonClick = () => {
     this.slides[this.activeSlideIndex]?.download();
-    this.menu.close();
   };
 
   private onNextSlideClick = () => {
@@ -409,20 +389,8 @@ export class SwirlLightbox {
   render() {
     const showPagination = this.slides.length > 1;
 
-    const currentFileName = this.getCurrentFileName();
-    const currentFileType = this.getCurrentFileType();
-    const currentThumbnailUrl = this.getCurrentThumbnailUrl();
-
-    const hasMenuItems =
-      Boolean(this.el.querySelector("[slot='menu-items']")) ||
-      this.downloadButtonEnabled;
-
-    const hasToolbar = Boolean(this.el.querySelector("[slot='toolbar']"));
-
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
-      "lightbox--hide-menu": !hasMenuItems,
-      "lightbox--hide-toolbar": !hasToolbar,
     });
 
     return (
@@ -443,28 +411,28 @@ export class SwirlLightbox {
         >
           <div class="lightbox__body" role="document">
             <header class="lightbox__header">
+              <div class="lightbox__toolbar">
+                <slot name="toolbar"></slot>
+
+                {this.downloadButtonEnabled && (
+                  <button
+                    aria-label={this.downloadButtonLabel}
+                    class="lightbox__download-button"
+                    onClick={this.onDownloadButtonClick}
+                    type="button"
+                  >
+                    <swirl-icon-download></swirl-icon-download>
+                  </button>
+                )}
+              </div>
               <button
                 aria-label={this.closeButtonLabel}
                 class="lightbox__close-button"
                 onClick={this.onCloseButtonClick}
+                type="button"
               >
                 <swirl-icon-close></swirl-icon-close>
               </button>
-
-              <div class="lightbox__toolbar">
-                <slot name="toolbar"></slot>
-              </div>
-
-              {!this.hideMenu && (
-                <swirl-popover-trigger swirlPopover={this.menu}>
-                  <button
-                    aria-label={this.menuTriggerLabel}
-                    class="lightbox__menu-button"
-                  >
-                    <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
-                  </button>
-                </swirl-popover-trigger>
-              )}
             </header>
             <div
               aria-roledescription="carousel"
@@ -509,48 +477,6 @@ export class SwirlLightbox {
               </span>
             )}
           </div>
-          {!this.hideMenu && (
-            <swirl-popover
-              animation="scale-in-y"
-              disableScrollLock
-              id="slide-menu"
-              label={this.menuLabel}
-              placement="bottom-end"
-              ref={(el) => (this.menu = el)}
-            >
-              <swirl-stack>
-                <div class="lightbox__meta">
-                  {currentThumbnailUrl && (
-                    <div class="lightbox__thumbnail">
-                      <swirl-thumbnail
-                        alt=""
-                        src={currentThumbnailUrl}
-                      ></swirl-thumbnail>
-                    </div>
-                  )}
-                  <div class="lightbox__file-info">
-                    <swirl-text truncate weight="semibold">
-                      {currentFileName}
-                    </swirl-text>
-                    <swirl-text color="subdued" size="sm" truncate>
-                      {currentFileType}
-                    </swirl-text>
-                  </div>
-                </div>
-                {hasMenuItems && <swirl-separator></swirl-separator>}
-                <swirl-action-list>
-                  {this.downloadButtonEnabled && (
-                    <swirl-action-list-item
-                      icon="<swirl-icon-download></swirl-icon-download>"
-                      label={this.downloadButtonLabel}
-                      onClick={this.onDownloadButtonClick}
-                    ></swirl-action-list-item>
-                  )}
-                  <slot name="menu-items"></slot>
-                </swirl-action-list>
-              </swirl-stack>
-            </swirl-popover>
-          )}
         </dialog>
       </Host>
     );

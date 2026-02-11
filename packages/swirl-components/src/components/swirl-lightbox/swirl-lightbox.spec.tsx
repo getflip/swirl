@@ -26,20 +26,18 @@ describe("swirl-lightbox", () => {
     expect(page.root).toEqualHtml(`
       <swirl-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
         <mock:shadow-root>
-          <dialog aria-label="Lightbox" class="lightbox lightbox--hide-toolbar" closedby="none" id="lightbox">
+          <dialog aria-label="Lightbox" class="lightbox" closedby="none" id="lightbox">
             <div class="lightbox__body" role="document">
               <header class="lightbox__header">
-                <button aria-label="Close" class="lightbox__close-button">
-                  <swirl-icon-close></swirl-icon-close>
-                </button>
                 <div class="lightbox__toolbar">
                   <slot name="toolbar"></slot>
-                </div>
-                <swirl-popover-trigger>
-                  <button aria-label="Open slide menu" class="lightbox__menu-button">
-                    <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
+                  <button aria-label="Download" class="lightbox__download-button" type="button">
+                    <swirl-icon-download></swirl-icon-download>
                   </button>
-                </swirl-popover-trigger>
+                </div>
+                <button aria-label="Close" class="lightbox__close-button" type="button">
+                  <swirl-icon-close></swirl-icon-close>
+                </button>
               </header>
               <div aria-roledescription="carousel" class="lightbox__content" role="group">
                 <div aria-atomic="false" aria-live="polite" class="lightbox__slides">
@@ -58,27 +56,43 @@ describe("swirl-lightbox", () => {
                 <span aria-current="page">1</span> / 2
               </span>
             </div>
-            <swirl-popover animation="scale-in-y" disablescrolllock="" id="slide-menu" label="Slide options" placement="bottom-end">
-              <swirl-stack>
-                <div class="lightbox__meta">
-                  <div class="lightbox__file-info">
-                    <swirl-text truncate="" weight="semibold"></swirl-text>
-                    <swirl-text color="subdued" size="sm" truncate=""></swirl-text>
-                  </div>
-                </div>
-                <swirl-separator></swirl-separator>
-                <swirl-action-list>
-                  <swirl-action-list-item icon="<swirl-icon-download></swirl-icon-download>" label="Download"></swirl-action-list-item>
-                  <slot name="menu-items"></slot>
-                </swirl-action-list>
-              </swirl-stack>
-            </swirl-popover>
           </dialog>
         </mock:shadow-root>
         <swirl-file-viewer active="true" aria-label="undefined" aria-roledescription="slide" description="Cute dog in a blaket." file="/sample.jpg" role="group" type="image/jpeg" style="transform: translate3d(-0%, 0, 0);"></swirl-file-viewer>
         <swirl-file-viewer active="true" aria-hidden="true" aria-label="undefined" aria-roledescription="slide" file="/sample.mp4\" role=\"group\" type=\"video/mp4\" style=\"transform: translate3d(-0%, 0, 0);\"></swirl-file-viewer>
       </swirl-lightbox>
     `);
+  });
+
+  it("renders icon-only close and download buttons with accessible labels", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox
+          close-button-label="Close modal"
+          download-button-label="Download file"
+          label="Lightbox"
+        >
+          <swirl-file-viewer file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    const closeButton = page.root.shadowRoot.querySelector(
+      ".lightbox__close-button"
+    );
+    const downloadButton = page.root.shadowRoot.querySelector(
+      ".lightbox__download-button"
+    );
+
+    expect(closeButton.getAttribute("aria-label")).toBe("Close modal");
+    expect(downloadButton.getAttribute("aria-label")).toBe("Download file");
+    expect(closeButton.querySelector("swirl-icon-close")).toBeTruthy();
+    expect(downloadButton.querySelector("swirl-icon-download")).toBeTruthy();
+    expect(closeButton.textContent.trim()).toBe("");
+    expect(downloadButton.textContent.trim()).toBe("");
   });
 
   it("closes when pressing Escape key", async () => {
@@ -204,9 +218,7 @@ describe("swirl-lightbox", () => {
     const slides = page.rootInstance.slides;
     const dialog = page.root.shadowRoot.querySelector("dialog");
 
-    dialog.dispatchEvent(
-      new KeyboardEvent("keydown", { code: "ArrowRight" })
-    );
+    dialog.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowRight" }));
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
