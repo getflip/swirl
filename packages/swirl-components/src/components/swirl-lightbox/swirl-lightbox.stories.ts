@@ -47,18 +47,7 @@ const Template = (args) => {
     <swirl-file-viewer file="/sample-with-audio.mp4" type="video/mp4"></swirl-file-viewer>
     <swirl-file-viewer file="/sample.csv" type="application/csv"></swirl-file-viewer>
 
-    <swirl-action-list-item
-      icon="<swirl-icon-attachment></swirl-icon-attachment>"
-      label="Custom action 1"
-      slot="menu-items"
-    ></swirl-action-list-item>
-    <swirl-action-list-item
-      icon="<swirl-icon-cloud-upload></swirl-icon-cloud-upload>"
-      label="Custom action 2"
-      slot="menu-items"
-    ></swirl-action-list-item>
-
-    <swirl-button icon="<swirl-icon-crop></swirl-icon-crop>" label="Crop image" pill slot="toolbar" variant="on-image"></swirl-button>
+    <swirl-button hide-label icon="<swirl-icon-crop></swirl-icon-crop>" label="Crop image" pill slot="toolbar" variant="on-image"></swirl-button>
   `;
 
   container.append(trigger, element);

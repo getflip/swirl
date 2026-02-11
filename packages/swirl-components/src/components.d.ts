@@ -3029,16 +3029,7 @@ export namespace Components {
           * @default "Download"
          */
         "downloadButtonLabel"?: string;
-        "hideMenu"?: boolean;
         "label": string;
-        /**
-          * @default "Slide options"
-         */
-        "menuLabel"?: string;
-        /**
-          * @default "Open slide menu"
-         */
-        "menuTriggerLabel"?: string;
         /**
           * @default "Next slide"
          */
@@ -12206,16 +12197,7 @@ declare namespace LocalJSX {
           * @default "Download"
          */
         "downloadButtonLabel"?: string;
-        "hideMenu"?: boolean;
         "label": string;
-        /**
-          * @default "Slide options"
-         */
-        "menuLabel"?: string;
-        /**
-          * @default "Open slide menu"
-         */
-        "menuTriggerLabel"?: string;
         /**
           * @default "Next slide"
          */
