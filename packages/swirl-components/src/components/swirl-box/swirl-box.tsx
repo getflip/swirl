@@ -142,8 +142,8 @@ export class SwirlBox {
       maxWidth: this.maxWidth,
       minWidth: this.minWidth,
       overflow: this.overflow,
-      overflowX: this.overflowX,
-      overflowY: this.overflowY,
+      ...(this.overflowX && { overflowX: this.overflowX }),
+      ...(this.overflowY && { overflowY: this.overflowY }),
       padding: `var(--s-space-${this.padding})`,
       paddingBlockEnd: Boolean(this.paddingBlockEnd)
         ? `var(--s-space-${this.paddingBlockEnd})`
