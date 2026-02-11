@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.436.1
+
+### Patch Changes
+
+- [#1426](https://github.com/getflip/swirl/pull/1426)
+  [`d11ee8592`](https://github.com/getflip/swirl/commit/d11ee859201f1f02ede6ecccb79812334412dc45)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-box overflow props
+
+- Updated dependencies
+  [[`d11ee8592`](https://github.com/getflip/swirl/commit/d11ee859201f1f02ede6ecccb79812334412dc45)]:
+  - @getflip/swirl-components@0.436.1
+
 ## 0.436.0
 
 ### Minor Changes
