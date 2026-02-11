@@ -5051,9 +5051,6 @@ export namespace Components {
           * @default "top"
          */
         "position"?: SwirlTooltipPosition1;
-        /**
-          * @default "absolute"
-         */
         "positioning"?: Strategy;
         "show": () => Promise<void>;
         /**
@@ -14149,9 +14146,6 @@ declare namespace LocalJSX {
           * @default "top"
          */
         "position"?: SwirlTooltipPosition1;
-        /**
-          * @default "absolute"
-         */
         "positioning"?: Strategy;
         /**
           * @default ["focus", "hover"]
