@@ -43,7 +43,6 @@
     animation: 0.15s popover-slide-in;
 
     @media (--from-tablet) {
-      transform-origin: top left;
       animation: 0.15s popover-fade-scale-in-xy;
     }
 
@@ -150,6 +149,46 @@
       @media (prefers-reduced-motion) {
         animation: none;
       }
+    }
+  }
+}
+
+.popover--placement-bottom,
+.popover--placement-bottom-start,
+.popover--placement-right,
+.popover--placement-right-start {
+  .popover__content {
+    @media (--from-tablet) {
+      transform-origin: top left;
+    }
+  }
+}
+
+.popover--placement-bottom-end,
+.popover--placement-left,
+.popover--placement-left-start {
+  .popover__content {
+    @media (--from-tablet) {
+      transform-origin: top right;
+    }
+  }
+}
+
+.popover--placement-top,
+.popover--placement-top-start,
+.popover--placement-right-end {
+  .popover__content {
+    @media (--from-tablet) {
+      transform-origin: bottom left;
+    }
+  }
+}
+
+.popover--placement-top-end,
+.popover--placement-left-end {
+  .popover__content {
+    @media (--from-tablet) {
+      transform-origin: bottom right;
     }
   }
 }
