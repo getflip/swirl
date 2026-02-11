@@ -22,8 +22,6 @@ export type SwirlAppLayoutNavigationExpansionState =
   | "collapsed"
   | "overlayed";
 
-export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
-
 const SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY =
   "SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE";
 
@@ -63,6 +61,7 @@ export class SwirlAppLayout {
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop() navigationOverlayLabel?: string = "Show navigation";
   @Prop() navigationLabel?: string;
+  @Prop() roundedCorners?: boolean;
   @Prop() showNavigationBackButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
@@ -217,7 +216,8 @@ export class SwirlAppLayout {
 
     this.sidebarClosing = true;
 
-    const delay = isMobileViewport() || prefersReducedMotion() ? 0 : 300;
+    // 10ms offset to prevent the sidebar from flickering when closing
+    const delay = isMobileViewport() || prefersReducedMotion() ? 0 : 300 - 10;
 
     this.sidebarClosingTimeout = setTimeout(() => {
       this.sidebarActive = false;
@@ -523,6 +523,7 @@ export class SwirlAppLayout {
           this.collapsibleNavigation && this.isDesktop,
         "app-layout--nav-scrollable": this.navScrollState.scrollable,
         "app-layout--nav-scrolled-to-top": this.navScrollState.scrolledToTop,
+        "app-layout--rounded-corners": this.roundedCorners,
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
         "app-layout--sidebar-closing": this.sidebarClosing,

@@ -329,6 +329,7 @@ export namespace Components {
           * @default "Toggle navigation"
          */
         "navigationToggleLabel"?: string;
+        "roundedCorners"?: boolean;
         /**
           * Set state of the collapsible navigation
          */
@@ -9558,6 +9559,7 @@ declare namespace LocalJSX {
         "onNavigationBackButtonClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
         "onNavigationExpansionStateChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutNavigationExpansionState>) => void;
         "onSidebarToggle"?: (event: SwirlAppLayoutCustomEvent<boolean>) => void;
+        "roundedCorners"?: boolean;
         "showNavigationBackButton"?: boolean;
         /**
           * @default "Close sidebar"

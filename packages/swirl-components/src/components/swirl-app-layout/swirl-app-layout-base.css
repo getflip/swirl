@@ -295,6 +295,9 @@
       bottom: 0;
       width: min(40%, 25rem);
       z-index: 3;
+    }
+
+    &:not(.app-layout--rounded-corners) {
       border-left: var(--s-border-width-default) solid var(--s-border-default);
       box-shadow: var(--s-shadow-level-3);
     }
@@ -557,6 +560,7 @@
     "app-bar"
     "banner"
     "content";
+  background-color: var(--s-background-default);
 }
 
 .app-layout__app-bar {
@@ -567,7 +571,6 @@
   min-width: 0;
   align-items: center;
   border-bottom: var(--s-border-width-default) solid transparent;
-  background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
 }
@@ -576,7 +579,6 @@
   display: none;
   min-width: 0;
   align-items: center;
-  background-color: var(--s-background-default);
   grid-area: bottom-bar;
 }
 
@@ -613,7 +615,6 @@
 
 .app-layout__content {
   overflow: auto;
-  background-color: var(--s-background-default);
   grid-area: content;
 }
 
@@ -627,6 +628,7 @@
   grid-template-areas:
     "sidebar-header"
     "sidebar-content";
+  background-color: var(--s-background-default);
 
   @media (--from-tablet) {
     animation: app-layout-slide-in 0.3s;
@@ -646,7 +648,6 @@
   display: none;
   min-width: 0;
   border-bottom: var(--s-border-width-default) solid transparent;
-  background-color: var(--s-background-default);
   grid-area: sidebar-header;
 }
 
@@ -659,7 +660,6 @@
   padding-left: var(--s-space-8);
   align-items: center;
   border-bottom: var(--s-border-width-default) solid transparent;
-  background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
 
@@ -686,8 +686,34 @@
 
 .app-layout__sidebar-content {
   overflow-y: auto;
-  background-color: var(--s-background-default);
   grid-area: sidebar-content;
+}
+
+.app-layout--rounded-corners {
+  & .app-layout__grid {
+    column-gap: var(--s-space-8);
+  }
+
+  & .app-layout__header {
+    border-right: none;
+    border-radius: var(--s-border-radius-l) var(--s-border-radius-l) 0 0;
+  }
+
+  & .app-layout__navigation {
+    border-right: none;
+    border-radius: 0 0 var(--s-border-radius-l) var(--s-border-radius-l);
+  }
+
+  & .app-layout__body,
+  & .app-layout__sidebar {
+    border-radius: var(--s-border-radius-l);
+  }
+
+  & .app-layout__sidebar {
+    border-left: none;
+    /* adaptation of shadow-level-3 to support rounded corners */
+    box-shadow: -12px 0 32px -10px rgba(23, 23, 23, 0.12), -8px 4px 12px -8px rgba(23, 23, 23, 0.08);
+  }
 }
 
 @keyframes app-layout-nav-overlay-slide-in-desktop {

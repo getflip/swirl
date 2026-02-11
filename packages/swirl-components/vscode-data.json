@@ -417,6 +417,10 @@
           "description": ""
         },
         {
+          "name": "rounded-corners",
+          "description": ""
+        },
+        {
           "name": "show-navigation-back-button",
           "description": ""
         },
