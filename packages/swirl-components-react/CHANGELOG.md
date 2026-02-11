@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.436.0
+
+### Minor Changes
+
+- [#1424](https://github.com/getflip/swirl/pull/1424)
+  [`8f78e3ef8`](https://github.com/getflip/swirl/commit/8f78e3ef8a8a50bac019a31ad05e88d709c73b72)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use native
+  popover in swirl-tooltip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8f78e3ef8`](https://github.com/getflip/swirl/commit/8f78e3ef8a8a50bac019a31ad05e88d709c73b72)]:
+  - @getflip/swirl-components@0.436.0
+
 ## 0.435.0
 
 ### Minor Changes
