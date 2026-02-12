@@ -109,25 +109,28 @@ export class SwirlButton {
 
   private buttonEl: HTMLElement;
   private iconEl: HTMLElement;
+  private isDesktop: boolean;
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
     this.updateFormAttribute();
 
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
-      this.forceIconProps(isDesktop);
+      this.isDesktop = isDesktop;
+      this.forceIconProps();
     });
   }
 
   componentDidRender() {
     this.updateFormAttribute();
+    this.forceIconProps();
   }
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
   }
 
-  private forceIconProps(smallIcon: boolean) {
+  private forceIconProps() {
     if (!Boolean(this.iconEl)) {
       return;
     }
@@ -139,7 +142,7 @@ export class SwirlButton {
       icon?.tagName.startsWith("SWIRL-EMOJI") ||
       icon?.tagName.startsWith("SWIRL-SYMBOL")
     ) {
-      icon?.setAttribute("size", smallIcon ? "20" : "24");
+      icon?.setAttribute("size", this.isDesktop ? "20" : "24");
     }
   }
 
