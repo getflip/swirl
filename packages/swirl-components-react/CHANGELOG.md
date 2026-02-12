@@ -1,5 +1,32 @@
 # @getflip/swirl-components-react
 
+## 0.438.0
+
+### Minor Changes
+
+- [#1432](https://github.com/getflip/swirl/pull/1432)
+  [`723206df9`](https://github.com/getflip/swirl/commit/723206df90da784f66da4db1a6f40a5b70d97492)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  rouded-corners prop to swirl-app-layout
+
+* [#1432](https://github.com/getflip/swirl/pull/1432)
+  [`723206df9`](https://github.com/getflip/swirl/commit/723206df90da784f66da4db1a6f40a5b70d97492)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  sidebar-positioning prop to swirl-app-layout
+
+### Patch Changes
+
+- [#1434](https://github.com/getflip/swirl/pull/1434)
+  [`8f75c1cf5`](https://github.com/getflip/swirl/commit/8f75c1cf534478c98e0aae4245671f9650b7fd6e)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix icon size
+  forcing in swirl-button
+
+- Updated dependencies
+  [[`723206df9`](https://github.com/getflip/swirl/commit/723206df90da784f66da4db1a6f40a5b70d97492),
+  [`723206df9`](https://github.com/getflip/swirl/commit/723206df90da784f66da4db1a6f40a5b70d97492),
+  [`8f75c1cf5`](https://github.com/getflip/swirl/commit/8f75c1cf534478c98e0aae4245671f9650b7fd6e)]:
+  - @getflip/swirl-components@0.438.0
+
 ## 0.437.0
 
 ### Minor Changes
