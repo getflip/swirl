@@ -523,10 +523,6 @@
 
 .app-layout__app-bar-mobile-menu-button {
   padding-left: var(--s-space-8);
-
-  @media (--from-tablet) {
-    padding-left: 0;
-  }
 }
 
 .app-layout__navigation-back-button {
