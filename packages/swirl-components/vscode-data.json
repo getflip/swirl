@@ -433,6 +433,18 @@
           "description": ""
         },
         {
+          "name": "sidebar-positioning",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "overlay"
+            }
+          ]
+        },
+        {
           "name": "transition-style",
           "description": ""
         }

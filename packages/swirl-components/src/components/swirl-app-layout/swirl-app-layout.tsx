@@ -22,6 +22,8 @@ export type SwirlAppLayoutNavigationExpansionState =
   | "collapsed"
   | "overlayed";
 
+export type SwirlAppLayoutSidebarPositioning = "auto" | "overlay";
+
 const SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY =
   "SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE";
 
@@ -63,6 +65,7 @@ export class SwirlAppLayout {
   @Prop() navigationLabel?: string;
   @Prop() roundedCorners?: boolean;
   @Prop() showNavigationBackButton?: boolean;
+  @Prop() sidebarPositioning?: SwirlAppLayoutSidebarPositioning = "auto";
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
   @Prop() transitionStyle?: string = "slides";
@@ -503,6 +506,7 @@ export class SwirlAppLayout {
       `app-layout--transitioning-from-${this.transitioningFrom}`,
       `app-layout--transitioning-to-${this.transitioningTo}`,
       `app-layout--transition-style-${this.transitionStyle}`,
+      `app-layout--sidebar-positioning-${this.sidebarPositioning}`,
       {
         "app-layout--content-scrollable": this.contentScrollState.scrollable,
         "app-layout--content-scrolled-to-top":

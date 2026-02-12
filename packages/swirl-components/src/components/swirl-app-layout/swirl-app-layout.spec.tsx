@@ -141,6 +141,32 @@ describe("swirl-app-layout", () => {
     expect(appBar).not.toBeNull();
   });
 
+  it("applies default sidebar positioning class", async () => {
+    const page = await newSpecPage({
+      components: [SwirlAppLayout],
+      html: `<swirl-app-layout app-name="App"></swirl-app-layout>`,
+    });
+
+    expect(
+      page.root.shadowRoot.children[0].classList.contains(
+        "app-layout--sidebar-positioning-auto"
+      )
+    ).toBeTruthy();
+  });
+
+  it("applies overlay sidebar positioning class", async () => {
+    const page = await newSpecPage({
+      components: [SwirlAppLayout],
+      html: `<swirl-app-layout app-name="App" sidebar-positioning="overlay"></swirl-app-layout>`,
+    });
+
+    expect(
+      page.root.shadowRoot.children[0].classList.contains(
+        "app-layout--sidebar-positioning-overlay"
+      )
+    ).toBeTruthy();
+  });
+
   it("changes the mobile view", async () => {
     const page = await newSpecPage({
       components: [SwirlAppLayout],

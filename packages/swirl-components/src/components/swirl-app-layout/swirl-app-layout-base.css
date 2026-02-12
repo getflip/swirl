@@ -156,7 +156,7 @@
 }
 
 .app-layout--has-sidebar {
-  &:not(.app-layout--has-navigation) {
+  &:not(.app-layout--has-navigation):not(.app-layout--sidebar-positioning-overlay) {
     &.app-layout--sidebar-opening {
       @media (--from-tablet) {
         & .app-layout__grid {
@@ -202,7 +202,17 @@
   }
 }
 
-.app-layout--has-navigation.app-layout--has-sidebar {
+.app-layout--has-navigation.app-layout--has-sidebar:not(.app-layout--sidebar-positioning-overlay) {
+  & .app-layout__sidebar {
+    @media (--from-larger-desktop) {
+      position: static;
+      width: 25rem;
+      z-index: auto;
+      box-shadow: none;
+      animation: none;
+    }
+  }
+
   &.app-layout--sidebar-opening,
   &.app-layout--sidebar-active {
     & .app-layout__grid {
@@ -253,7 +263,9 @@
       }
     }
   }
+}
 
+.app-layout--has-navigation.app-layout--has-sidebar {
   & .app-layout__grid {
     @media (--from-tablet) {
       grid-template-columns: min(50%, 22.5rem) 1fr;
@@ -287,7 +299,7 @@
     }
   }
 
-  @media (--from-tablet) and (--to-larger-desktop) {
+  @media (--from-tablet) {
     & .app-layout__sidebar {
       position: absolute;
       top: 0;
@@ -366,9 +378,13 @@
         animation: none;
       }
     }
+  }
 
-    @media (--from-larger-desktop) {
-      animation: none;
+  &:not(.app-layout--sidebar-positioning-overlay) {
+    & .app-layout__sidebar {
+      @media (--from-larger-desktop) {
+        animation: none;
+      }
     }
   }
 }
@@ -637,11 +653,6 @@
       animation: none;
     }
   }
-
-  @media (--from-larger-desktop) {
-    width: 25rem;
-    animation: none;
-  }
 }
 
 .app-layout__custom-sidebar-header {
@@ -713,6 +724,33 @@
     border-left: none;
     /* adaptation of shadow-level-3 to support rounded corners */
     box-shadow: -12px 0 32px -10px rgba(23, 23, 23, 0.12), -8px 4px 12px -8px rgba(23, 23, 23, 0.08);
+  }
+}
+
+.app-layout--sidebar-positioning-overlay:not(.app-layout--has-navigation).app-layout--has-sidebar {
+  &.app-layout--sidebar-active,
+  &.app-layout--sidebar-opening {
+    @media (--from-tablet) {
+      & .app-layout__grid {
+        grid-template-columns: 100%;
+        grid-template-areas:
+          "body"
+          "body";
+      }
+    }
+  }
+
+  @media (--from-tablet) {
+    & .app-layout__sidebar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(50%, 25rem);
+      z-index: 3;
+      border-left: var(--s-border-width-default) solid var(--s-border-default);
+      box-shadow: var(--s-shadow-level-3);
+    }
   }
 }
 
