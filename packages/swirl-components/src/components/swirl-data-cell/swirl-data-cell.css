@@ -34,8 +34,6 @@
 
   & ::slotted(swirl-avatar) {
     --swirl-avatar-background-color: var(--s-surface-default);
-    --swirl-avatar-border-width: 0.125rem;
-    --swirl-avatar-border-color: var(--s-surface-default);
   }
 }
 
