@@ -417,6 +417,10 @@
           "description": ""
         },
         {
+          "name": "rounded-corners",
+          "description": ""
+        },
+        {
           "name": "show-navigation-back-button",
           "description": ""
         },
@@ -427,6 +431,18 @@
         {
           "name": "sidebar-heading",
           "description": ""
+        },
+        {
+          "name": "sidebar-positioning",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "overlay"
+            }
+          ]
         },
         {
           "name": "transition-style",

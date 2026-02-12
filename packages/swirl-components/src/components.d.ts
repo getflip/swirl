@@ -10,7 +10,7 @@ import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components
 import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
-import { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from "./components/swirl-app-layout/swirl-app-layout";
+import { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState, SwirlAppLayoutSidebarPositioning } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
@@ -91,7 +91,7 @@ export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components
 export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
-export { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from "./components/swirl-app-layout/swirl-app-layout";
+export { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState, SwirlAppLayoutSidebarPositioning } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
@@ -329,6 +329,7 @@ export namespace Components {
           * @default "Toggle navigation"
          */
         "navigationToggleLabel"?: string;
+        "roundedCorners"?: boolean;
         /**
           * Set state of the collapsible navigation
          */
@@ -343,6 +344,10 @@ export namespace Components {
          */
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
+        /**
+          * @default "auto"
+         */
+        "sidebarPositioning"?: SwirlAppLayoutSidebarPositioning;
         /**
           * Toggle the sidebar
          */
@@ -9558,12 +9563,17 @@ declare namespace LocalJSX {
         "onNavigationBackButtonClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
         "onNavigationExpansionStateChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutNavigationExpansionState>) => void;
         "onSidebarToggle"?: (event: SwirlAppLayoutCustomEvent<boolean>) => void;
+        "roundedCorners"?: boolean;
         "showNavigationBackButton"?: boolean;
         /**
           * @default "Close sidebar"
          */
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
+        /**
+          * @default "auto"
+         */
+        "sidebarPositioning"?: SwirlAppLayoutSidebarPositioning;
         /**
           * @default "slides"
          */
