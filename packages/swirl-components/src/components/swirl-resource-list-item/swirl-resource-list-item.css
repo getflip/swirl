@@ -45,6 +45,12 @@
       --swirl-badge-border-color: var(--s-background-hovered);
     }
   }
+
+  &:not(.resource-list-item--has-control) {
+    & .resource-list-item__control {
+      display: none;
+    }
+  }
 }
 
 .resource-list-item--interactive {
