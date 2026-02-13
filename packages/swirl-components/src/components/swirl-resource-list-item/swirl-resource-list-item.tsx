@@ -255,6 +255,7 @@ export class SwirlResourceListItem {
         "resource-list-item--disabled": this.disabled,
         "resource-list-item--draggable": this.allowDrag,
         "resource-list-item--dragging": this.dragging,
+        "resource-list-item--has-control": hasControl,
         "resource-list-item--has-menu": hasMenu,
         "resource-list-item--hide-divider": this.hideDivider,
         "resource-list-item--interactive": this.interactive || this.selectable,
