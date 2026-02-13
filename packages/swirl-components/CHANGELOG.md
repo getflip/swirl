@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.438.1
+
+### Patch Changes
+
+- [#1436](https://github.com/getflip/swirl/pull/1436)
+  [`8978d48c5`](https://github.com/getflip/swirl/commit/8978d48c5ba0968d3fca121db91b25becf7c0b42)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure rounded
+  corners are not cut off in swirl-app-layout
+
 ## 0.438.0
 
 ### Minor Changes
