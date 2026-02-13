@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.438.2
+
+### Patch Changes
+
+- [#1438](https://github.com/getflip/swirl/pull/1438)
+  [`94d25dd03`](https://github.com/getflip/swirl/commit/94d25dd035592baf0f8f22bdad3c3d06ebb40577)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list-item
+  alignment issue caused by an empty control container
+
 ## 0.438.1
 
 ### Patch Changes
