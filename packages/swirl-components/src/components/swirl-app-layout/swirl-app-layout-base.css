@@ -715,6 +715,7 @@
     & .app-layout__body,
     & .app-layout__sidebar {
       border-radius: var(--s-border-radius-l);
+      overflow: hidden;
     }
 
     & .app-layout__sidebar {
