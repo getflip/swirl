@@ -31,12 +31,12 @@ describe("swirl-icon", () => {
   it("applies wrapperSize prop correctly", async () => {
     const page = await newSpecPage({
       components: [SwirlIcon, SwirlIconEdit],
-      html: `<swirl-icon glyph="edit" wrapper-color="blueberry" wrapper-size="xl"></swirl-icon>`,
+      html: `<swirl-icon glyph="edit" wrapper-color="blueberry" wrapper-size="2xl"></swirl-icon>`,
     });
 
     const wrapper = page.root.shadowRoot.querySelector(".icon-wrapper");
     expect(wrapper).toBeTruthy();
-    expect(wrapper?.classList.contains("icon-wrapper--size-xl")).toBe(true);
+    expect(wrapper?.classList.contains("icon-wrapper--size-2xl")).toBe(true);
   });
 
   it("applies backgroundColor prop correctly", async () => {

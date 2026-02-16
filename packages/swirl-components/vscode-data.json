@@ -3676,6 +3676,9 @@
           "description": "",
           "values": [
             {
+              "name": "2xl"
+            },
+            {
               "name": "l"
             },
             {

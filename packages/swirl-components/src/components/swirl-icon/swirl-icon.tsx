@@ -27,7 +27,7 @@ export type SwirlIconWrapperColor =
   | "pumpkin"
   | "radish";
 
-export type SwirlIconWrapperSize = "xs" | "s" | "m" | "l" | "xl";
+export type SwirlIconWrapperSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
 
 @Component({
   shadow: true,

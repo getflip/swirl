@@ -42,6 +42,11 @@
   height: 32px;
 }
 
+.icon-wrapper--size-2xl {
+  width: 40px;
+  height: 40px;
+}
+
 .icon-wrapper--background-color-neutral {
   background-color: var(--s-surface-raised-default);
 }
