@@ -1,5 +1,13 @@
 # @getflip/swirl-components-angular
 
+## 0.440.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fe09363b8`](https://github.com/getflip/swirl/commit/fe09363b889d948aa7e9e344684b35a750782c99)]:
+  - @getflip/swirl-components@0.440.0
+
 ## 0.440.0
 
 ### Minor Changes
