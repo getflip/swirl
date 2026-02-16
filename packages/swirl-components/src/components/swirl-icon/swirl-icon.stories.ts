@@ -36,7 +36,16 @@ export const SwirlIconWithWrapper = Template.bind({});
 
 SwirlIconWithWrapper.args = {
   glyph: "edit",
-  color: "info",
+  size: "20",
+  wrapperColor: "blueberry",
+  wrapperSize: "xl",
+};
+
+export const SwirlIconWithWrapperAndExplicitColor = Template.bind({});
+
+SwirlIconWithWrapperAndExplicitColor.args = {
+  glyph: "edit",
+  color: "critical",
   size: "20",
   wrapperColor: "blueberry",
   wrapperSize: "xl",
