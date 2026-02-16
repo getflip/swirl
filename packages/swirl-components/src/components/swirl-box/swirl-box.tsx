@@ -120,10 +120,7 @@ export class SwirlBox {
   }
 
   private setupResizeObserver() {
-    if (this.resizeObserver) {
-      return;
-    }
-
+    this.resizeObserver?.disconnect();
     this.resizeObserver = new ResizeObserver(() => this.updateScrollState());
     this.resizeObserver.observe(this.el);
   }
