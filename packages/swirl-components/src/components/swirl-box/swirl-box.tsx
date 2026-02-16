@@ -7,6 +7,7 @@ import {
   Host,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 
@@ -92,12 +93,47 @@ export class SwirlBox {
     scrolledToTop: false,
   };
 
+  private resizeObserver: ResizeObserver;
+
+  connectedCallback() {
+    if (this.needsScrollTracking) {
+      this.setupResizeObserver();
+    }
+  }
+
   componentDidLoad() {
     this.componentLoad.emit();
+  }
 
-    queueMicrotask(() => {
-      this.updateScrollState();
-    });
+  disconnectedCallback() {
+    this.teardownResizeObserver();
+  }
+
+  @Watch("borderedBlockEndWhenScrolled")
+  @Watch("borderedBlockStartWhenScrolled")
+  onScrollTrackingPropChange() {
+    if (this.needsScrollTracking) {
+      this.setupResizeObserver();
+    } else {
+      this.teardownResizeObserver();
+    }
+  }
+
+  private setupResizeObserver() {
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = new ResizeObserver(() => this.updateScrollState());
+    this.resizeObserver.observe(this.el);
+  }
+
+  private teardownResizeObserver() {
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = undefined;
+  }
+
+  private get needsScrollTracking(): boolean {
+    return (
+      this.borderedBlockEndWhenScrolled || this.borderedBlockStartWhenScrolled
+    );
   }
 
   private onScroll = () => {
