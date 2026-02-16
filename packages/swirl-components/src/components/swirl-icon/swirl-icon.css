@@ -44,32 +44,40 @@
 
 .icon-wrapper--background-color-neutral {
   background-color: var(--s-surface-raised-default);
+  color: var(--s-icon-default);
 }
 
 .icon-wrapper--background-color-banana {
   background-color: var(--s-decorative-banana-surface-subdued);
+  color: var(--s-decorative-banana-text);
 }
 
 .icon-wrapper--background-color-blueberry {
   background-color: var(--s-decorative-blueberry-surface-subdued);
+  color: var(--s-decorative-blueberry-text);
 }
 
 .icon-wrapper--background-color-chilli {
   background-color: var(--s-decorative-chilli-surface-subdued);
+  color: var(--s-decorative-chilli-text);
 }
 
 .icon-wrapper--background-color-grape {
   background-color: var(--s-decorative-grape-surface-subdued);
+  color: var(--s-decorative-grape-text);
 }
 
 .icon-wrapper--background-color-kiwi {
   background-color: var(--s-decorative-kiwi-surface-subdued);
+  color: var(--s-decorative-kiwi-text);
 }
 
 .icon-wrapper--background-color-pumpkin {
   background-color: var(--s-decorative-pumpkin-surface-subdued);
+  color: var(--s-decorative-pumpkin-text);
 }
 
 .icon-wrapper--background-color-radish {
   background-color: var(--s-decorative-radish-surface-subdued);
+  color: var(--s-decorative-radish-text);
 }
