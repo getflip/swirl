@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.441.0
+
+### Minor Changes
+
+- [#1448](https://github.com/getflip/swirl/pull/1448)
+  [`9688d9259`](https://github.com/getflip/swirl/commit/9688d9259b5cc6bc0719638ac37806ef57720b83)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix swirl-components
+  release version
+
 ## 0.440.0
 
 ### Minor Changes
