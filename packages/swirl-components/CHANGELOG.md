@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.439.0
+
+### Minor Changes
+
+- [#1433](https://github.com/getflip/swirl/pull/1433)
+  [`733a2c15d`](https://github.com/getflip/swirl/commit/733a2c15d471d54050f22e1d5afe6ffc3530f25a)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Fix Avatar
+  icon size in Data Cell component
+
 ## 0.438.4
 
 ### Patch Changes
