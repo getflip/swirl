@@ -1,5 +1,21 @@
 # @getflip/swirl-icons
 
+## 0.77.0
+
+### Minor Changes
+
+- [#1440](https://github.com/getflip/swirl/pull/1440)
+  [`15e25618b`](https://github.com/getflip/swirl/commit/15e25618b1e544ed3590cd4fa1c23bd72076ecdd)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Apply appropriate
+  contrast text color to wrapped icons
+
+### Patch Changes
+
+- [#1441](https://github.com/getflip/swirl/pull/1441)
+  [`de4eb0864`](https://github.com/getflip/swirl/commit/de4eb08646a85c251045b3279ba37ba50f232bad)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Support icon wrapper
+  size 2xl
+
 ## 0.76.0
 
 ### Minor Changes
