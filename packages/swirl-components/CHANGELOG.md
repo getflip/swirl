@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.438.4
+
+### Patch Changes
+
+- [#1442](https://github.com/getflip/swirl/pull/1442)
+  [`407233d4e`](https://github.com/getflip/swirl/commit/407233d4e6de52467a6119027d48c4a4539e7f90)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix scroll
+  state calculation in swirl-box
+
 ## 0.438.3
 
 ### Patch Changes
