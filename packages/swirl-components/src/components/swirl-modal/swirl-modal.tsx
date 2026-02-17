@@ -67,6 +67,7 @@ export class SwirlModal {
   @Prop() primaryContentFlex?: string;
   @Prop() secondaryContentFlex?: string;
   @Prop() hideSecondaryContentBorders?: boolean;
+  @Prop() returnFocusTo?: HTMLElement | string;
   @Prop() secondaryContentPadding?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingBlockEnd?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingBlockStart?: SwirlModalSpacing;
@@ -187,6 +188,10 @@ export class SwirlModal {
     setTimeout(() => {
       this.mutationObserver?.disconnect();
       this.modalEl.close();
+
+      if (this.returnFocusTo) {
+        this.customFocusReturn();
+      }
     }, 150);
   }
 
@@ -385,6 +390,22 @@ export class SwirlModal {
 
   private setDialogCustomProps() {
     this.modalEl.setAttribute("closedby", "none");
+  }
+
+  private customFocusReturn() {
+    const element =
+      typeof this.returnFocusTo === "string"
+        ? document.querySelector<HTMLElement>(this.returnFocusTo)
+        : this.returnFocusTo;
+
+    const focusableElements = tabbable(element, {
+      includeContainer: true,
+      getShadowRoot: true,
+    });
+
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus();
+    }
   }
 
   render() {
