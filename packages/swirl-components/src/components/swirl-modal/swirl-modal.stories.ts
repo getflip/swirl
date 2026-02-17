@@ -2,6 +2,13 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-modal.mdx";
 
 export default {
+  argTypes: {
+    returnFocusTo: {
+      control: "text",
+      description:
+        "Use when modal trigger element is unmounted before the modal is closed.",
+    },
+  },
   component: "swirl-modal",
   tags: ["autodocs"],
   parameters: {

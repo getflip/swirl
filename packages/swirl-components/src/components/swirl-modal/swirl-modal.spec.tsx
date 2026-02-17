@@ -1,6 +1,15 @@
-import { newSpecPage } from "@stencil/core/testing";
+jest.mock("tabbable", () => ({
+  tabbable: (element: HTMLElement | null) => (element ? [element] : []),
+}));
 
+import { newSpecPage } from "@stencil/core/testing";
 import { SwirlModal } from "./swirl-modal";
+
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
 
 describe("swirl-modal", () => {
   it("renders content and heading", async () => {
@@ -67,9 +76,10 @@ describe("swirl-modal", () => {
     const primarySpy = jest.fn();
     const secondarySpy = jest.fn();
 
-    const buttons = page.root.shadowRoot.querySelectorAll<HTMLSwirlButtonElement>(
-      ".modal__controls swirl-button"
-    );
+    const buttons =
+      page.root.shadowRoot.querySelectorAll<HTMLSwirlButtonElement>(
+        ".modal__controls swirl-button"
+      );
 
     page.root.addEventListener("primaryAction", primarySpy);
     page.root.addEventListener("secondaryAction", secondarySpy);
@@ -159,9 +169,10 @@ describe("swirl-modal", () => {
 
     const sidebarCloseSpy = jest.fn();
 
-    const closeButton = page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
-      ".modal__sidebar-header swirl-button"
-    );
+    const closeButton =
+      page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
+        ".modal__sidebar-header swirl-button"
+      );
 
     page.root.addEventListener("sidebarClose", sidebarCloseSpy);
 
@@ -176,9 +187,10 @@ describe("swirl-modal", () => {
       html: `<swirl-modal label="Dialog" show-fullscreen-button="true">Content</swirl-modal>`,
     });
 
-    const fullscreenButton = page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
-      ".modal__fullscreen-button"
-    );
+    const fullscreenButton =
+      page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
+        ".modal__fullscreen-button"
+      );
 
     expect(fullscreenButton).not.toBeNull();
     expect(fullscreenButton.getAttribute("label")).toEqual("Full screen");
@@ -192,9 +204,10 @@ describe("swirl-modal", () => {
       components: [SwirlModal],
       html: `<swirl-modal label="Dialog" show-fullscreen-button="true">Content</swirl-modal>`,
     });
-    const fullscreenButton = page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
-      ".modal__fullscreen-button"
-    );
+    const fullscreenButton =
+      page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
+        ".modal__fullscreen-button"
+      );
     const spy = jest.fn();
 
     page.root.addEventListener("toggleFullscreen", spy);
@@ -204,7 +217,9 @@ describe("swirl-modal", () => {
     fullscreenButton.click();
     await page.waitForChanges();
 
-    expect(page.root.shadowRoot.querySelector(".modal--fullscreen")).not.toBeNull();
+    expect(
+      page.root.shadowRoot.querySelector(".modal--fullscreen")
+    ).not.toBeNull();
     expect(fullscreenButton.getAttribute("label")).toEqual("Exit full screen");
     expect(fullscreenButton.getAttribute("icon")).toEqual(
       "<swirl-icon-close-fullscreen></swirl-icon-close-fullscreen>"
@@ -251,5 +266,30 @@ describe("swirl-modal", () => {
 
     expect(toggleSpy).toHaveBeenCalledTimes(2);
     expect(toggleSpy.mock.calls[1][0].detail.newState).toBe("closed");
+  });
+
+  it("returns focus to custom element when returnFocusTo is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `
+        <button id="focus-return-target" type="button">Trigger</button>
+        <swirl-modal label="Dialog" return-focus-to="#focus-return-target">Content</swirl-modal>
+      `,
+    });
+
+    const modal = page.root as HTMLSwirlModalElement;
+    const button = page.doc.querySelector<HTMLButtonElement>(
+      "#focus-return-target"
+    );
+
+    const spy = jest.spyOn(button, "focus");
+
+    await modal.open();
+    await new Promise((resolve) => setTimeout(resolve, 200));
+
+    await page.root.close(true);
+    await new Promise((resolve) => setTimeout(resolve, 200));
+
+    expect(spy).toHaveBeenCalled();
   });
 });

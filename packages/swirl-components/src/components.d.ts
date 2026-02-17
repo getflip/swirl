@@ -3198,6 +3198,7 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
         "primaryContentMaxWidth"?: string;
+        "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
         "secondaryContentFlex"?: string;
         "secondaryContentMaxWidth"?: string;
@@ -12323,6 +12324,7 @@ declare namespace LocalJSX {
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
         "primaryContentMaxWidth"?: string;
+        "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
         "secondaryContentFlex"?: string;
         "secondaryContentMaxWidth"?: string;
