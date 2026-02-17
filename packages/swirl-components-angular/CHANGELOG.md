@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.442.0
+
+### Minor Changes
+
+- [#1451](https://github.com/getflip/swirl/pull/1451)
+  [`9e18b0994`](https://github.com/getflip/swirl/commit/9e18b0994391d42e03552ca7d257714783a0c8b7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add return-focus-to prop to
+  swirl-modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9e18b0994`](https://github.com/getflip/swirl/commit/9e18b0994391d42e03552ca7d257714783a0c8b7)]:
+  - @getflip/swirl-components@0.442.0
+
 ## 0.441.0
 
 ### Minor Changes
