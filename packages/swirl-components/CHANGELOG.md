@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.445.1
+
+### Patch Changes
+
+- [#1459](https://github.com/getflip/swirl/pull/1459)
+  [`f7656f42d`](https://github.com/getflip/swirl/commit/f7656f42dbcefb2b6cca9fff8b8a9cac29ec5df6)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  swirl-tooltip position while dragging
+
 ## 0.445.0
 
 ### Minor Changes
