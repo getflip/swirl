@@ -233,7 +233,6 @@ export class SwirlTooltip {
       `tooltip--actual-placement-${this.actualPosition?.placement}`,
       `tooltip--intent-${this.intent}`,
       {
-        "tooltip--active": this.active,
         "tooltip--visible": this.visible,
       }
     );

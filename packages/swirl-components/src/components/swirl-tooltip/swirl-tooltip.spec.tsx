@@ -3,7 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { SwirlTooltip } from "./swirl-tooltip";
 
 const expectedVisible = `
-<span class="tooltip tooltip--active tooltip--actual-placement-undefined tooltip--intent-default tooltip--visible">
+<span class="tooltip tooltip--actual-placement-undefined tooltip--intent-default tooltip--visible">
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
@@ -18,7 +18,7 @@ const expectedVisible = `
 </span>`;
 
 const expectedHidden = `
-<span class="tooltip tooltip--active tooltip--actual-placement-top tooltip--intent-default">
+<span class="tooltip tooltip--actual-placement-top tooltip--intent-default">
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
