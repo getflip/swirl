@@ -2680,6 +2680,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconSell {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconSend {
         "color"?: SwirlIconColor1;
         /**
@@ -7225,6 +7232,12 @@ declare global {
         prototype: HTMLSwirlIconSecureElement;
         new (): HTMLSwirlIconSecureElement;
     };
+    interface HTMLSwirlIconSellElement extends Components.SwirlIconSell, HTMLStencilElement {
+    }
+    var HTMLSwirlIconSellElement: {
+        prototype: HTMLSwirlIconSellElement;
+        new (): HTMLSwirlIconSellElement;
+    };
     interface HTMLSwirlIconSendElement extends Components.SwirlIconSend, HTMLStencilElement {
     }
     var HTMLSwirlIconSendElement: {
@@ -9203,6 +9216,7 @@ declare global {
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
         "swirl-icon-section": HTMLSwirlIconSectionElement;
         "swirl-icon-secure": HTMLSwirlIconSecureElement;
+        "swirl-icon-sell": HTMLSwirlIconSellElement;
         "swirl-icon-send": HTMLSwirlIconSendElement;
         "swirl-icon-settings": HTMLSwirlIconSettingsElement;
         "swirl-icon-short-text": HTMLSwirlIconShortTextElement;
@@ -11870,6 +11884,13 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconSell {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconSend {
         "color"?: SwirlIconColor1;
         /**
@@ -14479,6 +14500,7 @@ declare namespace LocalJSX {
         "swirl-icon-search-strong": SwirlIconSearchStrong;
         "swirl-icon-section": SwirlIconSection;
         "swirl-icon-secure": SwirlIconSecure;
+        "swirl-icon-sell": SwirlIconSell;
         "swirl-icon-send": SwirlIconSend;
         "swirl-icon-settings": SwirlIconSettings;
         "swirl-icon-short-text": SwirlIconShortText;
@@ -14964,6 +14986,7 @@ declare module "@stencil/core" {
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
             "swirl-icon-section": LocalJSX.SwirlIconSection & JSXBase.HTMLAttributes<HTMLSwirlIconSectionElement>;
             "swirl-icon-secure": LocalJSX.SwirlIconSecure & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
+            "swirl-icon-sell": LocalJSX.SwirlIconSell & JSXBase.HTMLAttributes<HTMLSwirlIconSellElement>;
             "swirl-icon-send": LocalJSX.SwirlIconSend & JSXBase.HTMLAttributes<HTMLSwirlIconSendElement>;
             "swirl-icon-settings": LocalJSX.SwirlIconSettings & JSXBase.HTMLAttributes<HTMLSwirlIconSettingsElement>;
             "swirl-icon-short-text": LocalJSX.SwirlIconShortText & JSXBase.HTMLAttributes<HTMLSwirlIconShortTextElement>;
