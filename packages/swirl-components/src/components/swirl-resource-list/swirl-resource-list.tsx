@@ -200,6 +200,7 @@ export class SwirlResourceList {
     this.sortable = Sortable.create(this.gridEl, {
       animation: 150,
       draggable: "swirl-resource-list-item",
+      dragClass: "swirl-resource-list-item--drag",
       handle: ".resource-list-item__drag-handle",
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({
