@@ -18789,6 +18789,10 @@
           "description": ""
         },
         {
+          "name": "translucent",
+          "description": ""
+        },
+        {
           "name": "transparent",
           "description": ""
         },
