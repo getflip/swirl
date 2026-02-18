@@ -940,7 +940,7 @@ export namespace Components {
         /**
           * Open the dialog.
          */
-        "open": () => Promise<void>;
+        "open": (returnFocusTo?: HTMLElement | string) => Promise<void>;
         "primaryActionLabel"?: string;
         "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
@@ -3198,7 +3198,7 @@ export namespace Components {
         /**
           * Open the modal.
          */
-        "open": () => Promise<void>;
+        "open": (returnFocusTo?: HTMLElement | string) => Promise<void>;
         /**
           * @default true
          */

@@ -110,9 +110,10 @@ export class SwirlModal {
   @State() sidebarScrollable = false;
 
   private modalEl: HTMLDialogElement;
+  private mutationObserver: MutationObserver;
   private scrollContainer: HTMLElement;
   private sidebarScrollContainer: HTMLElement;
-  private mutationObserver: MutationObserver;
+  private temporaryReturnFocusTo: HTMLElement | string;
 
   componentDidLoad() {
     this.ensureOpening();
@@ -144,8 +145,9 @@ export class SwirlModal {
    * Open the modal.
    */
   @Method()
-  async open() {
+  async open(returnFocusTo?: HTMLElement | string) {
     this.opening = true;
+    this.temporaryReturnFocusTo = returnFocusTo;
 
     if (!this.modalEl) {
       return;
@@ -188,10 +190,7 @@ export class SwirlModal {
     setTimeout(() => {
       this.mutationObserver?.disconnect();
       this.modalEl.close();
-
-      if (this.returnFocusTo) {
-        this.customFocusReturn();
-      }
+      this.customFocusReturn();
     }, 150);
   }
 
@@ -393,10 +392,17 @@ export class SwirlModal {
   }
 
   private customFocusReturn() {
+    const customReturnFocusTo =
+      this.temporaryReturnFocusTo ?? this.returnFocusTo;
+
+    if (!customReturnFocusTo) {
+      return;
+    }
+
     const element =
-      typeof this.returnFocusTo === "string"
-        ? document.querySelector<HTMLElement>(this.returnFocusTo)
-        : this.returnFocusTo;
+      typeof customReturnFocusTo === "string"
+        ? document.querySelector<HTMLElement>(customReturnFocusTo)
+        : customReturnFocusTo;
 
     const focusableElements = tabbable(element, {
       includeContainer: true,
@@ -406,6 +412,8 @@ export class SwirlModal {
     if (focusableElements.length > 0) {
       focusableElements[0].focus();
     }
+
+    this.temporaryReturnFocusTo = undefined;
   }
 
   render() {
