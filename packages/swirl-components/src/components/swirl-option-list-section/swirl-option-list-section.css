@@ -9,10 +9,6 @@
   }
 }
 
-.option-list-section {
-  background-color: var(--s-surface-overlay-default);
-}
-
 .option-list-section__label {
   display: block;
   width: 100%;
