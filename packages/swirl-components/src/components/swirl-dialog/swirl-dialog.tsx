@@ -45,6 +45,7 @@ export class SwirlDialog {
   @State() opening = false;
 
   private dialogEl: HTMLDialogElement;
+  private temporaryReturnFocusTo: HTMLElement | string;
 
   componentDidLoad() {
     this.ensureOpening();
@@ -71,8 +72,9 @@ export class SwirlDialog {
    * Open the dialog.
    */
   @Method()
-  async open() {
+  async open(returnFocusTo?: HTMLElement | string) {
     this.opening = true;
+    this.temporaryReturnFocusTo = returnFocusTo;
 
     if (!this.dialogEl) {
       return;
@@ -95,10 +97,7 @@ export class SwirlDialog {
 
     setTimeout(() => {
       this.dialogEl.close();
-
-      if (this.returnFocusTo) {
-        this.customFocusReturn();
-      }
+      this.customFocusReturn();
     }, 150);
   }
 
@@ -137,10 +136,17 @@ export class SwirlDialog {
   };
 
   private customFocusReturn() {
+    const customReturnFocusTo =
+      this.temporaryReturnFocusTo ?? this.returnFocusTo;
+
+    if (!customReturnFocusTo) {
+      return;
+    }
+
     const element =
-      typeof this.returnFocusTo === "string"
-        ? document.querySelector<HTMLElement>(this.returnFocusTo)
-        : this.returnFocusTo;
+      typeof customReturnFocusTo === "string"
+        ? document.querySelector<HTMLElement>(customReturnFocusTo)
+        : customReturnFocusTo;
 
     const focusableElements = tabbable(element, {
       includeContainer: true,
@@ -150,6 +156,8 @@ export class SwirlDialog {
     if (focusableElements.length > 0) {
       focusableElements[0].focus();
     }
+
+    this.temporaryReturnFocusTo = undefined;
   }
 
   render() {
