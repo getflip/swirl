@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.445.0
+
+### Minor Changes
+
+- [#1457](https://github.com/getflip/swirl/pull/1457)
+  [`4a5ed7ed5`](https://github.com/getflip/swirl/commit/4a5ed7ed5582db08e8df98d1534d19de6743cedb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow setting returnToFocus
+  element when opening a swirl-dialog or swirl-modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4a5ed7ed5`](https://github.com/getflip/swirl/commit/4a5ed7ed5582db08e8df98d1534d19de6743cedb)]:
+  - @getflip/swirl-components@0.445.0
+
 ## 0.444.0
 
 ### Minor Changes
