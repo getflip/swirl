@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.443.0
+
+### Minor Changes
+
+- [#1453](https://github.com/getflip/swirl/pull/1453)
+  [`2af8d458b`](https://github.com/getflip/swirl/commit/2af8d458bcb1493f5f81e7d752faa15f0e56532b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add return-focus-to prop to
+  swirl-dialog
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2af8d458b`](https://github.com/getflip/swirl/commit/2af8d458bcb1493f5f81e7d752faa15f0e56532b)]:
+  - @getflip/swirl-components@0.443.0
+
 ## 0.442.0
 
 ### Minor Changes
