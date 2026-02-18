@@ -2,6 +2,13 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-dialog.mdx";
 
 export default {
+  argTypes: {
+    returnFocusTo: {
+      control: "text",
+      description:
+        "Use when dialog trigger element is unmounted before the dialog is closed.",
+    },
+  },
   component: "swirl-dialog",
   tags: ["autodocs"],
   parameters: {
