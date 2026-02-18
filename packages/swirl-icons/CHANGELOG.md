@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.78.0
+
+### Minor Changes
+
+- [#1455](https://github.com/getflip/swirl/pull/1455)
+  [`ecf6c4c7a`](https://github.com/getflip/swirl/commit/ecf6c4c7ac68c1aa0a6a921f876e252f4f447cd9)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add sell icon
+
 ## 0.77.0
 
 ### Minor Changes
