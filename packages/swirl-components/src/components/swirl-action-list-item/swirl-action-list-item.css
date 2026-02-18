@@ -20,7 +20,7 @@
   border: none;
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-default);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   font: inherit;
   line-height: var(--s-line-height-base);
   text-align: left;
@@ -28,7 +28,7 @@
   gap: var(--s-space-12);
 
   &:hover {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-translucent-low-hovered);
 
     --swirl-tag-background-default: var(--s-surface-sunken-pressed);
   }
@@ -38,7 +38,7 @@
   }
 
   &:focus-visible {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-translucent-low-hovered);
     outline-color: var(--s-focus-default);
     outline-style: solid;
     outline-width: 0.125rem;
@@ -46,11 +46,10 @@
   }
 
   &:active {
-    background-color: var(--s-surface-overlay-pressed);
+    background-color: var(--s-translucent-low-pressed);
   }
 
   &:disabled {
-    background-color: var(--s-surface-overlay-default);
     cursor: default;
 
     & .action-list-item__label,
