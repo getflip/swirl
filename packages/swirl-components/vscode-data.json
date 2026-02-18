@@ -2855,6 +2855,10 @@
           "description": ""
         },
         {
+          "name": "return-focus-to",
+          "description": ""
+        },
+        {
           "name": "secondary-action-label",
           "description": ""
         }

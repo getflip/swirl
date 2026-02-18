@@ -1,6 +1,15 @@
-import { newSpecPage } from "@stencil/core/testing";
+jest.mock("tabbable", () => ({
+  tabbable: (element: HTMLElement | null) => (element ? [element] : []),
+}));
 
+import { newSpecPage } from "@stencil/core/testing";
 import { SwirlDialog } from "./swirl-dialog";
+
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
 
 describe("swirl-dialog", () => {
   it("renders content and heading", async () => {
@@ -125,5 +134,30 @@ describe("swirl-dialog", () => {
 
     expect(toggleSpy).toHaveBeenCalledTimes(2);
     expect(toggleSpy.mock.calls[1][0].detail.newState).toBe("closed");
+  });
+
+  it("returns focus to custom element when returnFocusTo is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDialog],
+      html: `
+        <button id="focus-return-target" type="button">Trigger</button>
+        <swirl-dialog label="Dialog" return-focus-to="#focus-return-target">Content</swirl-dialog>
+      `,
+    });
+
+    const dialog = page.root as HTMLSwirlDialogElement;
+    const button = page.doc.querySelector<HTMLButtonElement>(
+      "#focus-return-target"
+    );
+
+    const spy = jest.spyOn(button, "focus");
+
+    await dialog.open();
+    await new Promise((resolve) => setTimeout(resolve, 200));
+
+    await page.root.close(true);
+    await new Promise((resolve) => setTimeout(resolve, 200));
+
+    expect(spy).toHaveBeenCalled();
   });
 });

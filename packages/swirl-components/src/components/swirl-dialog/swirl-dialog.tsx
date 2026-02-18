@@ -10,6 +10,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
+import { tabbable } from "tabbable";
 import { SwirlDialogToggleEvent } from "../../utils";
 
 export type SwirlDialogIntent = "primary" | "critical";
@@ -30,6 +31,7 @@ export class SwirlDialog {
   @Prop() intent?: SwirlDialogIntent = "primary";
   @Prop() label!: string;
   @Prop() primaryActionLabel?: string;
+  @Prop() returnFocusTo?: HTMLElement | string;
   @Prop() secondaryActionLabel?: string;
 
   @Event() dialogClose: EventEmitter<void>;
@@ -93,6 +95,10 @@ export class SwirlDialog {
 
     setTimeout(() => {
       this.dialogEl.close();
+
+      if (this.returnFocusTo) {
+        this.customFocusReturn();
+      }
     }, 150);
   }
 
@@ -129,6 +135,22 @@ export class SwirlDialog {
     this.secondaryAction.emit(event);
     this.close();
   };
+
+  private customFocusReturn() {
+    const element =
+      typeof this.returnFocusTo === "string"
+        ? document.querySelector<HTMLElement>(this.returnFocusTo)
+        : this.returnFocusTo;
+
+    const focusableElements = tabbable(element, {
+      includeContainer: true,
+      getShadowRoot: true,
+    });
+
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus();
+    }
+  }
 
   render() {
     const className = classnames("dialog", { "dialog--closing": this.closing });

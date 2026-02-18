@@ -942,6 +942,7 @@ export namespace Components {
          */
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;
+        "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
     }
     interface SwirlEmoji {
@@ -10158,6 +10159,7 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "onToggleDialog"?: (event: SwirlDialogCustomEvent<SwirlDialogToggleEvent>) => void;
         "primaryActionLabel"?: string;
+        "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
     }
     interface SwirlEmoji {
