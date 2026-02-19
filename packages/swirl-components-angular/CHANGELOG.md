@@ -1,5 +1,21 @@
 # @getflip/swirl-components-angular
 
+## 0.446.0
+
+### Minor Changes
+
+- [#1462](https://github.com/getflip/swirl/pull/1462)
+  [`9a981c69e`](https://github.com/getflip/swirl/commit/9a981c69e7273e2e7918d4e8d0dfccc214743b73)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Control for
+  label truncation of swirl-menu-item, swirl-option-list-item,
+  swirl-action-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9a981c69e`](https://github.com/getflip/swirl/commit/9a981c69e7273e2e7918d4e8d0dfccc214743b73)]:
+  - @getflip/swirl-components@0.446.0
+
 ## 0.445.1
 
 ### Patch Changes
