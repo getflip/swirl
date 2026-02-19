@@ -129,6 +129,10 @@
         {
           "name": "swirl-aria-haspopup",
           "description": ""
+        },
+        {
+          "name": "truncate-label",
+          "description": ""
         }
       ]
     },
@@ -17938,6 +17942,10 @@
           "description": ""
         },
         {
+          "name": "truncate-label",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
@@ -18426,6 +18434,10 @@
               "name": "option"
             }
           ]
+        },
+        {
+          "name": "truncate-label",
+          "description": ""
         },
         {
           "name": "value",

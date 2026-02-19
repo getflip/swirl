@@ -33,6 +33,7 @@ export class SwirlMenuItem {
   @Prop() label!: string;
   @Prop() suffix?: string;
   @Prop() value?: string;
+  @Prop() truncateLabel?: boolean = true;
 
   @State() hasAvatar: boolean = false;
   @State() parentMenu?: HTMLSwirlMenuElement;
@@ -171,6 +172,7 @@ export class SwirlMenuItem {
         iconBadge={this.iconBadge}
         intent={this.intent}
         label={this.label}
+        truncateLabel={this.truncateLabel}
         onClick={this.onActionListItemClick}
         ref={(el) => (this.actionListItem = el)}
         suffix={this.suffix}
@@ -189,6 +191,7 @@ export class SwirlMenuItem {
         icon={this.icon}
         iconBadge={this.iconBadge}
         label={this.label}
+        truncateLabel={this.truncateLabel}
         onClick={this.onOptionListItemClick}
         onKeyDown={this.onOptionListItemKeyDown}
         onKeyUp={this.onOptionListItemKeyUp}

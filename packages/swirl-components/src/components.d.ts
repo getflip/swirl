@@ -230,6 +230,10 @@ export namespace Components {
         "suffix"?: string;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
+        /**
+          * @default true
+         */
+        "truncateLabel"?: boolean;
     }
     interface SwirlActionListSection {
         /**
@@ -3155,6 +3159,10 @@ export namespace Components {
         "label": string;
         "suffix"?: string;
         /**
+          * @default true
+         */
+        "truncateLabel"?: boolean;
+        /**
           * Update the selected value
          */
         "updateValue": () => Promise<void>;
@@ -3304,6 +3312,10 @@ export namespace Components {
           * @default "option"
          */
         "swirlAriaRole"?: SwirlOptionListItemRole;
+        /**
+          * @default true
+         */
+        "truncateLabel"?: boolean;
         "value": string;
     }
     interface SwirlOptionListSection {
@@ -9484,6 +9496,10 @@ declare namespace LocalJSX {
         "suffix"?: string;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
+        /**
+          * @default true
+         */
+        "truncateLabel"?: boolean;
     }
     interface SwirlActionListSection {
         /**
@@ -12300,6 +12316,10 @@ declare namespace LocalJSX {
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
         "suffix"?: string;
+        /**
+          * @default true
+         */
+        "truncateLabel"?: boolean;
         "value"?: string;
     }
     interface SwirlModal {
@@ -12451,6 +12471,10 @@ declare namespace LocalJSX {
           * @default "option"
          */
         "swirlAriaRole"?: SwirlOptionListItemRole;
+        /**
+          * @default true
+         */
+        "truncateLabel"?: boolean;
         "value": string;
     }
     interface SwirlOptionListSection {
