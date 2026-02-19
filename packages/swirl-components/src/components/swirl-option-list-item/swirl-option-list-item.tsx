@@ -43,6 +43,7 @@ export class SwirlOptionListItem {
   @Prop() indeterminate?: boolean = false;
   @Prop() swirlAriaRole?: SwirlOptionListItemRole = "option";
   @Prop() value!: string;
+  @Prop() truncateLabel?: boolean = true;
 
   @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
 
@@ -170,6 +171,7 @@ export class SwirlOptionListItem {
           <span class="option-list-item__label-container">
             <span
               class="option-list-item__label"
+              style={{ whiteSpace: this.truncateLabel ? "nowrap" : "normal" }}
               id={`option-list-item-${this.elementId}-label`}
               part="option-list-item__label"
             >

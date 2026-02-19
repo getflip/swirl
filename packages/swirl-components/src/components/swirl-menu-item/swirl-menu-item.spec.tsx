@@ -30,7 +30,7 @@ describe("swirl-menu-item", () => {
       <swirl-menu-item label="Item">
         <mock:shadow-root>
           <div class="menu-item">
-            <swirl-action-list-item intent="default" label="Item"></swirl-action-list-item>
+            <swirl-action-list-item intent="default" label="Item" truncatelabel=""></swirl-action-list-item>
             <slot></slot>
           </div>
         </mock:shadow-root>
@@ -53,7 +53,7 @@ describe("swirl-menu-item", () => {
       <swirl-menu-item label="Item" value="Value">
         <mock:shadow-root>
           <div class="menu-item">
-            <swirl-option-list-item label="Item" swirlariarole="menuitemradio" value="Value"></swirl-option-list-item>
+            <swirl-option-list-item label="Item" swirlariarole="menuitemradio" truncatelabel="" value="Value"></swirl-option-list-item>
             <slot></slot>
           </div>
         </mock:shadow-root>

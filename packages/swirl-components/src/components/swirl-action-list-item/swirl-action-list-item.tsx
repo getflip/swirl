@@ -29,6 +29,7 @@ export class SwirlActionListItem {
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlAriaHaspopup?: string;
   @Prop() suffix?: string;
+  @Prop() truncateLabel?: boolean = true;
 
   private iconEl: HTMLElement;
   private iconBadgeEl: HTMLElement;
@@ -103,7 +104,12 @@ export class SwirlActionListItem {
           )}
 
           <span class="action-list-item__label-container">
-            <span class="action-list-item__label">{this.label}</span>
+            <span
+              class="action-list-item__label"
+              style={{ whiteSpace: this.truncateLabel ? "nowrap" : "normal" }}
+            >
+              {this.label}
+            </span>
             {this.description && (
               <span class="action-list-item__description">
                 {this.description}
