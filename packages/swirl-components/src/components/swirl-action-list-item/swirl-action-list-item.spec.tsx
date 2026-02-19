@@ -18,7 +18,7 @@ describe("swirl-action-list-item", () => {
               <swirl-icon-close size="24"></swirl-icon-close>
             </span>
             <span class="action-list-item__label-container">
-              <span class="action-list-item__label">
+              <span class="action-list-item__label" style="white-space: nowrap;">
                 Label
               </span>
               <span class="action-list-item__description">

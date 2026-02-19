@@ -26,7 +26,7 @@ describe("swirl-option-list-item", () => {
           </span>
           <span class="option-list-item__avatar"></span>
           <span class="option-list-item__label-container">
-            <span class="option-list-item__label" id="${id}-label" part="option-list-item__label">
+            <span class="option-list-item__label" id="${id}-label" part="option-list-item__label" style="white-space: nowrap;">
               Option List Item
             </span>
           </span>
@@ -107,7 +107,7 @@ describe("swirl-option-list-item", () => {
           </span>
           <span class="option-list-item__avatar"></span>
           <span class="option-list-item__label-container">
-            <span class="option-list-item__label" id="${id}-label" part="option-list-item__label">
+            <span class="option-list-item__label" id="${id}-label" part="option-list-item__label" style="white-space: nowrap;">
               Option List Item
             </span>
           </span>

@@ -127,7 +127,7 @@ describe("swirl-menu", () => {
             <swirl-menu-item label="Item 1">
               <template shadowrootmode="open">
                 <div class="menu-item">
-                  <swirl-action-list-item intent="default" label="Item 1"></swirl-action-list-item>
+                  <swirl-action-list-item intent="default" label="Item 1" truncatelabel=""></swirl-action-list-item>
                   <slot></slot>
                 </div>
               </template>
@@ -135,7 +135,7 @@ describe("swirl-menu", () => {
             <swirl-menu-item label="Item 2">
               <template shadowrootmode="open">
                 <div class="menu-item">
-                  <swirl-action-list-item intent="default" label="Item 2"></swirl-action-list-item>
+                  <swirl-action-list-item intent="default" label="Item 2" truncatelabel=""></swirl-action-list-item>
                   <slot></slot>
                 </div>
               </template>
@@ -172,7 +172,7 @@ describe("swirl-menu", () => {
                 <swirl-menu-item label="Sub item 1" value="1">
                   <template shadowrootmode="open">
                     <div class="menu-item">
-                      <swirl-option-list-item label="Sub item 1" swirlariarole="menuitemradio" value="1"></swirl-option-list-item>
+                      <swirl-option-list-item label="Sub item 1" swirlariarole="menuitemradio" truncatelabel="" value="1"></swirl-option-list-item>
                       <slot></slot>
                     </div>
                   </template>
@@ -180,7 +180,7 @@ describe("swirl-menu", () => {
                 <swirl-menu-item label="Sub item 2" value="2">
                   <template shadowrootmode="open">
                     <div class="menu-item">
-                      <swirl-option-list-item label="Sub item 2" swirlariarole="menuitemradio" value="2"></swirl-option-list-item>
+                      <swirl-option-list-item label="Sub item 2" swirlariarole="menuitemradio" truncatelabel="" value="2"></swirl-option-list-item>
                       <slot></slot>
                     </div>
                   </template>
@@ -190,7 +190,7 @@ describe("swirl-menu", () => {
             <swirl-menu-item label="Item 3">
               <template shadowrootmode="open">
                 <div class="menu-item">
-                  <swirl-action-list-item intent="default" label="Item 3"></swirl-action-list-item>
+                  <swirl-action-list-item intent="default" label="Item 3" truncatelabel=""></swirl-action-list-item>
                   <slot></slot>
                 </div>
               </template>
