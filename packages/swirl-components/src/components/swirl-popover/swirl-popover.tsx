@@ -27,6 +27,7 @@ import {
   isMobileViewport,
   querySelectorAllDeep,
 } from "../../utils";
+import { tabbable } from "tabbable";
 
 export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
 
@@ -320,7 +321,10 @@ export class SwirlPopover {
       ? ((this.triggerEl?.children[0] ||
           this.triggerEl?.shadowRoot?.children[0] ||
           this.triggerEl) as HTMLElement)
-      : this.triggerEl;
+      : tabbable(this.triggerEl, {
+          includeContainer: true,
+          getShadowRoot: true,
+        }).at(0);
   }
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -339,6 +343,10 @@ export class SwirlPopover {
     }
 
     const nativeTriggerEl = this.getNativeTriggerElement();
+
+    if (!Boolean(nativeTriggerEl)) {
+      return;
+    }
 
     if (controlledVia !== "hover") {
       nativeTriggerEl.setAttribute("aria-controls", this.el.id);
