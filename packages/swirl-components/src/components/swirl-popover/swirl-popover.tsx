@@ -317,14 +317,10 @@ export class SwirlPopover {
   }
 
   private getNativeTriggerElement() {
-    return this.triggerEl?.tagName.startsWith("SWIRL-")
-      ? ((this.triggerEl?.children[0] ||
-          this.triggerEl?.shadowRoot?.children[0] ||
-          this.triggerEl) as HTMLElement)
-      : tabbable(this.triggerEl, {
-          includeContainer: true,
-          getShadowRoot: true,
-        }).at(0);
+    return tabbable(this.triggerEl, {
+      includeContainer: true,
+      getShadowRoot: true,
+    }).at(0);
   }
 
   private onKeydown = (event: KeyboardEvent) => {
