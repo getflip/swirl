@@ -1,5 +1,32 @@
 # @getflip/swirl-components-angular
 
+## 0.447.0
+
+### Minor Changes
+
+- [#1460](https://github.com/getflip/swirl/pull/1460)
+  [`7b07609a1`](https://github.com/getflip/swirl/commit/7b07609a163a8bf5806d2f93b3b7ee742b2791dc)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add translucent
+  variant to swirl-popover
+
+### Patch Changes
+
+- [#1466](https://github.com/getflip/swirl/pull/1466)
+  [`1d021b6e4`](https://github.com/getflip/swirl/commit/1d021b6e49e99416e5a2cf3be1d2abda26fa950e)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Improve return
+  focus to trigger in swirl-popover
+
+* [#1464](https://github.com/getflip/swirl/pull/1464)
+  [`2eb4f6afb`](https://github.com/getflip/swirl/commit/2eb4f6afbe1cbbacab731e48bb072d90bb9d19c8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure
+  swirl-app-layout renders when bottom-bar slot is added
+
+* Updated dependencies
+  [[`7b07609a1`](https://github.com/getflip/swirl/commit/7b07609a163a8bf5806d2f93b3b7ee742b2791dc),
+  [`1d021b6e4`](https://github.com/getflip/swirl/commit/1d021b6e49e99416e5a2cf3be1d2abda26fa950e),
+  [`2eb4f6afb`](https://github.com/getflip/swirl/commit/2eb4f6afbe1cbbacab731e48bb072d90bb9d19c8)]:
+  - @getflip/swirl-components@0.447.0
+
 ## 0.446.0
 
 ### Minor Changes
