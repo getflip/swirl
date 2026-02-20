@@ -301,6 +301,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.sortable = Sortable.create(this.listboxEl, {
       animation: 150,
       draggable: 'swirl-option-list-item[allow-drag="true"]',
+      dragClass: "option-list-item--drag",
       handle: ".option-list-item__drag-handle",
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({

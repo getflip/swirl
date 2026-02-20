@@ -8,16 +8,6 @@
   & * {
     box-sizing: border-box;
   }
-
-  --swirl-resource-list-item-background-default: var(
-    --s-surface-overlay-default
-  );
-  --swirl-resource-list-item-background-hovered: var(
-    --s-surface-overlay-hovered
-  );
-  --swirl-resource-list-item-background-pressed: var(
-    --s-surface-overlay-pressed
-  );
 }
 
 .popover {
@@ -205,6 +195,18 @@
     @media (--from-tablet) {
       padding: 0;
     }
+  }
+}
+
+.popover--translucent {
+  & .popover__content {
+    background: var(--s-translucent-low-default);
+    backdrop-filter: blur(var(--s-blur-l));
+    outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
+  }
+
+  & .popover__handle {
+    background-color: var(--s-border-on-translucent);
   }
 }
 

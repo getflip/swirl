@@ -9,10 +9,6 @@
   }
 }
 
-.action-list-section {
-  background-color: var(--s-surface-overlay-default);
-}
-
 .action-list-section__label {
   display: block;
   width: 100%;

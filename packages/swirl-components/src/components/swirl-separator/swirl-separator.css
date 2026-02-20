@@ -55,7 +55,7 @@
   display: block;
   width: 100%;
   height: var(--s-border-width-default);
-  background-color: var(--s-border-default);
+  background-color: var(--s-border-on-translucent);
 }
 
 .separator__label {

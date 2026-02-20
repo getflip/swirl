@@ -6,7 +6,3 @@
     box-sizing: border-box;
   }
 }
-
-.action-list {
-  background-color: var(--s-surface-overlay-default);
-}
