@@ -75,6 +75,7 @@ export class SwirlAppLayout {
     scrolledToTop: false,
     scrolledToBottom: false,
   };
+  @State() hasBottomBar: boolean;
   @State() hasCustomAppBarBackButton: boolean;
   @State() hasSidebar: boolean;
   @State() isDesktop: boolean;
@@ -118,6 +119,7 @@ export class SwirlAppLayout {
     }
 
     this.mutationObserver = new MutationObserver(() => {
+      this.updateBottomBarStatus();
       this.updateCustomAppBarBackButtonStatus();
       this.updateNavigationStatus();
       this.updateSidebarStatus();
@@ -126,6 +128,7 @@ export class SwirlAppLayout {
     this.mutationObserver.observe(this.el, { childList: true });
 
     queueMicrotask(() => {
+      this.updateBottomBarStatus();
       this.updateCustomAppBarBackButtonStatus();
       this.updateSidebarStatus();
       this.updateNavigationStatus();
@@ -349,6 +352,12 @@ export class SwirlAppLayout {
     }
   }
 
+  private updateBottomBarStatus() {
+    this.hasBottomBar = Boolean(
+      this.el.querySelector('[slot="bottom-bar"]')
+    );
+  }
+
   private updateNavigationStatus() {
     this.hasNavigation = Boolean(this.el.querySelector('[slot="navigation"]'));
   }
@@ -479,8 +488,6 @@ export class SwirlAppLayout {
       this.el.querySelector('[slot="app-bar-controls"]')
     );
 
-    const hasBottomBar = Boolean(this.el.querySelector('[slot="bottom-bar"]'));
-
     const hasAppBarMobileMenuButton = Boolean(
       this.el.querySelector('[slot="app-bar-mobile-menu-button"]')
     );
@@ -515,7 +522,7 @@ export class SwirlAppLayout {
           this.contentScrollState.scrolledToBottom,
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
-        "app-layout--has-bottom-bar": hasBottomBar,
+        "app-layout--has-bottom-bar": this.hasBottomBar,
         "app-layout--has-custom-app-bar-back-button":
           this.hasCustomAppBarBackButton,
         "app-layout--has-custom-sidebar-header": hasCustomSidebarHeader,
