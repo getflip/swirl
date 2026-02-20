@@ -1,3 +1,7 @@
+jest.mock("tabbable", () => ({
+  tabbable: (element: HTMLElement | null) => (element ? [element] : []),
+}));
+
 import { newSpecPage, SpecPage } from "@stencil/core/testing";
 
 import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
@@ -211,5 +215,92 @@ describe("swirl-popover", () => {
       .querySelector(".popover")
       .dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
     expect(await popover.isOpen()).toBeFalsy();
+  });
+
+  it("returns focus to trigger on close when returnFocusToTrigger is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    const focusSpy = jest.spyOn(trigger, "focus");
+
+    await popover.open(trigger);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    await popover.close();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+    expect(focusSpy).toHaveBeenCalled();
+  });
+
+  it("does not return focus to trigger on close when returnFocusToTrigger is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: `
+        <div>
+          <swirl-popover-trigger swirl-popover="popover">
+            <button id="trigger">Trigger popover</button>
+          </swirl-popover-trigger>
+          <swirl-popover label="Popover" id="popover" return-focus-to-trigger="false" style="display: none;">
+            <div>Content</div>
+          </swirl-popover>
+        </div>
+      `,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    const focusSpy = jest.spyOn(trigger, "focus");
+
+    await popover.open(trigger);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    await popover.close();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+    expect(focusSpy).not.toHaveBeenCalled();
+  });
+
+  it("does not return focus to trigger when close is called with disableFocus", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    const focusSpy = jest.spyOn(trigger, "focus");
+
+    await popover.open(trigger);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    await popover.close(true);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+    expect(focusSpy).not.toHaveBeenCalled();
   });
 });
