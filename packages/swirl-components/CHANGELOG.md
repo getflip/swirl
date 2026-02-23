@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.448.0
+
+### Minor Changes
+
+- [#1468](https://github.com/getflip/swirl/pull/1468)
+  [`335c8cc49`](https://github.com/getflip/swirl/commit/335c8cc497b868e3cde79b5d2e388299700237ac)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  border-radius prop to swirl-popover
+
 ## 0.447.0
 
 ### Minor Changes
