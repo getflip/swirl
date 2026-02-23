@@ -93,6 +93,10 @@ export const config: Config = {
       type: "docs-vscode",
       file: "vscode-data.json",
     },
+    {
+      type: "docs-custom-elements-manifest",
+      file: "custom-elements.json",
+    },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
       excludeComponents: ["hex-color-picker", "wc-datepicker"],
