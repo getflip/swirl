@@ -4,6 +4,7 @@
   "author": "Flip GmbH",
   "workspaces": [
     "./packages/bridge",
+    "./packages/swirl-ai",
     "./packages/swirl-components",
     "./packages/swirl-components-angular",
     "./packages/swirl-components-react",

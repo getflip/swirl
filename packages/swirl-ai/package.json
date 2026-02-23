@@ -1,0 +1,23 @@
+{
+  "name": "@getflip/swirl-ai",
+  "version": "0.448.0",
+  "description": "Swirl Design System AI package with artifacts for AI agents",
+  "author": "Flip GmbH",
+  "repository": "https://github.com/getflip/swirl",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/getflip/swirl/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@getflip/swirl-components": "0.448.0",
+    "@types/node": "25.3.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "build": "ts-node scripts/build.ts"
+  }
+}
