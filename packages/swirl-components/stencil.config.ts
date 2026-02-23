@@ -95,7 +95,7 @@ export const config: Config = {
     },
     {
       type: "docs-custom-elements-manifest",
-      file: "custom-elements.json",
+      file: "custom-elements.manifest.json",
     },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",

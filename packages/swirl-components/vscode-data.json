@@ -478,10 +478,6 @@
           "description": ""
         },
         {
-          "name": "generate-suggestions",
-          "description": ""
-        },
-        {
           "name": "inline",
           "description": ""
         },
@@ -542,10 +538,6 @@
         },
         {
           "name": "swirl-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "value",
           "description": ""
         }
       ]
@@ -1285,55 +1277,37 @@
           "description": "",
           "values": [
             {
-              "name": "text"
+              "name": "alias"
             },
             {
-              "name": "copy"
-            },
-            {
-              "name": "progress"
-            },
-            {
-              "name": "default"
-            },
-            {
-              "name": "none"
+              "name": "all-scroll"
             },
             {
               "name": "auto"
             },
             {
+              "name": "cell"
+            },
+            {
+              "name": "col-resize"
+            },
+            {
               "name": "context-menu"
             },
             {
-              "name": "help"
-            },
-            {
-              "name": "pointer"
-            },
-            {
-              "name": "wait"
-            },
-            {
-              "name": "cell"
+              "name": "copy"
             },
             {
               "name": "crosshair"
             },
             {
-              "name": "vertical-text"
+              "name": "default"
             },
             {
-              "name": "alias"
+              "name": "e-resize"
             },
             {
-              "name": "move"
-            },
-            {
-              "name": "no-drop"
-            },
-            {
-              "name": "not-allowed"
+              "name": "ew-resize"
             },
             {
               "name": "grab"
@@ -1342,7 +1316,10 @@
               "name": "grabbing"
             },
             {
-              "name": "e-resize"
+              "name": "help"
+            },
+            {
+              "name": "move"
             },
             {
               "name": "n-resize"
@@ -1351,7 +1328,34 @@
               "name": "ne-resize"
             },
             {
+              "name": "nesw-resize"
+            },
+            {
+              "name": "no-drop"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "not-allowed"
+            },
+            {
+              "name": "ns-resize"
+            },
+            {
               "name": "nw-resize"
+            },
+            {
+              "name": "nwse-resize"
+            },
+            {
+              "name": "pointer"
+            },
+            {
+              "name": "progress"
+            },
+            {
+              "name": "row-resize"
             },
             {
               "name": "s-resize"
@@ -1363,28 +1367,16 @@
               "name": "sw-resize"
             },
             {
+              "name": "text"
+            },
+            {
+              "name": "vertical-text"
+            },
+            {
               "name": "w-resize"
             },
             {
-              "name": "ew-resize"
-            },
-            {
-              "name": "ns-resize"
-            },
-            {
-              "name": "nesw-resize"
-            },
-            {
-              "name": "nwse-resize"
-            },
-            {
-              "name": "col-resize"
-            },
-            {
-              "name": "row-resize"
-            },
-            {
-              "name": "all-scroll"
+              "name": "wait"
             },
             {
               "name": "zoom-in"
@@ -2707,10 +2699,6 @@
           "description": ""
         },
         {
-          "name": "date-picker-disable-date",
-          "description": ""
-        },
-        {
           "name": "date-picker-label",
           "description": ""
         },
@@ -2736,10 +2724,6 @@
         },
         {
           "name": "invalid",
-          "description": ""
-        },
-        {
-          "name": "labels",
           "description": ""
         },
         {
@@ -2788,10 +2772,6 @@
       },
       "attributes": [
         {
-          "name": "disable-date",
-          "description": ""
-        },
-        {
           "name": "first-day-of-week",
           "description": ""
         },
@@ -2800,23 +2780,11 @@
           "description": ""
         },
         {
-          "name": "labels",
-          "description": ""
-        },
-        {
           "name": "locale",
           "description": ""
         },
         {
           "name": "range",
-          "description": ""
-        },
-        {
-          "name": "start-date",
-          "description": ""
-        },
-        {
-          "name": "value",
           "description": ""
         }
       ]
@@ -18383,10 +18351,6 @@
         {
           "name": "show-select-all",
           "description": ""
-        },
-        {
-          "name": "value",
-          "description": ""
         }
       ]
     },
@@ -18598,10 +18562,6 @@
         },
         {
           "name": "page-size",
-          "description": ""
-        },
-        {
-          "name": "page-size-options",
           "description": ""
         },
         {
@@ -18847,10 +18807,6 @@
           "description": ""
         },
         {
-          "name": "trigger-container",
-          "description": ""
-        },
-        {
           "name": "use-container-width",
           "description": ""
         }
@@ -18873,10 +18829,6 @@
         },
         {
           "name": "hover-linger-duration",
-          "description": ""
-        },
-        {
-          "name": "parent-scroll-container",
           "description": ""
         },
         {
@@ -19041,10 +18993,6 @@
         },
         {
           "name": "assistive-text-item-moving",
-          "description": ""
-        },
-        {
-          "name": "controlling-element",
           "description": ""
         },
         {
@@ -19637,10 +19585,6 @@
         },
         {
           "name": "swirl-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "value",
           "description": ""
         },
         {
@@ -22095,10 +22039,6 @@
           ]
         },
         {
-          "name": "tabs",
-          "description": ""
-        },
-        {
           "name": "variant",
           "description": "",
           "values": [
@@ -22125,10 +22065,6 @@
         },
         {
           "name": "drag-drop-handle",
-          "description": ""
-        },
-        {
-          "name": "drag-drop-instructions",
           "description": ""
         },
         {
@@ -22924,12 +22860,7 @@
         "kind": "markdown",
         "value": ""
       },
-      "attributes": [
-        {
-          "name": "config",
-          "description": ""
-        }
-      ]
+      "attributes": []
     },
     {
       "name": "swirl-thumbnail",
@@ -23285,10 +23216,6 @@
               "name": "fixed"
             }
           ]
-        },
-        {
-          "name": "trigger",
-          "description": ""
         }
       ]
     },
@@ -23358,23 +23285,11 @@
       },
       "attributes": [
         {
-          "name": "can-drop",
-          "description": ""
-        },
-        {
-          "name": "drag-drop-instructions",
-          "description": ""
-        },
-        {
           "name": "drag-drop-item-selector",
           "description": ""
         },
         {
           "name": "enable-drag-drop",
-          "description": ""
-        },
-        {
-          "name": "initially-expanded-item-ids",
           "description": ""
         },
         {
