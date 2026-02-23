@@ -202,7 +202,8 @@
   & .popover__content {
     background: var(--s-translucent-low-default);
     backdrop-filter: blur(var(--s-blur-l));
-    outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
+    outline: var(--s-border-width-default) solid
+      var(--s-border-translucent-outline);
   }
 
   & .popover__handle {
@@ -241,8 +242,11 @@
     right: unset;
     bottom: unset;
     left: unset;
+    border-radius: var(
+      --swirl-popover-border-radius,
+      var(--s-border-radius-base)
+    );
     max-width: 22.5rem;
-    border-radius: var(--s-border-radius-base);
     animation: none;
     box-shadow: var(--s-shadow-level-2);
   }

@@ -18723,6 +18723,10 @@
           ]
         },
         {
+          "name": "border-radius",
+          "description": ""
+        },
+        {
           "name": "disable-scroll-lock",
           "description": ""
         },

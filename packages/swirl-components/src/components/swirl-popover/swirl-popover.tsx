@@ -21,17 +21,23 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
+import { tabbable } from "tabbable";
 import {
   getActiveElement,
   getPixelsFromRemToken,
   isMobileViewport,
   querySelectorAllDeep,
 } from "../../utils";
-import { tabbable } from "tabbable";
 
 export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
 
 export type SwirlPopoverControlMethod = "click" | "hover" | "programmatic";
+
+const swirlPopoverBorderRadiusTokens = ["xs", "sm", "base", "l", "xl"] as const;
+
+export type SwirlPopoverBorderRadius =
+  | (typeof swirlPopoverBorderRadiusTokens)[number]
+  | string;
 
 /**
  * @slot slot - The popover content.
@@ -60,6 +66,7 @@ export class SwirlPopover {
   @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
+  @Prop() borderRadius?: SwirlPopoverBorderRadius = "base";
 
   @State() active = false;
   @State() closing = false;
@@ -455,6 +462,11 @@ export class SwirlPopover {
 
   render() {
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const borderRadius = swirlPopoverBorderRadiusTokens.includes(
+      this.borderRadius as (typeof swirlPopoverBorderRadiusTokens)[number]
+    )
+      ? `var(--s-border-radius-${this.borderRadius})`
+      : this.borderRadius;
 
     const className = classnames(
       "popover",
@@ -490,6 +502,7 @@ export class SwirlPopover {
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
+              "--swirl-popover-border-radius": borderRadius,
             }}
             tabindex="-1"
           >
