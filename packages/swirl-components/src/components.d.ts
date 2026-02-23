@@ -50,7 +50,7 @@ import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./compo
 import { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-import { SwirlPopoverAnimation, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
+import { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
 import { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
@@ -131,7 +131,7 @@ export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./compo
 export { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-export { SwirlPopoverAnimation, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
+export { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
 export { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
@@ -3466,6 +3466,10 @@ export namespace Components {
           * @default "scale-in-xy"
          */
         "animation"?: SwirlPopoverAnimation;
+        /**
+          * @default "base"
+         */
+        "borderRadius"?: SwirlPopoverBorderRadius;
         /**
           * Close the popover.
           * @returns
@@ -12622,6 +12626,10 @@ declare namespace LocalJSX {
           * @default "scale-in-xy"
          */
         "animation"?: SwirlPopoverAnimation;
+        /**
+          * @default "base"
+         */
+        "borderRadius"?: SwirlPopoverBorderRadius;
         "disableScrollLock"?: boolean;
         /**
           * @default true
