@@ -17,12 +17,10 @@ of a resource.
 
 <Controls of={Stories.SwirlStatusIndicator} />
 
-## Theming
+## Accessibility
 
-| Variable            | Usage                                          |
-| ------------------- | ---------------------------------------------- |
-| `--s-text-default`  | The label text color                           |
-| `--s-icon-critical` | The dot background color for intent "critical" |
-| `--s-icon-info`     | The dot background color for intent "info"     |
-| `--s-icon-success`  | The dot background color for intent "success"  |
-| `--s-icon-warning`  | The dot background color for intent "warning"  |
+SwirlStatusIndicator is a presentational status dot and label with no ARIA attributes or keyboard-specific behavior. Use with surrounding text or `aria-label` when it is the only indicator of status.
+
+### Keyboard
+
+No component-specific keyboard behavior.

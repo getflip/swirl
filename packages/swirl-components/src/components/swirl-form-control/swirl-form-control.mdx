@@ -17,17 +17,6 @@ information via labels, descriptions and error messages.
 
 <Controls of={Stories.SwirlFormControl} />
 
-## Theming
-
-| Variable               | Usage                                            |
-| ---------------------- | ------------------------------------------------ |
-| `--s-border-strong`    | Border color of the control                      |
-| `--s-border-default`   | Border color of the disabled control             |
-| `--s-border-highlight` | Border color of the active control               |
-| `--s-border-critical`  | Border color of the invalid control              |
-| `--s-text-subdued`     | Text color of the label and description          |
-| `--s-text-disabled`    | Text color of the disabled label and description |
-
 ## Accessibility
 
 ### ARIA
@@ -36,3 +25,7 @@ information via labels, descriptions and error messages.
 | ------------------ | --------------------------------------------------------------- |
 | `role="group"`     |                                                                 |
 | `aria-describedby` | Added to the form element to associate it with the description. |
+
+### Keyboard
+
+No component-specific keyboard behavior; focus and input behavior come from the slotted form control.

@@ -25,3 +25,11 @@ The SwirlFileViewer component is used to render files of various formats.
 | text/plain      | text/plain<br/>/sample.txt      |
 | text/csv        | text/csv<br/>/sample.csv        |
 | application/pdf | application/pdf<br/>/sample.pdf |
+
+## Accessibility
+
+SwirlFileViewer delegates rendering to format-specific viewers (e.g. PDF, image, video). Ensure slotted or embedded content provides appropriate labels and keyboard access; no component-level ARIA table.
+
+### Keyboard
+
+No component-specific keyboard behavior; keyboard access depends on the embedded viewer.

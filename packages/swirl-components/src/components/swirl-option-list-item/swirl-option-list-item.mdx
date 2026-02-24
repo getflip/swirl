@@ -18,19 +18,6 @@ It should only be used inside the
 
 <Controls of={Stories.SwirlOptionListItem} />
 
-## Theming
-
-| Variable                      | Usage                                |
-| ----------------------------- | ------------------------------------ |
-| `--s-surface-overlay-default` | Background color of the item         |
-| `--s-surface-overlay-hovered` | Background color of the hovered item |
-| `--s-surface-overlay-pressed` | Background color of the active item  |
-| `--s-text-default`            | Text color of the item               |
-| `--s-text-disabled`           | Text color of the disabled item      |
-| `--s-text-highlight`          | Text color of the selected item      |
-| `--s-icon-default`            | Icon color of the item               |
-| `--s-icon-highlight`          | Icon color of the selected item      |
-
 ## Accessibility
 
 ### ARIA
@@ -43,3 +30,7 @@ The component follows the
 | `role="option"`        |                              |
 | `aria-disabled="true"` | Set if the item is disabled. |
 | `aria-selected="true"` | Set if the item is selected. |
+
+### Keyboard
+
+Keyboard behavior is defined by the parent SwirlOptionList (e.g. arrow keys, Enter, Space).

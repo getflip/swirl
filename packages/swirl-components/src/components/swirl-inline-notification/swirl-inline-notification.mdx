@@ -17,20 +17,6 @@ information.
 
 <Controls of={Stories.SwirlInlineNotification} />
 
-## Theming
-
-| Variable                       | Usage                                  |
-| ------------------------------ | -------------------------------------- |
-| `--s-surface-critical-subdued` | Background color for intent "critical" |
-| `--s-surface-success-subdued`  | Background color for intent "success"  |
-| `--s-surface-warning-subdued`  | Background color for intent "warning"  |
-| `--s-surface-info-subdued`     | Background color for intent "info"     |
-| `--s-text-default`             | Text color for intent "warning"        |
-| `--s-icon-critical`            | Icon color for intent "critical"       |
-| `--s-icon-success`             | Icon color for intent "success"        |
-| `--s-icon-warning`             | Icon color for intent "warning"        |
-| `--s-icon-info`                | Icon color for intent "info"           |
-
 ## Accessibility
 
 ### ARIA
@@ -40,5 +26,9 @@ The component follows the
 
 | ARIA            | Usage                                                                      |
 | --------------- | -------------------------------------------------------------------------- |
-| `role="alert"`  | The banner gets the `alert` role if it contains critical info or warnings. |
-| `role="status"` | The banner gets the `status` role for non-critical info.                   |
+| `role="alert"`  | The inline notification gets the `alert` role if it contains critical info or warnings. |
+| `role="status"` | The inline notification gets the `status` role for non-critical info.                   |
+
+### Keyboard
+
+No component-specific keyboard behavior.

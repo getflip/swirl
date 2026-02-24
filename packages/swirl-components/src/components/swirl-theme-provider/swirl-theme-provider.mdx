@@ -17,3 +17,11 @@ colors can be set.
 <Canvas of={Stories.SwirlThemeProvider} sourceState="shown"></Canvas>
 
 <Controls of={Stories.SwirlThemeProvider} />
+
+## Accessibility
+
+SwirlThemeProvider is a layout wrapper with no interactive semantics. It does not expose ARIA attributes or keyboard-specific behavior; ensure slotted content provides appropriate semantics.
+
+### Keyboard
+
+No component-specific keyboard behavior.

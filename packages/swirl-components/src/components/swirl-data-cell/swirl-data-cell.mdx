@@ -36,3 +36,22 @@ the content slot, allowing for editable data cells with inputs and selects.
 | `content`  | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
 | `suffix` | Optional suffix content (e.g., buttons, badges)                                                 |
 
+## Accessibility
+
+### ARIA
+
+The component structures label-value pairs for assistive technologies.
+
+| ARIA               | Usage                                                                 |
+| ------------------ | --------------------------------------------------------------------- |
+| `role="group"`     | Set on the host to group label and value.                            |
+| `role="term"`      | Set on the label element.                                            |
+| `role="definition"`| Set on the value/definition container.                               |
+| `aria-labelledby`   | Set on the definition, referencing the label ID.                    |
+| `aria-hidden`       | Set on the media container when present.                             |
+| `role="button"`     | Optional; set when the cell contains a checkbox or radio control.    |
+
+### Keyboard
+
+Keyboard behavior is determined by slotted content (e.g. form controls). No component-specific shortcuts.
+

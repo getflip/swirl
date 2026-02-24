@@ -17,14 +17,6 @@ navigate between them.
 
 <Controls of={Stories.SwirlPagination} />
 
-## Theming
-
-| Variable             | Usage                      |
-| -------------------- | -------------------------- |
-| `--s-text-default`   | Text color of the label(s) |
-| `--s-text-highlight` | Text color of the buttons  |
-| `--s-icon-highlight` | Icon color of the buttons  |
-
 ## Accessibility
 
 ### ARIA
@@ -38,3 +30,7 @@ main navigation.
 | `role="navigation"`   | Implicit through the use of the `nav` element.         |
 | `aria-current="page"` | Set on the current page label.                         |
 | `aria-label`          | Set to provide an accessible label for the pagination. |
+
+### Keyboard
+
+No component-specific keyboard behavior; page links and buttons use standard link/button semantics.

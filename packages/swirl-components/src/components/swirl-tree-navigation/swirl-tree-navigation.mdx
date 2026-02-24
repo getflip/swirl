@@ -7,7 +7,6 @@ import * as Stories from "./swirl-tree-navigation.stories";
 
 The SwirlTreeNavigation component is used to …
 
-- **[Figma Design Specs](#)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tree-navigation)**
 
 ## Usage
@@ -16,28 +15,17 @@ The SwirlTreeNavigation component is used to …
 
 <Controls of={Stories.SwirlTreeNavigation} />
 
-## Theming
-
-| Variable                          | Usage                       |
-| --------------------------------- | --------------------------- |
-| `--s-interactive-primary-default` | The button background color |
-| `--s-text-on-action-primary`      | The button text color       |
-
 ## Accessibility
 
 ### ARIA
 
-The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+The component follows the [WAI-ARIA Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/). The container is a tree; keyboard and item semantics are on [SwirlTreeNavigationItem](?path=/docs/admin-swirltreenavigationitem--docs).
 
-| ARIA            | Usage                                                                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `role="button"` |                                                                                                                   |
-| `aria-label`    | If no accessible label is provided via the button's text, the `aria-label` or `aria-labelledby` attribute is set. |
-| `aria-disabled` | If the button is disabled, the `aria-disabled` attribute is set to `true`.                                        |
+| ARIA           | Usage                                                         |
+| -------------- | ------------------------------------------------------------- |
+| `role="tree"`  | Set on the root list container.                               |
+| `aria-label`   | Set via the `label` prop to name the tree.                    |
 
 ### Keyboard
 
-| Key              | Action                |
-| ---------------- | --------------------- |
-| <kbd>ENTER</kbd> | Activates the button. |
-| <kbd>SPACE</kbd> | Activates the button. |
+Keyboard interaction is handled by the tree items; see [SwirlTreeNavigationItem](?path=/docs/admin-swirltreenavigationitem--docs).

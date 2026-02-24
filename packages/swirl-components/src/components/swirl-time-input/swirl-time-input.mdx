@@ -18,11 +18,16 @@ used in combination with the
 
 <Controls of={Stories.SwirlTimeInput} />
 
-## Theming
+## Accessibility
 
-| Variable               | Usage                                  |
-| ---------------------- | -------------------------------------- |
-| `--s-text-default`     | Text color of the input value          |
-| `--s-text-disabled`    | Text color of the disabled input value |
-| `--s-icon-default`     | Icon color of the time indicator       |
-| `--s-border-highlight` | Caret color                            |
+### ARIA
+
+| ARIA               | Usage                                                                 |
+| ------------------ | --------------------------------------------------------------------- |
+| `aria-describedby` | Optional; set via `swirlAriaDescribedby`.                            |
+| `aria-disabled`    | Set when the input is disabled.                                      |
+| `aria-invalid`     | Set when the value is invalid.                                       |
+
+### Keyboard
+
+Standard text input behavior. No component-specific shortcuts.

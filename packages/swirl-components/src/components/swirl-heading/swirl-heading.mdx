@@ -7,7 +7,6 @@ import * as Stories from "./swirl-heading.stories";
 
 The SwirlHeading component is used to add titles to major sections of content.
 
-- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-heading)**
 
 ## Usage
@@ -16,16 +15,14 @@ The SwirlHeading component is used to add titles to major sections of content.
 
 <Controls of={Stories.SwirlHeading} />
 
-## Theming
-
-| Variable           | Usage                     |
-| ------------------ | ------------------------- |
-| `--s-text-default` | Text color of the heading |
-
 ## Accessibility
 
 Please refer to the
 ["Headings" part](https://www.w3.org/WAI/tutorials/page-structure/headings/) of
 the
 [W3C's Page Structure Tutorial](https://www.w3.org/WAI/tutorials/page-structure/)
-on how to use headings correctly.
+on how to use headings correctly. The component renders a native heading element (`h1`–`h6`) via the `as` prop; no component-specific ARIA or keyboard behavior.
+
+### Keyboard
+
+No component-specific keyboard behavior.

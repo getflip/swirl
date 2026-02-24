@@ -16,3 +16,11 @@ The SwirlAppBar component is used to display a header app bar inside the
 <Canvas of={Stories.SwirlAppBar} sourceState="shown"></Canvas>
 
 <Controls of={Stories.SwirlAppBar} />
+
+## Accessibility
+
+SwirlAppBar is a layout container for header content. Buttons (back, close, stepper) use accessible labels via props. No component-level ARIA role or keyboard shortcuts; interaction is handled by slotted controls.
+
+### Keyboard
+
+No component-specific keyboard behavior; slotted buttons and links handle focus and activation.

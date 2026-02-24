@@ -18,11 +18,17 @@ for entered hex color values. It should always be used in combination with the
 
 <Controls of={Stories.SwirlColorInput} />
 
-## Theming
+## Accessibility
 
-| Variable               | Usage                                  |
-| ---------------------- | -------------------------------------- |
-| `--s-text-default`     | Text color of the input value          |
-| `--s-text-disabled`    | Text color of the disabled input value |
-| `--s-border-default`   | Border color of the color preview      |
-| `--s-border-highlight` | Caret color                            |
+### ARIA
+
+| ARIA               | Usage                                                                 |
+| ------------------ | --------------------------------------------------------------------- |
+| `aria-describedby` | Optional; set via `swirlAriaDescribedby`.                            |
+| `aria-disabled`    | Set on the input when disabled.                                      |
+| `aria-invalid`     | Set when the value is invalid.                                        |
+| `aria-label`       | Set on the color picker trigger button via `pickerButtonLabel`.      |
+
+### Keyboard
+
+Standard text input and button behavior. The picker button is activated with <kbd>Enter</kbd> or <kbd>Space</kbd>. No component-specific shortcuts.

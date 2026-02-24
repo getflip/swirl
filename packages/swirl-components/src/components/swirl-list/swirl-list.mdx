@@ -15,8 +15,10 @@ elements (UL, OL).
 
 <Canvas of={Stories.SwirlList} sourceState="shown"></Canvas>
 
-## Theming
+## Accessibility
 
-| Variable           | Usage                        |
-| ------------------ | ---------------------------- |
-| `--s-text-default` | Text color of the list items |
+SwirlList wraps native list elements (ul/ol); list semantics come from the host. No component-specific ARIA or keyboard behavior.
+
+### Keyboard
+
+No component-specific keyboard behavior.

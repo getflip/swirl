@@ -17,33 +17,27 @@ Flip Admin tools.
 
 <Controls of={Stories.SwirlTreeNavigationItem} />
 
-## Theming
-
-| Variable                        | Usage                                           |
-| ------------------------------- | ----------------------------------------------- |
-| `--s-text-default`              | Text color of the item                          |
-| `--s-icon-default`              | Icon color of the item                          |
-| `--s-surface-default`           | Background color of the item                    |
-| `--s-surface-hovered`           | Background color of the hovered item            |
-| `--s-surface-pressed`           | Background color of the pressed item            |
-| `--s-surface-raised-default`    | Background color of the active item             |
-| `--s-surface-raised-hovered`    | Background color of the active and hovered item |
-| `--s-surface-raised-pressed`    | Background color of the active and pressed item |
-| `--s-surface-highlight-default` | Left border color of the active item            |
-
 ## Accessibility
 
 ### ARIA
 
-The component follows the
-[WAI-ARIA Link Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/link/).
+The component follows the [WAI-ARIA Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
-| ARIA          | Usage |
-| ------------- | ----- |
-| `role="link"` |       |
+| ARIA             | Usage                                                                 |
+| ---------------- | --------------------------------------------------------------------- |
+| `role="treeitem"` | Set on the list item.                                                |
+| `aria-expanded`  | Set when the item has children; indicates expanded or collapsed state. |
+| `aria-level`     | Indicates the nesting level.                                         |
+| `aria-controls`  | When the item has children, references the ID of the child group.    |
+| `aria-current`   | Set to `"page"` when the item is active.                            |
+| `role="group"`   | Set on the child list when the item has children.                    |
+| `aria-label`     | Used on icons (e.g. expand, external link) for screen readers.       |
 
 ### Keyboard
 
-| Key              | Action              |
-| ---------------- | ------------------- |
-| <kbd>ENTER</kbd> | Activates the link. |
+| Key               | Action                                                              |
+| ----------------- | -------------------------------------------------------------------- |
+| <kbd>Enter</kbd>  | Activates the link or button (navigate or toggle).                   |
+| <kbd>Space</kbd>  | Toggles expanded state when the item has children and is expandable. |
+| <kbd>Arrow Right</kbd> | Expands the item when it has children and is collapsed.        |
+| <kbd>Arrow Left</kbd>  | Collapses the item when it is expanded.                          |

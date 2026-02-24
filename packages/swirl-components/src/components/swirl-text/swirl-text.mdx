@@ -16,12 +16,10 @@ The SwirlText component is used to display simple text.
 
 <Controls of={Stories.SwirlText} />
 
-## Theming
+## Accessibility
 
-| Variable            | Usage               |
-| ------------------- | ------------------- |
-| `--s-text-default`  | Text color          |
-| `--s-text-subdued`  | Subdued text color  |
-| `--s-text-critical` | Critical text color |
-| `--s-text-success`  | Success text color  |
-| `--s-text-warning`  | Warning text color  |
+SwirlText renders a text element (default <code>&lt;p&gt;</code>; overridable via <code>as</code>). It has no ARIA attributes or keyboard-specific behavior; semantics come from the chosen element and surrounding context.
+
+### Keyboard
+
+No component-specific keyboard behavior.

@@ -24,6 +24,14 @@ Symbols are user selectable glyphs used to represent resources like menu items.
 
 <Controls of={Stories.SwirlSymbol} />
 
+## Accessibility
+
+SwirlSymbol is a presentational icon component with no ARIA attributes or keyboard-specific behavior. When used as the only content of a button or link, ensure the parent provides an accessible label.
+
+### Keyboard
+
+No component-specific keyboard behavior.
+
 ## Alternative usage
 
 Each symbol also comes with its own component, used via
@@ -40,8 +48,3 @@ Each symbol also comes with its own component, used via
     </IconItem>
   ))}
 </IconGallery>
-
-## Theming
-
-All symbol components use the text color of its parent elements by using the
-`currentColor` fill value.

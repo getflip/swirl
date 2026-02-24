@@ -9,7 +9,6 @@ The SwirlDateInput component is used to render a date input with a date picker.
 It should always be used in combination with the
 [SwirlFormControl component](?path=/docs/components-swirlformcontrol--docs).
 
-- **[Figma Design Specs](#)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-date-input)**
 
 ## Usage
@@ -18,11 +17,19 @@ It should always be used in combination with the
 
 <Controls of={Stories.SwirlDateInput} />
 
-## Theming
+## Accessibility
 
-| Variable               | Usage                                  |
-| ---------------------- | -------------------------------------- |
-| `--s-text-default`     | Text color of the input value          |
-| `--s-text-disabled`    | Text color of the disabled input value |
-| `--s-icon-default`     | Icon color of the date picker button   |
-| `--s-border-highlight` | Caret color                            |
+### ARIA
+
+The input and date picker trigger expose ARIA for form and button semantics.
+
+| ARIA               | Usage                                                                 |
+| ------------------ | --------------------------------------------------------------------- |
+| `aria-describedby` | Optional; set via `swirlAriaDescribedby`.                             |
+| `aria-disabled`    | Set when the control is disabled.                                    |
+| `aria-invalid`     | Set when the value is invalid.                                        |
+| `aria-label`       | Set on the date picker trigger button via `datePickerTriggerLabel`.   |
+
+### Keyboard
+
+Standard text input and button behavior. The date picker trigger is activated with <kbd>Enter</kbd> or <kbd>Space</kbd>. No component-specific shortcuts.

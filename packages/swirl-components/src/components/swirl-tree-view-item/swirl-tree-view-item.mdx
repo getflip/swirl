@@ -17,19 +17,13 @@ The SwirlTreeViewItem component is used to render nodes in a
 
 <Controls of={Stories.SwirlTreeViewItem} />
 
-## Theming
-
-| Variable                 | Usage                                               |
-| ------------------------ | --------------------------------------------------- |
-| `--s-background-default` | Background color of the item                        |
-| `--s-background-hovered` | Background color of the hovered and active item     |
-| `--s-text-default`       | Text color of the label                             |
-| `--s-icon-default`       | Color of the item's custom and epxand/collapse icon |
-| `--s-text-disabled`      | Text color of the disabled item's label             |
-
 ## Accessibility
 
 ### ARIA
 
 The component follows the
 [WAI-ARIA Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+
+### Keyboard
+
+Keyboard behavior is defined by the tree view (e.g. arrow keys, Enter, Space for expand/collapse and selection).
