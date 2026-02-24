@@ -36,8 +36,9 @@ export type SwirlShellLayoutSecondaryNavGridItemVariant = Exclude<
  * @slot mobile-header-tools - Tools positioned in the mobile drawer header.
  * @slot avatar - User avatar positioned on the header's right-hand side.
  * @slot nav - Items shown in the lower sidebar part.
+ * @slot secondary-nav - Items shown in the secondary navigation area (e.g. when using grid layout).
  * @slot mobile-logo - Logo shown inside the mobile navigation drawer.
- * @slot default - Contents of the main area.
+ * @slot slot - Contents of the main area.
  */
 @Component({
   scoped: true,

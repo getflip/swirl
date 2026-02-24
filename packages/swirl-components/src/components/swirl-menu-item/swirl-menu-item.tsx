@@ -15,6 +15,7 @@ import { SwirlActionListItemIntent } from "../swirl-action-list-item/swirl-actio
 
 /**
  * @slot avatar - Avatar displayed inside the item
+ * @slot slot - The menu item content (e.g. submenu with nested swirl-menu).
  */
 @Component({
   shadow: true,

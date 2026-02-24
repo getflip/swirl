@@ -16,6 +16,7 @@ import { tabbable } from "tabbable";
 import { querySelectorAllDeep } from "../../utils";
 
 /**
+ * @slot slot - The lightbox slides (swirl-file-viewer elements).
  * @slot toolbar - Slot for additional toolbar items displayed in the header.
  */
 @Component({

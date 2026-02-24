@@ -3,9 +3,9 @@ import classnames from "classnames";
 import { SwirlHeadingLevel } from "../swirl-heading/swirl-heading";
 
 /**
- * @slot slot - The component content
- * @slot controls - The component content
+ * @slot slot - The main content (e.g. heading, description).
  * @slot illustration - The placeholder illustration
+ * @slot controls - The action controls (e.g. buttons).
  */
 @Component({
   shadow: true,

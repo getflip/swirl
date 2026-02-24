@@ -8,6 +8,9 @@ import {
   Prop,
 } from "@stencil/core";
 
+/**
+ * @slot slot - The radio options (e.g. swirl-radio).
+ */
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the

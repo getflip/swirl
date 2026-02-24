@@ -1,6 +1,9 @@
 import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
+/**
+ * @slot slot - The trigger element (e.g. a button) that opens the popover.
+ */
 @Component({
   shadow: false,
   scoped: true,

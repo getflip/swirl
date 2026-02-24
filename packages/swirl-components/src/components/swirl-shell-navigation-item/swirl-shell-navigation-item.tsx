@@ -6,7 +6,7 @@ export type SwirlShellNavigationItemVariant = "default" | "tiled" | "app-icon";
 export type SwirlShellNavigationItemAriaCurrent = "page" | "true";
 
 /**
- * @slot slot - image or icon to display
+ * @slot icon - Image or icon to display in the navigation item.
  */
 @Component({
   shadow: true,

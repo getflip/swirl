@@ -25,7 +25,7 @@ export type SwirlAppBarPadding =
  * @slot heading - The app bar's heading element
  * @slot center-controls - Container for controls displayed in the center
  * @slot cta - Container for a call to action button
- * @slot heading - Container for controls displayed at the end of the bar
+ * @slot right-controls - Container for controls displayed at the end of the bar
  */
 @Component({
   shadow: true,

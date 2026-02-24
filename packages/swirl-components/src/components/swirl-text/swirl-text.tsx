@@ -38,6 +38,9 @@ export type SwirlTextWhiteSpace =
   | "pre-wrap"
   | "break-spaces";
 
+/**
+ * @slot slot - The text content. When provided, overrides the `text` prop.
+ */
 @Component({
   scoped: true,
   shadow: false,

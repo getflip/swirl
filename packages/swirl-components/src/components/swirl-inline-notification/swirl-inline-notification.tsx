@@ -14,6 +14,9 @@ export type SwirlNotificationBorderRadius =
   | (typeof swirlNotificationBorderRadiusTokens)[number]
   | string;
 
+/**
+ * @slot slot - The notification content (e.g. description, links).
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-inline-notification.css",

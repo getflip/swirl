@@ -127,6 +127,12 @@
                 "text": "CustomEvent<string>"
               }
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The accordion items (e.g. swirl-accordion-item)."
+            }
           ]
         }
       ],
@@ -332,6 +338,10 @@
             {
               "name": "media",
               "description": "Media slot for content to be displayed before the content."
+            },
+            {
+              "name": "slot",
+              "description": "The accordion item content."
             },
             {
               "name": "trailing",
@@ -1087,7 +1097,7 @@
               "description": "The app bar's heading element"
             },
             {
-              "name": "heading",
+              "name": "right-controls",
               "description": "Container for controls displayed at the end of the bar"
             }
           ]
@@ -8606,7 +8616,7 @@
           "slots": [
             {
               "name": "controls",
-              "description": "The component content"
+              "description": "The action controls (e.g. buttons)."
             },
             {
               "name": "illustration",
@@ -8614,7 +8624,7 @@
             },
             {
               "name": "slot",
-              "description": "The component content"
+              "description": "The main content (e.g. heading, description)."
             }
           ]
         }
@@ -33839,6 +33849,12 @@
               "readonly": true,
               "attribute": "label"
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The image grid items (e.g. swirl-image-grid-item)."
+            }
           ]
         }
       ],
@@ -34322,6 +34338,12 @@
               "readonly": true,
               "attribute": "intent"
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The notification content (e.g. description, links)."
+            }
           ]
         }
       ],
@@ -34661,6 +34683,10 @@
             }
           ],
           "slots": [
+            {
+              "name": "slot",
+              "description": "The lightbox slides (swirl-file-viewer elements)."
+            },
             {
               "name": "toolbar",
               "description": "Slot for additional toolbar items displayed in the header."
@@ -35230,6 +35256,12 @@
                 "text": "CustomEvent<string>"
               }
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The menu items (e.g. swirl-menu-item)."
+            }
           ]
         }
       ],
@@ -35499,6 +35531,10 @@
             {
               "name": "avatar",
               "description": "Avatar displayed inside the item"
+            },
+            {
+              "name": "slot",
+              "description": "The menu item content (e.g. submenu with nested swirl-menu)."
             }
           ]
         }
@@ -36777,6 +36813,12 @@
                 "text": "CustomEvent<string[]>"
               }
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The option list items and sections (e.g. swirl-option-list-item, swirl-option-list-section)."
+            }
           ]
         }
       ],
@@ -37990,6 +38032,12 @@
                 "text": "CustomEvent<void>"
               }
             }
+          ],
+          "slots": [
+            {
+              "name": "menu-items",
+              "description": "Optional menu items displayed in the file menu."
+            }
           ]
         }
       ],
@@ -38764,6 +38812,12 @@
               "readonly": true,
               "attribute": "trigger-on-hover"
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The trigger element (e.g. a button) that opens the popover."
+            }
           ]
         }
       ],
@@ -39183,6 +39237,12 @@
                 "text": "CustomEvent<string>"
               }
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The radio options (e.g. swirl-radio)."
+            }
           ]
         }
       ],
@@ -39531,6 +39591,12 @@
                   }
                 ]
               }
+            }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The resource list items and sections (e.g. swirl-resource-list-item, swirl-resource-list-section)."
             }
           ]
         }
@@ -41510,10 +41576,6 @@
               "description": "User avatar positioned on the header's right-hand side."
             },
             {
-              "name": "default",
-              "description": "Contents of the main area."
-            },
-            {
               "name": "left-header-tools",
               "description": "Tools positioned on the header's left-hand side."
             },
@@ -41536,6 +41598,14 @@
             {
               "name": "right-header-tools",
               "description": "Tools positioned on the header's right-hand side."
+            },
+            {
+              "name": "secondary-nav",
+              "description": "Items shown in the secondary navigation area (e.g. when using grid layout)."
+            },
+            {
+              "name": "slot",
+              "description": "Contents of the main area."
             }
           ]
         }
@@ -41884,8 +41954,8 @@
           ],
           "slots": [
             {
-              "name": "slot",
-              "description": "image or icon to display"
+              "name": "icon",
+              "description": "Image or icon to display in the navigation item."
             }
           ]
         }
@@ -42448,6 +42518,12 @@
               "default": "false",
               "readonly": true,
               "attribute": "wrap"
+            }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The stack items."
             }
           ]
         }
@@ -52580,6 +52656,12 @@
               "readonly": true,
               "attribute": "white-space"
             }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The text content. When provided, overrides the `text` prop."
+            }
           ]
         }
       ],
@@ -54194,6 +54276,12 @@
               }
             }
           ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The toast content. When provided, overrides the `content` prop."
+            }
+          ],
           "cssParts": [
             {
               "name": "toast__content"
@@ -54863,6 +54951,12 @@
                   ]
                 }
               }
+            }
+          ],
+          "slots": [
+            {
+              "name": "slot",
+              "description": "The element that triggers the tooltip (e.g. a button). The tooltip content is taken from the `content` prop."
             }
           ],
           "cssParts": [

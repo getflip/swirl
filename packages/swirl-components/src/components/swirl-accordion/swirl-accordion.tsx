@@ -9,6 +9,9 @@ import {
   Prop,
 } from "@stencil/core";
 
+/**
+ * @slot slot - The accordion items (e.g. swirl-accordion-item).
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-accordion.css",
