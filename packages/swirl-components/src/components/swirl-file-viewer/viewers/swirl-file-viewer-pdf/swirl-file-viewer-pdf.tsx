@@ -273,10 +273,9 @@ export class SwirlFileViewerPdf {
     this.renderingPageNumbers = [...this.renderingPageNumbers, page.pageNumber];
 
     const scale = forPrint ? this.getPrintScale(page) : this.getScale(page);
-    const outputScale = window.devicePixelRatio || 1;
+    const outputScale = Math.max(window.devicePixelRatio || 2, 2);
 
-    const transform =
-      outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+    const transform = [outputScale, 0, 0, outputScale, 0, 0];
 
     const viewport = page.getViewport({ scale });
     const context = canvas.getContext("2d");
