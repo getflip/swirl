@@ -65,7 +65,7 @@ export interface ComponentIndexEntry {
   events: { name: string; type?: string }[];
   slots: { name: string; description?: string }[];
   methods: { name: string; description?: string }[];
-  a11yMusts?: string;
+  accessibilityInfo?: string;
   compositionRules?: string;
   relatedComponents: string[];
   status: "stable" | "deprecated" | "experimental";

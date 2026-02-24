@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
+import { readRelatedComponentsFromMdx } from "./agent-docs";
 import type {
   AgentComponentsIndex,
   ComponentIndexEntry,
@@ -11,10 +12,10 @@ import type {
  * Build dist/agent/components-index.json from the augmented custom elements
  * manifest.
  */
-
 export function buildAgentComponentsIndex(
   manifestPath: string,
-  outPath: string
+  outPath: string,
+  componentsRoot: string
 ): void {
   const raw = readFileSync(manifestPath, "utf8");
   const manifest = JSON.parse(raw) as CustomElementsManifest;
@@ -30,7 +31,7 @@ export function buildAgentComponentsIndex(
         continue;
       }
 
-      components.push(declToIndexEntry(decl));
+      components.push(declToIndexEntry(decl, componentsRoot));
     }
   }
 
@@ -47,9 +48,14 @@ export function buildAgentComponentsIndex(
   );
 }
 
-function declToIndexEntry(decl: Declaration): ComponentIndexEntry {
+function declToIndexEntry(
+  decl: Declaration,
+  componentsRoot: string
+): ComponentIndexEntry {
   const tag = decl.tagName!;
-  const { summary, whenToUse, a11yMusts } = parseDescription(decl.description);
+  const { summary, whenToUse, accessibilityInfo } = parseDescription(
+    decl.description
+  );
   const { requiredProps, optionalProps } = getProps(decl);
   const events =
     (
@@ -70,7 +76,9 @@ function declToIndexEntry(decl: Declaration): ComponentIndexEntry {
     )
       ?.filter((m) => m.kind === "method")
       ?.map((m) => ({ name: m.name, description: m.description })) ?? [];
-  const relatedComponents = extractRelatedComponents(decl.description);
+  const mdxPath = join(componentsRoot, "src", "components", tag, `${tag}.mdx`);
+  const relatedSection = readRelatedComponentsFromMdx(mdxPath);
+  const relatedComponents = parseRelatedComponentTags(relatedSection);
 
   return {
     tag,
@@ -81,7 +89,7 @@ function declToIndexEntry(decl: Declaration): ComponentIndexEntry {
     events,
     slots,
     methods,
-    a11yMusts: a11yMusts || undefined,
+    accessibilityInfo: accessibilityInfo || undefined,
     compositionRules: undefined,
     relatedComponents,
     status: "stable",
@@ -91,7 +99,7 @@ function declToIndexEntry(decl: Declaration): ComponentIndexEntry {
 function parseDescription(desc: string | undefined): {
   summary: string;
   whenToUse?: string;
-  a11yMusts?: string;
+  accessibilityInfo?: string;
 } {
   if (!desc || !desc.trim()) {
     return { summary: "" };
@@ -107,7 +115,7 @@ function parseDescription(desc: string | undefined): {
 
   return {
     summary,
-    a11yMusts: a11y ? stripMarkdown(a11y).slice(0, 2000) : undefined,
+    accessibilityInfo: a11y ? stripMarkdown(a11y).slice(0, 2000) : undefined,
   };
 }
 
@@ -169,23 +177,18 @@ function getProps(decl: Declaration): {
   };
 }
 
-function extractRelatedComponents(desc: string | undefined): string[] {
-  if (!desc) {
+/**
+ * Extract component tag names from MDX "Related components" list links only.
+ */
+function parseRelatedComponentTags(sectionText: string): string[] {
+  if (!sectionText || sectionText.includes("No related components.")) {
     return [];
   }
-
-  const matches = desc.matchAll(/\[(Swirl[A-Za-z0-9]+)\]/g);
-  const names = new Set<string>();
-
+  const tags = new Set<string>();
+  // Match [swirl-tag-name](...) so we only get explicitly listed components
+  const matches = sectionText.matchAll(/\[(swirl-[a-z0-9-]+)\]\([^)]+\)/g);
   for (const m of matches) {
-    names.add(m[1]);
+    tags.add(m[1]);
   }
-
-  return [...names].map(camelToKebab).filter((t) => t.startsWith("swirl-"));
-}
-
-function camelToKebab(camel: string): string {
-  return camel
-    .replace(/([a-z])([A-Z])/g, (_, a, b) => `${a}-${b.toLowerCase()}`)
-    .toLowerCase();
+  return [...tags];
 }

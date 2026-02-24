@@ -6,10 +6,10 @@ import type { CustomElementsManifest, Declaration } from "./types";
  * Build dist/agent/components/<tag>.md for each custom element from the
  * manifest.
  */
-
 export function buildAgentComponentDocs(
   manifestPath: string,
-  outDir: string
+  outDir: string,
+  componentsRoot: string
 ): void {
   const raw = readFileSync(manifestPath, "utf8");
   const manifest = JSON.parse(raw) as CustomElementsManifest;
@@ -28,14 +28,49 @@ export function buildAgentComponentDocs(
       }
 
       const tag = decl.tagName;
-      const md = declarationToMarkdown(decl);
+      const mdxPath = join(
+        componentsRoot,
+        "src",
+        "components",
+        tag,
+        `${tag}.mdx`
+      );
+      const relatedSection = readRelatedComponentsFromMdx(mdxPath);
+      const md = declarationToMarkdown(decl, relatedSection);
 
       writeFileSync(join(componentsDir, `${tag}.md`), md, "utf8");
     }
   }
 }
 
-function declarationToMarkdown(decl: Declaration): string {
+export function readRelatedComponentsFromMdx(mdxPath: string): string {
+  let content: string;
+
+  try {
+    content = readFileSync(mdxPath, "utf8");
+  } catch {
+    return "";
+  }
+
+  const heading = "## Related components";
+  const idx = content.indexOf(heading);
+
+  if (idx < 0) {
+    return "";
+  }
+
+  const start = idx + heading.length;
+  const nextSection = content.indexOf("\n## ", start);
+  const end = nextSection >= 0 ? nextSection : content.length;
+  const section = content.slice(start, end).trim();
+
+  return section;
+}
+
+function declarationToMarkdown(
+  decl: Declaration,
+  relatedSection: string
+): string {
   const tag = decl.tagName!;
   const desc = decl.description ?? "";
   const { purpose, accessibility } = splitDescription(desc);
@@ -52,7 +87,6 @@ function declarationToMarkdown(decl: Declaration): string {
         | { kind: string; name: string; description?: string }[]
         | undefined
     )?.filter((m) => m.kind === "method") ?? [];
-  const related = extractRelatedFromDescription(desc);
 
   const lines: string[] = [
     `# \`<${tag}>\``,
@@ -99,11 +133,9 @@ function declarationToMarkdown(decl: Declaration): string {
           .join("\n")
       : "_None._",
     "",
-    "## Composition",
+    "## Related components",
     "",
-    related.length
-      ? `Use with: ${related.map((t) => `\`<${t}>\``).join(", ")}.`
-      : "_See description for usage context._",
+    relatedSection || "_See description for usage context._",
     "",
     "## Accessibility",
     "",
@@ -259,25 +291,4 @@ function minimalExample(
   }
 
   return `<${tag}></${tag}>`;
-}
-
-function extractRelatedFromDescription(desc: string | undefined): string[] {
-  if (!desc) {
-    return [];
-  }
-
-  const matches = desc.matchAll(/\[(Swirl[A-Za-z0-9]+)\]/g);
-  const names = new Set<string>();
-
-  for (const m of matches) {
-    names.add(m[1]);
-  }
-
-  return [...names].map(camelToKebab).filter((t) => t.startsWith("swirl-"));
-}
-
-function camelToKebab(camel: string): string {
-  return camel
-    .replace(/([a-z])([A-Z])/g, (_, a, b) => `${a}-${b.toLowerCase()}`)
-    .toLowerCase();
 }

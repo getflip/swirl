@@ -39,8 +39,8 @@ entry includes:
 
 - `tag`, `summary`, `whenToUse`, `requiredProps`, `optionalProps`
 - `events`, `slots`, `methods`
-- `a11yMusts`, `compositionRules`, `relatedComponents`, `status` (`stable` |
-  `deprecated` | `experimental`)
+- `accessibilityInfo`, `compositionRules`, `relatedComponents`, `status`
+  (`stable` | `deprecated` | `experimental`)
 
 Schema and field semantics are stable within major package versions; new
 optional fields may be added.

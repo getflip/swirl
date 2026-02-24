@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
 import * as Stories from "./swirl-accordion.stories";
 
 <Meta title="Components/SwirlAccordion" />
@@ -17,6 +17,12 @@ reveal sections of content.
 
 <Controls of={Stories.SwirlAccordion} />
 
+## Related components
+
+- **[swirl-accordion-item](?path=/docs/components-swirlaccordionitem--docs)**
+  (child) — Individual expandable section; use as a direct child of
+  `swirl-accordion`.
+
 ## Accessibility
 
 ### ARIA
@@ -24,13 +30,13 @@ reveal sections of content.
 The component follows the
 [WAI-ARIA Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
 
-| ARIA             | Usage                                                                     |
-| ---------------- | ------------------------------------------------------------------------- |
-| `role="heading"` | Used to provide a heading for each accordion item.                        |
-| `role="button"`  | Contained by the headline of each accordion item.                         |
-| `aria-expanded`  | Set on the item's button.                                                 |
-| `aria-controls`  | Set on the item's button, referencing the controlled content section.     |
-| `role="region"`  | Set on each content section container.                                    |
+| ARIA              | Usage                                                                     |
+| ----------------- | ------------------------------------------------------------------------- |
+| `role="heading"`  | Used to provide a heading for each accordion item.                        |
+| `role="button"`   | Contained by the headline of each accordion item.                         |
+| `aria-expanded`   | Set on the item's button.                                                 |
+| `aria-controls`   | Set on the item's button, referencing the controlled content section.     |
+| `role="region"`   | Set on each content section container.                                    |
 | `aria-labelledby` | Set on each content section container, referencing the associated button. |
 
 ### Keyboard

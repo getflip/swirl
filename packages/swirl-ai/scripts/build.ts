@@ -1,8 +1,8 @@
 import { cpSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { augmentCustomElementsManifest } from "../lib/augment-manifest";
-import { buildAgentComponentsIndex } from "../lib/agent-index";
 import { buildAgentComponentDocs } from "../lib/agent-docs";
+import { buildAgentComponentsIndex } from "../lib/agent-index";
+import { augmentCustomElementsManifest } from "../lib/augment-manifest";
 import type { CustomElementsManifest } from "../lib/types";
 
 const COMPONENTS_ROOT = join(__dirname, "..", "..", "swirl-components");
@@ -14,8 +14,8 @@ const MANIFEST_OUT = join(DIST_DIR, "custom-elements.manifest.json");
 
 generateCustomElementsManifest();
 copyComponentTypes();
-buildAgentComponentsIndex(MANIFEST_OUT, DIST_DIR);
-buildAgentComponentDocs(MANIFEST_OUT, DIST_DIR);
+buildAgentComponentsIndex(MANIFEST_OUT, DIST_DIR, COMPONENTS_ROOT);
+buildAgentComponentDocs(MANIFEST_OUT, DIST_DIR, COMPONENTS_ROOT);
 
 function generateCustomElementsManifest() {
   const manifestString = readFileSync(MANIFEST_SOURCE, "utf8");
@@ -23,7 +23,6 @@ function generateCustomElementsManifest() {
   const augmented = augmentCustomElementsManifest(manifest, COMPONENTS_ROOT);
 
   mkdirSync(DIST_DIR, { recursive: true });
-
   writeFileSync(MANIFEST_OUT, JSON.stringify(augmented, null, 2));
 }
 

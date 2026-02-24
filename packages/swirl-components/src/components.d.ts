@@ -3230,7 +3230,7 @@ export namespace Components {
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "setFullscreen": (isFullscreen: boolean) => Promise<void>;
-        "showFullscreenButton": boolean;
+        "showFullscreenButton"?: boolean;
         /**
           * @default "Close sidebar"
          */
