@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.448.1
+
+### Patch Changes
+
+- [#1470](https://github.com/getflip/swirl/pull/1470)
+  [`578f397c9`](https://github.com/getflip/swirl/commit/578f397c9d30020b5317eae39b6148ccc8a4eea4)
+  Thanks [@paulrohrbeck](https://github.com/paulrohrbeck)! - Add safe area inset
+  for swirl-app-layout
+
+- Updated dependencies
+  [[`578f397c9`](https://github.com/getflip/swirl/commit/578f397c9d30020b5317eae39b6148ccc8a4eea4)]:
+  - @getflip/swirl-components@0.448.1
+
 ## 0.448.0
 
 ### Minor Changes
