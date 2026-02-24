@@ -10,6 +10,15 @@ import {
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
 
+export type SwirlDataCellIntent =
+  | "default"
+  | "critical"
+  | "warning"
+  | "success"
+  | "info"
+  | "special"
+  | "translucent";
+
 /**
  * @slot media - Optional media content (e.g., swirl-avatar, icons). Only swirl-avatar and icon elements are styled.
  * @slot content - Optional content element (e.g., swirl-text-input, swirl-select). When provided, the value prop is ignored. Content automatically takes 100% width when no label is present.
@@ -23,6 +32,7 @@ import { v4 as uuid } from "uuid";
 export class SwirlDataCell {
   @Element() el: HTMLElement;
 
+  @Prop() intent?: SwirlDataCellIntent = "default";
   @Prop() label?: string;
   @Prop() tooltip?: string;
   @Prop() value?: string;
@@ -69,6 +79,7 @@ export class SwirlDataCell {
       "data-cell--has-content": hasContent,
       "data-cell--no-label": !hasLabel,
       "data-cell--interactive": hasCheckbox || hasRadio,
+      [`data-cell--intent-${this.intent}`]: this.intent,
     });
 
     const labelId = `${this.elementId}-label`;

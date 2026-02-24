@@ -23,6 +23,35 @@
   cursor: pointer;
 }
 
+/* Intent backgrounds */
+.data-cell--intent-default {
+  background-color: var(--swirl-tag-background-default);
+}
+
+.data-cell--intent-info {
+  background-color: var(--s-surface-info-subdued);
+}
+
+.data-cell--intent-critical {
+  background-color: var(--s-surface-critical-subdued);
+}
+
+.data-cell--intent-warning {
+  background-color: var(--s-surface-warning-subdued);
+}
+
+.data-cell--intent-success {
+  background-color: var(--s-surface-success-subdued);
+}
+
+.data-cell--intent-special {
+  background-color: var(--s-decorative-grape-surface-subdued);
+}
+
+.data-cell--intent-translucent {
+  background-color: var(--s-surface-on-image-default);
+}
+
 .data-cell--vertical {
   align-items: center;
 }
