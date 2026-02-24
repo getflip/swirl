@@ -1,4 +1,11 @@
 import { readFile } from "node:fs/promises";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const storybookClientLogger = require.resolve(
+  "storybook/internal/client-logger"
+);
+const storybookPreviewApi = require.resolve("storybook/preview-api");
 
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 export default {
@@ -38,7 +45,15 @@ export default {
     };
     return [...existingIndexers, mdxIndexer];
   },
-  viteFinal: (config) => {
+  viteFinal: (config, { configType }) => {
+    // Alias @storybook/* for Stencil docs addon
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@storybook/client-logger": storybookClientLogger,
+      "@storybook/preview-api": storybookPreviewApi,
+    };
+
     // Workaround for Storybook 10 MDX plugin generating file:// URLs that Vite cannot resolve
     // https://github.com/storybookjs/storybook/issues/33537
     config.plugins = config.plugins || [];
@@ -55,6 +70,7 @@ export default {
         return null;
       },
     });
+
     return config;
   },
 };

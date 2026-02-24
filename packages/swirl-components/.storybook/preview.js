@@ -1,13 +1,8 @@
-import { defineCustomElements } from "../dist/components";
 import { setStencilDocJson } from "@pxtrn/storybook-addon-docs-stencil";
 import { withThemeByClassName } from "@storybook/addon-themes";
 
-import swirlTheme from "./theme";
 import docJson from "../components.json";
-
-import "../dist/swirl-components/swirl-components.css";
-
-defineCustomElements();
+import swirlTheme from "./theme";
 
 if (docJson) {
   setStencilDocJson(docJson);
