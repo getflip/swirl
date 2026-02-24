@@ -167,6 +167,21 @@ describe("swirl-data-cell", () => {
     }
   });
 
+  it("applies intent background color", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell label="Status" value="Pending" intent="warning" />`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--intent-warning")).toBe(
+      true
+    );
+    expect(getComputedStyle(dataCell!).backgroundColor).not.toBe(
+      "rgba(0, 0, 0, 0)"
+    );
+  });
+
   it("renders with background and padding styles", async () => {
     const page = await newSpecPage({
       components: [SwirlDataCell],
@@ -243,10 +258,13 @@ describe("swirl-data-cell", () => {
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
 
-    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    const inputWrapper =
+      page.root.shadowRoot.querySelector(".data-cell__input");
     expect(inputWrapper).toBeTruthy();
 
-    const textInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    const textInput = page.root.querySelector(
+      'swirl-text-input[slot="content"]'
+    );
     expect(textInput).toBeTruthy();
     expect(textInput?.getAttribute("type")).toBe("text");
   });
@@ -264,10 +282,13 @@ describe("swirl-data-cell", () => {
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
 
-    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    const inputWrapper =
+      page.root.shadowRoot.querySelector(".data-cell__input");
     expect(inputWrapper).toBeTruthy();
 
-    const emailInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    const emailInput = page.root.querySelector(
+      'swirl-text-input[slot="content"]'
+    );
     expect(emailInput).toBeTruthy();
     expect(emailInput?.getAttribute("type")).toBe("email");
   });
@@ -285,10 +306,13 @@ describe("swirl-data-cell", () => {
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
 
-    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    const inputWrapper =
+      page.root.shadowRoot.querySelector(".data-cell__input");
     expect(inputWrapper).toBeTruthy();
 
-    const numberInput = page.root.querySelector('swirl-text-input[slot="content"]');
+    const numberInput = page.root.querySelector(
+      'swirl-text-input[slot="content"]'
+    );
     expect(numberInput).toBeTruthy();
     expect(numberInput?.getAttribute("type")).toBe("number");
   });
@@ -309,7 +333,8 @@ describe("swirl-data-cell", () => {
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
 
-    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    const inputWrapper =
+      page.root.shadowRoot.querySelector(".data-cell__input");
     expect(inputWrapper).toBeTruthy();
 
     const selectInput = page.root.querySelector('swirl-select[slot="content"]');
@@ -330,13 +355,16 @@ describe("swirl-data-cell", () => {
     const dataCell = page.root.shadowRoot.querySelector(".data-cell");
     expect(dataCell?.classList.contains("data-cell--has-content")).toBeTruthy();
 
-    const inputWrapper = page.root.shadowRoot.querySelector(".data-cell__input");
+    const inputWrapper =
+      page.root.shadowRoot.querySelector(".data-cell__input");
     expect(inputWrapper).toBeTruthy();
 
     const checkbox = page.root.querySelector('swirl-checkbox[slot="content"]');
     expect(checkbox).toBeTruthy();
     expect(checkbox?.getAttribute("label")).toBe("Subscribe to newsletter");
-    expect(checkbox?.getAttribute("description")).toBe("Receive updates about new features");
+    expect(checkbox?.getAttribute("description")).toBe(
+      "Receive updates about new features"
+    );
     expect(checkbox?.getAttribute("checked")).toBe("true");
   });
 
@@ -371,6 +399,5 @@ describe("swirl-data-cell", () => {
     expect(radios[0]?.getAttribute("label")).toBe("Standard plan");
     expect(radios[0]?.getAttribute("value")).toBe("standard");
     expect(radios[0]?.getAttribute("input-name")).toBe("plan");
-
   });
 });

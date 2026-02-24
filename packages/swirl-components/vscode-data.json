@@ -2622,6 +2622,33 @@
       },
       "attributes": [
         {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "special"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "translucent"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         },

@@ -25,6 +25,7 @@ import { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } fr
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
+import { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlDialogToggleEvent } from "./utils";
@@ -106,6 +107,7 @@ export { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } fr
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
+export { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlDialogToggleEvent } from "./utils";
@@ -829,6 +831,10 @@ export namespace Components {
         "toggleSidebar": () => Promise<void>;
     }
     interface SwirlDataCell {
+        /**
+          * @default "default"
+         */
+        "intent"?: SwirlDataCellIntent;
         "label"?: string;
         "tooltip"?: string;
         "value"?: string;
@@ -10063,6 +10069,10 @@ declare namespace LocalJSX {
         "subheading"?: string;
     }
     interface SwirlDataCell {
+        /**
+          * @default "default"
+         */
+        "intent"?: SwirlDataCellIntent;
         "label"?: string;
         "onValueChange"?: (event: SwirlDataCellCustomEvent<MouseEvent>) => void;
         "tooltip"?: string;
