@@ -1,24 +1,12 @@
-import remarkGfm from "remark-gfm";
+import { readFile } from "node:fs/promises";
 
-module.exports = {
+/** @type { import('@storybook/html-vite').StorybookConfig } */
+export default {
   addons: [
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm],
-          },
-        },
-      },
-    },
-    "@storybook/addon-controls",
-    "@storybook/addon-measure",
-    "@storybook/addon-toolbars",
-    "@storybook/addon-viewport",
+    "@storybook/addon-docs",
     "@pxtrn/storybook-addon-docs-stencil",
     "@storybook/addon-a11y",
-    "storybook-addon-themes",
+    "@storybook/addon-themes",
     "storybook-design-token",
   ],
   core: { disableTelemetry: true },
@@ -31,4 +19,42 @@ module.exports = {
   },
   staticDirs: ["../src/assets", "../public"],
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  experimental_indexers: async (existingIndexers) => {
+    const mdxIndexer = {
+      test: /\.stories\.mdx$/,
+      createIndex: async (fileName, { makeTitle }) => {
+        const content = await readFile(fileName, "utf-8");
+        const match = content.match(/title=["']([^"']+)["']/);
+        const title = match ? match[1] : undefined;
+        return [
+          {
+            type: "docs",
+            importPath: fileName,
+            exportName: "default",
+            title: makeTitle(title),
+          },
+        ];
+      },
+    };
+    return [...existingIndexers, mdxIndexer];
+  },
+  viteFinal: (config) => {
+    // Workaround for Storybook 10 MDX plugin generating file:// URLs that Vite cannot resolve
+    // https://github.com/storybookjs/storybook/issues/33537
+    config.plugins = config.plugins || [];
+    config.plugins.push({
+      name: "fix-mdx-react-shim",
+      enforce: "pre",
+      resolveId(source) {
+        if (
+          source.startsWith("file://") &&
+          source.includes("mdx-react-shim.js")
+        ) {
+          return new URL(source).pathname;
+        }
+        return null;
+      },
+    });
+    return config;
+  },
 };

@@ -23,7 +23,7 @@ export const cssTemplate = `:host {
 }
 `;
 
-export const docsTemplate = `import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+export const docsTemplate = `import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import * as Stories from "./{{name}}.stories";
 
 <Meta title="Components/{{pascalCase name}}" />

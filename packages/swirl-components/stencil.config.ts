@@ -132,5 +132,10 @@ export const config: Config = {
     transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
     setupFilesAfterEnv: ["<rootDir>/test-setup.ts"],
   },
-  watchIgnoredRegex: [/pdf\.worker\.min\.js/, /vscode-data\.json/],
+  watchIgnoredRegex: [
+    /pdf\.worker\.min\.js/,
+    /vscode-data\.json/,
+    /components\.json$/,
+    /custom-elements\.manifest\.json$/,
+  ],
 };
