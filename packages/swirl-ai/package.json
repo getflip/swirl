@@ -9,8 +9,13 @@
     "url": "https://github.com/getflip/swirl/issues"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
+  "exports": {
+    "./manifest": "./dist/custom-elements.manifest.json",
+    "./agent-index": "./dist/agent/components-index.json"
+  },
   "devDependencies": {
     "@getflip/swirl-components": "0.448.0",
     "@types/node": "25.3.0",

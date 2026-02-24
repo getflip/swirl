@@ -73,7 +73,7 @@ export class SwirlModal {
   @Prop() secondaryContentPaddingBlockStart?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineEnd?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineStart?: SwirlModalSpacing;
-  @Prop() showFullscreenButton: boolean;
+  @Prop() showFullscreenButton?: boolean;
   @Prop() sidebarLabel?: string;
   @Prop() sidebarPadded?: boolean = true;
   @Prop() sidebarFooterPadded?: boolean = true;
