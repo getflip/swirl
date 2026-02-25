@@ -1,5 +1,32 @@
 # @getflip/swirl-components-angular
 
+## 0.449.0
+
+### Minor Changes
+
+- [#1475](https://github.com/getflip/swirl/pull/1475)
+  [`d7393b37b`](https://github.com/getflip/swirl/commit/d7393b37b0992afeca65b4a60fdb81fef1da16dd)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add suffix
+  slot for swirl form control
+
+* [#1474](https://github.com/getflip/swirl/pull/1474)
+  [`45cc56d11`](https://github.com/getflip/swirl/commit/45cc56d1119f8a9419117e34fc428dc9dcd11a0d)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add intent
+  prop to DataCell component
+
+### Patch Changes
+
+- [#1472](https://github.com/getflip/swirl/pull/1472)
+  [`340398697`](https://github.com/getflip/swirl/commit/34039869799a51f34d5ee4948214b5aca6a77f67)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix output
+  scaling in swirl-file-viewer-pdf
+
+- Updated dependencies
+  [[`340398697`](https://github.com/getflip/swirl/commit/34039869799a51f34d5ee4948214b5aca6a77f67),
+  [`d7393b37b`](https://github.com/getflip/swirl/commit/d7393b37b0992afeca65b4a60fdb81fef1da16dd),
+  [`45cc56d11`](https://github.com/getflip/swirl/commit/45cc56d1119f8a9419117e34fc428dc9dcd11a0d)]:
+  - @getflip/swirl-components@0.449.0
+
 ## 0.448.1
 
 ### Patch Changes
