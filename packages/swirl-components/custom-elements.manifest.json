@@ -3,34 +3,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/prototypes/file-manager/file-manager.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "customElement": true,
-          "tagName": "file-manager",
-          "name": "FileManager"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FileManager",
-          "declaration": {
-            "name": "FileManager"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "file-manager",
-          "declaration": {
-            "name": "FileManager"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/swirl-accordion/swirl-accordion.tsx",
       "declarations": [
         {

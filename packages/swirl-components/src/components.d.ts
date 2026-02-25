@@ -170,8 +170,6 @@ export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewS
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export namespace Components {
-    interface FileManager {
-    }
     interface SwirlAccordion {
         /**
           * Collapses an accordion item.
@@ -5400,12 +5398,6 @@ export interface SwirlTreeViewItemCustomEvent<T> extends CustomEvent<T> {
     target: HTMLSwirlTreeViewItemElement;
 }
 declare global {
-    interface HTMLFileManagerElement extends Components.FileManager, HTMLStencilElement {
-    }
-    var HTMLFileManagerElement: {
-        prototype: HTMLFileManagerElement;
-        new (): HTMLFileManagerElement;
-    };
     interface HTMLSwirlAccordionElementEventMap {
         "expandedItemChange": string;
     }
@@ -8986,7 +8978,6 @@ declare global {
         new (): HTMLSwirlVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
-        "file-manager": HTMLFileManagerElement;
         "swirl-accordion": HTMLSwirlAccordionElement;
         "swirl-accordion-item": HTMLSwirlAccordionItemElement;
         "swirl-action-list": HTMLSwirlActionListElement;
@@ -9465,8 +9456,6 @@ declare global {
 declare namespace LocalJSX {
     type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
 
-    interface FileManager {
-    }
     interface SwirlAccordion {
         /**
           * @default false
@@ -16745,7 +16734,6 @@ declare namespace LocalJSX {
     }
 
     interface IntrinsicElements {
-        "file-manager": FileManager;
         "swirl-accordion": Omit<SwirlAccordion, keyof SwirlAccordionAttributes> & { [K in keyof SwirlAccordion & keyof SwirlAccordionAttributes]?: SwirlAccordion[K] } & { [K in keyof SwirlAccordion & keyof SwirlAccordionAttributes as `attr:${K}`]?: SwirlAccordionAttributes[K] } & { [K in keyof SwirlAccordion & keyof SwirlAccordionAttributes as `prop:${K}`]?: SwirlAccordion[K] };
         "swirl-accordion-item": Omit<SwirlAccordionItem, keyof SwirlAccordionItemAttributes> & { [K in keyof SwirlAccordionItem & keyof SwirlAccordionItemAttributes]?: SwirlAccordionItem[K] } & { [K in keyof SwirlAccordionItem & keyof SwirlAccordionItemAttributes as `attr:${K}`]?: SwirlAccordionItemAttributes[K] } & { [K in keyof SwirlAccordionItem & keyof SwirlAccordionItemAttributes as `prop:${K}`]?: SwirlAccordionItem[K] } & OneOf<"heading", SwirlAccordionItem["heading"], SwirlAccordionItemAttributes["heading"]>;
         "swirl-action-list": SwirlActionList;
@@ -17225,7 +17213,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "file-manager": LocalJSX.IntrinsicElements["file-manager"] & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
             "swirl-accordion": LocalJSX.IntrinsicElements["swirl-accordion"] & JSXBase.HTMLAttributes<HTMLSwirlAccordionElement>;
             "swirl-accordion-item": LocalJSX.IntrinsicElements["swirl-accordion-item"] & JSXBase.HTMLAttributes<HTMLSwirlAccordionItemElement>;
             "swirl-action-list": LocalJSX.IntrinsicElements["swirl-action-list"] & JSXBase.HTMLAttributes<HTMLSwirlActionListElement>;
