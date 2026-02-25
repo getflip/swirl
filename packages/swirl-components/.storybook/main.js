@@ -51,7 +51,7 @@ export default {
     backgrounds: false,
     actions: false,
   },
-  staticDirs: ["../src/assets", "../public"],
+  staticDirs: ["../src/assets", "../public", "../dist"],
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   experimental_indexers: async (existingIndexers) => [
     ...existingIndexers,
