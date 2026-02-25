@@ -425,6 +425,10 @@
 }
 
 .form-control__input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-space-8);
+
   &::slotted([contenteditable]:focus) {
     outline: none;
   }
@@ -445,5 +449,16 @@
       font-size: var(--s-font-size-sm);
       line-height: var(--s-line-height-sm);
     }
+  }
+}
+
+.form-control__bottom {
+  display: none;
+  width: 100%;
+}
+
+.form-control--has-bottom {
+  .form-control__bottom {
+    display: block;
   }
 }

@@ -29,6 +29,7 @@ describe("swirl-form-control", () => {
               </span>
               <span class="form-control__input">
                 <swirl-text-input label="Label"></swirl-text-input>
+                <span class="form-control__bottom"></span>
               </span>
             </label>
           </span>
