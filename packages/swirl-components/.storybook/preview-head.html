@@ -1,16 +1,128 @@
 <link rel="stylesheet" href="/dist/swirl-components/swirl-components.css" />
+
 <script
   type="module"
   src="/dist/swirl-components/swirl-components.esm.js"
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+
 <style>
+  .sb-main-padded {
+    padding: 3rem 2rem;
+    min-height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    gap: 3rem;
+  }
+
   .docs-story {
     background-color: var(--s-background-default);
   }
 
+  /* Storybook docs typography (matches theme.js: fontBase, fontCode, textColor) */
   .sbdocs.sbdocs-content {
     max-width: 47rem;
+    font-family: "Inter", "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .sbdocs h1,
+  .sbdocs h2,
+  .sbdocs h3,
+  .sbdocs h4,
+  .sbdocs h5,
+  .sbdocs h6 {
+    font-family: "Inter", "Open Sans", sans-serif;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.25;
+  }
+
+  .sbdocs h1 {
+    font-size: 2rem;
+  }
+  .sbdocs h2 {
+    font-size: 1.5rem;
+  }
+  .sbdocs h3 {
+    font-size: 1.25rem;
+  }
+  .sbdocs h4 {
+    font-size: 1.125rem;
+  }
+  .sbdocs h5 {
+    font-size: 1rem;
+  }
+  .sbdocs h6 {
+    font-size: 0.875rem;
+  }
+
+  .sbdocs p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .sbdocs a {
+    color: rgba(0, 38, 255, 1);
+    text-decoration: none;
+  }
+
+  .sbdocs a:hover {
+    text-decoration: underline;
+  }
+
+  .sbdocs code {
+    font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
+      "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
+      monospace;
+    font-size: 12px;
+    padding: 0.1em 0.4em;
+    background: rgba(0, 6, 29, 0.05);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 6, 29, 0.09);
+  }
+
+  .sbdocs pre {
+    font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
+      "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
+      monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 1rem;
+    background: rgba(0, 6, 29, 0.05);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 6, 29, 0.09);
+    overflow: auto;
+  }
+
+  .sbdocs pre code {
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: inherit;
+  }
+
+  .sbdocs blockquote {
+    margin: 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 4px solid rgba(0, 6, 29, 0.09);
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .sbdocs strong {
+    font-weight: 700;
+  }
+
+  .sbdocs hr {
+    border: none;
+    border-top: 1px solid rgba(0, 6, 29, 0.09);
   }
 
   .sbdocs .docblock-source,
@@ -61,9 +173,27 @@
     margin-left: 1.3rem;
   }
 
+  .sbdocs ul,
+  .sbdocs ol {
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .sbdocs li {
+    margin-top: 0.25rem;
+  }
+
   .sbdocs table {
     table-layout: fixed;
     width: 100%;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .sbdocs table th,
+  .sbdocs table td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(0, 6, 29, 0.09);
+    text-align: left;
   }
 
   .sbdocs table tr td {
