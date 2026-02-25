@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.450.0
+
+### Minor Changes
+
+- [#1477](https://github.com/getflip/swirl/pull/1477)
+  [`5c8f08415`](https://github.com/getflip/swirl/commit/5c8f08415fe5f1666febd9685965cf020ba13773)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add default
+  icon wrapper color
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5c8f08415`](https://github.com/getflip/swirl/commit/5c8f08415fe5f1666febd9685965cf020ba13773)]:
+  - @getflip/swirl-components@0.450.0
+
 ## 0.449.0
 
 ### Minor Changes
