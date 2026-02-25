@@ -6782,6 +6782,19 @@
           "name": "SwirlDataCell",
           "attributes": [
             {
+              "name": "intent",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"success\" | \"translucent\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlDataCellIntent"
+                  }
+                ]
+              },
+              "default": "\"default\"",
+              "fieldName": "intent"
+            },
+            {
               "name": "label",
               "type": {
                 "text": "string"
@@ -6812,6 +6825,21 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "intent",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"success\" | \"translucent\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlDataCellIntent"
+                  }
+                ]
+              },
+              "default": "\"default\"",
+              "readonly": true,
+              "attribute": "intent"
+            },
             {
               "kind": "field",
               "name": "label",
@@ -10725,6 +10753,10 @@
             }
           ],
           "slots": [
+            {
+              "name": "bottom",
+              "description": "Additional content below the input, e.g. `<div slot=\"bottom\">…</div>`"
+            },
             {
               "name": "prefix",
               "description": "The prefix element, e.g. `<select slot=\"prefix\">…</select>`"

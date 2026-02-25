@@ -14600,6 +14600,7 @@ declare namespace LocalJSX {
         "hideContentHeader": boolean;
     }
     interface SwirlDataCellAttributes {
+        "intent": SwirlDataCellIntent;
         "label": string;
         "tooltip": string;
         "value": string;
