@@ -18,6 +18,7 @@ export type SwirlFormControlLabelPosition = "inside" | "outside";
 /**
  * @slot prefix - The prefix element, e.g. `<select slot="prefix">…</select>`
  * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
+ * @slot suffix - The suffix element, e.g. `<span slot="suffix">…</span>`
  */
 @Component({
   /**
@@ -237,6 +238,7 @@ export class SwirlFormControl {
     );
 
     const hasPrefix = Boolean(this.el.querySelector('[slot="prefix"]'));
+    const hasSuffix = Boolean(this.el.querySelector('[slot="suffix"]'));
     const hasIcon = Boolean(this.icon);
 
     const hasValue = Array.isArray(this.inputValue)
@@ -265,6 +267,7 @@ export class SwirlFormControl {
         "form-control--has-focus": this.hasFocus,
         "form-control--has-placeholder": hasPlaceholder,
         "form-control--has-prefix": hasPrefix,
+        "form-control--has-suffix": hasSuffix,
         "form-control--has-icon": hasIcon,
         "form-control--has-value": hasValue,
         "form-control--hide-label": this.hideLabel,
@@ -302,10 +305,7 @@ export class SwirlFormControl {
                 )}
                 {this.tooltip && (
                   <span class="form-control__tooltip">
-                    <swirl-tooltip
-                      content={this.tooltip}
-                      position="top"
-                    >
+                    <swirl-tooltip content={this.tooltip} position="top">
                       <swirl-icon-help size={16} tabindex="0"></swirl-icon-help>
                     </swirl-tooltip>
                   </span>
@@ -313,6 +313,9 @@ export class SwirlFormControl {
               </span>
               <span class="form-control__input">
                 <slot></slot>
+                <span class="form-control__suffix">
+                  <slot name="suffix"></slot>
+                </span>
               </span>
             </LabelTag>
           </span>

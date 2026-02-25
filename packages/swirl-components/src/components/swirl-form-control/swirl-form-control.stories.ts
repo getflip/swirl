@@ -162,6 +162,16 @@ const Template = (args) => {
     <swirl-text-input type="text"></swirl-text-input>
   `;
 
+  const suffix = generateStoryElement("swirl-form-control", {
+    ...args,
+    label: "With additional content",
+  });
+
+  suffix.innerHTML = `
+    <swirl-text-input type="text"></swirl-text-input>
+    <swirl-button slot="suffix" label="Delete" variant="outline" intent="critical" icon="<swirl-icon-delete></swirl-icon-delete>"></swirl-button>
+    `;
+
   container.append(
     "\n  ",
     textInput,
@@ -183,6 +193,8 @@ const Template = (args) => {
     contenteditable,
     "\n",
     iconPrefix,
+    "\n",
+    suffix,
     "\n"
   );
 
