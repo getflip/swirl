@@ -86,3 +86,8 @@
   background-color: var(--s-decorative-radish-surface-subdued);
   color: var(--s-decorative-radish-text);
 }
+
+.icon-wrapper--background-color-default {
+  background-color: var(--s-background-default);
+  color: var(--s-icon-default);
+}
