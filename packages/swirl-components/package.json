@@ -73,6 +73,7 @@
     "@stencil/react-output-target": "0.5.3",
     "@storybook/addon-a11y": "10.2.11",
     "@storybook/addon-docs": "10.2.11",
+    "@storybook/addon-mdx-gfm": "8.6.12",
     "@storybook/addon-themes": "10.2.11",
     "@storybook/html-vite": "10.2.11",
     "@types/autoprefixer": "10.2.0",

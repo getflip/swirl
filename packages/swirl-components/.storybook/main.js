@@ -13,6 +13,7 @@ const VIRTUAL_PREFIX = "virtual:stories-mdx-docs";
 export default {
   addons: [
     "@storybook/addon-docs",
+    "@storybook/addon-mdx-gfm",
     "@pxtrn/storybook-addon-docs-stencil",
     "@storybook/addon-a11y",
     "@storybook/addon-themes",
