@@ -36,7 +36,8 @@ export function buildAgentComponentDocs(
         `${tag}.mdx`
       );
       const relatedSection = readRelatedComponentsFromMdx(mdxPath);
-      const md = declarationToMarkdown(decl, relatedSection);
+      const usageExample = readSourceFromMdx(mdxPath);
+      const md = declarationToMarkdown(decl, relatedSection, usageExample);
 
       writeFileSync(join(componentsDir, `${tag}.md`), md, "utf8");
     }
@@ -67,9 +68,26 @@ export function readRelatedComponentsFromMdx(mdxPath: string): string {
   return section;
 }
 
+/**
+ * Extract the code from <Source code={`...`} /> in the component's MDX file.
+ */
+export function readSourceFromMdx(mdxPath: string): string {
+  let content: string;
+
+  try {
+    content = readFileSync(mdxPath, "utf8");
+  } catch {
+    return "";
+  }
+
+  const match = content.match(/code=\{\s*`([\s\S]*?)`\s*\}/);
+  return match ? match[1].trim() : "";
+}
+
 function declarationToMarkdown(
   decl: Declaration,
-  relatedSection: string
+  relatedSection: string,
+  usageExample: string
 ): string {
   const tag = decl.tagName!;
   const desc = decl.description ?? "";
@@ -146,6 +164,12 @@ function declarationToMarkdown(
     "```html",
     minimalExample(tag, requiredProps),
     "```",
+    "",
+    "## Usage example",
+    "",
+    usageExample
+      ? ["```html", usageExample, "```"].join("\n")
+      : "_No usage example in docs._",
     "",
     "## Common mistakes",
     "",
