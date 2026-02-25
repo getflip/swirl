@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-carousel-slide.stories";
 
 <Meta title="Components/SwirlCarouselSlide" />
@@ -12,7 +12,13 @@ The SwirlCarouselSlide component is used to display a single slide inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlCarouselSlide} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlCarouselSlide}></Canvas>
+
+<Source
+  code={`<swirl-carousel-slide label="Label">
+    <img alt="Description" src="/sample-3.jpg" />
+</swirl-carousel-slide>`}
+/>
 
 <Controls of={Stories.SwirlCarouselSlide} />
 

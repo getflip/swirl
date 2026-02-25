@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-date-picker.stories";
 
 <Meta title="Components/SwirlDatePicker" />
@@ -12,7 +12,11 @@ The SwirlDatePicker component allows users to select a date from a calendar.
 
 ## Usage
 
-<Canvas of={Stories.SwirlDatePicker} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDatePicker}></Canvas>
+
+<Source
+  code={`<swirl-date-picker></swirl-date-picker>`}
+/>
 
 <Controls of={Stories.SwirlDatePicker} />
 

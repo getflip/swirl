@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-option-list.stories";
 
 <Meta title="Components/SwirlOptionList" />
@@ -14,7 +14,16 @@ items. It should be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlOptionList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlOptionList}></Canvas>
+
+<Source
+  code={`<swirl-option-list allow-drag label="Option List" multi-select value='["2"]'>
+    <swirl-option-list-item label="This is option 1" value="1"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 2" value="2"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 3" value="3"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 4" value="4"></swirl-option-list-item>
+</swirl-option-list>`}
+/>
 
 <Controls of={Stories.SwirlOptionList} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-pdf-reader.stories";
 
 <Meta title="Components/SwirlPDFReader" />
@@ -13,7 +13,17 @@ overlay.
 
 ## Usage
 
-<Canvas of={Stories.SwirlPdfReader} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlPdfReader}></Canvas>
+
+<Source
+  code={`<swirl-pdf-reader file="/sample-2.pdf" label="sample.pdf">
+    <swirl-action-list-item
+        icon="<swirl-icon-attachment></swirl-icon-attachment>"
+        label="Custom action"
+        slot="menu-items"
+    ></swirl-action-list-item>
+</swirl-pdf-reader>`}
+/>
 
 <Controls of={Stories.SwirlPdfReader} />
 

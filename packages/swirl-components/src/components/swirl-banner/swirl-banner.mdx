@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-banner.stories";
 
 <Meta title="Components/SwirlBanner" />
@@ -13,7 +13,16 @@ the screen.
 
 ## Usage
 
-<Canvas of={Stories.SwirlBanner} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlBanner}></Canvas>
+
+<Source
+  code={`<swirl-banner
+    action-label="Action"
+    content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    dismissable
+    intent="critical"
+></swirl-banner>`}
+/>
 
 <Controls of={Stories.SwirlBanner} />
 

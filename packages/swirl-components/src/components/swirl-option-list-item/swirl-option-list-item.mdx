@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-option-list-item.stories";
 
 <Meta title="Components/SwirlOptionListItem" />
@@ -14,7 +14,23 @@ It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlOptionListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlOptionListItem}></Canvas>
+
+<Source
+  code={`<swirl-option-list-item
+    label="Option List Item"
+    value="Value"
+    icon="<swirl-icon-mention></swirl-icon-mention>"
+    icon-badge='<swirl-badge label="1"></swirl-badge>'
+>
+    <swirl-avatar
+        label="John Doe"
+        initials="PS"
+        slot="avatar"
+        src="https://picsum.photos/id/433/144/144"
+    ></swirl-avatar>
+</swirl-option-list-item>`}
+/>
 
 <Controls of={Stories.SwirlOptionListItem} />
 

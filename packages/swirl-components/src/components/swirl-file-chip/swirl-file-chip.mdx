@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-file-chip.stories";
 
 <Meta title="Components/SwirlFileChip" />
@@ -12,7 +12,11 @@ format.
 
 ## Usage
 
-<Canvas of={Stories.SwirlFileChip} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFileChip}></Canvas>
+
+<Source
+  code={`<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" description="2.5 MB"></swirl-file-chip>`}
+/>
 
 <Controls of={Stories.SwirlFileChip} />
 

@@ -1,6 +1,6 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import * as Stories from "./swirl-button.stories";
 import { extractArgTypes } from "@pxtrn/storybook-addon-docs-stencil";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
+import * as Stories from "./swirl-button.stories";
 
 <Meta title="Components/SwirlButton" />
 
@@ -13,7 +13,11 @@ The SwirlButton component is used to trigger actions or events.
 
 ## Usage
 
-<Canvas of={Stories.SwirlButton} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlButton}></Canvas>
+
+<Source
+  code={`<swirl-button icon="<swirl-icon-add></swirl-icon-add>" label="Label"></swirl-button>`}
+/>
 
 <Controls of={Stories.SwirlButton} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tag.stories";
 
 <Meta title="Components/SwirlTag" />
@@ -12,7 +12,11 @@ The SwirlTag component is used to label or categorize items using keywords.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTag} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTag}></Canvas>
+
+<Source
+  code={`<swirl-tag label="Label" removable></swirl-tag>`}
+/>
 
 <Controls of={Stories.SwirlTag} />
 

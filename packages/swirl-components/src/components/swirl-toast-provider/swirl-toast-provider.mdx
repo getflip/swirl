@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toast-provider.stories";
 
 <Meta title="Components/SwirlToastProvider" />
@@ -12,7 +12,11 @@ The SwirlToastProvider component is used to host and create
 
 ## Usage
 
-<Canvas of={Stories.SwirlToastProvider} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToastProvider}></Canvas>
+
+<Source
+  code={`<swirl-toast-provider></swirl-toast-provider>`}
+/>
 
 <Controls of={Stories.SwirlToastProvider} />
 

@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tree-view-item.stories";
 
 <Meta title="Components/SwirlTreeViewItem" />
@@ -13,7 +13,11 @@ The SwirlTreeViewItem component is used to render nodes in a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTreeViewItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTreeViewItem}></Canvas>
+
+<Source
+  code={`<swirl-tree-view-item href="#" icon="🪁" item-id="item" label="Label"></swirl-tree-view-item>`}
+/>
 
 <Controls of={Stories.SwirlTreeViewItem} />
 

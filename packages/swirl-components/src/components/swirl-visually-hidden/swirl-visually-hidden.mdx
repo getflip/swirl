@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-visually-hidden.stories";
 
 <Meta title="Components/SwirlVisuallyHidden" />
@@ -12,7 +12,7 @@ readable for screen readers.
 
 ## Usage
 
-<Canvas of={Stories.SwirlVisuallyHidden} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlVisuallyHidden}></Canvas>
 
 In some cases, you may want to hide elements that should be readable by a screen
 reader but are visually redundant. For example, icon buttons that need an

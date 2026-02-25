@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-file-uploader.stories";
 
 <Meta title="Components/SwirlFileUploader" />
@@ -12,7 +12,17 @@ The SwirlFileUploader component allows users to select files to upload.
 
 ## Usage
 
-<Canvas of={Stories.SwirlFileUploader} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFileUploader}></Canvas>
+
+<Source
+  code={`<swirl-file-uploader
+    accept="image/*"
+    description="Only image files are allowed."
+    input-id="file-upload"
+    input-name="file-upload"
+    label="Label"
+></swirl-file-uploader>`}
+/>
 
 <Controls of={Stories.SwirlFileUploader} />
 

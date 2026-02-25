@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-avatar-group.stories";
 
 <Meta title="Components/SwirlAvatarGroup" />
@@ -12,7 +12,22 @@ The SwirlAvatarGroup component is used to display a stack of two avatars.
 
 ## Usage
 
-<Canvas of={Stories.SwirlAvatarGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAvatarGroup}></Canvas>
+
+<Source
+  code={`<swirl-avatar-group badge='<swirl-badge aria-label="3 new messages" label="3"></swirl-badge>'>
+    <swirl-avatar
+        label="Jane Doe"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+        size="s"
+    ></swirl-avatar>
+    <swirl-avatar
+        label="John Doe"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b"
+        size="s"
+    ></swirl-avatar>
+</swirl-avatar-group>`}
+/>
 
 <Controls of={Stories.SwirlAvatarGroup} />
 

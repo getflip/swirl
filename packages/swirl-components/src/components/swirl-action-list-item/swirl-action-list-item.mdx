@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-action-list-item.stories";
 
 <Meta title="Components/SwirlActionListItem" />
@@ -13,7 +13,26 @@ The SwirlActionListItem component is used to render menu items inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlActionListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlActionListItem}></Canvas>
+
+<Source
+  code={`<swirl-action-list-item
+    badge="Badge"
+    description="Description of the action list item"
+    icon="<swirl-icon-mention></swirl-icon-mention>"
+    icon-badge='<swirl-badge label="1"></swirl-badge>'
+    label="This is an action"
+    suffix="<swirl-icon-chevron-right></swirl-icon-chevron-right>"
+>
+    <swirl-avatar
+        slot="avatar"
+        label="Jane Doe"
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+    ></swirl-avatar>
+    <swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>
+</swirl-action-list-item>`}
+/>
 
 <Controls of={Stories.SwirlActionListItem} />
 

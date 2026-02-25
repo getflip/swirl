@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-table-row.stories";
 
 <Meta title="Components/SwirlTableRow" />
@@ -13,7 +13,18 @@ The SwirlTableColumn component is used to display a row inside a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTableRow} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTableRow}></Canvas>
+
+<Source
+  code={`<swirl-table-row>
+    <swirl-table-cell>
+        <swirl-text size="sm">Cell</swirl-text>
+    </swirl-table-cell>
+    <swirl-table-cell>
+        <swirl-text size="sm">Cell</swirl-text>
+    </swirl-table-cell>
+</swirl-table-row>`}
+/>
 
 <Controls of={Stories.SwirlTableRow} />
 

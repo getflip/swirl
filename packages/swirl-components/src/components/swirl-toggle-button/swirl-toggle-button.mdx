@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toggle-button.stories";
 
 <Meta title="Components/SwirlToggleButton" />
@@ -16,7 +16,11 @@ be used in combination with a
 
 ## Usage
 
-<Canvas of={Stories.SwirlToggleButton} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToggleButton}></Canvas>
+
+<Source
+  code={`<swirl-toggle-button label="Label" identifier="identifier" icon="mention"></swirl-toggle-button>`}
+/>
 
 <Controls of={Stories.SwirlToggleButton} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-option-list-section.stories";
 
 <Meta title="Components/SwirlOptionListSection" />
@@ -13,7 +13,11 @@ The SwirlOptionListSection component is used to group related
 
 ## Usage
 
-<Canvas of={Stories.SwirlOptionListSection} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlOptionListSection}></Canvas>
+
+<Source
+  code={`<swirl-option-list-section label="Section label" has-separator></swirl-option-list-section>`}
+/>
 
 <Controls of={Stories.SwirlOptionListSection} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-theme-provider.stories";
 
 <Meta title="Components/SwirlThemeProvider" />
@@ -14,7 +14,11 @@ colors can be set.
 
 ## Usage
 
-<Canvas of={Stories.SwirlThemeProvider} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlThemeProvider}></Canvas>
+
+<Source
+  code={`<swirl-theme-provider></swirl-theme-provider>`}
+/>
 
 <Controls of={Stories.SwirlThemeProvider} />
 

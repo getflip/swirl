@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-action-list-section.stories";
 
 <Meta title="Components/SwirlActionListSection" />
@@ -13,7 +13,11 @@ The SwirlActionListSection component is used to group related
 
 ## Usage
 
-<Canvas of={Stories.SwirlActionListSection} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlActionListSection}></Canvas>
+
+<Source
+  code={`<swirl-action-list-section label="Section label" has-separator></swirl-action-list-section>`}
+/>
 
 <Controls of={Stories.SwirlActionListSection} />
 

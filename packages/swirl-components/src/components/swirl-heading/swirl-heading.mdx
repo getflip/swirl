@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-heading.stories";
 
 <Meta title="Components/SwirlHeading" />
@@ -11,7 +11,11 @@ The SwirlHeading component is used to add titles to major sections of content.
 
 ## Usage
 
-<Canvas of={Stories.SwirlHeading} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlHeading}></Canvas>
+
+<Source
+  code={`<swirl-heading text="Headline: A line of words printed in large letters as the title of a story"></swirl-heading>`}
+/>
 
 <Controls of={Stories.SwirlHeading} />
 

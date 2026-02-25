@@ -37,7 +37,7 @@ The {{pascalCase name}} component is used to …
 
 ## Usage
 
-<Canvas of={Stories.{{pascalCase name}}{{append '' '}'}} sourceState="shown"></Canvas>
+<Canvas of={Stories.{{pascalCase name}}{{append '' '}'}}></Canvas>
 
 <Controls of={Stories.{{pascalCase name}}{{append '' '}'}} />
 

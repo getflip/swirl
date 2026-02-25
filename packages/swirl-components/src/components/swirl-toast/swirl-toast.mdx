@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toast.stories";
 
 <Meta title="Components/SwirlToast" />
@@ -13,7 +13,13 @@ action has taken place.
 
 ## Usage
 
-<Canvas of={Stories.SwirlToast} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToast}></Canvas>
+
+<Source
+  code={`<swirl-toast icon="<swirl-icon-mail></swirl-icon-mail>">
+    This is toast text with multiple lines. Try to keep the info as short as possible.
+</swirl-toast>`}
+/>
 
 <Controls of={Stories.SwirlToast} />
 

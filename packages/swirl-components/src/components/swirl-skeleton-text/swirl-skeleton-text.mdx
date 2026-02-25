@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-skeleton-text.stories";
 
 <Meta title="Components/SwirlSkeletonText" />
@@ -13,7 +13,11 @@ of text before it is loaded.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSkeletonText} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSkeletonText}></Canvas>
+
+<Source
+  code={`<swirl-skeleton-text lines="4"></swirl-skeleton-text>`}
+/>
 
 <Controls of={Stories.SwirlSkeletonText} />
 

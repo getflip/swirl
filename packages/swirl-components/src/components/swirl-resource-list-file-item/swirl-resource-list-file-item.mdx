@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-resource-list-file-item.stories";
 
 <Meta title="Components/SwirlResourceListFileItem" />
@@ -14,7 +14,15 @@ within a collection. It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlResourceListFileItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlResourceListFileItem}></Canvas>
+
+<Source
+  code={`<swirl-resource-list-file-item
+    description="12MB"
+    label="Design_final-final-12.png"
+    removable
+></swirl-resource-list-file-item>`}
+/>
 
 <Controls of={Stories.SwirlResourceListFileItem} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-color-input.stories";
 
 <Meta title="Components/SwirlColorInput" />
@@ -14,7 +14,11 @@ for entered hex color values. It should always be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlColorInput} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlColorInput}></Canvas>
+
+<Source
+  code={`<swirl-color-input></swirl-color-input>`}
+/>
 
 <Controls of={Stories.SwirlColorInput} />
 
@@ -36,4 +40,5 @@ No related components.
 ### Keyboard
 
 Standard text input and button behavior. The picker button is activated with
+
 <kbd>Enter</kbd> or <kbd>Space</kbd>. No component-specific shortcuts.

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-resource-list-section.stories";
 
 <Meta title="Components/SwirlResourceListSection" />
@@ -12,7 +12,11 @@ The SwirlResourceListSection component is used to group related
 
 ## Usage
 
-<Canvas of={Stories.SwirlResourceListSection} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlResourceListSection}></Canvas>
+
+<Source
+  code={`<swirl-resource-list-section label="Section label"></swirl-resource-list-section>`}
+/>
 
 <Controls of={Stories.SwirlResourceListSection} />
 

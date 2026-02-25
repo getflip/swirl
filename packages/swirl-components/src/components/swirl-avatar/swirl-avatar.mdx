@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-avatar.stories";
 
 <Meta title="Components/SwirlAvatar" />
@@ -13,7 +13,13 @@ initials.
 
 ## Usage
 
-<Canvas of={Stories.SwirlAvatar} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAvatar}></Canvas>
+
+<Source
+  code={`<swirl-avatar label="John Doe" initials="PS" src="https://picsum.photos/id/433/144/144">
+    <swirl-badge label="3" size="s" slot="tool"></swirl-badge>
+</swirl-avatar>`}
+/>
 
 <Controls of={Stories.SwirlAvatar} />
 

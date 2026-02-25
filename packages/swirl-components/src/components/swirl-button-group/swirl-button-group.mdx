@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-button-group.stories";
 
 <Meta title="Components/SwirlButtonGroup" />
@@ -13,7 +13,20 @@ vertical stack.
 
 ## Usage
 
-<Canvas of={Stories.SwirlButtonGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlButtonGroup}></Canvas>
+
+<Source
+  code={`<swirl-button-group>
+    <swirl-button label="Button" variant="flat"></swirl-button>
+    <swirl-button label="Button" variant="flat"></swirl-button>
+    <swirl-button
+        icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
+        label="Button"
+        hide-label
+        variant="flat"
+    ></swirl-button>
+</swirl-button-group>`}
+/>
 
 <Controls of={Stories.SwirlButtonGroup} />
 

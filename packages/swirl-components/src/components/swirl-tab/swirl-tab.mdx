@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tab.stories";
 
 <Meta title="Components/SwirlTab" />
@@ -13,7 +13,13 @@ The SwirlTab component is used to display a tab panel inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlTab} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTab}></Canvas>
+
+<Source
+  code={`<swirl-tab active icon='<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>' label="Label" tab-id="tab-id">
+    <swirl-text>Content</swirl-text>
+</swirl-tab>`}
+/>
 
 <Controls of={Stories.SwirlTab} />
 

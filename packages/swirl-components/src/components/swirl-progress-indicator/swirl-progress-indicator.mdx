@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-progress-indicator.stories";
 
 <Meta title="Components/SwirlProgressIndicator" />
@@ -13,7 +13,11 @@ running task.
 
 ## Usage
 
-<Canvas of={Stories.SwirlProgressIndicator} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlProgressIndicator}></Canvas>
+
+<Source
+  code={`<swirl-progress-indicator label="Upload progress" value="70"></swirl-progress-indicator>`}
+/>
 
 <Controls of={Stories.SwirlProgressIndicator} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-form-control.stories";
 
 <Meta title="Components/SwirlFormControl" />
@@ -13,7 +13,11 @@ information via labels, descriptions and error messages.
 
 ## Usage
 
-<Canvas of={Stories.SwirlFormControl} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFormControl}></Canvas>
+
+<Source
+  code={`<swirl-form-control description="Optional description of the control." label="Form Control Label"></swirl-form-control>`}
+/>
 
 <Controls of={Stories.SwirlFormControl} />
 

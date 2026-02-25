@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-description-list-item.stories";
 
 <Meta title="Components/SwirlDescriptionListItem" />
@@ -14,7 +14,11 @@ short description. It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlDescriptionListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDescriptionListItem}></Canvas>
+
+<Source
+  code={`<swirl-description-list-item term="Term or label"> A short description </swirl-description-list-item>`}
+/>
 
 <Controls of={Stories.SwirlDescriptionListItem} />
 

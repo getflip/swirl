@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-chip.stories";
 
 <Meta title="Components/SwirlChip" />
@@ -12,7 +12,11 @@ The SwirlChip component is used to represent an input, attribute, or action.
 
 ## Usage
 
-<Canvas of={Stories.SwirlChip} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlChip}></Canvas>
+
+<Source
+  code={`<swirl-chip label="Label" removable></swirl-chip>`}
+/>
 
 <Controls of={Stories.SwirlChip} />
 

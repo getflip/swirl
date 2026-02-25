@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-pagination.stories";
 
 <Meta title="Components/SwirlPagination" />
@@ -13,7 +13,11 @@ navigate between them.
 
 ## Usage
 
-<Canvas of={Stories.SwirlPagination} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlPagination}></Canvas>
+
+<Source
+  code={`<swirl-pagination label="Pagination" page="1" pages="20"></swirl-pagination>`}
+/>
 
 <Controls of={Stories.SwirlPagination} />
 

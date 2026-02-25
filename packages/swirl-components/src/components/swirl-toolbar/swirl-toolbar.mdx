@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toolbar.stories";
 
 <Meta title="Components/SwirlToolbar" />
@@ -14,7 +14,14 @@ for the given context. It has to be used in conjunction with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlToolbar} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToolbar}></Canvas>
+
+<Source
+  code={`<swirl-toolbar label="Label">
+    <swirl-chip label="Remove" pressed="true"></swirl-chip>
+    <swirl-button icon="<swirl-icon-add></swirl-icon-add>" label="Add"></swirl-button>
+</swirl-toolbar>`}
+/>
 
 <Controls of={Stories.SwirlToolbar} />
 

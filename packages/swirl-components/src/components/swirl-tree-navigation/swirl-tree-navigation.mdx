@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tree-navigation.stories";
 
 <Meta title="Components/SwirlTreeNavigation" />
@@ -11,7 +11,28 @@ The SwirlTreeNavigation component is used to …
 
 ## Usage
 
-<Canvas of={Stories.SwirlTreeNavigation} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTreeNavigation}></Canvas>
+
+<Source
+  code={`<swirl-tree-navigation label="Label">
+    <swirl-tree-navigation-item label="Home" icon="home" href="#home"></swirl-tree-navigation-item>
+    <swirl-tree-navigation-item label="User Management" icon="person">
+        <swirl-tree-navigation-item label="Users" active="true" href="#users"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item label="User groups" href="#user-groups"></swirl-tree-navigation-item>
+    </swirl-tree-navigation-item>
+    <swirl-tree-navigation-item label="Settings" icon="settings">
+        <swirl-tree-navigation-item label="Languages" href="#users"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item label="General" href="#user-groups"></swirl-tree-navigation-item>
+    </swirl-tree-navigation-item>
+    <swirl-tree-navigation-item
+        href="https://getflip.com"
+        target="__blank"
+        label="File"
+        icon="file"
+        external="true"
+    ></swirl-tree-navigation-item>
+</swirl-tree-navigation>`}
+/>
 
 <Controls of={Stories.SwirlTreeNavigation} />
 

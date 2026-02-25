@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-status-indicator.stories";
 
 <Meta title="Components/SwirlStatusIndicator" />
@@ -13,7 +13,11 @@ of a resource.
 
 ## Usage
 
-<Canvas of={Stories.SwirlStatusIndicator} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlStatusIndicator}></Canvas>
+
+<Source
+  code={`<swirl-status-indicator intent="success" label="Label"></swirl-status-indicator>`}
+/>
 
 <Controls of={Stories.SwirlStatusIndicator} />
 

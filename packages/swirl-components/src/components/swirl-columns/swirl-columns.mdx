@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-columns.stories";
 
 <Meta title="Components/SwirlColumns" />
@@ -11,7 +11,30 @@ The SwirlColumns component is used to display its children as columns.
 
 ## Usage
 
-<Canvas of={Stories.SwirlColumns} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlColumns}></Canvas>
+
+<Source
+  code={`<swirl-columns spacing="16">
+    <swirl-box bordered padding="16">
+        <swirl-text color="subdued" size="sm">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua.
+        </swirl-text>
+    </swirl-box>
+    <swirl-box bordered padding="16">
+        <swirl-text color="subdued" size="sm">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua.
+        </swirl-text>
+    </swirl-box>
+    <swirl-box bordered padding="16">
+        <swirl-text color="subdued" size="sm">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua.
+        </swirl-text>
+    </swirl-box>
+</swirl-columns>`}
+/>
 
 <Controls of={Stories.SwirlColumns} />
 

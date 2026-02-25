@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-date-input.stories";
 
 <Meta title="Components/SwirlDateInput" />
@@ -13,7 +13,11 @@ It should always be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlDateInput} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDateInput}></Canvas>
+
+<Source
+  code={`<swirl-date-input></swirl-date-input>`}
+/>
 
 <Controls of={Stories.SwirlDateInput} />
 

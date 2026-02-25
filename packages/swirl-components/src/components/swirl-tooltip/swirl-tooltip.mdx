@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tooltip.stories";
 
 <Meta title="Components/SwirlTooltip" />
@@ -13,7 +13,13 @@ to an element.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTooltip} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTooltip}></Canvas>
+
+<Source
+  code={`<swirl-tooltip content="Lorem ipsum dolor sit amet, contetur sadipscing." position="top">
+    <swirl-button label="Hover or focus me"></swirl-button>
+</swirl-tooltip>`}
+/>
 
 <Controls of={Stories.SwirlTooltip} />
 

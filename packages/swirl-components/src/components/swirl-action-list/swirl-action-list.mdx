@@ -1,4 +1,10 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+import {
+  Canvas,
+  Controls,
+  Meta,
+  Source,
+  Story,
+} from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-action-list.stories";
 
 <Meta title="Components/SwirlActionList" />
@@ -16,7 +22,25 @@ should be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlActionList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlActionList}></Canvas>
+
+<Source
+  code={`<swirl-action-list>
+    <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
+        label="Action item 1"
+    ></swirl-action-list-item>
+    <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
+        label="Action item 2"
+    ></swirl-action-list-item>
+    <swirl-separator></swirl-separator>
+    <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
+        label="Action item 3"
+    ></swirl-action-list-item>
+</swirl-action-list>`}
+/>
 
 <Controls of={Stories.SwirlActionList} />
 

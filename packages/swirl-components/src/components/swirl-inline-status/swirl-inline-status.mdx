@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-inline-status.stories";
 
 <Meta title="Components/SwirlInlineStatus" />
@@ -12,7 +12,15 @@ The SwirlInlineStatus component is used to convey status information.
 
 ## Usage
 
-<Canvas of={Stories.SwirlInlineStatus} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlInlineStatus}></Canvas>
+
+<Source
+  code={`<swirl-inline-status
+    icon="<swirl-icon-info></swirl-icon-info>"
+    intent="info"
+    message="This is status message."
+></swirl-inline-status>`}
+/>
 
 <Controls of={Stories.SwirlInlineStatus} />
 

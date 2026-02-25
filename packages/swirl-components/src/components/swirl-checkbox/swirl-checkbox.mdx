@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-checkbox.stories";
 
 <Meta title="Components/SwirlCheckbox" />
@@ -13,7 +13,17 @@ one or multiple choices from a list of options.
 
 ## Usage
 
-<Canvas of={Stories.SwirlCheckbox} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlCheckbox}></Canvas>
+
+<Source
+  code={`<swirl-checkbox
+    checked
+    description="Optional description of the item."
+    input-id="checkbox"
+    input-name="Checkbox"
+    label="Checkbox"
+></swirl-checkbox>`}
+/>
 
 <Controls of={Stories.SwirlCheckbox} />
 

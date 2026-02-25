@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-dialog.stories";
 
 <Meta title="Components/SwirlDialog" />
@@ -13,7 +13,13 @@ that needs the user's confirmation or action.
 
 ## Usage
 
-<Canvas of={Stories.SwirlDialog} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDialog}></Canvas>
+
+<Source
+  code={`<swirl-dialog intent="primary" label="Dialog" primary-action-label="Leave" secondary-action-label="Cancel">
+    <p>Do you really want to leave this group chat?</p>
+</swirl-dialog>`}
+/>
 
 <Controls of={Stories.SwirlDialog} />
 

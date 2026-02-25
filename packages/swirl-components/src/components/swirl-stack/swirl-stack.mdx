@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-stack.stories";
 
 <Meta title="Components/SwirlStack" />
@@ -12,7 +12,19 @@ list of components with a specific spacing.
 
 ## Usage
 
-<Canvas of={Stories.SwirlStack} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlStack}></Canvas>
+
+<Source
+  code={`<swirl-stack>
+    <swirl-badge label="Dennis" intent="banana"></swirl-badge>
+    <swirl-badge label="Lennart" intent="blueberry"></swirl-badge>
+    <swirl-badge label="Jan" intent="chilli"></swirl-badge>
+    <swirl-badge label="Konsti" intent="critical"></swirl-badge>
+    <swirl-badge label="Adam" intent="grape"></swirl-badge>
+    <swirl-badge label="Dario" intent="kiwi"></swirl-badge>
+    <swirl-badge label="Fabi" intent="pumpkin"></swirl-badge>
+</swirl-stack>`}
+/>
 
 <Controls of={Stories.SwirlStack} />
 

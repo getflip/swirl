@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-skeleton-box.stories";
 
 <Meta title="Components/SwirlSkeletonBox" />
@@ -13,7 +13,11 @@ of components before they are loaded.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSkeletonBox} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSkeletonBox}></Canvas>
+
+<Source
+  code={`<swirl-skeleton-box aspect-ratio="1/0.5" width="50%"></swirl-skeleton-box>`}
+/>
 
 <Controls of={Stories.SwirlSkeletonBox} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tree-navigation-item.stories";
 
 <Meta title="Admin/SwirlTreeNavigationItem" />
@@ -13,7 +13,11 @@ Flip Admin tools.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTreeNavigationItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTreeNavigationItem}></Canvas>
+
+<Source
+  code={`<swirl-tree-navigation-item icon="file" label="Label"></swirl-tree-navigation-item>`}
+/>
 
 <Controls of={Stories.SwirlTreeNavigationItem} />
 

@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-accordion.stories";
 
 <Meta title="Components/SwirlAccordion" />
@@ -13,7 +13,71 @@ reveal sections of content.
 
 ## Usage
 
-<Canvas of={Stories.SwirlAccordion} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAccordion}></Canvas>
+
+<Source
+  code={`<swirl-accordion>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        heading="Accordion item 1"
+        initially-open
+        item-id="item-1"
+    >
+        <swirl-avatar slot="media" icon="<swirl-icon-groups></swirl-icon-groups>"></swirl-avatar>
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        heading="Accordion item 2"
+        item-id="item-2"
+    >
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        heading="Accordion item 3"
+        item-id="item-3"
+    >
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        disabled
+        heading="Accordion item 4"
+        item-id="item-4"
+    >
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+</swirl-accordion>`}
+/>
 
 <Controls of={Stories.SwirlAccordion} />
 

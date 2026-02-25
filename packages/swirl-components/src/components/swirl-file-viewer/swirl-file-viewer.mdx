@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-file-viewer.stories";
 
 <Meta title="Components/SwirlFileViewer" />
@@ -11,7 +11,11 @@ The SwirlFileViewer component is used to render files of various formats.
 
 ## Usage
 
-<Canvas of={Stories.SwirlFileViewer} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFileViewer}></Canvas>
+
+<Source
+  code={`<swirl-file-viewer file="/sample.pdf" type="application/pdf"></swirl-file-viewer>`}
+/>
 
 <Controls of={Stories.SwirlFileViewer} />
 

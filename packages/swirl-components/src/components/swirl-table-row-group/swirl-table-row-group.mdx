@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-table-row-group.stories";
 
 <Meta title="Components/SwirlTableRowGroup" />
@@ -13,7 +13,11 @@ The SwirlTableColumn component is used to group multiple rows of a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTableRowGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTableRowGroup}></Canvas>
+
+<Source
+  code={`<swirl-table-row-group label="Table row group"></swirl-table-row-group>`}
+/>
 
 <Controls of={Stories.SwirlTableRowGroup} />
 

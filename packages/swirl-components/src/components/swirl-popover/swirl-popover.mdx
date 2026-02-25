@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-popover.stories";
 
 <Meta title="Components/SwirlPopover" />
@@ -12,7 +12,42 @@ The SwirlPopover component is used to display small non-modal dialogs or menus.
 
 ## Usage
 
-<Canvas of={Stories.SwirlPopover} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlPopover}></Canvas>
+
+<Source
+  code={`<swirl-popover id="popover" label="Popover">
+    <swirl-action-list>
+        <swirl-action-list-section label="Section 1">
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 1"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 2"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 3"
+            ></swirl-action-list-item>
+        </swirl-action-list-section>
+        <swirl-action-list-section label="Section 2">
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 1"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 2"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 3"
+            ></swirl-action-list-item>
+        </swirl-action-list-section>
+    </swirl-action-list>
+</swirl-popover>`}
+/>
 
 <Controls of={Stories.SwirlPopover} />
 

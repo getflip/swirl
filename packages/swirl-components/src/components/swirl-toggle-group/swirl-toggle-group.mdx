@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toggle-group.stories";
 
 <Meta title="Components/SwirlToggleGroup" />
@@ -13,7 +13,15 @@ component. Only one option can be selected at a time.
 
 ## Usage
 
-<Canvas of={Stories.SwirlToggleGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToggleGroup}></Canvas>
+
+<Source
+  code={`<swirl-toggle-group selected-toggle-id="2">
+    <swirl-toggle-button identifier="1" label="Toggle One" icon="mention"></swirl-toggle-button>
+    <swirl-toggle-button identifier="2" label="Toggle Two"></swirl-toggle-button>
+    <swirl-toggle-button identifier="3" label="Toggle Three" icon="mention"></swirl-toggle-button>
+</swirl-toggle-group>`}
+/>
 
 <Controls of={Stories.SwirlToggleGroup} />
 

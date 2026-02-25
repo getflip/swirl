@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-box.stories";
 
 <Meta title="Components/SwirlBox" />
@@ -12,7 +12,13 @@ its contents.
 
 ## Usage
 
-<Canvas of={Stories.SwirlBox} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlBox}></Canvas>
+
+<Source
+  code={`<swirl-box>
+    <swirl-chip label="Label"></swirl-chip>
+</swirl-box>`}
+/>
 
 <Controls of={Stories.SwirlBox} />
 

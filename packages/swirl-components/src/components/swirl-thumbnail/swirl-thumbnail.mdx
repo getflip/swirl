@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-thumbnail.stories";
 
 <Meta title="Components/SwirlThumbnail" />
@@ -13,7 +13,11 @@ image.
 
 ## Usage
 
-<Canvas of={Stories.SwirlThumbnail} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlThumbnail}></Canvas>
+
+<Source
+  code={`<swirl-thumbnail alt="Brief description of the image." src="https://picsum.photos/id/433/400/400"></swirl-thumbnail>`}
+/>
 
 <Controls of={Stories.SwirlThumbnail} />
 

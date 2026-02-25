@@ -1,14 +1,14 @@
 import {
-  Controls,
   Canvas,
-  Meta,
-  Story,
+  Controls,
   IconGallery,
   IconItem,
+  Meta,
   Source,
+  Story,
 } from "@storybook/addon-docs/blocks";
-import * as Stories from "./swirl-emoji.stories";
 import EmojisJSON from "../../../emojis.json";
+import * as Stories from "./swirl-emoji.stories";
 
 <Meta title="Components/SwirlEmoji" />
 
@@ -20,7 +20,7 @@ Emojis are visual symbols used to provide emotional cues.
 
 ## Usage
 
-<Canvas of={Stories.SwirlEmoji} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlEmoji}></Canvas>
 
 <Controls of={Stories.SwirlEmoji} />
 

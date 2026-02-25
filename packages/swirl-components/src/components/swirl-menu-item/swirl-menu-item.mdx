@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-menu-item.stories";
 
 <Meta title="Components/SwirlMenuItem" />
@@ -12,7 +12,19 @@ The SwirlMenuItem component is used to provider user actions inside a
 
 ## Usage
 
-<Canvas of={Stories.SwirlMenuItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlMenuItem}></Canvas>
+
+<Source
+  code={`<swirl-menu-item label="Label">
+    <swirl-avatar
+        slot="avatar"
+        label="Jane Doe"
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+    ></swirl-avatar>
+    <swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>
+</swirl-menu-item>`}
+/>
 
 <Controls of={Stories.SwirlMenuItem} />
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-app-icon.stories";
 
 <Meta title="Components/SwirlAppIcon" />
@@ -13,7 +13,11 @@ E.g. [ShellLayout](?path=/docs/components-swirlshelllayout--docs) or the
 
 ## Usage
 
-<Canvas of={Stories.SwirlAppIcon} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAppIcon}></Canvas>
+
+<Source
+  code={`<swirl-app-icon src="https://picsum.photos/id/433/144/144"></swirl-app-icon>`}
+/>
 
 <Controls of={Stories.SwirlAppIcon} />
 

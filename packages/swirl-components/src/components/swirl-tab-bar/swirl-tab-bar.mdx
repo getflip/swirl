@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tab-bar.stories";
 
 <Meta title="Components/SwirlTabBar" />
@@ -16,7 +16,33 @@ implement your own tab handling.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTabBar} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTabBar}></Canvas>
+
+<Source
+  code={`<swirl-tab-bar
+    tabs='[
+    {
+      active: false,
+      id: "tab1",
+      label: "A Tab",
+      suffix: "2",
+    },
+    {
+      active: true,
+      icon: &apos;<swirl-icon glyph="emoji-mood" size="20"></swirl-icon>&apos;,
+      id: "tab2",
+      label: "Another Tab",
+      suffix: "12",
+    },
+    {
+      active: false,
+      icon: &apos;<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>&apos;,
+      id: "tab3",
+      label: "Yet Another Tab",
+    },
+  ]'
+></swirl-tab-bar>`}
+/>
 
 <Controls of={Stories.SwirlTabBar} />
 
