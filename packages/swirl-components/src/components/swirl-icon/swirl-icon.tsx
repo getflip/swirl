@@ -25,7 +25,8 @@ export type SwirlIconWrapperColor =
   | "kiwi"
   | "neutral"
   | "pumpkin"
-  | "radish";
+  | "radish"
+  | "default";
 
 export type SwirlIconWrapperSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
 
