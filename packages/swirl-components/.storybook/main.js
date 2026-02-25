@@ -7,6 +7,8 @@ const storybookClientLogger = require.resolve(
 );
 const storybookPreviewApi = require.resolve("storybook/preview-api");
 
+const VIRTUAL_PREFIX = "virtual:stories-mdx-docs";
+
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 export default {
   addons: [
@@ -33,11 +35,14 @@ export default {
         const content = await readFile(fileName, "utf-8");
         const match = content.match(/title=["']([^"']+)["']/);
         const title = match ? match[1] : undefined;
+        const importPath = `${VIRTUAL_PREFIX}?file=${encodeURIComponent(
+          fileName
+        )}&title=${encodeURIComponent(makeTitle(title ?? ""))}`;
         return [
           {
-            type: "docs",
-            importPath: fileName,
-            exportName: "default",
+            type: "story",
+            importPath,
+            exportName: "Default",
             title: makeTitle(title),
           },
         ];
@@ -68,6 +73,32 @@ export default {
           return new URL(source).pathname;
         }
         return null;
+      },
+    });
+
+    // Wrap docs-only .stories.mdx in CSF so Storybook finds a "Default" story
+    config.plugins.push({
+      name: "stories-mdx-docs-csf",
+      resolveId(source) {
+        if (source.startsWith(VIRTUAL_PREFIX)) return source;
+        return null;
+      },
+      load(id) {
+        if (!id.startsWith(VIRTUAL_PREFIX)) return null;
+        const params = new URLSearchParams(id.slice(VIRTUAL_PREFIX.length + 1));
+        const file = params.get("file");
+        const title = params.get("title") ?? "Docs";
+        if (!file) return null;
+        const mdxPath = file;
+        return [
+          "import React from 'react';",
+          "import { createRoot } from 'react-dom/client';",
+          "import { ThemeProvider, ensure, themes } from 'storybook/theming';",
+          "const docsTheme = ensure(themes.light);",
+          `import MDXContent from ${JSON.stringify(mdxPath)};`,
+          `export default { title: ${JSON.stringify(title)} };`,
+          "export const Default = { render: () => { const el = document.createElement('div'); createRoot(el).render(React.createElement(ThemeProvider, { theme: docsTheme }, React.createElement(MDXContent))); return el; } };",
+        ].join("\n");
       },
     });
 
