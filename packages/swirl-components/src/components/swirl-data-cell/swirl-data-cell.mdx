@@ -30,15 +30,17 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 ## Slots
 
-| Slot     | Description                                                                                     |
-| -------- | ----------------------------------------------------------------------------------------------- |
-| `media`  | Optional media content (e.g., swirl-avatar, icons).                                             |
-| `content`  | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
-| `suffix` | Optional suffix content (e.g., buttons, badges)                                                 |
+| Slot      | Description                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| `media`   | Optional media content (e.g., swirl-avatar, icons).                                               |
+| `content` | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
+| `suffix`  | Optional suffix content (e.g., buttons, badges)                                                   |
 
 ## Related components
 
-- **[swirl-data-cell-stack](?path=/docs/components-swirldatacellstack--docs)** (parent) — Groups data cells; use `swirl-data-cell` in the default slot of `swirl-data-cell-stack`.
+- **[swirl-data-cell-stack](?path=/docs/components-swirldatacellstack--docs)**
+  (parent) — Groups data cells; use `swirl-data-cell` in the default slot of
+  `swirl-data-cell-stack`.
 
 ## Accessibility
 
@@ -46,16 +48,16 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 The component structures label-value pairs for assistive technologies.
 
-| ARIA               | Usage                                                                 |
-| ------------------ | --------------------------------------------------------------------- |
-| `role="group"`     | Set on the host to group label and value.                            |
-| `role="term"`      | Set on the label element.                                            |
-| `role="definition"`| Set on the value/definition container.                               |
-| `aria-labelledby`   | Set on the definition, referencing the label ID.                    |
-| `aria-hidden`       | Set on the media container when present.                             |
-| `role="button"`     | Optional; set when the cell contains a checkbox or radio control.    |
+| ARIA                | Usage                                                             |
+| ------------------- | ----------------------------------------------------------------- |
+| `role="group"`      | Set on the host to group label and value.                         |
+| `role="term"`       | Set on the label element.                                         |
+| `role="definition"` | Set on the value/definition container.                            |
+| `aria-labelledby`   | Set on the definition, referencing the label ID.                  |
+| `aria-hidden`       | Set on the media container when present.                          |
+| `role="button"`     | Optional; set when the cell contains a checkbox or radio control. |
 
 ### Keyboard
 
-Keyboard behavior is determined by slotted content (e.g. form controls). No component-specific shortcuts.
-
+Keyboard behavior is determined by slotted content (e.g. form controls). No
+component-specific shortcuts.
