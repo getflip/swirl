@@ -89,4 +89,5 @@
 
 .icon-wrapper--background-color-default {
   background-color: var(--s-background-default);
+  color: var(--s-icon-default);
 }
