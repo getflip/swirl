@@ -36,7 +36,7 @@ const Template = (args) => {
   });
 
   numberInput.innerHTML = `
-    <swirl-text-input suffix-label="€" type="number"></swirl-text-input>
+    <swirl-text-input bottom-label="€" type="number"></swirl-text-input>
   `;
 
   const dateInput = generateStoryElement("swirl-form-control", {
@@ -162,14 +162,14 @@ const Template = (args) => {
     <swirl-text-input type="text"></swirl-text-input>
   `;
 
-  const suffix = generateStoryElement("swirl-form-control", {
+  const bottom = generateStoryElement("swirl-form-control", {
     ...args,
     label: "With additional content",
   });
 
-  suffix.innerHTML = `
+  bottom.innerHTML = `
     <swirl-text-input type="text"></swirl-text-input>
-    <swirl-button slot="suffix" label="Delete" variant="outline" intent="critical" icon="<swirl-icon-delete></swirl-icon-delete>"></swirl-button>
+    <swirl-button slot="bottom" label="Delete" variant="outline" intent="critical" icon="<swirl-icon-delete></swirl-icon-delete>"></swirl-button>
     `;
 
   container.append(
@@ -194,7 +194,7 @@ const Template = (args) => {
     "\n",
     iconPrefix,
     "\n",
-    suffix,
+    bottom,
     "\n"
   );
 

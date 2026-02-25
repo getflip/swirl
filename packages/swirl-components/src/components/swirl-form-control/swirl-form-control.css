@@ -452,13 +452,13 @@
   }
 }
 
-.form-control__suffix {
+.form-control__bottom {
   display: none;
   width: 100%;
 }
 
-.form-control--has-suffix {
-  .form-control__suffix {
+.form-control--has-bottom {
+  .form-control__bottom {
     display: block;
   }
 }
