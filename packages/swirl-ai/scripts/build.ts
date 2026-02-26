@@ -18,6 +18,7 @@ generateCustomElementsManifest();
 copyComponentTypes();
 buildAgentComponentsIndex(MANIFEST_OUT, DIST_DIR, COMPONENTS_ROOT);
 buildAgentComponentDocs(MANIFEST_OUT, DIST_DIR, COMPONENTS_ROOT);
+copyGettingStarted();
 
 function generateCustomElementsManifest() {
   const manifestString = readFileSync(MANIFEST_SOURCE, "utf8");
@@ -31,4 +32,24 @@ function generateCustomElementsManifest() {
 function copyComponentTypes() {
   mkdirSync(DIST_DIR, { recursive: true });
   cpSync(COMPONENTS_TYPES, DIST_TYPES, { recursive: true });
+}
+
+function copyGettingStarted() {
+  const mdxPath = join(
+    COMPONENTS_ROOT,
+    "src",
+    "docs",
+    "01-usage",
+    "01-get-started.stories.mdx"
+  );
+  const raw = readFileSync(mdxPath, "utf8");
+  // Strip MDX imports and <Meta> tags
+  const md = raw
+    .replace(/^import\s.*;\s*\n/gm, "")
+    .replace(/<Meta[^>]*\/>\s*\n/g, "")
+    .trim();
+
+  const agentDir = join(DIST_DIR, "agent");
+  mkdirSync(agentDir, { recursive: true });
+  writeFileSync(join(agentDir, "get-started.md"), md, "utf8");
 }

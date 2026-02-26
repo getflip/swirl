@@ -45,6 +45,16 @@ export class ArtifactLibrary {
     }
   }
 
+  getGuide(name: string): string | undefined {
+    const mdPath = join(this.agentDir, `${name}.md`);
+
+    try {
+      return readFileSync(mdPath, "utf-8");
+    } catch {
+      return undefined;
+    }
+  }
+
   get totalCount(): number {
     return this.catalog.length;
   }

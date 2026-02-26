@@ -6,10 +6,11 @@ agents can discover and use Swirl components interactively, or consume the
 
 ## MCP server
 
-The package ships a Model Context Protocol server with 5 tools:
+The package ships a Model Context Protocol server with 6 tools:
 
 | Tool                      | Description                                                   |
 | ------------------------- | ------------------------------------------------------------- |
+| `get_started`             | Installation and setup guide (Web Components, Angular, React) |
 | `list_components`         | List all UI components (buttons, modals, forms, etc.)         |
 | `list_icons`              | List all icon components (`swirl-icon-*`)                     |
 | `list_symbols`            | List all symbol components (`swirl-symbol-*`)                 |

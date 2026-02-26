@@ -9,6 +9,7 @@ import {
   registerListEmojis,
 } from "../lib/mcp/tools/list-components.js";
 import { registerGetComponentDetails } from "../lib/mcp/tools/get-component-details.js";
+import { registerGetStarted } from "../lib/mcp/tools/get-started.js";
 
 async function main() {
   const agentDir = resolveAgentDir();
@@ -27,6 +28,7 @@ async function main() {
   registerListSymbols(server, lib);
   registerListEmojis(server, lib);
   registerGetComponentDetails(server, lib);
+  registerGetStarted(server, lib);
 
   await server.connect(new StdioServerTransport());
 
