@@ -59,14 +59,7 @@ export interface AgentComponentsIndex {
 export interface ComponentIndexEntry {
   tag: string;
   summary: string;
-  whenToUse?: string;
-  requiredProps: string[];
-  optionalProps: string[];
-  events: { name: string; type?: string }[];
-  slots: { name: string; description?: string }[];
-  methods: { name: string; description?: string }[];
-  accessibilityInfo?: string;
-  compositionRules?: string;
-  relatedComponents: string[];
-  status: "stable" | "deprecated" | "experimental";
+  relatedComponents?: string[];
 }
+
+export type ComponentCategory = "core" | "icon" | "symbol" | "emoji";

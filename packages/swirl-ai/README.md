@@ -1,52 +1,80 @@
 # @getflip/swirl-ai
 
-Swirl Design System artifacts for AI agents: a compact component index,
-per-component docs, and the full custom elements manifest with TypeScript types.
+AI integration for the Swirl Design System. Use it as an **MCP server** so
+agents can discover and use Swirl components interactively, or consume the
+**build-time artifacts** directly.
 
-## Artifacts (after `npm run build`)
+## MCP server
 
-| Artifact                     | Path                                 | Purpose                                                                                                                                                                                         |
-| ---------------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Custom elements manifest** | `dist/custom-elements.manifest.json` | Full CEM schema (tags, props, events, slots, descriptions). Use when you need complete API detail.                                                                                              |
-| **Agent components index**   | `dist/agent/components-index.json`   | Compact, agent-oriented list: tag, summary, required/optional props, events, slots, methods, a11y hints, related components. Prefer this for “which component?” and quick lookup.               |
-| **Per-component docs**       | `dist/agent/components/<tag>.md`     | One markdown file per component: purpose, required/optional props, slots, events, methods, composition, accessibility, minimal example, common mistakes. Use for retrieval and code generation. |
-| **TypeScript types**         | `dist/types/`                        | Declarations for all components (props, events, methods). Use for type-checking and IDE support.                                                                                                |
+The package ships a Model Context Protocol server with 5 tools:
 
-## Recommended retrieval order for agents
+| Tool                      | Description                                                   |
+| ------------------------- | ------------------------------------------------------------- |
+| `list_components`         | List all UI components (buttons, modals, forms, etc.)         |
+| `list_icons`              | List all icon components (`swirl-icon-*`)                     |
+| `list_symbols`            | List all symbol components (`swirl-symbol-*`)                 |
+| `list_emojis`             | List all emoji components (`swirl-emoji-*`)                   |
+| `get_component_details`   | Full docs for a component (props, events, slots, examples)    |
 
-1. **Discover** – Load `dist/agent/components-index.json` to choose components
-   by summary and related components.
-2. **Detail** – For each chosen tag, load `dist/agent/components/<tag>.md` for
-   usage, composition, and examples.
-3. **Precision** – If needed, use `dist/custom-elements.manifest.json` or
-   `dist/types/` for exact types and full API.
+### Usage
 
-## Package exports
+```jsonc
+{
+  "mcpServers": {
+    "swirl-ai": {
+      "command": "npx",
+      "args": ["-y", "@getflip/swirl-ai"]
+    }
+  }
+}
+```
 
-Consumers can resolve these paths from `@getflip/swirl-ai`:
+For local development, point to the built file directly:
 
-- `@getflip/swirl-ai/manifest` → `dist/custom-elements.manifest.json`
+```jsonc
+{
+  "mcpServers": {
+    "swirl-ai": {
+      "command": "node",
+      "args": ["<path-to-repo>/packages/swirl-ai/dist/mcp/mcp.js"]
+    }
+  }
+}
+```
+
+### Local testing
+
+Use the MCP inspector to call tools interactively in a web UI:
+
+```sh
+npx @modelcontextprotocol/inspector node dist/mcp/mcp.js
+```
+
+Or during development (no rebuild needed after changes):
+
+```sh
+npx @modelcontextprotocol/inspector tsx scripts/mcp.ts
+```
+
+## Artifacts
+
+Build-time artifacts for agents that prefer direct file access:
+
+| Artifact                     | Path                                 | Purpose                                                          |
+| ---------------------------- | ------------------------------------ | ---------------------------------------------------------------- |
+| **Agent components index**   | `dist/agent/components-index.json`   | Lean catalog: tag, summary, and related components per entry.    |
+| **Per-component docs**       | `dist/agent/components/<tag>.md`     | Full markdown docs: props, events, slots, examples, a11y info.   |
+| **Custom elements manifest** | `dist/custom-elements.manifest.json` | Full CEM schema (tags, props, events, slots, descriptions).      |
+| **TypeScript types**         | `dist/types/`                        | Type declarations for all components.                            |
+
+### Package exports
+
 - `@getflip/swirl-ai/agent-index` → `dist/agent/components-index.json`
+- `@getflip/swirl-ai/manifest` → `dist/custom-elements.manifest.json`
 
-Per-component docs are under `dist/agent/components/` (e.g.
-`node_modules/@getflip/swirl-ai/dist/agent/components/swirl-accordion.md`).
-Resolve via your bundler or file system relative to the package root.
-
-## Agent index schema
-
-`components-index.json` has `schemaVersion: 1` and a `components` array. Each
-entry includes:
-
-- `tag`, `summary`, `whenToUse`, `requiredProps`, `optionalProps`
-- `events`, `slots`, `methods`
-- `accessibilityInfo`, `compositionRules`, `relatedComponents`, `status`
-  (`stable` | `deprecated` | `experimental`)
-
-Schema and field semantics are stable within major package versions; new
-optional fields may be added.
+Per-component docs are at `dist/agent/components/<tag>.md`.
 
 ## Versioning
 
 Artifacts are generated from `@getflip/swirl-components` at build time. Keep
-`@getflip/swirl-ai` and `@getflip/swirl-components` versions in sync so the
-index and docs match the installed components.
+`@getflip/swirl-ai` and `@getflip/swirl-components` versions in sync.

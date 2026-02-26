@@ -2,10 +2,8 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "rootDir": ".",
-    "outDir": "dist",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -14,10 +12,7 @@
   },
   "include": [
     "scripts/**/*",
-    "lib/augment-manifest.ts",
-    "lib/parse-mdx.ts",
-    "lib/parse-tsx.ts",
-    "lib/types.ts"
+    "lib/**/*",
   ],
   "exclude": ["node_modules", "dist"]
 }

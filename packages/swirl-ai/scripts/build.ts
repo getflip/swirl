@@ -1,10 +1,12 @@
 import { cpSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { join } from "path";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import { buildAgentComponentDocs } from "../lib/agent-docs";
 import { buildAgentComponentsIndex } from "../lib/agent-index";
 import { augmentCustomElementsManifest } from "../lib/augment-manifest";
 import type { CustomElementsManifest } from "../lib/types";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const COMPONENTS_ROOT = join(__dirname, "..", "..", "swirl-components");
 const MANIFEST_SOURCE = join(COMPONENTS_ROOT, "custom-elements.manifest.json");
 const COMPONENTS_TYPES = join(COMPONENTS_ROOT, "dist", "types");
