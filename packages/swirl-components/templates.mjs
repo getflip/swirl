@@ -23,7 +23,7 @@ export const cssTemplate = `:host {
 }
 `;
 
-export const docsTemplate = `import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+export const docsTemplate = `import { Controls, Canvas, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./{{name}}.stories";
 
 <Meta title="Components/{{pascalCase name}}" />
@@ -39,14 +39,11 @@ The {{pascalCase name}} component is used to …
 
 <Canvas of={Stories.{{pascalCase name}}{{append '' '}'}}></Canvas>
 
+<Source
+  code={''}
+/>
+
 <Controls of={Stories.{{pascalCase name}}{{append '' '}'}} />
-
-## Theming
-
-| Variable                          | Usage                       |
-| --------------------------------- | --------------------------- |
-| \`--s-interactive-primary-default\` | The button background color |
-| \`--s-text-on-action-primary\`      | The button text color       |
 
 ## Accessibility
 
