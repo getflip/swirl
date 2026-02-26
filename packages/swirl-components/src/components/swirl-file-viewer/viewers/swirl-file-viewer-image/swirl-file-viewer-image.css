@@ -36,8 +36,8 @@
 .file-viewer-image__watermark {
   position: absolute;
   z-index: 1;
-  bottom: var(--s-space-12);
-  left: var(--s-space-12);
+  top: var(--s-space-12);
+  right: var(--s-space-12);
   display: none;
   width: fit-content;
   height: fit-content;
