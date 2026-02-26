@@ -18,21 +18,38 @@ const stencilBundleFilenames = new Set([
 
 const VIRTUAL_PREFIX = "virtual:stories-mdx-docs";
 
+function exportNameFromTitle(title) {
+  if (!title || typeof title !== "string") {
+    return "Default";
+  }
+
+  const part = title.includes("/")
+    ? title.split("/").pop().trim()
+    : title.trim();
+  const exportName = part.replace(/\s+/g, "");
+
+  return exportName || "Default";
+}
+
 const mdxIndexer = {
   test: /\.stories\.mdx$/,
   createIndex: async (fileName, { makeTitle }) => {
     const content = await readFile(fileName, "utf-8");
     const match = content.match(/title=["']([^"']+)["']/);
     const title = match ? match[1] : undefined;
+    const resolvedTitle = makeTitle(title ?? "");
+    const exportName = exportNameFromTitle(title ?? "");
     const importPath = `${VIRTUAL_PREFIX}?file=${encodeURIComponent(
       fileName
-    )}&title=${encodeURIComponent(makeTitle(title ?? ""))}`;
+    )}&title=${encodeURIComponent(
+      resolvedTitle
+    )}&exportName=${encodeURIComponent(exportName)}`;
     return [
       {
         type: "story",
         importPath,
-        exportName: "Default",
-        title: makeTitle(title),
+        exportName,
+        title: resolvedTitle,
       },
     ];
   },
@@ -108,6 +125,7 @@ export default {
         const params = new URLSearchParams(id.slice(VIRTUAL_PREFIX.length + 1));
         const file = params.get("file");
         const title = params.get("title") ?? "Docs";
+        const exportName = params.get("exportName") ?? "Default";
 
         if (!file) {
           return null;
@@ -122,7 +140,7 @@ export default {
           "const docsTheme = ensure(themes.light);",
           `import MDXContent from ${JSON.stringify(mdxPath)};`,
           `export default { title: ${JSON.stringify(title)} };`,
-          `export const Default = {
+          `export const ${exportName} = {
             render: () => {
               const wrapper = document.createElement('div');
               wrapper.classList.add('sb-main-padded');
