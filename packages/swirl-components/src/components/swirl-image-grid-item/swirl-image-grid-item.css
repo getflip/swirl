@@ -200,8 +200,8 @@ button.image-grid-item {
 .image-grid-item__watermark {
   position: absolute;
   z-index: 1;
-  bottom: var(--s-space-8);
-  left: var(--s-space-8);
+  top: var(--s-space-8);
+  right: var(--s-space-8);
   display: none;
   width: fit-content;
   height: fit-content;
