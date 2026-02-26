@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.451.2
+
+### Patch Changes
+
+- [#1484](https://github.com/getflip/swirl/pull/1484)
+  [`f5dbdf1a9`](https://github.com/getflip/swirl/commit/f5dbdf1a972c63e728e35270d33249c8d36f1e0b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Move swirl-file-viewer watermark
+  to top right corner
+
 ## 0.451.1
 
 ### Patch Changes
