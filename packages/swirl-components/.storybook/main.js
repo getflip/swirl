@@ -1,11 +1,20 @@
+import { watch } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { createRequire } from "node:module";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const require = createRequire(import.meta.url);
 const storybookClientLogger = require.resolve(
   "storybook/internal/client-logger"
 );
 const storybookPreviewApi = require.resolve("storybook/preview-api");
+const storybookDir = dirname(fileURLToPath(import.meta.url));
+const stencilDistDir = resolve(storybookDir, "../dist/swirl-components");
+const stencilBundleFilenames = new Set([
+  "swirl-components.esm.js",
+  "swirl-components.css",
+]);
 
 const VIRTUAL_PREFIX = "virtual:stories-mdx-docs";
 
@@ -37,7 +46,7 @@ export default {
     "@pxtrn/storybook-addon-docs-stencil",
     "@storybook/addon-a11y",
     "@storybook/addon-themes",
-    "storybook-design-token",
+    "storybook-design-token/preset",
   ],
   core: { disableTelemetry: true },
   docs: {
@@ -130,6 +139,34 @@ export default {
             };
           `,
         ].join("\n");
+      },
+    });
+
+    // Force a preview reload when Stencil watch updates dist assets.
+    config.plugins.push({
+      name: "reload-on-stencil-dist-change",
+      configureServer(server) {
+        let reloadTimer;
+
+        const scheduleReload = () => {
+          clearTimeout(reloadTimer);
+
+          reloadTimer = setTimeout(() => {
+            if (server.ws) {
+              server.ws.send({ type: "full-reload" });
+            }
+          }, 150);
+        };
+
+        try {
+          watch(stencilDistDir, { recursive: false }, (eventType, filename) => {
+            if (!filename || stencilBundleFilenames.has(filename)) {
+              scheduleReload();
+            }
+          });
+        } catch {
+          // dist/swirl-components may not exist yet
+        }
       },
     });
 
