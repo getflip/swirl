@@ -14,6 +14,7 @@ import {
 import classnames from "classnames";
 import * as pdf from "pdfjs-dist/legacy/build/pdf.mjs";
 import {
+  AnnotationLayer,
   getDocument,
   PDFDocumentProxy,
   PDFPageProxy,
@@ -270,6 +271,10 @@ export class SwirlFileViewerPdf {
       ".file-viewer-pdf__text-container"
     );
 
+    const annotationContainer = container?.querySelector<HTMLDivElement>(
+      ".file-viewer-pdf__annotation-container"
+    );
+
     this.renderingPageNumbers = [...this.renderingPageNumbers, page.pageNumber];
 
     const scale = forPrint ? this.getPrintScale(page) : this.getScale(page);
@@ -295,8 +300,10 @@ export class SwirlFileViewerPdf {
       page.cleanup();
 
       textContainer.innerHTML = "";
+      annotationContainer.innerHTML = "";
 
       this.renderTextLayer(page, textContainer).catch();
+      this.renderAnnotationLayer(page, annotationContainer).catch();
 
       this.renderingPageNumbers = this.renderingPageNumbers.filter(
         (pageNumber) => pageNumber !== page.pageNumber
@@ -313,11 +320,15 @@ export class SwirlFileViewerPdf {
     const textLayer = container.querySelector(
       ".file-viewer-pdf__text-container"
     );
+    const annotationLayer = container.querySelector(
+      ".file-viewer-pdf__annotation-container"
+    );
 
     canvas.width = 1;
     canvas.height = 1;
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     textLayer.innerHTML = "";
+    annotationLayer.innerHTML = "";
   }
 
   private async updateVisiblePages(forPrint?: boolean) {
@@ -382,6 +393,85 @@ export class SwirlFileViewerPdf {
         scale: this.getScale(page),
       }),
     }).render();
+  }
+
+  private async renderAnnotationLayer(
+    page: PDFPageProxy,
+    container: HTMLDivElement
+  ) {
+    const viewport = page.getViewport({ scale: this.getScale(page) });
+    const annotations = await page.getAnnotations();
+
+    if (!annotations || annotations.length === 0) {
+      return;
+    }
+
+    const annotationLayer = new AnnotationLayer({
+      div: container,
+      page,
+      viewport,
+      accessibilityManager: null,
+      annotationCanvasMap: null,
+      annotationEditorUIManager: null,
+      structTreeLayer: null,
+    });
+
+    await annotationLayer.render({
+      annotations,
+      div: container,
+      page,
+      viewport,
+      linkService: {
+        externalLinkEnabled: true,
+        pagesCount: this.doc?.numPages ?? 0,
+        page: 0,
+        rotation: 0,
+        isInPresentationMode: false,
+        getDestinationHash: () => "#",
+        getAnchorUrl: () => "#",
+        setHash: () => {},
+        executeNamedAction: () => {},
+        executeSetOCGState: () => {},
+        addLinkAttributes: (link: HTMLAnchorElement, url: string) => {
+          link.href = url;
+          link.rel = "noopener noreferrer nofollow";
+          link.target = "_blank";
+        },
+        goToDestination: async (dest: string | any[]) => {
+          const explicitDest =
+            typeof dest === "string"
+              ? await this.doc.getDestination(dest)
+              : dest;
+
+          if (!explicitDest) {
+            return;
+          }
+
+          const pageIndex = await this.doc.getPageIndex(explicitDest[0]);
+
+          this.scrollToPage(pageIndex + 1);
+        },
+        goToPage: (val: number | string) => {
+          const pageNumber = typeof val === "string" ? parseInt(val, 10) : val;
+
+          this.scrollToPage(pageNumber);
+        },
+      },
+      renderForms: false,
+    });
+  }
+
+  private scrollToPage(pageNumber: number) {
+    if (this.singlePageMode) {
+      this.setPage(pageNumber);
+      return;
+    }
+
+    const pageEl = this.el.shadowRoot.querySelector(
+      `[data-page-number="${pageNumber}"]`
+    );
+
+    pageEl?.scrollIntoView({ behavior: "smooth" });
   }
 
   private async openPrintDialog() {
@@ -565,6 +655,7 @@ export class SwirlFileViewerPdf {
                   style={{ opacity: rendered ? "1" : "0" }}
                 ></canvas>
                 <div class="file-viewer-pdf__text-container"></div>
+                <div class="file-viewer-pdf__annotation-container"></div>
               </div>
             );
           })}
