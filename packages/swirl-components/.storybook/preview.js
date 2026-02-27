@@ -37,6 +37,9 @@ const preview = {
       },
     },
     docs: {
+      canvas: {
+        sourceState: "none",
+      },
       theme: swirlTheme,
     },
     viewport: {
