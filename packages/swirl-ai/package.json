@@ -36,7 +36,10 @@
     ],
     "target": "node18",
     "outDir": "dist/mcp",
-    "clean": false
+    "clean": false,
+    "banner": {
+      "js": "#!/usr/bin/env node"
+    }
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.27.1",
