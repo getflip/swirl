@@ -15,6 +15,10 @@ hierarchical list of items.
 
 <Canvas of={Stories.SwirlTreeView}></Canvas>
 
+<Controls of={Stories.SwirlTreeView} />
+
+## Sample usage
+
 <Source
   code={`<swirl-tree-view enable-drag-drop initially-expanded-item-ids='["item-1", "item-1-2", "item-3"]' label="Tree view">
     <swirl-tree-view-item href="#" icon="🪁" item-id="item-1" label="Item 1">
@@ -35,8 +39,6 @@ hierarchical list of items.
     </swirl-tree-view-item>
 </swirl-tree-view>`}
 />
-
-<Controls of={Stories.SwirlTreeView} />
 
 ## Related components
 

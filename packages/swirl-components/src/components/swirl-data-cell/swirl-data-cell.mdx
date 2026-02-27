@@ -17,14 +17,16 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 <Canvas of={Stories.SwirlDataCell}></Canvas>
 
+<Controls of={Stories.SwirlDataCell} />
+
+## Sample usage
+
 <Source
   code={`<swirl-data-cell label="Name" value="John Doe" tooltip="This is a tooltip">
     <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
     <swirl-tag slot="suffix" label="Active" intent="success"></swirl-tag>
 </swirl-data-cell>`}
 />
-
-<Controls of={Stories.SwirlDataCell} />
 
 ## Properties
 

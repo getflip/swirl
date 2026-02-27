@@ -15,13 +15,15 @@ that needs the user's confirmation or action.
 
 <Canvas of={Stories.SwirlDialog}></Canvas>
 
+<Controls of={Stories.SwirlDialog} />
+
+## Sample usage
+
 <Source
   code={`<swirl-dialog intent="primary" label="Dialog" primary-action-label="Leave" secondary-action-label="Cancel">
     <p>Do you really want to leave this group chat?</p>
 </swirl-dialog>`}
 />
-
-<Controls of={Stories.SwirlDialog} />
 
 ## Related components
 
