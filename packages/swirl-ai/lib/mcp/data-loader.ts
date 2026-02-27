@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   AgentComponentsIndex,
@@ -69,7 +69,7 @@ export function resolveAgentDir(): string {
   const thisFile = fileURLToPath(import.meta.url);
   const mcpDir = dirname(thisFile);
 
-  return join(mcpDir, "..", "agent");
+  return join(mcpDir, "..", "..", "dist", "agent");
 }
 
 function categorize(tag: string): ComponentCategory {
