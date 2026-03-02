@@ -106,6 +106,8 @@ export class SwirlMenu {
 
   @Watch("active")
   watchActive() {
+    this.position = undefined;
+
     this.reposition();
 
     if (this.disableAutoUpdate) {
@@ -523,6 +525,7 @@ export class SwirlMenu {
                 ? {
                     top: Boolean(this.position) ? `${this.position?.y}px` : "",
                     left: Boolean(this.position) ? `${this.position?.x}px` : "",
+                    visibility: Boolean(this.position) ? "visible" : "hidden",
                   }
                 : this.mobile
                 ? {
