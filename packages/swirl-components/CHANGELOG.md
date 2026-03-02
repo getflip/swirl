@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.452.0
+
+### Minor Changes
+
+- [#1487](https://github.com/getflip/swirl/pull/1487)
+  [`447d2b732`](https://github.com/getflip/swirl/commit/447d2b7325a784c38cb2aa11315a50a7b3b03511)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Update flip
+  logo in swirl-console-layout
+
+### Patch Changes
+
+- [#1492](https://github.com/getflip/swirl/pull/1492)
+  [`15a27cabf`](https://github.com/getflip/swirl/commit/15a27cabf86c44678d812416a14fe512dcf47448)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix open
+  flickering in swirl-menu
+
 ## 0.451.2
 
 ### Patch Changes
