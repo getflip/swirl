@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-popover.stories";
 
 <Meta title="Components/SwirlPopover" />
@@ -12,16 +12,54 @@ The SwirlPopover component is used to display small non-modal dialogs or menus.
 
 ## Usage
 
-<Canvas of={Stories.SwirlPopover} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlPopover}></Canvas>
 
 <Controls of={Stories.SwirlPopover} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                                  |
-| ----------------------------- | -------------------------------------- |
-| `--s-surface-overlay-default` | Background color of the popover        |
-| `--s-border-default`          | Background color of the popover handle |
+<Source
+  code={`<swirl-popover id="popover" label="Popover">
+    <swirl-action-list>
+        <swirl-action-list-section label="Section 1">
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 1"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 2"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 3"
+            ></swirl-action-list-item>
+        </swirl-action-list-section>
+        <swirl-action-list-section label="Section 2">
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 1"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 2"
+            ></swirl-action-list-item>
+            <swirl-action-list-item
+                icon="<swirl-icon-mention></swirl-icon-mention>"
+                label="Action item 3"
+            ></swirl-action-list-item>
+        </swirl-action-list-section>
+    </swirl-action-list>
+</swirl-popover>`}
+/>
+
+## Related components
+
+- **[swirl-popover-trigger](?path=/docs/components-swirlpopovertrigger--docs)**
+  (sibling) — Wraps the trigger element and references the popover; use with
+  `swirl-popover` for open/close behavior. Often used with
+  [swirl-action-list](?path=/docs/components-swirlactionlist--docs) or
+  [swirl-option-list](?path=/docs/components-swirloptionlist--docs) as content.
 
 ## Accessibility
 

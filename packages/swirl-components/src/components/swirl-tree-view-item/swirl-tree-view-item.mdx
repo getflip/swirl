@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tree-view-item.stories";
 
 <Meta title="Components/SwirlTreeViewItem" />
@@ -13,19 +13,21 @@ The SwirlTreeViewItem component is used to render nodes in a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTreeViewItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTreeViewItem}></Canvas>
 
 <Controls of={Stories.SwirlTreeViewItem} />
 
-## Theming
+## Sample usage
 
-| Variable                 | Usage                                               |
-| ------------------------ | --------------------------------------------------- |
-| `--s-background-default` | Background color of the item                        |
-| `--s-background-hovered` | Background color of the hovered and active item     |
-| `--s-text-default`       | Text color of the label                             |
-| `--s-icon-default`       | Color of the item's custom and epxand/collapse icon |
-| `--s-text-disabled`      | Text color of the disabled item's label             |
+<Source
+  code={`<swirl-tree-view-item href="#" icon="🪁" item-id="item" label="Label"></swirl-tree-view-item>`}
+/>
+
+## Related components
+
+- **[swirl-tree-view](?path=/docs/components-swirltreeview--docs)** (parent) —
+  Tree container; use `swirl-tree-view-item` as a direct child of
+  `swirl-tree-view` or nested inside another item.
 
 ## Accessibility
 
@@ -33,3 +35,8 @@ The SwirlTreeViewItem component is used to render nodes in a
 
 The component follows the
 [WAI-ARIA Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+
+### Keyboard
+
+Keyboard behavior is defined by the tree view (e.g. arrow keys, Enter, Space for
+expand/collapse and selection).

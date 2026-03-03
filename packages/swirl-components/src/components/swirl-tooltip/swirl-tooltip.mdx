@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tooltip.stories";
 
 <Meta title="Components/SwirlTooltip" />
@@ -13,15 +13,21 @@ to an element.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTooltip} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTooltip}></Canvas>
 
 <Controls of={Stories.SwirlTooltip} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage            |
-| ----------------------------- | ---------------- |
-| `--s-surface-neutral-default` | Background color |
+<Source
+  code={`<swirl-tooltip content="Lorem ipsum dolor sit amet, contetur sadipscing." position="top">
+    <swirl-button label="Hover or focus me"></swirl-button>
+</swirl-tooltip>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

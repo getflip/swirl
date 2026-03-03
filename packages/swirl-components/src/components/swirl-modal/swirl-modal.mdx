@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-modal.stories";
 
 <Meta title="Components/SwirlModal" />
@@ -8,21 +8,56 @@ import * as Stories from "./swirl-modal.stories";
 The SwirlModal component is used to overlay the user interface with content that
 needs the immediate attention from the user.
 
-- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-modal)**
 
 ## Usage
 
-<Canvas of={Stories.SwirlModal} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlModal}></Canvas>
 
 <Controls of={Stories.SwirlModal} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                                   |
-| ----------------------------- | --------------------------------------- |
-| `--s-surface-overlay-default` | Background color of the modal           |
-| `--s-border-default`          | Border color of the modal footer/header |
+<Source
+  code={`<swirl-modal label="Label" primary-action-label="Primary" secondary-action-label="Secondary" sidebar-label="Sidebar">
+    <swirl-box padding-block-start="16">
+        <swirl-text>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </swirl-text>
+    </swirl-box>
+    <swirl-box cover slot="secondary-content">
+        <swirl-card elevated="false" height="100%" intent="default-subdued" is-borderless>
+            <swirl-text slot="content">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+            </swirl-text>
+        </swirl-card>
+    </swirl-box>
+    <swirl-box slot="sidebar-content">
+        <swirl-text>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. Lorem ipsum
+            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+            kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </swirl-text>
+    </swirl-box>
+    <div slot="sidebar-footer">Sidebar footer</div>
+    <swirl-box padding-block-start="4" padding-block-end="16" slot="header-tools">
+        <swirl-search auto-focus label="Search"></swirl-search>
+    </swirl-box>
+</swirl-modal>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

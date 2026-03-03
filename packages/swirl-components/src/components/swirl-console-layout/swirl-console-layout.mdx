@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-console-layout.stories";
 
 <Meta title="Admin/SwirlConsoleLayout" />
@@ -19,9 +19,16 @@ preview this component.
 
 <Controls of={Stories.SwirlConsoleLayout} />
 
-## Theming
+## Related components
 
-| Variable                 | Usage                                                                      |
-| ------------------------ | -------------------------------------------------------------------------- |
-| `--s-background-default` | Background color of the layout                                             |
-| `--s-border-default`     | Border color of the discrete parts of the layout (e.g. header, sidebar, …) |
+No related components.
+
+## Accessibility
+
+SwirlConsoleLayout is a layout shell with no ARIA attributes or
+keyboard-specific behavior. Ensure slotted navigation and content provide
+appropriate semantics and focus management.
+
+### Keyboard
+
+No component-specific keyboard behavior.

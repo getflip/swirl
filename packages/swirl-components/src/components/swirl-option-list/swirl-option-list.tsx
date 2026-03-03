@@ -17,6 +17,9 @@ import {
 } from "../../utils";
 import { v4 as uuid } from "uuid";
 
+/**
+ * @slot slot - The option list items and sections (e.g. swirl-option-list-item, swirl-option-list-section).
+ */
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the

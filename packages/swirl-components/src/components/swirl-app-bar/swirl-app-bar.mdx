@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-app-bar.stories";
 
 <Meta title="Components/SwirlAppBar" />
@@ -13,6 +13,38 @@ The SwirlAppBar component is used to display a header app bar inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlAppBar} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAppBar}></Canvas>
 
 <Controls of={Stories.SwirlAppBar} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-app-bar show-close-button>
+    <swirl-heading as="h1" level="3" slot="heading" text="Heading" truncate></swirl-heading>
+    <swirl-stack justify="center" orientation="horizontal" spacing="8" slot="center-controls">
+        <swirl-button label="All posts" variant="flat"></swirl-button>
+        <swirl-button label="Groups"></swirl-button>
+        <swirl-button label="Saved"></swirl-button>
+        <swirl-button label="Scheduled"></swirl-button>
+    </swirl-stack>
+    <div slot="right-controls">
+        <swirl-button hide-label="true" icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-button>
+    </div>
+</swirl-app-bar>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlAppBar is a layout container for header content. Buttons (back, close,
+stepper) use accessible labels via props. No component-level ARIA role or
+keyboard shortcuts; interaction is handled by slotted controls.
+
+### Keyboard
+
+No component-specific keyboard behavior; slotted buttons and links handle focus
+and activation.

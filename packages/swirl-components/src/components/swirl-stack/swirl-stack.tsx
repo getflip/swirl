@@ -31,6 +31,9 @@ export type SwirlStackSpacing =
   | "48"
   | "64";
 
+/**
+ * @slot slot - The stack items.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-stack.css",

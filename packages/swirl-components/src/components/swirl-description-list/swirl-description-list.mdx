@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-description-list.stories";
 
 <Meta title="Components/SwirlDescriptionList" />
@@ -14,17 +14,38 @@ descriptions. It is used in conjunction with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlDescriptionList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDescriptionList}></Canvas>
 
 <Controls of={Stories.SwirlDescriptionList} />
 
-## Theming
+## Sample usage
 
-| Variable             | Usage                        |
-| -------------------- | ---------------------------- |
-| `--s-border-default` | Color of the item separators |
+<Source
+  code={`<swirl-description-list>
+    <swirl-description-list-item term="Term #1"> A short description </swirl-description-list-item>
+    <swirl-description-list-item term="A longer term that might wrap">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus eu consectetur vestibulum tempus, nulla lobortis
+        ipsum. Odio a ipsum purus pellentesque maecenas.
+        <swirl-button label="A button" slot="tools" variant="outline"></swirl-button>
+        <swirl-inline-notification heading="Notification title" slot="additional-content">
+            Lorem ipsum dolor sit amet. <swirl-link href="#" label="With a link."></swirl-link>
+        </swirl-inline-notification>
+    </swirl-description-list-item>
+    <swirl-description-list-item term="Term #3"> A short description </swirl-description-list-item>
+</swirl-description-list>`}
+/>
+
+## Related components
+
+- **[swirl-description-list-item](?path=/docs/components-swirldescriptionlistitem--docs)**
+  (child) — Term/value pairs; use as direct children of
+  `swirl-description-list`.
 
 ## Accessibility
 
 The component uses a HTML description list to communicate the relationship
 between the terms and descriptions to assistive technology.
+
+### Keyboard
+
+No component-specific keyboard behavior.

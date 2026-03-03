@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-table.stories";
 
 <Meta title="Components/SwirlTable" />
@@ -12,9 +12,146 @@ The SwirlTable component is used to organize and display data sets.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTable} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTable}></Canvas>
 
 <Controls of={Stories.SwirlTable} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-table
+    caption="A table displaying data."
+    drag-drop-handle=".drag-handle"
+    enable-drag-drop
+    label="Table"
+>
+<div slot="columns">
+      <swirl-table-column sticky width="58px">
+        <swirl-checkbox checked="indeterminate" swirl-aria-label="Select all" input-id="select" input-name="select">
+        </swirl-checkbox><swirl-visually-hidden>Select</swirl-visually-hidden>
+      </swirl-table-column>
+      <swirl-table-column min-width="160px" sticky>User</swirl-table-column>
+      <swirl-table-column>Drag</swirl-table-column>
+      <swirl-table-column min-width="120px">User ID</swirl-table-column>
+      <swirl-table-column min-width="200px" sortable sort="descending">Email</swirl-table-column>
+      <swirl-table-column>Location</swirl-table-column>
+      <swirl-table-column>Logins</swirl-table-column>
+      <swirl-table-column>Latest login</swirl-table-column>
+      <swirl-table-column>User status</swirl-table-column>
+      <swirl-table-column sticky width="74px"><swirl-visually-hidden>Tools</swirl-visually-hidden></swirl-table-column>
+    </div>
+    <div slot="rows">
+      <swirl-table-row id="1">
+        <swirl-table-cell>
+          <swirl-checkbox swirl-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm" weight="medium">Isabel Lakin</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm" truncate>1234567890</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm"><swirl-link href="#" label="isabel.lakin@flipapp.de"></swirl-link></swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm">DE</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm" truncate>21</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm">24.11.2022 13:39</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-tag label="Active" intent="success"></swirl-tag>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-tooltip position="left" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.">
+            <swirl-button label="Test"></swirl-button>
+          </swirl-tooltip>
+        </swirl-table-cell>
+      </swirl-table-row>
+        <swirl-table-row id="2">
+          <swirl-table-cell>
+            <swirl-checkbox swirl-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" weight="medium">Doyle Stoltenberg</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>0987654321</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm"><swirl-link href="#" label="john.doe@flipapp.de"></swirl-link></swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">DE</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>432</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">24.11.2022 13:39</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          </swirl-table-cell>
+        </swirl-table-row>
+        <swirl-table-row highlighted id="3">
+          <swirl-table-cell>
+            <swirl-checkbox checked="true" swirl-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" weight="medium">Don Conroy</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>5432167890</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm"><swirl-link href="#" label="don.conroy@flipapp.de"></swirl-link></swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">DE</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>0</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">-</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          </swirl-table-cell>
+        </swirl-table-row>
+      </div>
+</swirl-table>`}
+/>
+
+## Related components
+
+- **[swirl-table-column](?path=/docs/components-swirltablecolumn--docs)**
+  (child) — Column definitions; use in the `columns` slot of `swirl-table`.
+- **[swirl-table-row-group](?path=/docs/components-swirltablerowgroup--docs)**
+  (child) — Optional row grouping; use in the `rows` slot of `swirl-table`.
+- **[swirl-table-row](?path=/docs/components-swirltablerow--docs)** (child) —
+  Table rows; use in the `rows` slot of `swirl-table` or inside
+  `swirl-table-row-group`.
 
 ## Accessibility
 
@@ -34,3 +171,8 @@ The component follows the
 | `role="row"`          | Set on a the table's row elements.                              |
 | `aria-rowindex`       | Set to the overall index of the row element.                    |
 | `role="cell"`         | Set on a the table's cell elements.                             |
+
+### Keyboard
+
+No component-specific keyboard behavior; table navigation depends on host or
+application.

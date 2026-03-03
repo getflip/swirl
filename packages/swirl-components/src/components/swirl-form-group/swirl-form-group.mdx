@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-form-group.stories";
 
 <Meta title="Components/SwirlFormGroup" />
@@ -13,6 +13,39 @@ The SwirlFormGroup component is used to arrange multiple
 
 ## Usage
 
-<Canvas of={Stories.SwirlFormGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFormGroup}></Canvas>
 
 <Controls of={Stories.SwirlFormGroup} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-form-group>
+    <swirl-form-group orientation="horizontal">
+        <swirl-form-control label="First name">
+            <swirl-text-input type="text" value="John"></swirl-text-input>
+        </swirl-form-control>
+        <swirl-form-control label="Last name">
+            <swirl-text-input type="text" value="Doe"></swirl-text-input>
+        </swirl-form-control>
+    </swirl-form-group>
+
+    <swirl-form-control label="Email">
+        <swirl-text-input type="email"></swirl-text-input>
+    </swirl-form-control>
+
+</swirl-form-group>`} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlFormGroup is a layout wrapper for form controls with no ARIA attributes or
+keyboard-specific behavior. Ensure each SwirlFormControl provides appropriate
+labels and semantics.
+
+### Keyboard
+
+No component-specific keyboard behavior.

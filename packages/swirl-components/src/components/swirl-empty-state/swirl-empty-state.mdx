@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-empty-state.stories";
 
 <Meta title="Components/SwirlEmptyState" />
@@ -13,13 +13,34 @@ pages.
 
 ## Usage
 
-<Canvas of={Stories.SwirlEmptyState} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlEmptyState}></Canvas>
 
 <Controls of={Stories.SwirlEmptyState} />
 
-## Theming
+## Sample usage
 
-| Variable           | Usage                     |
-| ------------------ | ------------------------- |
-| `--s-text-default` | Text color of the heading |
-| `--s-text-subdued` | Text color of the content |
+<Source
+  code={`<swirl-empty-state heading="Nothing to see here." illustration="/images/empty-state-1.svg">
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+    magna aliquyam erat, sed diam voluptua.
+
+    <swirl-button-group slot="controls">
+        <swirl-button label="Button"></swirl-button>
+        <swirl-button intent="primary" label="Button" variant="flat"></swirl-button>
+    </swirl-button-group>
+
+</swirl-empty-state>`} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlEmptyState is a presentational placeholder with no ARIA attributes or
+keyboard-specific behavior. Ensure heading and call-to-action slots provide
+accessible labels and focus order.
+
+### Keyboard
+
+No component-specific keyboard behavior.

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-app-icon.stories";
 
 <Meta title="Components/SwirlAppIcon" />
@@ -13,6 +13,26 @@ E.g. [ShellLayout](?path=/docs/components-swirlshelllayout--docs) or the
 
 ## Usage
 
-<Canvas of={Stories.SwirlAppIcon} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAppIcon}></Canvas>
 
 <Controls of={Stories.SwirlAppIcon} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-app-icon src="https://picsum.photos/id/433/144/144"></swirl-app-icon>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlAppIcon is a presentational icon component with no ARIA attributes or
+keyboard-specific behavior. When used as the only content of a button or link,
+ensure the parent provides an accessible label.
+
+### Keyboard
+
+No component-specific keyboard behavior.

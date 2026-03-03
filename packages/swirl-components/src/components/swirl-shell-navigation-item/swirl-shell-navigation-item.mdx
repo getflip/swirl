@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-shell-navigation-item.stories";
 
 <Meta title="Components/SwirlShellNavigationItem" />
@@ -12,24 +12,28 @@ for the [SwirlShellLayout](?path=/docs/components-swirlshelllayout--docs).
 
 ## Usage
 
-<Canvas of={Stories.SwirlShellNavigationItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlShellNavigationItem}></Canvas>
 
 <Controls of={Stories.SwirlShellNavigationItem} />
 
-## Theming
+## Sample usage
 
-| Variable                     | Usage                                           |
-| ---------------------------- | ----------------------------------------------- |
-| `--s-text-default`           | Text color of the item                          |
-| `--s-text-highlight`         | Text color of the active item                   |
-| `--s-icon-default`           | Icon color of the active item                   |
-| `--s-icon-highlight`         | Icon color of the item                          |
-| `--s-background-default`     | Background color of the item                    |
-| `--s-background-hovered`     | Background color of the hovered item            |
-| `--s-background-pressed`     | Background color of the pressed item            |
-| `--s-surface-raised-default` | Background color of the active item             |
-| `--s-surface-raised-hovered` | Background color of the active and hovered item |
-| `--s-surface-raised-pressed` | Background color of the active and pressed item |
+<Source
+  code={`<swirl-shell-navigation-item
+    label="Label"
+    badge-label="1"
+    variant="tiled"
+    inline-label
+    with-gradient
+    inline-label-color="light"
+>
+    <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/25/200/300"></swirl-app-icon>
+</swirl-shell-navigation-item>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-inline-status.stories";
 
 <Meta title="Components/SwirlInlineStatus" />
@@ -12,24 +12,23 @@ The SwirlInlineStatus component is used to convey status information.
 
 ## Usage
 
-<Canvas of={Stories.SwirlInlineStatus} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlInlineStatus}></Canvas>
 
 <Controls of={Stories.SwirlInlineStatus} />
 
-## Theming
+## Sample usage
 
-| Variable            | Usage                                                  |
-| ------------------- | ------------------------------------------------------ |
-| `--s-icon-critical` | Icon color of the inline status with intent "critical" |
-| `--s-text-critical` | Text color of the inline status with intent "critical" |
-| `--s-icon-info`     | Icon color of the inline status with intent "info"     |
-| `--s-text-info`     | Text color of the inline status with intent "info"     |
-| `--s-icon-neutral`  | Icon color of the inline status with intent "neutral"  |
-| `--s-text-neutral`  | Text color of the inline status with intent "neutral"  |
-| `--s-icon-success`  | Icon color of the inline status with intent "success"  |
-| `--s-text-success`  | Text color of the inline status with intent "success"  |
-| `--s-icon-warning`  | Icon color of the inline status with intent "warning"  |
-| `--s-text-warning`  | Text color of the inline status with intent "warning"  |
+<Source
+  code={`<swirl-inline-status
+    icon="<swirl-icon-info></swirl-icon-info>"
+    intent="info"
+    message="This is status message."
+></swirl-inline-status>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -38,3 +37,7 @@ The SwirlInlineStatus component is used to convey status information.
 | ARIA               | Usage                                                                                                                                                                                              |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aria-describedby` | The inline status needs to be linked to the corresponding form field by setting the `aria-describedby` attribute on the related field and the matching `id` attribute on the inline error element. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

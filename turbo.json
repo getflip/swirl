@@ -54,6 +54,9 @@
         "@getflip/swirl-components-react#build"
       ]
     },
+    "@getflip/swirl-ai#build": {
+      "dependsOn": ["^build", "@getflip/swirl-components#build"]
+    },
     "stencil:build": {
       "outputs": ["dist/**", "components.json"],
       "dependsOn": ["@getflip/swirl-tokens#build"]

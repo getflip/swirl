@@ -19,6 +19,9 @@ import {
   SwirlFileViewerPdfZoom,
 } from "../swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
+/**
+ * @slot menu-items - Optional menu items displayed in the file menu.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-pdf-reader.css",

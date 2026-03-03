@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-pdf-reader.stories";
 
 <Meta title="Components/SwirlPDFReader" />
@@ -13,18 +13,25 @@ overlay.
 
 ## Usage
 
-<Canvas of={Stories.SwirlPdfReader} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlPdfReader}></Canvas>
 
 <Controls of={Stories.SwirlPdfReader} />
 
-## Theming
+## Sample usage
 
-| Variable                          | Usage                                  |
-| --------------------------------- | -------------------------------------- |
-| `--s-background-default`          | Background color of the header         |
-| `--s-surface-raised-default`      | Background color of content area       |
-| `--s-interactive-neutral-default` | Text and icon color of the zoom select |
-| `--s-border-default`              | Separator color of the zoom controls   |
+<Source
+  code={`<swirl-pdf-reader file="/sample-2.pdf" label="sample.pdf">
+    <swirl-action-list-item
+        icon="<swirl-icon-attachment></swirl-icon-attachment>"
+        label="Custom action"
+        slot="menu-items"
+    ></swirl-action-list-item>
+</swirl-pdf-reader>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

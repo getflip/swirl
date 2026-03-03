@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-resource-list-item.stories";
 
 <Meta title="Components/SwirlResourceListItem" />
@@ -14,21 +14,33 @@ media, a group or a chat within a collection. It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlResourceListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlResourceListItem}></Canvas>
 
 <Controls of={Stories.SwirlResourceListItem} />
 
-## Theming
+## Sample usage
 
-| Variable                 | Usage                                |
-| ------------------------ | ------------------------------------ |
-| `--s-background-default` | Background color of the item         |
-| `--s-background-hovered` | Background color of the hovered item |
-| `--s-background-pressed` | Background color of the active item  |
-| `--s-text-default`       | Text color of the item's label       |
-| `--s-text-subdued`       | Text color of the item' description  |
-| `--s-text-disabled`      | Text color of the disabled item      |
-| `--s-border-default`     | Border color of the item             |
+<Source
+  code={`<swirl-resource-list-item description="With a description" label="This is a resource item" meta="Today">
+    <swirl-avatar
+        slot="media"
+        label="Jane Doe"
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+    ></swirl-avatar>
+
+    <swirl-stack slot="badges" align="center" orientation="horizontal" spacing="8">
+        <swirl-icon-notifications-off size="16"></swirl-icon-notifications-off>
+        <swirl-badge label="1" size="xs"></swirl-badge>
+    </swirl-stack>
+
+</swirl-resource-list-item>`} />
+
+## Related components
+
+- **[swirl-resource-list](?path=/docs/components-swirlresourcelist--docs)**
+  (parent) — Container for resource list items and sections; use as a direct
+  child of `swirl-resource-list` or inside `swirl-resource-list-section`.
 
 ## Accessibility
 

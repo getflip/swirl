@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toast-provider.stories";
 
 <Meta title="Components/SwirlToastProvider" />
@@ -12,9 +12,19 @@ The SwirlToastProvider component is used to host and create
 
 ## Usage
 
-<Canvas of={Stories.SwirlToastProvider} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToastProvider}></Canvas>
 
 <Controls of={Stories.SwirlToastProvider} />
+
+## Sample usage
+
+<Source code={`<swirl-toast-provider></swirl-toast-provider>`} />
+
+## Related components
+
+- **[swirl-toast](?path=/docs/components-swirltoast--docs)** (child) — Toasts
+  are created programmatically via the provider’s API; the provider renders
+  `swirl-toast` instances.
 
 ## Accessibility
 
@@ -23,6 +33,10 @@ The SwirlToastProvider component is used to host and create
 | ARIA            | Usage                                                     |
 | --------------- | --------------------------------------------------------- |
 | `role="status"` | The component wraps all toasts in a "polite" live region. |
+
+### Keyboard
+
+No component-specific keyboard behavior.
 
 ### Positioning
 

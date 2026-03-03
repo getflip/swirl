@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-banner.stories";
 
 <Meta title="Components/SwirlBanner" />
@@ -13,24 +13,24 @@ the screen.
 
 ## Usage
 
-<Canvas of={Stories.SwirlBanner} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlBanner}></Canvas>
 
 <Controls of={Stories.SwirlBanner} />
 
-## Theming
+## Sample usage
 
-| Variable                       | Usage                                                           |
-| ------------------------------ | --------------------------------------------------------------- |
-| `--s-surface-neutral-default`  | Background color for intent "default"                           |
-| `--s-surface-critical-default` | Background color for intent "critical"                          |
-| `--s-surface-success-default`  | Background color for intent "success"                           |
-| `--s-surface-warning-default`  | Background color for intent "warning"                           |
-| `--s-surface-info-default`     | Background color for intent "info"                              |
-| `--s-text-default`             | Text color for intent "warning"                                 |
-| `--s-text-on-status`           | Text color for intents "default", "critical", "success", "info" |
-| `--s-icon-on-status`           | Icon color for intents "default", "critical", "success", "info" |
-| `--s-icon-strong`              | Icon color for intent "warning"                                 |
-| `--s-focus-default`            | Outline color of focused action button and dismiss button       |
+<Source
+  code={`<swirl-banner
+    action-label="Action"
+    content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    dismissable
+    intent="critical"
+></swirl-banner>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -44,3 +44,8 @@ The component follows the
 | `role="alert"`     | The banner gets the `alert` role if it contains critical info or warnings.                    |
 | `role="status"`    | The banner gets the `status` role for non-critical info.                                      |
 | `aria-describedby` | The `aria-describedby` property is automatically set to reference the banner's title or body. |
+
+### Keyboard
+
+No component-specific keyboard behavior; dismiss and action buttons use standard
+button semantics.

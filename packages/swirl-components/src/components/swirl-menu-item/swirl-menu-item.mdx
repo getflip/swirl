@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-menu-item.stories";
 
 <Meta title="Components/SwirlMenuItem" />
@@ -12,12 +12,36 @@ The SwirlMenuItem component is used to provider user actions inside a
 
 ## Usage
 
-<Canvas of={Stories.SwirlMenuItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlMenuItem}></Canvas>
 
 <Controls of={Stories.SwirlMenuItem} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-menu-item label="Label">
+    <swirl-avatar
+        slot="avatar"
+        label="Jane Doe"
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+    ></swirl-avatar>
+    <swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>
+</swirl-menu-item>`}
+/>
+
+## Related components
+
+- **[swirl-menu](?path=/docs/components-swirlmenu--docs)** (parent) — Menu
+  container; use `swirl-menu-item` as a direct child of `swirl-menu`. Items can
+  contain a nested `swirl-menu` for submenus.
 
 ## Accessibility
 
 ### ARIA
 
 See [SwirlMenu component](?path=/docs/components-swirlmenu--swirl-menu).
+
+### Keyboard
+
+Keyboard behavior is defined by SwirlMenu (e.g. arrow keys, Enter, Space).

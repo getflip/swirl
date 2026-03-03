@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tree-navigation.stories";
 
 <Meta title="Components/SwirlTreeNavigation" />
@@ -7,37 +7,58 @@ import * as Stories from "./swirl-tree-navigation.stories";
 
 The SwirlTreeNavigation component is used to …
 
-- **[Figma Design Specs](#)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tree-navigation)**
 
 ## Usage
 
-<Canvas of={Stories.SwirlTreeNavigation} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTreeNavigation}></Canvas>
 
 <Controls of={Stories.SwirlTreeNavigation} />
 
-## Theming
+## Sample usage
 
-| Variable                          | Usage                       |
-| --------------------------------- | --------------------------- |
-| `--s-interactive-primary-default` | The button background color |
-| `--s-text-on-action-primary`      | The button text color       |
+<Source
+  code={`<swirl-tree-navigation label="Label">
+    <swirl-tree-navigation-item label="Home" icon="home" href="#home"></swirl-tree-navigation-item>
+    <swirl-tree-navigation-item label="User Management" icon="person">
+        <swirl-tree-navigation-item label="Users" active="true" href="#users"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item label="User groups" href="#user-groups"></swirl-tree-navigation-item>
+    </swirl-tree-navigation-item>
+    <swirl-tree-navigation-item label="Settings" icon="settings">
+        <swirl-tree-navigation-item label="Languages" href="#users"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item label="General" href="#user-groups"></swirl-tree-navigation-item>
+    </swirl-tree-navigation-item>
+    <swirl-tree-navigation-item
+        href="https://getflip.com"
+        target="__blank"
+        label="File"
+        icon="file"
+        external="true"
+    ></swirl-tree-navigation-item>
+</swirl-tree-navigation>`}
+/>
+
+## Related components
+
+- **[swirl-tree-navigation-item](?path=/docs/components-swirltreenavigationitem--docs)**
+  (child) — Navigation items; use as direct children of `swirl-tree-navigation`
+  (nest for hierarchy).
 
 ## Accessibility
 
 ### ARIA
 
-The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+The component follows the
+[WAI-ARIA Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+The container is a tree; keyboard and item semantics are on
+[SwirlTreeNavigationItem](?path=/docs/admin-swirltreenavigationitem--docs).
 
-| ARIA            | Usage                                                                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `role="button"` |                                                                                                                   |
-| `aria-label`    | If no accessible label is provided via the button's text, the `aria-label` or `aria-labelledby` attribute is set. |
-| `aria-disabled` | If the button is disabled, the `aria-disabled` attribute is set to `true`.                                        |
+| ARIA          | Usage                                      |
+| ------------- | ------------------------------------------ |
+| `role="tree"` | Set on the root list container.            |
+| `aria-label`  | Set via the `label` prop to name the tree. |
 
 ### Keyboard
 
-| Key              | Action                |
-| ---------------- | --------------------- |
-| <kbd>ENTER</kbd> | Activates the button. |
-| <kbd>SPACE</kbd> | Activates the button. |
+Keyboard interaction is handled by the tree items; see
+[SwirlTreeNavigationItem](?path=/docs/admin-swirltreenavigationitem--docs).

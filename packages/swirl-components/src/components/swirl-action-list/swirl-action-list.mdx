@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-action-list.stories";
 
 <Meta title="Components/SwirlActionList" />
@@ -16,15 +16,39 @@ should be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlActionList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlActionList}></Canvas>
 
 <Controls of={Stories.SwirlActionList} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                               |
-| ----------------------------- | ----------------------------------- |
-| `--s-surface-overlay-default` | Background color of the action list |
+<Source
+  code={`<swirl-action-list>
+    <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
+        label="Action item 1"
+    ></swirl-action-list-item>
+    <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
+        label="Action item 2"
+    ></swirl-action-list-item>
+    <swirl-separator></swirl-separator>
+    <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
+        label="Action item 3"
+    ></swirl-action-list-item>
+</swirl-action-list>`}
+/>
+
+## Related components
+
+- **[swirl-action-list-section](?path=/docs/components-swirlactionlistsection--docs)**
+  (child) — Optional grouping for items; use as a direct child of
+  `swirl-action-list`.
+- **[swirl-action-list-item](?path=/docs/components-swirlactionlistitem--docs)**
+  (child) — Menu items; use as direct children of `swirl-action-list` or inside
+  `swirl-action-list-section`. Often used inside
+  [swirl-popover](?path=/docs/components-swirlpopover--docs).
 
 ## Accessibility
 

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-dialog.stories";
 
 <Meta title="Components/SwirlDialog" />
@@ -13,15 +13,21 @@ that needs the user's confirmation or action.
 
 ## Usage
 
-<Canvas of={Stories.SwirlDialog} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDialog}></Canvas>
 
 <Controls of={Stories.SwirlDialog} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                          |
-| ----------------------------- | ------------------------------ |
-| `--s-surface-overlay-default` | Background color of the dialog |
+<Source
+  code={`<swirl-dialog intent="primary" label="Dialog" primary-action-label="Leave" secondary-action-label="Cancel">
+    <p>Do you really want to leave this group chat?</p>
+</swirl-dialog>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

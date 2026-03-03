@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-separator.stories";
 
 <Meta title="Components/SwirlSeparator" />
@@ -12,15 +12,17 @@ of menu items.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSeparator} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSeparator}></Canvas>
 
 <Controls of={Stories.SwirlSeparator} />
 
-## Theming
+## Sample usage
 
-| Variable             | Usage                         |
-| -------------------- | ----------------------------- |
-| `--s-border-default` | Border color of the separator |
+<Source code={`<swirl-separator></swirl-separator>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -29,3 +31,7 @@ of menu items.
 | ARIA               | Usage |
 | ------------------ | ----- |
 | `role="separator"` |       |
+
+### Keyboard
+
+No component-specific keyboard behavior.

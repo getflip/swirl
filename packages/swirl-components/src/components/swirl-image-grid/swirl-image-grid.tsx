@@ -13,6 +13,9 @@ export type SwirlImageGridBorderRadius =
   | (typeof swirlImageGridBorderRadiusTokens)[number]
   | string;
 
+/**
+ * @slot slot - The image grid items (e.g. swirl-image-grid-item).
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-image-grid.css",

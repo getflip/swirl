@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toast.stories";
 
 <Meta title="Components/SwirlToast" />
@@ -13,22 +13,31 @@ action has taken place.
 
 ## Usage
 
-<Canvas of={Stories.SwirlToast} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToast}></Canvas>
 
 <Controls of={Stories.SwirlToast} />
 
-## Theming
+## Sample usage
 
-| Variable                       | Usage                                             |
-| ------------------------------ | ------------------------------------------------- |
-| `--s-surface-neutral-default`  | Background color for default toast                |
-| `--s-surface-critical-default` | Background color for toast with intent "critical" |
-| `--s-surface-success-default`  | Background color for toast with intent "success"  |
-| `--s-text-on-status`           | Text color for toasts                             |
-| `--s-icon-on-status`           | Icon color for toasts                             |
+<Source
+  code={`<swirl-toast icon="<swirl-icon-mail></swirl-icon-mail>">
+    This is toast text with multiple lines. Try to keep the info as short as possible.
+</swirl-toast>`}
+/>
+
+## Related components
+
+- **[swirl-toast-provider](?path=/docs/components-swirltoastprovider--docs)**
+  (parent) — Renders and stacks toasts; use the provider’s API to show toasts
+  (they render as `swirl-toast`).
 
 ## Accessibility
 
 Please refer to the
 [ToastProvider](?path=/docs/components-swirltoastprovider--docs) component for
 information on how to use the SwirlToasts in an accessible way.
+
+### Keyboard
+
+No component-specific keyboard behavior; toasts are announced via the live
+region.

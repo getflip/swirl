@@ -93,6 +93,10 @@ export const config: Config = {
       type: "docs-vscode",
       file: "vscode-data.json",
     },
+    {
+      type: "docs-custom-elements-manifest",
+      file: "custom-elements.manifest.json",
+    },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
       excludeComponents: ["hex-color-picker", "wc-datepicker"],
@@ -128,5 +132,10 @@ export const config: Config = {
     transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
     setupFilesAfterEnv: ["<rootDir>/test-setup.ts"],
   },
-  watchIgnoredRegex: [/pdf\.worker\.min\.js/, /vscode-data\.json/],
+  watchIgnoredRegex: [
+    /pdf\.worker\.min\.js/,
+    /vscode-data\.json/,
+    /components\.json$/,
+    /custom-elements\.manifest\.json$/,
+  ],
 };

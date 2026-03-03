@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-skeleton-text.stories";
 
 <Meta title="Components/SwirlSkeletonText" />
@@ -13,16 +13,17 @@ of text before it is loaded.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSkeletonText} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSkeletonText}></Canvas>
 
 <Controls of={Stories.SwirlSkeletonText} />
 
-## Theming
+## Sample usage
 
-| Variable                     | Usage                                    |
-| ---------------------------- | ---------------------------------------- |
-| `--s-surface-raised-default` | Highlight color of the "shine" animation |
-| `--s-surface-raised-hovered` | background color of the lines            |
+<Source code={`<swirl-skeleton-text lines="4"></swirl-skeleton-text>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -30,3 +31,7 @@ Check
 [this article](https://adrianroselli.com/2020/11/more-accessible-skeletons.html)
 for recommendations on how to use skeleton elements with `aria-busy` and
 `aria-hidden`.
+
+### Keyboard
+
+No component-specific keyboard behavior.

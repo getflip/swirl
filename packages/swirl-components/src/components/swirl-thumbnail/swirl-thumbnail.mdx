@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-thumbnail.stories";
 
 <Meta title="Components/SwirlThumbnail" />
@@ -13,6 +13,26 @@ image.
 
 ## Usage
 
-<Canvas of={Stories.SwirlThumbnail} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlThumbnail}></Canvas>
 
 <Controls of={Stories.SwirlThumbnail} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-thumbnail alt="Brief description of the image." src="https://picsum.photos/id/433/400/400"></swirl-thumbnail>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlThumbnail is a presentational image wrapper with no ARIA attributes or
+keyboard-specific behavior. Provide an accessible name for the image via slotted
+content or a parent label.
+
+### Keyboard
+
+No component-specific keyboard behavior.

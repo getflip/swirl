@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-box.stories";
 
 <Meta title="Components/SwirlBox" />
@@ -12,6 +12,28 @@ its contents.
 
 ## Usage
 
-<Canvas of={Stories.SwirlBox} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlBox}></Canvas>
 
 <Controls of={Stories.SwirlBox} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-box>
+    <swirl-chip label="Label"></swirl-chip>
+</swirl-box>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlBox is a presentational layout wrapper with no ARIA attributes or
+keyboard-specific behavior. Ensure slotted content provides appropriate
+semantics.
+
+### Keyboard
+
+No component-specific keyboard behavior.

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-chip.stories";
 
 <Meta title="Components/SwirlChip" />
@@ -12,28 +12,17 @@ The SwirlChip component is used to represent an input, attribute, or action.
 
 ## Usage
 
-<Canvas of={Stories.SwirlChip} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlChip}></Canvas>
 
 <Controls of={Stories.SwirlChip} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                                           |
-| ----------------------------- | ----------------------------------------------- |
-| `--s-surface-overlay-default` | Background color of the chip                    |
-| `--s-surface-overlay-hovered` | Background color of the hovered chip            |
-| `--s-surface-overlay-pressed` | Background color of the pressed chip            |
-| `--s-surface-raised-hovered`  | Background color of the avatar on pressed chip  |
-| `--s-surface-raised-pressed`  | Background color of the avatar on pressed chip  |
-| `--s-border-default`          | Border color of the chip                        |
-| `--s-border-critical`         | Border color of the chip with intent "critical" |
-| `--s-border-success`          | Border color of the chip with intent "success"  |
-| `--s-icon-default`            | Icon color of the chip                          |
-| `--s-icon-critical`           | Icon color of the chip with intent "critical"   |
-| `--s-icon-success`            | Icon color of the chip with intent "success"    |
-| `--s-text-subdued`            | Text color of the chip                          |
-| `--s-text-critical`           | Text color of the chip with intent "critical"   |
-| `--s-text-success`            | Text color of the chip with intent "success"    |
+<Source code={`<swirl-chip label="Label" removable></swirl-chip>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

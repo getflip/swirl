@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-option-list-section.stories";
 
 <Meta title="Components/SwirlOptionListSection" />
@@ -13,17 +13,23 @@ The SwirlOptionListSection component is used to group related
 
 ## Usage
 
-<Canvas of={Stories.SwirlOptionListSection} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlOptionListSection}></Canvas>
 
 <Controls of={Stories.SwirlOptionListSection} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                           |
-| ----------------------------- | ------------------------------- |
-| `--s-surface-overlay-default` | Background color of the section |
-| `--s-text-subdued`            | Text color of the section label |
-| `--s-border-default`          | Border color of the section     |
+<Source
+  code={`<swirl-option-list-section label="Section label" has-separator></swirl-option-list-section>`}
+/>
+
+## Related components
+
+- **[swirl-option-list](?path=/docs/components-swirloptionlist--docs)** (parent)
+  — Container for option list items and sections; use as a direct child of
+  `swirl-option-list`.
+- **[swirl-option-list-item](?path=/docs/components-swirloptionlistitem--docs)**
+  (child) — Individual options; use as direct children of this section.
 
 ## Accessibility
 
@@ -32,3 +38,7 @@ The SwirlOptionListSection component is used to group related
 | ARIA           | Usage                                      |
 | -------------- | ------------------------------------------ |
 | `role="group"` | The action list has `role` set to `group`. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

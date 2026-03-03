@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-accordion.stories";
 
 <Meta title="Components/SwirlAccordion" />
@@ -13,9 +13,81 @@ reveal sections of content.
 
 ## Usage
 
-<Canvas of={Stories.SwirlAccordion} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAccordion}></Canvas>
 
 <Controls of={Stories.SwirlAccordion} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-accordion>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        heading="Accordion item 1"
+        initially-open
+        item-id="item-1"
+    >
+        <swirl-avatar slot="media" icon="<swirl-icon-groups></swirl-icon-groups>"></swirl-avatar>
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        heading="Accordion item 2"
+        item-id="item-2"
+    >
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        heading="Accordion item 3"
+        item-id="item-3"
+    >
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+    <swirl-accordion-item
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        disabled
+        heading="Accordion item 4"
+        item-id="item-4"
+    >
+        <swirl-stack spacing="16">
+            <swirl-text size="sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod euismod libero, nec sollicitudin
+                diam ultricies ut. Donec eget consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+                scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+            </swirl-text>
+            <swirl-button label="A button" variant="flat"></swirl-button>
+        </swirl-stack>
+    </swirl-accordion-item>
+</swirl-accordion>`}
+/>
+
+## Related components
+
+- **[swirl-accordion-item](?path=/docs/components-swirlaccordionitem--docs)**
+  (child) — Individual expandable section; use as a direct child of
+  `swirl-accordion`.
 
 ## Accessibility
 
@@ -24,14 +96,14 @@ reveal sections of content.
 The component follows the
 [WAI-ARIA Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
 
-| ARIA             | Usage                                                                     |
-| ---------------- | ------------------------------------------------------------------------- |
-| `role="heading"` | Used to provide a heading for each accordion item.                        |
-| `role="button"`  | Contained by the headline of each accordion item.                         |
-| `aria-expanded`  | Set on the item's button.                                                 |
-| `aria-controls`  | Set on the item's button, referencing the controlled content section.     |
-| `role="region"`  | Set on each content section container.                                    |
-| `labelledby`     | Set on each content section container, referencing the associated button. |
+| ARIA              | Usage                                                                     |
+| ----------------- | ------------------------------------------------------------------------- |
+| `role="heading"`  | Used to provide a heading for each accordion item.                        |
+| `role="button"`   | Contained by the headline of each accordion item.                         |
+| `aria-expanded`   | Set on the item's button.                                                 |
+| `aria-controls`   | Set on the item's button, referencing the controlled content section.     |
+| `role="region"`   | Set on each content section container.                                    |
+| `aria-labelledby` | Set on each content section container, referencing the associated button. |
 
 ### Keyboard
 

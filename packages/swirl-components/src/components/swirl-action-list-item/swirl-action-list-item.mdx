@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-action-list-item.stories";
 
 <Meta title="Components/SwirlActionListItem" />
@@ -13,25 +13,36 @@ The SwirlActionListItem component is used to render menu items inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlActionListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlActionListItem}></Canvas>
 
 <Controls of={Stories.SwirlActionListItem} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                                                   |
-| ----------------------------- | ------------------------------------------------------- |
-| `--s-surface-overlay-default` | Background color of the item                            |
-| `--s-surface-overlay-hovered` | Background color of the hovered item                    |
-| `--s-surface-overlay-pressed` | Background color of the active item                     |
-| `--s-text-default`            | Text color of the item's label                          |
-| `--s-text-subdued`            | Text color of the item's description and badge          |
-| `--s-icon-default`            | Icon color of the item                                  |
-| `--s-icon-highlight`          | Icon color of the item's suffix                         |
-| `--s-text-critical`           | Text color of the item's label with intent "critical"   |
-| `--s-icon-critical`           | Icon color of the item with intent "critical"           |
-| `--s-text-disabled`           | Text color of the disabled item's label and description |
-| `--s-icon-disabled`           | Icon color of the disabled item                         |
+<Source
+  code={`<swirl-action-list-item
+    badge="Badge"
+    description="Description of the action list item"
+    icon="<swirl-icon-mention></swirl-icon-mention>"
+    icon-badge='<swirl-badge label="1"></swirl-badge>'
+    label="This is an action"
+    suffix="<swirl-icon-chevron-right></swirl-icon-chevron-right>"
+>
+    <swirl-avatar
+        slot="avatar"
+        label="Jane Doe"
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+    ></swirl-avatar>
+    <swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>
+</swirl-action-list-item>`}
+/>
+
+## Related components
+
+- **[swirl-action-list](?path=/docs/components-swirlactionlist--docs)** (parent)
+  — Container for action list items and sections; use as a direct child of
+  `swirl-action-list` or inside `swirl-action-list-section`.
 
 ## Accessibility
 

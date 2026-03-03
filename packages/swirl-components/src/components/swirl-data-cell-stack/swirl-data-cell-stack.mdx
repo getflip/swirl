@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-data-cell-stack.stories";
 
 <Meta title="Components/SwirlDataCellStack" />
@@ -14,9 +14,30 @@ slot.
 
 ## Usage
 
-<Canvas of={Stories.SwirlDataCellStack} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDataCellStack}></Canvas>
 
 <Controls of={Stories.SwirlDataCellStack} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-data-cell-stack label="User Information" description="Basic user contact details">
+    <swirl-data-cell label="Name" value="John Doe">
+        <swirl-avatar
+            slot="media"
+            label="John Doe"
+            icon="<swirl-icon-person></swirl-icon-person>"
+            size="s"
+        ></swirl-avatar>
+    </swirl-data-cell>
+    <swirl-data-cell label="Email" value="john.doe@example.com">
+        <swirl-avatar slot="media" label="Email" icon="<swirl-icon-mail></swirl-icon-mail>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+    <swirl-data-cell label="Phone" value="+1 234 567 8900">
+        <swirl-avatar slot="media" label="Phone" icon="<swirl-icon-phone></swirl-icon-phone>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+</swirl-data-cell-stack>`}
+/>
 
 ## Properties
 
@@ -33,9 +54,24 @@ slot.
 | `cta`     | Optional call-to-action (e.g., button)  |
 | (default) | The SwirlDataCell components to display |
 
-## Theming
+## Related components
 
-| Variable           | Usage                  |
-| ------------------ | ---------------------- |
-| `--s-text-default` | Label text color       |
-| `--s-text-subdued` | Description text color |
+- **[swirl-data-cell](?path=/docs/components-swirldatacell--docs)** (child) —
+  Data cells; use as direct children in the default slot of
+  `swirl-data-cell-stack`.
+
+## Accessibility
+
+### ARIA
+
+| ARIA               | Usage                                             |
+| ------------------ | ------------------------------------------------- |
+| `role="group"`     | Set on the stack container.                       |
+| `role="list"`      | Set on the list of data cells.                    |
+| `aria-labelledby`  | References the optional label when present.       |
+| `aria-describedby` | References the optional description when present. |
+
+### Keyboard
+
+No component-specific keyboard behavior; interaction is handled by slotted
+SwirlDataCell content.

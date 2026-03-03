@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-text-input.stories";
 
 <Meta title="Components/SwirlTextInput" />
@@ -14,16 +14,40 @@ of various types. It should always be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlTextInput} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTextInput}></Canvas>
 
 <Controls of={Stories.SwirlTextInput} />
 
-## Theming
+## Sample usage
 
-| Variable               | Usage                                  |
-| ---------------------- | -------------------------------------- |
-| `--s-text-default`     | Text color of the input value          |
-| `--s-text-disabled`    | Text color of the disabled input value |
-| `--s-text-subdued`     | Text color of the suffix and prefix    |
-| `--s-icon-default`     | Icon color of the clear button         |
-| `--s-border-highlight` | Caret color                            |
+<Source code={`<swirl-text-input value="Value"></swirl-text-input>`} />
+
+## Related components
+
+- **[swirl-form-control](?path=/docs/components-swirlformcontrol--docs)**
+  (parent) — Wraps the input with label and description; use `swirl-text-input`
+  in the default slot of `swirl-form-control`.
+
+## Accessibility
+
+### ARIA
+
+The input and controls expose ARIA for form and autocomplete semantics.
+
+| ARIA                | Usage                                                       |
+| ------------------- | ----------------------------------------------------------- |
+| `aria-autocomplete` | Optional; set via `swirlAriaAutocomplete`.                  |
+| `aria-controls`     | Optional; set via `swirlAriaControls`.                      |
+| `aria-describedby`  | Optional; set via `swirlAriaDescribedby`.                   |
+| `aria-disabled`     | Set when the input is disabled.                             |
+| `aria-expanded`     | Optional; set via `swirlAriaExpanded` (e.g. for dropdowns). |
+| `aria-invalid`      | Set when the value is invalid.                              |
+| `role`              | Optional; set via `swirlRole`.                              |
+| `aria-label`        | Set on the clear and password toggle buttons.               |
+| `aria-live`         | Set to `"polite"` on the character counter when present.    |
+| `aria-hidden`       | Set on decorative prefix/suffix content.                    |
+
+### Keyboard
+
+Standard text input behavior. Clear and password toggle buttons are activated
+with <kbd>Enter</kbd> or <kbd>Space</kbd>. No component-specific shortcuts.

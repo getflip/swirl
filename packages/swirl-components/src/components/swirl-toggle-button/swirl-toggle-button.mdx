@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toggle-button.stories";
 
 <Meta title="Components/SwirlToggleButton" />
@@ -16,9 +16,21 @@ be used in combination with a
 
 ## Usage
 
-<Canvas of={Stories.SwirlToggleButton} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToggleButton}></Canvas>
 
 <Controls of={Stories.SwirlToggleButton} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-toggle-button label="Label" identifier="identifier" icon="mention"></swirl-toggle-button>`}
+/>
+
+## Related components
+
+- **[swirl-toggle-group](?path=/docs/components-swirltogglegroup--docs)**
+  (parent) — Groups toggle buttons; use `swirl-toggle-button` as a direct child
+  of `swirl-toggle-group`.
 
 ## Accessibility
 

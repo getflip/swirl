@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-resource-list-section.stories";
 
 <Meta title="Components/SwirlResourceListSection" />
@@ -12,17 +12,23 @@ The SwirlResourceListSection component is used to group related
 
 ## Usage
 
-<Canvas of={Stories.SwirlResourceListSection} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlResourceListSection}></Canvas>
 
 <Controls of={Stories.SwirlResourceListSection} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                           |
-| ----------------------------- | ------------------------------- |
-| `--s-surface-overlay-default` | Background color of the section |
-| `--s-text-subdued`            | Text color of the section label |
-| `--s-border-default`          | Border color of the section     |
+<Source
+  code={`<swirl-resource-list-section label="Section label"></swirl-resource-list-section>`}
+/>
+
+## Related components
+
+- **[swirl-resource-list](?path=/docs/components-swirlresourcelist--docs)**
+  (parent) — Container for resource list items and sections; use as a direct
+  child of `swirl-resource-list`.
+- **[swirl-resource-list-item](?path=/docs/components-swirlresourcelistitem--docs)**
+  (child) — Individual list items; use as direct children of this section.
 
 ## Accessibility
 
@@ -31,3 +37,7 @@ The SwirlResourceListSection component is used to group related
 | ARIA              | Usage                                                   |
 | ----------------- | ------------------------------------------------------- |
 | `role="rowgroup"` | The resource list section has `role` set to `rowgroup`. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

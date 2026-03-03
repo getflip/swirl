@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-video-thumbnail.stories";
 
 <Meta title="Components/SwirlVideoThumbnail" />
@@ -13,15 +13,23 @@ with optional information about the video's duration.
 
 ## Usage
 
-<Canvas of={Stories.SwirlVideoThumbnail} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlVideoThumbnail}></Canvas>
 
 <Controls of={Stories.SwirlVideoThumbnail} />
 
-## Theming
+## Sample usage
 
-| Variable            | Usage                      |
-| ------------------- | -------------------------- |
-| `--s-text-on-image` | Text color of the duration |
+<Source
+  code={`<swirl-video-thumbnail
+    duration="1:23"
+    label="Play video of a cute pug."
+    src="https://picsum.photos/id/1062/680/380"
+></swirl-video-thumbnail>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

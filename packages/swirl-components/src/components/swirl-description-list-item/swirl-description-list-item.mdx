@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-description-list-item.stories";
 
 <Meta title="Components/SwirlDescriptionListItem" />
@@ -14,12 +14,28 @@ short description. It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlDescriptionListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDescriptionListItem}></Canvas>
 
 <Controls of={Stories.SwirlDescriptionListItem} />
 
-## Theming
+## Sample usage
 
-| Variable           | Usage                                |
-| ------------------ | ------------------------------------ |
-| `--s-text-default` | Text color of terms and descriptions |
+<Source
+  code={`<swirl-description-list-item term="Term or label"> A short description </swirl-description-list-item>`}
+/>
+
+## Related components
+
+- **[swirl-description-list](?path=/docs/components-swirldescriptionlist--docs)**
+  (parent) — Container for description list items; use as a direct child of
+  `swirl-description-list`.
+
+## Accessibility
+
+SwirlDescriptionListItem renders term and description semantics for use inside
+SwirlDescriptionList. No component-specific ARIA or keyboard behavior beyond
+native list semantics.
+
+### Keyboard
+
+No component-specific keyboard behavior.

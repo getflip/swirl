@@ -1,6 +1,6 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
-import * as Stories from "./swirl-button.stories";
 import { extractArgTypes } from "@pxtrn/storybook-addon-docs-stencil";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as Stories from "./swirl-button.stories";
 
 <Meta title="Components/SwirlButton" />
 
@@ -13,81 +13,19 @@ The SwirlButton component is used to trigger actions or events.
 
 ## Usage
 
-<Canvas of={Stories.SwirlButton} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlButton}></Canvas>
 
 <Controls of={Stories.SwirlButton} />
 
-## Theming
+## Sample usage
 
-### Ghost variant
+<Source
+  code={`<swirl-button icon="<swirl-icon-add></swirl-icon-add>" label="Label"></swirl-button>`}
+/>
 
-| Variable                 | Usage                                            |
-| ------------------------ | ------------------------------------------------ |
-| `--s-background-default` | Background color of the button                   |
-| `--s-background-hovered` | Background color of the hovered button           |
-| `--s-background-pressed` | Background color of the active button            |
-| `--s-background-default` | Background color of the disabled button          |
-| `--s-text-subdued`       | Text color of the button                         |
-| `--s-icon-default`       | Icon color of the button                         |
-| `--s-text-disabled`      | Text color of the disabled button                |
-| `--s-icon-disabled`      | Icon color of the disabled button                |
-| `--s-text-critical`      | Text color of the button with intent "critical"  |
-| `--s-icon-critical`      | Icon color of the button with intent "critical"  |
-| `--s-text-highlight`     | Text color of the button with intent "highlight" |
-| `--s-icon-highlight`     | Icon color of the button with intent "highlight" |
+## Related components
 
-### Flat variant
-
-| Variable                      | Usage                                                        |
-| ----------------------------- | ------------------------------------------------------------ |
-| `--s-action-neutral-default`  | Background color of the button                               |
-| `--s-action-neutral-hovered`  | Background color of the hovered button                       |
-| `--s-action-neutral-pressed`  | Background color of the active button                        |
-| `--s-action-neutral-disabled` | Background color of the disabled button                      |
-| `--s-text-on-action-primary`  | Text color of the button                                     |
-| `--s-icon-on-action-primary`  | Icon color of the button                                     |
-| `--s-text-disabled`           | Text color of the disabled button                            |
-| `--s-icon-disabled`           | Icon color of the disabled button                            |
-| `--s-action-primary-default`  | Background color of the button with intent "primary"         |
-| `--s-action-primary-hovered`  | Background color of the hovered button with intent "primary" |
-| `--s-action-primary-pressed`  | Background color of the active button with intent "primary"  |
-| `--s-text-on-action-primary`  | Text color of the button with intent "primary"               |
-| `--s-icon-on-action-primary`  | Icon color of the button with intent "primary"               |
-
-### Plain variant
-
-| Variable                           | Usage                                                            |
-| ---------------------------------- | ---------------------------------------------------------------- |
-| `--s-interactive-neutral-default`  | Text and icon color of the button                                |
-| `--s-interactive-neutral-disabled` | Text and icon color of the disabled button                       |
-| `--s-interactive-primary-default`  | Text and icon color of the button with intent "primary"          |
-| `--s-interactive-primary-disabled` | Text and icon color of the disabled button with intent "primary" |
-
-### On-image variant
-
-| Variable                      | Usage                                  |
-| ----------------------------- | -------------------------------------- |
-| `--s-action-on-image-default` | Background color of the button         |
-| `--s-action-on-image-hovered` | Background color of the hovered button |
-| `--s-action-on-image-pressed` | Background color of the active button  |
-| `--s-text-on-image`           | Text color of the button               |
-| `--s-icon-on-image`           | Icon color of the button               |
-
-### Floating variant
-
-| Variable                      | Usage                                                        |
-| ----------------------------- | ------------------------------------------------------------ |
-| `--s-surface-overlay-default` | Background color of the button                               |
-| `--s-surface-overlay-hovered` | Background color of the hovered button                       |
-| `--s-surface-overlay-pressed` | Background color of the active button                        |
-| `--s-text-default`            | Text color of the button                                     |
-| `--s-icon-strong`             | Icon color of the button                                     |
-| `--s-text-disabled`           | Text color of the disabled button                            |
-| `--s-action-primary-default`  | Background color of the button with intent "primary"         |
-| `--s-action-primary-hovered`  | Background color of the hovered button with intent "primary" |
-| `--s-action-primary-pressed`  | Background color of the active button with intent "primary"  |
-| `--s-text-on-action-primary`  | Text color of the button with intent "primary"               |
-| `--s-icon-on-action-primary`  | Icon color of the button with intent "primary"               |
+No related components.
 
 ## Accessibility
 
@@ -96,11 +34,17 @@ The SwirlButton component is used to trigger actions or events.
 The component follows the
 [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
 
-| ARIA            | Usage                                                                      |
-| --------------- | -------------------------------------------------------------------------- |
-| `role="button"` | Implicitly through the use of <code>&lt;button /></code>.                  |
-| `aria-label`    | If the button label is hidden, the `aria-label` attribute is set.          |
-| `aria-disabled` | If the button is disabled, the `aria-disabled` attribute is set to `true`. |
+| ARIA               | Usage                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| `role="button"`    | Implicit when rendered as <code>&lt;button&gt;</code>; link when <code>href</code> is set. |
+| `aria-label`       | Set when the label is hidden (e.g. icon-only) or via <code>swirlAriaLabel</code>.          |
+| `aria-disabled`    | Set to <code>true</code> when the button is disabled (button only, not link).              |
+| `aria-pressed`     | Set to <code>true</code> when <code>pressed</code> is true (toggle buttons).               |
+| `aria-controls`    | Optional; set via <code>swirlAriaControls</code>.                                          |
+| `aria-current`     | Optional; set via <code>swirlAriaCurrent</code>.                                           |
+| `aria-describedby` | Optional; set via <code>swirlAriaDescribedby</code>.                                       |
+| `aria-expanded`    | Optional; set via <code>swirlAriaExpanded</code> (e.g. for popover triggers).              |
+| `aria-haspopup`    | Optional; set via <code>swirlAriaHaspopup</code>.                                          |
 
 ### Keyboard
 

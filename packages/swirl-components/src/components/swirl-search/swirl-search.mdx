@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-search.stories";
 
 <Meta title="Components/SwirlSearch" />
@@ -12,21 +12,17 @@ The SwirlSearch component is used to provide a search input field.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSearch} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSearch}></Canvas>
 
 <Controls of={Stories.SwirlSearch} />
 
-## Theming
+## Sample usage
 
-| Variable                     | Usage                                   |
-| ---------------------------- | --------------------------------------- |
-| `--s-surface-raised-default` | Background of the input field           |
-| `--s-text-default`           | Text color of the input field           |
-| `--s-icon-default`           | Icon color of the search and clear icon |
-| `--s-text-subdued`           | Text color of the placeholder           |
-| `--s-text-disabled`          | Text color of the disabled input field  |
-| `--s-icon-disabled`          | Icon color of the disabled search icon  |
-| `--s-border-highlight`       | Background color of the input caret     |
+<Source code={`<swirl-search label="Search"></swirl-search>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

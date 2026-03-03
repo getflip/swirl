@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-option-list.stories";
 
 <Meta title="Components/SwirlOptionList" />
@@ -14,15 +14,31 @@ items. It should be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlOptionList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlOptionList}></Canvas>
 
 <Controls of={Stories.SwirlOptionList} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                        |
-| ----------------------------- | ---------------------------- |
-| `--s-surface-overlay-default` | Background color of the list |
+<Source
+  code={`<swirl-option-list allow-drag label="Option List" multi-select value='["2"]'>
+    <swirl-option-list-item label="This is option 1" value="1"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 2" value="2"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 3" value="3"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 4" value="4"></swirl-option-list-item>
+</swirl-option-list>`}
+/>
+
+## Related components
+
+- **[swirl-option-list-section](?path=/docs/components-swirloptionlistsection--docs)**
+  (child) — Optional grouping for options; use as a direct child of
+  `swirl-option-list`.
+- **[swirl-option-list-item](?path=/docs/components-swirloptionlistitem--docs)**
+  (child) — Individual options; use as direct children of `swirl-option-list` or
+  inside `swirl-option-list-section`. Often used inside
+  [swirl-popover](?path=/docs/components-swirlpopover--docs) (e.g. with
+  [swirl-select](?path=/docs/components-swirlselect--docs)).
 
 ## Accessibility
 

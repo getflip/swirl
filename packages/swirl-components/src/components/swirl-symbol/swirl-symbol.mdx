@@ -1,14 +1,13 @@
 import {
-  Controls,
   Canvas,
-  Meta,
-  Story,
+  Controls,
   IconGallery,
   IconItem,
+  Meta,
   Source,
-} from "@storybook/addon-docs";
-import * as Stories from "./swirl-symbol.stories";
+} from "@storybook/addon-docs/blocks";
 import SymbolsJSON from "../../../symbols.json";
+import * as Stories from "./swirl-symbol.stories";
 
 <Meta title="Components/SwirlSymbol" />
 
@@ -20,9 +19,23 @@ Symbols are user selectable glyphs used to represent resources like menu items.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSymbol} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSymbol}></Canvas>
 
 <Controls of={Stories.SwirlSymbol} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlSymbol is a presentational icon component with no ARIA attributes or
+keyboard-specific behavior. When used as the only content of a button or link,
+ensure the parent provides an accessible label.
+
+### Keyboard
+
+No component-specific keyboard behavior.
 
 ## Alternative usage
 
@@ -40,8 +53,3 @@ Each symbol also comes with its own component, used via
     </IconItem>
   ))}
 </IconGallery>
-
-## Theming
-
-All symbol components use the text color of its parent elements by using the
-`currentColor` fill value.

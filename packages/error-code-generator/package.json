@@ -34,7 +34,7 @@
   "devDependencies": {
     "tsup": "7.2.0",
     "tsx": "4.7.0",
-    "typescript": "5.2.2"
+    "typescript": "5.9.3"
   },
   "author": "Flip GmbH",
   "license": "ISC"

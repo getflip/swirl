@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-time-input.stories";
 
 <Meta title="Components/SwirlTimeInput" />
@@ -14,15 +14,30 @@ used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlTimeInput} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTimeInput}></Canvas>
 
 <Controls of={Stories.SwirlTimeInput} />
 
-## Theming
+## Sample usage
 
-| Variable               | Usage                                  |
-| ---------------------- | -------------------------------------- |
-| `--s-text-default`     | Text color of the input value          |
-| `--s-text-disabled`    | Text color of the disabled input value |
-| `--s-icon-default`     | Icon color of the time indicator       |
-| `--s-border-highlight` | Caret color                            |
+<Source code={`<swirl-time-input></swirl-time-input>`} />
+
+## Related components
+
+- **[swirl-form-control](?path=/docs/components-swirlformcontrol--docs)**
+  (parent) — Wraps the input with label and description; use `swirl-time-input`
+  in the default slot of `swirl-form-control`.
+
+## Accessibility
+
+### ARIA
+
+| ARIA               | Usage                                     |
+| ------------------ | ----------------------------------------- |
+| `aria-describedby` | Optional; set via `swirlAriaDescribedby`. |
+| `aria-disabled`    | Set when the input is disabled.           |
+| `aria-invalid`     | Set when the value is invalid.            |
+
+### Keyboard
+
+Standard text input behavior. No component-specific shortcuts.

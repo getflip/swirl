@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-file-uploader.stories";
 
 <Meta title="Components/SwirlFileUploader" />
@@ -12,18 +12,25 @@ The SwirlFileUploader component allows users to select files to upload.
 
 ## Usage
 
-<Canvas of={Stories.SwirlFileUploader} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFileUploader}></Canvas>
 
 <Controls of={Stories.SwirlFileUploader} />
 
-## Theming
+## Sample usage
 
-| Variable                          | Usage                                    |
-| --------------------------------- | ---------------------------------------- |
-| `--s-text-default`                | Text color of the label and description  |
-| `--s-interactive-primary-default` | Text color of the dropzone's upload link |
-| `--s-icon-highlight`              | Icon color of the dropzone               |
-| `--s-border-strong`               | Border color of the dropzone             |
+<Source
+  code={`<swirl-file-uploader
+    accept="image/*"
+    description="Only image files are allowed."
+    input-id="file-upload"
+    input-name="file-upload"
+    label="Label"
+></swirl-file-uploader>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

@@ -27,6 +27,9 @@ export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
 export type SwirlTooltipIntent = "default" | "info";
 export type SwirlTooltipTrigger = "hover" | "focus";
 
+/**
+ * @slot slot - The element that triggers the tooltip (e.g. a button). The tooltip content is taken from the `content` prop.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-tooltip.css",

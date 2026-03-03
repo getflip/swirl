@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-spinner.stories";
 
 <Meta title="Components/SwirlSpinner" />
@@ -12,16 +12,17 @@ The SwirlSpinner component is used to indicate a loading state.
 
 ## Usage
 
-<Canvas of={Stories.SwirlSpinner} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlSpinner}></Canvas>
 
 <Controls of={Stories.SwirlSpinner} />
 
-## Theming
+## Sample usage
 
-| Variable                          | Usage                           |
-| --------------------------------- | ------------------------------- |
-| `--s-interactive-primary-default` | Color of the spinner            |
-| `--s-border-default`              | Background color of the spinner |
+<Source code={`<swirl-spinner label="Loading messages …"></swirl-spinner>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -30,3 +31,7 @@ The SwirlSpinner component is used to indicate a loading state.
 | ARIA            | Usage                            |
 | --------------- | -------------------------------- |
 | `role="status"` | Only set if a label is provided. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

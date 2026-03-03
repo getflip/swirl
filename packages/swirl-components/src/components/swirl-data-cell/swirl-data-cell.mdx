@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-data-cell.stories";
 
 <Meta title="Components/SwirlDataCell" />
@@ -15,9 +15,18 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 ## Usage
 
-<Canvas of={Stories.SwirlDataCell} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlDataCell}></Canvas>
 
 <Controls of={Stories.SwirlDataCell} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-data-cell label="Name" value="John Doe" tooltip="This is a tooltip">
+    <swirl-avatar slot="media" label="John Doe" icon="<swirl-icon-person></swirl-icon-person>" size="s"></swirl-avatar>
+    <swirl-tag slot="suffix" label="Active" intent="success"></swirl-tag>
+</swirl-data-cell>`}
+/>
 
 ## Properties
 
@@ -30,9 +39,34 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 ## Slots
 
-| Slot     | Description                                                                                     |
-| -------- | ----------------------------------------------------------------------------------------------- |
-| `media`  | Optional media content (e.g., swirl-avatar, icons).                                             |
-| `content`  | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
-| `suffix` | Optional suffix content (e.g., buttons, badges)                                                 |
+| Slot      | Description                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| `media`   | Optional media content (e.g., swirl-avatar, icons).                                               |
+| `content` | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
+| `suffix`  | Optional suffix content (e.g., buttons, badges)                                                   |
 
+## Related components
+
+- **[swirl-data-cell-stack](?path=/docs/components-swirldatacellstack--docs)**
+  (parent) — Groups data cells; use `swirl-data-cell` in the default slot of
+  `swirl-data-cell-stack`.
+
+## Accessibility
+
+### ARIA
+
+The component structures label-value pairs for assistive technologies.
+
+| ARIA                | Usage                                                             |
+| ------------------- | ----------------------------------------------------------------- |
+| `role="group"`      | Set on the host to group label and value.                         |
+| `role="term"`       | Set on the label element.                                         |
+| `role="definition"` | Set on the value/definition container.                            |
+| `aria-labelledby`   | Set on the definition, referencing the label ID.                  |
+| `aria-hidden`       | Set on the media container when present.                          |
+| `role="button"`     | Optional; set when the cell contains a checkbox or radio control. |
+
+### Keyboard
+
+Keyboard behavior is determined by slotted content (e.g. form controls). No
+component-specific shortcuts.

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-inline-notification.stories";
 
 <Meta title="Components/SwirlInlineNotification" />
@@ -13,23 +13,21 @@ information.
 
 ## Usage
 
-<Canvas of={Stories.SwirlInlineNotification} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlInlineNotification}></Canvas>
 
 <Controls of={Stories.SwirlInlineNotification} />
 
-## Theming
+## Sample usage
 
-| Variable                       | Usage                                  |
-| ------------------------------ | -------------------------------------- |
-| `--s-surface-critical-subdued` | Background color for intent "critical" |
-| `--s-surface-success-subdued`  | Background color for intent "success"  |
-| `--s-surface-warning-subdued`  | Background color for intent "warning"  |
-| `--s-surface-info-subdued`     | Background color for intent "info"     |
-| `--s-text-default`             | Text color for intent "warning"        |
-| `--s-icon-critical`            | Icon color for intent "critical"       |
-| `--s-icon-success`             | Icon color for intent "success"        |
-| `--s-icon-warning`             | Icon color for intent "warning"        |
-| `--s-icon-info`                | Icon color for intent "info"           |
+<Source
+  code={`<swirl-inline-notification heading="Notification title">
+    Lorem ipsum dolor sit amet. <swirl-link href="#" label="With a link."></swirl-link>
+</swirl-inline-notification>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -38,7 +36,11 @@ information.
 The component follows the
 [WAI-ARIA Alert Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).
 
-| ARIA            | Usage                                                                      |
-| --------------- | -------------------------------------------------------------------------- |
-| `role="alert"`  | The banner gets the `alert` role if it contains critical info or warnings. |
-| `role="status"` | The banner gets the `status` role for non-critical info.                   |
+| ARIA            | Usage                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------- |
+| `role="alert"`  | The inline notification gets the `alert` role if it contains critical info or warnings. |
+| `role="status"` | The inline notification gets the `status` role for non-critical info.                   |
+
+### Keyboard
+
+No component-specific keyboard behavior.

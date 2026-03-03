@@ -14,6 +14,7 @@ import { v4 as uuid } from "uuid";
 import { SwirlHeadingLevel } from "../swirl-heading/swirl-heading";
 
 /**
+ * @slot slot - The accordion item content.
  * @slot media - Media slot for content to be displayed before the content.
  * @slot trailing - Trailing slot for content to be displayed before the expand icon.
  */

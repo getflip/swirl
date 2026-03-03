@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-badge.stories";
 
 <Meta title="Components/SwirlBadge" />
@@ -13,24 +13,17 @@ action.
 
 ## Usage
 
-<Canvas of={Stories.SwirlBadge} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlBadge}></Canvas>
 
 <Controls of={Stories.SwirlBadge} />
 
-## Theming
+## Sample usage
 
-| Variable                       | Usage                                      |
-| ------------------------------ | ------------------------------------------ |
-| `--s-background-default`       | Border color                               |
-| `--s-surface-critical-default` | Background color for intent "critical"     |
-| `--s-decorative-one-default`   | Background color for intent "decorative-1" |
-| `--s-decorative-two-default`   | Background color for intent "decorative-2" |
-| `--s-decorative-three-default` | Background color for intent "decorative-3" |
-| `--s-decorative-four-default`  | Background color for intent "decorative-4" |
-| `--s-decorative-five-default`  | Background color for intent "decorative-5" |
-| `--s-decorative-six-default`   | Background color for intent "decorative-6" |
-| `--s-decorative-seven-default` | Background color for intent "decorative-7" |
-| `--s-text-default`             | Alternate text color for light backgrounds |
+<Source code={`<swirl-badge label="3 new messages"></swirl-badge>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -40,3 +33,7 @@ action.
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `role="status"` | All badges have the aria role "status" added.                                                                                               |
 | `aria-label`    | If no accessible label is provided via the label prop (e.g. a plain number), the `aria-label` or `aria-labelledby` attribute has to be set. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

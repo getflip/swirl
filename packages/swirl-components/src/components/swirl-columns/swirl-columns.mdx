@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-columns.stories";
 
 <Meta title="Components/SwirlColumns" />
@@ -11,6 +11,45 @@ The SwirlColumns component is used to display its children as columns.
 
 ## Usage
 
-<Canvas of={Stories.SwirlColumns} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlColumns}></Canvas>
 
 <Controls of={Stories.SwirlColumns} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-columns spacing="16">
+    <swirl-box bordered padding="16">
+        <swirl-text color="subdued" size="sm">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua.
+        </swirl-text>
+    </swirl-box>
+    <swirl-box bordered padding="16">
+        <swirl-text color="subdued" size="sm">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua.
+        </swirl-text>
+    </swirl-box>
+    <swirl-box bordered padding="16">
+        <swirl-text color="subdued" size="sm">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua.
+        </swirl-text>
+    </swirl-box>
+</swirl-columns>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlColumns is a presentational layout component with no ARIA attributes or
+keyboard-specific behavior. Ensure slotted content provides appropriate
+semantics.
+
+### Keyboard
+
+No component-specific keyboard behavior.

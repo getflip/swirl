@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-visually-hidden.stories";
 
 <Meta title="Components/SwirlVisuallyHidden" />
@@ -12,7 +12,7 @@ readable for screen readers.
 
 ## Usage
 
-<Canvas of={Stories.SwirlVisuallyHidden} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlVisuallyHidden}></Canvas>
 
 In some cases, you may want to hide elements that should be readable by a screen
 reader but are visually redundant. For example, icon buttons that need an
@@ -25,8 +25,16 @@ accessible label, but the icon is sufficient in the visual representation.
 </button>
 ```
 
+## Related components
+
+No related components.
+
 ## Accessibility
 
 The component styles its children so that they are visually hidden, but the
 contents are still readable by assistive technology like screen readers. Do not
 use this component to hide interactive elements.
+
+### Keyboard
+
+No component-specific keyboard behavior.

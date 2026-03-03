@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-file-viewer.stories";
 
 <Meta title="Components/SwirlFileViewer" />
@@ -11,7 +11,7 @@ The SwirlFileViewer component is used to render files of various formats.
 
 ## Usage
 
-<Canvas of={Stories.SwirlFileViewer} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlFileViewer}></Canvas>
 
 <Controls of={Stories.SwirlFileViewer} />
 
@@ -25,3 +25,24 @@ The SwirlFileViewer component is used to render files of various formats.
 | text/plain      | text/plain<br/>/sample.txt      |
 | text/csv        | text/csv<br/>/sample.csv        |
 | application/pdf | application/pdf<br/>/sample.pdf |
+
+## Sample usage
+
+<Source
+  code={`<swirl-file-viewer file="/sample.pdf" type="application/pdf"></swirl-file-viewer>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlFileViewer delegates rendering to format-specific viewers (e.g. PDF, image,
+video). Ensure slotted or embedded content provides appropriate labels and
+keyboard access; no component-level ARIA table.
+
+### Keyboard
+
+No component-specific keyboard behavior; keyboard access depends on the embedded
+viewer.

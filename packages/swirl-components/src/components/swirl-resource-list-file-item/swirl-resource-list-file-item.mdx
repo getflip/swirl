@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-resource-list-file-item.stories";
 
 <Meta title="Components/SwirlResourceListFileItem" />
@@ -14,19 +14,26 @@ within a collection. It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlResourceListFileItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlResourceListFileItem}></Canvas>
 
 <Controls of={Stories.SwirlResourceListFileItem} />
 
-## Theming
+## Sample usage
 
-| Variable                 | Usage                                |
-| ------------------------ | ------------------------------------ |
-| `--s-background-default` | Background color of the item         |
-| `--s-text-default`       | Text color of the item's label       |
-| `--s-text-subdued`       | Text color of the item's description |
-| `--s-icon-highlight`     | Icon color of the item               |
-| `--s-border-default`     | Border color of the item             |
+<Source
+  code={`<swirl-resource-list-file-item
+    description="12MB"
+    label="Design_final-final-12.png"
+    removable
+></swirl-resource-list-file-item>`}
+/>
+
+## Related components
+
+- **[swirl-resource-list](?path=/docs/components-swirlresourcelist--docs)**
+  (parent) — Container for resource list items; use
+  `swirl-resource-list-file-item` as a direct child of `swirl-resource-list` or
+  inside `swirl-resource-list-section`.
 
 ## Accessibility
 

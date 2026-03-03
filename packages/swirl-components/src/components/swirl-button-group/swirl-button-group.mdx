@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-button-group.stories";
 
 <Meta title="Components/SwirlButtonGroup" />
@@ -13,16 +13,28 @@ vertical stack.
 
 ## Usage
 
-<Canvas of={Stories.SwirlButtonGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlButtonGroup}></Canvas>
 
 <Controls of={Stories.SwirlButtonGroup} />
 
-## Theming
+## Sample usage
 
-| Variable                     | Usage                                                 |
-| ---------------------------- | ----------------------------------------------------- |
-| `--s-border-width-default`   | Separator color of default buttons in segmented group |
-| `--s-text-on-action-primary` | Separator color of primary buttons in segmented group |
+<Source
+  code={`<swirl-button-group>
+    <swirl-button label="Button" variant="flat"></swirl-button>
+    <swirl-button label="Button" variant="flat"></swirl-button>
+    <swirl-button
+        icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
+        label="Button"
+        hide-label
+        variant="flat"
+    ></swirl-button>
+</swirl-button-group>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -31,3 +43,8 @@ vertical stack.
 | ARIA           | Usage |
 | -------------- | ----- |
 | `role="group"` |       |
+
+### Keyboard
+
+No component-specific keyboard behavior; slotted buttons handle focus and
+activation.

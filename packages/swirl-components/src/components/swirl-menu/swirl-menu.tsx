@@ -30,6 +30,9 @@ import {
 
 export type SwirlMenuVariant = "action" | "selection";
 
+/**
+ * @slot slot - The menu items (e.g. swirl-menu-item).
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-menu.css",

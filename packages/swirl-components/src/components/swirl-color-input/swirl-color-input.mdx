@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-color-input.stories";
 
 <Meta title="Components/SwirlColorInput" />
@@ -14,15 +14,31 @@ for entered hex color values. It should always be used in combination with the
 
 ## Usage
 
-<Canvas of={Stories.SwirlColorInput} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlColorInput}></Canvas>
 
 <Controls of={Stories.SwirlColorInput} />
 
-## Theming
+## Sample usage
 
-| Variable               | Usage                                  |
-| ---------------------- | -------------------------------------- |
-| `--s-text-default`     | Text color of the input value          |
-| `--s-text-disabled`    | Text color of the disabled input value |
-| `--s-border-default`   | Border color of the color preview      |
-| `--s-border-highlight` | Caret color                            |
+<Source code={`<swirl-color-input></swirl-color-input>`} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+### ARIA
+
+| ARIA               | Usage                                                           |
+| ------------------ | --------------------------------------------------------------- |
+| `aria-describedby` | Optional; set via `swirlAriaDescribedby`.                       |
+| `aria-disabled`    | Set on the input when disabled.                                 |
+| `aria-invalid`     | Set when the value is invalid.                                  |
+| `aria-label`       | Set on the color picker trigger button via `pickerButtonLabel`. |
+
+### Keyboard
+
+Standard text input and button behavior. The picker button is activated with
+
+<kbd>Enter</kbd> or <kbd>Space</kbd>. No component-specific shortcuts.

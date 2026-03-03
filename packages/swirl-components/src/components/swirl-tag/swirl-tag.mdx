@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tag.stories";
 
 <Meta title="Components/SwirlTag" />
@@ -12,29 +12,17 @@ The SwirlTag component is used to label or categorize items using keywords.
 
 ## Usage
 
-<Canvas of={Stories.SwirlTag} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTag}></Canvas>
 
 <Controls of={Stories.SwirlTag} />
 
-## Theming
+## Sample usage
 
-| Variable                       | Usage                                                         |
-| ------------------------------ | ------------------------------------------------------------- |
-| `--s-surface-neutral-subdued`  | Background color of the tag                                   |
-| `--s-text-default`             | Text color of the tag                                         |
-| `--s-icon-strong`              | Icon color of the tag's removal button                        |
-| `--s-surface-info-subdued`     | Background color of the tag with intent "info"                |
-| `--s-text-info`                | Text color of the tag with intent "info"                      |
-| `--s-icon-info`                | Icon color of the tag's removal button with intent "info"     |
-| `--s-surface-critical-subdued` | Background color of the tag with intent "critical"            |
-| `--s-text-critical`            | Text color of the tag with intent "critical"                  |
-| `--s-icon-critical`            | Icon color of the tag's removal button with intent "critical" |
-| `--s-surface-warning-subdued`  | Background color of the tag with intent "warning"             |
-| `--s-text-warning`             | Text color of the tag with intent "warning"                   |
-| `--s-icon-warning`             | Icon color of the tag's removal button with intent "warning"  |
-| `--s-surface-success-subdued`  | Background color of the tag with intent "success"             |
-| `--s-text-success`             | Text color of the tag with intent "success"                   |
-| `--s-icon-success`             | Icon color of the tag's removal button with intent "success"  |
+<Source code={`<swirl-tag label="Label" removable></swirl-tag>`} />
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

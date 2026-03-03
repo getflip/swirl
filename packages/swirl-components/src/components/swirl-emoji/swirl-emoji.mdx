@@ -1,14 +1,13 @@
 import {
-  Controls,
   Canvas,
-  Meta,
-  Story,
+  Controls,
   IconGallery,
   IconItem,
+  Meta,
   Source,
-} from "@storybook/addon-docs";
-import * as Stories from "./swirl-emoji.stories";
+} from "@storybook/addon-docs/blocks";
 import EmojisJSON from "../../../emojis.json";
+import * as Stories from "./swirl-emoji.stories";
 
 <Meta title="Components/SwirlEmoji" />
 
@@ -20,9 +19,23 @@ Emojis are visual symbols used to provide emotional cues.
 
 ## Usage
 
-<Canvas of={Stories.SwirlEmoji} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlEmoji}></Canvas>
 
 <Controls of={Stories.SwirlEmoji} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlEmoji is a presentational component with no ARIA attributes or
+keyboard-specific behavior. Rely on surrounding text or labels for context in
+assistive technologies.
+
+### Keyboard
+
+No component-specific keyboard behavior.
 
 ## Alternative usage
 

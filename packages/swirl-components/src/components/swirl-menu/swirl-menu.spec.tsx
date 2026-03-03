@@ -141,30 +141,8 @@ describe("swirl-menu", () => {
               </template>
               <swirl-menu label="Sub menu" variant="selection">
                 <template shadowrootmode="open">
-                  <div class="menu menu--active menu--level-1 menu--mobile menu--root">
-                    <div class="menu__mobile-header">
-                      <swirl-button>
-                        <!---->
-                        <button aria-label="Close menu" class="button button--has-icon button--icon-only button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-plain" type="button">
-                          <span class="button__icon">
-                            <swirl-icon-close size="24"></swirl-icon-close>
-                          </span>
-                        </button>
-                      </swirl-button>
-                      <span class="menu__title" id="menu-title">
-                        <swirl-heading align="center" as="span" level="4" text="Sub menu" truncate=""></swirl-heading>
-                      </span>
-                      <swirl-button class="menu__done-button">
-                        <!---->
-                        <button class="button button--icon-position-start button--intent-primary button--size-m button--text-align-center button--variant-ghost" type="button">
-                          <span class="button__icon"></span>
-                          <span class="button__label">
-                            Done
-                          </span>
-                        </button>
-                      </swirl-button>
-                    </div>
-                    <div aria-labelledby="menu-title" aria-orientation="vertical" class="menu__menu" role="menubar" style="left: calc(-100% * 0);">
+                  <div class="menu menu--level-1 menu--mobile">
+                    <div aria-label="Sub menu" aria-orientation="vertical" class="menu__menu" role="menu" style="left: 100%;">
                       <slot></slot>
                     </div>
                   </div>

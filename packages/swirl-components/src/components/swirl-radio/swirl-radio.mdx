@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-radio.stories";
 
 <Meta title="Components/SwirlRadio" />
@@ -14,20 +14,28 @@ single choice from a list of options. Has to be used in combination with a
 
 ## Usage
 
-<Canvas of={Stories.SwirlRadio} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlRadio}></Canvas>
 
 <Controls of={Stories.SwirlRadio} />
 
-## Theming
+## Sample usage
 
-| Variable                     | Usage                                                                                                |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `--s-icon-default`           | Border color of the unchecked radio button                                                           |
-| `--s-icon-highlight`         | Border and background color of the checked radio button                                              |
-| `--s-action-neutral-hovered` | Background color of the hovered, unchecked radio button                                              |
-| `--s-icon-disabled`          | Border color of disabled, unchecked radio button; background color of disabled, checked radio button |
-| `--s-text-disabled`          | Text color of disabled radio button                                                                  |
-| `--s-focus`                  | Outline color of focused radio button                                                                |
+<Source
+  code={`<swirl-radio
+    description="Optional description of the item"
+    input-id="radio"
+    input-name="radio"
+    label="Radio button"
+    tooltip="Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+    value="Value"
+></swirl-radio>`}
+/>
+
+## Related components
+
+- **[swirl-radio-group](?path=/docs/components-swirlradiogroup--docs)** (parent)
+  — Group of radio options; use `swirl-radio` as a direct child of
+  `swirl-radio-group`.
 
 ## Accessibility
 

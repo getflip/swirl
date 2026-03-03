@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-checkbox.stories";
 
 <Meta title="Components/SwirlCheckbox" />
@@ -13,21 +13,27 @@ one or multiple choices from a list of options.
 
 ## Usage
 
-<Canvas of={Stories.SwirlCheckbox} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlCheckbox}></Canvas>
 
 <Controls of={Stories.SwirlCheckbox} />
 
-## Theming
+## Sample usage
 
-| Variable             | Usage                                                                                                      |
-| -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `--s-icon-default`   | Border color of the unchecked checkbox                                                                     |
-| `--s-icon-highlight` | Border and background color of checked and indeterminate checkbox                                          |
-| `--s-icon-critical`  | Border color of invalid checkbox; background color of invalid, checked/indeterminate checkbox              |
-| `--s-icon-disabled`  | Border color of disabled, unchecked checkbox; background color of disabled, checked/indeterminate checkbox |
-| `--s-text-disabled`  | Text color of disabled checkbox                                                                            |
-| `--s-text-subdued`   | Text color of the description                                                                              |
-| `--s-focus`          | Outline color of focused checkbox                                                                          |
+<Source
+  code={`<swirl-checkbox
+    checked
+    description="Optional description of the item."
+    input-id="checkbox"
+    input-name="Checkbox"
+    label="Checkbox"
+></swirl-checkbox>`}
+/>
+
+## Related components
+
+- **[swirl-form-control](?path=/docs/components-swirlformcontrol--docs)**
+  (parent) — Wraps the checkbox with label and description; use `swirl-checkbox`
+  in the default slot of `swirl-form-control`.
 
 ## Accessibility
 

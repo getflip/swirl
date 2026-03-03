@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-tab.stories";
 
 <Meta title="Components/SwirlTab" />
@@ -13,9 +13,22 @@ The SwirlTab component is used to display a tab panel inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlTab} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTab}></Canvas>
 
 <Controls of={Stories.SwirlTab} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-tab active icon='<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>' label="Label" tab-id="tab-id">
+    <swirl-text>Content</swirl-text>
+</swirl-tab>`}
+/>
+
+## Related components
+
+- **[swirl-tabs](?path=/docs/components-swirltabs--docs)** (parent) — Tab
+  container; use `swirl-tab` as a direct child of `swirl-tabs`.
 
 ## Accessibility
 
@@ -28,3 +41,8 @@ The component follows the
 | ----------------- | ------------------------------------------------------------ |
 | `role="tabpanel"` |                                                              |
 | `aria-labelledby` | Set on each tab panel to associate it with its tab bar item. |
+
+### Keyboard
+
+Keyboard behavior is defined by SwirlTabs / SwirlTabBar (e.g. arrow keys for tab
+focus).

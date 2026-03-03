@@ -12,6 +12,9 @@ import { DesktopMediaQuery } from "../../services/media-query.service";
 
 export type SwirlToastIntent = "default" | "critical" | "success";
 
+/**
+ * @slot slot - The toast content. When provided, overrides the `content` prop.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-toast.css",

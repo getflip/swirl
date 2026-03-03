@@ -17,6 +17,9 @@ import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 export type SwirlBoxPadding = "0" | "2" | "4" | "8" | "12" | "16";
 export type SwirlResourceListSemantics = "grid" | "list";
 
+/**
+ * @slot slot - The resource list items and sections (e.g. swirl-resource-list-item, swirl-resource-list-section).
+ */
 @Component({
   scoped: true,
   shadow: false,

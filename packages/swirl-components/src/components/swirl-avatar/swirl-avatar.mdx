@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-avatar.stories";
 
 <Meta title="Components/SwirlAvatar" />
@@ -13,7 +13,7 @@ initials.
 
 ## Usage
 
-<Canvas of={Stories.SwirlAvatar} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAvatar}></Canvas>
 
 <Controls of={Stories.SwirlAvatar} />
 
@@ -23,14 +23,17 @@ prioritization.
 
 `initials` ➡ `icon` ➡ `<swirl-icon-person></swirl-icon-person>`
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                                      |
-| ----------------------------- | ------------------------------------------ |
-| `--s-decorative-five-default` | Background color for avatar with initials  |
-| `--s-surface-raised-default`  | Background color for avatar with icon      |
-| `--s-icon-default`            | Icon color                                 |
-| `--s-focus`                   | Focus outline color for interactive avatar |
+<Source
+  code={`<swirl-avatar label="John Doe" initials="PS" src="https://picsum.photos/id/433/144/144">
+    <swirl-badge label="3" size="s" slot="tool"></swirl-badge>
+</swirl-avatar>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

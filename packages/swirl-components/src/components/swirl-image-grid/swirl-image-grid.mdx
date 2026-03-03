@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-image-grid.stories";
 
 <Meta title="Components/SwirlImageGrid" />
@@ -13,6 +13,34 @@ inside a grid.
 
 ## Usage
 
-<Canvas of={Stories.SwirlImageGrid} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlImageGrid}></Canvas>
 
 <Controls of={Stories.SwirlImageGrid} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-image-grid
+    aspect-ratio="16 / 9"
+    slot='
+    <swirl-image-grid-item alt="Cute dog in a blanket" interactive loading="intersecting" src="/sample.jpg"></swirl-image-grid-item>
+    <swirl-image-grid-item alt="Cute dog in a blanket" interactive loading="intersecting" src="/sample-2.jpg"></swirl-image-grid-item>
+    <swirl-image-grid-item alt="Blinking cat" interactive loading="intersecting" src="/sample.gif" show-gif-controls></swirl-image-grid-item>
+  '
+></swirl-image-grid>`}
+/>
+
+## Related components
+
+- **[swirl-image-grid-item](?path=/docs/components-swirlimagegriditem--docs)**
+  (child) — Grid items; use as direct children of `swirl-image-grid`.
+
+## Accessibility
+
+SwirlImageGrid is a presentational grid container with no ARIA attributes or
+keyboard-specific behavior. Ensure SwirlImageGridItem or slotted images have
+accessible labels where needed.
+
+### Keyboard
+
+No component-specific keyboard behavior.

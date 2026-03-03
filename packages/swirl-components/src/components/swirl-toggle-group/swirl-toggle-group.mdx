@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-toggle-group.stories";
 
 <Meta title="Components/SwirlToggleGroup" />
@@ -13,9 +13,24 @@ component. Only one option can be selected at a time.
 
 ## Usage
 
-<Canvas of={Stories.SwirlToggleGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlToggleGroup}></Canvas>
 
 <Controls of={Stories.SwirlToggleGroup} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-toggle-group selected-toggle-id="2">
+    <swirl-toggle-button identifier="1" label="Toggle One" icon="mention"></swirl-toggle-button>
+    <swirl-toggle-button identifier="2" label="Toggle Two"></swirl-toggle-button>
+    <swirl-toggle-button identifier="3" label="Toggle Three" icon="mention"></swirl-toggle-button>
+</swirl-toggle-group>`}
+/>
+
+## Related components
+
+- **[swirl-toggle-button](?path=/docs/components-swirltogglebutton--docs)**
+  (child) — Toggle buttons; use as direct children of `swirl-toggle-group`.
 
 ## Accessibility
 
@@ -24,3 +39,8 @@ component. Only one option can be selected at a time.
 | ARIA           | Usage |
 | -------------- | ----- |
 | `role="group"` |       |
+
+### Keyboard
+
+No component-specific keyboard behavior; slotted toggle buttons handle focus and
+activation.

@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-table-cell.stories";
 
 <Meta title="Components/SwirlTableCell" />
@@ -13,16 +13,18 @@ The SwirlTableColumn component is used to display a cell inside a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTableCell} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTableCell}></Canvas>
 
 <Controls of={Stories.SwirlTableCell} />
 
-## Theming
+## Sample usage
 
-| Variable              | Usage                        |
-| --------------------- | ---------------------------- |
-| `--s-border-default`  | Border color of the cell     |
-| `--s-surface-default` | Background color of the cell |
+<Source code={`<swirl-table-cell> Table cell </swirl-table-cell>`} />
+
+## Related components
+
+- **[swirl-table-row](?path=/docs/components-swirltablerow--docs)** (parent) —
+  Table row; use `swirl-table-cell` as a direct child of `swirl-table-row`.
 
 ## Accessibility
 
@@ -34,3 +36,7 @@ The component follows the
 | ARIA          | Usage |
 | ------------- | ----- |
 | `role="cell"` |       |
+
+### Keyboard
+
+No component-specific keyboard behavior.

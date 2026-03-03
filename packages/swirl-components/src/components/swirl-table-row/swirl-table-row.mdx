@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-table-row.stories";
 
 <Meta title="Components/SwirlTableRow" />
@@ -13,15 +13,30 @@ The SwirlTableColumn component is used to display a row inside a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTableRow} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTableRow}></Canvas>
 
 <Controls of={Stories.SwirlTableRow} />
 
-## Theming
+## Sample usage
 
-| Variable             | Usage                             |
-| -------------------- | --------------------------------- |
-| `--s-border-default` | Border color of the row separator |
+<Source
+  code={`<swirl-table-row>
+    <swirl-table-cell>
+        <swirl-text size="sm">Cell</swirl-text>
+    </swirl-table-cell>
+    <swirl-table-cell>
+        <swirl-text size="sm">Cell</swirl-text>
+    </swirl-table-cell>
+</swirl-table-row>`}
+/>
+
+## Related components
+
+- **[swirl-table](?path=/docs/components-swirltable--docs)** (parent) — Table
+  container; use `swirl-table-row` in the `rows` slot of `swirl-table` or inside
+  `swirl-table-row-group`.
+- **[swirl-table-cell](?path=/docs/components-swirltablecell--docs)** (child) —
+  Table cells; use as direct children of `swirl-table-row`.
 
 ## Accessibility
 
@@ -34,3 +49,7 @@ The component follows the
 | --------------- | ----------------------------------------------------- |
 | `role="row"`    |                                                       |
 | `aria-rowindex` | Set to the overall index of the row inside the table. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

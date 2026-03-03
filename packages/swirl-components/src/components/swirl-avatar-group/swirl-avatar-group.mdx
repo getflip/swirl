@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-avatar-group.stories";
 
 <Meta title="Components/SwirlAvatarGroup" />
@@ -12,15 +12,30 @@ The SwirlAvatarGroup component is used to display a stack of two avatars.
 
 ## Usage
 
-<Canvas of={Stories.SwirlAvatarGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlAvatarGroup}></Canvas>
 
 <Controls of={Stories.SwirlAvatarGroup} />
 
-## Theming
+## Sample usage
 
-| Variable                 | Usage                               |
-| ------------------------ | ----------------------------------- |
-| `--s-background-default` | Border color of the avatar in front |
+<Source
+  code={`<swirl-avatar-group badge='<swirl-badge aria-label="3 new messages" label="3"></swirl-badge>'>
+    <swirl-avatar
+        label="Jane Doe"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"
+        size="s"
+    ></swirl-avatar>
+    <swirl-avatar
+        label="John Doe"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b"
+        size="s"
+    ></swirl-avatar>
+</swirl-avatar-group>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -30,3 +45,7 @@ The SwirlAvatarGroup component is used to display a stack of two avatars.
 | -------------- | ------------------------------------------------------------------------------ |
 | `role="group"` | Default role for the avatar-group                                              |
 | `role="list"`  | Configurable role for the avatar-group. Children should have `role="listitem"` |
+
+### Keyboard
+
+No component-specific keyboard behavior.

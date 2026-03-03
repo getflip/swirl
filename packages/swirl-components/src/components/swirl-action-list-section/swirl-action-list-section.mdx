@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-action-list-section.stories";
 
 <Meta title="Components/SwirlActionListSection" />
@@ -13,17 +13,23 @@ The SwirlActionListSection component is used to group related
 
 ## Usage
 
-<Canvas of={Stories.SwirlActionListSection} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlActionListSection}></Canvas>
 
 <Controls of={Stories.SwirlActionListSection} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                           |
-| ----------------------------- | ------------------------------- |
-| `--s-surface-overlay-default` | Background color of the section |
-| `--s-text-subdued`            | Text color of the section label |
-| `--s-border-default`          | Border color of the section     |
+<Source
+  code={`<swirl-action-list-section label="Section label" has-separator></swirl-action-list-section>`}
+/>
+
+## Related components
+
+- **[swirl-action-list](?path=/docs/components-swirlactionlist--docs)** (parent)
+  — Container for action list sections and items; use as a direct child of
+  `swirl-action-list`.
+- **[swirl-action-list-item](?path=/docs/components-swirlactionlistitem--docs)**
+  (child) — Menu items; use as direct children of this section.
 
 ## Accessibility
 
@@ -32,3 +38,7 @@ The SwirlActionListSection component is used to group related
 | ARIA           | Usage                                      |
 | -------------- | ------------------------------------------ |
 | `role="group"` | The action list has `role` set to `group`. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

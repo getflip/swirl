@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-list.stories";
 
 <Meta title="Components/SwirlList" />
@@ -13,10 +13,17 @@ elements (UL, OL).
 
 ## Usage
 
-<Canvas of={Stories.SwirlList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlList}></Canvas>
 
-## Theming
+## Related components
 
-| Variable           | Usage                        |
-| ------------------ | ---------------------------- |
-| `--s-text-default` | Text color of the list items |
+No related components.
+
+## Accessibility
+
+SwirlList wraps native list elements (ul/ol); list semantics come from the host.
+No component-specific ARIA or keyboard behavior.
+
+### Keyboard
+
+No component-specific keyboard behavior.

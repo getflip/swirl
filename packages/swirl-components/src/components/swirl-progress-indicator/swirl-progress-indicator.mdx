@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-progress-indicator.stories";
 
 <Meta title="Components/SwirlProgressIndicator" />
@@ -13,16 +13,19 @@ running task.
 
 ## Usage
 
-<Canvas of={Stories.SwirlProgressIndicator} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlProgressIndicator}></Canvas>
 
 <Controls of={Stories.SwirlProgressIndicator} />
 
-## Theming
+## Sample usage
 
-| Variable                        | Usage                              |
-| ------------------------------- | ---------------------------------- |
-| `--s-surface-raised-default`    | Background color of the bar/circle |
-| `--s-surface-highlight-default` | Background color of the indicator  |
+<Source
+  code={`<swirl-progress-indicator label="Upload progress" value="70"></swirl-progress-indicator>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -35,3 +38,7 @@ running task.
 | `aria-valuenow`      | Set to the current progress value.                                                               |
 | `aria-valuemax`      | Set if max. value is not 100.                                                                    |
 | `aria-valuemin`      | Set if min. value is not 0.                                                                      |
+
+### Keyboard
+
+No component-specific keyboard behavior.

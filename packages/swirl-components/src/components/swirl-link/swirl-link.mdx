@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-link.stories";
 
 <Meta title="Components/SwirlLink" />
@@ -12,20 +12,19 @@ The SwirlLink component is used to navigate to another page.
 
 ## Usage
 
-<Canvas of={Stories.SwirlLink} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlLink}></Canvas>
 
 <Controls of={Stories.SwirlLink} />
 
-## Theming
+## Sample usage
 
-| Variable                          | Usage                                               |
-| --------------------------------- | --------------------------------------------------- |
-| `--s-interactive-primary-default` | Text color of the link                              |
-| `--s-interactive-primary-hovered` | Text color of the hovered link                      |
-| `--s-interactive-primary-pressed` | Text color of the active link                       |
-| `--s-interactive-neutral-default` | Text color of the link with color "subdued"         |
-| `--s-interactive-neutral-hovered` | Text color of the hovered link with color "subdued" |
-| `--s-interactive-neutral-pressed` | Text color of the active link with color "subdued"  |
+<Source
+  code={`<swirl-link href="/?path=/docs/components-swirllink--swirl-link" label="Label"></swirl-link>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 

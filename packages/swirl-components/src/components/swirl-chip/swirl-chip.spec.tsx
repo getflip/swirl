@@ -45,7 +45,7 @@ describe("swirl-chip", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-chip label="Label">
-        <swirl-avatar initials="JD" size="xs"></swirl-avatar>
+        <swirl-avatar hidden="" initials="JD" size="xs"></swirl-avatar>
         <span class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--variant-outline">
           <span class="chip__inner">
             <span class="chip__label">Label</span>

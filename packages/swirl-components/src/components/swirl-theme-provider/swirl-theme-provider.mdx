@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-theme-provider.stories";
 
 <Meta title="Components/SwirlThemeProvider" />
@@ -14,6 +14,24 @@ colors can be set.
 
 ## Usage
 
-<Canvas of={Stories.SwirlThemeProvider} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlThemeProvider}></Canvas>
 
 <Controls of={Stories.SwirlThemeProvider} />
+
+## Sample usage
+
+<Source code={`<swirl-theme-provider></swirl-theme-provider>`} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlThemeProvider is a layout wrapper with no interactive semantics. It does
+not expose ARIA attributes or keyboard-specific behavior; ensure slotted content
+provides appropriate semantics.
+
+### Keyboard
+
+No component-specific keyboard behavior.

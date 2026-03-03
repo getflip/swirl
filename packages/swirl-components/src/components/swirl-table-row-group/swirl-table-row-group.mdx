@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-table-row-group.stories";
 
 <Meta title="Components/SwirlTableRowGroup" />
@@ -13,16 +13,22 @@ The SwirlTableColumn component is used to group multiple rows of a
 
 ## Usage
 
-<Canvas of={Stories.SwirlTableRowGroup} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlTableRowGroup}></Canvas>
 
 <Controls of={Stories.SwirlTableRowGroup} />
 
-## Theming
+## Sample usage
 
-| Variable                     | Usage                                |
-| ---------------------------- | ------------------------------------ |
-| `--s-surface-raised-default` | Background color of the group header |
-| `--s-text-default`           | Text color of the group header       |
+<Source
+  code={`<swirl-table-row-group label="Table row group"></swirl-table-row-group>`}
+/>
+
+## Related components
+
+- **[swirl-table](?path=/docs/components-swirltable--docs)** (parent) — Table
+  container; use `swirl-table-row-group` in the `rows` slot of `swirl-table`.
+- **[swirl-table-row](?path=/docs/components-swirltablerow--docs)** (child) —
+  Table rows; use as direct children of this component.
 
 ## Accessibility
 
@@ -37,3 +43,7 @@ The component follows the
 | `role="row"`       | Set on a the groups row element.           |
 | `role="rowheader"` | Set on the header cell element.            |
 | `aria-colspan`     | Set to the amount of columns of the table. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

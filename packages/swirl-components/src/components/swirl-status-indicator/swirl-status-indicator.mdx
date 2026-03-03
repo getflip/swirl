@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-status-indicator.stories";
 
 <Meta title="Components/SwirlStatusIndicator" />
@@ -13,16 +13,26 @@ of a resource.
 
 ## Usage
 
-<Canvas of={Stories.SwirlStatusIndicator} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlStatusIndicator}></Canvas>
 
 <Controls of={Stories.SwirlStatusIndicator} />
 
-## Theming
+## Sample usage
 
-| Variable            | Usage                                          |
-| ------------------- | ---------------------------------------------- |
-| `--s-text-default`  | The label text color                           |
-| `--s-icon-critical` | The dot background color for intent "critical" |
-| `--s-icon-info`     | The dot background color for intent "info"     |
-| `--s-icon-success`  | The dot background color for intent "success"  |
-| `--s-icon-warning`  | The dot background color for intent "warning"  |
+<Source
+  code={`<swirl-status-indicator intent="success" label="Label"></swirl-status-indicator>`}
+/>
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlStatusIndicator is a presentational status dot and label with no ARIA
+attributes or keyboard-specific behavior. Use with surrounding text or
+`aria-label` when it is the only indicator of status.
+
+### Keyboard
+
+No component-specific keyboard behavior.

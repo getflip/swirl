@@ -18,7 +18,7 @@ const expectedVisible = `
 </span>`;
 
 const expectedHidden = `
-<span class="tooltip tooltip--actual-placement-top tooltip--intent-default">
+<span class="tooltip tooltip--actual-placement-bottom tooltip--intent-default">
   <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>

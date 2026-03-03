@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-inline-error.stories";
 
 <Meta title="Components/SwirlInlineError" />
@@ -13,16 +13,19 @@ form input.
 
 ## Usage
 
-<Canvas of={Stories.SwirlInlineError} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlInlineError}></Canvas>
 
 <Controls of={Stories.SwirlInlineError} />
 
-## Theming
+## Sample usage
 
-| Variable            | Usage                          |
-| ------------------- | ------------------------------ |
-| `--s-icon-critical` | Icon color of the inline error |
-| `--s-text-critical` | Text color of the inline error |
+<Source
+  code={`<swirl-inline-error message="This is an error message."></swirl-inline-error>`}
+/>
+
+## Related components
+
+No related components.
 
 ## Accessibility
 
@@ -31,3 +34,7 @@ form input.
 | ARIA               | Usage                                                                                                                                                                                             |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aria-describedby` | The inline error needs to be linked to the corresponding form field by setting the `aria-describedby` attribute on the related field and the matching `id` attribute on the inline error element. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

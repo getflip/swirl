@@ -1,14 +1,13 @@
 import {
-  Controls,
   Canvas,
-  Meta,
-  Story,
+  Controls,
   IconGallery,
   IconItem,
+  Meta,
   Source,
-} from "@storybook/addon-docs";
-import * as Stories from "./swirl-icon.stories";
+} from "@storybook/addon-docs/blocks";
 import IconsJSON from "../../../icons.json";
+import * as Stories from "./swirl-icon.stories";
 
 <Meta title="Components/SwirlIcon" />
 
@@ -21,7 +20,7 @@ Icons are visual symbols used to represent ideas, objects or actions.
 
 ## Usage
 
-<Canvas of={Stories.SwirlIcon} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlIcon}></Canvas>
 
 <Controls of={Stories.SwirlIcon} />
 
@@ -42,13 +41,16 @@ Each icon also comes with its own component, used via
   ))}
 </IconGallery>
 
-## Theming
+## Related components
 
-All icon components use the text color of its parent elements by using the
-`currentColor` fill value.
+No related components.
 
 ## Accessibility
 
 | ARIA         | Usage                                                                                                                |
 | ------------ | -------------------------------------------------------------------------------------------------------------------- |
 | `aria-label` | Make sure to provide an accessible label when using icons by using the `aria-label` or `aria-labelledby` attributes. |
+
+### Keyboard
+
+No component-specific keyboard behavior.

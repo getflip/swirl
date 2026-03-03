@@ -29,7 +29,7 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" popover="manual" spacing="12">
             <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
             <swirl-toast dismisslabel="Dismiss" icon="<lip-icon-mail></swirl-icon-mail>" intent="success" toastid="toast-2">Toast 2</swirl-toast>
           </swirl-stack>
@@ -44,7 +44,7 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" popover="manual" spacing="12">
             <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
           </swirl-stack>
         </mock:shadow-root>
@@ -58,7 +58,7 @@ describe("swirl-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <swirl-stack align="center" class="toast-provider__stack" part="toast-provider__stack" popover="manual" spacing="12">
+          <swirl-stack align="center" class="toast-provider__stack" popover="manual" spacing="12">
           </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>

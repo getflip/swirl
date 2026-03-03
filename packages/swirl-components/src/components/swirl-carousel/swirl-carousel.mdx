@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-carousel.stories";
 
 <Meta title="Components/SwirlCarousel" />
@@ -12,9 +12,114 @@ at a time.
 
 ## Usage
 
-<Canvas of={Stories.SwirlCarousel} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlCarousel}></Canvas>
 
 <Controls of={Stories.SwirlCarousel} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-carousel label="Carousel" loop-around>
+    <swirl-carousel-slide min-height="10rem">
+        <swirl-card image-aspect-ratio="16/9" height="100%" interactive elevated>
+            <img slot="image" alt="Dog in a blanket." src="/sample.jpg" />
+            <swirl-stack slot="content" spacing="12">
+                <swirl-heading
+                    as="h2"
+                    level="4"
+                    text="This is the pretty pretty long heading of the card. Like really long."
+                    lines="2"
+                    truncate
+                ></swirl-heading>
+            </swirl-stack>
+        </swirl-card>
+    </swirl-carousel-slide>
+    <swirl-carousel-slide min-height="10rem">
+        <swirl-card image-aspect-ratio="16/9" height="100%" interactive elevated>
+            <swirl-stack slot="content" spacing="12">
+                <swirl-heading
+                    as="h2"
+                    level="4"
+                    text="This is the pretty pretty long heading of the card. Like really long."
+                    lines="3"
+                    truncate
+                ></swirl-heading>
+                <swirl-text size="sm" truncate lines="5">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </swirl-text>
+            </swirl-stack>
+        </swirl-card>
+    </swirl-carousel-slide>
+    <swirl-carousel-slide min-height="10rem">
+        <swirl-card image-aspect-ratio="16/9" height="100%" interactive elevated>
+            <img slot="image" alt="Dog in a blanket." src="/sample-3.jpg" />
+            <swirl-stack slot="content" spacing="12">
+                <swirl-heading
+                    as="h2"
+                    level="4"
+                    text="This is the heading of the card."
+                    lines="2"
+                    truncate
+                ></swirl-heading>
+            </swirl-stack>
+        </swirl-card>
+    </swirl-carousel-slide>
+    <swirl-carousel-slide min-height="10rem">
+        <swirl-card image-aspect-ratio="16/9" height="100%" interactive elevated>
+            <img slot="image" alt="Dog in a blanket." src="/sample.jpg" />
+            <swirl-stack slot="content" spacing="12">
+                <swirl-heading
+                    as="h2"
+                    level="4"
+                    text="This is the heading of the card."
+                    lines="2"
+                    truncate
+                ></swirl-heading>
+            </swirl-stack>
+        </swirl-card>
+    </swirl-carousel-slide>
+    <swirl-carousel-slide min-height="10rem">
+        <swirl-card image-aspect-ratio="16/9" height="100%" interactive elevated>
+            <img slot="image" alt="Dog in a blanket." src="/sample.jpg" />
+            <swirl-stack slot="content" spacing="12">
+                <swirl-heading
+                    as="h2"
+                    level="4"
+                    text="This is the pretty pretty long heading of the card. Like really long."
+                    lines="2"
+                    truncate
+                ></swirl-heading>
+            </swirl-stack>
+        </swirl-card>
+    </swirl-carousel-slide>
+    <swirl-carousel-slide min-height="10rem">
+        <swirl-card image-aspect-ratio="16/9" height="100%" interactive elevated>
+            <swirl-stack slot="content" spacing="12">
+                <swirl-heading
+                    as="h2"
+                    level="4"
+                    text="This is the pretty pretty long heading of the card. Like really long."
+                    lines="3"
+                    truncate
+                ></swirl-heading>
+                <swirl-text size="sm" truncate lines="5">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                </swirl-text>
+            </swirl-stack>
+        </swirl-card>
+    </swirl-carousel-slide>
+</swirl-carousel>`}
+/>
+
+## Related components
+
+- **[swirl-carousel-slide](?path=/docs/components-swirlcarouselslide--docs)**
+  (child) — Slides; use as direct children of `swirl-carousel`.
 
 ## Accessibility
 
@@ -28,3 +133,8 @@ The component follows the
 | `role="group"`         | Set on the carousel container and each slide container.                             |
 | `aria-roledescription` | Set on the carousel container to "carousel" and on each slide container to "slide". |
 | `aria-label`           | Set on the container to label the carousel and on each slide container.             |
+
+### Keyboard
+
+No component-specific keyboard behavior; navigation (e.g. arrow keys) is
+provided by the host or slotted controls.

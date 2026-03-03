@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-resource-list.stories";
 
 <Meta title="Components/SwirlResourceList" />
@@ -13,9 +13,56 @@ like media, groups or chats.
 
 ## Usage
 
-<Canvas of={Stories.SwirlResourceList} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlResourceList}></Canvas>
 
 <Controls of={Stories.SwirlResourceList} />
+
+## Sample usage
+
+<Source
+  code={`<swirl-resource-list label="A resource list" semantics="list">
+    <swirl-resource-list-item description="With a description" label="This is a resource item 1">
+        <swirl-avatar label="John Doe" size="l" src="https://picsum.photos/id/1025/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+    <swirl-resource-list-item description="With a description" label="This is a resource item 2">
+        <swirl-avatar label="John Doe" size="l" src="https://picsum.photos/id/1026/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+    <swirl-resource-list-item description="With a description" label="This is a resource item 3">
+        <swirl-avatar label="John Doe" size="l" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+    <swirl-resource-list-section label="Item section">
+        <swirl-resource-list-item
+            description="With a <strong>description</strong>"
+            label="This is a <strong>resource item 4</strong>"
+            meta="Yesterday"
+        >
+            <swirl-avatar
+                label="John Doe"
+                size="l"
+                src="https://picsum.photos/id/1028/144/144"
+                slot="media"
+            ></swirl-avatar>
+        </swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item 5">
+            <swirl-avatar
+                label="John Doe"
+                size="l"
+                src="https://picsum.photos/id/1029/144/144"
+                slot="media"
+            ></swirl-avatar>
+        </swirl-resource-list-item>
+    </swirl-resource-list-section>
+</swirl-resource-list>`}
+/>
+
+## Related components
+
+- **[swirl-resource-list-section](?path=/docs/components-swirlresourcelistsection--docs)**
+  (child) — Optional grouping for items; use as a direct child of
+  `swirl-resource-list`.
+- **[swirl-resource-list-item](?path=/docs/components-swirlresourcelistitem--docs)**
+  (child) — Individual list items; use as direct children of
+  `swirl-resource-list` or inside `swirl-resource-list-section`.
 
 ## Accessibility
 

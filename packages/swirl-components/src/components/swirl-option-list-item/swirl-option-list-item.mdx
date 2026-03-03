@@ -1,4 +1,4 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
 import * as Stories from "./swirl-option-list-item.stories";
 
 <Meta title="Components/SwirlOptionListItem" />
@@ -14,22 +14,36 @@ It should only be used inside the
 
 ## Usage
 
-<Canvas of={Stories.SwirlOptionListItem} sourceState="shown"></Canvas>
+<Canvas of={Stories.SwirlOptionListItem}></Canvas>
 
 <Controls of={Stories.SwirlOptionListItem} />
 
-## Theming
+## Sample usage
 
-| Variable                      | Usage                                |
-| ----------------------------- | ------------------------------------ |
-| `--s-surface-overlay-default` | Background color of the item         |
-| `--s-surface-overlay-hovered` | Background color of the hovered item |
-| `--s-surface-overlay-pressed` | Background color of the active item  |
-| `--s-text-default`            | Text color of the item               |
-| `--s-text-disabled`           | Text color of the disabled item      |
-| `--s-text-highlight`          | Text color of the selected item      |
-| `--s-icon-default`            | Icon color of the item               |
-| `--s-icon-highlight`          | Icon color of the selected item      |
+<Source
+  code={`<swirl-option-list-item
+    label="Option List Item"
+    value="Value"
+    icon="<swirl-icon-mention></swirl-icon-mention>"
+    icon-badge='<swirl-badge label="1"></swirl-badge>'
+>
+    <swirl-avatar
+        label="John Doe"
+        initials="PS"
+        slot="avatar"
+        src="https://picsum.photos/id/433/144/144"
+    ></swirl-avatar>
+</swirl-option-list-item>`}
+/>
+
+## Related components
+
+- **[swirl-option-list](?path=/docs/components-swirloptionlist--docs)** (parent)
+  — Container for options; use as a direct child of `swirl-option-list` or
+  inside `swirl-option-list-section`.
+- **[swirl-option-list-section](?path=/docs/components-swirloptionlistsection--docs)**
+  (parent) — Optional grouping; use inside `swirl-option-list` when grouping
+  options.
 
 ## Accessibility
 
@@ -43,3 +57,8 @@ The component follows the
 | `role="option"`        |                              |
 | `aria-disabled="true"` | Set if the item is disabled. |
 | `aria-selected="true"` | Set if the item is selected. |
+
+### Keyboard
+
+Keyboard behavior is defined by the parent SwirlOptionList (e.g. arrow keys,
+Enter, Space).
