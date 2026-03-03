@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.453.0
+
+### Minor Changes
+
+- [#1496](https://github.com/getflip/swirl/pull/1496)
+  [`dd9f9b64b`](https://github.com/getflip/swirl/commit/dd9f9b64b66cc32ee7dc3c0164f3740e2060c290)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Adjust
+  swirl-chip size, add intent=highlight
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dd9f9b64b`](https://github.com/getflip/swirl/commit/dd9f9b64b66cc32ee7dc3c0164f3740e2060c290)]:
+  - @getflip/swirl-components@0.453.0
+
 ## 0.452.1
 
 ### Patch Changes
