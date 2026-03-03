@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
 import classNames from "classnames";
 import NoSsr from "../Layout/NoSsr";
-import { CodePreview } from "./types";
+import type { CodePreview } from "./types";
 import { NpmPackageLink } from "./NpmPackageLink";
 import CodePreviewContext from "./CodePreviewContext";
 import { APIEndpointHeader } from "./CodePreviewRequestString";

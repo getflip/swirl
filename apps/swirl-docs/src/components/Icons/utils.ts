@@ -12,7 +12,7 @@ async function getIconsPackageVersion(): Promise<number> {
   return parsedData["dist-tags"].latest as number;
 }
 
-function downloadBlob(data: Uint8Array, fileName: string) {
+function downloadBlob(data: Uint8Array<ArrayBuffer>, fileName: string) {
   const blob = new Blob([data], {
     type: "application/octet-stream",
   });
@@ -47,6 +47,6 @@ export async function initializeIconDownload(icon: IconDownloadInterface) {
   const iconData = await reader?.read();
 
   if (iconData?.value) {
-    downloadBlob(iconData?.value, `${icon.iconName}${icon.iconPixelSize}.svg`);
+    downloadBlob(iconData.value, `${icon.iconName}${icon.iconPixelSize}.svg`);
   }
 }
