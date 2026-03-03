@@ -14,7 +14,7 @@ export type SwirlChipBorderRadius = "pill" | "sm";
 
 export type SwirlChipIconColor = "default" | "highlight";
 
-export type SwirlChipIntent = "default" | "critical" | "success";
+export type SwirlChipIntent = "default" | "critical" | "success" | "highlight";
 
 export type SwirlChipSize = "s" | "m";
 

@@ -12,7 +12,7 @@
   display: inline-flex;
   overflow: hidden;
   max-width: 100%;
-  height: 2.5rem;
+  height: 2.25rem;
   padding: 0;
   border: 0.0625rem solid var(--s-border-default);
   border-radius: 1.25rem;
@@ -116,6 +116,15 @@
   }
 }
 
+.chip--intent-highlight {
+  border-color: var(--s-border-highlight);
+  color: var(--s-text-highlight);
+
+  & .chip__icon {
+    color: var(--s-icon-highlight);
+  }
+}
+
 .chip--variant-outline {
   &.chip--pressed {
     color: var(--s-text-on-action-primary);
@@ -202,6 +211,12 @@
   }
 }
 
+.chip--has-progress:not(.chip--size-s) {
+  & + .chip__remove-button {
+    top: 0.0625rem;
+  }
+}
+
 .chip__inner {
   display: inline-flex;
   max-width: 100%;
@@ -243,7 +258,7 @@
 
 .chip__remove-button {
   position: absolute;
-  top: 0.3125rem;
+  top: 0.1875rem;
   right: var(--s-space-4);
   display: inline-flex;
   width: 1.875rem;
