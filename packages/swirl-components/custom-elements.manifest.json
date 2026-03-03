@@ -5755,7 +5755,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"critical\" | \"default\" | \"success\"",
+                "text": "\"critical\" | \"default\" | \"highlight\" | \"success\"",
                 "references": [
                   {
                     "name": "SwirlChipIntent"
@@ -5888,7 +5888,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"critical\" | \"default\" | \"success\"",
+                "text": "\"critical\" | \"default\" | \"highlight\" | \"success\"",
                 "references": [
                   {
                     "name": "SwirlChipIntent"
@@ -11059,7 +11059,7 @@
             {
               "name": "wrapper-color",
               "type": {
-                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"grape\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\"",
+                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"default\" | \"grape\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\"",
                 "references": [
                   {
                     "name": "SwirlIconWrapperColor"
@@ -11126,7 +11126,7 @@
               "kind": "field",
               "name": "wrapperColor",
               "type": {
-                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"grape\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\"",
+                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"default\" | \"grape\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\"",
                 "references": [
                   {
                     "name": "SwirlIconWrapperColor"
