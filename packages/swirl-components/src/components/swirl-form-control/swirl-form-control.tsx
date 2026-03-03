@@ -77,6 +77,10 @@ export class SwirlFormControl {
     this.checkInputValue();
   }
 
+  disconnectedCallback() {
+    this.inputEl?.removeEventListener("valueChange", this.checkInputValue);
+  }
+
   @Watch("description")
   watchDescription() {
     this.associateDescriptionWithInputElement();

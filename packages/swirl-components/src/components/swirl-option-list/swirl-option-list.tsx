@@ -91,6 +91,13 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.unsubscribeFromSwirlPopover();
     this.observer?.disconnect();
     this.sortable?.destroy();
+    this.removeToggleDragListeners();
+  }
+
+  private removeToggleDragListeners() {
+    this.items?.forEach((item) => {
+      item.removeEventListener("toggleDrag", this.toggleDrag);
+    });
   }
 
   @Watch("allowDrag")
@@ -239,6 +246,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private updateItems() {
+    this.removeToggleDragListeners();
     this.items = querySelectorAllDeep<HTMLSwirlOptionListItemElement>(
       this.el,
       "swirl-option-list-item"
