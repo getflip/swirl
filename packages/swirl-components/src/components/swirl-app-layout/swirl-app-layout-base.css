@@ -421,6 +421,12 @@
   }
 }
 
+.app-layout--has-bottom-banner {
+  & .app-layout__bottom-banner {
+    display: block;
+  }
+}
+
 .app-layout--has-custom-app-bar-back-button {
   & .app-layout__custom-app-bar-back-button {
     display: block;
@@ -460,7 +466,9 @@
     }
   }
 
-  &.app-layout--has-bottom-bar:not(.app-layout--content-scrolled-to-bottom) {
+  &.app-layout--has-bottom-bar:not(.app-layout--content-scrolled-to-bottom):not(
+      .app-layout--has-bottom-banner
+    ) {
     & .app-layout__content {
       border-bottom-color: var(--s-border-default);
     }
@@ -710,6 +718,7 @@
 }
 
 .app-layout__bottom-banner {
+  display: none;
   position: sticky;
   right: 0;
   bottom: 0;

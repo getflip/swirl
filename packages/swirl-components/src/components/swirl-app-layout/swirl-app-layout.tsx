@@ -76,6 +76,7 @@ export class SwirlAppLayout {
     scrolledToTop: false,
     scrolledToBottom: false,
   };
+  @State() hasBottomBanner: boolean;
   @State() hasBottomBar: boolean;
   @State() hasCustomAppBarBackButton: boolean;
   @State() hasSidebar: boolean;
@@ -121,6 +122,7 @@ export class SwirlAppLayout {
 
     this.mutationObserver = new MutationObserver(() => {
       this.updateBottomBarStatus();
+      this.updateBottomBannerStatus();
       this.updateCustomAppBarBackButtonStatus();
       this.updateNavigationStatus();
       this.updateSidebarStatus();
@@ -130,6 +132,7 @@ export class SwirlAppLayout {
 
     queueMicrotask(() => {
       this.updateBottomBarStatus();
+      this.updateBottomBannerStatus();
       this.updateCustomAppBarBackButtonStatus();
       this.updateSidebarStatus();
       this.updateNavigationStatus();
@@ -353,6 +356,12 @@ export class SwirlAppLayout {
     }
   }
 
+  private updateBottomBannerStatus() {
+    this.hasBottomBanner = Boolean(
+      this.el.querySelector('[slot="bottom-banner"]')
+    );
+  }
+
   private updateBottomBarStatus() {
     this.hasBottomBar = Boolean(this.el.querySelector('[slot="bottom-bar"]'));
   }
@@ -521,6 +530,7 @@ export class SwirlAppLayout {
           this.contentScrollState.scrolledToBottom,
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
+        "app-layout--has-bottom-banner": this.hasBottomBanner,
         "app-layout--has-bottom-bar": this.hasBottomBar,
         "app-layout--has-custom-app-bar-back-button":
           this.hasCustomAppBarBackButton,
