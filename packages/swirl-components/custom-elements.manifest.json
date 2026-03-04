@@ -1268,6 +1268,13 @@
               "fieldName": "navigationToggleLabel"
             },
             {
+              "name": "prevent-content-overflow",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "preventContentOverflow"
+            },
+            {
               "name": "rounded-corners",
               "type": {
                 "text": "boolean"
@@ -1444,6 +1451,15 @@
               "default": "\"Toggle navigation\"",
               "readonly": true,
               "attribute": "navigation-toggle-label"
+            },
+            {
+              "kind": "field",
+              "name": "preventContentOverflow",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "prevent-content-overflow"
             },
             {
               "kind": "field",

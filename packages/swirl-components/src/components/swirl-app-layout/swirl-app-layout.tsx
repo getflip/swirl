@@ -64,6 +64,7 @@ export class SwirlAppLayout {
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop() navigationOverlayLabel?: string = "Show navigation";
   @Prop() navigationLabel?: string;
+  @Prop() preventContentOverflow?: boolean;
   @Prop() roundedCorners?: boolean;
   @Prop() showNavigationBackButton?: boolean;
   @Prop() sidebarPositioning?: SwirlAppLayoutSidebarPositioning = "auto";
@@ -543,6 +544,7 @@ export class SwirlAppLayout {
           this.collapsibleNavigation && this.isDesktop,
         "app-layout--nav-scrollable": this.navScrollState.scrollable,
         "app-layout--nav-scrolled-to-top": this.navScrollState.scrolledToTop,
+        "app-layout--prevent-content-overflow": this.preventContentOverflow,
         "app-layout--rounded-corners": this.roundedCorners,
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
