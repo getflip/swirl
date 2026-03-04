@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.456.0
+
+### Minor Changes
+
+- [#1502](https://github.com/getflip/swirl/pull/1502)
+  [`dae8bc64b`](https://github.com/getflip/swirl/commit/dae8bc64bc66caa6371764e34c97ed4a7aac9d77)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update stencil
+  react wrapper
+
 ## 0.455.0
 
 ### Minor Changes
