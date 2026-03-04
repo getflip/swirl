@@ -834,6 +834,66 @@
             "type": "color"
           }
         }
+      },
+      "translucent-black": {
+        "3": {
+          "value": "rgba(0,0,0,0.03)",
+          "type": "color"
+        },
+        "6": {
+          "value": "rgba(0,0,0,0.06)",
+          "type": "color"
+        },
+        "9": {
+          "value": "rgba(0,0,0,0.09)",
+          "type": "color"
+        },
+        "12": {
+          "value": "rgba(0,0,0,0.12)",
+          "type": "color"
+        },
+        "20": {
+          "value": "rgba(0,0,0,0.2)",
+          "type": "color"
+        },
+        "60": {
+          "value": "rgba(0,0,0,0.6)",
+          "type": "color"
+        },
+        "80": {
+          "value": "rgba(0,0,0,0.8)",
+          "type": "color"
+        }
+      },
+      "translucent-white": {
+        "3": {
+          "value": "rgba(255,255,255,0.03)",
+          "type": "color"
+        },
+        "6": {
+          "value": "rgba(255,255,255,0.06)",
+          "type": "color"
+        },
+        "9": {
+          "value": "rgba(255,255,255,0.09)",
+          "type": "color"
+        },
+        "12": {
+          "value": "rgba(255,255,255,0.12)",
+          "type": "color"
+        },
+        "20": {
+          "value": "rgba(255,255,255,0.2)",
+          "type": "color"
+        },
+        "60": {
+          "value": "rgba(255,255,255,0.6)",
+          "type": "color"
+        },
+        "80": {
+          "value": "rgba(255,255,255,0.8)",
+          "type": "color"
+        }
       }
     }
   },
@@ -905,34 +965,34 @@
     },
     "surface-raised": {
       "default": {
-        "value": "{core.gray.01}",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Usually used for elements that need contrast on surfaces or background"
       },
       "hovered": {
-        "value": "{core.gray.02}",
+        "value": "{core.translucent-black.9}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.03}",
+        "value": "{core.translucent-black.12}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a pressed state."
       }
     },
     "surface-raised-50": {
       "default": {
-        "value": "rgba(0,0,0,0.03)",
+        "value": "{core.translucent-black.3}",
         "type": "color",
         "description": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
       },
       "hovered": {
-        "value": "rgba(0,0,0,0.06)",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Used if a component with `surface-raised-50` has a hovered state."
       },
       "pressed": {
-        "value": "rgba(0,0,0,0.09)",
+        "value": "{core.translucent-black.9}",
         "type": "color",
         "description": "Used if a component with `surface-raised-50` has a pressed state."
       }
@@ -1035,12 +1095,12 @@
         "description": "Used for surface with a backdrop blur and low transparency"
       },
       "hovered": {
-        "value": "rgba(0,0,0,0.05)",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Used for hovers on translucent low"
       },
       "pressed": {
-        "value": "rgba(0,0,0,0.1)",
+        "value": "{core.translucent-black.9}",
         "type": "color",
         "description": "Used for pressed state on translucent low"
       }
@@ -1064,12 +1124,12 @@
     },
     "border": {
       "strong": {
-        "value": "{core.gray.04}",
+        "value": "{core.translucent-black.20}",
         "type": "color",
         "description": "Usually used for high emphasis borders."
       },
       "default": {
-        "value": "{core.gray.02}",
+        "value": "{core.translucent-black.12}",
         "type": "color",
         "description": "Usually used for low emphasis borders and espacially divider elements."
       },
@@ -1104,7 +1164,7 @@
         "description": "Used as border color on containers that have an highlight surface"
       },
       "on-translucent": {
-        "value": "rgba(0,0,0,0.1)",
+        "value": "{core.translucent-black.12}",
         "type": "color",
         "description": "Used for borders on surfaces with a translucent effect"
       },
@@ -1121,12 +1181,12 @@
         "description": "Used for high emphasis text."
       },
       "subdued": {
-        "value": "{core.gray.06}",
+        "value": "{core.translucent-black.60}",
         "type": "color",
         "description": "Used for low emphasis text."
       },
       "disabled": {
-        "value": "{core.gray.04}",
+        "value": "{core.translucent-black.20}",
         "type": "color",
         "description": "Used if a text element is disabled."
       },
@@ -1195,12 +1255,12 @@
         "description": "Used for high emphasis icons."
       },
       "default": {
-        "value": "{core.gray.06}",
+        "value": "{core.translucent-black.60}",
         "type": "color",
         "description": "Used for low emphasis icons."
       },
       "disabled": {
-        "value": "{core.gray.04}",
+        "value": "{core.translucent-black.20}",
         "type": "color",
         "description": "Used if a icon element is disabled."
       },
@@ -1279,7 +1339,7 @@
         "description": "Used if a component with “Action Primary/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.gray.01}",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Used if a component with “Action Primary/Default” has a disabled state."
       }
@@ -1301,29 +1361,29 @@
         "description": "Used if a component with “Action Critical/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.gray.01}",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Used if a component with “Action Primary/Default” has a disabled state."
       }
     },
     "action-neutral": {
       "default": {
-        "value": "{core.gray.01}",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Used for containers that are low emphasis action elements."
       },
       "hovered": {
-        "value": "{core.gray.02}",
+        "value": "{core.translucent-black.9}",
         "type": "color",
         "description": "Used if a component with “Action Neutral/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.03}",
+        "value": "{core.translucent-black.12}",
         "type": "color",
         "description": "Used if a component with “Action Neutral/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.gray.01}",
+        "value": "{core.translucent-black.6}",
         "type": "color",
         "description": "Used if a component with “Action Neutral/Default” has a disabled state."
       }
@@ -1374,7 +1434,7 @@
     },
     "interactive-neutral": {
       "default": {
-        "value": "{core.gray.06}",
+        "value": "{core.translucent-black.60}",
         "type": "color",
         "description": "Used for icon and text that are low emphasis interactive elements."
       },
@@ -1577,6 +1637,18 @@
         ],
         "type": "boxShadow"
       }
+    },
+    "state": {
+      "hovered": {
+        "value": "{core.translucent-black.6}",
+        "type": "color",
+        "description": "Is used for general hovered states, e.g. list items"
+      },
+      "pressed": {
+        "value": "{core.translucent-black.9}",
+        "type": "color",
+        "description": "Is used for general pressed states, e.g. list items"
+      }
     }
   },
   "dark": {
@@ -1647,34 +1719,34 @@
     },
     "surface-raised": {
       "default": {
-        "value": "{core.gray.09}",
+        "value": "{core.translucent-white.6}",
         "type": "color",
         "description": "Usually used for elements that need contrast on surfaces or background"
       },
       "hovered": {
-        "value": "{core.gray.08}",
+        "value": "{core.translucent-white.9}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.07}",
+        "value": "{core.translucent-white.12}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a pressed state."
       }
     },
     "surface-raised-50": {
       "default": {
-        "value": "rgba(255,255,255,0.03)",
+        "value": "{core.translucent-white.3}",
         "type": "color",
         "description": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
       },
       "hovered": {
-        "value": "rgba(255,255,255,0.06)",
+        "value": "{core.translucent-white.6}",
         "type": "color",
         "description": "Used if a component with `surface-raised-50` has a hovered state."
       },
       "pressed": {
-        "value": "rgba(255,255,255,0.09)",
+        "value": "{core.translucent-white.9}",
         "type": "color",
         "description": "Used if a component with `surface-raised-50` has a pressed state."
       }
@@ -1777,12 +1849,12 @@
         "description": "Used for surface with a backdrop blur and low transparency"
       },
       "hovered": {
-        "value": "rgba(255,255,255,0.05)",
+        "value": "{core.translucent-white.6}",
         "type": "color",
         "description": "Used for hovers on translucent low"
       },
       "pressed": {
-        "value": "rgba(255,255,255,0.1)",
+        "value": "{core.translucent-white.9}",
         "type": "color",
         "description": "Used for pressed state on translucent low"
       }
@@ -1806,12 +1878,12 @@
     },
     "border": {
       "strong": {
-        "value": "rgba(255, 255, 255, 0.20)",
+        "value": "{core.translucent-white.20}",
         "type": "color",
         "description": "Usually used for high emphasis borders."
       },
       "default": {
-        "value": "rgba(255, 255, 255, 0.12)",
+        "value": "{core.translucent-white.12}",
         "type": "color",
         "description": "Usually used for low emphasis borders and espacially divider elements."
       },
@@ -1846,7 +1918,7 @@
         "description": "Used as border color on containers that have an highlight surface"
       },
       "on-translucent": {
-        "value": "rgba(255,255,255,0.1)",
+        "value": "{core.translucent-white.12}",
         "type": "color",
         "description": "Used for borders on surfaces with a translucent effect"
       },
@@ -1863,12 +1935,12 @@
         "description": "Used for high emphasis text."
       },
       "subdued": {
-        "value": "{core.gray.05}",
+        "value": "{core.translucent-white.80}",
         "type": "color",
         "description": "Used for low emphasis text."
       },
       "disabled": {
-        "value": "{core.gray.07}",
+        "value": "{core.translucent-white.20}",
         "type": "color",
         "description": "Used if a text element is disabled."
       },
@@ -1937,12 +2009,12 @@
         "description": "Used for high emphasis icons."
       },
       "default": {
-        "value": "{core.gray.05}",
+        "value": "{core.translucent-white.80}",
         "type": "color",
         "description": "Used for low emphasis icons."
       },
       "disabled": {
-        "value": "{core.gray.07}",
+        "value": "{core.translucent-white.20}",
         "type": "color",
         "description": "Used if a icon element is disabled."
       },
@@ -2065,7 +2137,7 @@
         "description": "Used if a component with “Action Neutral/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.gray.10}",
+        "value": "{core.translucent-white.6}",
         "type": "color",
         "description": "Used if a component with “Action Neutral/Default” has a disabled state."
       }
@@ -2087,7 +2159,7 @@
         "description": "Used if a component with “Interactive Primary/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.gray.07}",
+        "value": "{core.translucent-white.6}",
         "type": "color",
         "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
       }
@@ -2109,14 +2181,14 @@
         "description": "Used if a component with “Interactive Critical/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.gray.07}",
+        "value": "{core.translucent-white.6}",
         "type": "color",
         "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
       }
     },
     "interactive-neutral": {
       "default": {
-        "value": "{core.gray.05}",
+        "value": "{core.translucent-white.80}",
         "type": "color",
         "description": "Used for icon and text that are low emphasis interactive elements."
       },
@@ -2318,6 +2390,18 @@
           }
         ],
         "type": "boxShadow"
+      }
+    },
+    "state": {
+      "hovered": {
+        "value": "{core.translucent-white.6}",
+        "type": "color",
+        "description": "Is used for general hovered states, e.g. list items"
+      },
+      "pressed": {
+        "value": "{core.translucent-white.9}",
+        "type": "color",
+        "description": "Is used for general pressed states, e.g. list items"
       }
     }
   },
@@ -2774,6 +2858,11 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
   }
 }
