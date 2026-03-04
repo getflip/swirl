@@ -156,7 +156,9 @@
 }
 
 .app-layout--has-sidebar {
-  &:not(.app-layout--has-navigation):not(.app-layout--sidebar-positioning-overlay) {
+  &:not(.app-layout--has-navigation):not(
+      .app-layout--sidebar-positioning-overlay
+    ) {
     &.app-layout--sidebar-opening {
       @media (--from-tablet) {
         & .app-layout__grid {
@@ -202,14 +204,16 @@
   }
 }
 
-.app-layout--has-navigation.app-layout--has-sidebar:not(.app-layout--sidebar-positioning-overlay) {
+.app-layout--has-navigation.app-layout--has-sidebar:not(
+    .app-layout--sidebar-positioning-overlay
+  ) {
   & .app-layout__sidebar {
     @media (--from-larger-desktop) {
       position: static;
-      width: 25rem;
       z-index: auto;
-      box-shadow: none;
+      width: 25rem;
       animation: none;
+      box-shadow: none;
     }
   }
 
@@ -302,11 +306,11 @@
   @media (--from-tablet) {
     & .app-layout__sidebar {
       position: absolute;
+      z-index: 3;
       top: 0;
       right: 0;
       bottom: 0;
       width: min(40%, 25rem);
-      z-index: 3;
     }
 
     &:not(.app-layout--rounded-corners) {
@@ -363,7 +367,9 @@
   }
 }
 
-.app-layout--has-sidebar:not(.app-layout--sidebar-active):not(.app-layout--sidebar-opening) {
+.app-layout--has-sidebar:not(.app-layout--sidebar-active):not(
+    .app-layout--sidebar-opening
+  ) {
   & .app-layout__sidebar {
     display: none;
   }
@@ -567,13 +573,13 @@
   display: grid;
   width: 100%;
   height: 100%;
+  background-color: var(--s-background-default);
   grid-area: body;
   grid-template-rows: minmax(var(--header-height), auto) auto 1fr;
   grid-template-areas:
     "app-bar"
     "banner"
     "content";
-  background-color: var(--s-background-default);
 }
 
 .app-layout__app-bar {
@@ -629,6 +635,12 @@
 .app-layout__content {
   overflow: auto;
   grid-area: content;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-layout__content-inner {
+  flex-grow: 1;
 }
 
 .app-layout__sidebar {
@@ -636,12 +648,12 @@
   width: 100%;
   height: 100%;
   border-left: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
   grid-area: sidebar;
   grid-template-rows: var(--header-height) 1fr;
   grid-template-areas:
     "sidebar-header"
     "sidebar-content";
-  background-color: var(--s-background-default);
 
   @media (--from-tablet) {
     animation: app-layout-slide-in 0.3s;
@@ -697,6 +709,13 @@
   grid-area: sidebar-content;
 }
 
+.app-layout__bottom-banner {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .app-layout--rounded-corners {
   @media (--from-tablet) {
     & .app-layout__grid {
@@ -715,19 +734,22 @@
 
     & .app-layout__body,
     & .app-layout__sidebar {
-      border-radius: var(--s-border-radius-l);
       overflow: hidden;
+      border-radius: var(--s-border-radius-l);
     }
 
     & .app-layout__sidebar {
       border-left: none;
       /* adaptation of shadow-level-3 to support rounded corners */
-      box-shadow: -12px 0 32px -10px rgba(23, 23, 23, 0.12), -8px 4px 12px -8px rgba(23, 23, 23, 0.08);
+      box-shadow: -12px 0 32px -10px rgba(23, 23, 23, 0.12),
+        -8px 4px 12px -8px rgba(23, 23, 23, 0.08);
     }
   }
 }
 
-.app-layout--sidebar-positioning-overlay:not(.app-layout--has-navigation).app-layout--has-sidebar {
+.app-layout--sidebar-positioning-overlay:not(
+    .app-layout--has-navigation
+  ).app-layout--has-sidebar {
   &.app-layout--sidebar-active,
   &.app-layout--sidebar-opening {
     @media (--from-tablet) {
@@ -743,11 +765,11 @@
   @media (--from-tablet) {
     & .app-layout__sidebar {
       position: absolute;
+      z-index: 3;
       top: 0;
       right: 0;
       bottom: 0;
       width: min(50%, 25rem);
-      z-index: 3;
       border-left: var(--s-border-width-default) solid var(--s-border-default);
       box-shadow: var(--s-shadow-level-3);
     }

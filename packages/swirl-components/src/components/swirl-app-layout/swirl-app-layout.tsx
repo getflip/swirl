@@ -37,6 +37,7 @@ const SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY =
  * @slot custom-app-bar-back-button - Replaces the mobile default back button of the content app bar
  * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
  * @slot banner - Used to show a banner below the app bar
+ * @slot bottom-banner - Used to show a fixed banner at the bottom
  * @slot sidebar - Content of the right sidebar
  * @slot custom-sidebar-header - Replaces the default sidebar header
  * @slot floating-action-button - Floating button displayed in the bottom right corner
@@ -353,9 +354,7 @@ export class SwirlAppLayout {
   }
 
   private updateBottomBarStatus() {
-    this.hasBottomBar = Boolean(
-      this.el.querySelector('[slot="bottom-bar"]')
-    );
+    this.hasBottomBar = Boolean(this.el.querySelector('[slot="bottom-bar"]'));
   }
 
   private updateNavigationStatus() {
@@ -657,7 +656,12 @@ export class SwirlAppLayout {
                 onScroll={this.onContentScroll}
                 ref={(el) => (this.contentEl = el)}
               >
-                <slot name="content"></slot>
+                <div class="app-layout__content-inner">
+                  <slot name="content"></slot>
+                </div>
+                <div class="app-layout__bottom-banner">
+                  <slot name="bottom-banner"></slot>
+                </div>
               </div>
               <div class="app-layout__bottom-bar">
                 <slot name="bottom-bar"></slot>

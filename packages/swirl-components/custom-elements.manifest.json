@@ -1730,6 +1730,10 @@
               "description": "Used to show a banner below the app bar"
             },
             {
+              "name": "bottom-banner",
+              "description": "Used to show a fixed banner at the bottom"
+            },
+            {
               "name": "bottom-bar",
               "description": "The bottom bar contents"
             },
