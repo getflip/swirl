@@ -18,10 +18,6 @@
   "scripts": {
     "build": "tsc && vite build"
   },
-  "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
   "dependencies": {
     "@getflip/swirl-components": "0.455.0"
   },

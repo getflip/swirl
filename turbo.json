@@ -9,6 +9,7 @@
         "loader/**",
         "storybook-static/**",
         "stencil-generated/**",
+        "lib/stencil-generated/**",
         ".next/**"
       ],
       "dependsOn": ["^build"]

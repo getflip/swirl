@@ -70,7 +70,7 @@
     "@stencil/angular-output-target": "1.1.0",
     "@stencil/eslint-plugin": "0.4.0",
     "@stencil/postcss": "2.1.0",
-    "@stencil/react-output-target": "0.5.3",
+    "@stencil/react-output-target": "1.4.2",
     "@storybook/addon-a11y": "10.2.11",
     "@storybook/addon-docs": "10.2.11",
     "@storybook/addon-mdx-gfm": "8.6.12",

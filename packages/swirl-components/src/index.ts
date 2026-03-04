@@ -4,7 +4,7 @@ export {
   MonthChangedEventDetails,
   WCDatepickerLabels,
 } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-export { Components, JSX } from "./components";
+export * from "./components";
 export {
   SwirlAppLayoutMobileView,
   SwirlAppLayoutNavigationExpansionState,
