@@ -95,6 +95,10 @@ export class SwirlPopover {
 
   disconnectedCallback() {
     this.unlockBodyScroll();
+    this.disableAutoUpdate?.();
+    this.disableAutoUpdate = undefined;
+
+    this.triggerEl?.removeEventListener("click", this.togglePopover);
   }
 
   @Listen("focusin", { target: "window" })
@@ -318,9 +322,7 @@ export class SwirlPopover {
       return;
     }
 
-    this.triggerEl.addEventListener("click", (event) => {
-      this.togglePopover(event);
-    });
+    this.triggerEl.addEventListener("click", this.togglePopover);
   }
 
   private getNativeTriggerElement() {

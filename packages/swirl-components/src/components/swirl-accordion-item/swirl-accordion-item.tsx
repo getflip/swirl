@@ -33,7 +33,7 @@ export class SwirlAccordionItem {
   @Prop() initiallyOpen?: boolean;
   @Prop() itemId?: string = uuid();
 
-  @Event() expansionChange: EventEmitter<boolean>;
+  @Event({ bubbles: true }) expansionChange: EventEmitter<boolean>;
 
   @State() expanded = false;
 

@@ -25,6 +25,7 @@ export class SwirlPopoverTrigger {
   private intersectionObserver: IntersectionObserver;
   private hoverLingerReference?: NodeJS.Timeout;
   private hoverDelayReference?: NodeJS.Timeout;
+  private popoverElRef?: HTMLSwirlPopoverElement;
   private triggerIsActive: boolean = false;
 
   componentDidLoad() {
@@ -52,12 +53,11 @@ export class SwirlPopoverTrigger {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
-    const popoverEl = this.getPopoverEl();
 
-    if (Boolean(popoverEl)) {
-      popoverEl.removeEventListener("mouseenter", this.popoverMouseEnter);
-      popoverEl.removeEventListener("mouseleave", this.popoverMouseLeave);
-    }
+    this.removeHoverListeners();
+
+    clearTimeout(this.hoverDelayReference);
+    clearTimeout(this.hoverLingerReference);
   }
 
   @Watch("swirlPopover")
@@ -99,11 +99,24 @@ export class SwirlPopoverTrigger {
   }
 
   private setupHoverListeners() {
-    const popoverEl = this.getPopoverEl();
+    this.popoverElRef = this.getPopoverEl();
 
-    if (Boolean(popoverEl)) {
-      popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
-      popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
+    if (Boolean(this.popoverElRef)) {
+      this.popoverElRef.addEventListener("mouseenter", this.popoverMouseEnter);
+      this.popoverElRef.addEventListener("mouseleave", this.popoverMouseLeave);
+    }
+  }
+
+  private removeHoverListeners() {
+    if (Boolean(this.popoverElRef)) {
+      this.popoverElRef.removeEventListener(
+        "mouseenter",
+        this.popoverMouseEnter
+      );
+      this.popoverElRef.removeEventListener(
+        "mouseleave",
+        this.popoverMouseLeave
+      );
     }
   }
 

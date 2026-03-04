@@ -79,6 +79,7 @@ export class SwirlResourceList {
     this.sortable?.destroy();
     this.observer?.disconnect();
     this.controllingElement?.removeEventListener("keydown", this.onKeyDown);
+    this.removeToggleDragListeners();
   }
 
   private observeSlotChanges() {
@@ -113,6 +114,7 @@ export class SwirlResourceList {
   }
 
   private collectItems() {
+    this.removeToggleDragListeners();
     this.items = Array.from(
       this.el.querySelectorAll<HTMLSwirlResourceListItemElement>(
         "swirl-resource-list-item, swirl-resource-list-file-item, [data-resource-list-item]"
@@ -169,6 +171,12 @@ export class SwirlResourceList {
 
       focusableEl?.setAttribute("tabIndex", "-1");
       dragHandle?.setAttribute("tabIndex", "-1");
+    });
+  }
+
+  private removeToggleDragListeners() {
+    this.items?.forEach((item) => {
+      item.removeEventListener("toggleDrag", this.toggleDrag);
     });
   }
 

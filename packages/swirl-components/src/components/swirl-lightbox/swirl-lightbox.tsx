@@ -64,6 +64,7 @@ export class SwirlLightbox {
 
   disconnectedCallback() {
     this.unlockBodyScroll();
+    this.removeSlideListeners();
 
     if (this.activateSlideTimeout) {
       clearTimeout(this.activateSlideTimeout);
@@ -197,13 +198,23 @@ export class SwirlLightbox {
     this.modalEl.setAttribute("closedby", "none");
   }
 
+  private preventDragStart = (event: Event) => {
+    event.preventDefault();
+  };
+
   private setSlideAttributes() {
     this.slides.forEach((slide) => {
       slide.setAttribute("active", "false");
       slide.setAttribute("aria-label", slide.file);
       slide.setAttribute("aria-roledescription", "slide");
       slide.setAttribute("role", "group");
-      slide.addEventListener("dragstart", (event) => event.preventDefault());
+      slide.addEventListener("dragstart", this.preventDragStart);
+    });
+  }
+
+  private removeSlideListeners() {
+    this.slides?.forEach((slide) => {
+      slide.removeEventListener("dragstart", this.preventDragStart);
     });
   }
 
@@ -258,6 +269,8 @@ export class SwirlLightbox {
   };
 
   private registerSlides = () => {
+    this.removeSlideListeners();
+
     this.slides = Array.from(this.el.children).filter(
       (el) => el.tagName === "SWIRL-FILE-VIEWER"
     ) as HTMLSwirlFileViewerElement[];

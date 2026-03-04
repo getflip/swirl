@@ -25,21 +25,22 @@ export class SwirlAccordion {
   @Event() expandedItemChange: EventEmitter<string>;
 
   componentDidLoad() {
-    this.el.addEventListener(
-      "expansionChange",
-      (event: CustomEvent<boolean>) => {
-        if (event.detail) {
-          this.expandedItemChange.emit(
-            (event.target as HTMLSwirlAccordionItemElement).itemId
-          );
-
-          this.collapseInactiveItems(
-            event.target as HTMLSwirlAccordionItemElement
-          );
-        }
-      }
-    );
+    this.el.addEventListener("expansionChange", this.onExpansionChange);
   }
+
+  disconnectedCallback() {
+    this.el.removeEventListener("expansionChange", this.onExpansionChange);
+  }
+
+  private onExpansionChange = (event: CustomEvent<boolean>) => {
+    if (event.detail) {
+      this.expandedItemChange.emit(
+        (event.target as HTMLSwirlAccordionItemElement).itemId
+      );
+
+      this.collapseInactiveItems(event.target as HTMLSwirlAccordionItemElement);
+    }
+  };
 
   /**
    * Collapses an accordion item.

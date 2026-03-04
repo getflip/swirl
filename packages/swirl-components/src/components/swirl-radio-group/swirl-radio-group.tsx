@@ -36,7 +36,11 @@ export class SwirlRadioGroup {
   componentDidLoad() {
     this.radioButtons = Array.from(this.el.querySelectorAll("swirl-radio"));
     this.initValue();
-    this.handleValueChanges();
+    this.addValueChangeListeners();
+  }
+
+  disconnectedCallback() {
+    this.removeValueChangeListeners();
   }
 
   private initValue() {
@@ -55,26 +59,34 @@ export class SwirlRadioGroup {
     radioWithValue.checked = true;
   }
 
-  private handleValueChanges() {
-    for (const [key, radio] of Object.entries(this.radioButtons)) {
-      radio.addEventListener("valueChange", (event) => {
-        event.stopPropagation();
+  private addValueChangeListeners() {
+    this.radioButtons.forEach((radio) => {
+      radio.addEventListener("valueChange", this.onRadioValueChange);
+    });
+  }
 
-        if (radio.checked === true || radio.checked === "true") {
-          this.value = radio.value;
-          this.valueChange.emit(radio.value);
+  private removeValueChangeListeners() {
+    this.radioButtons?.forEach((radio) => {
+      radio.removeEventListener("valueChange", this.onRadioValueChange);
+    });
+  }
 
-          this.radioButtons.forEach((r, k) => {
-            if (String(k) === key) {
-              return;
-            }
+  private onRadioValueChange = (event: Event) => {
+    event.stopPropagation();
 
-            r.checked = false;
-          });
+    const radio = event.target as HTMLSwirlRadioElement;
+
+    if (radio.checked === true || (radio.checked as any) === "true") {
+      this.value = radio.value;
+      this.valueChange.emit(radio.value);
+
+      this.radioButtons.forEach((r) => {
+        if (r !== radio) {
+          r.checked = false;
         }
       });
     }
-  }
+  };
 
   render() {
     return (
