@@ -492,6 +492,16 @@
   }
 }
 
+.app-layout--prevent-content-overflow {
+  & .app-layout__content {
+    overflow: hidden;
+  }
+
+  & .app-layout__content-inner {
+    max-height: 100%;
+  }
+}
+
 .app-layout__header {
   z-index: 1;
   display: flex;
