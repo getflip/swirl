@@ -1,5 +1,28 @@
 # @getflip/swirl-components-angular
 
+## 0.454.0
+
+### Minor Changes
+
+- [#1501](https://github.com/getflip/swirl/pull/1501)
+  [`5a8729ebc`](https://github.com/getflip/swirl/commit/5a8729ebc118a4dfd9cf4fdef226c6bfe42bec8e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add bottom-banner slot to
+  swirl-app-layout
+
+### Patch Changes
+
+- [#1498](https://github.com/getflip/swirl/pull/1498)
+  [`0ccf9f367`](https://github.com/getflip/swirl/commit/0ccf9f367143dec5f4b72fbbfedde24f6192a118)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure event
+  listeners are properly cleaned up in swirl-popover, swirl-popover-trigger,
+  swirl-radio-group, swirl-option-list, swirl-resource-list, swirl-accordion and
+  swirl-lightbox
+
+- Updated dependencies
+  [[`0ccf9f367`](https://github.com/getflip/swirl/commit/0ccf9f367143dec5f4b72fbbfedde24f6192a118),
+  [`5a8729ebc`](https://github.com/getflip/swirl/commit/5a8729ebc118a4dfd9cf4fdef226c6bfe42bec8e)]:
+  - @getflip/swirl-components@0.454.0
+
 ## 0.453.0
 
 ### Minor Changes
