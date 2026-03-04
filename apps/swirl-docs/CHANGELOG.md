@@ -1,5 +1,20 @@
 # swirl-docs
 
+## 0.3.253
+
+### Patch Changes
+
+- [#1499](https://github.com/getflip/swirl/pull/1499)
+  [`ab91495c1`](https://github.com/getflip/swirl/commit/ab91495c1193234fd03cec196c20c17a173ea4fd)
+  Thanks [@danizep](https://github.com/danizep)! - Fix docs build by updating
+  Typescript
+
+- Updated dependencies
+  [[`0ccf9f367`](https://github.com/getflip/swirl/commit/0ccf9f367143dec5f4b72fbbfedde24f6192a118),
+  [`5a8729ebc`](https://github.com/getflip/swirl/commit/5a8729ebc118a4dfd9cf4fdef226c6bfe42bec8e)]:
+  - @getflip/swirl-components@0.454.0
+  - @getflip/swirl-components-react@0.454.0
+
 ## 0.3.252
 
 ### Patch Changes
