@@ -59,6 +59,11 @@ const Template = (args) => {
     <div slot="content"></div>
     <div slot="sidebar"></div>
     <swirl-button slot="floating-action-button" icon="<swirl-icon-add></swirl-icon-add>" label="CTA" variant="floating" intent="primary" hide-label="true"></swirl-button>
+    <div slot="bottom-bar">
+      <swirl-box padding="16">
+        <swirl-text>Bottom bar</swirl-text>
+      </swirl-box>
+    </div>
   `;
 
   element.querySelector(".info-button").addEventListener("click", () => {
