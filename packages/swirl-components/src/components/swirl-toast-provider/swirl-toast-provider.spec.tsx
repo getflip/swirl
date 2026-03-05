@@ -696,6 +696,70 @@ describe("swirl-toast-provider", () => {
     expect(toastProvider.parentElement).toBe(container);
   });
 
+  it("should filter out disconnected dialogs from the active stack", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider],
+      html: `
+          <div id="container">
+            <swirl-toast-provider></swirl-toast-provider>
+          </div>
+        `,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const popoverEl = page.root.shadowRoot.querySelector("swirl-stack");
+
+    // Mock popover methods
+    popoverEl.showPopover = jest.fn();
+    popoverEl.hidePopover = jest.fn();
+
+    // Add a toast so the provider will move
+    await toastProvider.toast({
+      content: "Test Toast",
+      toastId: "test-toast",
+    });
+    await page.waitForChanges();
+
+    // Create two mock dialogs
+    const dialog1 = document.createElement("dialog");
+    const dialog2 = document.createElement("dialog");
+    page.body.appendChild(dialog1);
+    page.body.appendChild(dialog2);
+
+    // Open both dialogs
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog: dialog1 },
+      })
+    );
+    await page.waitForChanges();
+
+    document.dispatchEvent(
+      new CustomEvent("toggleDialog", {
+        bubbles: true,
+        composed: true,
+        detail: { newState: "open", dialog: dialog2 },
+      })
+    );
+    await page.waitForChanges();
+    expect(toastProvider.parentElement).toBe(dialog2);
+
+    // Remove dialog2 from the DOM (simulating it being disconnected)
+    dialog2.remove();
+
+    // Trigger a new toast to force ensureCorrectPosition
+    await toastProvider.toast({
+      content: "Another Toast",
+      toastId: "another-toast",
+    });
+    await page.waitForChanges();
+
+    // The provider should fall back to dialog1 since dialog2 is disconnected
+    expect(toastProvider.parentElement).toBe(dialog1);
+  });
+
   it("should refresh popover after moving to dialog", async () => {
     const page = await newSpecPage({
       components: [SwirlToastProvider],
