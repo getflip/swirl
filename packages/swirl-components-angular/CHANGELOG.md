@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.456.1
+
+### Patch Changes
+
+- [#1513](https://github.com/getflip/swirl/pull/1513)
+  [`7dbec770f`](https://github.com/getflip/swirl/commit/7dbec770f8fa32e1b1112001fa88f53a43cda800)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Increase swirl-app-layout bottom
+  banner z-index
+
+- Updated dependencies
+  [[`7dbec770f`](https://github.com/getflip/swirl/commit/7dbec770f8fa32e1b1112001fa88f53a43cda800)]:
+  - @getflip/swirl-components@0.456.1
+
 ## 0.456.0
 
 ### Minor Changes
