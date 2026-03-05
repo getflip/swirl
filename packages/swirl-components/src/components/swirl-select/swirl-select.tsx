@@ -58,6 +58,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private optionList: HTMLSwirlOptionListElement;
   private searchInput: HTMLInputElement;
   private swirlPopover: HTMLSwirlPopoverElement;
+  private typeaheadBuffer: string = "";
+  private typeaheadTimeout: ReturnType<typeof setTimeout>;
 
   componentWillLoad() {
     queueMicrotask(() => {
@@ -68,6 +70,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
 
   disconnectedCallback() {
     this.observer?.disconnect();
+    clearTimeout(this.typeaheadTimeout);
   }
 
   @Listen("focusin", { target: "window" })
@@ -135,6 +138,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   ) => {
     this.placement = event.detail.position?.placement;
     this.open = true;
+    this.typeaheadBuffer = "";
+    clearTimeout(this.typeaheadTimeout);
 
     if (this.withSearch && Boolean(this.searchInput)) {
       this.searchInput.focus();
@@ -149,6 +154,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       this.searchChange.emit("");
     }
 
+    this.typeaheadBuffer = "";
+    clearTimeout(this.typeaheadTimeout);
     this.open = false;
     this.input.focus();
   };
@@ -166,8 +173,126 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       event.target === this.searchInput
     ) {
       this.optionList.querySelector<HTMLElement>('[tabIndex="0"]')?.focus();
+    } else if (this.isTypeaheadKey(event)) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.handleTypeahead(event.key);
     }
   };
+
+  /**
+   * Returns true for printable single-character keys that should trigger
+   * typeahead, excluding Space (used for selection) and keys combined with
+   * modifiers. Ignores events from the search input.
+   */
+  private isTypeaheadKey(event: KeyboardEvent): boolean {
+    if (event.target === this.searchInput) {
+      return false;
+    }
+    if (event.metaKey || event.ctrlKey || event.altKey) {
+      return false;
+    }
+    return event.key.length === 1 && event.key !== " ";
+  }
+
+  /**
+   * Manages the typeahead buffer and delegates to either cycling (repeated
+   * same character) or prefix matching (different characters). Resets the
+   * buffer if transitioning out of cycling mode. The buffer auto-clears
+   * after 500ms of inactivity.
+   */
+  private handleTypeahead(key: string) {
+    const char = key.toLowerCase();
+
+    clearTimeout(this.typeaheadTimeout);
+
+    const allSameChar =
+      this.typeaheadBuffer.length > 0 &&
+      [...this.typeaheadBuffer].every((c) => c === char);
+
+    if (allSameChar) {
+      this.typeaheadBuffer += char;
+      this.cycleTypeahead(char);
+    } else {
+      const wasCycling =
+        this.typeaheadBuffer.length > 1 &&
+        new Set(this.typeaheadBuffer).size === 1;
+
+      this.typeaheadBuffer = wasCycling ? char : this.typeaheadBuffer + char;
+
+      if (!this.prefixMatchTypeahead(this.typeaheadBuffer)) {
+        this.typeaheadBuffer = char;
+        this.prefixMatchTypeahead(this.typeaheadBuffer);
+      }
+    }
+
+    this.typeaheadTimeout = setTimeout(() => {
+      this.typeaheadBuffer = "";
+    }, 500);
+  }
+
+  /**
+   * Cycles focus/selection through options that start with the given
+   * character, wrapping around to the first match after the last one.
+   */
+  private cycleTypeahead(char: string) {
+    const enabledOptions = this.options.filter((o) => !o.disabled);
+    const matching = enabledOptions.filter((o) =>
+      o.label?.toLowerCase().startsWith(char)
+    );
+
+    if (matching.length === 0) {
+      return;
+    }
+
+    const anchorValue = this.getTypeaheadAnchorValue();
+    const currentIdx = matching.findIndex((o) => o.value === anchorValue);
+    const nextIdx = (currentIdx + 1) % matching.length;
+
+    this.applyTypeaheadMatch(matching[nextIdx]);
+  }
+
+  /**
+   * Finds the first enabled option whose label starts with the given prefix
+   * (case-insensitive) and focuses/selects it. Returns whether a match was
+   * found, so the caller can fall back to a single-character retry.
+   */
+  private prefixMatchTypeahead(prefix: string): boolean {
+    const enabledOptions = this.options.filter((o) => !o.disabled);
+    const match = enabledOptions.find((o) =>
+      o.label?.toLowerCase().startsWith(prefix)
+    );
+
+    if (match) {
+      this.applyTypeaheadMatch(match);
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * Returns the value of the currently focused option (when open) or the
+   * last selected value (when closed), used as the starting point for cycling.
+   */
+  private getTypeaheadAnchorValue(): string | undefined {
+    if (this.open) {
+      const focused = this.options.find((o) =>
+        o.querySelector('[role="option"][tabindex="0"]')
+      );
+      return focused?.value;
+    }
+    return this.value?.[this.value.length - 1];
+  }
+
+  /**
+   * Applies a typeahead match by focusing the option in the open list.
+   */
+  private applyTypeaheadMatch(option: HTMLSwirlOptionListItemElement) {
+    if (this.open) {
+      this.optionList.focusItemWithValue(option.value);
+    }
+  }
 
   private onSearchInput = (event: InputEvent) => {
     this.searchChange.emit((event.target as HTMLInputElement).value);

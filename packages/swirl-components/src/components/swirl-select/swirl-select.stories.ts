@@ -19,24 +19,44 @@ const Template = (args) => {
   formControl.label = "Select";
 
   element.innerHTML = `
-    <swirl-option-list-section label="Section 1">
+    <swirl-option-list-section label="Fruits">
       <swirl-option-list-item
-        label="This is an option 1"
+        label="Apple"
         value="1"
       ></swirl-option-list-item>
       <swirl-option-list-item
-        label="This is an option 2"
+        label="Apricot"
         value="2"
       ></swirl-option-list-item>
       <swirl-option-list-item
-        label="This is an option 3"
+        label="Avocado"
         value="3"
       ></swirl-option-list-item>
-    </swirl-option-list-section>
-    <swirl-option-list-section label="Section 2">
       <swirl-option-list-item
-        label="This is an option 4"
+        label="Artichoke"
         value="4"
+      ></swirl-option-list-item>
+      <swirl-option-list-item
+        label="Banana"
+        value="5"
+      ></swirl-option-list-item>
+      <swirl-option-list-item
+        label="Blueberry"
+        value="6"
+      ></swirl-option-list-item>
+    </swirl-option-list-section>
+    <swirl-option-list-section label="Vegetables">
+      <swirl-option-list-item
+        label="Carrot"
+        value="7"
+      ></swirl-option-list-item>
+      <swirl-option-list-item
+        label="Celery"
+        value="8"
+      ></swirl-option-list-item>
+      <swirl-option-list-item
+        label="Tomato"
+        value="9"
       ></swirl-option-list-item>
     </swirl-option-list-section>
   `;

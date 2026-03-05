@@ -5,6 +5,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Method,
   Prop,
   State,
   Watch,
@@ -120,6 +121,14 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   watchValue() {
     this.syncItemsWithValue();
     this.setSelectAllState();
+  }
+
+  @Method()
+  async focusItemWithValue(value: string) {
+    const index = this.items.findIndex((item) => item.value === value);
+    if (index >= 0) {
+      this.focusItem(index);
+    }
   }
 
   private onClick = (event: MouseEvent) => {
