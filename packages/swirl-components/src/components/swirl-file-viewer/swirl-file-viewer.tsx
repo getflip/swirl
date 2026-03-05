@@ -48,6 +48,10 @@ export class SwirlFileViewer {
 
   private viewer: HTMLElement;
 
+  disconnectedCallback() {
+    this.viewer = undefined;
+  }
+
   /**
    * Download the file.
    */

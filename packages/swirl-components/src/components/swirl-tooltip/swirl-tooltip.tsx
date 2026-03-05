@@ -95,6 +95,11 @@ export class SwirlTooltip {
     this.reposition();
   }
 
+  disconnectedCallback() {
+    this.popperEl = undefined;
+    this.arrowElement = undefined;
+  }
+
   componentWillLoad() {
     this.reposition();
   }

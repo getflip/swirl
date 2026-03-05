@@ -62,6 +62,8 @@ export class SwirlBanner {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.dismissButtonEl = undefined;
+    this.iconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

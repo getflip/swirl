@@ -51,6 +51,10 @@ export class SwirlAccordionItem {
     }
   }
 
+  disconnectedCallback() {
+    this.accordion = undefined;
+  }
+
   /**
    * Collapses the accordion item.
    */

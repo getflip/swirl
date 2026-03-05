@@ -27,6 +27,10 @@ export class SwirlActionList {
     this.setSectionSeparator();
   }
 
+  disconnectedCallback() {
+    this.container = undefined;
+  }
+
   private getItems() {
     return querySelectorAllDeep(this.el, '[role="menuitem"]');
   }

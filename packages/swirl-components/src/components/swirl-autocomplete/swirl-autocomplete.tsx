@@ -87,6 +87,12 @@ export class SwirlAutocomplete
     this.handleInitialValue();
   }
 
+  disconnectedCallback() {
+    this.inputEl = undefined;
+    this.listboxContainerEl = undefined;
+    this.listboxEl = undefined;
+  }
+
   @Listen("click", { target: "window" })
   onWindowClick(event: MouseEvent) {
     const target = event.target as HTMLElement;

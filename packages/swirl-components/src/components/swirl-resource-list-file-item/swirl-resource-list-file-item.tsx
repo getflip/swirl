@@ -40,6 +40,7 @@ export class SwirlResourceListFileItem {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.iconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

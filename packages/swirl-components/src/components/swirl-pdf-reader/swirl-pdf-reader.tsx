@@ -90,6 +90,11 @@ export class SwirlPdfReader {
     if (this.modalEl?.open) {
       this.modalEl.close();
     }
+
+    this.modalEl = undefined;
+    this.menu = undefined;
+    this.viewer = undefined;
+    this.pdfViewer = undefined;
   }
 
   private ensureOpening() {

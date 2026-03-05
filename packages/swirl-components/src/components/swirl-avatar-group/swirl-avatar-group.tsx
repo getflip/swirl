@@ -26,6 +26,10 @@ export class SwirlAvatarGroup {
     this.forceBadgeProps();
   }
 
+  disconnectedCallback() {
+    this.badgeEl = undefined;
+  }
+
   private forceBadgeProps() {
     if (!Boolean(this.badge)) {
       return;

@@ -99,6 +99,11 @@ export class SwirlPopover {
     this.disableAutoUpdate = undefined;
 
     this.triggerEl?.removeEventListener("click", this.togglePopover);
+
+    this.popoverEl = undefined;
+    this.contentContainer = undefined;
+    this.scrollContainer = undefined;
+    this.triggerEl = undefined;
   }
 
   @Listen("focusin", { target: "window" })

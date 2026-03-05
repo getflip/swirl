@@ -123,6 +123,7 @@ export class SwirlShellLayout {
   disconnectedCallback() {
     this.focusTrap?.deactivate();
     this.navMutationObserver?.disconnect();
+    this.navElement = undefined;
   }
 
   @Listen("keydown", { target: "window" })

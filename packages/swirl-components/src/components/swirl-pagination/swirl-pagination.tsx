@@ -30,6 +30,10 @@ export class SwirlPagination {
 
   private pageInput: HTMLInputElement;
 
+  disconnectedCallback() {
+    this.pageInput = undefined;
+  }
+
   private onFocusPageInput = (event: Event) => {
     (event.target as HTMLInputElement).select();
   };

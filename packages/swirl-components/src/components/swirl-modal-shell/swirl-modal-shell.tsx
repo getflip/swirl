@@ -47,6 +47,7 @@ export class SwirlModalShell {
       this.modalEl.close();
     }
     enableBodyScroll(this.modalEl);
+    this.modalEl = undefined;
   }
 
   @Method()

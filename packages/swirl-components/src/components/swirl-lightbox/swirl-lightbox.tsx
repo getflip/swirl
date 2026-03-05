@@ -77,6 +77,11 @@ export class SwirlLightbox {
     if (this.modalEl?.open) {
       this.modalEl.close();
     }
+
+    this.modalEl = undefined;
+    this.slidesContainer = undefined;
+    this.previousSlideButton = undefined;
+    this.nextSlideButton = undefined;
   }
 
   @Watch("activeSlideIndex")

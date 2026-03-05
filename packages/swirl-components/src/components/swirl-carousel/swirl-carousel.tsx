@@ -95,6 +95,10 @@ export class SwirlCarousel {
     });
   }
 
+  disconnectedCallback() {
+    this.slidesContainer = undefined;
+  }
+
   /**
    * Scroll to slide with id.
    */

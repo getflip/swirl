@@ -71,6 +71,11 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   disconnectedCallback() {
     this.observer?.disconnect();
     clearTimeout(this.typeaheadTimeout);
+
+    this.input = undefined;
+    this.searchInput = undefined;
+    this.swirlPopover = undefined;
+    this.optionList = undefined;
   }
 
   @Listen("focusin", { target: "window" })

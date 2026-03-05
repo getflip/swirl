@@ -47,6 +47,10 @@ export class SwirlTag {
 
   private iconEl: HTMLElement;
 
+  disconnectedCallback() {
+    this.iconEl = undefined;
+  }
+
   componentDidLoad() {
     this.forceIconProps();
   }

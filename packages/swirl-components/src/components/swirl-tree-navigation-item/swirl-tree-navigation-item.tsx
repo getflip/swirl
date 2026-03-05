@@ -39,6 +39,10 @@ export class SwirlTreeNavigationItem {
   private childrenId = `${this.navigationItemId}-children`;
   private childrenRef?: HTMLUListElement;
 
+  disconnectedCallback() {
+    this.childrenRef = undefined;
+  }
+
   componentWillLoad() {
     this.checkForChildren();
   }

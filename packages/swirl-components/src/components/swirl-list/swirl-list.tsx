@@ -8,6 +8,10 @@ import { Component, h, Host } from "@stencil/core";
 export class SwirlList {
   private containerEl: HTMLElement;
 
+  disconnectedCallback() {
+    this.containerEl = undefined;
+  }
+
   componentDidRender() {
     const children = Array.from(this.containerEl.children);
 

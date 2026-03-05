@@ -44,6 +44,9 @@ export class SwirlActionListItem {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.iconEl = undefined;
+    this.iconBadgeEl = undefined;
+    this.suffixEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

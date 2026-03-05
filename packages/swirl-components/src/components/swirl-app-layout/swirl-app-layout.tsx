@@ -157,6 +157,10 @@ export class SwirlAppLayout {
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
     this.mutationObserver?.disconnect();
+    this.contentEl = undefined;
+    this.headerEl = undefined;
+    this.navEl = undefined;
+    this.sidebarEl = undefined;
   }
 
   @Listen("click", { target: "document" })

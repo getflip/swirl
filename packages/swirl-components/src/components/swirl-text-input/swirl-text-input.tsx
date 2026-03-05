@@ -114,6 +114,7 @@ export class SwirlTextInput implements SwirlFormInput {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.inputEl = undefined;
   }
 
   @Method()

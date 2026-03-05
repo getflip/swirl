@@ -41,6 +41,7 @@ export class SwirlRadioGroup {
 
   disconnectedCallback() {
     this.removeValueChangeListeners();
+    this.radioButtons = undefined;
   }
 
   private initValue() {

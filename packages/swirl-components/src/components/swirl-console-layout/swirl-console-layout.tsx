@@ -76,6 +76,11 @@ export class SwirlConsoleLayout {
     });
   }
 
+  disconnectedCallback() {
+    this.sidebarEl = undefined;
+    this.contentEl = undefined;
+  }
+
   private updateCustomAppBarStatus = () => {
     this.hasCustomAppBar = Boolean(this.el.querySelector('[slot="app-bar"]'));
   };

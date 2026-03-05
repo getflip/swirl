@@ -81,6 +81,7 @@ export class SwirlTimeInput {
     this.mask?.destroy();
 
     this.mediaQueryUnsubscribe();
+    this.inputEl = undefined;
   }
 
   @Watch("format")

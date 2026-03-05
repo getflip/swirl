@@ -102,6 +102,7 @@ export class SwirlAvatar {
     this.intersectionObserver?.disconnect();
     this.imgEl?.removeEventListener("load", this.setImageAvailable);
     this.imgEl?.removeEventListener("error", this.setImageUnavailable);
+    this.imgEl = undefined;
   }
 
   @Watch("src")

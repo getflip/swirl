@@ -93,6 +93,12 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.observer?.disconnect();
     this.sortable?.destroy();
     this.removeToggleDragListeners();
+
+    this.listboxEl = undefined;
+    this.selectAllEl = undefined;
+    this.items = undefined;
+    this.focusedItem = undefined;
+    this.dragging = undefined;
   }
 
   private removeToggleDragListeners() {

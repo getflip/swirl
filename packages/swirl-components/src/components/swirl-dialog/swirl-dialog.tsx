@@ -56,6 +56,7 @@ export class SwirlDialog {
     if (this.dialogEl?.open) {
       this.dialogEl.close();
     }
+    this.dialogEl = undefined;
   }
 
   private ensureOpening() {

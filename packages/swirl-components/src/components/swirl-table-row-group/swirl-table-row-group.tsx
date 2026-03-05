@@ -21,6 +21,11 @@ export class SwirlTableRowGroup {
   private tableRowElements: HTMLElement;
   private headerRowElement: HTMLElement;
 
+  disconnectedCallback() {
+    this.headerRowElement = undefined;
+    this.tableRowElements = undefined;
+  }
+
   private toggleShowItems = () => {
     this.headerRowElement.focus();
 

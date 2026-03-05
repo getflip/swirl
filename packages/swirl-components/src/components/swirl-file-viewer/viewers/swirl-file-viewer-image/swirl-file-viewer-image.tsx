@@ -53,6 +53,7 @@ export class SwirlFileViewerImage {
   disconnectedCallback() {
     this.imageEl?.removeEventListener("load", this.onLoad);
     this.imageEl?.removeEventListener("error", this.onError);
+    this.imageEl = undefined;
   }
 
   @Watch("file")

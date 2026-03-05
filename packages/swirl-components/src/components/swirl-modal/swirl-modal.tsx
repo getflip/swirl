@@ -134,6 +134,9 @@ export class SwirlModal {
       this.modalEl.close();
     }
     this.unlockBodyScroll();
+    this.modalEl = undefined;
+    this.scrollContainer = undefined;
+    this.sidebarScrollContainer = undefined;
   }
 
   @Listen("resize", { target: "window" })

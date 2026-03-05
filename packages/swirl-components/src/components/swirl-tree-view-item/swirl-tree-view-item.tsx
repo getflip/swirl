@@ -91,6 +91,11 @@ export class SwirlTreeViewItem {
     this.setUpDragDrop();
   }
 
+  disconnectedCallback() {
+    this.childList = undefined;
+    this.link = undefined;
+  }
+
   @Method()
   async expand() {
     if (this.expanded || !this.expandable || this.getSemantics() !== "tree") {

@@ -44,6 +44,11 @@ export class SwirlMenuItem {
   private optionListItem: HTMLSwirlOptionListItemElement | undefined;
   private rootMenu: HTMLSwirlMenuElement;
 
+  disconnectedCallback() {
+    this.actionListItem = undefined;
+    this.optionListItem = undefined;
+  }
+
   componentWillLoad() {
     this.parentMenu = closestPassShadow(
       this.el,

@@ -56,6 +56,8 @@ export class SwirlToast {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.iconEl = undefined;
+    this.dismissIconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

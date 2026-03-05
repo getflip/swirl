@@ -80,6 +80,9 @@ export class SwirlResourceList {
     this.observer?.disconnect();
     this.controllingElement?.removeEventListener("keydown", this.onKeyDown);
     this.removeToggleDragListeners();
+
+    this.gridEl = undefined;
+    this.items = undefined;
   }
 
   private observeSlotChanges() {

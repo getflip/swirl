@@ -128,6 +128,8 @@ export class SwirlButton {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.buttonEl = undefined;
+    this.iconEl = undefined;
   }
 
   private forceIconProps() {

@@ -33,6 +33,10 @@ export class SwirlFileViewerVideo {
     }
   }
 
+  disconnectedCallback() {
+    this.videoEl = undefined;
+  }
+
   @Watch("disableDownload")
   watchDisableDownload() {
     if (this.disableDownload) {

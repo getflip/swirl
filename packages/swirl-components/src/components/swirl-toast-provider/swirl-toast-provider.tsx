@@ -113,6 +113,15 @@ export class SwirlToastProvider {
 
       this.ensureCorrectPosition();
     }
+
+    // Release DOM references after a microtask to avoid nulling during
+    // element moves (appendChild triggers disconnect then reconnect).
+    queueMicrotask(() => {
+      if (!this.el.isConnected) {
+        this.popoverEl = undefined;
+        this.originalParent = undefined;
+      }
+    });
   }
 
   @Listen("toggleDialog", { target: "document" })
@@ -131,7 +140,7 @@ export class SwirlToastProvider {
     if (this.toasts.length > 0) {
       this.ensureCorrectPosition();
     } else {
-      this.popoverEl.hidePopover();
+      this.popoverEl?.hidePopover();
     }
   }
 
@@ -191,8 +200,8 @@ export class SwirlToastProvider {
       parent.appendChild(this.el);
     }
 
-    this.popoverEl.hidePopover();
-    this.popoverEl.showPopover();
+    this.popoverEl?.hidePopover();
+    this.popoverEl?.showPopover();
   }
 
   render() {

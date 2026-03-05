@@ -61,6 +61,9 @@ export class SwirlSearch {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+
+    this.input = undefined;
+    this.iconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

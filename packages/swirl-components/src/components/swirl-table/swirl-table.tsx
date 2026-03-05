@@ -90,6 +90,9 @@ export class SwirlTable {
     this.columnMutationObserver?.disconnect();
     this.rowMutationObserver?.disconnect();
     this.sortable?.destroy();
+    this.container = undefined;
+    this.headerEl = undefined;
+    this.bodyEl = undefined;
   }
 
   @Watch("enableDragDrop")

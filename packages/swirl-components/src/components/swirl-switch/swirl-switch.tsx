@@ -43,6 +43,10 @@ export class SwirlSwitch {
 
   private inputEl: HTMLInputElement;
 
+  disconnectedCallback() {
+    this.inputEl = undefined;
+  }
+
   /**
    * Toggle the switch state programmatically.
    */

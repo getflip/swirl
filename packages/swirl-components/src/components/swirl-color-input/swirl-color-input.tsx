@@ -59,6 +59,8 @@ export class SwirlColorInput {
 
   disconnectedCallback() {
     this.picker?.removeEventListener("color-changed", this.onPickerChange);
+    this.inputEl = undefined;
+    this.picker = undefined;
   }
 
   @Watch("value")

@@ -86,6 +86,7 @@ export class SwirlFileViewerPdf {
 
   disconnectedCallback() {
     this.doc?.destroy();
+    this.scrollContainer = undefined;
   }
 
   @Listen("resize", { target: "window" })

@@ -24,6 +24,7 @@ export class SwirlInlineError {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.iconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

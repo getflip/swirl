@@ -47,6 +47,10 @@ export class SwirlTabs {
     this.updateTabBarTabs();
   }
 
+  disconnectedCallback() {
+    this.tabs = undefined;
+  }
+
   /**
    * Activate a tab.
    * @param tabId

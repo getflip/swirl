@@ -44,6 +44,10 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
 
   private inputEl: HTMLInputElement;
 
+  disconnectedCallback() {
+    this.inputEl = undefined;
+  }
+
   /**
    * Reset the file input.
    */

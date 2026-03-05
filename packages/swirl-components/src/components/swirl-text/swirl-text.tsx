@@ -66,6 +66,10 @@ export class SwirlText {
 
   private textEl: HTMLElement;
 
+  disconnectedCallback() {
+    this.textEl = undefined;
+  }
+
   componentDidRender() {
     this.rebalance();
     this.handleTruncation();

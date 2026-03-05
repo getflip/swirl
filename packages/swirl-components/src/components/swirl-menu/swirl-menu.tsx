@@ -105,6 +105,8 @@ export class SwirlMenu {
     );
 
     this.observer?.disconnect();
+    this.menuContainer = undefined;
+    this.items = undefined;
   }
 
   @Watch("active")

@@ -60,6 +60,7 @@ export class SwirlChip {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.iconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

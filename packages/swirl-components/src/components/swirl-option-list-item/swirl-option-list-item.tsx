@@ -63,6 +63,7 @@ export class SwirlOptionListItem {
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+    this.iconEl = undefined;
   }
 
   private forceIconProps(smallIcon: boolean) {

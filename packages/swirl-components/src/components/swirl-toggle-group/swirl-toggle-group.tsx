@@ -29,6 +29,10 @@ export class SwirlToggleGroup {
 
   private toggleButtons: HTMLSwirlToggleButtonElement[] = [];
 
+  disconnectedCallback() {
+    this.toggleButtons = undefined;
+  }
+
   @Watch("selectedToggleId")
   watchSelectedToggleId(newValue: string, oldValue: string): void {
     if (newValue !== oldValue) {

@@ -91,6 +91,8 @@ export class SwirlDateInput {
   disconnectedCallback() {
     this.mask?.destroy();
     this.mediaQueryUnsubscribe();
+    this.inputEl = undefined;
+    this.pickerPopover = undefined;
   }
 
   @Watch("format")
