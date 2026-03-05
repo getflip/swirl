@@ -3272,6 +3272,7 @@ export namespace Components {
          */
         "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
+        "focusItemWithValue": (value: string) => Promise<void>;
         "label"?: string;
         "multiSelect"?: boolean;
         "optionListId"?: string;
