@@ -227,10 +227,24 @@ export class SwirlModal {
   };
 
   onToggle = (event: ToggleEvent) => {
-    this.toggleDialog.emit({
+    const detail: SwirlDialogToggleEvent = {
       newState: event.newState as SwirlDialogToggleEvent["newState"],
       dialog: this.modalEl,
-    });
+    };
+
+    if (this.el.isConnected) {
+      this.toggleDialog.emit(detail);
+    } else {
+      // If the dialog is not connected to the DOM anymore, we dispatch
+      // a custom event to ensure the event is still emitted.
+      document.dispatchEvent(
+        new CustomEvent("toggleDialog", {
+          bubbles: true,
+          composed: true,
+          detail,
+        })
+      );
+    }
   };
 
   private onBackdropClick = () => {

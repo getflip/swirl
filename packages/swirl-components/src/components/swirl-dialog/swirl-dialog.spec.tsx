@@ -136,6 +136,33 @@ describe("swirl-dialog", () => {
     expect(toggleSpy.mock.calls[1][0].detail.newState).toBe("closed");
   });
 
+  it("dispatches toggleDialog event on document when element is disconnected", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDialog],
+      html: `<swirl-dialog label="Dialog">Content</swirl-dialog>`,
+    });
+
+    const documentToggleSpy = jest.fn();
+    document.addEventListener("toggleDialog", documentToggleSpy);
+
+    const dialogEl = page.root.shadowRoot.querySelector("dialog");
+    const component = page.rootInstance as SwirlDialog;
+
+    // Simulate the element being disconnected
+    Object.defineProperty(component.el, "isConnected", { value: false });
+
+    // Simulate toggle event
+    const toggleEvent = new Event("toggle") as any;
+    toggleEvent.newState = "closed";
+    dialogEl.dispatchEvent(toggleEvent);
+
+    expect(documentToggleSpy).toHaveBeenCalledTimes(1);
+    expect(documentToggleSpy.mock.calls[0][0].detail.newState).toBe("closed");
+    expect(documentToggleSpy.mock.calls[0][0].detail.dialog).toBe(dialogEl);
+
+    document.removeEventListener("toggleDialog", documentToggleSpy);
+  });
+
   it("returns focus to custom element when returnFocusTo is set", async () => {
     const page = await newSpecPage({
       components: [SwirlDialog],

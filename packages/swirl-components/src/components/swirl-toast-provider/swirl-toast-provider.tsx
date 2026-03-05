@@ -179,6 +179,10 @@ export class SwirlToastProvider {
    * This is necessary to allow toasts to be interactable when a dialog is open, otherwise the toasts would be inert.
    */
   private ensureCorrectPosition() {
+    this.activeDialogStack = this.activeDialogStack.filter(
+      (dialog) => dialog.isConnected
+    );
+
     const parent =
       this.activeDialogStack[this.activeDialogStack.length - 1] ||
       this.originalParent;
