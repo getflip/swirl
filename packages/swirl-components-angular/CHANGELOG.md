@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.456.3
+
+### Patch Changes
+
+- [#1512](https://github.com/getflip/swirl/pull/1512)
+  [`6bc3202fc`](https://github.com/getflip/swirl/commit/6bc3202fc542853a280526823bb3b4e74302f941)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure
+  references of disconnected dialogs are released in swirl-toast-provider
+
+- Updated dependencies
+  [[`6bc3202fc`](https://github.com/getflip/swirl/commit/6bc3202fc542853a280526823bb3b4e74302f941)]:
+  - @getflip/swirl-components@0.456.3
+
 ## 0.456.2
 
 ### Patch Changes
