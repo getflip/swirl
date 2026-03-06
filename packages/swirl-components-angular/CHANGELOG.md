@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.457.0
+
+### Minor Changes
+
+- [#1517](https://github.com/getflip/swirl/pull/1517)
+  [`2f0a4df25`](https://github.com/getflip/swirl/commit/2f0a4df2516e67d276dba30611dd915f2fe70aad)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Revert stencil
+  react wrapper update
+
+* [#1511](https://github.com/getflip/swirl/pull/1511)
+  [`8ab78d538`](https://github.com/getflip/swirl/commit/8ab78d538871da6676d822a36c544dbbfbff330d)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add type-ahead
+  capability to swirl-select
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2f0a4df25`](https://github.com/getflip/swirl/commit/2f0a4df2516e67d276dba30611dd915f2fe70aad),
+  [`8ab78d538`](https://github.com/getflip/swirl/commit/8ab78d538871da6676d822a36c544dbbfbff330d)]:
+  - @getflip/swirl-components@0.457.0
+
 ## 0.456.3
 
 ### Patch Changes
