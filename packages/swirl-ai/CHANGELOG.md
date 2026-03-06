@@ -1,5 +1,14 @@
 # @getflip/swirl-ai
 
+## 0.457.0
+
+### Minor Changes
+
+- [#1517](https://github.com/getflip/swirl/pull/1517)
+  [`2f0a4df25`](https://github.com/getflip/swirl/commit/2f0a4df2516e67d276dba30611dd915f2fe70aad)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Revert stencil
+  react wrapper update
+
 ## 0.456.3
 
 ### Patch Changes
