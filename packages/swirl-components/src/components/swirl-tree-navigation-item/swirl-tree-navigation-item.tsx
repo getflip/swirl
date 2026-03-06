@@ -25,6 +25,8 @@ export class SwirlTreeNavigationItem {
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop() target?: string;
+  @Prop() markAsNew?: boolean;
+  @Prop() markAsNewLabel?: string = "New";
   @Prop() navigationItemId!: string;
   @Prop() level?: number = 1;
   @Prop() expandable?: boolean = true;
@@ -189,6 +191,15 @@ export class SwirlTreeNavigationItem {
                   </span>
                 )}
               </span>
+              {this.markAsNew && (
+                <swirl-tag
+                  class="tree-navigation-item__is-new-tag"
+                  intent="info"
+                  label={this.markAsNewLabel.toLocaleUpperCase()}
+                  size="s"
+                  variant="strong"
+                ></swirl-tag>
+              )}
             </span>
           </Tag>
           {this.hasChildren && (
