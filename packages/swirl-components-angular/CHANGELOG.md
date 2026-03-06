@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.457.1
+
+### Patch Changes
+
+- [#1520](https://github.com/getflip/swirl/pull/1520)
+  [`6af6fc8ea`](https://github.com/getflip/swirl/commit/6af6fc8ea9d7bf5297d1ed0b1b756ca141d71c66)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  swirl-popover flicker
+
+- Updated dependencies
+  [[`6af6fc8ea`](https://github.com/getflip/swirl/commit/6af6fc8ea9d7bf5297d1ed0b1b756ca141d71c66)]:
+  - @getflip/swirl-components@0.457.1
+
 ## 0.457.0
 
 ### Minor Changes
