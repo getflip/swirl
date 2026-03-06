@@ -103,7 +103,7 @@
     "remark-gfm": "3.0.1",
     "storybook": "10.2.11",
     "storybook-design-token": "5.0.0",
-    "svgo": "2.8.0",
+    "svgo": "2.8.2",
     "typescript": "5.9.3",
     "vite": "5.4.0"
   },
