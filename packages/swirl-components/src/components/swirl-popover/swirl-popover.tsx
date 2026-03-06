@@ -206,6 +206,7 @@ export class SwirlPopover {
 
       this.active = false;
       this.closing = false;
+      this.position = undefined;
       this.updateTriggerAttributes(this.openedVia);
       this.openedVia = undefined;
     }, 150);
@@ -235,6 +236,7 @@ export class SwirlPopover {
 
     this.adjustWidth();
 
+    this.position = undefined;
     this.active = true;
     this.openedVia = via;
 
@@ -504,6 +506,8 @@ export class SwirlPopover {
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
+              visibility:
+                this.active && !this.position && !mobile ? "hidden" : undefined,
               "--swirl-popover-border-radius": borderRadius,
             }}
             tabindex="-1"
