@@ -82,7 +82,6 @@ export const config: Config = {
         },
       ],
       customElementsExportBehavior: "bundle",
-      externalRuntime: false,
       generateTypeDeclarations: true,
       type: "dist-custom-elements",
     },
@@ -99,9 +98,10 @@ export const config: Config = {
       file: "custom-elements.manifest.json",
     },
     reactOutputTarget({
-      stencilPackageName: "@getflip/swirl-components",
+      componentCorePackage: "@getflip/swirl-components",
       excludeComponents: ["hex-color-picker", "wc-datepicker"],
-      outDir: "../swirl-components-react/lib/stencil-generated",
+      proxiesFile: "../swirl-components-react/lib/stencil-generated/index.ts",
+      includeDefineCustomElements: true,
     }),
     angularOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
