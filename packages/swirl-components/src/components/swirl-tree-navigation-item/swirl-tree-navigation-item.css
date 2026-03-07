@@ -148,3 +148,7 @@
 .tree-navigation-item--expanded .tree-navigation-item__toggle-icon {
   transform: rotate(90deg);
 }
+
+.tree-navigation-item__is-new-tag {
+  flex-shrink: 0;
+}
