@@ -55147,6 +55147,21 @@
               "fieldName": "level"
             },
             {
+              "name": "mark-as-new",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "markAsNew"
+            },
+            {
+              "name": "mark-as-new-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"New\"",
+              "fieldName": "markAsNewLabel"
+            },
+            {
               "name": "navigation-item-id",
               "type": {
                 "text": "string"
@@ -55227,6 +55242,25 @@
               "default": "1",
               "readonly": true,
               "attribute": "level"
+            },
+            {
+              "kind": "field",
+              "name": "markAsNew",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "mark-as-new"
+            },
+            {
+              "kind": "field",
+              "name": "markAsNewLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"New\"",
+              "readonly": true,
+              "attribute": "mark-as-new-label"
             },
             {
               "kind": "field",

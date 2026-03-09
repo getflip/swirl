@@ -23267,6 +23267,14 @@
           "description": ""
         },
         {
+          "name": "mark-as-new",
+          "description": ""
+        },
+        {
+          "name": "mark-as-new-label",
+          "description": ""
+        },
+        {
           "name": "navigation-item-id",
           "description": ""
         },
