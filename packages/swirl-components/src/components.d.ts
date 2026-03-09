@@ -5108,6 +5108,11 @@ export namespace Components {
           * @default 1
          */
         "level"?: number;
+        "markAsNew"?: boolean;
+        /**
+          * @default "New"
+         */
+        "markAsNewLabel"?: string;
         "navigationItemId": string;
         "target"?: string;
     }
@@ -14227,6 +14232,11 @@ declare namespace LocalJSX {
           * @default 1
          */
         "level"?: number;
+        "markAsNew"?: boolean;
+        /**
+          * @default "New"
+         */
+        "markAsNewLabel"?: string;
         "navigationItemId": string;
         "onExpansionChange"?: (event: SwirlTreeNavigationItemCustomEvent<boolean>) => void;
         "target"?: string;
@@ -16709,6 +16719,8 @@ declare namespace LocalJSX {
         "icon": string;
         "label": string;
         "target": string;
+        "markAsNew": boolean;
+        "markAsNewLabel": string;
         "navigationItemId": string;
         "level": number;
         "expandable": boolean;

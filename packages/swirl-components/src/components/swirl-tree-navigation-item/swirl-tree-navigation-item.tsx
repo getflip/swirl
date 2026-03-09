@@ -195,9 +195,9 @@ export class SwirlTreeNavigationItem {
                 <swirl-tag
                   class="tree-navigation-item__is-new-tag"
                   intent="info"
-                  label={this.markAsNewLabel.toLocaleUpperCase()}
-                  size="s"
-                  variant="strong"
+                  label={this.markAsNewLabel}
+                  size="m"
+                  variant="default"
                 ></swirl-tag>
               )}
             </span>
