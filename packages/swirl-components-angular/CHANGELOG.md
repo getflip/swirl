@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.458.0
+
+### Minor Changes
+
+- [#1519](https://github.com/getflip/swirl/pull/1519)
+  [`68c610e03`](https://github.com/getflip/swirl/commit/68c610e03e4597ef43a7ffb12d2483cc7f45ca5a)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add Mark as
+  new Tag to Tree-Navigation-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`68c610e03`](https://github.com/getflip/swirl/commit/68c610e03e4597ef43a7ffb12d2483cc7f45ca5a)]:
+  - @getflip/swirl-components@0.458.0
+
 ## 0.457.1
 
 ### Patch Changes
