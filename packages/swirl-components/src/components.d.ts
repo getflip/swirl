@@ -3537,6 +3537,9 @@ export namespace Components {
           * Toggles the popover.
          */
         "toggle": (triggerEl?: HTMLElement, via?: SwirlPopoverControlMethod) => Promise<void>;
+        /**
+          * @default true
+         */
         "translucent"?: boolean;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
@@ -12711,6 +12714,9 @@ declare namespace LocalJSX {
           * @default true
          */
         "returnFocusToTrigger"?: boolean;
+        /**
+          * @default true
+         */
         "translucent"?: boolean;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;

@@ -10,7 +10,7 @@
 
 .date-picker {
   padding: var(--s-space-8) var(--s-space-16);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   letter-spacing: var(--s-letter-spacing-tighter);
@@ -65,7 +65,7 @@
   }
 
   &:hover {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:focus:not(:focus-visible) {
@@ -103,7 +103,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   font: inherit;
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-medium);
@@ -190,14 +190,14 @@
 
   &:hover {
     &:before {
-      background-color: var(--s-surface-overlay-hovered);
+      background-color: var(--s-state-hovered);
     }
   }
 }
 
 .date-picker__date--current {
   &:before {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:focus:not(:focus-visible) {

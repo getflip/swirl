@@ -38424,6 +38424,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "true",
               "fieldName": "translucent"
             },
             {
@@ -38593,6 +38594,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "true",
               "readonly": true,
               "attribute": "translucent"
             },

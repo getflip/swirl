@@ -359,6 +359,7 @@ export class SwirlDateInput {
             id={`popover-${this.id}`}
             label={this.datePickerLabel}
             placement="bottom-end"
+            translucent={true}
             ref={(el) => (this.pickerPopover = el)}
           >
             <swirl-date-picker

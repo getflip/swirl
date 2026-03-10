@@ -200,10 +200,18 @@
 
 .popover--translucent {
   & .popover__content {
-    background: var(--s-translucent-low-default);
-    backdrop-filter: blur(var(--s-blur-l));
+    background-color: transparent;
     outline: var(--s-border-width-default) solid
       var(--s-border-translucent-outline);
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--s-translucent-low-default);
+      backdrop-filter: blur(var(--s-blur-l));
+    }
   }
 
   & .popover__handle {

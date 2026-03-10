@@ -8,10 +8,6 @@
 
 .menu {
   width: 100%;
-
-  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
 }
 
 .menu--mobile {
@@ -57,6 +53,17 @@
       border-radius: var(--s-border-radius-base);
       box-shadow: var(--s-shadow-level-1);
       padding: var(--s-space-4);
+      outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
+
+      &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: var(--s-border-radius-base);
+        background: var(--s-translucent-low-default);
+        backdrop-filter: blur(var(--s-blur-l));
+      }
     }
   }
 
@@ -100,13 +107,4 @@
 
 .menu__done-button {
   margin-right: calc(-1 * var(--s-space-8));
-}
-
-.menu__menu {
-  background-color: var(--s-surface-overlay-default);
-  /* z-index: 1;
-  max-width: 22.5rem;
-  border-radius: var(--s-border-radius-base);
-  box-shadow: var(--s-shadow-level-1);
-  padding: var(--s-space-4); */
 }

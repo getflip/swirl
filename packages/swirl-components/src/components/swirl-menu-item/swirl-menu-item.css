@@ -8,6 +8,6 @@
 
 .menu-item--expanded {
   & ::part(action-list-item) {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 }

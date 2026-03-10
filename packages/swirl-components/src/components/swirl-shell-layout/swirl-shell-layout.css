@@ -179,10 +179,6 @@
 }
 
 .shell-layout__header-right {
-  --swirl-ghost-button-background-default: var(--s-surface-sunken-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-sunken-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-sunken-pressed);
-
   display: flex;
   flex-basis: 8rem;
   flex-shrink: 0;
@@ -221,11 +217,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-sunken-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-sunken-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &:focus {
@@ -301,11 +297,11 @@
     background-color: var(--s-surface-overlay-default);
 
     &:hover {
-      background-color: var(--s-surface-overlay-hovered);
+      background-color: var(--s-state-hovered);
     }
 
     &:active {
-      background-color: var(--s-surface-overlay-pressed);
+      background-color: var(--s-state-pressed);
     }
   }
 

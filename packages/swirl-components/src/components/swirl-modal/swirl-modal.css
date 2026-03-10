@@ -9,18 +9,6 @@
 }
 
 .modal {
-  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
-  --swirl-resource-list-item-background-default: var(
-    --s-surface-overlay-default
-  );
-  --swirl-resource-list-item-background-hovered: var(
-    --s-surface-overlay-hovered
-  );
-  --swirl-resource-list-item-background-pressed: var(
-    --s-surface-overlay-pressed
-  );
   --swirl-modal-height: auto;
   --swirl-modal-max-height: 90vh;
   --swirl-modal-view-height: 100vh;
@@ -412,14 +400,6 @@
 }
 
 .modal__body {
-  --swirl-card-background-default: var(--s-surface-overlay-default);
-  --swirl-card-background-hovered: var(--s-surface-overlay-hovered);
-  --swirl-card-background-pressed: var(--s-surface-overlay-pressed);
-
-  --swirl-accordion-item-toggle-default: var(--s-surface-overlay-default);
-  --swirl-accordion-item-toggle-hovered: var(--s-surface-overlay-hovered);
-  --swirl-accordion-item-toggle-pressed: var(--s-surface-overlay-pressed);
-
   position: relative;
   z-index: var(--s-z-40);
   display: flex;

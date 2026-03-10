@@ -640,6 +640,62 @@
     "value": "rgba(41, 64, 91, 1)",
     "type": "color"
   },
+  "core-translucent-black-3": {
+    "value": "rgba(0,0,0,0.03)",
+    "type": "color"
+  },
+  "core-translucent-black-6": {
+    "value": "rgba(0,0,0,0.06)",
+    "type": "color"
+  },
+  "core-translucent-black-9": {
+    "value": "rgba(0,0,0,0.09)",
+    "type": "color"
+  },
+  "core-translucent-black-12": {
+    "value": "rgba(0,0,0,0.12)",
+    "type": "color"
+  },
+  "core-translucent-black-20": {
+    "value": "rgba(0,0,0,0.2)",
+    "type": "color"
+  },
+  "core-translucent-black-60": {
+    "value": "rgba(0,0,0,0.6)",
+    "type": "color"
+  },
+  "core-translucent-black-80": {
+    "value": "rgba(0,0,0,0.8)",
+    "type": "color"
+  },
+  "core-translucent-white-3": {
+    "value": "rgba(255,255,255,0.03)",
+    "type": "color"
+  },
+  "core-translucent-white-6": {
+    "value": "rgba(255,255,255,0.06)",
+    "type": "color"
+  },
+  "core-translucent-white-9": {
+    "value": "rgba(255,255,255,0.09)",
+    "type": "color"
+  },
+  "core-translucent-white-12": {
+    "value": "rgba(255,255,255,0.12)",
+    "type": "color"
+  },
+  "core-translucent-white-20": {
+    "value": "rgba(255,255,255,0.2)",
+    "type": "color"
+  },
+  "core-translucent-white-60": {
+    "value": "rgba(255,255,255,0.6)",
+    "type": "color"
+  },
+  "core-translucent-white-80": {
+    "value": "rgba(255,255,255,0.8)",
+    "type": "color"
+  },
   "background-default": {
     "value": "{core-gray-12}",
     "type": "color",
@@ -698,32 +754,32 @@
     "comment": "Used if a component with “Surface Overlay/Default” has a pressed state."
   },
   "surface-raised-default": {
-    "value": "{core-gray-09}",
+    "value": "{core-translucent-white-6}",
     "type": "color",
     "comment": "Usually used for elements that need contrast on surfaces or background"
   },
   "surface-raised-hovered": {
-    "value": "{core-gray-08}",
+    "value": "{core-translucent-white-9}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a hovered state."
   },
   "surface-raised-pressed": {
-    "value": "{core-gray-07}",
+    "value": "{core-translucent-white-12}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a pressed state."
   },
   "surface-raised-50-default": {
-    "value": "rgba(255,255,255,0.03)",
+    "value": "{core-translucent-white-3}",
     "type": "color",
     "comment": "Usually used for elements that need contrast on surfaces or background with a 50% opacity"
   },
   "surface-raised-50-hovered": {
-    "value": "rgba(255,255,255,0.06)",
+    "value": "{core-translucent-white-6}",
     "type": "color",
     "comment": "Used if a component with `surface-raised-50` has a hovered state."
   },
   "surface-raised-50-pressed": {
-    "value": "rgba(255,255,255,0.09)",
+    "value": "{core-translucent-white-9}",
     "type": "color",
     "comment": "Used if a component with `surface-raised-50` has a pressed state."
   },
@@ -808,12 +864,12 @@
     "comment": "Used for surface with a backdrop blur and low transparency"
   },
   "translucent-low-hovered": {
-    "value": "rgba(255,255,255,0.05)",
+    "value": "{core-translucent-white-6}",
     "type": "color",
     "comment": "Used for hovers on translucent low"
   },
   "translucent-low-pressed": {
-    "value": "rgba(255,255,255,0.1)",
+    "value": "{core-translucent-white-9}",
     "type": "color",
     "comment": "Used for pressed state on translucent low"
   },
@@ -833,12 +889,12 @@
     "comment": "Used for hovers on translucent medium"
   },
   "border-strong": {
-    "value": "rgba(255, 255, 255, 0.20)",
+    "value": "{core-translucent-white-20}",
     "type": "color",
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(255, 255, 255, 0.12)",
+    "value": "{core-translucent-white-12}",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },
@@ -873,7 +929,7 @@
     "comment": "Used as border color on containers that have an highlight surface"
   },
   "border-on-translucent": {
-    "value": "rgba(255,255,255,0.1)",
+    "value": "{core-translucent-white-12}",
     "type": "color",
     "comment": "Used for borders on surfaces with a translucent effect"
   },
@@ -888,12 +944,12 @@
     "comment": "Used for high emphasis text."
   },
   "text-subdued": {
-    "value": "{core-gray-05}",
+    "value": "{core-translucent-white-80}",
     "type": "color",
     "comment": "Used for low emphasis text."
   },
   "text-disabled": {
-    "value": "{core-gray-07}",
+    "value": "{core-translucent-white-20}",
     "type": "color",
     "comment": "Used if a text element is disabled."
   },
@@ -958,12 +1014,12 @@
     "comment": "Used for high emphasis icons."
   },
   "icon-default": {
-    "value": "{core-gray-05}",
+    "value": "{core-translucent-white-80}",
     "type": "color",
     "comment": "Used for low emphasis icons."
   },
   "icon-disabled": {
-    "value": "{core-gray-07}",
+    "value": "{core-translucent-white-20}",
     "type": "color",
     "comment": "Used if a icon element is disabled."
   },
@@ -1078,7 +1134,7 @@
     "comment": "Used if a component with “Action Neutral/Default” has a pressed state."
   },
   "action-neutral-disabled": {
-    "value": "{core-gray-10}",
+    "value": "{core-translucent-white-6}",
     "type": "color",
     "comment": "Used if a component with “Action Neutral/Default” has a disabled state."
   },
@@ -1098,7 +1154,7 @@
     "comment": "Used if a component with “Interactive Primary/Default” has a pressed state."
   },
   "interactive-primary-disabled": {
-    "value": "{core-gray-07}",
+    "value": "{core-translucent-white-6}",
     "type": "color",
     "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
   },
@@ -1118,12 +1174,12 @@
     "comment": "Used if a component with “Interactive Critical/Default” has a pressed state."
   },
   "interactive-critical-disabled": {
-    "value": "{core-gray-07}",
+    "value": "{core-translucent-white-6}",
     "type": "color",
     "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
   },
   "interactive-neutral-default": {
-    "value": "{core-gray-05}",
+    "value": "{core-translucent-white-80}",
     "type": "color",
     "comment": "Used for icon and text that are low emphasis interactive elements."
   },
@@ -1305,5 +1361,15 @@
       }
     ],
     "type": "boxShadow"
+  },
+  "state-hovered": {
+    "value": "{core-translucent-white-6}",
+    "type": "color",
+    "comment": "Is used for general hovered states, e.g. list items"
+  },
+  "state-pressed": {
+    "value": "{core-translucent-white-9}",
+    "type": "color",
+    "comment": "Is used for general pressed states, e.g. list items"
   }
 }

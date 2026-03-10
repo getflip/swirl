@@ -37,11 +37,11 @@
   }
 
   &:hover:not(.radio--disabled) {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active:not(.radio--disabled) {
-    background-color: var(--s-surface-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &.radio--checked:not(.radio--disabled) {
