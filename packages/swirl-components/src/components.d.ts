@@ -2374,6 +2374,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconPasskey {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPatientList {
         "color"?: SwirlIconColor1;
         /**
@@ -2865,6 +2872,13 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAssign {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconVerifiedUser {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -6984,6 +6998,12 @@ declare global {
         prototype: HTMLSwirlIconOpenInNewElement;
         new (): HTMLSwirlIconOpenInNewElement;
     };
+    interface HTMLSwirlIconPasskeyElement extends Components.SwirlIconPasskey, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPasskeyElement: {
+        prototype: HTMLSwirlIconPasskeyElement;
+        new (): HTMLSwirlIconPasskeyElement;
+    };
     interface HTMLSwirlIconPatientListElement extends Components.SwirlIconPatientList, HTMLStencilElement {
     }
     var HTMLSwirlIconPatientListElement: {
@@ -7409,6 +7429,12 @@ declare global {
     var HTMLSwirlIconUserAssignElement: {
         prototype: HTMLSwirlIconUserAssignElement;
         new (): HTMLSwirlIconUserAssignElement;
+    };
+    interface HTMLSwirlIconVerifiedUserElement extends Components.SwirlIconVerifiedUser, HTMLStencilElement {
+    }
+    var HTMLSwirlIconVerifiedUserElement: {
+        prototype: HTMLSwirlIconVerifiedUserElement;
+        new (): HTMLSwirlIconVerifiedUserElement;
     };
     interface HTMLSwirlIconVideoCameraElement extends Components.SwirlIconVideoCamera, HTMLStencilElement {
     }
@@ -9192,6 +9218,7 @@ declare global {
         "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
         "swirl-icon-open-in-full": HTMLSwirlIconOpenInFullElement;
         "swirl-icon-open-in-new": HTMLSwirlIconOpenInNewElement;
+        "swirl-icon-passkey": HTMLSwirlIconPasskeyElement;
         "swirl-icon-patient-list": HTMLSwirlIconPatientListElement;
         "swirl-icon-pause": HTMLSwirlIconPauseElement;
         "swirl-icon-pause-circle": HTMLSwirlIconPauseCircleElement;
@@ -9263,6 +9290,7 @@ declare global {
         "swirl-icon-upload": HTMLSwirlIconUploadElement;
         "swirl-icon-user-add": HTMLSwirlIconUserAddElement;
         "swirl-icon-user-assign": HTMLSwirlIconUserAssignElement;
+        "swirl-icon-verified-user": HTMLSwirlIconVerifiedUserElement;
         "swirl-icon-video-camera": HTMLSwirlIconVideoCameraElement;
         "swirl-icon-video-camera-off": HTMLSwirlIconVideoCameraOffElement;
         "swirl-icon-video-library": HTMLSwirlIconVideoLibraryElement;
@@ -11599,6 +11627,13 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPasskey {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconPatientList {
         "color"?: SwirlIconColor1;
         /**
@@ -12090,6 +12125,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUserAssign {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconVerifiedUser {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -15421,6 +15463,10 @@ declare namespace LocalJSX {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPasskeyAttributes {
+        "color": SwirlIconColor;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPatientListAttributes {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
@@ -15702,6 +15748,10 @@ declare namespace LocalJSX {
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAssignAttributes {
+        "color": SwirlIconColor;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconVerifiedUserAttributes {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
     }
@@ -16957,6 +17007,7 @@ declare namespace LocalJSX {
         "swirl-icon-notifications-off": Omit<SwirlIconNotificationsOff, keyof SwirlIconNotificationsOffAttributes> & { [K in keyof SwirlIconNotificationsOff & keyof SwirlIconNotificationsOffAttributes]?: SwirlIconNotificationsOff[K] } & { [K in keyof SwirlIconNotificationsOff & keyof SwirlIconNotificationsOffAttributes as `attr:${K}`]?: SwirlIconNotificationsOffAttributes[K] } & { [K in keyof SwirlIconNotificationsOff & keyof SwirlIconNotificationsOffAttributes as `prop:${K}`]?: SwirlIconNotificationsOff[K] };
         "swirl-icon-open-in-full": Omit<SwirlIconOpenInFull, keyof SwirlIconOpenInFullAttributes> & { [K in keyof SwirlIconOpenInFull & keyof SwirlIconOpenInFullAttributes]?: SwirlIconOpenInFull[K] } & { [K in keyof SwirlIconOpenInFull & keyof SwirlIconOpenInFullAttributes as `attr:${K}`]?: SwirlIconOpenInFullAttributes[K] } & { [K in keyof SwirlIconOpenInFull & keyof SwirlIconOpenInFullAttributes as `prop:${K}`]?: SwirlIconOpenInFull[K] };
         "swirl-icon-open-in-new": Omit<SwirlIconOpenInNew, keyof SwirlIconOpenInNewAttributes> & { [K in keyof SwirlIconOpenInNew & keyof SwirlIconOpenInNewAttributes]?: SwirlIconOpenInNew[K] } & { [K in keyof SwirlIconOpenInNew & keyof SwirlIconOpenInNewAttributes as `attr:${K}`]?: SwirlIconOpenInNewAttributes[K] } & { [K in keyof SwirlIconOpenInNew & keyof SwirlIconOpenInNewAttributes as `prop:${K}`]?: SwirlIconOpenInNew[K] };
+        "swirl-icon-passkey": Omit<SwirlIconPasskey, keyof SwirlIconPasskeyAttributes> & { [K in keyof SwirlIconPasskey & keyof SwirlIconPasskeyAttributes]?: SwirlIconPasskey[K] } & { [K in keyof SwirlIconPasskey & keyof SwirlIconPasskeyAttributes as `attr:${K}`]?: SwirlIconPasskeyAttributes[K] } & { [K in keyof SwirlIconPasskey & keyof SwirlIconPasskeyAttributes as `prop:${K}`]?: SwirlIconPasskey[K] };
         "swirl-icon-patient-list": Omit<SwirlIconPatientList, keyof SwirlIconPatientListAttributes> & { [K in keyof SwirlIconPatientList & keyof SwirlIconPatientListAttributes]?: SwirlIconPatientList[K] } & { [K in keyof SwirlIconPatientList & keyof SwirlIconPatientListAttributes as `attr:${K}`]?: SwirlIconPatientListAttributes[K] } & { [K in keyof SwirlIconPatientList & keyof SwirlIconPatientListAttributes as `prop:${K}`]?: SwirlIconPatientList[K] };
         "swirl-icon-pause": Omit<SwirlIconPause, keyof SwirlIconPauseAttributes> & { [K in keyof SwirlIconPause & keyof SwirlIconPauseAttributes]?: SwirlIconPause[K] } & { [K in keyof SwirlIconPause & keyof SwirlIconPauseAttributes as `attr:${K}`]?: SwirlIconPauseAttributes[K] } & { [K in keyof SwirlIconPause & keyof SwirlIconPauseAttributes as `prop:${K}`]?: SwirlIconPause[K] };
         "swirl-icon-pause-circle": Omit<SwirlIconPauseCircle, keyof SwirlIconPauseCircleAttributes> & { [K in keyof SwirlIconPauseCircle & keyof SwirlIconPauseCircleAttributes]?: SwirlIconPauseCircle[K] } & { [K in keyof SwirlIconPauseCircle & keyof SwirlIconPauseCircleAttributes as `attr:${K}`]?: SwirlIconPauseCircleAttributes[K] } & { [K in keyof SwirlIconPauseCircle & keyof SwirlIconPauseCircleAttributes as `prop:${K}`]?: SwirlIconPauseCircle[K] };
@@ -17028,6 +17079,7 @@ declare namespace LocalJSX {
         "swirl-icon-upload": Omit<SwirlIconUpload, keyof SwirlIconUploadAttributes> & { [K in keyof SwirlIconUpload & keyof SwirlIconUploadAttributes]?: SwirlIconUpload[K] } & { [K in keyof SwirlIconUpload & keyof SwirlIconUploadAttributes as `attr:${K}`]?: SwirlIconUploadAttributes[K] } & { [K in keyof SwirlIconUpload & keyof SwirlIconUploadAttributes as `prop:${K}`]?: SwirlIconUpload[K] };
         "swirl-icon-user-add": Omit<SwirlIconUserAdd, keyof SwirlIconUserAddAttributes> & { [K in keyof SwirlIconUserAdd & keyof SwirlIconUserAddAttributes]?: SwirlIconUserAdd[K] } & { [K in keyof SwirlIconUserAdd & keyof SwirlIconUserAddAttributes as `attr:${K}`]?: SwirlIconUserAddAttributes[K] } & { [K in keyof SwirlIconUserAdd & keyof SwirlIconUserAddAttributes as `prop:${K}`]?: SwirlIconUserAdd[K] };
         "swirl-icon-user-assign": Omit<SwirlIconUserAssign, keyof SwirlIconUserAssignAttributes> & { [K in keyof SwirlIconUserAssign & keyof SwirlIconUserAssignAttributes]?: SwirlIconUserAssign[K] } & { [K in keyof SwirlIconUserAssign & keyof SwirlIconUserAssignAttributes as `attr:${K}`]?: SwirlIconUserAssignAttributes[K] } & { [K in keyof SwirlIconUserAssign & keyof SwirlIconUserAssignAttributes as `prop:${K}`]?: SwirlIconUserAssign[K] };
+        "swirl-icon-verified-user": Omit<SwirlIconVerifiedUser, keyof SwirlIconVerifiedUserAttributes> & { [K in keyof SwirlIconVerifiedUser & keyof SwirlIconVerifiedUserAttributes]?: SwirlIconVerifiedUser[K] } & { [K in keyof SwirlIconVerifiedUser & keyof SwirlIconVerifiedUserAttributes as `attr:${K}`]?: SwirlIconVerifiedUserAttributes[K] } & { [K in keyof SwirlIconVerifiedUser & keyof SwirlIconVerifiedUserAttributes as `prop:${K}`]?: SwirlIconVerifiedUser[K] };
         "swirl-icon-video-camera": Omit<SwirlIconVideoCamera, keyof SwirlIconVideoCameraAttributes> & { [K in keyof SwirlIconVideoCamera & keyof SwirlIconVideoCameraAttributes]?: SwirlIconVideoCamera[K] } & { [K in keyof SwirlIconVideoCamera & keyof SwirlIconVideoCameraAttributes as `attr:${K}`]?: SwirlIconVideoCameraAttributes[K] } & { [K in keyof SwirlIconVideoCamera & keyof SwirlIconVideoCameraAttributes as `prop:${K}`]?: SwirlIconVideoCamera[K] };
         "swirl-icon-video-camera-off": Omit<SwirlIconVideoCameraOff, keyof SwirlIconVideoCameraOffAttributes> & { [K in keyof SwirlIconVideoCameraOff & keyof SwirlIconVideoCameraOffAttributes]?: SwirlIconVideoCameraOff[K] } & { [K in keyof SwirlIconVideoCameraOff & keyof SwirlIconVideoCameraOffAttributes as `attr:${K}`]?: SwirlIconVideoCameraOffAttributes[K] } & { [K in keyof SwirlIconVideoCameraOff & keyof SwirlIconVideoCameraOffAttributes as `prop:${K}`]?: SwirlIconVideoCameraOff[K] };
         "swirl-icon-video-library": Omit<SwirlIconVideoLibrary, keyof SwirlIconVideoLibraryAttributes> & { [K in keyof SwirlIconVideoLibrary & keyof SwirlIconVideoLibraryAttributes]?: SwirlIconVideoLibrary[K] } & { [K in keyof SwirlIconVideoLibrary & keyof SwirlIconVideoLibraryAttributes as `attr:${K}`]?: SwirlIconVideoLibraryAttributes[K] } & { [K in keyof SwirlIconVideoLibrary & keyof SwirlIconVideoLibraryAttributes as `prop:${K}`]?: SwirlIconVideoLibrary[K] };
@@ -17442,6 +17494,7 @@ declare module "@stencil/core" {
             "swirl-icon-notifications-off": LocalJSX.IntrinsicElements["swirl-icon-notifications-off"] & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
             "swirl-icon-open-in-full": LocalJSX.IntrinsicElements["swirl-icon-open-in-full"] & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInFullElement>;
             "swirl-icon-open-in-new": LocalJSX.IntrinsicElements["swirl-icon-open-in-new"] & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInNewElement>;
+            "swirl-icon-passkey": LocalJSX.IntrinsicElements["swirl-icon-passkey"] & JSXBase.HTMLAttributes<HTMLSwirlIconPasskeyElement>;
             "swirl-icon-patient-list": LocalJSX.IntrinsicElements["swirl-icon-patient-list"] & JSXBase.HTMLAttributes<HTMLSwirlIconPatientListElement>;
             "swirl-icon-pause": LocalJSX.IntrinsicElements["swirl-icon-pause"] & JSXBase.HTMLAttributes<HTMLSwirlIconPauseElement>;
             "swirl-icon-pause-circle": LocalJSX.IntrinsicElements["swirl-icon-pause-circle"] & JSXBase.HTMLAttributes<HTMLSwirlIconPauseCircleElement>;
@@ -17513,6 +17566,7 @@ declare module "@stencil/core" {
             "swirl-icon-upload": LocalJSX.IntrinsicElements["swirl-icon-upload"] & JSXBase.HTMLAttributes<HTMLSwirlIconUploadElement>;
             "swirl-icon-user-add": LocalJSX.IntrinsicElements["swirl-icon-user-add"] & JSXBase.HTMLAttributes<HTMLSwirlIconUserAddElement>;
             "swirl-icon-user-assign": LocalJSX.IntrinsicElements["swirl-icon-user-assign"] & JSXBase.HTMLAttributes<HTMLSwirlIconUserAssignElement>;
+            "swirl-icon-verified-user": LocalJSX.IntrinsicElements["swirl-icon-verified-user"] & JSXBase.HTMLAttributes<HTMLSwirlIconVerifiedUserElement>;
             "swirl-icon-video-camera": LocalJSX.IntrinsicElements["swirl-icon-video-camera"] & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraElement>;
             "swirl-icon-video-camera-off": LocalJSX.IntrinsicElements["swirl-icon-video-camera-off"] & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraOffElement>;
             "swirl-icon-video-library": LocalJSX.IntrinsicElements["swirl-icon-video-library"] & JSXBase.HTMLAttributes<HTMLSwirlIconVideoLibraryElement>;
