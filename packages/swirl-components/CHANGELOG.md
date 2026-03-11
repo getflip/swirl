@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.459.0
+
+### Minor Changes
+
+- [#1524](https://github.com/getflip/swirl/pull/1524)
+  [`7543a79d5`](https://github.com/getflip/swirl/commit/7543a79d5d959c497f06c531d1194372bfe04317)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add Passkey
+  and VerifiedUser icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7543a79d5`](https://github.com/getflip/swirl/commit/7543a79d5d959c497f06c531d1194372bfe04317)]:
+  - @getflip/swirl-icons@0.79.0
+
 ## 0.458.0
 
 ### Minor Changes
