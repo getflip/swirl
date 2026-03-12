@@ -506,8 +506,8 @@ export class SwirlPopover {
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
-              visibility:
-                this.active && !this.position && !mobile ? "hidden" : undefined,
+              opacity:
+                this.active && !this.position && !mobile ? "0" : undefined,
               "--swirl-popover-border-radius": borderRadius,
             }}
             tabindex="-1"
