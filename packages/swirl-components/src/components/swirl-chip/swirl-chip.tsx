@@ -18,7 +18,7 @@ export type SwirlChipIntent = "default" | "critical" | "success" | "highlight";
 
 export type SwirlChipSize = "s" | "m";
 
-export type SwirlChipVariant = "outline" | "plain";
+export type SwirlChipVariant = "outline" | "plain" | "translucent";
 
 /**
  * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".

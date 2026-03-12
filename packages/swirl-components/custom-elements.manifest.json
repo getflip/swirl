@@ -5853,7 +5853,7 @@
             {
               "name": "variant",
               "type": {
-                "text": "\"outline\" | \"plain\"",
+                "text": "\"outline\" | \"plain\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlChipVariant"
@@ -6004,7 +6004,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "\"outline\" | \"plain\"",
+                "text": "\"outline\" | \"plain\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlChipVariant"
