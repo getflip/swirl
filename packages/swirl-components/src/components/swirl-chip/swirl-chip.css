@@ -125,7 +125,8 @@
   }
 }
 
-.chip--variant-outline {
+.chip--variant-outline,
+.chip--variant-translucent {
   &.chip--pressed {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
@@ -141,6 +142,7 @@
 
     &:active {
       background-color: var(--s-action-primary-pressed);
+
       & + .chip__remove-button {
         background-color: var(--s-action-primary-pressed);
       }
@@ -157,6 +159,21 @@
       &:active {
         background-color: var(--s-action-primary-pressed);
       }
+    }
+  }
+}
+
+.chip--variant-translucent {
+  background: var(--s-translucent-medium-default);
+  backdrop-filter: blur(var(--s-blur-s));
+
+  &.chip--interactive {
+    &:hover {
+      background: var(--s-translucent-medium-hovered);
+    }
+
+    &:active {
+      background: var(--s-translucent-medium-pressed);
     }
   }
 }
