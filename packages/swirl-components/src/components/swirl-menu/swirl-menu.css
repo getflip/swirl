@@ -60,7 +60,7 @@
         position: absolute;
         inset: 0;
         z-index: -1;
-        border-radius: var(--s-border-radius-base);
+        border-radius: inherit;
         background: var(--s-translucent-low-default);
         backdrop-filter: blur(var(--s-blur-l));
       }

@@ -211,6 +211,7 @@
       z-index: -1;
       background: var(--s-translucent-low-default);
       backdrop-filter: blur(var(--s-blur-l));
+      border-radius: inherit;
     }
   }
 
