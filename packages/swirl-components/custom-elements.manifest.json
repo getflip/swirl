@@ -4500,7 +4500,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"warning-subdued\"",
+                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"translucent\" | \"warning-subdued\"",
                 "references": [
                   {
                     "name": "SwirlCardIntent"
@@ -4758,7 +4758,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"warning-subdued\"",
+                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"translucent\" | \"warning-subdued\"",
                 "references": [
                   {
                     "name": "SwirlCardIntent"
@@ -5853,7 +5853,7 @@
             {
               "name": "variant",
               "type": {
-                "text": "\"outline\" | \"plain\"",
+                "text": "\"outline\" | \"plain\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlChipVariant"
@@ -6004,7 +6004,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "\"outline\" | \"plain\"",
+                "text": "\"outline\" | \"plain\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlChipVariant"
@@ -38442,6 +38442,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "true",
               "fieldName": "translucent"
             },
             {
@@ -38611,6 +38612,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "true",
               "readonly": true,
               "attribute": "translucent"
             },

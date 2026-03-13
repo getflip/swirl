@@ -24,11 +24,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-sunken-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-sunken-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &:focus:not(:focus-visible) {

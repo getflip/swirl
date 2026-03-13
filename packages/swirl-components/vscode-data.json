@@ -1708,6 +1708,9 @@
               "name": "success-subdued"
             },
             {
+              "name": "translucent"
+            },
+            {
               "name": "warning-subdued"
             }
           ]
@@ -2443,6 +2446,9 @@
             },
             {
               "name": "plain"
+            },
+            {
+              "name": "translucent"
             }
           ]
         }

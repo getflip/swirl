@@ -34,7 +34,7 @@
   &:hover {
     background-color: var(--swirl-ghost-button-background-hovered);
 
-    --swirl-tag-background-default: var(--s-surface-sunken-pressed);
+    --swirl-tag-background-default: var(--s-state-pressed);
   }
 
   &:active {
@@ -129,7 +129,7 @@
 .button--variant-flat {
   color: var(--s-text-default);
   background-color: var(--swirl-flat-button-background-default);
-  --swirl-tag-background-default: var(--s-surface-sunken-pressed);
+  --swirl-tag-background-default: var(--s-state-pressed);
 
   &:hover {
     background-color: var(--swirl-flat-button-background-hovered);
@@ -373,12 +373,12 @@
 
   &:hover {
     color: var(--s-text-on-action-primary);
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active {
     color: var(--s-text-on-action-primary);
-    background-color: var(--s-surface-overlay-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &.button--icon-only {

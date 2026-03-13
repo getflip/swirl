@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 10 Mar 2026 10:40:31 GMT
+// Generated on Wed, 11 Mar 2026 10:02:24 GMT
 
 
 
@@ -15,15 +15,15 @@ class SwirlDesignTokensLight {
   SwirlDesignTokensLight._();
 
     static const actionCriticalDefault = Color(0xFFD50636); /* Used for containers that are critical and negative action elements. */
-    static const actionCriticalDisabled = Color(0xFFF2F2F2); /* Used if a component with “Action Primary/Default” has a disabled state. */
+    static const actionCriticalDisabled = Color(0x0F000000); /* Used if a component with “Action Primary/Default” has a disabled state. */
     static const actionCriticalHovered = Color(0xFFB32739); /* Used if a component with “Action Critical/Default” has a hovered state. */
     static const actionCriticalPressed = Color(0xFF9F2334); /* Used if a component with “Action Critical/Default” has a pressed state. */
-    static const actionNeutralDefault = Color(0xFFF2F2F2); /* Used for containers that are low emphasis action elements. */
-    static const actionNeutralDisabled = Color(0xFFF2F2F2); /* Used if a component with “Action Neutral/Default” has a disabled state. */
-    static const actionNeutralHovered = Color(0xFFEAEAEA); /* Used if a component with “Action Neutral/Default” has a hovered state. */
-    static const actionNeutralPressed = Color(0xFFDFDFDF); /* Used if a component with “Action Neutral/Default” has a pressed state. */
+    static const actionNeutralDefault = Color(0x0F000000); /* Used for containers that are low emphasis action elements. */
+    static const actionNeutralDisabled = Color(0x0F000000); /* Used if a component with “Action Neutral/Default” has a disabled state. */
+    static const actionNeutralHovered = Color(0x17000000); /* Used if a component with “Action Neutral/Default” has a hovered state. */
+    static const actionNeutralPressed = Color(0x1F000000); /* Used if a component with “Action Neutral/Default” has a pressed state. */
     static const actionPrimaryDefault = Color(0xFF145AF5); /* Used for containers that are high emphasis action elements. */
-    static const actionPrimaryDisabled = Color(0xFFF2F2F2); /* Used if a component with “Action Primary/Default” has a disabled state. */
+    static const actionPrimaryDisabled = Color(0x0F000000); /* Used if a component with “Action Primary/Default” has a disabled state. */
     static const actionPrimaryHovered = Color(0xFF3773F7); /* Used if a component with “Action Primary/Default” has a hovered state. */
     static const actionPrimaryPressed = Color(0xFF5B8BF8); /* Used if a component with “Action Primary/Default” has a pressed state. */
     static const backgroundDefault = Color(0xFFFFFFFF); /* Usually used for the page background and elements that should not elevate from the background. */
@@ -33,11 +33,11 @@ class SwirlDesignTokensLight {
     static const blurM = "8px";
     static const blurS = "4px";
     static const borderCritical = Color(0xFFD50636); /* Usally used as an border on critical components. */
-    static const borderDefault = Color(0xFFEAEAEA); /* Usually used for low emphasis borders and espacially divider elements. */
+    static const borderDefault = Color(0x1F000000); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF0037AF); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF145AF5); /* Usally used as an border on info components. */
     static const borderOnHighlight = Color(0xFFAEC9F6); /* Used as border color on containers that have an highlight surface */
-    static const borderOnTranslucent = Color(0x1A000000); /* Used for borders on surfaces with a translucent effect */
+    static const borderOnTranslucent = Color(0x1F000000); /* Used for borders on surfaces with a translucent effect */
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
@@ -46,7 +46,7 @@ class SwirlDesignTokensLight {
     static const borderRadiusSm = 8.00;
     static const borderRadiusXl = 20.00;
     static const borderRadiusXs = 2.00;
-    static const borderStrong = Color(0xFFCFCFCF); /* Usually used for high emphasis borders. */
+    static const borderStrong = Color(0x33000000); /* Usually used for high emphasis borders. */
     static const borderSuccess = Color(0xFF088108); /* Usally used as an border on success components. */
     static const borderTranslucentOutline = Color(0x80FFFFFF); /* Used for outlinesof elements with a translucent effect */
     static const borderWarning = Color(0xFF935806); /* Usally used as an border on warning components. */
@@ -153,6 +153,20 @@ class SwirlDesignTokensLight {
     static const coreStatusLightWarningDefault = Color(0xFFF3B703);
     static const coreStatusLightWarningStrong = Color(0xFF935806);
     static const coreStatusLightWarningSubdued = Color(0xFFFAF1C8);
+    static const coreTranslucentBlack12 = Color(0x1F000000);
+    static const coreTranslucentBlack20 = Color(0x33000000);
+    static const coreTranslucentBlack3 = Color(0x08000000);
+    static const coreTranslucentBlack6 = Color(0x0F000000);
+    static const coreTranslucentBlack60 = Color(0x99000000);
+    static const coreTranslucentBlack80 = Color(0xCC000000);
+    static const coreTranslucentBlack9 = Color(0x17000000);
+    static const coreTranslucentWhite12 = Color(0x1FFFFFFF);
+    static const coreTranslucentWhite20 = Color(0x33FFFFFF);
+    static const coreTranslucentWhite3 = Color(0x08FFFFFF);
+    static const coreTranslucentWhite6 = Color(0x0FFFFFFF);
+    static const coreTranslucentWhite60 = Color(0x99FFFFFF);
+    static const coreTranslucentWhite80 = Color(0xCCFFFFFF);
+    static const coreTranslucentWhite9 = Color(0x17FFFFFF);
     static const decorationNone = "none";
     static const decorationUnderline = "underline";
     static const decorativeBananaSurface = Color(0xFFEABA2A); /* Used as a decorative color. */
@@ -196,8 +210,8 @@ class SwirlDesignTokensLight {
     static const fontWeightSemibold = FontWeight.w600;
     static const iconCritical = Color(0xFFD50636); /* Used as critical icon color */
     static const iconDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
-    static const iconDefault = Color(0xFF6E6E6E); /* Used for low emphasis icons. */
-    static const iconDisabled = Color(0xFFCFCFCF); /* Used if a icon element is disabled. */
+    static const iconDefault = Color(0x99000000); /* Used for low emphasis icons. */
+    static const iconDisabled = Color(0x33000000); /* Used if a icon element is disabled. */
     static const iconHighlight = Color(0xFF0037AF); /* Used to highlight icons. */
     static const iconInfo = Color(0xFF145AF5); /* Used as info icon color */
     static const iconOnActionPrimary = Color(0xFFFFFFFF); /* Used as a icon color on containers with action primary color. */
@@ -212,7 +226,7 @@ class SwirlDesignTokensLight {
     static const interactiveCriticalDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Critical/Default” has a disabled state. */
     static const interactiveCriticalHovered = Color(0xFFB32739); /* Used if a component with “Interactive Critical/Default” has a hovered state. */
     static const interactiveCriticalPressed = Color(0xFF9F2334); /* Used if a component with “Interactive Critical/Default” has a pressed state. */
-    static const interactiveNeutralDefault = Color(0xFF6E6E6E); /* Used for icon and text that are low emphasis interactive elements. */
+    static const interactiveNeutralDefault = Color(0x99000000); /* Used for icon and text that are low emphasis interactive elements. */
     static const interactiveNeutralDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Neutral/Default” has a disabled state. */
     static const interactiveNeutralHovered = Color(0xFF9E9E9E); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
     static const interactiveNeutralPressed = Color(0xFF9E9E9E); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
@@ -243,6 +257,8 @@ class SwirlDesignTokensLight {
     static const space48 = 48.00;
     static const space64 = 64.00;
     static const space8 = 8.00;
+    static const stateHovered = Color(0x0F000000); /* Is used for general hovered states, e.g. list items */
+    static const statePressed = Color(0x17000000); /* Is used for general pressed states, e.g. list items */
     static const surfaceCriticalDefault = Color(0xFFD50636); /* Used as a background for critical surfaces. */
     static const surfaceCriticalSubdued = Color(0xFFFCE7ED); /* Used for low prio critical background. */
     static const surfaceDefault = Color(0xFFFFFFFF); /* Usually used for containers that need to be elevated. */
@@ -262,9 +278,9 @@ class SwirlDesignTokensLight {
     static const surfaceRaised50Default = Color(0x08000000); /* Usually used for elements that need contrast on surfaces or background with a 50% opacity */
     static const surfaceRaised50Hovered = Color(0x0F000000); /* Used if a component with `surface-raised-50` has a hovered state. */
     static const surfaceRaised50Pressed = Color(0x17000000); /* Used if a component with `surface-raised-50` has a pressed state. */
-    static const surfaceRaisedDefault = Color(0xFFF2F2F2); /* Usually used for elements that need contrast on surfaces or background */
-    static const surfaceRaisedHovered = Color(0xFFEAEAEA); /* Used if a component with “On Surface/Default” has a hovered state. */
-    static const surfaceRaisedPressed = Color(0xFFDFDFDF); /* Used if a component with “On Surface/Default” has a pressed state. */
+    static const surfaceRaisedDefault = Color(0x0F000000); /* Usually used for elements that need contrast on surfaces or background */
+    static const surfaceRaisedHovered = Color(0x17000000); /* Used if a component with “On Surface/Default” has a hovered state. */
+    static const surfaceRaisedPressed = Color(0x1F000000); /* Used if a component with “On Surface/Default” has a pressed state. */
     static const surfaceSuccessDefault = Color(0xFF088108); /* Used as a background for success surfaces. */
     static const surfaceSuccessSubdued = Color(0xFFDCF7DC); /* Used for low prio success background. */
     static const surfaceSunkenDefault = Color(0xFFF2F2F2);
@@ -275,7 +291,7 @@ class SwirlDesignTokensLight {
     static const textCritical = Color(0xFFD50636); /* Used as critical text color */
     static const textDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
     static const textDefault = Color(0xFF191919); /* Used for high emphasis text. */
-    static const textDisabled = Color(0xFFCFCFCF); /* Used if a text element is disabled. */
+    static const textDisabled = Color(0x33000000); /* Used if a text element is disabled. */
     static const textHighlight = Color(0xFF0037AF); /* Used to highlight text. */
     static const textInfo = Color(0xFF145AF5); /* Used as info text color */
     static const textOnActionPrimary = Color(0xFFFFFFFF); /* Used as a text color on containers with action primary color. */
@@ -283,12 +299,12 @@ class SwirlDesignTokensLight {
     static const textOnStatus = Color(0xFFFFFFFF); /* Used as a text color on containers with a default status color except on warning. */
     static const textOnSurfaceHighlight = Color(0xFF171717); /* Used as text color on containers with highlight color. */
     static const textOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued text color on containers with highlight color. */
-    static const textSubdued = Color(0xFF6E6E6E); /* Used for low emphasis text. */
+    static const textSubdued = Color(0x99000000); /* Used for low emphasis text. */
     static const textSuccess = Color(0xFF088108); /* Used as success text color */
     static const textWarning = Color(0xFF935806); /* Used as warning text color */
     static const translucentLowDefault = Color(0xCCFFFFFF); /* Used for surface with a backdrop blur and low transparency */
-    static const translucentLowHovered = Color(0x0D000000); /* Used for hovers on translucent low */
-    static const translucentLowPressed = Color(0x1A000000); /* Used for pressed state on translucent low */
+    static const translucentLowHovered = Color(0x0F000000); /* Used for hovers on translucent low */
+    static const translucentLowPressed = Color(0x17000000); /* Used for pressed state on translucent low */
     static const translucentMediumDefault = Color(0x99F2F2F2); /* Used for surface with a backdrop blur and low transparency */
     static const translucentMediumHovered = Color(0xCCFFFFFF); /* Used for hovers on translucent medium */
     static const translucentMediumPressed = Color(0xFFFFFFFF); /* Used for hovers on translucent medium */

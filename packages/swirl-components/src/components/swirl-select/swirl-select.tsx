@@ -398,6 +398,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             class="select__popover"
             id={`select-options-${this.selectId}`}
             label={this.label}
+            translucent={true}
             offset={offset}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
@@ -427,6 +428,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               </div>
             )}
             <swirl-option-list
+              class="select__option-list"
               allowDeselect={this.allowDeselect}
               onValueChange={this.select}
               multiSelect={this.multiSelect}

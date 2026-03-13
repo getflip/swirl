@@ -17,7 +17,7 @@
   border: 0.0625rem solid var(--s-border-default);
   border-radius: 1.25rem;
   color: var(--s-text-subdued);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   font: inherit;
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
@@ -50,7 +50,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
 
     & ::part(avatar) {
       background-color: var(--s-surface-raised-hovered);
@@ -64,20 +64,20 @@
       }
 
       &:active {
-        background-color: var(--s-surface-overlay-pressed);
+        background-color: var(--s-state-pressed);
       }
     }
   }
 
   &:active {
-    background-color: var(--s-surface-overlay-pressed);
+    background-color: var(--s-state-pressed);
 
     & ::part(avatar) {
       background-color: var(--s-surface-raised-pressed);
     }
 
     & + .chip__remove-button {
-      background-color: var(--s-surface-overlay-pressed);
+      background-color: var(--s-state-pressed);
     }
   }
 }
@@ -125,7 +125,8 @@
   }
 }
 
-.chip--variant-outline {
+.chip--variant-outline,
+.chip--variant-translucent {
   &.chip--pressed {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
@@ -141,6 +142,7 @@
 
     &:active {
       background-color: var(--s-action-primary-pressed);
+
       & + .chip__remove-button {
         background-color: var(--s-action-primary-pressed);
       }
@@ -157,6 +159,21 @@
       &:active {
         background-color: var(--s-action-primary-pressed);
       }
+    }
+  }
+}
+
+.chip--variant-translucent {
+  background: var(--s-translucent-medium-default);
+  backdrop-filter: blur(var(--s-blur-s));
+
+  &.chip--interactive {
+    &:hover {
+      background: var(--s-translucent-medium-hovered);
+    }
+
+    &:active {
+      background: var(--s-translucent-medium-pressed);
     }
   }
 }
@@ -269,14 +286,14 @@
   border: none;
   border-radius: 50%;
   color: var(--s-icon-default);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-overlay-pressed);
+    background-color: var(--s-state-pressed);
   }
 }

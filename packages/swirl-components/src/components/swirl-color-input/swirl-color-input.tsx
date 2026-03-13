@@ -148,6 +148,7 @@ export class SwirlColorInput {
             animation="scale-in-y"
             id={this.pickerId}
             label={this.pickerLabel}
+            translucent={true}
             placement="bottom-end"
           >
             <swirl-box

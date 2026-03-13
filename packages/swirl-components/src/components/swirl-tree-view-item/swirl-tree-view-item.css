@@ -18,7 +18,7 @@ swirl-tree-view-item {
   box-shadow: var(--s-shadow-level-3);
 
   & .tree-view-item__link {
-    background-color: var(--s-background-default);
+    background-color: var(--s-translucent-low-pressed);
 
     &:hover {
       & .tree-view-item__drag-handle {
@@ -49,7 +49,7 @@ swirl-tree-view-item {
   box-shadow: var(--s-shadow-level-3);
 
   & .tree-view-item__link {
-    background-color: var(--s-background-default);
+    background-color: var(--s-translucent-low-pressed);
 
     &:focus-visible {
       outline: none;
@@ -63,7 +63,7 @@ swirl-tree-view-item {
 
 .tree-view-item--active {
   & > .tree-view-item__link {
-    background-color: var(--s-background-hovered);
+    background-color: var(--s-state-hovered);
   }
 }
 
@@ -94,14 +94,13 @@ swirl-tree-view-item {
   align-items: center;
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-default);
-  background-color: var(--s-background-default);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-medium);
   text-decoration: none;
   gap: var(--s-space-4);
 
   &:hover {
-    background-color: var(--s-background-hovered);
+    background-color: var(--s-state-hovered);
 
     & .tree-view-item__drag-handle {
       opacity: 1;
@@ -109,7 +108,7 @@ swirl-tree-view-item {
   }
 
   &:active {
-    background-color: var(--s-background-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &:focus:not(:focus-visible) {

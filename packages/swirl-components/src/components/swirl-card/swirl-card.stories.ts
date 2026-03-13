@@ -6,6 +6,10 @@ export default {
     borderRadius: {
       control: "text",
     },
+    customBackdropFilter: {
+      description:
+        "**Deprecated!** Please use the `translucent` intent instead.",
+    },
   },
   component: "swirl-card",
   tags: ["autodocs"],

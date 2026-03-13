@@ -22,9 +22,9 @@
 }
 
 :root {
-  --swirl-accordion-item-toggle-default: var(--s-surface-default);
-  --swirl-accordion-item-toggle-hovered: var(--s-surface-hovered);
-  --swirl-accordion-item-toggle-pressed: var(--s-surface-pressed);
+  --swirl-accordion-item-toggle-default: transparent;
+  --swirl-accordion-item-toggle-hovered: var(--s-state-hovered);
+  --swirl-accordion-item-toggle-pressed: var(--s-state-pressed);
 
   --swirl-autocomplete-tags-margin-top: 0;
 
@@ -37,7 +37,7 @@
   --swirl-button-border-top-left-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
-  --swirl-tag-background-default: var(--s-surface-neutral-subdued);
+  --swirl-tag-background-default: var(--s-surface-raised-default);
 
   --swirl-card-background-default: var(--s-surface-default);
   --swirl-card-background-hovered: var(--s-surface-hovered);
@@ -57,10 +57,10 @@
   --swirl-flat-button-background-hovered: var(--s-action-neutral-hovered);
   --swirl-flat-button-background-pressed: var(--s-action-neutral-pressed);
 
-  --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-default: transparent;
   --swirl-ghost-button-background-disabled: var(--s-background-default);
-  --swirl-ghost-button-background-hovered: var(--s-background-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-background-pressed);
+  --swirl-ghost-button-background-hovered: var(--s-state-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-state-pressed);
 
   --swirl-plain-button-text-color-default: var(--s-interactive-neutral-default);
   --swirl-plain-button-text-color-disabled: var(
@@ -70,7 +70,7 @@
   --swirl-plain-button-text-color-pressed: var(--s-interactive-neutral-pressed);
 
   --swirl-resource-list-item-background-default: transparent;
-  --swirl-resource-list-item-background-hovered: var(--s-translucent-low-hovered);
+  --swirl-resource-list-item-background-hovered: var(--s-state-hovered);
   --swirl-resource-list-item-background-pressed: var(--s-translucent-low-pressed);
 
   --swirl-table-sticky-left-shadow: none;

@@ -48,7 +48,7 @@
   }
 
   &(.table-column--raised) {
-    background-color: var(--s-surface-raised-default);
+    background-color: var(--s-surface-neutral-subdued);
   }
 
   & * {

@@ -21,7 +21,8 @@
   padding-top: var(--s-space-8);
   padding-bottom: var(--s-space-8);
   border-radius: var(--s-border-radius-sm);
-  background-color: var(--s-surface-overlay-default);
+  background: var(--s-translucent-low-default);
+  backdrop-filter: blur(var(--s-blur-l));
   animation: autocomplete-enter 0.1s;
   box-shadow: var(--s-shadow-level-1);
 

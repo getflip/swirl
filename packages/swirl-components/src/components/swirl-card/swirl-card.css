@@ -7,13 +7,6 @@
 }
 
 .card {
-  --swirl-ghost-button-background-default: var(--s-surface-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
-  --swirl-resource-list-item-background-default: var(--s-surface-default);
-  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
-  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
-
   position: relative;
   display: flex;
   overflow: hidden;
@@ -122,20 +115,6 @@ button.card,
 }
 
 .card--intent-default-subdued {
-  --swirl-resource-list-item-background-default: var(
-    --s-surface-raised-default
-  );
-  --swirl-resource-list-item-background-hovered: var(
-    --s-surface-raised-hovered
-  );
-  --swirl-resource-list-item-background-pressed: var(
-    --s-surface-raised-pressed
-  );
-
-  --swirl-ghost-button-background-default: var(--s-surface-raised-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-raised-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-raised-pressed);
-
   background-color: var(--s-surface-raised-default);
 }
 
@@ -154,6 +133,20 @@ button.card,
 .card--intent-highlight {
   color: var(--s-text-on-surface-highlight);
   background-color: var(--s-surface-highlight-default);
+}
+
+.card--intent-translucent {
+  background-color: transparent;
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--s-translucent-low-default);
+    backdrop-filter: blur(var(--s-blur-l));
+    border-radius: inherit;
+  }
 }
 
 .card--has-floating-controls {

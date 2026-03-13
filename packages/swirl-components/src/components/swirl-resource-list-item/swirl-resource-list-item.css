@@ -148,11 +148,6 @@
   &:hover,
   &:focus,
   &:focus-within {
-    --swirl-flat-button-background-default: var(--s-background-default);
-    --swirl-flat-button-background-disabled: var(--s-background-disabled);
-    --swirl-flat-button-background-hovered: var(--s-background-hovered);
-    --swirl-flat-button-background-pressed: var(--s-background-pressed);
-
     & .resource-list-item__control {
       pointer-events: auto;
       opacity: 1;
@@ -197,12 +192,12 @@
 .resource-list-item--dragging {
   z-index: 1;
   border-radius: var(--s-border-radius-s);
-  background-color: var(--s-surface-overlay-pressed);
+  background-color: var(--s-state-pressed);
   box-shadow: 0 0.0625rem 0.125rem rgba(25, 26, 28, 0.08),
   0 0.25rem 2rem rgba(25, 26, 28, 0.16);
 
   &:hover:not(.resource-list-item--disabled) {
-    background-color: var(--s-surface-overlay-pressed);
+    background-color: var(--s-state-pressed);
   }
 }
 
