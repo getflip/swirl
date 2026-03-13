@@ -10087,6 +10087,14 @@
               "fieldName": "viewMode"
             },
             {
+              "name": "wasm-url",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"/pdfjs/wasm/\"",
+              "fieldName": "wasmUrl"
+            },
+            {
               "name": "worker-src",
               "type": {
                 "text": "string"
@@ -10151,6 +10159,16 @@
               "default": "\"single\"",
               "readonly": true,
               "attribute": "view-mode"
+            },
+            {
+              "kind": "field",
+              "name": "wasmUrl",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"/pdfjs/wasm/\"",
+              "readonly": true,
+              "attribute": "wasm-url"
             },
             {
               "kind": "field",

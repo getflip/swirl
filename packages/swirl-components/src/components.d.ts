@@ -1217,6 +1217,10 @@ export namespace Components {
          */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         /**
+          * @default "/pdfjs/wasm/"
+         */
+        "wasmUrl"?: string;
+        /**
           * @default "/pdfjs/pdf.worker.min.mjs"
          */
         "workerSrc"?: string;
@@ -10468,6 +10472,10 @@ declare namespace LocalJSX {
          */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         /**
+          * @default "/pdfjs/wasm/"
+         */
+        "wasmUrl"?: string;
+        /**
           * @default "/pdfjs/pdf.worker.min.mjs"
          */
         "workerSrc"?: string;
@@ -14801,6 +14809,7 @@ declare namespace LocalJSX {
         "singlePageMode": boolean;
         "viewMode": SwirlFileViewerPdfViewMode;
         "workerSrc": string;
+        "wasmUrl": string;
         "zoom": string;
     }
     interface SwirlFileViewerTextAttributes {
