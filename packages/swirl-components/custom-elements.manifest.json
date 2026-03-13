@@ -4500,7 +4500,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"warning-subdued\"",
+                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"translucent\" | \"warning-subdued\"",
                 "references": [
                   {
                     "name": "SwirlCardIntent"
@@ -4758,7 +4758,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"warning-subdued\"",
+                "text": "\"critical-subdued\" | \"default\" | \"default-subdued\" | \"highlight\" | \"info-subdued\" | \"success-subdued\" | \"translucent\" | \"warning-subdued\"",
                 "references": [
                   {
                     "name": "SwirlCardIntent"

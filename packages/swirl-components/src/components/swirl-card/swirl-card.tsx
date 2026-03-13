@@ -26,6 +26,7 @@ export type SwirlCardIntent =
   | "highlight"
   | "info-subdued"
   | "success-subdued"
+  | "translucent"
   | "warning-subdued";
 
 export type SwirlCardJustifyContent = "start" | "center" | "end";
