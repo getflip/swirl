@@ -135,6 +135,19 @@ button.card,
   background-color: var(--s-surface-highlight-default);
 }
 
+.card--intent-translucent {
+  background-color: transparent;
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--s-translucent-low-default);
+    backdrop-filter: blur(var(--s-blur-l));
+  }
+}
+
 .card--has-floating-controls {
   &:focus-within .card__floating-controls,
   &:hover .card__floating-controls {
