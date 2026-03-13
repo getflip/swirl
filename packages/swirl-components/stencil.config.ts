@@ -66,6 +66,11 @@ export const config: Config = {
           warn: true,
         },
         {
+          src: "../../../node_modules/pdfjs-dist/wasm/*",
+          dest: "src/assets/pdfjs/wasm",
+          warn: true,
+        },
+        {
           src: "assets/fonts/*",
           dest: "dist/components/assets/fonts",
           warn: true,

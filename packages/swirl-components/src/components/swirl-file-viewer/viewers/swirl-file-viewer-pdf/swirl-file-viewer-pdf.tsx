@@ -51,6 +51,7 @@ export class SwirlFileViewerPdf {
   @Prop() singlePageMode: boolean;
   @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
   @Prop() workerSrc?: string = "/pdfjs/pdf.worker.min.mjs";
+  @Prop() wasmUrl?: string = "/pdfjs/wasm/";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @State() currentPage: number = null;
@@ -205,8 +206,11 @@ export class SwirlFileViewerPdf {
       }
 
       // Don't remove the isEvalSupported property. https://github.com/advisories/GHSA-wgrm-67xf-hhpq
-      this.doc = await getDocument({ isEvalSupported: false, url: this.file })
-        .promise;
+      this.doc = await getDocument({
+        isEvalSupported: false,
+        url: this.file,
+        wasmUrl: this.wasmUrl,
+      }).promise;
 
       const pages = [];
 

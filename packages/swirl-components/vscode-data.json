@@ -3349,6 +3349,10 @@
           ]
         },
         {
+          "name": "wasm-url",
+          "description": ""
+        },
+        {
           "name": "worker-src",
           "description": ""
         },
