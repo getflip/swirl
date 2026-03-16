@@ -148,11 +148,6 @@
   &:hover,
   &:focus,
   &:focus-within {
-    --swirl-flat-button-background-default: var(--s-background-default);
-    --swirl-flat-button-background-disabled: var(--s-background-disabled);
-    --swirl-flat-button-background-hovered: var(--s-background-hovered);
-    --swirl-flat-button-background-pressed: var(--s-background-pressed);
-
     & .resource-list-item__control {
       pointer-events: auto;
       opacity: 1;

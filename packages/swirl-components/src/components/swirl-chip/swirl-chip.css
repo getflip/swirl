@@ -17,7 +17,7 @@
   border: 0.0625rem solid var(--s-border-default);
   border-radius: 1.25rem;
   color: var(--s-text-subdued);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   font: inherit;
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
@@ -269,7 +269,7 @@
   border: none;
   border-radius: 50%;
   color: var(--s-icon-default);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   cursor: pointer;
 
   &:hover {

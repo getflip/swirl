@@ -172,7 +172,6 @@
   width: 100%;
   padding: 0.0625rem var(--s-space-8);
   border-bottom: 0.0625rem solid var(--s-border-default);
-  background-color: var(--s-surface-overlay-default);
 
   @media (--from-tablet) {
     position: sticky;
@@ -207,7 +206,7 @@
   align-items: center;
   border: none;
   color: var(--s-text-default);
-  background-color: var(--s-surface-overlay-default);
+  background-color: transparent;
   font: inherit;
   line-height: var(--s-line-height-base);
   caret-color: var(--s-border-highlight);

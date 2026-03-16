@@ -10,7 +10,7 @@
   min-width: 15rem;
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
-  background: var(--s-surface-default);
+  background-color: transparent;
   border-radius: var(--s-border-radius-sm);
   outline: 1px solid var(--s-border-strong);
   outline-offset: -1px;

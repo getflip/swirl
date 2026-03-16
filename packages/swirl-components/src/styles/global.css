@@ -22,7 +22,7 @@
 }
 
 :root {
-  --swirl-accordion-item-toggle-default: var(--s-surface-default);
+  --swirl-accordion-item-toggle-default: transparent;
   --swirl-accordion-item-toggle-hovered: var(--s-state-hovered);
   --swirl-accordion-item-toggle-pressed: var(--s-state-pressed);
 
@@ -37,7 +37,7 @@
   --swirl-button-border-top-left-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
-  --swirl-tag-background-default: var(--s-surface-neutral-subdued);
+  --swirl-tag-background-default: var(--s-surface-raised-default);
 
   --swirl-card-background-default: var(--s-surface-default);
   --swirl-card-background-hovered: var(--s-surface-hovered);
@@ -57,7 +57,7 @@
   --swirl-flat-button-background-hovered: var(--s-action-neutral-hovered);
   --swirl-flat-button-background-pressed: var(--s-action-neutral-pressed);
 
-  --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-default: transparent;
   --swirl-ghost-button-background-disabled: var(--s-background-default);
   --swirl-ghost-button-background-hovered: var(--s-state-hovered);
   --swirl-ghost-button-background-pressed: var(--s-state-pressed);
