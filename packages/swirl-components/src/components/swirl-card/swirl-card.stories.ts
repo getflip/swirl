@@ -8,7 +8,7 @@ export default {
     },
     customBackdropFilter: {
       description:
-        "**Deprecated!** Please use the `translucent` intent instead.",
+        "**Deprecated!** Please use the `translucent` prop instead.",
     },
   },
   component: "swirl-card",

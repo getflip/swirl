@@ -135,7 +135,7 @@ button.card,
   background-color: var(--s-surface-highlight-default);
 }
 
-.card--intent-translucent {
+.card--translucent {
   background-color: transparent;
 
   &:before {

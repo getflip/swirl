@@ -641,6 +641,7 @@ export namespace Components {
         "swirlAriaCurrent"?: SwirlCardAriaCurrent;
         "swirlAriaLabel"?: string;
         "swirlAriaLabelledby"?: string;
+        "translucent"?: boolean;
     }
     /**
      * slot - The slides
@@ -9939,6 +9940,7 @@ declare namespace LocalJSX {
         "swirlAriaCurrent"?: SwirlCardAriaCurrent;
         "swirlAriaLabel"?: string;
         "swirlAriaLabelledby"?: string;
+        "translucent"?: boolean;
     }
     /**
      * slot - The slides
@@ -14574,6 +14576,7 @@ declare namespace LocalJSX {
         "paddingBlockStart": SwirlCardPadding;
         "paddingInlineEnd": SwirlCardPadding;
         "paddingInlineStart": SwirlCardPadding;
+        "translucent": boolean;
         "swirlAriaCurrent": SwirlCardAriaCurrent;
         "swirlAriaLabel": string;
         "swirlAriaLabelledby": string;

@@ -1708,9 +1708,6 @@
               "name": "success-subdued"
             },
             {
-              "name": "translucent"
-            },
-            {
               "name": "warning-subdued"
             }
           ]
@@ -1956,6 +1953,10 @@
         },
         {
           "name": "swirl-aria-labelledby",
+          "description": ""
+        },
+        {
+          "name": "translucent",
           "description": ""
         }
       ]
