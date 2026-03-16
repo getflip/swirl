@@ -44,6 +44,7 @@ export class SwirlLightbox {
 
   private activateSlideTimeout: NodeJS.Timeout;
   private closingTimeout: NodeJS.Timeout;
+  private componentLoaded = false;
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
@@ -51,6 +52,12 @@ export class SwirlLightbox {
   private slidesContainer: HTMLElement;
   private previousSlideButton: HTMLButtonElement;
   private nextSlideButton: HTMLButtonElement;
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.registerSlides();
+    }
+  }
 
   componentWillLoad() {
     this.registerSlides();
@@ -60,6 +67,7 @@ export class SwirlLightbox {
     this.ensureOpening();
     this.setDialogCustomProps();
     this.activateSlide(0);
+    this.componentLoaded = true;
   }
 
   disconnectedCallback() {

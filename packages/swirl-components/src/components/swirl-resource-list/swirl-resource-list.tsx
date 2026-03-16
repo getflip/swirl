@@ -62,6 +62,17 @@ export class SwirlResourceList {
   private observer: MutationObserver;
   private sortable: Sortable;
 
+  private componentLoaded = false;
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.observeSlotChanges();
+      this.collectItems();
+      this.setupControllingElement();
+      this.setItemAllowDragState();
+    }
+  }
+
   componentDidLoad() {
     this.observeSlotChanges();
     this.collectItems();
@@ -69,6 +80,7 @@ export class SwirlResourceList {
     this.setItemAllowDragState();
     this.setupDragDrop();
     this.setSectionSpacingAndSeparator();
+    this.componentLoaded = true;
   }
 
   componentDidRender() {
@@ -83,6 +95,7 @@ export class SwirlResourceList {
   }
 
   private observeSlotChanges() {
+    this.observer?.disconnect();
     this.observer = new MutationObserver(() => {
       this.collectItems();
       this.setItemAllowDragState();

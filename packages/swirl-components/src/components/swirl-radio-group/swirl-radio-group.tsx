@@ -31,12 +31,19 @@ export class SwirlRadioGroup {
 
   @Event() valueChange: EventEmitter<string>;
 
+  private componentLoaded = false;
   private radioButtons: HTMLSwirlRadioElement[];
 
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.addValueChangeListeners();
+    }
+  }
   componentDidLoad() {
     this.radioButtons = Array.from(this.el.querySelectorAll("swirl-radio"));
     this.initValue();
     this.addValueChangeListeners();
+    this.componentLoaded = true;
   }
 
   disconnectedCallback() {

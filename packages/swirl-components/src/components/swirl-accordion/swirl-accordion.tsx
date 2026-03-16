@@ -24,8 +24,17 @@ export class SwirlAccordion {
 
   @Event() expandedItemChange: EventEmitter<string>;
 
+  private componentLoaded = false;
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.el.addEventListener("expansionChange", this.onExpansionChange);
+    }
+  }
+
   componentDidLoad() {
     this.el.addEventListener("expansionChange", this.onExpansionChange);
+    this.componentLoaded = true;
   }
 
   disconnectedCallback() {

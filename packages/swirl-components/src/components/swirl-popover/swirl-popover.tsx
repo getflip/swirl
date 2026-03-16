@@ -75,12 +75,19 @@ export class SwirlPopover {
   @Event() popoverClose: EventEmitter<void>;
   @Event() popoverOpen: EventEmitter<{ position: ComputePositionReturn }>;
 
+  private componentLoaded = false;
   private popoverEl: HTMLElement;
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
   private openedVia?: SwirlPopoverControlMethod;
   private scrollContainer: HTMLDivElement;
   private triggerEl: HTMLElement | undefined;
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.connectTrigger();
+    }
+  }
 
   componentDidLoad() {
     this.connectTrigger();
@@ -91,6 +98,8 @@ export class SwirlPopover {
         '[Swirl] The "trigger" prop of swirl-popover is deprecated and will be removed with the next major release. Please use the swirl-popover-trigger component instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlpopovertrigger--docs'
       );
     }
+
+    this.componentLoaded = true;
   }
 
   disconnectedCallback() {

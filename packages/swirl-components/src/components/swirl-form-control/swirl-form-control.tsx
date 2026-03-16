@@ -57,7 +57,14 @@ export class SwirlFormControl {
   )}`;
   private labelId = `form-control-label-${Math.round(Math.random() * 100000)}`;
 
+  private componentLoaded = false;
   private inputEl: HTMLElement & SwirlFormInput;
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.listenToInputValueChanges();
+    }
+  }
 
   componentWillLoad() {
     this.inputEl = this.el.firstElementChild as HTMLElement & SwirlFormInput;
@@ -71,6 +78,7 @@ export class SwirlFormControl {
     this.setInputElementLabel();
     this.checkInputValue();
     this.listenToInputValueChanges();
+    this.componentLoaded = true;
   }
 
   componentDidRender() {

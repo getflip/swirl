@@ -22,33 +22,25 @@ export class SwirlPopoverTrigger {
   @Prop() hoverLingerDuration?: number;
   @Prop() hoverDelay?: number;
 
+  private componentLoaded = false;
   private intersectionObserver: IntersectionObserver;
   private hoverLingerReference?: NodeJS.Timeout;
   private hoverDelayReference?: NodeJS.Timeout;
   private popoverElRef?: HTMLSwirlPopoverElement;
   private triggerIsActive: boolean = false;
 
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.setupHoverListeners();
+      this.setupIntersectionObserver();
+    }
+  }
+
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
     this.setupHoverListeners();
-
-    if (this.hidePopoverWhenInvisible) {
-      this.intersectionObserver = new IntersectionObserver(
-        this.onVisibilityChange.bind(this),
-        {
-          root: this.parentScrollContainer,
-          threshold: 1,
-        }
-      );
-
-      const firstChild = this.el.querySelector("*");
-
-      if (!Boolean(firstChild)) {
-        return;
-      }
-
-      this.intersectionObserver.observe(firstChild);
-    }
+    this.setupIntersectionObserver();
+    this.componentLoaded = true;
   }
 
   disconnectedCallback() {
@@ -88,6 +80,28 @@ export class SwirlPopoverTrigger {
     }
 
     return this.el.children[0] as HTMLElement;
+  }
+
+  private setupIntersectionObserver() {
+    this.intersectionObserver?.disconnect();
+
+    if (this.hidePopoverWhenInvisible) {
+      this.intersectionObserver = new IntersectionObserver(
+        this.onVisibilityChange.bind(this),
+        {
+          root: this.parentScrollContainer,
+          threshold: 1,
+        }
+      );
+
+      const firstChild = this.el.querySelector("*");
+
+      if (!Boolean(firstChild)) {
+        return;
+      }
+
+      this.intersectionObserver.observe(firstChild);
+    }
   }
 
   private onVisibilityChange(entries: IntersectionObserverEntry[]) {

@@ -60,6 +60,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }>;
   @Event() valueChange: EventEmitter<string[]>;
 
+  private componentLoaded = false;
   private dragging: HTMLSwirlOptionListItemElement;
   private draggingStartIndex: number;
   private focusedItem: HTMLElement;
@@ -70,6 +71,14 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private selectAllValue = uuid();
   private sortable: Sortable;
   private swirlPopover: HTMLSwirlPopoverElement | undefined;
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.observeSlotChanges();
+      this.subscribeToSwirlPopover();
+      this.setItemAllowDragState();
+    }
+  }
 
   componentDidLoad() {
     this.updateItems();
@@ -82,6 +91,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.setSectionSeparator();
     this.setSelectAllState();
     this.subscribeToSwirlPopover();
+    this.componentLoaded = true;
   }
 
   componentDidRender() {
