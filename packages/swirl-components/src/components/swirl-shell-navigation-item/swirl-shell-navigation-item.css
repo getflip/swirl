@@ -44,20 +44,20 @@
   }
 
   &:hover {
-    background-color: var(--s-surface-sunken-hovered);
+    background-color: var(--s-state-hovered);
 
     & .shell-navigation-item__badge,
     & .shell-navigation-item__is-new-badge {
-      --swirl-badge-border-color: var(--s-surface-sunken-hovered);
+      --swirl-badge-border-color: var(--s-state-hovered);
     }
   }
 
   &:active {
-    background-color: var(--s-surface-sunken-pressed);
+    background-color: var(--s-state-pressed);
 
     & .shell-navigation-item__badge,
     & .shell-navigation-item__is-new-badge {
-      --swirl-badge-border-color: var(--s-surface-sunken-pressed);
+      --swirl-badge-border-color: var(--s-state-pressed);
     }
   }
 
@@ -148,7 +148,7 @@
       height: auto;
       min-height: auto;
       border-radius: var(--s-border-radius-base);
-      background-color: var(--s-surface-sunken-hovered);
+      background-color: var(--s-state-hovered);
       aspect-ratio: 1;
     }
 
@@ -264,7 +264,7 @@
   }
 
   &.shell-navigation-item--active {
-    background-color: var(--s-surface-sunken-hovered);
+    background-color: var(--s-state-hovered);
 
     & .shell-navigation-item__icon {
       color: var(--s-icon-highlight);
@@ -275,23 +275,23 @@
     }
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: var(--s-surface-sunken-hovered);
+      --swirl-badge-border-color: var(--s-state-hovered);
     }
   }
 
   &.shell-navigation-item--active:hover {
-    background-color: var(--s-surface-sunken-hovered);
+    background-color: var(--s-state-hovered);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: var(--s-surface-sunken-hovered);
+      --swirl-badge-border-color: var(--s-state-hovered);
     }
   }
 
   &.shell-navigation-item--active:active {
-    background-color: var(--s-surface-sunken-pressed);
+    background-color: var(--s-state-pressed);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: var(--s-surface-sunken-pressed);
+      --swirl-badge-border-color: var(--s-state-pressed);
     }
   }
 

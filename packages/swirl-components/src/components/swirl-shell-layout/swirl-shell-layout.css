@@ -221,11 +221,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-sunken-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-sunken-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &:focus {
@@ -301,11 +301,11 @@
     background-color: var(--s-surface-overlay-default);
 
     &:hover {
-      background-color: var(--s-surface-overlay-hovered);
+      background-color: var(--s-state-hovered);
     }
 
     &:active {
-      background-color: var(--s-surface-overlay-pressed);
+      background-color: var(--s-state-pressed);
     }
   }
 

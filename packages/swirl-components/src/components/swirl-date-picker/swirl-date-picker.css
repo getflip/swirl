@@ -65,7 +65,7 @@
   }
 
   &:hover {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:focus:not(:focus-visible) {
@@ -190,14 +190,14 @@
 
   &:hover {
     &:before {
-      background-color: var(--s-surface-overlay-hovered);
+      background-color: var(--s-state-hovered);
     }
   }
 }
 
 .date-picker__date--current {
   &:before {
-    background-color: var(--s-surface-overlay-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:focus:not(:focus-visible) {

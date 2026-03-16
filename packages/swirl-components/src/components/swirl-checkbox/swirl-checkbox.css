@@ -37,11 +37,11 @@
   }
 
   &:hover:not(.checkbox--disabled) {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active:not(.checkbox--disabled) {
-    background-color: var(--s-surface-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &.checkbox--checked:not(.checkbox--disabled) {

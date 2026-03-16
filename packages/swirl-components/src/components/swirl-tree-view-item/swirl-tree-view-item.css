@@ -63,7 +63,7 @@ swirl-tree-view-item {
 
 .tree-view-item--active {
   & > .tree-view-item__link {
-    background-color: var(--s-background-hovered);
+    background-color: var(--s-state-hovered);
   }
 }
 
@@ -101,7 +101,7 @@ swirl-tree-view-item {
   gap: var(--s-space-4);
 
   &:hover {
-    background-color: var(--s-background-hovered);
+    background-color: var(--s-state-hovered);
 
     & .tree-view-item__drag-handle {
       opacity: 1;
@@ -109,7 +109,7 @@ swirl-tree-view-item {
   }
 
   &:active {
-    background-color: var(--s-background-pressed);
+    background-color: var(--s-state-pressed);
   }
 
   &:focus:not(:focus-visible) {
