@@ -61,7 +61,7 @@ export class SwirlPopover {
   @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() returnFocusToTrigger?: boolean = true;
-  @Prop() translucent?: boolean;
+  @Prop() translucent?: boolean = true;
   @Prop() transparent?: boolean;
   @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
@@ -490,7 +490,7 @@ export class SwirlPopover {
         "popover--closing": this.closing,
         "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
-        "popover--translucent": this.translucent,
+        "popover--translucent": this.translucent && !this.transparent,
         "popover--transparent": this.transparent,
         "popover--padded": this.padded,
       }
