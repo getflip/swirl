@@ -68,6 +68,10 @@
     background-color: var(--s-state-hovered);
   }
 
+  &:active {
+    background-color: var(--s-state-pressed);
+  }
+
   &:focus:not(:focus-visible) {
     outline: none;
   }
