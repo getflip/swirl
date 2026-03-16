@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.459.2
+
+### Patch Changes
+
+- [#1536](https://github.com/getflip/swirl/pull/1536)
+  [`2a73e2429`](https://github.com/getflip/swirl/commit/2a73e24293073a973b003ca336030ba938b48522)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure event
+  listeners are re-added when components are reattached to the DOM
+
+- Updated dependencies
+  [[`2a73e2429`](https://github.com/getflip/swirl/commit/2a73e24293073a973b003ca336030ba938b48522)]:
+  - @getflip/swirl-components@0.459.2
+
 ## 0.459.1
 
 ### Patch Changes
