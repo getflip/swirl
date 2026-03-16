@@ -41,7 +41,7 @@ describe("swirl-select", () => {
             <swirl-icon-expand-more size="24"></swirl-icon-expand-more>
           </span>
           <swirl-popover animation="scale-in-y" class="select__popover" id="select-options-${page.root.selectId}" label="Select" usecontainerwidth="swirl-form-control">
-            <swirl-option-list allowdeselect="">
+            <swirl-option-list allowdeselect="" class="select__option-list">
               <div aria-disabled="true" class="select__empty-list-label" role="option">
                 <swirl-text color="subdued" weight="medium">
                   No results found.
