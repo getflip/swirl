@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.460.0
+
+### Minor Changes
+
+- [#1538](https://github.com/getflip/swirl/pull/1538)
+  [`e5a7335c5`](https://github.com/getflip/swirl/commit/e5a7335c542dbbb46cf2ce09961f502e946048db)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "multiLineLabel" prop to
+  swirl-resource-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e5a7335c5`](https://github.com/getflip/swirl/commit/e5a7335c542dbbb46cf2ce09961f502e946048db)]:
+  - @getflip/swirl-components@0.460.0
+
 ## 0.459.2
 
 ### Patch Changes
