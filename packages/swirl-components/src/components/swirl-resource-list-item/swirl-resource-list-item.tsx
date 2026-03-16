@@ -66,6 +66,7 @@ export class SwirlResourceListItem {
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
+  @Prop() multiLineLabel?: boolean;
   @Prop() selectable?: boolean;
   @Prop() swirlAriaCurrent?: SwirlResourceListItemAriaCurrent;
   @Prop() swirlAriaLabel?: string;
@@ -257,6 +258,7 @@ export class SwirlResourceListItem {
         "resource-list-item--dragging": this.dragging,
         "resource-list-item--has-control": hasControl,
         "resource-list-item--has-menu": hasMenu,
+        "resource-list-item--has-multi-line-label": this.multiLineLabel,
         "resource-list-item--hide-divider": this.hideDivider,
         "resource-list-item--interactive": this.interactive || this.selectable,
         "resource-list-item--selectable": this.selectable,
@@ -308,7 +310,7 @@ export class SwirlResourceListItem {
               ) : (
                 renderLabel()
               )}
-              {this.description && (
+              {this.description && !this.multiLineLabel && (
                 <span
                   class="resource-list-item__description"
                   innerHTML={this.allowHtml ? this.description : undefined}

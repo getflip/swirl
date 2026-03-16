@@ -3701,6 +3701,7 @@ export namespace Components {
          */
         "menuTriggerLabel"?: string;
         "meta"?: string;
+        "multiLineLabel"?: boolean;
         "selectable"?: boolean;
         "swirlAriaCurrent"?: SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel"?: string;
@@ -12886,6 +12887,7 @@ declare namespace LocalJSX {
          */
         "menuTriggerLabel"?: string;
         "meta"?: string;
+        "multiLineLabel"?: boolean;
         "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
@@ -16098,6 +16100,7 @@ declare namespace LocalJSX {
         "menuTriggerId": string;
         "menuTriggerLabel": string;
         "meta": string;
+        "multiLineLabel": boolean;
         "selectable": boolean;
         "swirlAriaCurrent": SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel": string;

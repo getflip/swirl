@@ -40243,6 +40243,13 @@
               "fieldName": "meta"
             },
             {
+              "name": "multi-line-label",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "multiLineLabel"
+            },
+            {
               "name": "selectable",
               "type": {
                 "text": "boolean"
@@ -40509,6 +40516,15 @@
               },
               "readonly": true,
               "attribute": "meta"
+            },
+            {
+              "kind": "field",
+              "name": "multiLineLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "multi-line-label"
             },
             {
               "kind": "field",

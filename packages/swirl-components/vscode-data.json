@@ -19460,6 +19460,10 @@
           "description": ""
         },
         {
+          "name": "multi-line-label",
+          "description": ""
+        },
+        {
           "name": "selectable",
           "description": ""
         },
