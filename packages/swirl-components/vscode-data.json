@@ -19448,6 +19448,10 @@
           "description": ""
         },
         {
+          "name": "label-wrap-max-lines",
+          "description": ""
+        },
+        {
           "name": "menu-trigger-id",
           "description": ""
         },
@@ -19457,10 +19461,6 @@
         },
         {
           "name": "meta",
-          "description": ""
-        },
-        {
-          "name": "multi-line-label",
           "description": ""
         },
         {
