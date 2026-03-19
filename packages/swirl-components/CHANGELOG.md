@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.462.0
+
+### Minor Changes
+
+- [#1525](https://github.com/getflip/swirl/pull/1525)
+  [`8170faef0`](https://github.com/getflip/swirl/commit/8170faef0cb0e9b30fac3c0aa4b235d52c1f6426)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update tokens
+  and components to translucent design
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8170faef0`](https://github.com/getflip/swirl/commit/8170faef0cb0e9b30fac3c0aa4b235d52c1f6426)]:
+  - @getflip/swirl-tokens@2.14.0
+
 ## 0.461.0
 
 ### Minor Changes
