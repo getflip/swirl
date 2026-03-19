@@ -5055,6 +5055,10 @@ export namespace Components {
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
     interface SwirlToggleButton {
+        /**
+          * @default false
+         */
+        "hideLabel"?: boolean;
         "icon"?: string;
         "identifier": string;
         /**
@@ -14219,6 +14223,10 @@ declare namespace LocalJSX {
         "globalDuration"?: number;
     }
     interface SwirlToggleButton {
+        /**
+          * @default false
+         */
+        "hideLabel"?: boolean;
         "icon"?: string;
         "identifier": string;
         /**
@@ -16761,6 +16769,7 @@ declare namespace LocalJSX {
         "label": string;
         "icon": string;
         "isPressed": boolean;
+        "hideLabel": boolean;
     }
     interface SwirlToggleGroupAttributes {
         "elevated": boolean;
