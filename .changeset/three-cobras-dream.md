@@ -1,0 +1,9 @@
+---
+"@getflip/swirl-ai": minor
+"@getflip/swirl-components": minor
+"@getflip/swirl-components-angular": minor
+"@getflip/swirl-components-react": minor
+"@getflip/swirl-tokens": minor
+---
+
+Update tokens and components to translucent design

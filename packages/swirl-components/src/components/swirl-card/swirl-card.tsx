@@ -86,6 +86,7 @@ export class SwirlCard {
   @Prop() paddingBlockStart?: SwirlCardPadding;
   @Prop() paddingInlineEnd?: SwirlCardPadding;
   @Prop() paddingInlineStart?: SwirlCardPadding;
+  @Prop() translucent?: boolean;
   @Prop() swirlAriaCurrent?: SwirlCardAriaCurrent;
   @Prop() swirlAriaLabel?: string;
   @Prop() swirlAriaLabelledby?: string;
@@ -170,6 +171,7 @@ export class SwirlCard {
         "card--has-image": hasImage,
         "card--highlighted": this.highlighted,
         "card--interactive": this.interactive || this.href,
+        "card--translucent": this.translucent,
         "card--is--borderless": this.isBorderless,
       }
     );

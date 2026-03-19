@@ -42,7 +42,7 @@
 }
 
 .tree-navigation-item__link:active {
-  background-color: var(--s-background-pressed);
+  background-color: var(--s-state-pressed);
 }
 
 .tree-navigation-item__link:focus {
@@ -62,11 +62,11 @@
 }
 
 .tree-navigation-item__link--active:hover {
-  background-color: var(--s-background-pressed);
+  background-color: var(--s-state-pressed);
 }
 
 .tree-navigation-item__link--active:active {
-  background-color: var(--s-background-pressed);
+  background-color: var(--s-state-pressed);
 }
 
 /* Layout components */

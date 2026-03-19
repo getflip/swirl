@@ -29,7 +29,7 @@
   gap: var(--s-space-12);
 
   &:hover:not(.option-list-item--disabled) {
-    background-color: var(--s-translucent-low-hovered);
+    background-color: var(--s-state-hovered);
   }
 
   &:active:not(.option-list-item--disabled) {
@@ -41,7 +41,7 @@
   }
 
   &:focus-visible {
-    background-color: var(--s-translucent-low-hovered);
+    background-color: var(--s-state-hovered);
     outline-color: var(--s-focus-default);
     outline-style: solid;
     outline-width: 0.125rem;

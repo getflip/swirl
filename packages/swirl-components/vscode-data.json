@@ -1954,6 +1954,10 @@
         {
           "name": "swirl-aria-labelledby",
           "description": ""
+        },
+        {
+          "name": "translucent",
+          "description": ""
         }
       ]
     },
@@ -2443,6 +2447,9 @@
             },
             {
               "name": "plain"
+            },
+            {
+              "name": "translucent"
             }
           ]
         }

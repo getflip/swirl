@@ -427,6 +427,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               </div>
             )}
             <swirl-option-list
+              class="select__option-list"
               allowDeselect={this.allowDeselect}
               onValueChange={this.select}
               multiSelect={this.multiSelect}

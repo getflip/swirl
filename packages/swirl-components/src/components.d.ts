@@ -641,6 +641,7 @@ export namespace Components {
         "swirlAriaCurrent"?: SwirlCardAriaCurrent;
         "swirlAriaLabel"?: string;
         "swirlAriaLabelledby"?: string;
+        "translucent"?: boolean;
     }
     /**
      * slot - The slides
@@ -3541,6 +3542,9 @@ export namespace Components {
           * Toggles the popover.
          */
         "toggle": (triggerEl?: HTMLElement, via?: SwirlPopoverControlMethod) => Promise<void>;
+        /**
+          * @default true
+         */
         "translucent"?: boolean;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
@@ -9936,6 +9940,7 @@ declare namespace LocalJSX {
         "swirlAriaCurrent"?: SwirlCardAriaCurrent;
         "swirlAriaLabel"?: string;
         "swirlAriaLabelledby"?: string;
+        "translucent"?: boolean;
     }
     /**
      * slot - The slides
@@ -12720,6 +12725,9 @@ declare namespace LocalJSX {
           * @default true
          */
         "returnFocusToTrigger"?: boolean;
+        /**
+          * @default true
+         */
         "translucent"?: boolean;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
@@ -14568,6 +14576,7 @@ declare namespace LocalJSX {
         "paddingBlockStart": SwirlCardPadding;
         "paddingInlineEnd": SwirlCardPadding;
         "paddingInlineStart": SwirlCardPadding;
+        "translucent": boolean;
         "swirlAriaCurrent": SwirlCardAriaCurrent;
         "swirlAriaLabel": string;
         "swirlAriaLabelledby": string;

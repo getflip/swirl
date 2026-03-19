@@ -528,7 +528,7 @@ export class SwirlMenu {
                 ? {
                     top: Boolean(this.position) ? `${this.position?.y}px` : "",
                     left: Boolean(this.position) ? `${this.position?.x}px` : "",
-                    visibility: Boolean(this.position) ? "visible" : "hidden",
+                    opacity: Boolean(this.position) ? undefined : "0",
                   }
                 : this.mobile
                 ? {

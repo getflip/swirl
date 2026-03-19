@@ -27,176 +27,177 @@
     color: rgba(0, 0, 0, 1);
   }
 
-  .sbdocs h1,
-  .sbdocs h2,
-  .sbdocs h3,
-  .sbdocs h4,
-  .sbdocs h5,
-  .sbdocs h6 {
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 1);
-    line-height: 1.25;
-  }
+  @scope (.sbdocs) to (.sbdocs-preview) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Inter", "Open Sans", sans-serif;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 1);
+      line-height: 1.25;
+    }
 
-  .sbdocs h1 {
-    font-size: 2rem;
-  }
-  .sbdocs h2 {
-    font-size: 1.5rem;
-  }
-  .sbdocs h3 {
-    font-size: 1.25rem;
-  }
-  .sbdocs h4 {
-    font-size: 1.125rem;
-  }
-  .sbdocs h5 {
-    font-size: 1rem;
-  }
-  .sbdocs h6 {
-    font-size: 0.875rem;
-  }
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    h4 {
+      font-size: 1.125rem;
+    }
+    h5 {
+      font-size: 1rem;
+    }
+    h6 {
+      font-size: 0.875rem;
+    }
 
-  .sbdocs p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(0, 0, 0, 1);
-  }
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 1);
+    }
 
-  .sbdocs a {
-    color: rgba(0, 38, 255, 1);
-    text-decoration: none;
-  }
+    a {
+      color: rgba(0, 38, 255, 1);
+      text-decoration: none;
+    }
 
-  .sbdocs a:hover {
-    text-decoration: underline;
-  }
+    a:hover {
+      text-decoration: underline;
+    }
 
-  .sbdocs code {
-    font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
-      "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
-      monospace;
-    font-size: 12px;
-    padding: 0.1em 0.4em;
-    background: rgba(0, 6, 29, 0.05);
-    border-radius: 4px;
-    border: 1px solid rgba(0, 6, 29, 0.09);
-  }
+    code {
+      font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
+        "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
+        monospace;
+      font-size: 12px;
+      padding: 0.1em 0.4em;
+      background: rgba(0, 6, 29, 0.05);
+      border-radius: 4px;
+      border: 1px solid rgba(0, 6, 29, 0.09);
+    }
 
-  .sbdocs pre {
-    font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
-      "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
-      monospace;
-    font-size: 12px;
-    line-height: 1.5;
-    padding: 1rem;
-    background: rgba(0, 6, 29, 0.05);
-    border-radius: 4px;
-    border: 1px solid rgba(0, 6, 29, 0.09);
-    overflow: auto;
-  }
+    pre {
+      font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
+        "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
+        monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      padding: 1rem;
+      background: rgba(0, 6, 29, 0.05);
+      border-radius: 4px;
+      border: 1px solid rgba(0, 6, 29, 0.09);
+      overflow: auto;
+    }
 
-  .sbdocs pre code {
-    padding: 0;
-    background: none;
-    border: none;
-    font-size: inherit;
-  }
+    pre code {
+      padding: 0;
+      background: none;
+      border: none;
+      font-size: inherit;
+    }
 
-  .sbdocs blockquote {
-    margin: 0;
-    padding: 0.5rem 0 0.5rem 1rem;
-    border-left: 4px solid rgba(0, 6, 29, 0.09);
-    color: rgba(0, 0, 0, 0.8);
-  }
+    blockquote {
+      margin: 0;
+      padding: 0.5rem 0 0.5rem 1rem;
+      border-left: 4px solid rgba(0, 6, 29, 0.09);
+      color: rgba(0, 0, 0, 0.8);
+    }
 
-  .sbdocs strong {
-    font-weight: 700;
-  }
+    strong {
+      font-weight: 700;
+    }
 
-  .sbdocs hr {
-    border: none;
-    border-top: 1px solid rgba(0, 6, 29, 0.09);
-  }
+    hr {
+      border: none;
+      border-top: 1px solid rgba(0, 6, 29, 0.09);
+    }
 
-  .sbdocs .docblock-source,
-  .sbdocs hr,
-  .sbdocs ol,
-  .sbdocs ul,
-  .sbdocs p,
-  .sbdocs preview,
-  .sbdocs table,
-  .sbdocs h1,
-  .sbdocs h2,
-  .sbdocs h3 {
-    margin: 0;
-    padding: 0;
-  }
+    .docblock-source,
+    hr,
+    ol,
+    ul,
+    p,
+    preview,
+    table,
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      padding: 0;
+    }
 
-  .sbdocs h1 {
-    margin-bottom: 2rem;
-  }
+    h1 {
+      margin-bottom: 2rem;
+    }
 
-  .sbdocs h2:not(:first-child) {
-    margin-top: 3rem;
-    padding-bottom: 0.25rem;
-  }
+    h2:not(:first-child) {
+      margin-top: 3rem;
+      padding-bottom: 0.25rem;
+    }
 
-  .sbdocs h3:not(:first-child) {
-    margin-top: 1.5rem;
-  }
+    h3:not(:first-child) {
+      margin-top: 1.5rem;
+    }
 
-  .sbdocs .docblock-source,
-  .sbdocs hr:not(:first-child),
-  .sbdocs ul:not(:first-child):not(.tree-view-item__children),
-  .sbdocs ol:not(:first-child),
-  .sbdocs p:not(:first-child),
-  .sbdocs preview:not(:first-child),
-  .sbdocs table:not(:first-child) {
-    margin-top: 1rem;
-  }
+    .docblock-source,
+    hr:not(:first-child),
+    ol:not(:first-child),
+    p:not(:first-child),
+    preview:not(:first-child),
+    table:not(:first-child) {
+      margin-top: 1rem;
+    }
 
-  .sbdocs ul:not(:first-child),
-  .sbdocs ol:not(:first-child) {
-    list-style-position: inside;
-  }
+    ul:not(:first-child),
+    ol:not(:first-child) {
+      list-style-position: inside;
+    }
 
-  .sbdocs ul:not(:first-child) ul,
-  .sbdocs ol:not(:first-child) ol {
-    margin-top: 0;
-    margin-left: 1.3rem;
-  }
+    ul:not(:first-child) ul,
+    ol:not(:first-child) ol {
+      margin-top: 0;
+      margin-left: 1.3rem;
+    }
 
-  .sbdocs ul,
-  .sbdocs ol {
-    color: rgba(0, 0, 0, 1);
-  }
+    ul,
+    ol {
+      color: rgba(0, 0, 0, 1);
+    }
 
-  .sbdocs li {
-    margin-top: 0.25rem;
-  }
+    li {
+      margin-top: 0.25rem;
+    }
 
-  .sbdocs table {
-    table-layout: fixed;
-    width: 100%;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 1);
-  }
+    table {
+      table-layout: fixed;
+      width: 100%;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 1);
+    }
 
-  .sbdocs table th,
-  .sbdocs table td {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid rgba(0, 6, 29, 0.09);
-    text-align: left;
-  }
+    table th,
+    table td {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid rgba(0, 6, 29, 0.09);
+      text-align: left;
+    }
 
-  .sbdocs table tr td {
-    overflow: auto;
-  }
+    table tr td {
+      overflow: auto;
+    }
 
-  .sbdocs .docblock-icongallery {
-    margin-top: 1rem;
+    .docblock-icongallery {
+      margin-top: 1rem;
+    }
   }
 
   kbd {

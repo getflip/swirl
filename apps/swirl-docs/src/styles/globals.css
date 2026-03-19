@@ -58,10 +58,6 @@
 }
 
 :root {
-  --swirl-ghost-button-background-default: var(--s-background-default);
-  --swirl-ghost-button-background-hovered: var(--s-background-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-background-pressed);
-
   --aa-text-color-rgb: 25, 26, 28;
   --aa-primary-color-rgb: 20, 90, 245;
   --aa-input-border-color-rgb: 204, 205, 209;
@@ -136,5 +132,5 @@ pre {
 }
 
 [cmdk-item][aria-selected="true"] {
-  background-color: var(--s-surface-hovered);
+  background-color: var(--s-state-hovered);
 }

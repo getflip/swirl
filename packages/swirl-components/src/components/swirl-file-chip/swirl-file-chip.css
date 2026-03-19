@@ -10,7 +10,7 @@
   min-width: 15rem;
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
-  background: var(--s-surface-default);
+  background-color: transparent;
   border-radius: var(--s-border-radius-sm);
   outline: 1px solid var(--s-border-strong);
   outline-offset: -1px;
@@ -38,7 +38,7 @@
   display: flex;
   flex-shrink: 0;
   padding: var(--s-space-16);
-  background: var(--s-surface-sunken-hovered);
+  background: var(--s-state-hovered);
   border-radius: var(--s-border-radius-sm) 0 0 var(--s-border-radius-sm);
   color: var(--s-icon-default);
 }

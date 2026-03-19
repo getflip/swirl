@@ -2,8 +2,6 @@
   display: flex;
 
   &(.table-row--highlighted) {
-    --swirl-ghost-button-background-default: transparent;
-
     & ::slotted(.table-cell) {
       background-color: rgba(240, 242, 255, 1); /* TODO: token */
     }

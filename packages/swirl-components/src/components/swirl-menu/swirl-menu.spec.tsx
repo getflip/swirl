@@ -85,7 +85,7 @@ describe("swirl-menu", () => {
         </swirl-popover-trigger>
         <swirl-popover id="menu" label="Menu">
           <template shadowrootmode="open">
-            <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined" popover="manual">
+            <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined popover--translucent" popover="manual">
               <div aria-hidden="true" aria-label="Menu" class="popover__content" part="popover__content" role="dialog" tabindex="-1" style="--swirl-popover-border-radius: var(--s-border-radius-base);">
                 <span class="popover__handle"></span>
                 <div class="popover__scroll-container" part="popover__scroll-container">

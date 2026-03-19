@@ -4648,6 +4648,13 @@
                 "text": "string"
               },
               "fieldName": "swirlAriaLabelledby"
+            },
+            {
+              "name": "translucent",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "translucent"
             }
           ],
           "members": [
@@ -4935,6 +4942,15 @@
               },
               "readonly": true,
               "attribute": "swirl-aria-labelledby"
+            },
+            {
+              "kind": "field",
+              "name": "translucent",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "translucent"
             },
             {
               "kind": "method",
@@ -5853,7 +5869,7 @@
             {
               "name": "variant",
               "type": {
-                "text": "\"outline\" | \"plain\"",
+                "text": "\"outline\" | \"plain\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlChipVariant"
@@ -6004,7 +6020,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "\"outline\" | \"plain\"",
+                "text": "\"outline\" | \"plain\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlChipVariant"
@@ -38442,6 +38458,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "true",
               "fieldName": "translucent"
             },
             {
@@ -38611,6 +38628,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "true",
               "readonly": true,
               "attribute": "translucent"
             },
