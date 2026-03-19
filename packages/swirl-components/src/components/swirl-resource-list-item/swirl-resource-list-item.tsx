@@ -60,13 +60,13 @@ export class SwirlResourceListItem {
   @Prop() label!: string;
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() labelWrap?: boolean;
+  @Prop() labelWrapMaxLines?: number;
   @Prop() labelMinHeight?: string;
   @Prop() labelTooltip?: string;
   @Prop() labelTooltipPosition?: SwirlTooltipPosition = "top";
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
-  @Prop() multiLineLabel?: boolean;
   @Prop() selectable?: boolean;
   @Prop() swirlAriaCurrent?: SwirlResourceListItemAriaCurrent;
   @Prop() swirlAriaLabel?: string;
@@ -241,6 +241,11 @@ export class SwirlResourceListItem {
         class="resource-list-item__label"
         id={this.elementId}
         innerHTML={this.allowHtml ? this.label : undefined}
+        style={{
+          "-webkit-line-clamp": !!this.labelWrapMaxLines
+            ? String(this.labelWrapMaxLines)
+            : undefined,
+        }}
       >
         {!this.allowHtml && this.label}
       </span>
@@ -258,7 +263,6 @@ export class SwirlResourceListItem {
         "resource-list-item--dragging": this.dragging,
         "resource-list-item--has-control": hasControl,
         "resource-list-item--has-menu": hasMenu,
-        "resource-list-item--has-multi-line-label": this.multiLineLabel,
         "resource-list-item--hide-divider": this.hideDivider,
         "resource-list-item--interactive": this.interactive || this.selectable,
         "resource-list-item--selectable": this.selectable,
@@ -266,6 +270,7 @@ export class SwirlResourceListItem {
         "resource-list-item--show-meta": showMeta,
         "resource-list-item--wrap-description": this.descriptionWrap,
         "resource-list-item--wrap-label": this.labelWrap,
+        "resource-list-item--wrap-label-max-lines": this.labelWrapMaxLines,
       }
     );
 
@@ -310,7 +315,7 @@ export class SwirlResourceListItem {
               ) : (
                 renderLabel()
               )}
-              {this.description && !this.multiLineLabel && (
+              {this.description && (
                 <span
                   class="resource-list-item__description"
                   innerHTML={this.allowHtml ? this.description : undefined}

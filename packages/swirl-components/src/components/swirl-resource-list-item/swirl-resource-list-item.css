@@ -236,11 +236,10 @@
   }
 }
 
-.resource-list-item--has-multi-line-label {
+.resource-list-item--wrap-label-max-lines {
   & .resource-list-item__label {
     display: -webkit-box;
     overflow: hidden;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     white-space: normal;
   }

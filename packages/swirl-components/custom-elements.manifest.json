@@ -40221,6 +40221,13 @@
               "fieldName": "labelWrap"
             },
             {
+              "name": "label-wrap-max-lines",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "labelWrapMaxLines"
+            },
+            {
               "name": "menu-trigger-id",
               "type": {
                 "text": "string"
@@ -40241,13 +40248,6 @@
                 "text": "string"
               },
               "fieldName": "meta"
-            },
-            {
-              "name": "multi-line-label",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "multiLineLabel"
             },
             {
               "name": "selectable",
@@ -40491,6 +40491,15 @@
             },
             {
               "kind": "field",
+              "name": "labelWrapMaxLines",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "attribute": "label-wrap-max-lines"
+            },
+            {
+              "kind": "field",
               "name": "menuTriggerId",
               "type": {
                 "text": "string"
@@ -40516,15 +40525,6 @@
               },
               "readonly": true,
               "attribute": "meta"
-            },
-            {
-              "kind": "field",
-              "name": "multiLineLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "readonly": true,
-              "attribute": "multi-line-label"
             },
             {
               "kind": "field",

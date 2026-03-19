@@ -3695,13 +3695,13 @@ export namespace Components {
          */
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
+        "labelWrapMaxLines"?: number;
         "menuTriggerId"?: string;
         /**
           * @default "Options"
          */
         "menuTriggerLabel"?: string;
         "meta"?: string;
-        "multiLineLabel"?: boolean;
         "selectable"?: boolean;
         "swirlAriaCurrent"?: SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel"?: string;
@@ -12881,13 +12881,13 @@ declare namespace LocalJSX {
          */
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
+        "labelWrapMaxLines"?: number;
         "menuTriggerId"?: string;
         /**
           * @default "Options"
          */
         "menuTriggerLabel"?: string;
         "meta"?: string;
-        "multiLineLabel"?: boolean;
         "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
@@ -16094,13 +16094,13 @@ declare namespace LocalJSX {
         "label": string;
         "labelWeight": SwirlResourceListItemLabelWeight;
         "labelWrap": boolean;
+        "labelWrapMaxLines": number;
         "labelMinHeight": string;
         "labelTooltip": string;
         "labelTooltipPosition": SwirlTooltipPosition;
         "menuTriggerId": string;
         "menuTriggerLabel": string;
         "meta": string;
-        "multiLineLabel": boolean;
         "selectable": boolean;
         "swirlAriaCurrent": SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel": string;
