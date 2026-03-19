@@ -1,5 +1,14 @@
 # @getflip/swirl-ai
 
+## 0.461.0
+
+### Minor Changes
+
+- [#1540](https://github.com/getflip/swirl/pull/1540)
+  [`c3c72473b`](https://github.com/getflip/swirl/commit/c3c72473b9741fefffcf3b17998f162356f102ca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add wrap-label-max-lines to
+  swirl-resource-list-item
+
 ## 0.460.0
 
 ### Minor Changes
