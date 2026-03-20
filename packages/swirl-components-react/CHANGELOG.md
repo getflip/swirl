@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.463.0
+
+### Minor Changes
+
+- [#1545](https://github.com/getflip/swirl/pull/1545)
+  [`b528acd56`](https://github.com/getflip/swirl/commit/b528acd5617c25368dbc8df5a93817c6608e4137)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Implement
+  icon-only swirl-toggle-button
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b528acd56`](https://github.com/getflip/swirl/commit/b528acd5617c25368dbc8df5a93817c6608e4137)]:
+  - @getflip/swirl-components@0.463.0
+
 ## 0.462.0
 
 ### Minor Changes
