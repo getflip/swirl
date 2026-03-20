@@ -11,6 +11,7 @@ export class SwirlToggleButton {
   @Prop() label!: string;
   @Prop() icon?: string;
   @Prop({ mutable: true }) isPressed = false;
+  @Prop() hideLabel?: boolean = false;
 
   private onClick = (): void => {
     this.isPressed = true;
@@ -21,17 +22,20 @@ export class SwirlToggleButton {
       "button--pressed": this.isPressed,
     });
 
+    const ariaLabel = this.hideLabel ? this.label : undefined;
+
     return (
       <button
         class={classNames}
         type="button"
         aria-pressed={this.isPressed ? "true" : "false"}
+        aria-label={ariaLabel}
         onClick={this.onClick}
       >
         {this.icon && (
           <swirl-icon class="button__icon" glyph={this.icon}></swirl-icon>
         )}
-        <span class="button__label">{this.label}</span>
+        {!this.hideLabel && <span class="button__label">{this.label}</span>}
       </button>
     );
   }
