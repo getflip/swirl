@@ -1,5 +1,26 @@
 # @getflip/swirl-ai
 
+## 0.464.0
+
+### Minor Changes
+
+- [#1549](https://github.com/getflip/swirl/pull/1549)
+  [`c334eff6c`](https://github.com/getflip/swirl/commit/c334eff6caeeffe079b10b85f43dd01f94166ab8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add support for
+  12px size in swirl-emoji
+
+### Patch Changes
+
+- [#1549](https://github.com/getflip/swirl/pull/1549)
+  [`c334eff6c`](https://github.com/getflip/swirl/commit/c334eff6caeeffe079b10b85f43dd01f94166ab8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix background
+  contrast for overlaying sidebar in swirl-app-layout
+
+* [#1549](https://github.com/getflip/swirl/pull/1549)
+  [`c334eff6c`](https://github.com/getflip/swirl/commit/c334eff6caeeffe079b10b85f43dd01f94166ab8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure icon and
+  avatar aren't cut off in plain swirl-chip
+
 ## 0.463.0
 
 ## 0.462.0
