@@ -220,6 +220,11 @@
     padding-right: 0;
     padding-left: 0;
   }
+
+  & .chip__icon,
+  & .chip__avatar {
+    margin-left: 0;
+  }
 }
 
 .chip--has-progress {
