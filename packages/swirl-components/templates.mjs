@@ -85,6 +85,7 @@ export class SwirlEmoji{{emojiName}} {
 
     return (
       <Fragment>
+        {this.size === 12 && <img alt={this.label} class={className} height="12" src="emojis/{{emojiName}}12.png" width="12" />}
         {this.size === 16 && <img alt={this.label} class={className} height="16" src="emojis/{{emojiName}}16.png" width="16" />}
         {this.size === 20 && <img alt={this.label} class={className} height="20" src="emojis/{{emojiName}}20.png" width="20" />}
         {this.size === 24 && <img alt={this.label} class={className} height="24" src="emojis/{{emojiName}}24.png" width="24" />}
