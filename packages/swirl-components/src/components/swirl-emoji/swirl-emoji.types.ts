@@ -1,1 +1,1 @@
-export type SwirlEmojiSize = 16 | 20 | 24 | 32;
+export type SwirlEmojiSize = 12 | 16 | 20 | 24 | 32;

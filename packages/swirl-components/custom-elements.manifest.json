@@ -8026,7 +8026,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8062,7 +8062,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8115,7 +8115,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8142,7 +8142,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8195,7 +8195,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8222,7 +8222,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8275,7 +8275,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8302,7 +8302,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8355,7 +8355,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8382,7 +8382,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8435,7 +8435,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8462,7 +8462,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8515,7 +8515,7 @@
             {
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",
@@ -8542,7 +8542,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "16 | 20 | 24 | 32",
+                "text": "12 | 16 | 20 | 24 | 32",
                 "references": [
                   {
                     "name": "SwirlEmojiSize",

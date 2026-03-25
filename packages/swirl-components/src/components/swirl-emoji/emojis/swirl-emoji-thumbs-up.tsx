@@ -18,6 +18,15 @@ export class SwirlEmojiThumbsUp {
 
     return (
       <Fragment>
+        {this.size === 12 && (
+          <img
+            alt={this.label}
+            class={className}
+            height="12"
+            src="emojis/ThumbsUp12.png"
+            width="12"
+          />
+        )}
         {this.size === 16 && (
           <img
             alt={this.label}

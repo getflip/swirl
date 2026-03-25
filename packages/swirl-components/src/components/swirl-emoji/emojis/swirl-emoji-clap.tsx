@@ -18,6 +18,15 @@ export class SwirlEmojiClap {
 
     return (
       <Fragment>
+        {this.size === 12 && (
+          <img
+            alt={this.label}
+            class={className}
+            height="12"
+            src="emojis/Clap12.png"
+            width="12"
+          />
+        )}
         {this.size === 16 && (
           <img
             alt={this.label}
