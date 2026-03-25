@@ -214,6 +214,7 @@
       width: 25rem;
       animation: none;
       box-shadow: none;
+      background-color: var(--s-background-default);
     }
   }
 
@@ -763,6 +764,7 @@
       /* adaptation of shadow-level-3 to support rounded corners */
       box-shadow: -12px 0 32px -10px rgba(23, 23, 23, 0.12),
         -8px 4px 12px -8px rgba(23, 23, 23, 0.08);
+      background-color: var(--s-surface-overlay-default);
     }
   }
 }
