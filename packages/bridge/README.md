@@ -94,6 +94,22 @@ import { navigate } from "@getflip/bridge";
 await navigate("/my-app/settings");
 ```
 
+#### `close`
+
+Asks the host app to close the current integration (for example the same action as
+the host’s back or close control). Use this when you provide your own header and
+want a custom back or close button instead of relying on the host.
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { close } from "@getflip/bridge";
+
+await close();
+```
+
 ### Theming
 
 #### `getTheme`
