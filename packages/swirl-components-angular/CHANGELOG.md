@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.466.0
+
+### Minor Changes
+
+- [#1558](https://github.com/getflip/swirl/pull/1558)
+  [`108ffb7cf`](https://github.com/getflip/swirl/commit/108ffb7cf8bace4f734ed079f587e21bb3c3dff4)
+  Thanks [@FabianMetzger](https://github.com/FabianMetzger)! - Add repeat icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`108ffb7cf`](https://github.com/getflip/swirl/commit/108ffb7cf8bace4f734ed079f587e21bb3c3dff4)]:
+  - @getflip/swirl-components@0.466.0
+
 ## 0.465.0
 
 ### Minor Changes

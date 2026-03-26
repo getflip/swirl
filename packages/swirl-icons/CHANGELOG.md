@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.81.0
+
+### Minor Changes
+
+- [#1558](https://github.com/getflip/swirl/pull/1558)
+  [`108ffb7cf`](https://github.com/getflip/swirl/commit/108ffb7cf8bace4f734ed079f587e21bb3c3dff4)
+  Thanks [@FabianMetzger](https://github.com/FabianMetzger)! - Add repeat icon
+
 ## 0.80.0
 
 ### Minor Changes
