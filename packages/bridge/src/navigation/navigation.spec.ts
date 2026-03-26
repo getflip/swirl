@@ -1,5 +1,5 @@
 import { makeRequest } from "../messaging";
-import { navigate } from "./navigation";
+import { close, navigate } from "./navigation";
 
 jest.mock("../messaging", () => ({
   makeRequest: jest.fn(),
@@ -8,6 +8,23 @@ jest.mock("../messaging", () => ({
 describe("navigation", () => {
   beforeAll(() => {
     (global as any).flipBridgeOptions = { hostAppOrigin: "http://localhost" };
+  });
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("'close' sends correct request", async () => {
+    await close();
+
+    const makeRequestMock = makeRequest as unknown as jest.Mock<
+      typeof makeRequest
+    >;
+
+    expect(makeRequestMock).toHaveBeenCalledWith({
+      id: makeRequestMock.mock.calls[0][0].id,
+      method: "CLOSE",
+    });
   });
 
   test("'navigate' sends correct request", async () => {

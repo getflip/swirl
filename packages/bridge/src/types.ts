@@ -13,7 +13,7 @@ import {
   DestroyModalResult,
   OpenModalResult,
 } from "./modal";
-import { NavigateResult } from "./navigation";
+import { CloseResult, NavigateResult } from "./navigation";
 import { GetThemeResult, SetThemeResult } from "./theming";
 import { ShowToastResult } from "./toast";
 
@@ -34,6 +34,7 @@ export enum BridgeErrorCode {
 export enum BridgeMethod {
   CLOSE_DIALOG = "CLOSE_DIALOG",
   CLOSE_MODAL = "CLOSE_MODAL",
+  CLOSE = "CLOSE",
   CREATE_DIALOG = "CREATE_DIALOG",
   CREATE_MODAL = "CREATE_MODAL",
   DESTROY_DIALOG = "DESTROY_DIALOG",
@@ -54,6 +55,7 @@ export enum BridgeMethod {
 export type BridgeMethodResultMapping = {
   [BridgeMethod.CLOSE_DIALOG]: CloseDialogResult;
   [BridgeMethod.CLOSE_MODAL]: CloseModalResult;
+  [BridgeMethod.CLOSE]: CloseResult;
   [BridgeMethod.CREATE_DIALOG]: CreateDialogResult;
   [BridgeMethod.CREATE_MODAL]: CreateModalResult;
   [BridgeMethod.DESTROY_DIALOG]: DestroyDialogResult;
