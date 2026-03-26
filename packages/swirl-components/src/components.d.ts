@@ -2624,6 +2624,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconRepeat {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconReply {
         "color"?: SwirlIconColor1;
         /**
@@ -7221,6 +7228,12 @@ declare global {
         prototype: HTMLSwirlIconRemoveModeratorElement;
         new (): HTMLSwirlIconRemoveModeratorElement;
     };
+    interface HTMLSwirlIconRepeatElement extends Components.SwirlIconRepeat, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRepeatElement: {
+        prototype: HTMLSwirlIconRepeatElement;
+        new (): HTMLSwirlIconRepeatElement;
+    };
     interface HTMLSwirlIconReplyElement extends Components.SwirlIconReply, HTMLStencilElement {
     }
     var HTMLSwirlIconReplyElement: {
@@ -9266,6 +9279,7 @@ declare global {
         "swirl-icon-remove": HTMLSwirlIconRemoveElement;
         "swirl-icon-remove-circle": HTMLSwirlIconRemoveCircleElement;
         "swirl-icon-remove-moderator": HTMLSwirlIconRemoveModeratorElement;
+        "swirl-icon-repeat": HTMLSwirlIconRepeatElement;
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
         "swirl-icon-report": HTMLSwirlIconReportElement;
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
@@ -11884,6 +11898,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRemoveModerator {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRepeat {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -15631,6 +15652,10 @@ declare namespace LocalJSX {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
     }
+    interface SwirlIconRepeatAttributes {
+        "color": SwirlIconColor;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconReplyAttributes {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
@@ -17072,6 +17097,7 @@ declare namespace LocalJSX {
         "swirl-icon-remove": Omit<SwirlIconRemove, keyof SwirlIconRemoveAttributes> & { [K in keyof SwirlIconRemove & keyof SwirlIconRemoveAttributes]?: SwirlIconRemove[K] } & { [K in keyof SwirlIconRemove & keyof SwirlIconRemoveAttributes as `attr:${K}`]?: SwirlIconRemoveAttributes[K] } & { [K in keyof SwirlIconRemove & keyof SwirlIconRemoveAttributes as `prop:${K}`]?: SwirlIconRemove[K] };
         "swirl-icon-remove-circle": Omit<SwirlIconRemoveCircle, keyof SwirlIconRemoveCircleAttributes> & { [K in keyof SwirlIconRemoveCircle & keyof SwirlIconRemoveCircleAttributes]?: SwirlIconRemoveCircle[K] } & { [K in keyof SwirlIconRemoveCircle & keyof SwirlIconRemoveCircleAttributes as `attr:${K}`]?: SwirlIconRemoveCircleAttributes[K] } & { [K in keyof SwirlIconRemoveCircle & keyof SwirlIconRemoveCircleAttributes as `prop:${K}`]?: SwirlIconRemoveCircle[K] };
         "swirl-icon-remove-moderator": Omit<SwirlIconRemoveModerator, keyof SwirlIconRemoveModeratorAttributes> & { [K in keyof SwirlIconRemoveModerator & keyof SwirlIconRemoveModeratorAttributes]?: SwirlIconRemoveModerator[K] } & { [K in keyof SwirlIconRemoveModerator & keyof SwirlIconRemoveModeratorAttributes as `attr:${K}`]?: SwirlIconRemoveModeratorAttributes[K] } & { [K in keyof SwirlIconRemoveModerator & keyof SwirlIconRemoveModeratorAttributes as `prop:${K}`]?: SwirlIconRemoveModerator[K] };
+        "swirl-icon-repeat": Omit<SwirlIconRepeat, keyof SwirlIconRepeatAttributes> & { [K in keyof SwirlIconRepeat & keyof SwirlIconRepeatAttributes]?: SwirlIconRepeat[K] } & { [K in keyof SwirlIconRepeat & keyof SwirlIconRepeatAttributes as `attr:${K}`]?: SwirlIconRepeatAttributes[K] } & { [K in keyof SwirlIconRepeat & keyof SwirlIconRepeatAttributes as `prop:${K}`]?: SwirlIconRepeat[K] };
         "swirl-icon-reply": Omit<SwirlIconReply, keyof SwirlIconReplyAttributes> & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes]?: SwirlIconReply[K] } & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes as `attr:${K}`]?: SwirlIconReplyAttributes[K] } & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes as `prop:${K}`]?: SwirlIconReply[K] };
         "swirl-icon-report": Omit<SwirlIconReport, keyof SwirlIconReportAttributes> & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes]?: SwirlIconReport[K] } & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes as `attr:${K}`]?: SwirlIconReportAttributes[K] } & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes as `prop:${K}`]?: SwirlIconReport[K] };
         "swirl-icon-roadmap": Omit<SwirlIconRoadmap, keyof SwirlIconRoadmapAttributes> & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes]?: SwirlIconRoadmap[K] } & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes as `attr:${K}`]?: SwirlIconRoadmapAttributes[K] } & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes as `prop:${K}`]?: SwirlIconRoadmap[K] };
@@ -17559,6 +17585,7 @@ declare module "@stencil/core" {
             "swirl-icon-remove": LocalJSX.IntrinsicElements["swirl-icon-remove"] & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveElement>;
             "swirl-icon-remove-circle": LocalJSX.IntrinsicElements["swirl-icon-remove-circle"] & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveCircleElement>;
             "swirl-icon-remove-moderator": LocalJSX.IntrinsicElements["swirl-icon-remove-moderator"] & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveModeratorElement>;
+            "swirl-icon-repeat": LocalJSX.IntrinsicElements["swirl-icon-repeat"] & JSXBase.HTMLAttributes<HTMLSwirlIconRepeatElement>;
             "swirl-icon-reply": LocalJSX.IntrinsicElements["swirl-icon-reply"] & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
             "swirl-icon-report": LocalJSX.IntrinsicElements["swirl-icon-report"] & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
             "swirl-icon-roadmap": LocalJSX.IntrinsicElements["swirl-icon-roadmap"] & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
