@@ -1,5 +1,20 @@
 # @getflip/bridge
 
+## 0.11.0
+
+### Minor Changes
+
+- [#1555](https://github.com/getflip/swirl/pull/1555)
+  [`6def1bffa`](https://github.com/getflip/swirl/commit/6def1bffa705fa632c6cf4c4a35d415ef3ed5a32)
+  Thanks [@konnic](https://github.com/konnic)! - Add `close()` to request that
+  the host app close the current integration (bridge method `CLOSE`).
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a48b3714a`](https://github.com/getflip/swirl/commit/a48b3714a108fe58dd966fb50a0a56ed90db4d27)]:
+  - @getflip/swirl-components@0.464.1
+
 ## 0.10.200
 
 ### Patch Changes
