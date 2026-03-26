@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.464.1
+
+### Patch Changes
+
+- [#1552](https://github.com/getflip/swirl/pull/1552)
+  [`a48b3714a`](https://github.com/getflip/swirl/commit/a48b3714a108fe58dd966fb50a0a56ed90db4d27)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix emoji
+  assets name
+
+- Updated dependencies
+  [[`a48b3714a`](https://github.com/getflip/swirl/commit/a48b3714a108fe58dd966fb50a0a56ed90db4d27)]:
+  - @getflip/swirl-components@0.464.1
+
 ## 0.464.0
 
 ### Minor Changes
