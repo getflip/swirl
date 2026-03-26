@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.465.0
+
+### Minor Changes
+
+- [#1556](https://github.com/getflip/swirl/pull/1556)
+  [`52d3338ff`](https://github.com/getflip/swirl/commit/52d3338ffd2ed812ccba8d40a88de83a26c0e90d)
+  Thanks [@FabianMetzger](https://github.com/FabianMetzger)! - Added repeat icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`52d3338ff`](https://github.com/getflip/swirl/commit/52d3338ffd2ed812ccba8d40a88de83a26c0e90d)]:
+  - @getflip/swirl-icons@0.80.0
+
 ## 0.464.1
 
 ### Patch Changes
