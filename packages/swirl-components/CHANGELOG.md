@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.466.1
+
+### Patch Changes
+
+- [#1563](https://github.com/getflip/swirl/pull/1563)
+  [`57e74db36`](https://github.com/getflip/swirl/commit/57e74db36e56d8bbe7221d76b3f391d2a67f9be5)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix background
+  color of swirl-pdf-reader
+
 ## 0.466.0
 
 ### Minor Changes
