@@ -13,7 +13,7 @@
 .pdf-reader {
   position: fixed;
   z-index: var(--s-z-40);
-  background-color: var(--s-surface-raised-default);
+  background-color: var(--s-surface-neutral-subdued);
   inset: 0;
   touch-action: pan-x pan-y;
 
