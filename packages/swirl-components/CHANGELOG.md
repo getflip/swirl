@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.467.0
+
+### Minor Changes
+
+- [#1566](https://github.com/getflip/swirl/pull/1566)
+  [`9f0092653`](https://github.com/getflip/swirl/commit/9f009265394edc11aca4628b259d406c63470b2e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-app-layout print styles
+
 ## 0.466.2
 
 ### Patch Changes

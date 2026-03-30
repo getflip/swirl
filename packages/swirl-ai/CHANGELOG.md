@@ -1,5 +1,7 @@
 # @getflip/swirl-ai
 
+## 0.467.0
+
 ## 0.466.2
 
 ### Patch Changes
