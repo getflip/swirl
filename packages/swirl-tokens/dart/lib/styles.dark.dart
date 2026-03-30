@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 19 Mar 2026 16:44:48 GMT
+// Generated on Mon, 30 Mar 2026 13:34:05 GMT
 
 
 
@@ -210,7 +210,7 @@ class SwirlDesignTokensDark {
     static const fontWeightSemibold = FontWeight.w600;
     static const iconCritical = Color(0xFFE46464); /* Used as critical icon color */
     static const iconDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
-    static const iconDefault = Color(0xCCFFFFFF); /* Used for low emphasis icons. */
+    static const iconDefault = Color(0xFF9E9E9E); /* Used for low emphasis icons. */
     static const iconDisabled = Color(0x33FFFFFF); /* Used if a icon element is disabled. */
     static const iconHighlight = Color(0xFF6DA8FB); /* Used to highlight icons. */
     static const iconInfo = Color(0xFF648EE9); /* Used as info icon color */
@@ -299,7 +299,7 @@ class SwirlDesignTokensDark {
     static const textOnStatus = Color(0xFF000000); /* Used as a text color on containers with a status color. */
     static const textOnSurfaceHighlight = Color(0xFFF2F2F2); /* Used as text color on containers with highlight color. */
     static const textOnSurfaceHighlightSubdued = Color(0xFF96A3BF); /* Used as text color on containers with highlight color. */
-    static const textSubdued = Color(0xCCFFFFFF); /* Used for low emphasis text. */
+    static const textSubdued = Color(0xFF9E9E9E); /* Used for low emphasis text. */
     static const textSuccess = Color(0xFF50A450); /* Used as success text color */
     static const textWarning = Color(0xFFF3B703); /* Used as warning text color */
     static const translucentLowDefault = Color(0xCC2B2B2B); /* Used for surface with a backdrop blur and low transparency */

@@ -1181,7 +1181,7 @@
         "description": "Used for high emphasis text."
       },
       "subdued": {
-        "value": "{core.translucent-black.60}",
+        "value": "{core-gray-06}",
         "type": "color",
         "description": "Used for low emphasis text."
       },
@@ -1255,7 +1255,7 @@
         "description": "Used for high emphasis icons."
       },
       "default": {
-        "value": "{core.translucent-black.60}",
+        "value": "{core-gray-06}",
         "type": "color",
         "description": "Used for low emphasis icons."
       },
@@ -1935,7 +1935,7 @@
         "description": "Used for high emphasis text."
       },
       "subdued": {
-        "value": "{core.translucent-white.80}",
+        "value": "{core-gray-05}",
         "type": "color",
         "description": "Used for low emphasis text."
       },
@@ -2009,7 +2009,7 @@
         "description": "Used for high emphasis icons."
       },
       "default": {
-        "value": "{core.translucent-white.80}",
+        "value": "{core-gray-05}",
         "type": "color",
         "description": "Used for low emphasis icons."
       },

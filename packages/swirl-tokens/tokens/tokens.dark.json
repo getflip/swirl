@@ -944,7 +944,7 @@
     "comment": "Used for high emphasis text."
   },
   "text-subdued": {
-    "value": "{core-translucent-white-80}",
+    "value": "{core-gray-05}",
     "type": "color",
     "comment": "Used for low emphasis text."
   },
@@ -1014,7 +1014,7 @@
     "comment": "Used for high emphasis icons."
   },
   "icon-default": {
-    "value": "{core-translucent-white-80}",
+    "value": "{core-gray-05}",
     "type": "color",
     "comment": "Used for low emphasis icons."
   },
