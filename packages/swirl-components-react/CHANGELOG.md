@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.466.2
+
+### Patch Changes
+
+- [#1567](https://github.com/getflip/swirl/pull/1567)
+  [`e68469d40`](https://github.com/getflip/swirl/commit/e68469d4086386703034c11016432fb6db6710b7)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Change
+  text-subdued and icon-default token values
+
+- Updated dependencies
+  [[`e68469d40`](https://github.com/getflip/swirl/commit/e68469d4086386703034c11016432fb6db6710b7)]:
+  - @getflip/swirl-components@0.466.2
+
 ## 0.466.1
 
 ### Patch Changes
