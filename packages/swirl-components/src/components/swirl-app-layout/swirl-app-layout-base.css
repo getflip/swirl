@@ -817,3 +817,17 @@
     width: 25rem;
   }
 }
+
+@media print {
+  .app-layout__content {
+    overflow: visible;
+  }
+
+  :host,
+  .app-layout,
+  .app-layout__grid,
+  .app-layout__body {
+    height: auto;
+    overflow: visible;
+  }
+}
