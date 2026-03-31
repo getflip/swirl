@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Mon, 30 Mar 2026 13:34:05 GMT
+// Generated on Tue, 31 Mar 2026 12:26:52 GMT
 
 
 
@@ -117,7 +117,7 @@ class SwirlDesignTokensDark {
     static const coreGray03 = Color(0xFFDFDFDF);
     static const coreGray04 = Color(0xFFCFCFCF);
     static const coreGray05 = Color(0xFF9E9E9E);
-    static const coreGray06 = Color(0xFF6E6E6E);
+    static const coreGray06 = Color(0xFF6C6C6C);
     static const coreGray07 = Color(0xFF515151);
     static const coreGray08 = Color(0xFF3F3F3F);
     static const coreGray09 = Color(0xFF363636);
@@ -228,8 +228,8 @@ class SwirlDesignTokensDark {
     static const interactiveCriticalPressed = Color(0xFFD79391); /* Used if a component with “Interactive Critical/Default” has a pressed state. */
     static const interactiveNeutralDefault = Color(0xCCFFFFFF); /* Used for icon and text that are low emphasis interactive elements. */
     static const interactiveNeutralDisabled = Color(0xFF515151); /* Used if a component with “Interactive Neutral/Default” has a disabled state. */
-    static const interactiveNeutralHovered = Color(0xFF6E6E6E); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
-    static const interactiveNeutralPressed = Color(0xFF6E6E6E); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
+    static const interactiveNeutralHovered = Color(0xFF6C6C6C); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
+    static const interactiveNeutralPressed = Color(0xFF6C6C6C); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
     static const interactivePrimaryDefault = Color(0xFF6DA8FB); /* Used for icon and text that are high emphasis interactive elements. */
     static const interactivePrimaryDisabled = Color(0x0FFFFFFF); /* Used if a component with “Interactive Primary/Default” has a disabled state. */
     static const interactivePrimaryHovered = Color(0xFF8DBCFF); /* Used if a component with “Interactive Primary/Default” has a hovered state. */
