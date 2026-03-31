@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.468.0
+
+### Minor Changes
+
+- [#1570](https://github.com/getflip/swirl/pull/1570)
+  [`b2ed81b8a`](https://github.com/getflip/swirl/commit/b2ed81b8aa99a8199e17a425d4644072f22246aa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add print styles for swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b2ed81b8a`](https://github.com/getflip/swirl/commit/b2ed81b8aa99a8199e17a425d4644072f22246aa)]:
+  - @getflip/swirl-components@0.468.0
+
 ## 0.467.0
 
 ### Minor Changes
