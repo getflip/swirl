@@ -196,3 +196,20 @@ button.card,
 .card__content {
   min-height: 100%;
 }
+
+@media print {
+  .card {
+    overflow: visible;
+    height: auto;
+    min-height: fit-content;
+  }
+
+  .card__body {
+    min-height: auto;
+    flex-grow: 0;
+  }
+
+  .card__content {
+    min-height: auto;
+  }
+}
