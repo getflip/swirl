@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Mon, 30 Mar 2026 13:34:05 GMT
+// Generated on Tue, 31 Mar 2026 12:26:52 GMT
 
 
 
@@ -117,7 +117,7 @@ class SwirlDesignTokensLight {
     static const coreGray03 = Color(0xFFDFDFDF);
     static const coreGray04 = Color(0xFFCFCFCF);
     static const coreGray05 = Color(0xFF9E9E9E);
-    static const coreGray06 = Color(0xFF6E6E6E);
+    static const coreGray06 = Color(0xFF6C6C6C);
     static const coreGray07 = Color(0xFF515151);
     static const coreGray08 = Color(0xFF3F3F3F);
     static const coreGray09 = Color(0xFF363636);
@@ -210,7 +210,7 @@ class SwirlDesignTokensLight {
     static const fontWeightSemibold = FontWeight.w600;
     static const iconCritical = Color(0xFFD50636); /* Used as critical icon color */
     static const iconDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
-    static const iconDefault = Color(0xFF6E6E6E); /* Used for low emphasis icons. */
+    static const iconDefault = Color(0xFF6C6C6C); /* Used for low emphasis icons. */
     static const iconDisabled = Color(0x33000000); /* Used if a icon element is disabled. */
     static const iconHighlight = Color(0xFF0037AF); /* Used to highlight icons. */
     static const iconInfo = Color(0xFF145AF5); /* Used as info icon color */
@@ -299,7 +299,7 @@ class SwirlDesignTokensLight {
     static const textOnStatus = Color(0xFFFFFFFF); /* Used as a text color on containers with a default status color except on warning. */
     static const textOnSurfaceHighlight = Color(0xFF171717); /* Used as text color on containers with highlight color. */
     static const textOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued text color on containers with highlight color. */
-    static const textSubdued = Color(0xFF6E6E6E); /* Used for low emphasis text. */
+    static const textSubdued = Color(0xFF6C6C6C); /* Used for low emphasis text. */
     static const textSuccess = Color(0xFF088108); /* Used as success text color */
     static const textWarning = Color(0xFF935806); /* Used as warning text color */
     static const translucentLowDefault = Color(0xCCFFFFFF); /* Used for surface with a backdrop blur and low transparency */
