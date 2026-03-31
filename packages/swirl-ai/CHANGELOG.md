@@ -1,5 +1,13 @@
 # @getflip/swirl-ai
 
+## 0.469.0
+
+### Minor Changes
+
+- [#1574](https://github.com/getflip/swirl/pull/1574)
+  [`d6850bc9b`](https://github.com/getflip/swirl/commit/d6850bc9bc2f3892a5570770458c0bff584204ad)
+  Thanks [@danizep](https://github.com/danizep)! - Add several icons for flows
+
 ## 0.468.1
 
 ### Patch Changes
