@@ -1,5 +1,14 @@
 # @getflip/swirl-ai
 
+## 0.468.1
+
+### Patch Changes
+
+- [#1572](https://github.com/getflip/swirl/pull/1572)
+  [`81bfdbb98`](https://github.com/getflip/swirl/commit/81bfdbb983790494be1b944921190cdd879a0ab4)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update
+  core-gray-06 token
+
 ## 0.468.0
 
 ### Minor Changes
