@@ -1,4 +1,5 @@
 ---
+"@getflip/swirl-components": minor
 "@getflip/swirl-icons": minor
 ---
 
