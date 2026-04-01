@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.83.0
+
+### Minor Changes
+
+- [#1577](https://github.com/getflip/swirl/pull/1577)
+  [`43a9f2756`](https://github.com/getflip/swirl/commit/43a9f2756486776586e46b57a4abb94f6e1dffb2)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add
+  QrCodeScanner icon
+
 ## 0.82.0
 
 ### Minor Changes
