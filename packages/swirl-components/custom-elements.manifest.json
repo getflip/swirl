@@ -28897,6 +28897,101 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/swirl-icon/icons/swirl-icon-qr-code-scanner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-icon-qr-code-scanner",
+          "name": "SwirlIconQrCodeScanner",
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "fieldName": "color"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "readonly": true,
+              "attribute": "size"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "icon"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIconQrCodeScanner",
+          "declaration": {
+            "name": "SwirlIconQrCodeScanner"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-icon-qr-code-scanner",
+          "declaration": {
+            "name": "SwirlIconQrCodeScanner"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/swirl-icon/icons/swirl-icon-ratio-four-to-three.tsx",
       "declarations": [
         {
