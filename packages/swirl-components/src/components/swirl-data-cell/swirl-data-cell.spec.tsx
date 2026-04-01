@@ -2,6 +2,32 @@ import { newSpecPage } from "@stencil/core/testing";
 import { SwirlDataCell } from "./swirl-data-cell";
 
 describe("swirl-data-cell", () => {
+  it("renders as group when used standalone", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>`,
+    });
+
+    expect(page.root?.getAttribute("role")).toBe("group");
+  });
+
+  it("renders as listitem when used inside a data cell stack", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell-stack>
+          <swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>
+        </swirl-data-cell-stack>
+      `,
+    });
+
+    const dataCell = page.body.querySelector("swirl-data-cell");
+    const wrapper = dataCell?.shadowRoot?.querySelector(".data-cell");
+
+    expect(dataCell?.getAttribute("role")).toBe("listitem");
+    expect(wrapper?.getAttribute("role")).toBe("group");
+  });
+
   it("renders with label and value", async () => {
     const page = await newSpecPage({
       components: [SwirlDataCell],
