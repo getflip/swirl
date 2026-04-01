@@ -2603,6 +2603,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconQrCodeScanner {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
         /**
@@ -7287,6 +7294,12 @@ declare global {
         prototype: HTMLSwirlIconPublishedWithChangesElement;
         new (): HTMLSwirlIconPublishedWithChangesElement;
     };
+    interface HTMLSwirlIconQrCodeScannerElement extends Components.SwirlIconQrCodeScanner, HTMLStencilElement {
+    }
+    var HTMLSwirlIconQrCodeScannerElement: {
+        prototype: HTMLSwirlIconQrCodeScannerElement;
+        new (): HTMLSwirlIconQrCodeScannerElement;
+    };
     interface HTMLSwirlIconRatioFourToThreeElement extends Components.SwirlIconRatioFourToThree, HTMLStencilElement {
     }
     var HTMLSwirlIconRatioFourToThreeElement: {
@@ -9419,6 +9432,7 @@ declare global {
         "swirl-icon-public": HTMLSwirlIconPublicElement;
         "swirl-icon-public-off": HTMLSwirlIconPublicOffElement;
         "swirl-icon-published-with-changes": HTMLSwirlIconPublishedWithChangesElement;
+        "swirl-icon-qr-code-scanner": HTMLSwirlIconQrCodeScannerElement;
         "swirl-icon-ratio-four-to-three": HTMLSwirlIconRatioFourToThreeElement;
         "swirl-icon-ratio-freeform": HTMLSwirlIconRatioFreeformElement;
         "swirl-icon-ratio-sixteen-to-nine": HTMLSwirlIconRatioSixteenToNineElement;
@@ -12031,6 +12045,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPublishedWithChanges {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconQrCodeScanner {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -15871,6 +15892,10 @@ declare namespace LocalJSX {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
     }
+    interface SwirlIconQrCodeScannerAttributes {
+        "color": SwirlIconColor;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRatioFourToThreeAttributes {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
@@ -17369,6 +17394,7 @@ declare namespace LocalJSX {
         "swirl-icon-public": Omit<SwirlIconPublic, keyof SwirlIconPublicAttributes> & { [K in keyof SwirlIconPublic & keyof SwirlIconPublicAttributes]?: SwirlIconPublic[K] } & { [K in keyof SwirlIconPublic & keyof SwirlIconPublicAttributes as `attr:${K}`]?: SwirlIconPublicAttributes[K] } & { [K in keyof SwirlIconPublic & keyof SwirlIconPublicAttributes as `prop:${K}`]?: SwirlIconPublic[K] };
         "swirl-icon-public-off": Omit<SwirlIconPublicOff, keyof SwirlIconPublicOffAttributes> & { [K in keyof SwirlIconPublicOff & keyof SwirlIconPublicOffAttributes]?: SwirlIconPublicOff[K] } & { [K in keyof SwirlIconPublicOff & keyof SwirlIconPublicOffAttributes as `attr:${K}`]?: SwirlIconPublicOffAttributes[K] } & { [K in keyof SwirlIconPublicOff & keyof SwirlIconPublicOffAttributes as `prop:${K}`]?: SwirlIconPublicOff[K] };
         "swirl-icon-published-with-changes": Omit<SwirlIconPublishedWithChanges, keyof SwirlIconPublishedWithChangesAttributes> & { [K in keyof SwirlIconPublishedWithChanges & keyof SwirlIconPublishedWithChangesAttributes]?: SwirlIconPublishedWithChanges[K] } & { [K in keyof SwirlIconPublishedWithChanges & keyof SwirlIconPublishedWithChangesAttributes as `attr:${K}`]?: SwirlIconPublishedWithChangesAttributes[K] } & { [K in keyof SwirlIconPublishedWithChanges & keyof SwirlIconPublishedWithChangesAttributes as `prop:${K}`]?: SwirlIconPublishedWithChanges[K] };
+        "swirl-icon-qr-code-scanner": Omit<SwirlIconQrCodeScanner, keyof SwirlIconQrCodeScannerAttributes> & { [K in keyof SwirlIconQrCodeScanner & keyof SwirlIconQrCodeScannerAttributes]?: SwirlIconQrCodeScanner[K] } & { [K in keyof SwirlIconQrCodeScanner & keyof SwirlIconQrCodeScannerAttributes as `attr:${K}`]?: SwirlIconQrCodeScannerAttributes[K] } & { [K in keyof SwirlIconQrCodeScanner & keyof SwirlIconQrCodeScannerAttributes as `prop:${K}`]?: SwirlIconQrCodeScanner[K] };
         "swirl-icon-ratio-four-to-three": Omit<SwirlIconRatioFourToThree, keyof SwirlIconRatioFourToThreeAttributes> & { [K in keyof SwirlIconRatioFourToThree & keyof SwirlIconRatioFourToThreeAttributes]?: SwirlIconRatioFourToThree[K] } & { [K in keyof SwirlIconRatioFourToThree & keyof SwirlIconRatioFourToThreeAttributes as `attr:${K}`]?: SwirlIconRatioFourToThreeAttributes[K] } & { [K in keyof SwirlIconRatioFourToThree & keyof SwirlIconRatioFourToThreeAttributes as `prop:${K}`]?: SwirlIconRatioFourToThree[K] };
         "swirl-icon-ratio-freeform": Omit<SwirlIconRatioFreeform, keyof SwirlIconRatioFreeformAttributes> & { [K in keyof SwirlIconRatioFreeform & keyof SwirlIconRatioFreeformAttributes]?: SwirlIconRatioFreeform[K] } & { [K in keyof SwirlIconRatioFreeform & keyof SwirlIconRatioFreeformAttributes as `attr:${K}`]?: SwirlIconRatioFreeformAttributes[K] } & { [K in keyof SwirlIconRatioFreeform & keyof SwirlIconRatioFreeformAttributes as `prop:${K}`]?: SwirlIconRatioFreeform[K] };
         "swirl-icon-ratio-sixteen-to-nine": Omit<SwirlIconRatioSixteenToNine, keyof SwirlIconRatioSixteenToNineAttributes> & { [K in keyof SwirlIconRatioSixteenToNine & keyof SwirlIconRatioSixteenToNineAttributes]?: SwirlIconRatioSixteenToNine[K] } & { [K in keyof SwirlIconRatioSixteenToNine & keyof SwirlIconRatioSixteenToNineAttributes as `attr:${K}`]?: SwirlIconRatioSixteenToNineAttributes[K] } & { [K in keyof SwirlIconRatioSixteenToNine & keyof SwirlIconRatioSixteenToNineAttributes as `prop:${K}`]?: SwirlIconRatioSixteenToNine[K] };
@@ -17868,6 +17894,7 @@ declare module "@stencil/core" {
             "swirl-icon-public": LocalJSX.IntrinsicElements["swirl-icon-public"] & JSXBase.HTMLAttributes<HTMLSwirlIconPublicElement>;
             "swirl-icon-public-off": LocalJSX.IntrinsicElements["swirl-icon-public-off"] & JSXBase.HTMLAttributes<HTMLSwirlIconPublicOffElement>;
             "swirl-icon-published-with-changes": LocalJSX.IntrinsicElements["swirl-icon-published-with-changes"] & JSXBase.HTMLAttributes<HTMLSwirlIconPublishedWithChangesElement>;
+            "swirl-icon-qr-code-scanner": LocalJSX.IntrinsicElements["swirl-icon-qr-code-scanner"] & JSXBase.HTMLAttributes<HTMLSwirlIconQrCodeScannerElement>;
             "swirl-icon-ratio-four-to-three": LocalJSX.IntrinsicElements["swirl-icon-ratio-four-to-three"] & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFourToThreeElement>;
             "swirl-icon-ratio-freeform": LocalJSX.IntrinsicElements["swirl-icon-ratio-freeform"] & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFreeformElement>;
             "swirl-icon-ratio-sixteen-to-nine": LocalJSX.IntrinsicElements["swirl-icon-ratio-sixteen-to-nine"] & JSXBase.HTMLAttributes<HTMLSwirlIconRatioSixteenToNineElement>;
