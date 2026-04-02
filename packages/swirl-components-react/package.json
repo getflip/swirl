@@ -1,6 +1,10 @@
 {
   "name": "@getflip/swirl-components-react",
   "version": "0.470.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getflip/swirl"
+  },
   "type": "module",
   "files": [
     "dist"
