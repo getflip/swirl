@@ -3,7 +3,10 @@
   "version": "0.470.0",
   "description": "Swirl Design System AI package with artifacts for AI agents",
   "author": "Flip GmbH",
-  "repository": "https://github.com/getflip/swirl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getflip/swirl"
+  },
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/getflip/swirl/issues"

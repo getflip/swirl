@@ -3,7 +3,10 @@
   "version": "2.14.1",
   "description": "Swirl Design System Tokens package with a number of different formats for Web and Mobile.",
   "author": "Flip GmbH",
-  "repository": "https://github.com/getflip/swirl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getflip/swirl"
+  },
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/getflip/swirl/issues"

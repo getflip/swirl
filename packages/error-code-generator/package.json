@@ -2,6 +2,10 @@
   "name": "@getflip/error-code-generator",
   "version": "0.7.1",
   "description": "A library to extract error codes from an open api spec and generate error codes types and objects for TypeScript and Dart.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getflip/swirl"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
