@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.470.1
+
+### Patch Changes
+
+- [#1581](https://github.com/getflip/swirl/pull/1581)
+  [`f0a0d9a54`](https://github.com/getflip/swirl/commit/f0a0d9a5431bf5711d8f0e9b29b3e33d4a9611c6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Test release for new publishing
+  workflow
+
 ## 0.470.0
 
 ### Minor Changes
