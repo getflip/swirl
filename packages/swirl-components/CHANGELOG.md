@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.471.0
+
+### Minor Changes
+
+- [#1584](https://github.com/getflip/swirl/pull/1584)
+  [`bf594bcf0`](https://github.com/getflip/swirl/commit/bf594bcf045e56850cebec7b2c31b9a2a6fe6fe1)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add EndSeries
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`bf594bcf0`](https://github.com/getflip/swirl/commit/bf594bcf045e56850cebec7b2c31b9a2a6fe6fe1)]:
+  - @getflip/swirl-icons@0.84.0
+
 ## 0.470.1
 
 ### Patch Changes
