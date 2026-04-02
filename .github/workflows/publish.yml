@@ -26,8 +26,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 22.14.0
+          registry-url: "https://registry.npmjs.org"
       - run: npm install -g npm@11
       - run: yarn install --ignore-scripts
 
@@ -70,8 +70,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 22.14.0
+          registry-url: "https://registry.npmjs.org"
       - run: npm install -g npm@11
       - run: yarn install --ignore-scripts
 
