@@ -3901,6 +3901,9 @@ export namespace Components {
          */
         "spacing"?: SwirlSeparatorSpacing1;
     }
+    /**
+     * @deprecated This component is deprecated and will be removed in the next major release.
+     */
     interface SwirlShellLayout {
         "brandedHeader"?: boolean;
         /**
@@ -3964,6 +3967,9 @@ export namespace Components {
          */
         "skipLinkLabel"?: string;
     }
+    /**
+     * @deprecated This component is deprecated and will be removed in the next major release.
+     */
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
@@ -8105,6 +8111,9 @@ declare global {
         "historyForwardClick": MouseEvent;
         "skipLinkClick": MouseEvent;
     }
+    /**
+     * @deprecated This component is deprecated and will be removed in the next major release.
+     */
     interface HTMLSwirlShellLayoutElement extends Components.SwirlShellLayout, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlShellLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlShellLayoutElement, ev: SwirlShellLayoutCustomEvent<HTMLSwirlShellLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -8119,6 +8128,9 @@ declare global {
         prototype: HTMLSwirlShellLayoutElement;
         new (): HTMLSwirlShellLayoutElement;
     };
+    /**
+     * @deprecated This component is deprecated and will be removed in the next major release.
+     */
     interface HTMLSwirlShellNavigationItemElement extends Components.SwirlShellNavigationItem, HTMLStencilElement {
     }
     var HTMLSwirlShellNavigationItemElement: {
@@ -13300,6 +13312,9 @@ declare namespace LocalJSX {
          */
         "spacing"?: SwirlSeparatorSpacing1;
     }
+    /**
+     * @deprecated This component is deprecated and will be removed in the next major release.
+     */
     interface SwirlShellLayout {
         "brandedHeader"?: boolean;
         /**
@@ -13358,6 +13373,9 @@ declare namespace LocalJSX {
          */
         "skipLinkLabel"?: string;
     }
+    /**
+     * @deprecated This component is deprecated and will be removed in the next major release.
+     */
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
@@ -18017,7 +18035,13 @@ declare module "@stencil/core" {
             "swirl-search": LocalJSX.IntrinsicElements["swirl-search"] & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
             "swirl-select": LocalJSX.IntrinsicElements["swirl-select"] & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.IntrinsicElements["swirl-separator"] & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;
+            /**
+             * @deprecated This component is deprecated and will be removed in the next major release.
+             */
             "swirl-shell-layout": LocalJSX.IntrinsicElements["swirl-shell-layout"] & JSXBase.HTMLAttributes<HTMLSwirlShellLayoutElement>;
+            /**
+             * @deprecated This component is deprecated and will be removed in the next major release.
+             */
             "swirl-shell-navigation-item": LocalJSX.IntrinsicElements["swirl-shell-navigation-item"] & JSXBase.HTMLAttributes<HTMLSwirlShellNavigationItemElement>;
             "swirl-skeleton-box": LocalJSX.IntrinsicElements["swirl-skeleton-box"] & JSXBase.HTMLAttributes<HTMLSwirlSkeletonBoxElement>;
             "swirl-skeleton-text": LocalJSX.IntrinsicElements["swirl-skeleton-text"] & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;

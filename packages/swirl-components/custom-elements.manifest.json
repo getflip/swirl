@@ -42861,6 +42861,7 @@
           "customElement": true,
           "tagName": "swirl-shell-layout",
           "name": "SwirlShellLayout",
+          "deprecated": "This component is deprecated and will be removed in the next major release.",
           "attributes": [
             {
               "name": "branded-header",
@@ -43261,6 +43262,7 @@
           "customElement": true,
           "tagName": "swirl-shell-navigation-item",
           "name": "SwirlShellNavigationItem",
+          "deprecated": "This component is deprecated and will be removed in the next major release.",
           "attributes": [
             {
               "name": "active",

@@ -30,6 +30,7 @@ export type SwirlShellLayoutSecondaryNavGridItemVariant = Exclude<
 >;
 
 /**
+ * @deprecated This component is deprecated and will be removed in the next major release.
  * @slot logo - Logo shown inside header.
  * @slot left-header-tools - Tools positioned on the header's left-hand side.
  * @slot right-header-tools - Tools positioned on the header's right-hand side.
@@ -83,6 +84,9 @@ export class SwirlShellLayout {
   private secondaryNavItems: HTMLSwirlShellNavigationItemElement[];
 
   componentWillLoad() {
+    console.warn(
+      '[Swirl] The "swirl-shell-layout" component is deprecated and will be removed in the next major release.'
+    );
     this.isDesktopViewport = isDesktopViewport();
     this.collectNavItems();
 
