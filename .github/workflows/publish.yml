@@ -1,21 +1,34 @@
+# Publishes to npm via OIDC trusted publishing (no NPM_TOKEN).
+# Register this workflow file on npmjs.com → each package → Settings → Trusted Publisher.
+# See https://docs.npmjs.com/trusted-publishers
+
 name: Publish
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
 
 jobs:
   release:
     name: Build and publish
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install -g npm@11
       - run: yarn install --ignore-scripts
 
       - name: Publish to npm
@@ -26,7 +39,6 @@ jobs:
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: yarn prepare-dart-packages
 
@@ -49,3 +61,29 @@ jobs:
           flutter: true
           accessToken: ${{ secrets.PUB_DEV_ACCESS_TOKEN }}
           refreshToken: ${{ secrets.PUB_DEV_REFRESH_TOKEN }}
+
+  snapshot:
+    name: Publish beta release
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install -g npm@11
+      - run: yarn install --ignore-scripts
+
+      - name: Build packages
+        run: yarn build:packages
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+
+      - name: Create snapshot versions
+        run: npx changeset version --snapshot beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish snapshot to npm
+        run: npx changeset publish --tag beta
