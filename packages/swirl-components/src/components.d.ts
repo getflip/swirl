@@ -1868,6 +1868,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconEndSeries {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconError {
         "color"?: SwirlIconColor1;
         /**
@@ -6664,6 +6671,12 @@ declare global {
         prototype: HTMLSwirlIconEmojiSymbolsElement;
         new (): HTMLSwirlIconEmojiSymbolsElement;
     };
+    interface HTMLSwirlIconEndSeriesElement extends Components.SwirlIconEndSeries, HTMLStencilElement {
+    }
+    var HTMLSwirlIconEndSeriesElement: {
+        prototype: HTMLSwirlIconEndSeriesElement;
+        new (): HTMLSwirlIconEndSeriesElement;
+    };
     interface HTMLSwirlIconErrorElement extends Components.SwirlIconError, HTMLStencilElement {
     }
     var HTMLSwirlIconErrorElement: {
@@ -9327,6 +9340,7 @@ declare global {
         "swirl-icon-emoji-mood": HTMLSwirlIconEmojiMoodElement;
         "swirl-icon-emoji-satisfied": HTMLSwirlIconEmojiSatisfiedElement;
         "swirl-icon-emoji-symbols": HTMLSwirlIconEmojiSymbolsElement;
+        "swirl-icon-end-series": HTMLSwirlIconEndSeriesElement;
         "swirl-icon-error": HTMLSwirlIconErrorElement;
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
@@ -11310,6 +11324,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEmojiSymbols {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconEndSeries {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -15472,6 +15493,10 @@ declare namespace LocalJSX {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
     }
+    interface SwirlIconEndSeriesAttributes {
+        "color": SwirlIconColor;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconErrorAttributes {
         "color": SwirlIconColor;
         "size": SwirlIconSize;
@@ -17289,6 +17314,7 @@ declare namespace LocalJSX {
         "swirl-icon-emoji-mood": Omit<SwirlIconEmojiMood, keyof SwirlIconEmojiMoodAttributes> & { [K in keyof SwirlIconEmojiMood & keyof SwirlIconEmojiMoodAttributes]?: SwirlIconEmojiMood[K] } & { [K in keyof SwirlIconEmojiMood & keyof SwirlIconEmojiMoodAttributes as `attr:${K}`]?: SwirlIconEmojiMoodAttributes[K] } & { [K in keyof SwirlIconEmojiMood & keyof SwirlIconEmojiMoodAttributes as `prop:${K}`]?: SwirlIconEmojiMood[K] };
         "swirl-icon-emoji-satisfied": Omit<SwirlIconEmojiSatisfied, keyof SwirlIconEmojiSatisfiedAttributes> & { [K in keyof SwirlIconEmojiSatisfied & keyof SwirlIconEmojiSatisfiedAttributes]?: SwirlIconEmojiSatisfied[K] } & { [K in keyof SwirlIconEmojiSatisfied & keyof SwirlIconEmojiSatisfiedAttributes as `attr:${K}`]?: SwirlIconEmojiSatisfiedAttributes[K] } & { [K in keyof SwirlIconEmojiSatisfied & keyof SwirlIconEmojiSatisfiedAttributes as `prop:${K}`]?: SwirlIconEmojiSatisfied[K] };
         "swirl-icon-emoji-symbols": Omit<SwirlIconEmojiSymbols, keyof SwirlIconEmojiSymbolsAttributes> & { [K in keyof SwirlIconEmojiSymbols & keyof SwirlIconEmojiSymbolsAttributes]?: SwirlIconEmojiSymbols[K] } & { [K in keyof SwirlIconEmojiSymbols & keyof SwirlIconEmojiSymbolsAttributes as `attr:${K}`]?: SwirlIconEmojiSymbolsAttributes[K] } & { [K in keyof SwirlIconEmojiSymbols & keyof SwirlIconEmojiSymbolsAttributes as `prop:${K}`]?: SwirlIconEmojiSymbols[K] };
+        "swirl-icon-end-series": Omit<SwirlIconEndSeries, keyof SwirlIconEndSeriesAttributes> & { [K in keyof SwirlIconEndSeries & keyof SwirlIconEndSeriesAttributes]?: SwirlIconEndSeries[K] } & { [K in keyof SwirlIconEndSeries & keyof SwirlIconEndSeriesAttributes as `attr:${K}`]?: SwirlIconEndSeriesAttributes[K] } & { [K in keyof SwirlIconEndSeries & keyof SwirlIconEndSeriesAttributes as `prop:${K}`]?: SwirlIconEndSeries[K] };
         "swirl-icon-error": Omit<SwirlIconError, keyof SwirlIconErrorAttributes> & { [K in keyof SwirlIconError & keyof SwirlIconErrorAttributes]?: SwirlIconError[K] } & { [K in keyof SwirlIconError & keyof SwirlIconErrorAttributes as `attr:${K}`]?: SwirlIconErrorAttributes[K] } & { [K in keyof SwirlIconError & keyof SwirlIconErrorAttributes as `prop:${K}`]?: SwirlIconError[K] };
         "swirl-icon-expand-less": Omit<SwirlIconExpandLess, keyof SwirlIconExpandLessAttributes> & { [K in keyof SwirlIconExpandLess & keyof SwirlIconExpandLessAttributes]?: SwirlIconExpandLess[K] } & { [K in keyof SwirlIconExpandLess & keyof SwirlIconExpandLessAttributes as `attr:${K}`]?: SwirlIconExpandLessAttributes[K] } & { [K in keyof SwirlIconExpandLess & keyof SwirlIconExpandLessAttributes as `prop:${K}`]?: SwirlIconExpandLess[K] };
         "swirl-icon-expand-more": Omit<SwirlIconExpandMore, keyof SwirlIconExpandMoreAttributes> & { [K in keyof SwirlIconExpandMore & keyof SwirlIconExpandMoreAttributes]?: SwirlIconExpandMore[K] } & { [K in keyof SwirlIconExpandMore & keyof SwirlIconExpandMoreAttributes as `attr:${K}`]?: SwirlIconExpandMoreAttributes[K] } & { [K in keyof SwirlIconExpandMore & keyof SwirlIconExpandMoreAttributes as `prop:${K}`]?: SwirlIconExpandMore[K] };
@@ -17789,6 +17815,7 @@ declare module "@stencil/core" {
             "swirl-icon-emoji-mood": LocalJSX.IntrinsicElements["swirl-icon-emoji-mood"] & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiMoodElement>;
             "swirl-icon-emoji-satisfied": LocalJSX.IntrinsicElements["swirl-icon-emoji-satisfied"] & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSatisfiedElement>;
             "swirl-icon-emoji-symbols": LocalJSX.IntrinsicElements["swirl-icon-emoji-symbols"] & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSymbolsElement>;
+            "swirl-icon-end-series": LocalJSX.IntrinsicElements["swirl-icon-end-series"] & JSXBase.HTMLAttributes<HTMLSwirlIconEndSeriesElement>;
             "swirl-icon-error": LocalJSX.IntrinsicElements["swirl-icon-error"] & JSXBase.HTMLAttributes<HTMLSwirlIconErrorElement>;
             "swirl-icon-expand-less": LocalJSX.IntrinsicElements["swirl-icon-expand-less"] & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.IntrinsicElements["swirl-icon-expand-more"] & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
