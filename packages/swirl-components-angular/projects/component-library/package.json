@@ -1,6 +1,10 @@
 {
   "name": "@getflip/swirl-components-angular",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getflip/swirl"
+  },
   "peerDependencies": {
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0"
