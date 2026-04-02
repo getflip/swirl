@@ -309,6 +309,10 @@ export namespace Components {
           * Get state of the collapsible navigation
          */
         "getCollapsibleNavigationState": () => Promise<SwirlAppLayoutNavigationExpansionState>;
+        /**
+          * Get the scroll container of the main content area
+         */
+        "getScrollContainer": () => Promise<HTMLElement | undefined>;
         "hasNavigation": boolean;
         "hideAppBar"?: boolean;
         /**
