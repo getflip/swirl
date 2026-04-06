@@ -285,6 +285,14 @@ export class SwirlAppLayout {
   }
 
   /**
+   * Get the scroll container of the main content area
+   */
+  @Method()
+  async getScrollContainer(): Promise<HTMLElement | undefined> {
+    return this.contentEl;
+  }
+
+  /**
    * Change the currently displayed view on mobile viewports
    * @param mobileView
    */

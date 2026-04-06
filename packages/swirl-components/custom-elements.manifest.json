@@ -1595,6 +1595,26 @@
             },
             {
               "kind": "method",
+              "name": "getScrollContainer",
+              "description": "Get the scroll container of the main content area",
+              "return": {
+                "type": {
+                  "text": "Promise<HTMLElement>",
+                  "references": [
+                    {
+                      "name": "Promise",
+                      "package": "global:"
+                    },
+                    {
+                      "name": "HTMLElement",
+                      "package": "global:"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "kind": "method",
               "name": "hideSidebar",
               "description": "Hide the sidebar",
               "return": {
