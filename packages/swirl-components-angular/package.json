@@ -18,24 +18,24 @@
     }
   },
   "dependencies": {
-    "@angular/animations": "20.3.18",
-    "@angular/common": "20.3.18",
-    "@angular/compiler": "20.3.18",
-    "@angular/core": "20.3.18",
-    "@angular/forms": "20.3.18",
-    "@angular/platform-browser": "20.3.18",
-    "@angular/platform-browser-dynamic": "20.3.18",
-    "@angular/router": "20.3.18",
+    "@angular/animations": "19.2.19",
+    "@angular/common": "19.2.19",
+    "@angular/compiler": "19.2.19",
+    "@angular/core": "19.2.19",
+    "@angular/forms": "19.2.19",
+    "@angular/platform-browser": "19.2.19",
+    "@angular/platform-browser-dynamic": "19.2.19",
+    "@angular/router": "19.2.19",
     "@getflip/swirl-components": "0.471.0",
     "rxjs": "7.8.2",
     "tslib": "2.4.0",
     "zone.js": "0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.22",
-    "@angular/cli": "20.3.22",
-    "@angular/compiler-cli": "20.3.18",
-    "ng-packagr": "20.3.2",
-    "typescript": "5.9.3"
+    "@angular-devkit/build-angular": "19.2.20",
+    "@angular/cli": "19.2.20",
+    "@angular/compiler-cli": "19.2.19",
+    "ng-packagr": "19.2.2",
+    "typescript": "5.7.3"
   }
 }
