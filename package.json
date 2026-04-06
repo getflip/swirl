@@ -6,23 +6,17 @@
     "type": "git",
     "url": "https://github.com/getflip/swirl"
   },
-  "workspaces": {
-    "packages": [
-      "./packages/bridge",
-      "./packages/swirl-ai",
-      "./packages/swirl-components",
-      "./packages/swirl-components-angular",
-      "./packages/swirl-components-react",
-      "./packages/swirl-icons",
-      "./packages/swirl-tokens",
-      "./packages/error-code-generator",
-      "./apps/swirl-docs"
-    ],
-    "nohoist": [
-      "**/@getflip/swirl-components-react/@babel/**",
-      "**/@getflip/swirl-components-react/@vitejs/**"
-    ]
-  },
+  "workspaces": [
+    "./packages/bridge",
+    "./packages/swirl-ai",
+    "./packages/swirl-components",
+    "./packages/swirl-components-angular",
+    "./packages/swirl-components-react",
+    "./packages/swirl-icons",
+    "./packages/swirl-tokens",
+    "./packages/error-code-generator",
+    "./apps/swirl-docs"
+  ],
   "private": true,
   "scripts": {
     "build": "turbo run build",
