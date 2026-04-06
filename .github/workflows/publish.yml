@@ -28,6 +28,8 @@ jobs:
         with:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
+      - run: npm -v
+      - run: npm install -g npm@lastest
       - run: yarn install --ignore-scripts
 
       - name: Publish to npm
@@ -71,6 +73,8 @@ jobs:
         with:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
+      - run: npm -v
+      - run: npm install -g npm@lastest
       - run: yarn install --ignore-scripts
 
       - name: Build packages
