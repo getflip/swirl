@@ -19663,6 +19663,21 @@
           "description": ""
         },
         {
+          "name": "fallback-axis-side-direction",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "fullscreen-bottom-sheet",
           "description": ""
         },

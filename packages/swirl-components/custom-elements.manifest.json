@@ -39737,6 +39737,19 @@
               "fieldName": "enableFlip"
             },
             {
+              "name": "fallback-axis-side-direction",
+              "type": {
+                "text": "\"end\" | \"none\" | \"start\"",
+                "references": [
+                  {
+                    "name": "SwirlPopoverFallbackAxisSideDirection"
+                  }
+                ]
+              },
+              "default": "\"none\"",
+              "fieldName": "fallbackAxisSideDirection"
+            },
+            {
               "name": "fullscreen-bottom-sheet",
               "type": {
                 "text": "boolean"
@@ -39888,6 +39901,21 @@
               "default": "true",
               "readonly": true,
               "attribute": "enable-flip"
+            },
+            {
+              "kind": "field",
+              "name": "fallbackAxisSideDirection",
+              "type": {
+                "text": "\"end\" | \"none\" | \"start\"",
+                "references": [
+                  {
+                    "name": "SwirlPopoverFallbackAxisSideDirection"
+                  }
+                ]
+              },
+              "default": "\"none\"",
+              "readonly": true,
+              "attribute": "fallback-axis-side-direction"
             },
             {
               "kind": "field",

@@ -39,6 +39,9 @@ export type SwirlPopoverBorderRadius =
   | (typeof swirlPopoverBorderRadiusTokens)[number]
   | string;
 
+/** Mirrors {@link https://floating-ui.com/docs/flip#fallbackaxissidedirection Floating UI `flip`}. */
+export type SwirlPopoverFallbackAxisSideDirection = "none" | "start" | "end";
+
 /**
  * @slot slot - The popover content.
  */
@@ -53,6 +56,8 @@ export class SwirlPopover {
   @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
   @Prop() disableScrollLock?: boolean;
   @Prop() enableFlip?: boolean = true;
+  @Prop() fallbackAxisSideDirection?: SwirlPopoverFallbackAxisSideDirection =
+    "none";
   @Prop() fullscreenBottomSheet?: boolean;
   @Prop() label!: string;
   @Prop() maxHeight?: string = "22rem";
@@ -435,7 +440,13 @@ export class SwirlPopover {
     });
 
     const middleware = this.enableFlip
-      ? [offset(offsetOptions), shiftWithPadding, flip()]
+      ? [
+          offset(offsetOptions),
+          flip({
+            fallbackAxisSideDirection: this.fallbackAxisSideDirection,
+          }),
+          shiftWithPadding,
+        ]
       : [offset(offsetOptions), shiftWithPadding];
 
     this.position = await computePosition(
