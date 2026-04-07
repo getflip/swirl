@@ -6,6 +6,7 @@ export type SwirlShellNavigationItemVariant = "default" | "tiled" | "app-icon";
 export type SwirlShellNavigationItemAriaCurrent = "page" | "true";
 
 /**
+ * @deprecated This component is deprecated and will be removed in the next major release.
  * @slot icon - Image or icon to display in the navigation item.
  */
 @Component({
@@ -35,6 +36,9 @@ export class SwirlShellNavigationItem {
   @Prop() withGradient?: boolean;
 
   componentWillLoad() {
+    console.warn(
+      '[Swirl] The "swirl-shell-navigation-item" component is deprecated and will be removed in the next major release.'
+    );
     this.forceIconProps();
   }
 
