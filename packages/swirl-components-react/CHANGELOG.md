@@ -1,5 +1,37 @@
 # @getflip/swirl-components-react
 
+## 0.472.0
+
+### Minor Changes
+
+- [#1599](https://github.com/getflip/swirl/pull/1599)
+  [`28d0a1805`](https://github.com/getflip/swirl/commit/28d0a18059c8f0d43c2ba016d3f053a5058fb605)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  `fallbackAxisSideDirection` option to swirl-popover
+
+* [#1589](https://github.com/getflip/swirl/pull/1589)
+  [`40ed6f75f`](https://github.com/getflip/swirl/commit/40ed6f75f42bad0af615dd9c4276262b3ae40e70)
+  Thanks [@danizep](https://github.com/danizep)! - Update Swirl Components
+  Angular to v20.x
+
+### Patch Changes
+
+- [#1590](https://github.com/getflip/swirl/pull/1590)
+  [`2770bd02b`](https://github.com/getflip/swirl/commit/2770bd02bcb350b8c362b1b1282fb94b7fbd7bdb)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  getScrollContainer method to swirl-app-layout
+
+* [#1595](https://github.com/getflip/swirl/pull/1595)
+  [`aa73df602`](https://github.com/getflip/swirl/commit/aa73df602eb5f6db535d4e00024d157ec325c368)
+  Thanks [@danizep](https://github.com/danizep)! - Revert swirl angular update
+
+* Updated dependencies
+  [[`28d0a1805`](https://github.com/getflip/swirl/commit/28d0a18059c8f0d43c2ba016d3f053a5058fb605),
+  [`2770bd02b`](https://github.com/getflip/swirl/commit/2770bd02bcb350b8c362b1b1282fb94b7fbd7bdb),
+  [`aa73df602`](https://github.com/getflip/swirl/commit/aa73df602eb5f6db535d4e00024d157ec325c368),
+  [`40ed6f75f`](https://github.com/getflip/swirl/commit/40ed6f75f42bad0af615dd9c4276262b3ae40e70)]:
+  - @getflip/swirl-components@0.472.0
+
 ## 0.471.0
 
 ### Minor Changes
