@@ -51,7 +51,7 @@ import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./compo
 import { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-import { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
+import { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod, SwirlPopoverFallbackAxisSideDirection } from "./components/swirl-popover/swirl-popover";
 import { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
@@ -133,7 +133,7 @@ export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./compo
 export { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-export { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod } from "./components/swirl-popover/swirl-popover";
+export { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod, SwirlPopoverFallbackAxisSideDirection } from "./components/swirl-popover/swirl-popover";
 export { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
@@ -3607,6 +3607,10 @@ export namespace Components {
           * @default true
          */
         "enableFlip"?: boolean;
+        /**
+          * @default "none"
+         */
+        "fallbackAxisSideDirection"?: SwirlPopoverFallbackAxisSideDirection;
         "fullscreenBottomSheet"?: boolean;
         /**
           * Return whether the popover is open.
@@ -13002,6 +13006,10 @@ declare namespace LocalJSX {
           * @default true
          */
         "enableFlip"?: boolean;
+        /**
+          * @default "none"
+         */
+        "fallbackAxisSideDirection"?: SwirlPopoverFallbackAxisSideDirection;
         "fullscreenBottomSheet"?: boolean;
         "label": string;
         /**
@@ -16379,6 +16387,7 @@ declare namespace LocalJSX {
         "animation": SwirlPopoverAnimation;
         "disableScrollLock": boolean;
         "enableFlip": boolean;
+        "fallbackAxisSideDirection": SwirlPopoverFallbackAxisSideDirection;
         "fullscreenBottomSheet": boolean;
         "label": string;
         "maxHeight": string;
