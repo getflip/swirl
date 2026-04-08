@@ -31,13 +31,14 @@ export class SwirlModalShell {
   @State() isClosing = true;
 
   private modalEl: HTMLDialogElement;
+  private scrollContainerEl: HTMLElement;
 
   componentDidLoad() {
     this.setDialogCustomProps();
 
     requestAnimationFrame(() => {
       this.modalEl.showModal();
-      disableBodyScroll(this.modalEl);
+      disableBodyScroll(this.scrollContainerEl);
       this.isClosing = false;
     });
   }
@@ -46,7 +47,7 @@ export class SwirlModalShell {
     if (this.modalEl?.open) {
       this.modalEl.close();
     }
-    enableBodyScroll(this.modalEl);
+    enableBodyScroll(this.scrollContainerEl);
   }
 
   @Method()
@@ -98,7 +99,11 @@ export class SwirlModalShell {
         >
           <div class="modal-shell__backdrop"></div>
 
-          <div class="modal-shell__scroll-container" onClick={this.onClose}>
+          <div
+            class="modal-shell__scroll-container"
+            onClick={this.onClose}
+            ref={(el) => (this.scrollContainerEl = el)}
+          >
             <div
               class="modal-shell__scroll-container__content"
               onClick={this.onContentClick}
