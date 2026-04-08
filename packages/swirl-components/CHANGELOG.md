@@ -1,5 +1,27 @@
 # @getflip/swirl-components
 
+## 0.473.0
+
+### Minor Changes
+
+- [#1579](https://github.com/getflip/swirl/pull/1579)
+  [`6c5a1bfd6`](https://github.com/getflip/swirl/commit/6c5a1bfd6bdabbd074ef98ff9e1a52640d88cedc)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Fix
+  swirl-data-cell-stack markup
+
+### Patch Changes
+
+- [#1601](https://github.com/getflip/swirl/pull/1601)
+  [`a68d4ac43`](https://github.com/getflip/swirl/commit/a68d4ac438c5c30410882be0073dc18dc4e1d7fe)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix scrolling of
+  swirl-modal-shell on iOS Safari
+
+* [#1588](https://github.com/getflip/swirl/pull/1588)
+  [`3c75cb204`](https://github.com/getflip/swirl/commit/3c75cb20453f29a868c3229f2e17ce33bd1f3946)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Deprecate
+  swirl-shell-layout and swirl-shell-navigation-item components. These
+  components will be removed in the next major release.
+
 ## 0.472.0
 
 ### Minor Changes

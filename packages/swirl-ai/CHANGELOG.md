@@ -1,5 +1,15 @@
 # @getflip/swirl-ai
 
+## 0.473.0
+
+### Patch Changes
+
+- [#1588](https://github.com/getflip/swirl/pull/1588)
+  [`3c75cb204`](https://github.com/getflip/swirl/commit/3c75cb20453f29a868c3229f2e17ce33bd1f3946)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Deprecate
+  swirl-shell-layout and swirl-shell-navigation-item components. These
+  components will be removed in the next major release.
+
 ## 0.472.0
 
 ### Minor Changes
