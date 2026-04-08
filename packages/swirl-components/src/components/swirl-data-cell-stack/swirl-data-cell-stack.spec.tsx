@@ -1,4 +1,5 @@
 import { newSpecPage } from "@stencil/core/testing";
+import { SwirlDataCell } from "../swirl-data-cell/swirl-data-cell";
 import { SwirlDataCellStack } from "./swirl-data-cell-stack";
 
 describe("swirl-data-cell-stack", () => {
@@ -139,7 +140,7 @@ describe("swirl-data-cell-stack", () => {
 
   it("renders cells slot", async () => {
     const page = await newSpecPage({
-      components: [SwirlDataCellStack],
+      components: [SwirlDataCell, SwirlDataCellStack],
       html: `
         <swirl-data-cell-stack>
           <swirl-data-cell label="Name" value="John Doe"></swirl-data-cell>
@@ -150,6 +151,9 @@ describe("swirl-data-cell-stack", () => {
     const cells = page.root.shadowRoot.querySelector(".data-cell-stack__cells");
     expect(cells).toBeTruthy();
     expect(cells?.getAttribute("role")).toBe("list");
+
+    const dataCell = page.root.querySelector("swirl-data-cell");
+    expect(dataCell?.getAttribute("role")).toBe("listitem");
   });
 
   it("should warn if provided with unallowed children", async () => {

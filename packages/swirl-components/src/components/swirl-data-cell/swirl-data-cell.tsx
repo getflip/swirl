@@ -84,6 +84,11 @@ export class SwirlDataCell {
 
     const labelId = `${this.elementId}-label`;
     const valueId = `${this.elementId}-value`;
+    const isInDataCellStack =
+      this.el.parentElement?.tagName === "SWIRL-DATA-CELL-STACK";
+    const hostRole = isInDataCellStack ? "listitem" : "group";
+    const contentRole = hasCheckbox || hasRadio ? "button" : undefined;
+    const wrapperRole = isInDataCellStack && !contentRole ? "group" : contentRole;
 
     const labelContent = (
       <swirl-stack orientation="horizontal" align="center" spacing="4">
@@ -103,12 +108,12 @@ export class SwirlDataCell {
     );
 
     return (
-      <Host role="group">
+      <Host role={hostRole}>
         <div
           class={className}
           part="data-cell"
           onClick={hasCheckbox || hasRadio ? this.handleClick : undefined}
-          role={hasCheckbox || hasRadio ? "button" : undefined}
+          role={wrapperRole}
           tabIndex={hasCheckbox || hasRadio ? 0 : undefined}
         >
           {hasMedia && (
