@@ -56467,7 +56467,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"default\" | \"info\"",
+                "text": "\"default\" | \"info\" | \"primary\"",
                 "references": [
                   {
                     "name": "SwirlTooltipIntent"
@@ -56546,7 +56546,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"default\" | \"info\"",
+                "text": "\"default\" | \"info\" | \"primary\"",
                 "references": [
                   {
                     "name": "SwirlTooltipIntent"
