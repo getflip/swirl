@@ -18,9 +18,9 @@
   --swirl-modal-sidebar-width: 25rem;
   --swirl-modal-max-secondary-content-width: 24rem;
   --swirl-modal-footer-padding-small: var(--s-space-12) var(--s-space-16)
-    var(--s-space-12) var(--s-space-16);
+    max(env(safe-area-inset-bottom), var(--s-space-12)) var(--s-space-16);
   --swirl-modal-footer-padding-large: var(--s-space-16) var(--s-space-24)
-    var(--s-space-16) var(--s-space-24);
+    max(env(safe-area-inset-bottom), var(--s-space-16)) var(--s-space-24);
 
   @supports (height: 100dvh) {
     --swirl-modal-max-height: 90dvh;
@@ -573,6 +573,7 @@
 
 .modal__custom-footer {
   flex-shrink: 0;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .modal__controls {
