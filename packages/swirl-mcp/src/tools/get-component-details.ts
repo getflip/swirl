@@ -1,23 +1,33 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { ArtifactLibrary } from "../data-loader";
+import type { ArtifactLibrary } from "../artifact-library";
+
+export type LoadLibrary = (version: string) => Promise<ArtifactLibrary>;
+
+const VERSION_DESCRIPTION =
+  "The @getflip/swirl-components version installed in the project. " +
+  "Read the user's package.json or node_modules/@getflip/swirl-components/package.json to find this.";
 
 export function registerGetComponentDetails(
   server: McpServer,
-  lib: ArtifactLibrary
+  loadLibrary: LoadLibrary
 ) {
   server.registerTool(
     "get_component_details",
     {
       description:
         "Get full details for a Swirl component including all props with types and defaults, " +
-        "events, methods, slots, accessibility info, and usage examples.",
+        "events, methods, slots, accessibility info, and usage examples. " +
+        "IMPORTANT: First read the user's package.json to determine their installed @getflip/swirl-components version, then pass it as the 'version' parameter.",
       inputSchema: {
         tag: z.string().describe('The component tag name, e.g. "swirl-button"'),
+        version: z.string().describe(VERSION_DESCRIPTION),
       },
     },
-    // @ts-expect-error - MCP SDK + zod 3.x causes excessively deep type instantiation
-    async ({ tag }: { tag: string }) => {
+    // @ts-ignore - MCP SDK + zod 3.x causes excessively deep type instantiation
+    async ({ tag, version }: { tag: string; version: string }) => {
+      const lib = await loadLibrary(version);
+
       const entry = lib.getByTag(tag);
       if (!entry) {
         return {
@@ -30,7 +40,7 @@ export function registerGetComponentDetails(
         };
       }
 
-      const markdown = lib.getComponentMarkdown(tag);
+      const markdown = await lib.getComponentMarkdown(tag);
       if (!markdown) {
         return {
           content: [

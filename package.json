@@ -9,6 +9,7 @@
   "workspaces": [
     "./packages/bridge",
     "./packages/swirl-ai",
+    "./packages/swirl-mcp",
     "./packages/swirl-components",
     "./packages/swirl-components-angular",
     "./packages/swirl-components-react",
