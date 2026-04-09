@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.474.0
+
+### Minor Changes
+
+- [#1602](https://github.com/getflip/swirl/pull/1602)
+  [`d4ca96850`](https://github.com/getflip/swirl/commit/d4ca96850acae8678c52404d542fe97736fc890a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "primary" intent to
+  swirl-tooltip
+
 ## 0.473.0
 
 ### Minor Changes
