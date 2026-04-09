@@ -1,61 +1,8 @@
 # @getflip/swirl-ai
 
-AI integration for the Swirl Design System. Use it as an **MCP server** so
-agents can discover and use Swirl components interactively, or consume the
-**build-time artifacts** directly.
+Build-time artifacts for AI agents integrating with the Swirl Design System.
 
-## MCP server
-
-The package ships a Model Context Protocol server with 6 tools:
-
-| Tool                      | Description                                                   |
-| ------------------------- | ------------------------------------------------------------- |
-| `get_started`             | Installation and setup guide (Web Components, Angular, React) |
-| `list_components`         | List all UI components (buttons, modals, forms, etc.)         |
-| `list_icons`              | List all icon components (`swirl-icon-*`)                     |
-| `list_symbols`            | List all symbol components (`swirl-symbol-*`)                 |
-| `list_emojis`             | List all emoji components (`swirl-emoji-*`)                   |
-| `get_component_details`   | Full docs for a component (props, events, slots, examples)    |
-
-### Usage
-
-```jsonc
-{
-  "mcpServers": {
-    "swirl-ai": {
-      "command": "npx",
-      "args": ["-y", "@getflip/swirl-ai"]
-    }
-  }
-}
-```
-
-For local development, point to the built file directly:
-
-```jsonc
-{
-  "mcpServers": {
-    "swirl-ai": {
-      "command": "node",
-      "args": ["<path-to-repo>/packages/swirl-ai/dist/mcp/mcp.js"]
-    }
-  }
-}
-```
-
-### Local testing
-
-Use the MCP inspector to call tools interactively in a web UI:
-
-```sh
-npx @modelcontextprotocol/inspector node dist/mcp/mcp.js
-```
-
-Or during development (no rebuild needed after changes):
-
-```sh
-npx @modelcontextprotocol/inspector tsx scripts/mcp.ts
-```
+> **Looking for the MCP server?** See [`@getflip/swirl-mcp`](../swirl-mcp/).
 
 ## Artifacts
 
