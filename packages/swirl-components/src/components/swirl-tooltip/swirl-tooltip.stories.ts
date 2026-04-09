@@ -37,6 +37,6 @@ const Template = (args) => {
 export const SwirlTooltip = Template.bind({});
 
 SwirlTooltip.args = {
-  content: `Lorem ipsum dolor sit amet, contetur sadipscing.`,
+  content: `<strong>NEW:</strong> Lorem ipsum dolor sit amet, contetur sadipscing.`,
   position: "top",
 };

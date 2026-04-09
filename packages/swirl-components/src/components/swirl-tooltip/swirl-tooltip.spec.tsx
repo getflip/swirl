@@ -155,4 +155,22 @@ describe("swirl-tooltip", () => {
         .maxWidth
     ).toBe("10rem");
   });
+
+  it("renders with intent", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" intent="default"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector("tooltip--intent-default")
+    ).toBeDefined();
+
+    page.root.intent = "primary";
+    await page.waitForChanges();
+
+    expect(
+      page.root.shadowRoot.querySelector("tooltip--intent-primary")
+    ).toBeDefined();
+  });
 });

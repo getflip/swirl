@@ -109,6 +109,14 @@
   }
 }
 
+.tooltip--intent-primary {
+  .tooltip__bubble,
+  .tooltip__arrow {
+    background-color: var(--s-action-primary-default);
+    color: var(--s-text-on-action-primary);
+  }
+}
+
 @keyframes tooltip-fade-in {
   from {
     opacity: 0;
