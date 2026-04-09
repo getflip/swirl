@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.475.0
+
+### Minor Changes
+
+- [#1604](https://github.com/getflip/swirl/pull/1604)
+  [`46adaa03b`](https://github.com/getflip/swirl/commit/46adaa03b468927a8f2949ac770635b2d99cd2b8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-modal footers respect
+  the env(safe-area-inset-bottom) safe area on mobile devices
+
 ## 0.474.0
 
 ### Minor Changes
