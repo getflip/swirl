@@ -1,5 +1,7 @@
 # @getflip/swirl-components
 
+## 0.476.0
+
 ## 0.475.0
 
 ### Minor Changes
