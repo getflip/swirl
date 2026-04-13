@@ -145,8 +145,16 @@
   }
 }
 
-.dialog__controls > swirl-button {
-  max-width: 50%;
+.dialog__actions {
+  display: grid;
+  gap: var(--s-space-8);
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.dialog__actions:has(> :nth-child(2)) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dialog__left_controls {

@@ -212,19 +212,23 @@ export class SwirlDialog {
                 </div>
               )}
 
-              {hasSecondaryAction && (
-                <swirl-button
-                  label={this.secondaryActionLabel}
-                  onClick={this.onSecondaryAction}
-                ></swirl-button>
-              )}
-              {hasPrimaryAction && (
-                <swirl-button
-                  intent={this.intent}
-                  label={this.primaryActionLabel}
-                  onClick={this.onPrimaryAction}
-                  variant="flat"
-                ></swirl-button>
+              {(hasSecondaryAction || hasPrimaryAction) && (
+                <div class="dialog__actions">
+                  {hasSecondaryAction && (
+                    <swirl-button
+                      label={this.secondaryActionLabel}
+                      onClick={this.onSecondaryAction}
+                    ></swirl-button>
+                  )}
+                  {hasPrimaryAction && (
+                    <swirl-button
+                      intent={this.intent}
+                      label={this.primaryActionLabel}
+                      onClick={this.onPrimaryAction}
+                      variant="flat"
+                    ></swirl-button>
+                  )}
+                </div>
               )}
             </div>
           </div>
