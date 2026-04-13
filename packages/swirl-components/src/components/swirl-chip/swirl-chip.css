@@ -132,6 +132,10 @@
     background-color: var(--s-action-primary-default);
     border-color: var(--s-action-primary-default);
 
+    & .chip__icon {
+      color: var(--s-text-on-action-primary);
+    }
+
     &:hover {
       background-color: var(--s-action-primary-hovered);
 
