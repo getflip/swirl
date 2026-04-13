@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.477.0
+
+### Minor Changes
+
+- [#1609](https://github.com/getflip/swirl/pull/1609)
+  [`d5c103a6e`](https://github.com/getflip/swirl/commit/d5c103a6e18593f1eb3e4daea774f737f4482a6c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Always show
+  swirl-resource-list-item controls on devices without hover
+
 ## 0.476.0
 
 ## 0.475.0
