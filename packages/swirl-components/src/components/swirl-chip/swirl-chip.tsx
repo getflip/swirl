@@ -35,6 +35,7 @@ export class SwirlChip {
   @Prop() borderRadius?: SwirlChipBorderRadius = "pill";
   @Prop() icon?: string;
   @Prop() iconColor?: SwirlChipIconColor = "default";
+  @Prop() trailingIcon?: string;
   @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
@@ -50,6 +51,7 @@ export class SwirlChip {
   @Event({ eventName: "remove" }) removeChip?: EventEmitter<MouseEvent>;
 
   private iconEl: HTMLElement;
+  private trailingIconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
@@ -63,14 +65,21 @@ export class SwirlChip {
   }
 
   private forceIconProps(smallIcon: boolean) {
-    if (!Boolean(this.iconEl)) {
+    if (!Boolean(this.iconEl) && !Boolean(this.trailingIconEl)) {
       return;
     }
 
-    const icon = this.iconEl.children[0];
     const iconSize = this.size === "s" ? "16" : smallIcon ? "20" : "24";
 
-    icon?.setAttribute("size", iconSize);
+    if (this.iconEl) {
+      const icon = this.iconEl.children[0];
+      icon?.setAttribute("size", iconSize);
+    }
+
+    if (this.trailingIconEl) {
+      const trailingIcon = this.trailingIconEl.children[0];
+      trailingIcon?.setAttribute("size", iconSize);
+    }
   }
 
   render() {
@@ -119,6 +128,13 @@ export class SwirlChip {
               ></span>
             )}
             <span class="chip__label">{this.label}</span>
+            {this.trailingIcon && (
+              <span
+                class="chip__trailing-icon"
+                innerHTML={this.trailingIcon}
+                ref={(el) => (this.trailingIconEl = el)}
+              ></span>
+            )}
           </span>
           {this.progress !== undefined && (
             <span class="chip__progress-indicator">

@@ -85,4 +85,18 @@ describe("swirl-chip", () => {
     expect(icon).toBeTruthy();
     expect(icon.getAttribute("size")).toBe("24");
   });
+
+  it("renders trailing icon with overwritten props", async () => {
+    const page = await newSpecPage({
+      components: [SwirlChip],
+      html: `<swirl-chip label="Label" trailing-icon="<swirl-icon-person size=&quot;16&quot;></swirl-icon-person>"></swirl-chip>`,
+    });
+
+    const trailingIcon = page.root.querySelector(".chip__trailing-icon > *");
+
+    await page.waitForChanges();
+
+    expect(trailingIcon).toBeTruthy();
+    expect(trailingIcon.getAttribute("size")).toBe("24");
+  });
 });

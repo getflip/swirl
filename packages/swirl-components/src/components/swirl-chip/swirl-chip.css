@@ -267,6 +267,12 @@
   color: var(--s-icon-default);
 }
 
+.chip__trailing-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-left: var(--s-space-8);
+}
+
 .chip__label {
   overflow: hidden;
   flex-grow: 1;

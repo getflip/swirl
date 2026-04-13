@@ -5887,6 +5887,13 @@
               "fieldName": "size"
             },
             {
+              "name": "trailing-icon",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "trailingIcon"
+            },
+            {
               "name": "variant",
               "type": {
                 "text": "\"outline\" | \"plain\" | \"translucent\"",
@@ -6035,6 +6042,15 @@
               "default": "\"m\"",
               "readonly": true,
               "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "trailingIcon",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "trailing-icon"
             },
             {
               "kind": "field",
