@@ -103,7 +103,7 @@
   min-width: 0;
   max-width: 100%;
   overflow-wrap: break-word;
-  hyphens: manual; /* translations may use &shy for hyphenation points */
+  hyphens: manual; /* translations may use \u00AD for hyphenation points */
 
   @media (--from-desktop-without-touch) {
     line-height: var(--s-line-height-base);
