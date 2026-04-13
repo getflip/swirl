@@ -136,6 +136,7 @@
   align-items: stretch;
   gap: var(--s-space-8);
   min-width: 0;
+  width: 100%;
   padding-left: var(--s-space-8);
 
   @media (--from-desktop) {
@@ -144,32 +145,14 @@
   }
 }
 
-.dialog__action_row {
-  display: flex;
-  justify-content: flex-end;
-  align-items: stretch;
-  gap: var(--s-space-8);
-  min-width: 0;
-  flex: 1 1 0;
-}
-
-.dialog__action_row:only-child {
-  flex: 0 1 auto;
-}
-
-.dialog__action_row > swirl-button {
-  min-width: 50%;
-  max-width: 100%;
-}
-
-.dialog__action_row:only-child > swirl-button {
-  flex: 0 1 auto;
+.dialog__controls > swirl-button {
+  max-width: 50%;
 }
 
 .dialog__left_controls {
   display: flex;
   align-items: center;
-  flex: 0 1 auto;
+  flex-grow: 1;
   padding-left: var(--s-space-8);
   width: 100%;
   min-width: 0;
