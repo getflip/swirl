@@ -137,11 +137,6 @@
   gap: var(--s-space-8);
   min-width: 0;
   width: 100%;
-  padding-left: var(--s-space-8);
-
-  &:has(> .dialog__actions:only-child):has(.dialog__actions > :only-child) {
-    padding-left: 0;
-  }
 
   @media (--from-desktop) {
     flex-wrap: nowrap;
