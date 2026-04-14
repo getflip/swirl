@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.478.0
+
+### Minor Changes
+
+- [#1608](https://github.com/getflip/swirl/pull/1608)
+  [`2a1859e45`](https://github.com/getflip/swirl/commit/2a1859e45420338e41d253e3d65689ac84c7c1b2)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  trailingIcon to swirl-chip
+
 ## 0.477.0
 
 ### Minor Changes
