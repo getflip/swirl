@@ -5350,11 +5350,19 @@ export namespace Components {
          */
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
+        /**
+          * @default "More actions"
+         */
+        "menuButtonLabel"?: string;
         "progress"?: number;
         /**
           * @default "Loading progress"
          */
         "progressLabel"?: string;
+        /**
+          * @default "<swirl-icon-delete></swirl-icon-delete>"
+         */
+        "removeButtonIcon"?: string;
         /**
           * @default "Remove"
          */
@@ -15007,6 +15015,10 @@ declare namespace LocalJSX {
          */
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
+        /**
+          * @default "More actions"
+         */
+        "menuButtonLabel"?: string;
         "onEdit"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onThumbnailClick"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
@@ -15015,6 +15027,10 @@ declare namespace LocalJSX {
           * @default "Loading progress"
          */
         "progressLabel"?: string;
+        /**
+          * @default "<swirl-icon-delete></swirl-icon-delete>"
+         */
+        "removeButtonIcon"?: string;
         /**
           * @default "Remove"
          */
@@ -17900,8 +17916,10 @@ declare namespace LocalJSX {
         "editButtonLabel": string;
         "format": SwirlThumbnailFormat;
         "interactive": boolean;
+        "menuButtonLabel": string;
         "progress": number;
         "progressLabel": string;
+        "removeButtonIcon": string;
         "removeButtonLabel": string;
         "showEditButton": boolean;
         "showRemoveButton": boolean;

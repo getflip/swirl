@@ -59419,6 +59419,14 @@
               "fieldName": "interactive"
             },
             {
+              "name": "menu-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"More actions\"",
+              "fieldName": "menuButtonLabel"
+            },
+            {
               "name": "progress",
               "type": {
                 "text": "number"
@@ -59432,6 +59440,14 @@
               },
               "default": "\"Loading progress\"",
               "fieldName": "progressLabel"
+            },
+            {
+              "name": "remove-button-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-delete></swirl-icon-delete>\"",
+              "fieldName": "removeButtonIcon"
             },
             {
               "name": "remove-button-label",
@@ -59539,6 +59555,16 @@
             },
             {
               "kind": "field",
+              "name": "menuButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"More actions\"",
+              "readonly": true,
+              "attribute": "menu-button-label"
+            },
+            {
+              "kind": "field",
               "name": "progress",
               "type": {
                 "text": "number"
@@ -59555,6 +59581,16 @@
               "default": "\"Loading progress\"",
               "readonly": true,
               "attribute": "progress-label"
+            },
+            {
+              "kind": "field",
+              "name": "removeButtonIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-delete></swirl-icon-delete>\"",
+              "readonly": true,
+              "attribute": "remove-button-icon"
             },
             {
               "kind": "field",

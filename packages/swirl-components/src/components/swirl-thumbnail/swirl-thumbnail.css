@@ -12,29 +12,28 @@
   position: relative;
   display: inline-flex;
   overflow: hidden;
-  padding: 0.0625rem;
   border-radius: var(--s-border-radius-s);
 }
 
 .thumbnail--size-s {
   --swirl-thumbnail-size: 2.5rem;
+  --swirl-thumbnail-compact-button-size: 1.25rem;
 }
 
 .thumbnail--size-m {
   --swirl-thumbnail-size: 3rem;
+  --swirl-thumbnail-compact-button-size: 1.25rem;
 }
 
 .thumbnail--size-l {
   --swirl-thumbnail-size: 4rem;
+  --swirl-thumbnail-compact-button-size: 1.5rem;
 }
 
 .thumbnail--size-xl {
   --swirl-thumbnail-size: 5rem;
+  --swirl-thumbnail-compact-button-size: 1.75rem;
   border-radius: var(--s-border-radius-sm);
-
-  & .thumbnail__buttons {
-    transform: scale(0.75);
-  }
 }
 
 .thumbnail--size-2xl {
@@ -57,7 +56,7 @@
   height: var(--swirl-thumbnail-size);
 }
 
-.thumbnail--has-progress {
+.thumbnail--uploading-bar {
   & .thumbnail__timestamp {
     bottom: var(--s-space-8);
   }
@@ -95,7 +94,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  border-radius: var(--s-border-radius-s);
+  border-radius: inherit;
   box-shadow: inset 0 0 0 0.03125rem rgba(0, 0, 0, 0.1);
 }
 
@@ -105,12 +104,21 @@
   object-fit: cover;
 }
 
-.thumbnail__progress-indicator {
+.thumbnail__progress-indicator,
+.thumbnail__uploading-overlay {
   position: absolute;
   z-index: 1;
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.thumbnail__uploading-overlay {
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--s-surface-on-image-default);
 }
 
 .thumbnail__buttons {
@@ -120,12 +128,43 @@
   right: var(--s-space-4);
 }
 
+.thumbnail__compact-action {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+
+.thumbnail__compact-button {
+  width: var(--swirl-thumbnail-compact-button-size, 1.25rem);
+  height: var(--swirl-thumbnail-compact-button-size, 1.25rem);
+  padding: 0;
+  border: none;
+  border-bottom-left-radius: var(--s-border-radius-s);
+  color: var(--s-text-on-image);
+  background-color: var(--s-surface-on-image-default);
+  cursor: pointer;
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid var(--s-focus-default);
+    outline-offset: calc(-1 * 0.125rem);
+  }
+}
+
 @media (--has-hover) {
-  .thumbnail__buttons {
+  .thumbnail__buttons,
+  .thumbnail__compact-action {
     opacity: 0;
   }
-  .thumbnail:hover {
-    .thumbnail__buttons {
+
+  .thumbnail:hover,
+  .thumbnail:focus-within {
+    .thumbnail__buttons,
+    .thumbnail__compact-action {
       opacity: 1;
     }
   }
@@ -134,20 +173,22 @@
 .thumbnail__timestamp {
   position: absolute;
   z-index: 1;
-  bottom: var(--s-space-4);
-  left: var(--s-space-4);
+  bottom: 0;
+  left: 0;
   display: block;
   overflow: hidden;
   max-width: calc(100% - 2 * var(--s-space-4));
-  height: 1.5rem;
-  padding-right: var(--s-space-8);
-  padding-left: var(--s-space-8);
+  height: 1.25rem;
+  padding-right: var(--s-space-4);
+  padding-left: var(--s-space-4);
   align-items: center;
   border-radius: var(--s-border-radius-s);
   color: var(--s-text-on-image);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--s-surface-on-image-default);
   font-size: var(--s-font-size-sm);
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+
 }

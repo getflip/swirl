@@ -24890,11 +24890,19 @@
           "description": ""
         },
         {
+          "name": "menu-button-label",
+          "description": ""
+        },
+        {
           "name": "progress",
           "description": ""
         },
         {
           "name": "progress-label",
+          "description": ""
+        },
+        {
+          "name": "remove-button-icon",
           "description": ""
         },
         {

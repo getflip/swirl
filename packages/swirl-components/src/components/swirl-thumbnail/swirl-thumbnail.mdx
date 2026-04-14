@@ -30,9 +30,14 @@ No related components.
 ## Accessibility
 
 SwirlThumbnail is a presentational image wrapper with no ARIA attributes or
-keyboard-specific behavior. Provide an accessible name for the image via slotted
-content or a parent label.
+keyboard-specific behavior by default. When `interactive` is enabled, the image
+becomes a focusable `<button>`. Action buttons rendered by `show-edit-button`
+and `show-remove-button` expose accessible names via the `edit-button-label`
+and `remove-button-label` props. On compact sizes, actions are grouped behind a
+menu button whose label is set via the `menu-button-label` prop.
 
 ### Keyboard
 
-No component-specific keyboard behavior.
+When action buttons or the compact menu button receive keyboard focus, they
+become visible. The compact menu button opens a popover that can be navigated
+with standard keyboard controls.

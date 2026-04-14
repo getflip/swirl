@@ -1,9 +1,23 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
 
 export type SwirlThumbnailSize = "s" | "m" | "l" | "xl" | "2xl";
+
+const COMPACT_SIZES: Record<SwirlThumbnailFormat, SwirlThumbnailSize[]> = {
+  landscape: ["s", "m"],
+  square: ["s", "m"],
+  portrait: ["s", "m", "l", "xl"],
+};
 
 @Component({
   shadow: true,
@@ -16,8 +30,10 @@ export class SwirlThumbnail {
   @Prop() editButtonLabel?: string = "Edit";
   @Prop() format?: SwirlThumbnailFormat = "landscape";
   @Prop() interactive?: boolean;
+  @Prop() menuButtonLabel?: string = "More actions";
   @Prop() progress?: number;
   @Prop() progressLabel?: string = "Loading progress";
+  @Prop() removeButtonIcon?: string = "<swirl-icon-delete></swirl-icon-delete>";
   @Prop() removeButtonLabel?: string = "Remove";
   @Prop() showEditButton?: boolean;
   @Prop() showRemoveButton?: boolean;
@@ -29,20 +45,34 @@ export class SwirlThumbnail {
   @Event() remove: EventEmitter<MouseEvent>;
   @Event() thumbnailClick: EventEmitter<MouseEvent>;
 
+  // @State so that swirl-popover-trigger re-renders once the ref is set.
+  @State() private popoverEl?: HTMLSwirlPopoverElement;
+
+  private onEditClick = (event: MouseEvent) => {
+    this.edit.emit(event);
+    this.popoverEl?.close();
+  };
+
+  private onRemoveClick = (event: MouseEvent) => {
+    this.remove.emit(event);
+    this.popoverEl?.close();
+  };
+
   render() {
-    const showInteractable =
-      (this.size === "xl" || this.size === "2xl") && this.format === "square";
+    const isCompact = COMPACT_SIZES[this.format].includes(this.size);
+    const compactIconSize =
+      this.size === "xl" ? 28 : this.size === "l" ? 24 : 20;
+    const isUploading = this.progress !== undefined;
 
-    const showRemoveButton = this.showRemoveButton && showInteractable;
+    const showEditButton = Boolean(this.showEditButton);
+    const showRemoveButton = Boolean(this.showRemoveButton);
+    const hasAnyAction = showEditButton || showRemoveButton;
 
-    const showEditButton =
-      this.showEditButton &&
-      showInteractable &&
-      !(this.size === "xl" && showRemoveButton);
+    const showCompactMenu = isCompact && hasAnyAction;
+    const showSegmentedGroup = !isCompact && hasAnyAction;
 
-    const showButtonGroup = showEditButton || showRemoveButton;
-
-    const showTimestamp = Boolean(this.timestamp) && showInteractable;
+    const showTimestamp = Boolean(this.timestamp) && this.size !== "s";
+    const hideTimestampForUploading = isUploading && isCompact;
 
     const ImageWrapper = this.interactive ? "button" : "span";
 
@@ -52,7 +82,7 @@ export class SwirlThumbnail {
       `thumbnail--size-${this.size}`,
       {
         "thumbnail--interactive": this.interactive,
-        "thumbnail--has-progress": this.progress !== undefined,
+        "thumbnail--uploading-bar": isUploading && !isCompact,
       }
     );
 
@@ -71,15 +101,25 @@ export class SwirlThumbnail {
               src={this.src}
             />
           </ImageWrapper>
-          {this.progress !== undefined && (
-            <span class="thumbnail__progress-indicator">
+
+          {isUploading && (
+            <span
+              class={
+                isCompact
+                  ? "thumbnail__uploading-overlay"
+                  : "thumbnail__progress-indicator"
+              }
+            >
               <swirl-progress-indicator
                 label={this.progressLabel}
+                size={isCompact ? "s" : undefined}
                 value={this.progress}
+                variant={isCompact ? "circle" : undefined}
               ></swirl-progress-indicator>
             </span>
           )}
-          {showButtonGroup && (
+
+          {showSegmentedGroup && (
             <swirl-button-group
               class="thumbnail__buttons"
               segmented={showEditButton && showRemoveButton}
@@ -91,7 +131,6 @@ export class SwirlThumbnail {
                     icon={this.editButtonIcon}
                     label={this.editButtonLabel}
                     onClick={this.edit.emit}
-                    pill={this.size === "xl"}
                     variant="on-image"
                   ></swirl-button>
                 </span>
@@ -100,17 +139,57 @@ export class SwirlThumbnail {
                 <span>
                   <swirl-button
                     hideLabel
-                    icon="<swirl-icon-delete></swirl-icon-delete>"
+                    icon={this.removeButtonIcon}
                     label={this.removeButtonLabel}
                     onClick={this.remove.emit}
-                    pill={this.size === "xl"}
                     variant="on-image"
                   ></swirl-button>
                 </span>
               )}
             </swirl-button-group>
           )}
-          {showTimestamp && (
+
+          {showCompactMenu && (
+            <span class="thumbnail__compact-action">
+              <swirl-popover-trigger swirlPopover={this.popoverEl}>
+                <button
+                  aria-label={this.menuButtonLabel}
+                  class="thumbnail__compact-button"
+                  type="button"
+                >
+                  <swirl-icon-more-horizontal
+                    size={compactIconSize}
+                  ></swirl-icon-more-horizontal>
+                </button>
+              </swirl-popover-trigger>
+              <swirl-popover
+                label={this.menuButtonLabel}
+                placement="bottom-end"
+                padded={false}
+                ref={(el) => (this.popoverEl = el)}
+              >
+                <swirl-action-list>
+                  {showEditButton && (
+                    <swirl-action-list-item
+                      icon={this.editButtonIcon}
+                      label={this.editButtonLabel}
+                      onClick={this.onEditClick}
+                    ></swirl-action-list-item>
+                  )}
+                  {showRemoveButton && (
+                    <swirl-action-list-item
+                      icon={this.removeButtonIcon}
+                      intent="critical"
+                      label={this.removeButtonLabel}
+                      onClick={this.onRemoveClick}
+                    ></swirl-action-list-item>
+                  )}
+                </swirl-action-list>
+              </swirl-popover>
+            </span>
+          )}
+
+          {showTimestamp && !hideTimestampForUploading && (
             <span class="thumbnail__timestamp">{this.timestamp}</span>
           )}
         </span>
