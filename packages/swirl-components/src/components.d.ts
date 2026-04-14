@@ -761,6 +761,7 @@ export namespace Components {
           * @default "m"
          */
         "size"?: SwirlChipSize;
+        "trailingIcon"?: string;
         /**
           * @default "outline"
          */
@@ -10276,6 +10277,7 @@ declare namespace LocalJSX {
           * @default "m"
          */
         "size"?: SwirlChipSize;
+        "trailingIcon"?: string;
         /**
           * @default "outline"
          */
@@ -14951,6 +14953,7 @@ declare namespace LocalJSX {
         "borderRadius": SwirlChipBorderRadius;
         "icon": string;
         "iconColor": SwirlChipIconColor;
+        "trailingIcon": string;
         "intent": SwirlChipIntent;
         "interactive": boolean;
         "label": string;
