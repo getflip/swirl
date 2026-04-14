@@ -56481,6 +56481,14 @@
               "fieldName": "delay"
             },
             {
+              "name": "enable-flip",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "fieldName": "enableFlip"
+            },
+            {
               "name": "intent",
               "type": {
                 "text": "\"default\" | \"info\" | \"primary\"",
@@ -56557,6 +56565,16 @@
               "default": "200",
               "readonly": true,
               "attribute": "delay"
+            },
+            {
+              "kind": "field",
+              "name": "enableFlip",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "readonly": true,
+              "attribute": "enable-flip"
             },
             {
               "kind": "field",
