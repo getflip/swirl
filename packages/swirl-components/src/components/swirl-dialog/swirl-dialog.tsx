@@ -179,6 +179,8 @@ export class SwirlDialog {
     const hasLeftControls = Boolean(
       this.el.querySelector('[slot="left-controls"]')
     );
+    const hasSecondaryAction = Boolean(this.secondaryActionLabel);
+    const hasPrimaryAction = Boolean(this.primaryActionLabel);
 
     return (
       <Host>
@@ -209,19 +211,24 @@ export class SwirlDialog {
                   <slot name="left-controls"></slot>
                 </div>
               )}
-              {this.secondaryActionLabel && (
-                <swirl-button
-                  label={this.secondaryActionLabel}
-                  onClick={this.onSecondaryAction}
-                ></swirl-button>
-              )}
-              {this.primaryActionLabel && (
-                <swirl-button
-                  intent={this.intent}
-                  label={this.primaryActionLabel}
-                  onClick={this.onPrimaryAction}
-                  variant="flat"
-                ></swirl-button>
+
+              {(hasSecondaryAction || hasPrimaryAction) && (
+                <div class="dialog__actions">
+                  {hasSecondaryAction && (
+                    <swirl-button
+                      label={this.secondaryActionLabel}
+                      onClick={this.onSecondaryAction}
+                    ></swirl-button>
+                  )}
+                  {hasPrimaryAction && (
+                    <swirl-button
+                      intent={this.intent}
+                      label={this.primaryActionLabel}
+                      onClick={this.onPrimaryAction}
+                      variant="flat"
+                    ></swirl-button>
+                  )}
+                </div>
               )}
             </div>
           </div>
