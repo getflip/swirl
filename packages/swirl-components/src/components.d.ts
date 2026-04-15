@@ -5354,6 +5354,14 @@ export namespace Components {
           * @default "More actions"
          */
         "menuButtonLabel"?: string;
+        /**
+          * @default "<swirl-icon-visibility></swirl-icon-visibility>"
+         */
+        "openButtonIcon"?: string;
+        /**
+          * @default "Open"
+         */
+        "openButtonLabel"?: string;
         "progress"?: number;
         /**
           * @default "Loading progress"
@@ -15022,6 +15030,14 @@ declare namespace LocalJSX {
         "onEdit"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onThumbnailClick"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
+        /**
+          * @default "<swirl-icon-visibility></swirl-icon-visibility>"
+         */
+        "openButtonIcon"?: string;
+        /**
+          * @default "Open"
+         */
+        "openButtonLabel"?: string;
         "progress"?: number;
         /**
           * @default "Loading progress"
@@ -17917,6 +17933,8 @@ declare namespace LocalJSX {
         "format": SwirlThumbnailFormat;
         "interactive": boolean;
         "menuButtonLabel": string;
+        "openButtonIcon": string;
+        "openButtonLabel": string;
         "progress": number;
         "progressLabel": string;
         "removeButtonIcon": string;

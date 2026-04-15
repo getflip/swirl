@@ -24894,6 +24894,14 @@
           "description": ""
         },
         {
+          "name": "open-button-icon",
+          "description": ""
+        },
+        {
+          "name": "open-button-label",
+          "description": ""
+        },
+        {
           "name": "progress",
           "description": ""
         },

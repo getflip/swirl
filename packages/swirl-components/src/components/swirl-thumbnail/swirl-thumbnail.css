@@ -1,5 +1,3 @@
-@import "../../styles/media-queries.css";
-
 :host {
   display: inline-flex;
 
@@ -17,12 +15,12 @@
 
 .thumbnail--size-s {
   --swirl-thumbnail-size: 2.5rem;
-  --swirl-thumbnail-compact-button-size: 1.25rem;
+  --swirl-thumbnail-compact-button-size: 1.5rem;
 }
 
 .thumbnail--size-m {
   --swirl-thumbnail-size: 3rem;
-  --swirl-thumbnail-compact-button-size: 1.25rem;
+  --swirl-thumbnail-compact-button-size: 1.5rem;
 }
 
 .thumbnail--size-l {
@@ -62,12 +60,20 @@
   }
 }
 
+.thumbnail__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  border-radius: inherit;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 0.03125rem rgba(0, 0, 0, 0.1);
+}
+
 .thumbnail--interactive {
   & .thumbnail__image-wrapper {
-    position: relative;
-    padding: 0;
-    border: none;
-    background-color: transparent;
     cursor: pointer;
 
     &:hover {
@@ -88,14 +94,6 @@
       }
     }
   }
-}
-
-.thumbnail__image-wrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  box-shadow: inset 0 0 0 0.03125rem rgba(0, 0, 0, 0.1);
 }
 
 .thumbnail__image {
@@ -136,8 +134,8 @@
 }
 
 .thumbnail__compact-button {
-  width: var(--swirl-thumbnail-compact-button-size, 1.25rem);
-  height: var(--swirl-thumbnail-compact-button-size, 1.25rem);
+  width: var(--swirl-thumbnail-compact-button-size, 1.5rem);
+  height: var(--swirl-thumbnail-compact-button-size, 1.5rem);
   padding: 0;
   border: none;
   border-bottom-left-radius: var(--s-border-radius-s);
@@ -155,18 +153,16 @@
   }
 }
 
-@media (--has-hover) {
-  .thumbnail__buttons,
-  .thumbnail__compact-action {
-    opacity: 0;
-  }
+.thumbnail__buttons,
+.thumbnail__compact-action {
+  opacity: 0;
+}
 
-  .thumbnail:hover,
-  .thumbnail:focus-within {
-    .thumbnail__buttons,
-    .thumbnail__compact-action {
-      opacity: 1;
-    }
+.thumbnail:hover,
+.thumbnail:focus-within {
+  & .thumbnail__buttons,
+  & .thumbnail__compact-action {
+    opacity: 1;
   }
 }
 
@@ -189,6 +185,4 @@
   line-height: 1.25rem;
   white-space: nowrap;
   text-overflow: ellipsis;
-
-
 }

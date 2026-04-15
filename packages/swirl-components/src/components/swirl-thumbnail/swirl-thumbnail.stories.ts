@@ -6,7 +6,6 @@ export default {
     editButtonIcon: {
       table: {
         type: {
-          detail: "e.g. <swirl-icon-edit></swirl-icon-edit>",
           summary: "swirl-icon-*",
         },
       },
@@ -14,7 +13,13 @@ export default {
     removeButtonIcon: {
       table: {
         type: {
-          detail: "e.g. <swirl-icon-delete></swirl-icon-delete>",
+          summary: "swirl-icon-*",
+        },
+      },
+    },
+    openButtonIcon: {
+      table: {
+        type: {
           summary: "swirl-icon-*",
         },
       },

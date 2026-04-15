@@ -59427,6 +59427,22 @@
               "fieldName": "menuButtonLabel"
             },
             {
+              "name": "open-button-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-visibility></swirl-icon-visibility>\"",
+              "fieldName": "openButtonIcon"
+            },
+            {
+              "name": "open-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Open\"",
+              "fieldName": "openButtonLabel"
+            },
+            {
               "name": "progress",
               "type": {
                 "text": "number"
@@ -59562,6 +59578,26 @@
               "default": "\"More actions\"",
               "readonly": true,
               "attribute": "menu-button-label"
+            },
+            {
+              "kind": "field",
+              "name": "openButtonIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-visibility></swirl-icon-visibility>\"",
+              "readonly": true,
+              "attribute": "open-button-icon"
+            },
+            {
+              "kind": "field",
+              "name": "openButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Open\"",
+              "readonly": true,
+              "attribute": "open-button-label"
             },
             {
               "kind": "field",

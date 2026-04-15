@@ -1,15 +1,19 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
 
 export type SwirlThumbnailSize = "s" | "m" | "l" | "xl" | "2xl";
 
-const COMPACT_SIZES: Record<SwirlThumbnailFormat, SwirlThumbnailSize[]> = {
-  landscape: ["s", "m"],
-  square: ["s", "m"],
-  portrait: ["s", "m", "l", "xl"],
-};
+const COMPACT_SIZES: SwirlThumbnailSize[] = ["s", "m", "l", "xl"];
 
 @Component({
   shadow: true,
@@ -23,6 +27,9 @@ export class SwirlThumbnail {
   @Prop() format?: SwirlThumbnailFormat = "landscape";
   @Prop() interactive?: boolean;
   @Prop() menuButtonLabel?: string = "More actions";
+  @Prop() openButtonIcon?: string =
+    "<swirl-icon-visibility></swirl-icon-visibility>";
+  @Prop() openButtonLabel?: string = "Open";
   @Prop() progress?: number;
   @Prop() progressLabel?: string = "Loading progress";
   @Prop() removeButtonIcon?: string = "<swirl-icon-delete></swirl-icon-delete>";
@@ -37,8 +44,26 @@ export class SwirlThumbnail {
   @Event() remove: EventEmitter<MouseEvent>;
   @Event() thumbnailClick: EventEmitter<MouseEvent>;
 
+  @State() hasHover: boolean = true;
+
+  private hoverMediaQuery?: MediaQueryList;
   private popoverEl?: HTMLSwirlPopoverElement;
   private popoverTriggerEl?: HTMLSwirlPopoverTriggerElement;
+
+  connectedCallback() {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return;
+    }
+
+    this.hoverMediaQuery = window.matchMedia("(hover: hover)");
+    this.hasHover = this.hoverMediaQuery.matches;
+    this.hoverMediaQuery.addEventListener?.("change", this.onHoverChange);
+  }
+
+  disconnectedCallback() {
+    this.hoverMediaQuery?.removeEventListener?.("change", this.onHoverChange);
+    this.hoverMediaQuery = undefined;
+  }
 
   componentDidLoad() {
     if (this.popoverTriggerEl && this.popoverEl) {
@@ -51,30 +76,46 @@ export class SwirlThumbnail {
     this.popoverEl?.close();
   };
 
+  private onOpenClick = (event: MouseEvent) => {
+    this.thumbnailClick.emit(event);
+    this.popoverEl?.close();
+  };
+
   private onRemoveClick = (event: MouseEvent) => {
     this.remove.emit(event);
     this.popoverEl?.close();
   };
 
+  private onHoverChange = (event: MediaQueryListEvent) => {
+    this.hasHover = event.matches;
+  };
+
   render() {
-    const isCompact = COMPACT_SIZES[this.format].includes(this.size);
+    const isCompact = COMPACT_SIZES.includes(this.size);
     const isUploading = this.progress !== undefined;
 
     const showEditButton = Boolean(this.showEditButton);
     const showRemoveButton = Boolean(this.showRemoveButton);
     const hasAnyAction = showEditButton || showRemoveButton;
 
-    const showCompactMenu = isCompact && showEditButton && showRemoveButton;
+    const useThumbnailAsPopoverTrigger = !this.hasHover && hasAnyAction;
+
+    const showCompactMenu =
+      isCompact && this.hasHover && showEditButton && showRemoveButton;
     const showCompactEditButton =
-      isCompact && showEditButton && !showRemoveButton;
+      isCompact && this.hasHover && showEditButton && !showRemoveButton;
     const showCompactRemoveButton =
-      isCompact && showRemoveButton && !showEditButton;
-    const showSegmentedGroup = !isCompact && hasAnyAction;
+      isCompact && this.hasHover && showRemoveButton && !showEditButton;
+    const showSegmentedGroup = !isCompact && this.hasHover && hasAnyAction;
+    const showPopover = showCompactMenu || useThumbnailAsPopoverTrigger;
+    const showOpenAction = useThumbnailAsPopoverTrigger && this.interactive;
 
     const showTimestamp = Boolean(this.timestamp) && this.size !== "s";
     const hideTimestampForUploading = isUploading && isCompact;
 
-    const ImageWrapper = this.interactive ? "button" : "span";
+    const isImageWrapperButton =
+      this.interactive || useThumbnailAsPopoverTrigger;
+    const ImageWrapper = isImageWrapperButton ? "button" : "span";
 
     const className = classnames(
       "thumbnail",
@@ -86,21 +127,36 @@ export class SwirlThumbnail {
       }
     );
 
+    const imageWrapper = (
+      <ImageWrapper
+        class="thumbnail__image-wrapper"
+        onClick={
+          useThumbnailAsPopoverTrigger ? undefined : this.thumbnailClick.emit
+        }
+        type={isImageWrapperButton ? "button" : undefined}
+      >
+        <img
+          alt={this.alt}
+          class="thumbnail__image"
+          loading="lazy"
+          src={this.src}
+        />
+      </ImageWrapper>
+    );
+
     return (
       <Host>
         <span class={className} role="group">
-          <ImageWrapper
-            class="thumbnail__image-wrapper"
-            onClick={this.thumbnailClick.emit}
-            type={this.interactive ? "button" : undefined}
-          >
-            <img
-              alt={this.alt}
-              class="thumbnail__image"
-              loading="lazy"
-              src={this.src}
-            />
-          </ImageWrapper>
+          {useThumbnailAsPopoverTrigger ? (
+            <swirl-popover-trigger
+              ref={(el) => (this.popoverTriggerEl = el)}
+              swirlPopover={this.popoverEl}
+            >
+              {imageWrapper}
+            </swirl-popover-trigger>
+          ) : (
+            imageWrapper
+          )}
 
           {isUploading && (
             <span
@@ -191,31 +247,41 @@ export class SwirlThumbnail {
                   ></swirl-icon-more-horizontal>
                 </button>
               </swirl-popover-trigger>
-              <swirl-popover
-                label={this.menuButtonLabel}
-                placement="bottom-end"
-                padded={false}
-                ref={(el) => (this.popoverEl = el)}
-              >
-                <swirl-action-list>
-                  {showEditButton && (
-                    <swirl-action-list-item
-                      icon={this.editButtonIcon}
-                      label={this.editButtonLabel}
-                      onClick={this.onEditClick}
-                    ></swirl-action-list-item>
-                  )}
-                  {showRemoveButton && (
-                    <swirl-action-list-item
-                      icon={this.removeButtonIcon}
-                      intent="critical"
-                      label={this.removeButtonLabel}
-                      onClick={this.onRemoveClick}
-                    ></swirl-action-list-item>
-                  )}
-                </swirl-action-list>
-              </swirl-popover>
             </span>
+          )}
+
+          {showPopover && (
+            <swirl-popover
+              label={this.menuButtonLabel}
+              placement="bottom-end"
+              padded={false}
+              ref={(el) => (this.popoverEl = el)}
+            >
+              <swirl-action-list>
+                {showOpenAction && (
+                  <swirl-action-list-item
+                    icon={this.openButtonIcon}
+                    label={this.openButtonLabel}
+                    onClick={this.onOpenClick}
+                  ></swirl-action-list-item>
+                )}
+                {showEditButton && (
+                  <swirl-action-list-item
+                    icon={this.editButtonIcon}
+                    label={this.editButtonLabel}
+                    onClick={this.onEditClick}
+                  ></swirl-action-list-item>
+                )}
+                {showRemoveButton && (
+                  <swirl-action-list-item
+                    icon={this.removeButtonIcon}
+                    intent="critical"
+                    label={this.removeButtonLabel}
+                    onClick={this.onRemoveClick}
+                  ></swirl-action-list-item>
+                )}
+              </swirl-action-list>
+            </swirl-popover>
           )}
 
           {showTimestamp && !hideTimestampForUploading && (
