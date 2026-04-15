@@ -52,24 +52,30 @@ export class SwirlChip {
 
   private iconEl: HTMLElement;
   private trailingIconEl: HTMLElement;
+  private isDesktop: boolean;
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
-      this.forceIconProps(isDesktop);
+      this.isDesktop = isDesktop;
+      this.forceIconProps();
     });
+  }
+
+  componentDidRender() {
+    this.forceIconProps();
   }
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
   }
 
-  private forceIconProps(smallIcon: boolean) {
+  private forceIconProps() {
     if (!Boolean(this.iconEl) && !Boolean(this.trailingIconEl)) {
       return;
     }
 
-    const iconSize = this.size === "s" ? "16" : smallIcon ? "20" : "24";
+    const iconSize = this.size === "s" ? "16" : this.isDesktop ? "20" : "24";
 
     if (this.iconEl) {
       const icon = this.iconEl.children[0];

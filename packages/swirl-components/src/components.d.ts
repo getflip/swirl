@@ -5206,6 +5206,10 @@ export namespace Components {
           * @default 200
          */
         "delay"?: number;
+        /**
+          * @default true
+         */
+        "enableFlip"?: boolean;
         "hide": () => Promise<void>;
         /**
           * @default "default"
@@ -14589,6 +14593,10 @@ declare namespace LocalJSX {
          */
         "delay"?: number;
         /**
+          * @default true
+         */
+        "enableFlip"?: boolean;
+        /**
           * @default "default"
          */
         "intent"?: SwirlTooltipIntent;
@@ -17169,6 +17177,7 @@ declare namespace LocalJSX {
         "active": boolean;
         "content": string;
         "delay": number;
+        "enableFlip": boolean;
         "intent": SwirlTooltipIntent;
         "maxWidth": string;
         "position": SwirlTooltipPosition;

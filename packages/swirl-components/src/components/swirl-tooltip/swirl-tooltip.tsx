@@ -41,6 +41,7 @@ export class SwirlTooltip {
   @Prop() active = true;
   @Prop() content!: string;
   @Prop() delay?: number = 200;
+  @Prop() enableFlip?: boolean = true;
   @Prop() intent: SwirlTooltipIntent = "default";
   @Prop() maxWidth?: string = "17.5rem";
   @Prop() position?: SwirlTooltipPosition = "top";
@@ -60,6 +61,11 @@ export class SwirlTooltip {
 
   @Watch("position")
   watchPosition() {
+    this.updateOptions();
+  }
+
+  @Watch("enableFlip")
+  watchEnableFlip() {
     this.updateOptions();
   }
 
@@ -212,19 +218,19 @@ export class SwirlTooltip {
     const shiftPaddingY = getPixelsFromRemToken("--s-space-8");
     const shiftPaddingX = getPixelsFromRemToken("--s-space-16");
 
+    const shiftMiddleware = shift({
+      padding: {
+        top: shiftPaddingY,
+        bottom: shiftPaddingY,
+        left: shiftPaddingX,
+        right: shiftPaddingX,
+      },
+    });
+
     this.options = {
-      middleware: [
-        offset(margin),
-        shift({
-          padding: {
-            top: shiftPaddingY,
-            bottom: shiftPaddingY,
-            left: shiftPaddingX,
-            right: shiftPaddingX,
-          },
-        }),
-        flip(),
-      ],
+      middleware: this.enableFlip
+        ? [offset(margin), shiftMiddleware, flip()]
+        : [offset(margin), shiftMiddleware],
       placement: this.position,
       strategy: "fixed",
     };
