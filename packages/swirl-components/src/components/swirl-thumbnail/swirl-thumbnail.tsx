@@ -5,7 +5,6 @@ import {
   h,
   Host,
   Prop,
-  State,
 } from "@stencil/core";
 import classnames from "classnames";
 
@@ -45,8 +44,14 @@ export class SwirlThumbnail {
   @Event() remove: EventEmitter<MouseEvent>;
   @Event() thumbnailClick: EventEmitter<MouseEvent>;
 
-  // @State so that swirl-popover-trigger re-renders once the ref is set.
-  @State() private popoverEl?: HTMLSwirlPopoverElement;
+  private popoverEl?: HTMLSwirlPopoverElement;
+  private popoverTriggerEl?: HTMLSwirlPopoverTriggerElement;
+
+  componentDidLoad() {
+    if (this.popoverTriggerEl && this.popoverEl) {
+      this.popoverTriggerEl.swirlPopover = this.popoverEl;
+    }
+  }
 
   private onEditClick = (event: MouseEvent) => {
     this.edit.emit(event);
@@ -151,7 +156,10 @@ export class SwirlThumbnail {
 
           {showCompactMenu && (
             <span class="thumbnail__compact-action">
-              <swirl-popover-trigger swirlPopover={this.popoverEl}>
+              <swirl-popover-trigger
+                ref={(el) => (this.popoverTriggerEl = el)}
+                swirlPopover={this.popoverEl}
+              >
                 <button
                   aria-label={this.menuButtonLabel}
                   class="thumbnail__compact-button"
