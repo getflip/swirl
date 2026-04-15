@@ -128,14 +128,14 @@ export class SwirlPopover {
     const target = event.target as HTMLElement;
     const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
+    const composedPath = event.composedPath();
 
     const swirlComponentsExcludedFromAutoClosing = ["SWIRL-TAB"];
 
     // Check if the focus has moved outside the popover or its trigger.
     const focusIsOutsidePopover =
-      !this.el.contains(target) && !this.el.contains(activeElement);
-    const focusIsNotOnTrigger =
-      target !== this.triggerEl && !this.triggerEl?.contains(target);
+      !composedPath.includes(this.el) && !this.el.contains(activeElement);
+    const focusIsNotOnTrigger = !composedPath.includes(this.triggerEl);
     const extraCheckForSafariOrWKWebView =
       isSafariOrWKWebView &&
       !this.el.contains(relatedTarget || target) &&
