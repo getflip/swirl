@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.479.0
+
+### Minor Changes
+
+- [#1611](https://github.com/getflip/swirl/pull/1611)
+  [`cf725235d`](https://github.com/getflip/swirl/commit/cf725235d460e242597f53efdf1e04accf3088d0)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Fix
+  swirl-dialog title and long button labels
+
+* [#1613](https://github.com/getflip/swirl/pull/1613)
+  [`f410f48a6`](https://github.com/getflip/swirl/commit/f410f48a6b16379f2ebd6781031da16bbe1544f0)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  `enableFlip` to swirl-tooltip
+
 ## 0.478.0
 
 ### Minor Changes
