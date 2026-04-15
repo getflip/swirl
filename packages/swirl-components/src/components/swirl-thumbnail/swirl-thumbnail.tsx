@@ -1,11 +1,4 @@
-import {
-  Component,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-} from "@stencil/core";
+import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
@@ -65,15 +58,17 @@ export class SwirlThumbnail {
 
   render() {
     const isCompact = COMPACT_SIZES[this.format].includes(this.size);
-    const compactIconSize =
-      this.size === "xl" ? 28 : this.size === "l" ? 24 : 20;
     const isUploading = this.progress !== undefined;
 
     const showEditButton = Boolean(this.showEditButton);
     const showRemoveButton = Boolean(this.showRemoveButton);
     const hasAnyAction = showEditButton || showRemoveButton;
 
-    const showCompactMenu = isCompact && hasAnyAction;
+    const showCompactMenu = isCompact && showEditButton && showRemoveButton;
+    const showCompactEditButton =
+      isCompact && showEditButton && !showRemoveButton;
+    const showCompactRemoveButton =
+      isCompact && showRemoveButton && !showEditButton;
     const showSegmentedGroup = !isCompact && hasAnyAction;
 
     const showTimestamp = Boolean(this.timestamp) && this.size !== "s";
@@ -154,6 +149,32 @@ export class SwirlThumbnail {
             </swirl-button-group>
           )}
 
+          {(showCompactEditButton || showCompactRemoveButton) && (
+            <span class="thumbnail__compact-action">
+              <button
+                aria-label={
+                  showCompactEditButton
+                    ? this.editButtonLabel
+                    : this.removeButtonLabel
+                }
+                class="thumbnail__compact-button"
+                onClick={
+                  showCompactEditButton ? this.edit.emit : this.remove.emit
+                }
+                type="button"
+              >
+                <span
+                  innerHTML={
+                    showCompactEditButton
+                      ? this.editButtonIcon
+                      : this.removeButtonIcon
+                  }
+                  ref={(el) => el?.children[0]?.setAttribute("size", "20")}
+                ></span>
+              </button>
+            </span>
+          )}
+
           {showCompactMenu && (
             <span class="thumbnail__compact-action">
               <swirl-popover-trigger
@@ -166,7 +187,7 @@ export class SwirlThumbnail {
                   type="button"
                 >
                   <swirl-icon-more-horizontal
-                    size={compactIconSize}
+                    size={20}
                   ></swirl-icon-more-horizontal>
                 </button>
               </swirl-popover-trigger>
