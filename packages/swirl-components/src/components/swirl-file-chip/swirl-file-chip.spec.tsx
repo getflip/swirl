@@ -37,9 +37,9 @@ describe("swirl-file-chip", () => {
                 sample.pdf
               </span>
               <span class="file-chip__suffix">
-                <swirl-button-group class="file-chip__actions">
+                <span class="file-chip__actions">
                   <swirl-button hidelabel="" icon="<swirl-icon-preview></swirl-icon-preview>" label="Preview" variant="plain"></swirl-button>
-                </swirl-button-group>
+                </span>
               </span>
             </span>
           </span>

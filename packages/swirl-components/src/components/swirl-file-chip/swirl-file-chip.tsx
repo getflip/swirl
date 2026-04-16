@@ -186,7 +186,7 @@ export class SwirlFileChip {
                 </span>
               )}
               {hasAction && !this.loading && (
-                <swirl-button-group class="file-chip__actions">
+                <span class="file-chip__actions">
                   {this.showPreviewButton && (
                     <swirl-button
                       disabled={this.loading}
@@ -220,7 +220,7 @@ export class SwirlFileChip {
                       variant="plain"
                     ></swirl-button>
                   )}
-                </swirl-button-group>
+                </span>
               )}
             </span>
           </span>

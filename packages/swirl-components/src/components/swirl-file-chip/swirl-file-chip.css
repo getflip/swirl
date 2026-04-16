@@ -108,6 +108,7 @@
 .file-chip__actions {
   display: flex;
   align-items: center;
+  gap: var(--s-space-8);
 
   @media (--has-hover) {
     opacity: 0;
