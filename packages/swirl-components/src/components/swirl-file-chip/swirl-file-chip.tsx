@@ -189,7 +189,6 @@ export class SwirlFileChip {
                 <span class="file-chip__actions">
                   {this.showPreviewButton && (
                     <swirl-button
-                      disabled={this.loading}
                       hideLabel
                       icon="<swirl-icon-preview></swirl-icon-preview>"
                       label={this.previewButtonLabel}
@@ -200,7 +199,6 @@ export class SwirlFileChip {
                   )}
                   {this.showDownloadButton && (
                     <swirl-button
-                      disabled={this.loading}
                       hideLabel
                       icon="<swirl-icon-download></swirl-icon-download>"
                       label={this.downloadButtonLabel}
@@ -211,7 +209,6 @@ export class SwirlFileChip {
                   )}
                   {this.showDeleteButton && (
                     <swirl-button
-                      disabled={this.loading}
                       hideLabel
                       icon="<swirl-icon-close></swirl-icon-close>"
                       label={this.deleteButtonLabel}
