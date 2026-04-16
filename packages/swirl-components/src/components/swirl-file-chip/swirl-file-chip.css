@@ -22,9 +22,13 @@
   gap: var(--s-space-12);
 }
 
-.file-chip:hover:not(.file-chip--no-actions),
-.file-chip:focus-within:not(.file-chip--no-actions) {
-  background-color: var(--s-state-hovered);
+.file-chip:hover:not(.file-chip--no-actions):not(.file-chip--loading),
+.file-chip:focus-within:not(.file-chip--no-actions):not(.file-chip--loading) {
+  &.file-chip--has-preview-action,
+  &.file-chip--has-download-action {
+    background-color: var(--s-state-hovered);
+    cursor: pointer;
+  }
 
   & .file-chip__description {
     visibility: hidden;
@@ -124,5 +128,15 @@
   &-unknown .file-chip__icon {
     color: var(--s-decorative-banana-text);
     background-color: var(--s-decorative-banana-surface-subdued);
+  }
+}
+
+.file-chip--loading {
+  & .file-chip__icon {
+    padding: var(--s-space-2);
+  }
+
+  & .file-chip__icon {
+    background-color: transparent;
   }
 }

@@ -1047,7 +1047,7 @@ export namespace Components {
         "downloadButtonLabel"?: string;
         "loading"?: boolean;
         /**
-          * @default "Loading"
+          * @default "Loading …"
          */
         "loadingLabel"?: string;
         "name": string;
@@ -10563,7 +10563,7 @@ declare namespace LocalJSX {
         "downloadButtonLabel"?: string;
         "loading"?: boolean;
         /**
-          * @default "Loading"
+          * @default "Loading …"
          */
         "loadingLabel"?: string;
         "name": string;

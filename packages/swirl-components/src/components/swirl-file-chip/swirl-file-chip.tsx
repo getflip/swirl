@@ -37,7 +37,7 @@ export class SwirlFileChip {
   @Prop() description?: string;
   @Prop() downloadButtonLabel?: string = "Download";
   @Prop() loading?: boolean;
-  @Prop() loadingLabel?: string = "Loading";
+  @Prop() loadingLabel?: string = "Loading …";
   @Prop() name!: string;
   @Prop() previewButtonLabel?: string = "Preview";
   @Prop() removeButtonLabel?: string = "Remove";
@@ -74,7 +74,20 @@ export class SwirlFileChip {
     this.setFileType();
   }
 
-  private handleDownloadClick = () => {
+  private handleClick = () => {
+    if (this.loading) {
+      return;
+    }
+
+    if (this.showPreviewButton) {
+      this.handlePreviewClick();
+    } else if (this.showDownloadButton) {
+      this.handleDownloadClick();
+    }
+  };
+
+  private handleDownloadClick = (event?: Event) => {
+    event?.stopPropagation();
     this.download.emit();
 
     if (this.skipNativeDownload) {
@@ -90,11 +103,13 @@ export class SwirlFileChip {
       });
   };
 
-  private handlePreviewClick = () => {
+  private handlePreviewClick = (event?: Event) => {
+    event?.stopPropagation();
     this.preview.emit();
   };
 
-  private handleRemoveClick = () => {
+  private handleRemoveClick = (event?: Event) => {
+    event?.stopPropagation();
     this.remove.emit();
   };
 
@@ -141,6 +156,8 @@ export class SwirlFileChip {
       `file-chip--type-${this.fileType}`,
       {
         "file-chip--loading": this.loading,
+        "file-chip--has-preview-action": this.showPreviewButton,
+        "file-chip--has-download-action": this.showDownloadButton,
         "file-chip--no-actions": noActions,
         "file-chip--no-suffix": noSuffix,
       }
@@ -148,14 +165,16 @@ export class SwirlFileChip {
 
     return (
       <Host>
-        <span role="group" class={className}>
+        <span class={className} onClick={this.handleClick} role="group">
           <span class="file-chip__icon">{this.getFileIcon()}</span>
           <span class="file-chip__name" title={this.name}>
             {this.name}
           </span>
           <span class="file-chip__suffix">
-            {this.description && (
-              <span class="file-chip__description">{this.description}</span>
+            {(this.description || this.loading) && (
+              <span class="file-chip__description">
+                {this.loading ? this.loadingLabel : this.description}
+              </span>
             )}
             <swirl-button-group class="file-chip__actions">
               {this.showPreviewButton && (

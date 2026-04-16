@@ -8755,7 +8755,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Loading\"",
+              "default": "\"Loading …\"",
               "fieldName": "loadingLabel"
             },
             {
@@ -8859,7 +8859,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Loading\"",
+              "default": "\"Loading …\"",
               "readonly": true,
               "attribute": "loading-label"
             },
