@@ -185,6 +185,19 @@ describe("swirl-file-chip", () => {
     expect(downloadButton.icon).toContain("swirl-icon-download");
   });
 
+  it("emits delete event when delete button is clicked", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFileChip, SwirlButtonGroup, SwirlButton],
+      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" show-delete-button="true"></swirl-file-chip>`,
+    });
+    const previewSpy = jest.fn();
+
+    page.root.addEventListener("delete", previewSpy);
+    page.root.shadowRoot.querySelector("swirl-button").click();
+
+    expect(previewSpy).toHaveBeenCalled();
+  });
+
   it("emits preview event when preview button is clicked", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip, SwirlButtonGroup, SwirlButton],
