@@ -65,7 +65,7 @@ export class SwirlThumbnail {
     this.hoverMediaQuery = undefined;
   }
 
-  componentDidLoad() {
+  componentDidRender() {
     if (this.popoverTriggerEl && this.popoverEl) {
       this.popoverTriggerEl.swirlPopover = this.popoverEl;
     }
