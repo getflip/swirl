@@ -69,13 +69,14 @@
 .file-chip__suffix {
   display: inline-flex;
   align-items: center;
-  justify-items: end;
+  justify-content: flex-end;
   gap: var(--s-space-12);
   flex-grow: 1;
   min-width: fit-content;
 
   @media (--has-hover) {
     display: inline-grid;
+    justify-items: end;
     gap: 0;
   }
 

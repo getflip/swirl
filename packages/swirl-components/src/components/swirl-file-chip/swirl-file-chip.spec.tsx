@@ -22,13 +22,13 @@ describe("swirl-file-chip", () => {
   it("renders with required props", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip],
-      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf"></swirl-file-chip>`,
+      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" show-preview-button="true" type="application/pdf"></swirl-file-chip>`,
     });
 
     expect(page.root).toMatchInlineSnapshot(`
-      <swirl-file-chip name="sample.pdf" type="application/pdf" url="/sample.pdf">
+      <swirl-file-chip name="sample.pdf" show-preview-button="true" type="application/pdf" url="/sample.pdf">
         <template shadowrootmode="open">
-          <span aria-label="sample.pdf" class="file-chip file-chip--no-actions file-chip--no-suffix file-chip--type-pdf" role="group">
+          <span aria-label="sample.pdf" class="file-chip file-chip--has-preview-action file-chip--type-pdf" role="group">
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf size="20"></swirl-icon-picture-as-pdf>
             </span>
@@ -37,7 +37,9 @@ describe("swirl-file-chip", () => {
                 sample.pdf
               </span>
               <span class="file-chip__suffix">
-                <swirl-button-group class="file-chip__actions"></swirl-button-group>
+                <swirl-button-group class="file-chip__actions">
+                  <swirl-button hidelabel="" icon="<swirl-icon-preview></swirl-icon-preview>" label="Preview" variant="plain"></swirl-button>
+                </swirl-button-group>
               </span>
             </span>
           </span>

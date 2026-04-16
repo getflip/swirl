@@ -140,10 +140,10 @@ export class SwirlFileChip {
   }
 
   render() {
-    const noActions =
-      !this.showPreviewButton &&
-      !this.showDownloadButton &&
-      !this.showRemoveButton;
+    const hasAction =
+      this.showPreviewButton ||
+      this.showDownloadButton ||
+      this.showRemoveButton;
 
     const noSuffix =
       !this.description &&
@@ -161,7 +161,7 @@ export class SwirlFileChip {
         "file-chip--has-description": hasDescription,
         "file-chip--has-download-action": this.showDownloadButton,
         "file-chip--has-preview-action": this.showPreviewButton,
-        "file-chip--no-actions": noActions,
+        "file-chip--no-actions": !hasAction,
         "file-chip--no-suffix": noSuffix,
       }
     );
@@ -185,41 +185,43 @@ export class SwirlFileChip {
                   {this.loading ? this.loadingLabel : this.description}
                 </span>
               )}
-              <swirl-button-group class="file-chip__actions">
-                {this.showPreviewButton && (
-                  <swirl-button
-                    disabled={this.loading}
-                    hideLabel
-                    icon="<swirl-icon-preview></swirl-icon-preview>"
-                    label={this.previewButtonLabel}
-                    onClick={this.handlePreviewClick}
-                    part="file-chip__preview"
-                    variant="plain"
-                  ></swirl-button>
-                )}
-                {this.showDownloadButton && (
-                  <swirl-button
-                    disabled={this.loading}
-                    hideLabel
-                    icon="<swirl-icon-download></swirl-icon-download>"
-                    label={this.downloadButtonLabel}
-                    onClick={this.handleDownloadClick}
-                    part="file-chip__download"
-                    variant="plain"
-                  ></swirl-button>
-                )}
-                {this.showRemoveButton && (
-                  <swirl-button
-                    disabled={this.loading}
-                    hideLabel
-                    icon="<swirl-icon-close></swirl-icon-close>"
-                    label={this.removeButtonLabel}
-                    onClick={this.handleRemoveClick}
-                    part="file-chip__remove"
-                    variant="plain"
-                  ></swirl-button>
-                )}
-              </swirl-button-group>
+              {hasAction && !this.loading && (
+                <swirl-button-group class="file-chip__actions">
+                  {this.showPreviewButton && (
+                    <swirl-button
+                      disabled={this.loading}
+                      hideLabel
+                      icon="<swirl-icon-preview></swirl-icon-preview>"
+                      label={this.previewButtonLabel}
+                      onClick={this.handlePreviewClick}
+                      part="file-chip__preview"
+                      variant="plain"
+                    ></swirl-button>
+                  )}
+                  {this.showDownloadButton && (
+                    <swirl-button
+                      disabled={this.loading}
+                      hideLabel
+                      icon="<swirl-icon-download></swirl-icon-download>"
+                      label={this.downloadButtonLabel}
+                      onClick={this.handleDownloadClick}
+                      part="file-chip__download"
+                      variant="plain"
+                    ></swirl-button>
+                  )}
+                  {this.showRemoveButton && (
+                    <swirl-button
+                      disabled={this.loading}
+                      hideLabel
+                      icon="<swirl-icon-close></swirl-icon-close>"
+                      label={this.removeButtonLabel}
+                      onClick={this.handleRemoveClick}
+                      part="file-chip__remove"
+                      variant="plain"
+                    ></swirl-button>
+                  )}
+                </swirl-button-group>
+              )}
             </span>
           </span>
         </span>
