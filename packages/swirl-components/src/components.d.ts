@@ -1040,6 +1040,10 @@ export namespace Components {
         "illustration"?: string;
     }
     interface SwirlFileChip {
+        /**
+          * @default "Delete"
+         */
+        "deleteButtonLabel"?: string;
         "description"?: string;
         /**
           * @default "Download"
@@ -1055,13 +1059,9 @@ export namespace Components {
           * @default "Preview"
          */
         "previewButtonLabel"?: string;
-        /**
-          * @default "Remove"
-         */
-        "removeButtonLabel"?: string;
+        "showDeleteButton"?: boolean;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;
-        "showRemoveButton"?: boolean;
         "skipNativeDownload"?: boolean;
         "type": string;
         "url": string;
@@ -6011,9 +6011,9 @@ declare global {
         new (): HTMLSwirlEmptyStateElement;
     };
     interface HTMLSwirlFileChipElementEventMap {
+        "delete": void;
         "download": void;
         "preview": void;
-        "remove": void;
     }
     interface HTMLSwirlFileChipElement extends Components.SwirlFileChip, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileChipElementEventMap>(type: K, listener: (this: HTMLSwirlFileChipElement, ev: SwirlFileChipCustomEvent<HTMLSwirlFileChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -10556,6 +10556,10 @@ declare namespace LocalJSX {
         "illustration"?: string;
     }
     interface SwirlFileChip {
+        /**
+          * @default "Delete"
+         */
+        "deleteButtonLabel"?: string;
         "description"?: string;
         /**
           * @default "Download"
@@ -10567,20 +10571,16 @@ declare namespace LocalJSX {
          */
         "loadingLabel"?: string;
         "name": string;
+        "onDelete"?: (event: SwirlFileChipCustomEvent<void>) => void;
         "onDownload"?: (event: SwirlFileChipCustomEvent<void>) => void;
         "onPreview"?: (event: SwirlFileChipCustomEvent<void>) => void;
-        "onRemove"?: (event: SwirlFileChipCustomEvent<void>) => void;
         /**
           * @default "Preview"
          */
         "previewButtonLabel"?: string;
-        /**
-          * @default "Remove"
-         */
-        "removeButtonLabel"?: string;
+        "showDeleteButton"?: boolean;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;
-        "showRemoveButton"?: boolean;
         "skipNativeDownload"?: boolean;
         "type": string;
         "url": string;
@@ -15103,16 +15103,16 @@ declare namespace LocalJSX {
         "illustration": string;
     }
     interface SwirlFileChipAttributes {
+        "deleteButtonLabel": string;
         "description": string;
         "downloadButtonLabel": string;
         "loading": boolean;
         "loadingLabel": string;
         "name": string;
         "previewButtonLabel": string;
-        "removeButtonLabel": string;
+        "showDeleteButton": boolean;
         "showDownloadButton": boolean;
         "showPreviewButton": boolean;
-        "showRemoveButton": boolean;
         "skipNativeDownload": boolean;
         "type": string;
         "url": string;

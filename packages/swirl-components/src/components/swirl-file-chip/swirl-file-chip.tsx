@@ -34,23 +34,23 @@ type SwirlFileChipFileType =
   tag: "swirl-file-chip",
 })
 export class SwirlFileChip {
+  @Prop() deleteButtonLabel?: string = "Delete";
   @Prop() description?: string;
   @Prop() downloadButtonLabel?: string = "Download";
   @Prop() loading?: boolean;
   @Prop() loadingLabel?: string = "Loading …";
   @Prop() name!: string;
   @Prop() previewButtonLabel?: string = "Preview";
-  @Prop() removeButtonLabel?: string = "Remove";
+  @Prop() showDeleteButton?: boolean;
   @Prop() showDownloadButton?: boolean;
   @Prop() showPreviewButton?: boolean;
-  @Prop() showRemoveButton?: boolean;
   @Prop() skipNativeDownload?: boolean;
   @Prop() type!: string;
   @Prop() url!: string;
 
+  @Event() delete: EventEmitter<void>;
   @Event() download: EventEmitter<void>;
   @Event() preview: EventEmitter<void>;
-  @Event() remove: EventEmitter<void>;
 
   @State() fileType: SwirlFileChipFileType = "unknown";
   @State() isHovered: boolean = false;
@@ -108,9 +108,9 @@ export class SwirlFileChip {
     this.preview.emit();
   };
 
-  private handleRemoveClick = (event?: Event) => {
+  private handleDeleteClick = (event?: Event) => {
     event?.stopPropagation();
-    this.remove.emit();
+    this.delete.emit();
   };
 
   private getFileIcon() {
@@ -143,13 +143,13 @@ export class SwirlFileChip {
     const hasAction =
       this.showPreviewButton ||
       this.showDownloadButton ||
-      this.showRemoveButton;
+      this.showDeleteButton;
 
     const noSuffix =
       !this.description &&
       !this.showPreviewButton &&
       !this.showDownloadButton &&
-      !this.showRemoveButton;
+      !this.showDeleteButton;
 
     const hasDescription = this.description || this.loading;
 
@@ -209,14 +209,14 @@ export class SwirlFileChip {
                       variant="plain"
                     ></swirl-button>
                   )}
-                  {this.showRemoveButton && (
+                  {this.showDeleteButton && (
                     <swirl-button
                       disabled={this.loading}
                       hideLabel
                       icon="<swirl-icon-close></swirl-icon-close>"
-                      label={this.removeButtonLabel}
-                      onClick={this.handleRemoveClick}
-                      part="file-chip__remove"
+                      label={this.deleteButtonLabel}
+                      onClick={this.handleDeleteClick}
+                      part="file-chip__delete"
                       variant="plain"
                     ></swirl-button>
                   )}

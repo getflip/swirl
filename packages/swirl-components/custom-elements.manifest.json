@@ -8729,6 +8729,14 @@
           "name": "SwirlFileChip",
           "attributes": [
             {
+              "name": "delete-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Delete\"",
+              "fieldName": "deleteButtonLabel"
+            },
+            {
               "name": "description",
               "type": {
                 "text": "string"
@@ -8774,12 +8782,11 @@
               "fieldName": "previewButtonLabel"
             },
             {
-              "name": "remove-button-label",
+              "name": "show-delete-button",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "\"Remove\"",
-              "fieldName": "removeButtonLabel"
+              "fieldName": "showDeleteButton"
             },
             {
               "name": "show-download-button",
@@ -8794,13 +8801,6 @@
                 "text": "boolean"
               },
               "fieldName": "showPreviewButton"
-            },
-            {
-              "name": "show-remove-button",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "showRemoveButton"
             },
             {
               "name": "skip-native-download",
@@ -8825,6 +8825,16 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "deleteButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Delete\"",
+              "readonly": true,
+              "attribute": "delete-button-label"
+            },
             {
               "kind": "field",
               "name": "description",
@@ -8884,13 +8894,12 @@
             },
             {
               "kind": "field",
-              "name": "removeButtonLabel",
+              "name": "showDeleteButton",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "\"Remove\"",
               "readonly": true,
-              "attribute": "remove-button-label"
+              "attribute": "show-delete-button"
             },
             {
               "kind": "field",
@@ -8909,15 +8918,6 @@
               },
               "readonly": true,
               "attribute": "show-preview-button"
-            },
-            {
-              "kind": "field",
-              "name": "showRemoveButton",
-              "type": {
-                "text": "boolean"
-              },
-              "readonly": true,
-              "attribute": "show-remove-button"
             },
             {
               "kind": "field",
@@ -8949,6 +8949,12 @@
           ],
           "events": [
             {
+              "name": "delete",
+              "type": {
+                "text": "CustomEvent<void>"
+              }
+            },
+            {
               "name": "download",
               "type": {
                 "text": "CustomEvent<void>"
@@ -8959,23 +8965,17 @@
               "type": {
                 "text": "CustomEvent<void>"
               }
-            },
-            {
-              "name": "remove",
-              "type": {
-                "text": "CustomEvent<void>"
-              }
             }
           ],
           "cssParts": [
+            {
+              "name": "file-chip__delete"
+            },
             {
               "name": "file-chip__download"
             },
             {
               "name": "file-chip__preview"
-            },
-            {
-              "name": "file-chip__remove"
             }
           ]
         }
