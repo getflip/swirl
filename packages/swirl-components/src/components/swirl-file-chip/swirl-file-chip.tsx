@@ -130,12 +130,19 @@ export class SwirlFileChip {
       !this.showDownloadButton &&
       !this.showRemoveButton;
 
+    const noSuffix =
+      !this.description &&
+      !this.showPreviewButton &&
+      !this.showDownloadButton &&
+      !this.showRemoveButton;
+
     const className = classnames(
       "file-chip",
       `file-chip--type-${this.fileType}`,
       {
         "file-chip--loading": this.loading,
         "file-chip--no-actions": noActions,
+        "file-chip--no-suffix": noSuffix,
       }
     );
 

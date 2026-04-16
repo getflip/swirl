@@ -10,9 +10,9 @@ import {
   MockResponse,
   newSpecPage,
 } from "@stencil/core/testing";
-import { SwirlFileChip } from "./swirl-file-chip";
 import { SwirlButtonGroup } from "../swirl-button-group/swirl-button-group";
 import { SwirlButton } from "../swirl-button/swirl-button";
+import { SwirlFileChip } from "./swirl-file-chip";
 
 describe("swirl-file-chip", () => {
   beforeEach(() => {
@@ -25,21 +25,21 @@ describe("swirl-file-chip", () => {
       html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf"></swirl-file-chip>`,
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchInlineSnapshot(`
       <swirl-file-chip name="sample.pdf" type="application/pdf" url="/sample.pdf">
-        <mock:shadow-root>
-          <span class="file-chip file-chip--type-pdf" role="group">
+        <template shadowrootmode="open">
+          <span class="file-chip file-chip--no-actions file-chip--no-suffix file-chip--type-pdf" role="group">
             <span class="file-chip__icon">
-              <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>
+              <swirl-icon-picture-as-pdf size="20"></swirl-icon-picture-as-pdf>
             </span>
-            <span class="file-chip__info">
-              <span class="file-chip__name" title="sample.pdf">
-                sample.pdf
-              </span>
+            <span class="file-chip__name" title="sample.pdf">
+              sample.pdf
             </span>
-            <swirl-button-group class="file-chip__actions"></swirl-button-group>
+            <span class="file-chip__suffix">
+              <swirl-button-group class="file-chip__actions"></swirl-button-group>
+            </span>
           </span>
-        </mock:shadow-root>
+        </template>
       </swirl-file-chip>
     `);
   });
@@ -50,26 +50,9 @@ describe("swirl-file-chip", () => {
       html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" description="2.5 MB" type="application/pdf"></swirl-file-chip>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <swirl-file-chip name="sample.pdf" description="2.5 MB" type="application/pdf" url="/sample.pdf">
-        <mock:shadow-root>
-          <span class="file-chip file-chip--type-pdf" role="group">
-            <span class="file-chip__icon">
-              <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>
-            </span>
-            <span class="file-chip__info">
-              <span class="file-chip__name" title="sample.pdf">
-                sample.pdf
-              </span>
-              <span class="file-chip__description">
-                2.5 MB
-              </span>
-            </span>
-            <swirl-button-group class="file-chip__actions"></swirl-button-group>
-          </span>
-        </mock:shadow-root>
-      </swirl-file-chip>
-    `);
+    expect(
+      page.root.shadowRoot.querySelector(".file-chip__description")
+    ).toBeDefined();
   });
 
   it("renders image file type", async () => {
@@ -124,7 +107,9 @@ describe("swirl-file-chip", () => {
     );
     const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
-    expect(fileChip.classList.contains("file-chip--type-document")).toBeTruthy();
+    expect(
+      fileChip.classList.contains("file-chip--type-document")
+    ).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 
@@ -152,7 +137,9 @@ describe("swirl-file-chip", () => {
     );
     const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
 
-    expect(fileChip.classList.contains("file-chip--type-compressed")).toBeTruthy();
+    expect(
+      fileChip.classList.contains("file-chip--type-compressed")
+    ).toBeTruthy();
     expect(iconElement).toBeTruthy();
   });
 

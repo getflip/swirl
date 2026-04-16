@@ -51,6 +51,7 @@
   align-items: center;
   justify-items: end;
   flex-grow: 1;
+  min-width: fit-content;
 
   & swirl-button {
     display: inline-flex;
@@ -79,6 +80,12 @@
   display: flex;
   align-items: center;
   visibility: hidden;
+}
+
+.file-chip--no-suffix {
+  & .file-chip__suffix {
+    display: none;
+  }
 }
 
 .file-chip--type {
