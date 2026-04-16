@@ -28,7 +28,7 @@ describe("swirl-file-chip", () => {
     expect(page.root).toMatchInlineSnapshot(`
       <swirl-file-chip name="sample.pdf" type="application/pdf" url="/sample.pdf">
         <template shadowrootmode="open">
-          <span class="file-chip file-chip--no-actions file-chip--no-suffix file-chip--type-pdf" role="group">
+          <span aria-label="sample.pdf" class="file-chip file-chip--no-actions file-chip--no-suffix file-chip--type-pdf" role="group">
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf size="20"></swirl-icon-picture-as-pdf>
             </span>

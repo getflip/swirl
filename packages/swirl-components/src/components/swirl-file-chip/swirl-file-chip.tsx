@@ -151,13 +151,16 @@ export class SwirlFileChip {
       !this.showDownloadButton &&
       !this.showRemoveButton;
 
+    const hasDescription = this.description || this.loading;
+
     const className = classnames(
       "file-chip",
       `file-chip--type-${this.fileType}`,
       {
         "file-chip--loading": this.loading,
-        "file-chip--has-preview-action": this.showPreviewButton,
+        "file-chip--has-description": hasDescription,
         "file-chip--has-download-action": this.showDownloadButton,
+        "file-chip--has-preview-action": this.showPreviewButton,
         "file-chip--no-actions": noActions,
         "file-chip--no-suffix": noSuffix,
       }
@@ -165,7 +168,12 @@ export class SwirlFileChip {
 
     return (
       <Host>
-        <span class={className} onClick={this.handleClick} role="group">
+        <span
+          aria-label={this.name}
+          class={className}
+          onClick={this.handleClick}
+          role="group"
+        >
           <span class="file-chip__icon">{this.getFileIcon()}</span>
           <span class="file-chip__info">
             <span class="file-chip__name" title={this.name}>
@@ -180,6 +188,7 @@ export class SwirlFileChip {
               <swirl-button-group class="file-chip__actions">
                 {this.showPreviewButton && (
                   <swirl-button
+                    disabled={this.loading}
                     hideLabel
                     icon="<swirl-icon-preview></swirl-icon-preview>"
                     label={this.previewButtonLabel}
@@ -190,6 +199,7 @@ export class SwirlFileChip {
                 )}
                 {this.showDownloadButton && (
                   <swirl-button
+                    disabled={this.loading}
                     hideLabel
                     icon="<swirl-icon-download></swirl-icon-download>"
                     label={this.downloadButtonLabel}
@@ -200,6 +210,7 @@ export class SwirlFileChip {
                 )}
                 {this.showRemoveButton && (
                   <swirl-button
+                    disabled={this.loading}
                     hideLabel
                     icon="<swirl-icon-close></swirl-icon-close>"
                     label={this.removeButtonLabel}

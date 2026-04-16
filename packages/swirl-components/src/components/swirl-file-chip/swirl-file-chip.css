@@ -34,11 +34,13 @@
     }
 
     & .file-chip__description {
-      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
     }
 
     & .file-chip__actions {
-      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }
@@ -54,7 +56,7 @@
 
 .file-chip__info {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--s-space-12);
   flex-grow: 1;
   min-width: 0;
@@ -107,13 +109,20 @@
   align-items: center;
 
   @media (--has-hover) {
-    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
 .file-chip--no-suffix {
   & .file-chip__suffix {
     display: none;
+  }
+}
+
+.file-chip--has-description {
+  & .file-chip__info {
+    align-items: baseline;
   }
 }
 
