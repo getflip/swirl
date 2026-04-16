@@ -6006,8 +6006,8 @@ declare global {
         new (): HTMLSwirlEmptyStateElement;
     };
     interface HTMLSwirlFileChipElementEventMap {
-        "preview": void;
         "download": void;
+        "preview": void;
     }
     interface HTMLSwirlFileChipElement extends Components.SwirlFileChip, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileChipElementEventMap>(type: K, listener: (this: HTMLSwirlFileChipElement, ev: SwirlFileChipCustomEvent<HTMLSwirlFileChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -15091,17 +15091,17 @@ declare namespace LocalJSX {
         "illustration": string;
     }
     interface SwirlFileChipAttributes {
-        "url": string;
-        "name": string;
-        "type": string;
         "description": string;
+        "downloadButtonLabel": string;
         "loading": boolean;
         "loadingLabel": string;
-        "skipNativeDownload": boolean;
+        "name": string;
+        "previewButtonLabel": string;
         "showDownloadButton": boolean;
         "showPreviewButton": boolean;
-        "downloadButtonLabel": string;
-        "previewButtonLabel": string;
+        "skipNativeDownload": boolean;
+        "type": string;
+        "url": string;
     }
     interface SwirlFileUploaderAttributes {
         "accept": string;
@@ -17262,7 +17262,7 @@ declare namespace LocalJSX {
         "swirl-emoji-sad": Omit<SwirlEmojiSad, keyof SwirlEmojiSadAttributes> & { [K in keyof SwirlEmojiSad & keyof SwirlEmojiSadAttributes]?: SwirlEmojiSad[K] } & { [K in keyof SwirlEmojiSad & keyof SwirlEmojiSadAttributes as `attr:${K}`]?: SwirlEmojiSadAttributes[K] } & { [K in keyof SwirlEmojiSad & keyof SwirlEmojiSadAttributes as `prop:${K}`]?: SwirlEmojiSad[K] };
         "swirl-emoji-thumbs-up": Omit<SwirlEmojiThumbsUp, keyof SwirlEmojiThumbsUpAttributes> & { [K in keyof SwirlEmojiThumbsUp & keyof SwirlEmojiThumbsUpAttributes]?: SwirlEmojiThumbsUp[K] } & { [K in keyof SwirlEmojiThumbsUp & keyof SwirlEmojiThumbsUpAttributes as `attr:${K}`]?: SwirlEmojiThumbsUpAttributes[K] } & { [K in keyof SwirlEmojiThumbsUp & keyof SwirlEmojiThumbsUpAttributes as `prop:${K}`]?: SwirlEmojiThumbsUp[K] };
         "swirl-empty-state": Omit<SwirlEmptyState, keyof SwirlEmptyStateAttributes> & { [K in keyof SwirlEmptyState & keyof SwirlEmptyStateAttributes]?: SwirlEmptyState[K] } & { [K in keyof SwirlEmptyState & keyof SwirlEmptyStateAttributes as `attr:${K}`]?: SwirlEmptyStateAttributes[K] } & { [K in keyof SwirlEmptyState & keyof SwirlEmptyStateAttributes as `prop:${K}`]?: SwirlEmptyState[K] };
-        "swirl-file-chip": Omit<SwirlFileChip, keyof SwirlFileChipAttributes> & { [K in keyof SwirlFileChip & keyof SwirlFileChipAttributes]?: SwirlFileChip[K] } & { [K in keyof SwirlFileChip & keyof SwirlFileChipAttributes as `attr:${K}`]?: SwirlFileChipAttributes[K] } & { [K in keyof SwirlFileChip & keyof SwirlFileChipAttributes as `prop:${K}`]?: SwirlFileChip[K] } & OneOf<"url", SwirlFileChip["url"], SwirlFileChipAttributes["url"]> & OneOf<"name", SwirlFileChip["name"], SwirlFileChipAttributes["name"]> & OneOf<"type", SwirlFileChip["type"], SwirlFileChipAttributes["type"]>;
+        "swirl-file-chip": Omit<SwirlFileChip, keyof SwirlFileChipAttributes> & { [K in keyof SwirlFileChip & keyof SwirlFileChipAttributes]?: SwirlFileChip[K] } & { [K in keyof SwirlFileChip & keyof SwirlFileChipAttributes as `attr:${K}`]?: SwirlFileChipAttributes[K] } & { [K in keyof SwirlFileChip & keyof SwirlFileChipAttributes as `prop:${K}`]?: SwirlFileChip[K] } & OneOf<"name", SwirlFileChip["name"], SwirlFileChipAttributes["name"]> & OneOf<"type", SwirlFileChip["type"], SwirlFileChipAttributes["type"]> & OneOf<"url", SwirlFileChip["url"], SwirlFileChipAttributes["url"]>;
         "swirl-file-uploader": Omit<SwirlFileUploader, keyof SwirlFileUploaderAttributes> & { [K in keyof SwirlFileUploader & keyof SwirlFileUploaderAttributes]?: SwirlFileUploader[K] } & { [K in keyof SwirlFileUploader & keyof SwirlFileUploaderAttributes as `attr:${K}`]?: SwirlFileUploaderAttributes[K] } & { [K in keyof SwirlFileUploader & keyof SwirlFileUploaderAttributes as `prop:${K}`]?: SwirlFileUploader[K] } & OneOf<"inputId", SwirlFileUploader["inputId"], SwirlFileUploaderAttributes["inputId"]> & OneOf<"inputName", SwirlFileUploader["inputName"], SwirlFileUploaderAttributes["inputName"]> & OneOf<"label", SwirlFileUploader["label"], SwirlFileUploaderAttributes["label"]>;
         "swirl-file-viewer": Omit<SwirlFileViewer, keyof SwirlFileViewerAttributes> & { [K in keyof SwirlFileViewer & keyof SwirlFileViewerAttributes]?: SwirlFileViewer[K] } & { [K in keyof SwirlFileViewer & keyof SwirlFileViewerAttributes as `attr:${K}`]?: SwirlFileViewerAttributes[K] } & { [K in keyof SwirlFileViewer & keyof SwirlFileViewerAttributes as `prop:${K}`]?: SwirlFileViewer[K] } & OneOf<"file", SwirlFileViewer["file"], SwirlFileViewerAttributes["file"]> & OneOf<"type", SwirlFileViewer["type"], SwirlFileViewerAttributes["type"]>;
         "swirl-file-viewer-audio": Omit<SwirlFileViewerAudio, keyof SwirlFileViewerAudioAttributes> & { [K in keyof SwirlFileViewerAudio & keyof SwirlFileViewerAudioAttributes]?: SwirlFileViewerAudio[K] } & { [K in keyof SwirlFileViewerAudio & keyof SwirlFileViewerAudioAttributes as `attr:${K}`]?: SwirlFileViewerAudioAttributes[K] } & { [K in keyof SwirlFileViewerAudio & keyof SwirlFileViewerAudioAttributes as `prop:${K}`]?: SwirlFileViewerAudio[K] } & OneOf<"file", SwirlFileViewerAudio["file"], SwirlFileViewerAudioAttributes["file"]>;
