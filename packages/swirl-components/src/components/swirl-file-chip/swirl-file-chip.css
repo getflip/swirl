@@ -95,7 +95,6 @@
 .file-chip__description {
   color: var(--s-text-subdued);
   font-size: var(--s-font-size-xs);
-  line-height: var(--s-line-height-xs);
 }
 
 .file-chip__name,
