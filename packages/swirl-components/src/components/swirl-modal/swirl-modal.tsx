@@ -10,7 +10,7 @@ import {
   State,
   h,
 } from "@stencil/core";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { disableBodyScroll, enableBodyScroll } from "../../utils/body-scroll-lock";
 import classnames from "classnames";
 import { tabbable } from "tabbable";
 import { SwirlDialogToggleEvent } from "../../utils";
