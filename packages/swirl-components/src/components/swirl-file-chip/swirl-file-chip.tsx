@@ -40,14 +40,17 @@ export class SwirlFileChip {
   @Prop() loadingLabel?: string = "Loading";
   @Prop() name!: string;
   @Prop() previewButtonLabel?: string = "Preview";
+  @Prop() removeButtonLabel?: string = "Remove";
   @Prop() showDownloadButton?: boolean;
   @Prop() showPreviewButton?: boolean;
+  @Prop() showRemoveButton?: boolean;
   @Prop() skipNativeDownload?: boolean;
   @Prop() type!: string;
   @Prop() url!: string;
 
   @Event() download: EventEmitter<void>;
   @Event() preview: EventEmitter<void>;
+  @Event() remove: EventEmitter<void>;
 
   @State() fileType: SwirlFileChipFileType = "unknown";
   @State() isHovered: boolean = false;
@@ -91,6 +94,10 @@ export class SwirlFileChip {
     this.preview.emit();
   };
 
+  private handleRemoveClick = () => {
+    this.remove.emit();
+  };
+
   private getFileIcon() {
     if (this.loading) {
       return <swirl-spinner size="s" label={this.loadingLabel}></swirl-spinner>;
@@ -118,11 +125,17 @@ export class SwirlFileChip {
   }
 
   render() {
+    const noActions =
+      !this.showPreviewButton &&
+      !this.showDownloadButton &&
+      !this.showRemoveButton;
+
     const className = classnames(
       "file-chip",
       `file-chip--type-${this.fileType}`,
       {
         "file-chip--loading": this.loading,
+        "file-chip--no-actions": noActions,
       }
     );
 
@@ -155,6 +168,16 @@ export class SwirlFileChip {
                   label={this.downloadButtonLabel}
                   onClick={this.handleDownloadClick}
                   part="file-chip__download"
+                  variant="plain"
+                ></swirl-button>
+              )}
+              {this.showRemoveButton && (
+                <swirl-button
+                  hideLabel
+                  icon="<swirl-icon-close></swirl-icon-close>"
+                  label={this.removeButtonLabel}
+                  onClick={this.handleRemoveClick}
+                  part="file-chip__remove"
                   variant="plain"
                 ></swirl-button>
               )}

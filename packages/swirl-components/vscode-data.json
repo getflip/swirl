@@ -3049,11 +3049,19 @@
           "description": ""
         },
         {
+          "name": "remove-button-label",
+          "description": ""
+        },
+        {
           "name": "show-download-button",
           "description": ""
         },
         {
           "name": "show-preview-button",
+          "description": ""
+        },
+        {
+          "name": "show-remove-button",
           "description": ""
         },
         {

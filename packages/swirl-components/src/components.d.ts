@@ -1055,8 +1055,13 @@ export namespace Components {
           * @default "Preview"
          */
         "previewButtonLabel"?: string;
+        /**
+          * @default "Remove"
+         */
+        "removeButtonLabel"?: string;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;
+        "showRemoveButton"?: boolean;
         "skipNativeDownload"?: boolean;
         "type": string;
         "url": string;
@@ -6008,6 +6013,7 @@ declare global {
     interface HTMLSwirlFileChipElementEventMap {
         "download": void;
         "preview": void;
+        "remove": void;
     }
     interface HTMLSwirlFileChipElement extends Components.SwirlFileChip, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileChipElementEventMap>(type: K, listener: (this: HTMLSwirlFileChipElement, ev: SwirlFileChipCustomEvent<HTMLSwirlFileChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -10563,12 +10569,18 @@ declare namespace LocalJSX {
         "name": string;
         "onDownload"?: (event: SwirlFileChipCustomEvent<void>) => void;
         "onPreview"?: (event: SwirlFileChipCustomEvent<void>) => void;
+        "onRemove"?: (event: SwirlFileChipCustomEvent<void>) => void;
         /**
           * @default "Preview"
          */
         "previewButtonLabel"?: string;
+        /**
+          * @default "Remove"
+         */
+        "removeButtonLabel"?: string;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;
+        "showRemoveButton"?: boolean;
         "skipNativeDownload"?: boolean;
         "type": string;
         "url": string;
@@ -15097,8 +15109,10 @@ declare namespace LocalJSX {
         "loadingLabel": string;
         "name": string;
         "previewButtonLabel": string;
+        "removeButtonLabel": string;
         "showDownloadButton": boolean;
         "showPreviewButton": boolean;
+        "showRemoveButton": boolean;
         "skipNativeDownload": boolean;
         "type": string;
         "url": string;

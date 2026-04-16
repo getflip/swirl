@@ -8774,6 +8774,14 @@
               "fieldName": "previewButtonLabel"
             },
             {
+              "name": "remove-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Remove\"",
+              "fieldName": "removeButtonLabel"
+            },
+            {
               "name": "show-download-button",
               "type": {
                 "text": "boolean"
@@ -8786,6 +8794,13 @@
                 "text": "boolean"
               },
               "fieldName": "showPreviewButton"
+            },
+            {
+              "name": "show-remove-button",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "showRemoveButton"
             },
             {
               "name": "skip-native-download",
@@ -8869,6 +8884,16 @@
             },
             {
               "kind": "field",
+              "name": "removeButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Remove\"",
+              "readonly": true,
+              "attribute": "remove-button-label"
+            },
+            {
+              "kind": "field",
               "name": "showDownloadButton",
               "type": {
                 "text": "boolean"
@@ -8884,6 +8909,15 @@
               },
               "readonly": true,
               "attribute": "show-preview-button"
+            },
+            {
+              "kind": "field",
+              "name": "showRemoveButton",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "show-remove-button"
             },
             {
               "kind": "field",
@@ -8925,6 +8959,12 @@
               "type": {
                 "text": "CustomEvent<void>"
               }
+            },
+            {
+              "name": "remove",
+              "type": {
+                "text": "CustomEvent<void>"
+              }
             }
           ],
           "cssParts": [
@@ -8933,6 +8973,9 @@
             },
             {
               "name": "file-chip__preview"
+            },
+            {
+              "name": "file-chip__remove"
             }
           ]
         }
