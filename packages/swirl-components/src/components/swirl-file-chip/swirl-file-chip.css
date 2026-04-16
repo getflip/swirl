@@ -1,6 +1,11 @@
 :host {
   display: inline-block;
   max-width: 100%;
+  overflow: hidden;
+  background-color: var(--s-background-default);
+  border-radius: var(--s-border-radius-sm);
+  outline: 1px solid var(--s-border-strong);
+  outline-offset: -1px;
 }
 
 .file-chip {
@@ -12,9 +17,6 @@
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   background-color: transparent;
-  border-radius: var(--s-border-radius-sm);
-  outline: 1px solid var(--s-border-strong);
-  outline-offset: -1px;
   padding-top: var(--s-space-8);
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-8);
@@ -24,18 +26,20 @@
 
 .file-chip:hover:not(.file-chip--no-actions):not(.file-chip--loading),
 .file-chip:focus-within:not(.file-chip--no-actions):not(.file-chip--loading) {
-  &.file-chip--has-preview-action,
-  &.file-chip--has-download-action {
-    background-color: var(--s-state-hovered);
-    cursor: pointer;
-  }
+  @media (--has-hover) {
+    &.file-chip--has-preview-action,
+    &.file-chip--has-download-action {
+      background-color: var(--s-state-hovered);
+      cursor: pointer;
+    }
 
-  & .file-chip__description {
-    visibility: hidden;
-  }
+    & .file-chip__description {
+      visibility: hidden;
+    }
 
-  & .file-chip__actions {
-    visibility: visible;
+    & .file-chip__actions {
+      visibility: visible;
+    }
   }
 }
 
@@ -48,16 +52,30 @@
   color: var(--s-decorative-blueberry-text);
 }
 
+.file-chip__info {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-space-12);
+  flex-grow: 1;
+  min-width: 0;
+}
+
 .file-chip__name {
   font-weight: var(--s-font-weight-semibold);
 }
 
 .file-chip__suffix {
-  display: inline-grid;
+  display: inline-flex;
   align-items: center;
   justify-items: end;
+  gap: var(--s-space-12);
   flex-grow: 1;
   min-width: fit-content;
+
+  @media (--has-hover) {
+    display: inline-grid;
+    gap: 0;
+  }
 
   & swirl-button {
     display: inline-flex;
@@ -66,7 +84,9 @@
 
 .file-chip__description,
 .file-chip__actions {
-  grid-area: 1 / 1;
+  @media (--has-hover) {
+    grid-area: 1 / 1;
+  }
 }
 
 .file-chip__description {
@@ -85,7 +105,10 @@
 .file-chip__actions {
   display: flex;
   align-items: center;
-  visibility: hidden;
+
+  @media (--has-hover) {
+    visibility: hidden;
+  }
 }
 
 .file-chip--no-suffix {

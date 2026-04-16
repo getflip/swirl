@@ -32,11 +32,13 @@ describe("swirl-file-chip", () => {
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf size="20"></swirl-icon-picture-as-pdf>
             </span>
-            <span class="file-chip__name" title="sample.pdf">
-              sample.pdf
-            </span>
-            <span class="file-chip__suffix">
-              <swirl-button-group class="file-chip__actions"></swirl-button-group>
+            <span class="file-chip__info">
+              <span class="file-chip__name" title="sample.pdf">
+                sample.pdf
+              </span>
+              <span class="file-chip__suffix">
+                <swirl-button-group class="file-chip__actions"></swirl-button-group>
+              </span>
             </span>
           </span>
         </template>

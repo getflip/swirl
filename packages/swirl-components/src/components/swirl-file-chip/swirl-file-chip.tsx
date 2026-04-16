@@ -167,47 +167,49 @@ export class SwirlFileChip {
       <Host>
         <span class={className} onClick={this.handleClick} role="group">
           <span class="file-chip__icon">{this.getFileIcon()}</span>
-          <span class="file-chip__name" title={this.name}>
-            {this.name}
-          </span>
-          <span class="file-chip__suffix">
-            {(this.description || this.loading) && (
-              <span class="file-chip__description">
-                {this.loading ? this.loadingLabel : this.description}
-              </span>
-            )}
-            <swirl-button-group class="file-chip__actions">
-              {this.showPreviewButton && (
-                <swirl-button
-                  hideLabel
-                  icon="<swirl-icon-preview></swirl-icon-preview>"
-                  label={this.previewButtonLabel}
-                  onClick={this.handlePreviewClick}
-                  part="file-chip__preview"
-                  variant="plain"
-                ></swirl-button>
+          <span class="file-chip__info">
+            <span class="file-chip__name" title={this.name}>
+              {this.name}
+            </span>
+            <span class="file-chip__suffix">
+              {(this.description || this.loading) && (
+                <span class="file-chip__description">
+                  {this.loading ? this.loadingLabel : this.description}
+                </span>
               )}
-              {this.showDownloadButton && (
-                <swirl-button
-                  hideLabel
-                  icon="<swirl-icon-download></swirl-icon-download>"
-                  label={this.downloadButtonLabel}
-                  onClick={this.handleDownloadClick}
-                  part="file-chip__download"
-                  variant="plain"
-                ></swirl-button>
-              )}
-              {this.showRemoveButton && (
-                <swirl-button
-                  hideLabel
-                  icon="<swirl-icon-close></swirl-icon-close>"
-                  label={this.removeButtonLabel}
-                  onClick={this.handleRemoveClick}
-                  part="file-chip__remove"
-                  variant="plain"
-                ></swirl-button>
-              )}
-            </swirl-button-group>
+              <swirl-button-group class="file-chip__actions">
+                {this.showPreviewButton && (
+                  <swirl-button
+                    hideLabel
+                    icon="<swirl-icon-preview></swirl-icon-preview>"
+                    label={this.previewButtonLabel}
+                    onClick={this.handlePreviewClick}
+                    part="file-chip__preview"
+                    variant="plain"
+                  ></swirl-button>
+                )}
+                {this.showDownloadButton && (
+                  <swirl-button
+                    hideLabel
+                    icon="<swirl-icon-download></swirl-icon-download>"
+                    label={this.downloadButtonLabel}
+                    onClick={this.handleDownloadClick}
+                    part="file-chip__download"
+                    variant="plain"
+                  ></swirl-button>
+                )}
+                {this.showRemoveButton && (
+                  <swirl-button
+                    hideLabel
+                    icon="<swirl-icon-close></swirl-icon-close>"
+                    label={this.removeButtonLabel}
+                    onClick={this.handleRemoveClick}
+                    part="file-chip__remove"
+                    variant="plain"
+                  ></swirl-button>
+                )}
+              </swirl-button-group>
+            </span>
           </span>
         </span>
       </Host>
