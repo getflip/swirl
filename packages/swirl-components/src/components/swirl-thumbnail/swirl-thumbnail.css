@@ -185,4 +185,5 @@
   line-height: 1.25rem;
   white-space: nowrap;
   text-overflow: ellipsis;
+  pointer-events: none;
 }
