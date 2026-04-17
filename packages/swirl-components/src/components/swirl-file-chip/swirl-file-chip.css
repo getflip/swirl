@@ -13,7 +13,6 @@
   position: relative;
   align-items: center;
   max-width: 100%;
-  min-width: 10rem;
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   background-color: transparent;
@@ -22,10 +21,6 @@
   padding-bottom: var(--s-space-8);
   padding-left: var(--s-space-8);
   gap: var(--s-space-12);
-
-  @media (--from-desktop) {
-    min-width: 15rem;
-  }
 }
 
 .file-chip:hover:not(.file-chip--no-actions):not(.file-chip--loading),
