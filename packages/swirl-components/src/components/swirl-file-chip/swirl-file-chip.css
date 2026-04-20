@@ -18,7 +18,6 @@
   gap: var(--s-space-12);
 }
 
-
 .file-chip:hover,
 .file-chip:focus-within {
   &.file-chip--one-action .file-chip__info > * {
@@ -52,6 +51,7 @@
 }
 
 .file-chip__name {
+  color: var(--s-text-default);
   font-weight: var(--s-font-weight-semibold);
 }
 
