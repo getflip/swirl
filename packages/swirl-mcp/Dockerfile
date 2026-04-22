@@ -2,10 +2,10 @@ FROM node:22-slim
 
 WORKDIR /app
 
-COPY dist/ dist/
-COPY package.json .
+COPY package.json tsconfig.json ./
+COPY src/ src/
 
-RUN npm install --omit=dev
+RUN npm install && npm run build && npm prune --omit=dev
 
 EXPOSE 3000
 
