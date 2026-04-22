@@ -1,5 +1,21 @@
 # @getflip/swirl-components-react
 
+## 0.480.0
+
+### Minor Changes
+
+- [#1621](https://github.com/getflip/swirl/pull/1621)
+  [`ba93fcfd6`](https://github.com/getflip/swirl/commit/ba93fcfd6dbbd1c3073d8bb6c851808f97cfe996)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Fix text
+  input jumping when auto growing
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ba93fcfd6`](https://github.com/getflip/swirl/commit/ba93fcfd6dbbd1c3073d8bb6c851808f97cfe996),
+  [`1332c3411`](https://github.com/getflip/swirl/commit/1332c34114f4613b862ef696e950cfdc8b1e5735)]:
+  - @getflip/swirl-components@0.480.0
+
 ## 0.479.0
 
 ### Minor Changes
