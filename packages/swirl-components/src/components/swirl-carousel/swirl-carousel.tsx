@@ -275,7 +275,7 @@ export class SwirlCarousel {
               label={this.previousSlideButtonLabel}
               onClick={this.onPreviousSlideButtonClick}
               pill
-              variant="floating"
+              variant="translucent"
             ></swirl-button>
           )}
           {this.isScrollable && !this.isAtEnd && (
@@ -286,7 +286,7 @@ export class SwirlCarousel {
               label={this.nextSlideButtonLabel}
               onClick={this.onNextSlideButtonClick}
               pill
-              variant="floating"
+              variant="translucent"
             ></swirl-button>
           )}
           <div
