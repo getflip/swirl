@@ -1,5 +1,14 @@
 # @getflip/swirl-mcp
 
+## 0.1.1
+
+### Patch Changes
+
+- [#1619](https://github.com/getflip/swirl/pull/1619)
+  [`b3065c86c`](https://github.com/getflip/swirl/commit/b3065c86cfeb411ed4b1519333d81c05f8b585df)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix swirl-mcp
+  build
+
 ## 0.1.0
 
 ### Minor Changes
