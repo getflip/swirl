@@ -25,7 +25,7 @@ Add to your MCP settings:
 {
   "mcpServers": {
     "swirl": {
-      "url": "https://swirl-mcp.getflip.tech/mcp"
+      "url": "https://swirl-mcp.engage.team.getflip.gg/mcp"
     }
   }
 }
