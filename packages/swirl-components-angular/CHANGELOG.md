@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.482.0
+
+### Minor Changes
+
+- [#1623](https://github.com/getflip/swirl/pull/1623)
+  [`2407478e9`](https://github.com/getflip/swirl/commit/2407478e91018b77e11e5c9ce74338908cdfd6e4)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Fix data cell
+  spacing with empty slots
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2407478e9`](https://github.com/getflip/swirl/commit/2407478e91018b77e11e5c9ce74338908cdfd6e4)]:
+  - @getflip/swirl-components@0.482.0
+
 ## 0.481.0
 
 ### Patch Changes
