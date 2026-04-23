@@ -61,10 +61,12 @@ export class SwirlDataCell {
   };
 
   render() {
-    const hasMedia = Boolean(this.el.querySelector('[slot="media"]'));
-    const hasSuffix = Boolean(this.el.querySelector('[slot="suffix"]'));
+    const hasMedia = Boolean(this.el.querySelector(':scope>[slot="media"]'));
+    const hasSuffix = Boolean(this.el.querySelector(':scope>[slot="suffix"]'));
     const hasLabel = Boolean(this.label);
-    const hasContent = Boolean(this.el.querySelector('[slot="content"]'));
+    const hasContent = Boolean(
+      this.el.querySelector(':scope>[slot="content"]')
+    );
     const hasCheckbox = Boolean(
       this.el.querySelector('swirl-checkbox[slot="content"]')
     );
@@ -88,7 +90,8 @@ export class SwirlDataCell {
       this.el.parentElement?.tagName === "SWIRL-DATA-CELL-STACK";
     const hostRole = isInDataCellStack ? "listitem" : "group";
     const contentRole = hasCheckbox || hasRadio ? "button" : undefined;
-    const wrapperRole = isInDataCellStack && !contentRole ? "group" : contentRole;
+    const wrapperRole =
+      isInDataCellStack && !contentRole ? "group" : contentRole;
 
     const labelContent = (
       <swirl-stack orientation="horizontal" align="center" spacing="4">
