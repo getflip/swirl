@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.481.0
+
+### Minor Changes
+
+- [#1616](https://github.com/getflip/swirl/pull/1616)
+  [`ebf49f0ab`](https://github.com/getflip/swirl/commit/ebf49f0abbcc1df0dfb4398ad4b55536c4cc1ca6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Revamp swirl-file-chip component
+
+### Patch Changes
+
+- [#1616](https://github.com/getflip/swirl/pull/1616)
+  [`ebf49f0ab`](https://github.com/getflip/swirl/commit/ebf49f0abbcc1df0dfb4398ad4b55536c4cc1ca6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-file-chip name color
+
 ## 0.480.0
 
 ### Minor Changes
