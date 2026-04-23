@@ -61,11 +61,18 @@ export class SwirlDataCell {
   };
 
   render() {
-    const hasMedia = Boolean(this.el.querySelector(':scope>[slot="media"]'));
-    const hasSuffix = Boolean(this.el.querySelector(':scope>[slot="suffix"]'));
+    const hasMedia = Boolean(
+      this.el.querySelector('[slot="media"]')?.parentElement.tagName ===
+        "SWIRL-DATA-CELL"
+    );
+    const hasSuffix = Boolean(
+      this.el.querySelector('[slot="suffix"]')?.parentElement.tagName ===
+        "SWIRL-DATA-CELL"
+    );
     const hasLabel = Boolean(this.label);
     const hasContent = Boolean(
-      this.el.querySelector(':scope>[slot="content"]')
+      this.el.querySelector('[slot="content"]')?.parentElement.tagName ===
+        "SWIRL-DATA-CELL"
     );
     const hasCheckbox = Boolean(
       this.el.querySelector('swirl-checkbox[slot="content"]')
