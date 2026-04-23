@@ -3025,6 +3025,10 @@
       },
       "attributes": [
         {
+          "name": "delete-button-label",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -3046,6 +3050,10 @@
         },
         {
           "name": "preview-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-delete-button",
           "description": ""
         },
         {

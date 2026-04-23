@@ -8729,6 +8729,14 @@
           "name": "SwirlFileChip",
           "attributes": [
             {
+              "name": "delete-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Delete\"",
+              "fieldName": "deleteButtonLabel"
+            },
+            {
               "name": "description",
               "type": {
                 "text": "string"
@@ -8755,7 +8763,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Loading\"",
+              "default": "\"Loading …\"",
               "fieldName": "loadingLabel"
             },
             {
@@ -8772,6 +8780,13 @@
               },
               "default": "\"Preview\"",
               "fieldName": "previewButtonLabel"
+            },
+            {
+              "name": "show-delete-button",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "showDeleteButton"
             },
             {
               "name": "show-download-button",
@@ -8812,6 +8827,16 @@
           "members": [
             {
               "kind": "field",
+              "name": "deleteButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Delete\"",
+              "readonly": true,
+              "attribute": "delete-button-label"
+            },
+            {
+              "kind": "field",
               "name": "description",
               "type": {
                 "text": "string"
@@ -8844,7 +8869,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"Loading\"",
+              "default": "\"Loading …\"",
               "readonly": true,
               "attribute": "loading-label"
             },
@@ -8866,6 +8891,15 @@
               "default": "\"Preview\"",
               "readonly": true,
               "attribute": "preview-button-label"
+            },
+            {
+              "kind": "field",
+              "name": "showDeleteButton",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "show-delete-button"
             },
             {
               "kind": "field",
@@ -8915,6 +8949,12 @@
           ],
           "events": [
             {
+              "name": "delete",
+              "type": {
+                "text": "CustomEvent<void>"
+              }
+            },
+            {
               "name": "download",
               "type": {
                 "text": "CustomEvent<void>"
@@ -8928,6 +8968,9 @@
             }
           ],
           "cssParts": [
+            {
+              "name": "file-chip__delete"
+            },
             {
               "name": "file-chip__download"
             },

@@ -34,32 +34,35 @@ type SwirlFileChipFileType =
   tag: "swirl-file-chip",
 })
 export class SwirlFileChip {
-  @Prop() url!: string;
-  @Prop() name!: string;
-  @Prop() type!: string;
+  @Prop() deleteButtonLabel?: string = "Delete";
   @Prop() description?: string;
+  @Prop() downloadButtonLabel?: string = "Download";
   @Prop() loading?: boolean;
-  @Prop() loadingLabel?: string = "Loading";
-  @Prop() skipNativeDownload?: boolean;
+  @Prop() loadingLabel?: string = "Loading …";
+  @Prop() name!: string;
+  @Prop() previewButtonLabel?: string = "Preview";
+  @Prop() showDeleteButton?: boolean;
   @Prop() showDownloadButton?: boolean;
   @Prop() showPreviewButton?: boolean;
-  @Prop() downloadButtonLabel?: string = "Download";
-  @Prop() previewButtonLabel?: string = "Preview";
+  @Prop() skipNativeDownload?: boolean;
+  @Prop() type!: string;
+  @Prop() url!: string;
 
-  @Event() preview: EventEmitter<void>;
+  @Event() delete: EventEmitter<void>;
   @Event() download: EventEmitter<void>;
+  @Event() preview: EventEmitter<void>;
 
-  @State() isHovered: boolean = false;
   @State() fileType: SwirlFileChipFileType = "unknown";
+  @State() isHovered: boolean = false;
 
   private readonly fileIconMap: Record<SwirlFileChipFileType, JSX.Element> = {
-    image: <swirl-icon-image></swirl-icon-image>,
-    video: <swirl-icon-video-player></swirl-icon-video-player>,
-    audio: <swirl-icon-audio-file></swirl-icon-audio-file>,
-    pdf: <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>,
-    compressed: <swirl-icon-folder></swirl-icon-folder>,
-    document: <swirl-icon-file></swirl-icon-file>,
-    unknown: <swirl-icon-attachment></swirl-icon-attachment>,
+    image: <swirl-icon-image size={20}></swirl-icon-image>,
+    video: <swirl-icon-video-player size={20}></swirl-icon-video-player>,
+    audio: <swirl-icon-audio-file size={20}></swirl-icon-audio-file>,
+    pdf: <swirl-icon-picture-as-pdf size={20}></swirl-icon-picture-as-pdf>,
+    compressed: <swirl-icon-folder size={20}></swirl-icon-folder>,
+    document: <swirl-icon-file size={20}></swirl-icon-file>,
+    unknown: <swirl-icon-attachment size={20}></swirl-icon-attachment>,
   };
 
   componentWillLoad() {
@@ -71,7 +74,20 @@ export class SwirlFileChip {
     this.setFileType();
   }
 
-  private handleDownloadClick = () => {
+  private handleClick = () => {
+    if (this.loading) {
+      return;
+    }
+
+    if (this.showPreviewButton) {
+      this.handlePreviewClick();
+    } else if (this.showDownloadButton) {
+      this.handleDownloadClick();
+    }
+  };
+
+  private handleDownloadClick = (event?: Event) => {
+    event?.stopPropagation();
     this.download.emit();
 
     if (this.skipNativeDownload) {
@@ -87,8 +103,14 @@ export class SwirlFileChip {
       });
   };
 
-  private handlePreviewClick = () => {
+  private handlePreviewClick = (event?: Event) => {
+    event?.stopPropagation();
     this.preview.emit();
+  };
+
+  private handleDeleteClick = (event?: Event) => {
+    event?.stopPropagation();
+    this.delete.emit();
   };
 
   private getFileIcon() {
@@ -118,52 +140,87 @@ export class SwirlFileChip {
   }
 
   render() {
-    const actionCount = +this.showPreviewButton + +this.showDownloadButton;
+    const hasAction =
+      this.showPreviewButton ||
+      this.showDownloadButton ||
+      this.showDeleteButton;
+
+    const noSuffix =
+      !this.description &&
+      !this.showPreviewButton &&
+      !this.showDownloadButton &&
+      !this.showDeleteButton;
+
+    const hasDescription = this.description || this.loading;
 
     const className = classnames(
       "file-chip",
       `file-chip--type-${this.fileType}`,
       {
         "file-chip--loading": this.loading,
-        "file-chip--one-action": actionCount === 1,
-        "file-chip--two-actions": actionCount === 2,
+        "file-chip--has-description": hasDescription,
+        "file-chip--has-download-action": this.showDownloadButton,
+        "file-chip--has-preview-action": this.showPreviewButton,
+        "file-chip--no-actions": !hasAction,
+        "file-chip--no-suffix": noSuffix,
       }
     );
 
     return (
       <Host>
-        <span role="group" class={className}>
+        <span
+          aria-label={this.name}
+          class={className}
+          onClick={this.handleClick}
+          role="group"
+        >
           <span class="file-chip__icon">{this.getFileIcon()}</span>
           <span class="file-chip__info">
             <span class="file-chip__name" title={this.name}>
               {this.name}
             </span>
-            {this.description && (
-              <span class="file-chip__description">{this.description}</span>
-            )}
+            <span class="file-chip__suffix">
+              {(this.description || this.loading) && (
+                <span class="file-chip__description">
+                  {this.loading ? this.loadingLabel : this.description}
+                </span>
+              )}
+              {hasAction && !this.loading && (
+                <span class="file-chip__actions">
+                  {this.showPreviewButton && (
+                    <swirl-button
+                      hideLabel
+                      icon="<swirl-icon-preview></swirl-icon-preview>"
+                      label={this.previewButtonLabel}
+                      onClick={this.handlePreviewClick}
+                      part="file-chip__preview"
+                      variant="plain"
+                    ></swirl-button>
+                  )}
+                  {this.showDownloadButton && (
+                    <swirl-button
+                      hideLabel
+                      icon="<swirl-icon-download></swirl-icon-download>"
+                      label={this.downloadButtonLabel}
+                      onClick={this.handleDownloadClick}
+                      part="file-chip__download"
+                      variant="plain"
+                    ></swirl-button>
+                  )}
+                  {this.showDeleteButton && (
+                    <swirl-button
+                      hideLabel
+                      icon="<swirl-icon-close></swirl-icon-close>"
+                      label={this.deleteButtonLabel}
+                      onClick={this.handleDeleteClick}
+                      part="file-chip__delete"
+                      variant="plain"
+                    ></swirl-button>
+                  )}
+                </span>
+              )}
+            </span>
           </span>
-          <swirl-button-group class="file-chip__actions">
-            {this.showPreviewButton && (
-              <swirl-button
-                variant="flat"
-                icon="<swirl-icon-preview></swirl-icon-preview>"
-                onClick={this.handlePreviewClick}
-                label={this.previewButtonLabel}
-                hideLabel
-                part="file-chip__preview"
-              ></swirl-button>
-            )}
-            {this.showDownloadButton && (
-              <swirl-button
-                variant="flat"
-                icon="<swirl-icon-download></swirl-icon-download>"
-                onClick={this.handleDownloadClick}
-                label={this.downloadButtonLabel}
-                hideLabel
-                part="file-chip__download"
-              ></swirl-button>
-            )}
-          </swirl-button-group>
         </span>
       </Host>
     );
