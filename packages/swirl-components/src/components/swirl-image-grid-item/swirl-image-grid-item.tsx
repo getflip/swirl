@@ -41,11 +41,12 @@ export class SwirlImageGridItem {
   @Prop() showGifControls?: boolean;
   @Prop() src!: string;
 
+  @State() computedSrc?: string;
   @State() error = false;
   @State() loaded = false;
+  @State() hasTransparency = false;
   @State() inViewport = false;
   @State() gifPaused = false;
-  @State() computedSrc?: string;
 
   @Event() gifStarted: EventEmitter<void>;
   @Event() gifStopped: EventEmitter<void>;
@@ -77,6 +78,7 @@ export class SwirlImageGridItem {
   watchSrcProp() {
     this.computedSrc = this.src;
     this.gifPaused = false;
+    this.hasTransparency = false;
   }
 
   componentWillLoad() {
@@ -88,18 +90,27 @@ export class SwirlImageGridItem {
 
     if (this.img?.complete) {
       this.loaded = true;
+
+      if (this.isCurrentImageInSync() && this.img) {
+        this.hasTransparency = this.detectTransparency(this.img);
+      }
     }
   }
 
   componentDidRender() {
     if (this.img?.complete && !this.loaded) {
       this.loaded = true;
+
+      if (this.isCurrentImageInSync() && this.img) {
+        this.hasTransparency = this.detectTransparency(this.img);
+      }
     }
   }
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
     this.computedSrc = "";
+    this.hasTransparency = false;
     this.img?.removeEventListener("load", this.onLoad);
     this.img?.removeEventListener("error", this.onError);
   }
@@ -131,14 +142,89 @@ export class SwirlImageGridItem {
   private onLoad = () => {
     this.error = false;
     this.loaded = true;
+
+    if (this.img && this.isCurrentImageInSync()) {
+      this.hasTransparency = this.detectTransparency(this.img);
+    } else {
+      this.hasTransparency = false;
+    }
+
     this.imageLoad.emit();
   };
 
   private onError = () => {
     this.loaded = true;
     this.error = true;
+    this.hasTransparency = false;
     this.imageError.emit();
   };
+
+  private isCurrentImageInSync(): boolean {
+    if (!this.img || this.computedSrc == null) {
+      return false;
+    }
+
+    try {
+      return (
+        new URL(this.computedSrc, document.baseURI).href === this.img.currentSrc
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  private isLikelyOpaqueJpegSource(src: string): boolean {
+    if (src.startsWith("data:image/jpeg")) {
+      return true;
+    }
+
+    try {
+      const pathname = new URL(src).pathname.toLowerCase();
+
+      return pathname.endsWith(".jpg") || pathname.endsWith(".jpeg");
+    } catch {
+      return false;
+    }
+  }
+
+  private detectTransparency(img: HTMLImageElement): boolean {
+    try {
+      if (this.isLikelyOpaqueJpegSource(img.currentSrc)) {
+        return false;
+      }
+
+      if (!img.naturalWidth || !img.naturalHeight) {
+        return false;
+      }
+
+      const w = Math.min(img.naturalWidth, 64);
+      const h = Math.min(img.naturalHeight, 64);
+      const canvas = document.createElement("canvas");
+
+      canvas.width = w;
+      canvas.height = h;
+
+      const ctx = canvas.getContext("2d");
+
+      if (!ctx) {
+        return false;
+      }
+
+      ctx.drawImage(img, 0, 0, w, h);
+
+      const { data } = ctx.getImageData(0, 0, w, h);
+
+      for (let i = 3; i < data.length; i += 4) {
+        if (data[i] < 255) {
+          return true;
+        }
+      }
+
+      return false;
+    } catch {
+      return false;
+    }
+  }
 
   private async pauseGif() {
     const imageEl = this.img;
@@ -214,9 +300,10 @@ export class SwirlImageGridItem {
           <div
             class="image-grid-item__background"
             style={{
-              backgroundImage: showImage
-                ? `url(${this.computedSrc})`
-                : undefined,
+              backgroundImage:
+                showImage && !this.hasTransparency
+                  ? `url(${this.computedSrc})`
+                  : undefined,
             }}
           ></div>
           {showImage ? (
