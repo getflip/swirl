@@ -31,4 +31,4 @@ export {
   SwirlTreeViewCanDropHandler,
   SwirlTreeViewDropItemEvent,
 } from "./components/swirl-tree-view/swirl-tree-view";
-export { SwirlDialogToggleEvent } from "./utils";
+export { SwirlCursor, SwirlDialogToggleEvent } from "./utils";

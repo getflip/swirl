@@ -8,6 +8,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
+import { SwirlCursor } from "../../utils";
 
 export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
 
@@ -22,6 +23,7 @@ const COMPACT_SIZES: SwirlThumbnailSize[] = ["s", "m", "l", "xl"];
 })
 export class SwirlThumbnail {
   @Prop() alt!: string;
+  @Prop() cursor?: SwirlCursor = "pointer";
   @Prop() editButtonIcon?: string = "<swirl-icon-crop></swirl-icon-crop>";
   @Prop() editButtonLabel?: string = "Edit";
   @Prop() format?: SwirlThumbnailFormat = "landscape";
@@ -132,6 +134,11 @@ export class SwirlThumbnail {
         class="thumbnail__image-wrapper"
         onClick={
           useThumbnailAsPopoverTrigger ? undefined : this.thumbnailClick.emit
+        }
+        style={
+          isImageWrapperButton && this.cursor !== "pointer"
+            ? { cursor: this.cursor }
+            : undefined
         }
         type={isImageWrapperButton ? "button" : undefined}
       >

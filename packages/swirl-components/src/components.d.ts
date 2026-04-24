@@ -28,7 +28,7 @@ import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-import { SwirlDialogToggleEvent } from "./utils";
+import { SwirlCursor, SwirlDialogToggleEvent } from "./utils";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -110,7 +110,7 @@ export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-export { SwirlDialogToggleEvent } from "./utils";
+export { SwirlCursor, SwirlDialogToggleEvent } from "./utils";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -5337,6 +5337,10 @@ export namespace Components {
     }
     interface SwirlThumbnail {
         "alt": string;
+        /**
+          * @default "pointer"
+         */
+        "cursor"?: SwirlCursor;
         /**
           * @default "<swirl-icon-crop></swirl-icon-crop>"
          */
@@ -15011,6 +15015,10 @@ declare namespace LocalJSX {
     interface SwirlThumbnail {
         "alt": string;
         /**
+          * @default "pointer"
+         */
+        "cursor"?: SwirlCursor;
+        /**
           * @default "<swirl-icon-crop></swirl-icon-crop>"
          */
         "editButtonIcon"?: string;
@@ -17928,6 +17936,7 @@ declare namespace LocalJSX {
     }
     interface SwirlThumbnailAttributes {
         "alt": string;
+        "cursor": SwirlCursor;
         "editButtonIcon": string;
         "editButtonLabel": string;
         "format": SwirlThumbnailFormat;

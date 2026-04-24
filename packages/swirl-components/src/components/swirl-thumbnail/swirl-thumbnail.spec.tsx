@@ -252,6 +252,32 @@ describe("swirl-thumbnail", () => {
     ).toBe("BUTTON");
   });
 
+  it("applies the passed cursor when interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlThumbnail],
+      html: `<swirl-thumbnail alt="x" cursor="grab" interactive src="/x.png"></swirl-thumbnail>`,
+    });
+
+    const wrapper = page.root.shadowRoot.querySelector<HTMLElement>(
+      ".thumbnail__image-wrapper"
+    );
+
+    expect(wrapper.style.cursor).toBe("grab");
+  });
+
+  it("does not set an inline cursor style when not interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlThumbnail],
+      html: `<swirl-thumbnail alt="x" cursor="grab" src="/x.png"></swirl-thumbnail>`,
+    });
+
+    const wrapper = page.root.shadowRoot.querySelector<HTMLElement>(
+      ".thumbnail__image-wrapper"
+    );
+
+    expect(wrapper.style.cursor).toBe("");
+  });
+
   describe("on touch devices (no hover)", () => {
     beforeEach(() => {
       mockMatchMedia(false);
