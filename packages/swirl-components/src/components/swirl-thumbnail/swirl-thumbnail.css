@@ -29,7 +29,7 @@
 }
 
 .thumbnail--size-xl {
-  --swirl-thumbnail-size: 5rem;
+  --swirl-thumbnail-size: 5.5rem;
   --swirl-thumbnail-compact-button-size: 1.75rem;
   border-radius: var(--s-border-radius-sm);
 }

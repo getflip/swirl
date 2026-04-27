@@ -14,7 +14,7 @@ export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
 
 export type SwirlThumbnailSize = "s" | "m" | "l" | "xl" | "2xl";
 
-const COMPACT_SIZES: SwirlThumbnailSize[] = ["s", "m", "l", "xl"];
+const COMPACT_SIZES: SwirlThumbnailSize[] = ["s", "m", "l"];
 
 @Component({
   shadow: true,
