@@ -97,6 +97,10 @@ export class SwirlImageGridItem {
     }
   }
 
+  connectedCallback() {
+    this.computedSrc = this.src;
+  }
+
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
     this.computedSrc = "";
