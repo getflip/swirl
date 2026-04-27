@@ -176,6 +176,8 @@ export class SwirlTooltip {
       return;
     }
 
+    this.updateOptions();
+
     const middleware = [
       ...this.options.middleware.filter(
         (middleware) => middleware && middleware.name !== "arrow"
