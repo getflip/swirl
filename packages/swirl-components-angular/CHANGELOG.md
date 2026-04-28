@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.482.1
+
+### Patch Changes
+
+- [#1625](https://github.com/getflip/swirl/pull/1625)
+  [`096054680`](https://github.com/getflip/swirl/commit/09605468070ef73b090a1a9dc3526941a028f06c)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix incorrect
+  tooltip positions
+
+- Updated dependencies
+  [[`096054680`](https://github.com/getflip/swirl/commit/09605468070ef73b090a1a9dc3526941a028f06c)]:
+  - @getflip/swirl-components@0.482.1
+
 ## 0.482.0
 
 ### Minor Changes
