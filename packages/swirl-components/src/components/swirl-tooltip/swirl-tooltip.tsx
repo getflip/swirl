@@ -120,6 +120,7 @@ export class SwirlTooltip {
       return;
     }
 
+    this.updateOptions();
     this.visible = true;
 
     requestAnimationFrame(() => {
