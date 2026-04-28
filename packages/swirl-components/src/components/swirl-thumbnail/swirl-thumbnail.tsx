@@ -26,6 +26,7 @@ export class SwirlThumbnail {
   @Prop() cursor?: SwirlCursor = "pointer";
   @Prop() editButtonIcon?: string = "<swirl-icon-crop></swirl-icon-crop>";
   @Prop() editButtonLabel?: string = "Edit";
+  @Prop() error?: boolean;
   @Prop() format?: SwirlThumbnailFormat = "landscape";
   @Prop() interactive?: boolean;
   @Prop() menuButtonLabel?: string = "More actions";
@@ -95,6 +96,8 @@ export class SwirlThumbnail {
   render() {
     const isCompact = COMPACT_SIZES.includes(this.size);
     const isUploading = this.progress !== undefined;
+    const showError = Boolean(this.error);
+    const showUploadingOverlay = isUploading && !showError;
 
     const showEditButton = Boolean(this.showEditButton);
     const showRemoveButton = Boolean(this.showRemoveButton);
@@ -165,7 +168,7 @@ export class SwirlThumbnail {
             imageWrapper
           )}
 
-          {isUploading && (
+          {showUploadingOverlay && (
             <span
               class={
                 isCompact
@@ -179,6 +182,12 @@ export class SwirlThumbnail {
                 value={this.progress}
                 variant={isCompact ? "circle" : undefined}
               ></swirl-progress-indicator>
+            </span>
+          )}
+
+          {showError && (
+            <span class="thumbnail__error">
+              <swirl-icon-error color="critical"></swirl-icon-error>
             </span>
           )}
 

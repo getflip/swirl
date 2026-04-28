@@ -5349,6 +5349,7 @@ export namespace Components {
           * @default "Edit"
          */
         "editButtonLabel"?: string;
+        "error"?: boolean;
         /**
           * @default "landscape"
          */
@@ -15026,6 +15027,7 @@ declare namespace LocalJSX {
           * @default "Edit"
          */
         "editButtonLabel"?: string;
+        "error"?: boolean;
         /**
           * @default "landscape"
          */
@@ -17939,6 +17941,7 @@ declare namespace LocalJSX {
         "cursor": SwirlCursor;
         "editButtonIcon": string;
         "editButtonLabel": string;
+        "error": boolean;
         "format": SwirlThumbnailFormat;
         "interactive": boolean;
         "menuButtonLabel": string;

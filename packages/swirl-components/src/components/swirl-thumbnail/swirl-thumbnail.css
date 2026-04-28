@@ -119,6 +119,16 @@
   background-color: var(--s-surface-on-image-default);
 }
 
+.thumbnail__error {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--s-surface-on-image-default);
+}
+
 .thumbnail__buttons {
   position: absolute;
   z-index: 1;

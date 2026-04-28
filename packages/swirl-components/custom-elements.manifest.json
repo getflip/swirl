@@ -59413,6 +59413,13 @@
               "fieldName": "editButtonLabel"
             },
             {
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "error"
+            },
+            {
               "name": "format",
               "type": {
                 "text": "\"landscape\" | \"portrait\" | \"square\"",
@@ -59574,6 +59581,15 @@
               "default": "\"Edit\"",
               "readonly": true,
               "attribute": "edit-button-label"
+            },
+            {
+              "kind": "field",
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "error"
             },
             {
               "kind": "field",
