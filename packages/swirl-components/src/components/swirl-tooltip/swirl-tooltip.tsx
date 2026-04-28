@@ -61,12 +61,12 @@ export class SwirlTooltip {
 
   @Watch("position")
   watchPosition() {
-    this.updateOptions();
+    this.updatePositioning();
   }
 
   @Watch("enableFlip")
   watchEnableFlip() {
-    this.updateOptions();
+    this.updatePositioning();
   }
 
   @Listen("mouseenter")
@@ -211,6 +211,14 @@ export class SwirlTooltip {
     this.showTimeout = setTimeout(() => {
       this.show();
     }, this.delay);
+  };
+
+  private updatePositioning = () => {
+    this.updateOptions();
+
+    if (this.active && this.visible) {
+      this.reposition();
+    }
   };
 
   private updateOptions = () => {
