@@ -70,6 +70,15 @@
   border-radius: inherit;
   background-color: transparent;
   box-shadow: inset 0 0 0 0.03125rem rgba(0, 0, 0, 0.1);
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid var(--s-focus-default);
+    outline-offset: calc(-1 * 0.125rem);
+  }
 }
 
 .thumbnail--interactive {
