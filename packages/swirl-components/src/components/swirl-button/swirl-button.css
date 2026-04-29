@@ -192,7 +192,7 @@
 }
 
 .button--variant-outline {
-  color: var(--s-text-default);
+  color: var(--s-text-subdued);
   outline: var(--s-border-width-default) solid var(--s-border-strong);
   outline-offset: calc(var(--s-border-width-default) * -1);
 
@@ -229,7 +229,7 @@
   }
 
   & .button__icon {
-    color: var(--s-icon-strong);
+    color: var(--s-icon-default);
   }
 }
 
