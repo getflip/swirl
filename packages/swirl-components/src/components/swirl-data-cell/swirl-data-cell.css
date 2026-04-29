@@ -155,14 +155,11 @@
 
 .data-cell__input {
   width: 100%;
-
-  /* apply white background color to form control inputs */
-  & ::slotted(swirl-form-control) {
-    --swirl-form-control-label-background-color: var(
-      --swirl-data-cell-input-background,
-      var(--s-surface-default)
-    );
-  }
+  /* Define the var on the input wrapper so it flows to form controls under layout wrappers. */
+  --swirl-form-control-label-background-color: var(
+    --swirl-data-cell-input-background,
+    var(--s-surface-default)
+  );
 
   /* ensure checkbox and radio elements take full width */
   & ::slotted(swirl-checkbox),
