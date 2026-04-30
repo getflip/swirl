@@ -1,0 +1,72 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Usage/MCP Server" />
+
+# 🤖 MCP Server
+
+The [`@getflip/swirl-mcp`](https://www.npmjs.com/package/@getflip/swirl-mcp)
+package is a [Model Context Protocol](https://modelcontextprotocol.io) server
+that lets AI coding assistants — such as Claude Code, Cursor, and Claude
+Desktop — discover and use Swirl components correctly. Once configured, the
+agent can list available components, fetch their props, events, slots, and
+accessibility notes, and read installation instructions on demand, so the code
+it writes for you matches the design system.
+
+## Setup
+
+The MCP server is added through your AI client's MCP configuration. Both
+options below result in the same set of tools — pick whichever fits your
+workflow.
+
+### Local (stdio)
+
+Each client spawns its own copy of the server locally via `npx`. No network
+dependency, always on the latest published version.
+
+```json
+{
+  "mcpServers": {
+    "swirl": {
+      "command": "npx",
+      "args": ["-y", "@getflip/swirl-mcp"]
+    }
+  }
+}
+```
+
+### Remote (HTTP)
+
+Use the always-on instance hosted by us. Lighter on local
+resources and avoids the `npx` cold-start.
+
+```json
+{
+  "mcpServers": {
+    "swirl": {
+      "url": "https://swirl-mcp.engage.team.getflip.gg/mcp"
+    }
+  }
+}
+```
+
+## Tools
+
+| Tool                      | Description                                                                  |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| **list_components**       | Lists all Swirl UI components with brief summaries and related components.   |
+| **list_icons**            | Lists all Swirl icon components.                                             |
+| **list_symbols**          | Lists all Swirl symbol components.                                           |
+| **list_emojis**           | Lists all Swirl emoji components.                                            |
+| **get_component_details** | Full component docs: props, events, slots, examples, and accessibility info. |
+| **get_started**           | Installation and setup guide for Web Components, Angular, and React.         |
+
+All tools accept a `version` parameter that should match the
+`@getflip/swirl-components` version installed in your project, so the agent
+reads documentation that matches the code it's editing.
+
+## Where to next?
+
+For local testing with the
+[MCP Inspector](https://github.com/modelcontextprotocol/inspector) and other
+contributor-facing details, see the
+[package README](https://github.com/getflip/swirl/tree/main/packages/swirl-mcp).
