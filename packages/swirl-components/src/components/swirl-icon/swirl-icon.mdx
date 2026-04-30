@@ -47,9 +47,10 @@ No related components.
 
 ## Accessibility
 
-| ARIA         | Usage                                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `aria-label` | Make sure to provide an accessible label when using icons by using the `aria-label` or `aria-labelledby` attributes. |
+| ARIA          | Usage                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| `role="img"`  | Set on the SVG when a `label` is provided, with the label text exposed via an inner `<title>`. |
+| `aria-hidden` | Set to `true` automatically when no `label` is provided so the icon is treated as decorative.  |
 
 ### Keyboard
 

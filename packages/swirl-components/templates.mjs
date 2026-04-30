@@ -110,6 +110,7 @@ import classnames from 'classnames';
 })
 export class SwirlIcon{{iconName}} {
   @Prop() color?: SwirlIconColor;
+  @Prop() label?: string;
   @Prop() size: SwirlIconSize = 24;
 
   render() {
@@ -123,18 +124,22 @@ export class SwirlIcon{{iconName}} {
 
     const className = classnames('swirl-icon', \`swirl-icon--size-$\{this.size\}\`);
 
+    const hasLabel = Boolean(this.label);
+
     return (
       <svg
-        aria-hidden="true"
+        aria-hidden={hasLabel ? undefined : "true"}
         class={className}
         fill="none"
         height={this.size}
         part="icon"
+        role={hasLabel ? "img" : undefined}
         style={styles}
         viewBox={\`0 0 \${viewBoxSize} \${viewBoxSize}\`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
+        {hasLabel && <title>{this.label}</title>}
         {this.size === 16 && <Fragment>{{{iconSvg16}}}</Fragment>}
         {(this.size === 20 || this.size === 24) && <Fragment>{{{iconSvg24}}}</Fragment>}
         {this.size === 28 && <Fragment>{{{iconSvg28}}}</Fragment>}
