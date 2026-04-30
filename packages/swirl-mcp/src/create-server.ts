@@ -6,7 +6,6 @@ import {
   registerListComponents,
   registerListIcons,
   registerListSymbols,
-  registerListEmojis,
 } from "./tools/list-components.js";
 import { registerGetComponentDetails } from "./tools/get-component-details.js";
 import { registerGetStarted } from "./tools/get-started.js";
@@ -46,7 +45,6 @@ export function createMcpServer(): McpServer {
   registerListComponents(server, loadLibrary);
   registerListIcons(server, loadLibrary);
   registerListSymbols(server, loadLibrary);
-  registerListEmojis(server, loadLibrary);
   registerGetComponentDetails(server, loadLibrary);
   registerGetStarted(server, loadLibrary);
 

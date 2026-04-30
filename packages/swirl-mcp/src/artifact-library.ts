@@ -55,8 +55,5 @@ function categorize(tag: string): ComponentCategory {
   if (tag.startsWith("swirl-symbol-")) {
     return "symbol";
   }
-  if (tag.startsWith("swirl-emoji-")) {
-    return "emoji";
-  }
   return "core";
 }
