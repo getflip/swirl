@@ -13,4 +13,4 @@ export interface ComponentIndexEntry {
   relatedComponents?: string[];
 }
 
-export type ComponentCategory = "core" | "icon" | "symbol" | "emoji";
+export type ComponentCategory = "core" | "icon" | "symbol";

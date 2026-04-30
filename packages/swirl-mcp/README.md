@@ -55,7 +55,6 @@ npx @modelcontextprotocol/inspector
 | **list_components**       | Lists all Swirl UI components with brief summaries and related components.   |
 | **list_icons**            | Lists all Swirl icon components.                                             |
 | **list_symbols**          | Lists all Swirl symbol components.                                           |
-| **list_emojis**           | Lists all Swirl emoji components.                                            |
 | **get_component_details** | Full component docs: props, events, slots, examples, and accessibility info. |
 | **get_started**           | Installation and setup guide for Web Components, Angular, and React.         |
 
