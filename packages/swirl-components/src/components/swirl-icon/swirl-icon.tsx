@@ -38,6 +38,7 @@ export type SwirlIconWrapperSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
 export class SwirlIcon {
   @Prop() color?: SwirlIconColor;
   @Prop() glyph!: string;
+  @Prop() label?: string;
   @Prop() size: SwirlIconSize = 24;
   @Prop() wrapperColor?: SwirlIconWrapperColor;
   @Prop() wrapperSize?: SwirlIconWrapperSize = "m";
@@ -55,11 +56,13 @@ export class SwirlIcon {
       if (this.wrapperColor) {
         return (
           <div class={iconWrapperClassname}>
-            <Tag color={this.color} size={this.size}></Tag>
+            <Tag color={this.color} label={this.label} size={this.size}></Tag>
           </div>
         );
       } else {
-        return <Tag color={this.color} size={this.size}></Tag>;
+        return (
+          <Tag color={this.color} label={this.label} size={this.size}></Tag>
+        );
       }
     };
 

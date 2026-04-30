@@ -12,6 +12,7 @@ import classnames from "classnames";
 })
 export class SwirlIconDragHandle {
   @Prop() color?: SwirlIconColor;
+  @Prop() label?: string;
   @Prop() size: SwirlIconSize = 24;
 
   render() {
@@ -23,18 +24,22 @@ export class SwirlIconDragHandle {
 
     const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
 
+    const hasLabel = Boolean(this.label);
+
     return (
       <svg
-        aria-hidden="true"
+        aria-hidden={hasLabel ? undefined : "true"}
         class={className}
         fill="none"
         height={this.size}
         part="icon"
+        role={hasLabel ? "img" : undefined}
         style={styles}
         viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
+        {hasLabel && <title>{this.label}</title>}
         {this.size === 16 && (
           <Fragment>
             <rect x="9" y="3" width="2" height="2" rx="1" fill="currentColor" />

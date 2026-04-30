@@ -1301,6 +1301,7 @@ export namespace Components {
     interface SwirlIcon {
         "color"?: SwirlIconColor;
         "glyph": string;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1313,6 +1314,7 @@ export namespace Components {
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1320,6 +1322,7 @@ export namespace Components {
     }
     interface SwirlIconAddBox {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1327,6 +1330,7 @@ export namespace Components {
     }
     interface SwirlIconAddModerator {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1334,6 +1338,7 @@ export namespace Components {
     }
     interface SwirlIconAddPhoto {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1341,6 +1346,7 @@ export namespace Components {
     }
     interface SwirlIconAddReaction {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1348,6 +1354,7 @@ export namespace Components {
     }
     interface SwirlIconAdminPanelSettings {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1355,6 +1362,7 @@ export namespace Components {
     }
     interface SwirlIconAi {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1362,6 +1370,7 @@ export namespace Components {
     }
     interface SwirlIconAiFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1369,6 +1378,7 @@ export namespace Components {
     }
     interface SwirlIconApparel {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1376,6 +1386,7 @@ export namespace Components {
     }
     interface SwirlIconApps {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1383,6 +1394,7 @@ export namespace Components {
     }
     interface SwirlIconArrowBack {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1390,6 +1402,7 @@ export namespace Components {
     }
     interface SwirlIconArrowDownward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1397,6 +1410,7 @@ export namespace Components {
     }
     interface SwirlIconArrowForward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1404,6 +1418,7 @@ export namespace Components {
     }
     interface SwirlIconArrowLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1411,6 +1426,7 @@ export namespace Components {
     }
     interface SwirlIconArrowRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1418,6 +1434,7 @@ export namespace Components {
     }
     interface SwirlIconArrowRightSmall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1425,6 +1442,7 @@ export namespace Components {
     }
     interface SwirlIconArrowUpward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1432,6 +1450,7 @@ export namespace Components {
     }
     interface SwirlIconAspectRatio {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1439,6 +1458,7 @@ export namespace Components {
     }
     interface SwirlIconAttachment {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1446,6 +1466,7 @@ export namespace Components {
     }
     interface SwirlIconAudioFile {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1453,6 +1474,7 @@ export namespace Components {
     }
     interface SwirlIconAutorenew {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1460,6 +1482,7 @@ export namespace Components {
     }
     interface SwirlIconBarChart {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1467,6 +1490,7 @@ export namespace Components {
     }
     interface SwirlIconBeachAccess {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1474,6 +1498,7 @@ export namespace Components {
     }
     interface SwirlIconBeachAccessFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1481,6 +1506,7 @@ export namespace Components {
     }
     interface SwirlIconBlock {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1488,6 +1514,7 @@ export namespace Components {
     }
     interface SwirlIconBookmark {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1495,6 +1522,7 @@ export namespace Components {
     }
     interface SwirlIconBookmarkFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1502,6 +1530,7 @@ export namespace Components {
     }
     interface SwirlIconCalendarAddOnFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1509,6 +1538,7 @@ export namespace Components {
     }
     interface SwirlIconCalendarRespond {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1516,6 +1546,7 @@ export namespace Components {
     }
     interface SwirlIconCalendarToday {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1523,6 +1554,7 @@ export namespace Components {
     }
     interface SwirlIconCall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1530,6 +1562,7 @@ export namespace Components {
     }
     interface SwirlIconCallEnd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1537,6 +1570,7 @@ export namespace Components {
     }
     interface SwirlIconCancel {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1544,6 +1578,7 @@ export namespace Components {
     }
     interface SwirlIconCancelFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1551,6 +1586,7 @@ export namespace Components {
     }
     interface SwirlIconCancelOutline {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1558,6 +1594,7 @@ export namespace Components {
     }
     interface SwirlIconChatBubble {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1565,6 +1602,7 @@ export namespace Components {
     }
     interface SwirlIconChats {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1572,6 +1610,7 @@ export namespace Components {
     }
     interface SwirlIconChatsFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1579,6 +1618,7 @@ export namespace Components {
     }
     interface SwirlIconCheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1586,6 +1626,7 @@ export namespace Components {
     }
     interface SwirlIconCheckCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1593,6 +1634,7 @@ export namespace Components {
     }
     interface SwirlIconCheckCircleFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1600,6 +1642,7 @@ export namespace Components {
     }
     interface SwirlIconCheckSmall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1607,6 +1650,7 @@ export namespace Components {
     }
     interface SwirlIconCheckStrong {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1614,6 +1658,7 @@ export namespace Components {
     }
     interface SwirlIconCheckboxFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1621,6 +1666,7 @@ export namespace Components {
     }
     interface SwirlIconChevronLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1628,6 +1674,7 @@ export namespace Components {
     }
     interface SwirlIconChevronRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1635,6 +1682,7 @@ export namespace Components {
     }
     interface SwirlIconClose {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1642,6 +1690,7 @@ export namespace Components {
     }
     interface SwirlIconCloseFullscreen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1649,6 +1698,7 @@ export namespace Components {
     }
     interface SwirlIconCloseSmall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1656,6 +1706,7 @@ export namespace Components {
     }
     interface SwirlIconCloudUpload {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1663,6 +1714,7 @@ export namespace Components {
     }
     interface SwirlIconCoPresent {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1670,6 +1722,7 @@ export namespace Components {
     }
     interface SwirlIconColumn {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1677,6 +1730,7 @@ export namespace Components {
     }
     interface SwirlIconComment {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1684,6 +1738,7 @@ export namespace Components {
     }
     interface SwirlIconContractEdit {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1691,6 +1746,7 @@ export namespace Components {
     }
     interface SwirlIconContrast {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1698,6 +1754,7 @@ export namespace Components {
     }
     interface SwirlIconCopy {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1705,6 +1762,7 @@ export namespace Components {
     }
     interface SwirlIconCrop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1712,6 +1770,7 @@ export namespace Components {
     }
     interface SwirlIconDarkMode {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1719,6 +1778,7 @@ export namespace Components {
     }
     interface SwirlIconDateRange {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1726,6 +1786,7 @@ export namespace Components {
     }
     interface SwirlIconDelete {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1733,6 +1794,7 @@ export namespace Components {
     }
     interface SwirlIconDeployedCode {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1740,6 +1802,7 @@ export namespace Components {
     }
     interface SwirlIconDescription {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1747,6 +1810,7 @@ export namespace Components {
     }
     interface SwirlIconDesktop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1754,6 +1818,7 @@ export namespace Components {
     }
     interface SwirlIconDestruction {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1761,6 +1826,7 @@ export namespace Components {
     }
     interface SwirlIconDirectory {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1768,6 +1834,7 @@ export namespace Components {
     }
     interface SwirlIconDirectoryFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1775,6 +1842,7 @@ export namespace Components {
     }
     interface SwirlIconDiscover {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1782,6 +1850,7 @@ export namespace Components {
     }
     interface SwirlIconDockLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1789,6 +1858,7 @@ export namespace Components {
     }
     interface SwirlIconDockLeftCollapse {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1796,6 +1866,7 @@ export namespace Components {
     }
     interface SwirlIconDockLeftExpand {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1803,6 +1874,7 @@ export namespace Components {
     }
     interface SwirlIconDoorOpen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1810,6 +1882,7 @@ export namespace Components {
     }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1817,6 +1890,7 @@ export namespace Components {
     }
     interface SwirlIconDoubleArrowLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1824,6 +1898,7 @@ export namespace Components {
     }
     interface SwirlIconDoubleArrowRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1831,6 +1906,7 @@ export namespace Components {
     }
     interface SwirlIconDownload {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1838,6 +1914,7 @@ export namespace Components {
     }
     interface SwirlIconDragHandle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1845,6 +1922,7 @@ export namespace Components {
     }
     interface SwirlIconEdit {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1852,6 +1930,7 @@ export namespace Components {
     }
     interface SwirlIconEditNote {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1859,6 +1938,7 @@ export namespace Components {
     }
     interface SwirlIconEmojiMood {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1866,6 +1946,7 @@ export namespace Components {
     }
     interface SwirlIconEmojiSatisfied {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1873,6 +1954,7 @@ export namespace Components {
     }
     interface SwirlIconEmojiSymbols {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1880,6 +1962,7 @@ export namespace Components {
     }
     interface SwirlIconEndSeries {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1887,6 +1970,7 @@ export namespace Components {
     }
     interface SwirlIconError {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1894,6 +1978,7 @@ export namespace Components {
     }
     interface SwirlIconExpandLess {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1901,6 +1986,7 @@ export namespace Components {
     }
     interface SwirlIconExpandMore {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1908,6 +1994,7 @@ export namespace Components {
     }
     interface SwirlIconExperiment {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1915,6 +2002,7 @@ export namespace Components {
     }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1922,6 +2010,7 @@ export namespace Components {
     }
     interface SwirlIconFileCopy {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1929,6 +2018,7 @@ export namespace Components {
     }
     interface SwirlIconFilter {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1936,6 +2026,7 @@ export namespace Components {
     }
     interface SwirlIconFolder {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1943,6 +2034,7 @@ export namespace Components {
     }
     interface SwirlIconFolderShared {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1950,6 +2042,7 @@ export namespace Components {
     }
     interface SwirlIconFormatHOne {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1957,6 +2050,7 @@ export namespace Components {
     }
     interface SwirlIconFormatListBulleted {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1964,6 +2058,7 @@ export namespace Components {
     }
     interface SwirlIconForward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1971,6 +2066,7 @@ export namespace Components {
     }
     interface SwirlIconFullscreen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1978,6 +2074,7 @@ export namespace Components {
     }
     interface SwirlIconFullscreenExit {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1985,6 +2082,7 @@ export namespace Components {
     }
     interface SwirlIconGif {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1992,6 +2090,7 @@ export namespace Components {
     }
     interface SwirlIconGroupAdd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -1999,6 +2098,7 @@ export namespace Components {
     }
     interface SwirlIconGroupAssign {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2006,6 +2106,7 @@ export namespace Components {
     }
     interface SwirlIconGroups {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2013,6 +2114,7 @@ export namespace Components {
     }
     interface SwirlIconGroupsFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2020,6 +2122,7 @@ export namespace Components {
     }
     interface SwirlIconHamburgerMenu {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2027,6 +2130,7 @@ export namespace Components {
     }
     interface SwirlIconHealthAndSafety {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2034,6 +2138,7 @@ export namespace Components {
     }
     interface SwirlIconHelp {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2041,6 +2146,7 @@ export namespace Components {
     }
     interface SwirlIconHelpFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2048,6 +2154,7 @@ export namespace Components {
     }
     interface SwirlIconHighlight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2055,6 +2162,7 @@ export namespace Components {
     }
     interface SwirlIconHistory {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2062,6 +2170,7 @@ export namespace Components {
     }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2069,6 +2178,7 @@ export namespace Components {
     }
     interface SwirlIconHomeFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2076,6 +2186,7 @@ export namespace Components {
     }
     interface SwirlIconHrResting {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2083,6 +2194,7 @@ export namespace Components {
     }
     interface SwirlIconImage {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2090,6 +2202,7 @@ export namespace Components {
     }
     interface SwirlIconImproveText {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2097,6 +2210,7 @@ export namespace Components {
     }
     interface SwirlIconInfo {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2104,6 +2218,7 @@ export namespace Components {
     }
     interface SwirlIconInsertBelow {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2111,6 +2226,7 @@ export namespace Components {
     }
     interface SwirlIconInsertChart {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2118,6 +2234,7 @@ export namespace Components {
     }
     interface SwirlIconInsertOnTop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2125,6 +2242,7 @@ export namespace Components {
     }
     interface SwirlIconInventory {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2132,6 +2250,7 @@ export namespace Components {
     }
     interface SwirlIconInventoryOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2139,6 +2258,7 @@ export namespace Components {
     }
     interface SwirlIconIphone {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2146,6 +2266,7 @@ export namespace Components {
     }
     interface SwirlIconKey {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2153,6 +2274,7 @@ export namespace Components {
     }
     interface SwirlIconKeyboard {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2160,6 +2282,7 @@ export namespace Components {
     }
     interface SwirlIconKeyboardHide {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2167,6 +2290,7 @@ export namespace Components {
     }
     interface SwirlIconLanguage {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2174,6 +2298,7 @@ export namespace Components {
     }
     interface SwirlIconLightMode {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2181,6 +2306,7 @@ export namespace Components {
     }
     interface SwirlIconLike {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2188,6 +2314,7 @@ export namespace Components {
     }
     interface SwirlIconLink {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2195,6 +2322,7 @@ export namespace Components {
     }
     interface SwirlIconListAltCheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2202,6 +2330,7 @@ export namespace Components {
     }
     interface SwirlIconLive {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2209,6 +2338,7 @@ export namespace Components {
     }
     interface SwirlIconLoad {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2216,6 +2346,7 @@ export namespace Components {
     }
     interface SwirlIconLocationOn {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2223,6 +2354,7 @@ export namespace Components {
     }
     interface SwirlIconLock {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2230,6 +2362,7 @@ export namespace Components {
     }
     interface SwirlIconLockOpen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2237,6 +2370,7 @@ export namespace Components {
     }
     interface SwirlIconLockPerson {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2244,6 +2378,7 @@ export namespace Components {
     }
     interface SwirlIconLogin {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2251,6 +2386,7 @@ export namespace Components {
     }
     interface SwirlIconLogout {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2258,6 +2394,7 @@ export namespace Components {
     }
     interface SwirlIconLongText {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2265,6 +2402,7 @@ export namespace Components {
     }
     interface SwirlIconMail {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2272,6 +2410,7 @@ export namespace Components {
     }
     interface SwirlIconManageAccounts {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2279,6 +2418,7 @@ export namespace Components {
     }
     interface SwirlIconMarkChatRead {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2286,6 +2426,7 @@ export namespace Components {
     }
     interface SwirlIconMarkChatUnread {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2293,6 +2434,7 @@ export namespace Components {
     }
     interface SwirlIconMention {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2300,6 +2442,7 @@ export namespace Components {
     }
     interface SwirlIconMenu {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2307,6 +2450,7 @@ export namespace Components {
     }
     interface SwirlIconMenuBook {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2314,6 +2458,7 @@ export namespace Components {
     }
     interface SwirlIconMenuBookFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2321,6 +2466,7 @@ export namespace Components {
     }
     interface SwirlIconMenuFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2328,6 +2474,7 @@ export namespace Components {
     }
     interface SwirlIconMessage {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2335,6 +2482,7 @@ export namespace Components {
     }
     interface SwirlIconMic {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2342,6 +2490,7 @@ export namespace Components {
     }
     interface SwirlIconMicOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2349,6 +2498,7 @@ export namespace Components {
     }
     interface SwirlIconMobileTheft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2356,6 +2506,7 @@ export namespace Components {
     }
     interface SwirlIconMoreHorizontal {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2363,6 +2514,7 @@ export namespace Components {
     }
     interface SwirlIconMoreVertikal {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2370,6 +2522,7 @@ export namespace Components {
     }
     interface SwirlIconNews {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2377,6 +2530,7 @@ export namespace Components {
     }
     interface SwirlIconNewsFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2384,6 +2538,7 @@ export namespace Components {
     }
     interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2391,6 +2546,7 @@ export namespace Components {
     }
     interface SwirlIconNextPlan {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2398,6 +2554,7 @@ export namespace Components {
     }
     interface SwirlIconNoteStack {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2405,6 +2562,7 @@ export namespace Components {
     }
     interface SwirlIconNoteStackFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2412,6 +2570,7 @@ export namespace Components {
     }
     interface SwirlIconNotifications {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2419,6 +2578,7 @@ export namespace Components {
     }
     interface SwirlIconNotificationsActive {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2426,6 +2586,7 @@ export namespace Components {
     }
     interface SwirlIconNotificationsOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2433,6 +2594,7 @@ export namespace Components {
     }
     interface SwirlIconOpenInFull {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2440,6 +2602,7 @@ export namespace Components {
     }
     interface SwirlIconOpenInNew {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2447,6 +2610,7 @@ export namespace Components {
     }
     interface SwirlIconPasskey {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2454,6 +2618,7 @@ export namespace Components {
     }
     interface SwirlIconPatientList {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2461,6 +2626,7 @@ export namespace Components {
     }
     interface SwirlIconPause {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2468,6 +2634,7 @@ export namespace Components {
     }
     interface SwirlIconPauseCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2475,6 +2642,7 @@ export namespace Components {
     }
     interface SwirlIconPeopleAlt {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2482,6 +2650,7 @@ export namespace Components {
     }
     interface SwirlIconPerson {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2489,6 +2658,7 @@ export namespace Components {
     }
     interface SwirlIconPersonCheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2496,6 +2666,7 @@ export namespace Components {
     }
     interface SwirlIconPersonOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2503,6 +2674,7 @@ export namespace Components {
     }
     interface SwirlIconPersonRaisedHand {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2510,6 +2682,7 @@ export namespace Components {
     }
     interface SwirlIconPhone {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2517,6 +2690,7 @@ export namespace Components {
     }
     interface SwirlIconPhotoCamera {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2524,6 +2698,7 @@ export namespace Components {
     }
     interface SwirlIconPictureAsPdf {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2531,6 +2706,7 @@ export namespace Components {
     }
     interface SwirlIconPictureInPicture {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2538,6 +2714,7 @@ export namespace Components {
     }
     interface SwirlIconPin {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2545,6 +2722,7 @@ export namespace Components {
     }
     interface SwirlIconPinOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2552,6 +2730,7 @@ export namespace Components {
     }
     interface SwirlIconPlace {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2559,6 +2738,7 @@ export namespace Components {
     }
     interface SwirlIconPlayArrow {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2566,6 +2746,7 @@ export namespace Components {
     }
     interface SwirlIconPoll {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2573,6 +2754,7 @@ export namespace Components {
     }
     interface SwirlIconPostApproval {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2580,6 +2762,7 @@ export namespace Components {
     }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2587,6 +2770,7 @@ export namespace Components {
     }
     interface SwirlIconPreview {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2594,6 +2778,7 @@ export namespace Components {
     }
     interface SwirlIconPrint {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2601,6 +2786,7 @@ export namespace Components {
     }
     interface SwirlIconPublic {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2608,6 +2794,7 @@ export namespace Components {
     }
     interface SwirlIconPublicOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2615,6 +2802,7 @@ export namespace Components {
     }
     interface SwirlIconPublishedWithChanges {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2622,6 +2810,7 @@ export namespace Components {
     }
     interface SwirlIconQrCodeScanner {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2629,6 +2818,7 @@ export namespace Components {
     }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2636,6 +2826,7 @@ export namespace Components {
     }
     interface SwirlIconRatioFreeform {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2643,6 +2834,7 @@ export namespace Components {
     }
     interface SwirlIconRatioSixteenToNine {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2650,6 +2842,7 @@ export namespace Components {
     }
     interface SwirlIconRatioSquare {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2657,6 +2850,7 @@ export namespace Components {
     }
     interface SwirlIconRatioThreeToFour {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2664,6 +2858,7 @@ export namespace Components {
     }
     interface SwirlIconRatioThreeToTwo {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2671,6 +2866,7 @@ export namespace Components {
     }
     interface SwirlIconRecieved {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2678,6 +2874,7 @@ export namespace Components {
     }
     interface SwirlIconRefresh {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2685,6 +2882,7 @@ export namespace Components {
     }
     interface SwirlIconRemove {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2692,6 +2890,7 @@ export namespace Components {
     }
     interface SwirlIconRemoveCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2699,6 +2898,7 @@ export namespace Components {
     }
     interface SwirlIconRemoveModerator {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2706,6 +2906,7 @@ export namespace Components {
     }
     interface SwirlIconRepeat {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2713,6 +2914,7 @@ export namespace Components {
     }
     interface SwirlIconReply {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2720,6 +2922,7 @@ export namespace Components {
     }
     interface SwirlIconReport {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2727,6 +2930,7 @@ export namespace Components {
     }
     interface SwirlIconRoadmap {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2734,6 +2938,7 @@ export namespace Components {
     }
     interface SwirlIconRotateLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2741,6 +2946,7 @@ export namespace Components {
     }
     interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2748,6 +2954,7 @@ export namespace Components {
     }
     interface SwirlIconSchool {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2755,6 +2962,7 @@ export namespace Components {
     }
     interface SwirlIconScreenshare {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2762,6 +2970,7 @@ export namespace Components {
     }
     interface SwirlIconScreenshareOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2769,6 +2978,7 @@ export namespace Components {
     }
     interface SwirlIconSearch {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2776,6 +2986,7 @@ export namespace Components {
     }
     interface SwirlIconSearchStrong {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2783,6 +2994,7 @@ export namespace Components {
     }
     interface SwirlIconSection {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2790,6 +3002,7 @@ export namespace Components {
     }
     interface SwirlIconSecure {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2797,6 +3010,7 @@ export namespace Components {
     }
     interface SwirlIconSell {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2804,6 +3018,7 @@ export namespace Components {
     }
     interface SwirlIconSend {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2811,6 +3026,7 @@ export namespace Components {
     }
     interface SwirlIconSettings {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2818,6 +3034,7 @@ export namespace Components {
     }
     interface SwirlIconShortText {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2825,6 +3042,7 @@ export namespace Components {
     }
     interface SwirlIconSimplify {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2832,6 +3050,7 @@ export namespace Components {
     }
     interface SwirlIconSpellcheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2839,6 +3058,7 @@ export namespace Components {
     }
     interface SwirlIconStars {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2846,6 +3066,7 @@ export namespace Components {
     }
     interface SwirlIconStickyNote {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2853,6 +3074,7 @@ export namespace Components {
     }
     interface SwirlIconStop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2860,6 +3082,7 @@ export namespace Components {
     }
     interface SwirlIconStopCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2867,6 +3090,7 @@ export namespace Components {
     }
     interface SwirlIconSunny {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2874,6 +3098,7 @@ export namespace Components {
     }
     interface SwirlIconSync {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2881,6 +3106,7 @@ export namespace Components {
     }
     interface SwirlIconTasks {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2888,6 +3114,7 @@ export namespace Components {
     }
     interface SwirlIconTasksFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2895,6 +3122,7 @@ export namespace Components {
     }
     interface SwirlIconTerminal {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2902,6 +3130,7 @@ export namespace Components {
     }
     interface SwirlIconTime {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2909,6 +3138,7 @@ export namespace Components {
     }
     interface SwirlIconTimeFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2916,6 +3146,7 @@ export namespace Components {
     }
     interface SwirlIconToday {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2923,6 +3154,7 @@ export namespace Components {
     }
     interface SwirlIconTodayFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2930,6 +3162,7 @@ export namespace Components {
     }
     interface SwirlIconTranslate {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2937,6 +3170,7 @@ export namespace Components {
     }
     interface SwirlIconTreeStructure {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2944,6 +3178,7 @@ export namespace Components {
     }
     interface SwirlIconUndo {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2951,6 +3186,7 @@ export namespace Components {
     }
     interface SwirlIconUnlockPerson {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2958,6 +3194,7 @@ export namespace Components {
     }
     interface SwirlIconUpload {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2965,6 +3202,7 @@ export namespace Components {
     }
     interface SwirlIconUserAdd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2972,6 +3210,7 @@ export namespace Components {
     }
     interface SwirlIconUserAssign {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2979,6 +3218,7 @@ export namespace Components {
     }
     interface SwirlIconVerifiedUser {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2986,6 +3226,7 @@ export namespace Components {
     }
     interface SwirlIconVideoCamera {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -2993,6 +3234,7 @@ export namespace Components {
     }
     interface SwirlIconVideoCameraOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3000,6 +3242,7 @@ export namespace Components {
     }
     interface SwirlIconVideoLibrary {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3007,6 +3250,7 @@ export namespace Components {
     }
     interface SwirlIconVideoPlayer {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3014,6 +3258,7 @@ export namespace Components {
     }
     interface SwirlIconViewAgenda {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3021,6 +3266,7 @@ export namespace Components {
     }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3028,6 +3274,7 @@ export namespace Components {
     }
     interface SwirlIconVisibilityOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3035,6 +3282,7 @@ export namespace Components {
     }
     interface SwirlIconVoice {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3042,6 +3290,7 @@ export namespace Components {
     }
     interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3049,6 +3298,7 @@ export namespace Components {
     }
     interface SwirlIconWarning {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3056,6 +3306,7 @@ export namespace Components {
     }
     interface SwirlIconWavingHand {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3063,6 +3314,7 @@ export namespace Components {
     }
     interface SwirlIconWebAsset {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3070,6 +3322,7 @@ export namespace Components {
     }
     interface SwirlIconWebAssetOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3077,6 +3330,7 @@ export namespace Components {
     }
     interface SwirlIconWork {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -3084,6 +3338,7 @@ export namespace Components {
     }
     interface SwirlIconWorkspacePremium {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10791,6 +11046,7 @@ declare namespace LocalJSX {
     interface SwirlIcon {
         "color"?: SwirlIconColor;
         "glyph": string;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10803,6 +11059,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10810,6 +11067,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAddBox {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10817,6 +11075,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAddModerator {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10824,6 +11083,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAddPhoto {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10831,6 +11091,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAddReaction {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10838,6 +11099,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAdminPanelSettings {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10845,6 +11107,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAi {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10852,6 +11115,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAiFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10859,6 +11123,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconApparel {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10866,6 +11131,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconApps {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10873,6 +11139,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowBack {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10880,6 +11147,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowDownward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10887,6 +11155,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowForward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10894,6 +11163,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10901,6 +11171,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10908,6 +11179,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowRightSmall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10915,6 +11187,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconArrowUpward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10922,6 +11195,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAspectRatio {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10929,6 +11203,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAttachment {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10936,6 +11211,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAudioFile {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10943,6 +11219,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconAutorenew {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10950,6 +11227,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconBarChart {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10957,6 +11235,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconBeachAccess {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10964,6 +11243,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconBeachAccessFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10971,6 +11251,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconBlock {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10978,6 +11259,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconBookmark {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10985,6 +11267,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconBookmarkFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10992,6 +11275,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCalendarAddOnFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -10999,6 +11283,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCalendarRespond {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11006,6 +11291,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCalendarToday {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11013,6 +11299,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11020,6 +11307,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCallEnd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11027,6 +11315,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCancel {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11034,6 +11323,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCancelFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11041,6 +11331,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCancelOutline {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11048,6 +11339,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconChatBubble {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11055,6 +11347,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconChats {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11062,6 +11355,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconChatsFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11069,6 +11363,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11076,6 +11371,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCheckCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11083,6 +11379,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCheckCircleFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11090,6 +11387,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCheckSmall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11097,6 +11395,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCheckStrong {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11104,6 +11403,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCheckboxFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11111,6 +11411,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconChevronLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11118,6 +11419,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconChevronRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11125,6 +11427,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconClose {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11132,6 +11435,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCloseFullscreen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11139,6 +11443,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCloseSmall {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11146,6 +11451,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCloudUpload {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11153,6 +11459,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCoPresent {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11160,6 +11467,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconColumn {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11167,6 +11475,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconComment {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11174,6 +11483,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconContractEdit {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11181,6 +11491,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconContrast {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11188,6 +11499,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCopy {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11195,6 +11507,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconCrop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11202,6 +11515,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDarkMode {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11209,6 +11523,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDateRange {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11216,6 +11531,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDelete {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11223,6 +11539,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDeployedCode {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11230,6 +11547,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDescription {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11237,6 +11555,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDesktop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11244,6 +11563,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDestruction {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11251,6 +11571,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDirectory {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11258,6 +11579,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDirectoryFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11265,6 +11587,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDiscover {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11272,6 +11595,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDockLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11279,6 +11603,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDockLeftCollapse {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11286,6 +11611,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDockLeftExpand {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11293,6 +11619,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDoorOpen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11300,6 +11627,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11307,6 +11635,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDoubleArrowLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11314,6 +11643,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDoubleArrowRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11321,6 +11651,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDownload {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11328,6 +11659,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconDragHandle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11335,6 +11667,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconEdit {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11342,6 +11675,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconEditNote {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11349,6 +11683,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconEmojiMood {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11356,6 +11691,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconEmojiSatisfied {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11363,6 +11699,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconEmojiSymbols {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11370,6 +11707,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconEndSeries {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11377,6 +11715,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconError {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11384,6 +11723,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconExpandLess {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11391,6 +11731,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconExpandMore {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11398,6 +11739,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconExperiment {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11405,6 +11747,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11412,6 +11755,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFileCopy {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11419,6 +11763,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFilter {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11426,6 +11771,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFolder {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11433,6 +11779,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFolderShared {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11440,6 +11787,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFormatHOne {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11447,6 +11795,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFormatListBulleted {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11454,6 +11803,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconForward {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11461,6 +11811,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFullscreen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11468,6 +11819,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconFullscreenExit {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11475,6 +11827,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconGif {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11482,6 +11835,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconGroupAdd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11489,6 +11843,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconGroupAssign {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11496,6 +11851,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconGroups {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11503,6 +11859,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconGroupsFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11510,6 +11867,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHamburgerMenu {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11517,6 +11875,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHealthAndSafety {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11524,6 +11883,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHelp {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11531,6 +11891,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHelpFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11538,6 +11899,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHighlight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11545,6 +11907,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHistory {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11552,6 +11915,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11559,6 +11923,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHomeFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11566,6 +11931,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconHrResting {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11573,6 +11939,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconImage {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11580,6 +11947,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconImproveText {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11587,6 +11955,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconInfo {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11594,6 +11963,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconInsertBelow {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11601,6 +11971,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconInsertChart {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11608,6 +11979,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconInsertOnTop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11615,6 +11987,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconInventory {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11622,6 +11995,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconInventoryOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11629,6 +12003,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconIphone {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11636,6 +12011,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconKey {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11643,6 +12019,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconKeyboard {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11650,6 +12027,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconKeyboardHide {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11657,6 +12035,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLanguage {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11664,6 +12043,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLightMode {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11671,6 +12051,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLike {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11678,6 +12059,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLink {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11685,6 +12067,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconListAltCheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11692,6 +12075,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLive {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11699,6 +12083,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLoad {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11706,6 +12091,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLocationOn {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11713,6 +12099,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLock {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11720,6 +12107,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLockOpen {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11727,6 +12115,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLockPerson {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11734,6 +12123,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLogin {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11741,6 +12131,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLogout {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11748,6 +12139,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconLongText {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11755,6 +12147,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMail {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11762,6 +12155,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconManageAccounts {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11769,6 +12163,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMarkChatRead {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11776,6 +12171,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMarkChatUnread {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11783,6 +12179,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMention {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11790,6 +12187,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMenu {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11797,6 +12195,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMenuBook {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11804,6 +12203,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMenuBookFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11811,6 +12211,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMenuFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11818,6 +12219,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMessage {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11825,6 +12227,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMic {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11832,6 +12235,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMicOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11839,6 +12243,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMobileTheft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11846,6 +12251,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMoreHorizontal {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11853,6 +12259,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconMoreVertikal {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11860,6 +12267,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNews {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11867,6 +12275,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNewsFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11874,6 +12283,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11881,6 +12291,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNextPlan {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11888,6 +12299,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNoteStack {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11895,6 +12307,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNoteStackFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11902,6 +12315,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNotifications {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11909,6 +12323,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNotificationsActive {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11916,6 +12331,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconNotificationsOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11923,6 +12339,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconOpenInFull {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11930,6 +12347,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconOpenInNew {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11937,6 +12355,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPasskey {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11944,6 +12363,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPatientList {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11951,6 +12371,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPause {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11958,6 +12379,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPauseCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11965,6 +12387,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPeopleAlt {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11972,6 +12395,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPerson {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11979,6 +12403,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPersonCheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11986,6 +12411,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPersonOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -11993,6 +12419,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPersonRaisedHand {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12000,6 +12427,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPhone {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12007,6 +12435,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPhotoCamera {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12014,6 +12443,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPictureAsPdf {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12021,6 +12451,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPictureInPicture {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12028,6 +12459,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPin {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12035,6 +12467,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPinOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12042,6 +12475,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPlace {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12049,6 +12483,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPlayArrow {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12056,6 +12491,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPoll {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12063,6 +12499,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPostApproval {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12070,6 +12507,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12077,6 +12515,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPreview {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12084,6 +12523,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPrint {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12091,6 +12531,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPublic {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12098,6 +12539,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPublicOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12105,6 +12547,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconPublishedWithChanges {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12112,6 +12555,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconQrCodeScanner {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12119,6 +12563,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12126,6 +12571,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRatioFreeform {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12133,6 +12579,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRatioSixteenToNine {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12140,6 +12587,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRatioSquare {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12147,6 +12595,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRatioThreeToFour {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12154,6 +12603,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRatioThreeToTwo {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12161,6 +12611,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRecieved {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12168,6 +12619,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRefresh {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12175,6 +12627,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRemove {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12182,6 +12635,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRemoveCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12189,6 +12643,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRemoveModerator {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12196,6 +12651,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRepeat {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12203,6 +12659,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconReply {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12210,6 +12667,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconReport {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12217,6 +12675,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRoadmap {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12224,6 +12683,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRotateLeft {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12231,6 +12691,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12238,6 +12699,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSchool {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12245,6 +12707,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconScreenshare {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12252,6 +12715,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconScreenshareOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12259,6 +12723,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSearch {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12266,6 +12731,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSearchStrong {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12273,6 +12739,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSection {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12280,6 +12747,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSecure {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12287,6 +12755,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSell {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12294,6 +12763,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSend {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12301,6 +12771,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSettings {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12308,6 +12779,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconShortText {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12315,6 +12787,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSimplify {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12322,6 +12795,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSpellcheck {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12329,6 +12803,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconStars {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12336,6 +12811,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconStickyNote {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12343,6 +12819,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconStop {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12350,6 +12827,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconStopCircle {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12357,6 +12835,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSunny {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12364,6 +12843,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconSync {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12371,6 +12851,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTasks {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12378,6 +12859,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTasksFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12385,6 +12867,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTerminal {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12392,6 +12875,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTime {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12399,6 +12883,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTimeFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12406,6 +12891,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconToday {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12413,6 +12899,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTodayFilled {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12420,6 +12907,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTranslate {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12427,6 +12915,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconTreeStructure {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12434,6 +12923,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconUndo {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12441,6 +12931,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconUnlockPerson {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12448,6 +12939,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconUpload {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12455,6 +12947,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconUserAdd {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12462,6 +12955,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconUserAssign {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12469,6 +12963,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVerifiedUser {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12476,6 +12971,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVideoCamera {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12483,6 +12979,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVideoCameraOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12490,6 +12987,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVideoLibrary {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12497,6 +12995,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVideoPlayer {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12504,6 +13003,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconViewAgenda {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12511,6 +13011,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12518,6 +13019,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVisibilityOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12525,6 +13027,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVoice {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12532,6 +13035,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12539,6 +13043,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconWarning {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12546,6 +13051,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconWavingHand {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12553,6 +13059,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconWebAsset {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12560,6 +13067,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconWebAssetOff {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12567,6 +13075,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconWork {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -12574,6 +13083,7 @@ declare namespace LocalJSX {
     }
     interface SwirlIconWorkspacePremium {
         "color"?: SwirlIconColor1;
+        "label"?: string;
         /**
           * @default 24
          */
@@ -15220,1024 +15730,1279 @@ declare namespace LocalJSX {
     interface SwirlIconAttributes {
         "color": SwirlIconColor;
         "glyph": string;
+        "label": string;
         "size": SwirlIconSize;
         "wrapperColor": SwirlIconWrapperColor;
         "wrapperSize": SwirlIconWrapperSize;
     }
     interface SwirlIconAddAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAddBoxAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAddModeratorAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAddPhotoAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAddReactionAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAdminPanelSettingsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAiAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAiFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconApparelAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAppsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowBackAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowDownwardAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowForwardAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowLeftAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowRightAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowRightSmallAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowUpwardAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAspectRatioAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAttachmentAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAudioFileAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAutorenewAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconBarChartAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconBeachAccessAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconBeachAccessFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconBlockAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconBookmarkAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconBookmarkFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCalendarAddOnFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCalendarRespondAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCalendarTodayAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCallAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCallEndAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCancelAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCancelFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCancelOutlineAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconChatBubbleAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconChatsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconChatsFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckCircleAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckCircleFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckSmallAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckStrongAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckboxFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconChevronLeftAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconChevronRightAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCloseAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCloseFullscreenAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCloseSmallAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCloudUploadAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCoPresentAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconColumnAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCommentAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconContractEditAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconContrastAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCopyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconCropAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDarkModeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDateRangeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDeleteAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDeployedCodeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDescriptionAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDesktopAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDestructionAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDirectoryAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDirectoryFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDiscoverAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeftAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeftCollapseAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeftExpandAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDoorOpenAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDotAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeftAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowRightAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDownloadAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconDragHandleAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconEditAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconEditNoteAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiMoodAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiSatisfiedAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiSymbolsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconEndSeriesAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconErrorAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconExpandLessAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconExpandMoreAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconExperimentAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFileAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFileCopyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFilterAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFolderAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFolderSharedAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFormatHOneAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFormatListBulletedAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconForwardAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFullscreenAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconFullscreenExitAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconGifAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAddAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAssignAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupsFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHamburgerMenuAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHealthAndSafetyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHelpAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHelpFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHighlightAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHistoryAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHomeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHomeFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconHrRestingAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconImageAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconImproveTextAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconInfoAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertBelowAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertChartAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertOnTopAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconInventoryAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconInventoryOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconIphoneAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconKeyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconKeyboardAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconKeyboardHideAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLanguageAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLightModeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLikeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLinkAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconListAltCheckAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLiveAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLoadAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLocationOnAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLockAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLockOpenAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLockPersonAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLoginAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLogoutAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconLongTextAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMailAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconManageAccountsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMarkChatReadAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMarkChatUnreadAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMentionAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuBookAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuBookFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMessageAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMicAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMicOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMobileTheftAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMoreHorizontalAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconMoreVertikalAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNextPlanAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNoteStackAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNoteStackFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsActiveAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconOpenInFullAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconOpenInNewAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPasskeyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPatientListAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPauseAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPauseCircleAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPeopleAltAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPersonAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPersonCheckAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPersonOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPersonRaisedHandAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPhoneAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPhotoCameraAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPictureAsPdfAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPictureInPictureAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPinAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPinOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPlaceAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPlayArrowAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPollAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPostApprovalAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPresentAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPreviewAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPrintAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPublicAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPublicOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconPublishedWithChangesAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconQrCodeScannerAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioFourToThreeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioFreeformAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioSixteenToNineAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioSquareAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioThreeToFourAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioThreeToTwoAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRecievedAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRefreshAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRemoveAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRemoveCircleAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRemoveModeratorAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRepeatAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconReplyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconReportAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRoadmapAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRotateLeftAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconRotateRightAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSchoolAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconScreenshareAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconScreenshareOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSearchAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSearchStrongAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSectionAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSecureAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSellAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSendAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSettingsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconShortTextAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSimplifyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSpellcheckAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconStarsAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconStickyNoteAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconStopAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconStopCircleAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSunnyAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconSyncAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTasksAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTasksFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTerminalAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTimeAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTimeFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTodayAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTodayFilledAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTranslateAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconTreeStructureAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconUndoAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconUnlockPersonAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconUploadAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAddAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAssignAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVerifiedUserAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoCameraAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoCameraOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoLibraryAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoPlayerAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconViewAgendaAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVisibilityAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVisibilityOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVoiceAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconVolumeUpAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconWarningAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconWavingHandAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconWebAssetAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconWebAssetOffAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconWorkAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconWorkspacePremiumAttributes {
         "color": SwirlIconColor;
+        "label": string;
         "size": SwirlIconSize;
     }
     interface SwirlImageGridAttributes {
