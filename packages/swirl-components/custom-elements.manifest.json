@@ -59383,6 +59383,20 @@
               "fieldName": "alt"
             },
             {
+              "name": "cursor",
+              "type": {
+                "text": "\"alias\" | \"all-scroll\" | \"auto\" | \"cell\" | \"col-resize\" | \"context-menu\" | \"copy\" | \"crosshair\" | \"default\" | \"e-resize\" | \"ew-resize\" | \"grab\" | \"grabbing\" | \"help\" | \"move\" | \"n-resize\" | \"ne-resize\" | \"nesw-resize\" | \"no-drop\" | \"none\" | \"not-allowed\" | \"ns-resize\" | \"nw-resize\" | \"nwse-resize\" | \"pointer\" | \"progress\" | \"row-resize\" | \"s-resize\" | \"se-resize\" | \"sw-resize\" | \"text\" | \"vertical-text\" | \"w-resize\" | \"wait\" | \"zoom-in\" | \"zoom-out\"",
+                "references": [
+                  {
+                    "name": "SwirlCursor",
+                    "module": "../../utils"
+                  }
+                ]
+              },
+              "default": "\"pointer\"",
+              "fieldName": "cursor"
+            },
+            {
               "name": "edit-button-icon",
               "type": {
                 "text": "string"
@@ -59397,6 +59411,13 @@
               },
               "default": "\"Edit\"",
               "fieldName": "editButtonLabel"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "error"
             },
             {
               "name": "format",
@@ -59419,6 +59440,30 @@
               "fieldName": "interactive"
             },
             {
+              "name": "menu-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"More actions\"",
+              "fieldName": "menuButtonLabel"
+            },
+            {
+              "name": "open-button-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-visibility></swirl-icon-visibility>\"",
+              "fieldName": "openButtonIcon"
+            },
+            {
+              "name": "open-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Open\"",
+              "fieldName": "openButtonLabel"
+            },
+            {
               "name": "progress",
               "type": {
                 "text": "number"
@@ -59432,6 +59477,14 @@
               },
               "default": "\"Loading progress\"",
               "fieldName": "progressLabel"
+            },
+            {
+              "name": "remove-button-icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-delete></swirl-icon-delete>\"",
+              "fieldName": "removeButtonIcon"
             },
             {
               "name": "remove-button-label",
@@ -59495,6 +59548,22 @@
             },
             {
               "kind": "field",
+              "name": "cursor",
+              "type": {
+                "text": "\"alias\" | \"all-scroll\" | \"auto\" | \"cell\" | \"col-resize\" | \"context-menu\" | \"copy\" | \"crosshair\" | \"default\" | \"e-resize\" | \"ew-resize\" | \"grab\" | \"grabbing\" | \"help\" | \"move\" | \"n-resize\" | \"ne-resize\" | \"nesw-resize\" | \"no-drop\" | \"none\" | \"not-allowed\" | \"ns-resize\" | \"nw-resize\" | \"nwse-resize\" | \"pointer\" | \"progress\" | \"row-resize\" | \"s-resize\" | \"se-resize\" | \"sw-resize\" | \"text\" | \"vertical-text\" | \"w-resize\" | \"wait\" | \"zoom-in\" | \"zoom-out\"",
+                "references": [
+                  {
+                    "name": "SwirlCursor",
+                    "module": "../../utils"
+                  }
+                ]
+              },
+              "default": "\"pointer\"",
+              "readonly": true,
+              "attribute": "cursor"
+            },
+            {
+              "kind": "field",
               "name": "editButtonIcon",
               "type": {
                 "text": "string"
@@ -59512,6 +59581,15 @@
               "default": "\"Edit\"",
               "readonly": true,
               "attribute": "edit-button-label"
+            },
+            {
+              "kind": "field",
+              "name": "error",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "error"
             },
             {
               "kind": "field",
@@ -59539,6 +59617,36 @@
             },
             {
               "kind": "field",
+              "name": "menuButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"More actions\"",
+              "readonly": true,
+              "attribute": "menu-button-label"
+            },
+            {
+              "kind": "field",
+              "name": "openButtonIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-visibility></swirl-icon-visibility>\"",
+              "readonly": true,
+              "attribute": "open-button-icon"
+            },
+            {
+              "kind": "field",
+              "name": "openButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Open\"",
+              "readonly": true,
+              "attribute": "open-button-label"
+            },
+            {
+              "kind": "field",
               "name": "progress",
               "type": {
                 "text": "number"
@@ -59555,6 +59663,16 @@
               "default": "\"Loading progress\"",
               "readonly": true,
               "attribute": "progress-label"
+            },
+            {
+              "kind": "field",
+              "name": "removeButtonIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"<swirl-icon-delete></swirl-icon-delete>\"",
+              "readonly": true,
+              "attribute": "remove-button-icon"
             },
             {
               "kind": "field",

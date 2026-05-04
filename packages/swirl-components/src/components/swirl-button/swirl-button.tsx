@@ -1,6 +1,7 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
+import { SwirlCursor } from "../../utils";
 
 export type SwirlButtonIconPosition = "start" | "end";
 
@@ -21,43 +22,7 @@ export type SwirlButtonVariant =
   | "outline"
   | "translucent";
 
-export type SwirlButtonCursor =
-  | "auto"
-  | "default"
-  | "none"
-  | "context-menu"
-  | "help"
-  | "pointer"
-  | "progress"
-  | "wait"
-  | "cell"
-  | "crosshair"
-  | "text"
-  | "vertical-text"
-  | "alias"
-  | "copy"
-  | "move"
-  | "no-drop"
-  | "not-allowed"
-  | "grab"
-  | "grabbing"
-  | "e-resize"
-  | "n-resize"
-  | "ne-resize"
-  | "nw-resize"
-  | "s-resize"
-  | "se-resize"
-  | "sw-resize"
-  | "w-resize"
-  | "ew-resize"
-  | "ns-resize"
-  | "nesw-resize"
-  | "nwse-resize"
-  | "col-resize"
-  | "row-resize"
-  | "all-scroll"
-  | "zoom-in"
-  | "zoom-out";
+export type SwirlButtonCursor = SwirlCursor;
 
 /**
  * @slot icon - Icon to be displayed inside the button.

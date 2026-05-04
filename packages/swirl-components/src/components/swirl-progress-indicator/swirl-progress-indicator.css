@@ -21,7 +21,7 @@
 
   &::-webkit-progress-bar {
     border-radius: 0.125rem;
-    background-color: var(--s-surface-raised-default);
+    background-color: var(--s-surface-sunken-pressed);
   }
 
   &::-webkit-progress-value {
@@ -81,7 +81,7 @@
 }
 
 .progress-indicator__circle-background {
-  stroke: var(--s-border-default);
+  stroke: var(--s-surface-sunken-pressed);
   stroke-linecap: round;
 }
 

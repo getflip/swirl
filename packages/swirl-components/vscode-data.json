@@ -24866,11 +24866,129 @@
           "description": ""
         },
         {
+          "name": "cursor",
+          "description": "",
+          "values": [
+            {
+              "name": "alias"
+            },
+            {
+              "name": "all-scroll"
+            },
+            {
+              "name": "auto"
+            },
+            {
+              "name": "cell"
+            },
+            {
+              "name": "col-resize"
+            },
+            {
+              "name": "context-menu"
+            },
+            {
+              "name": "copy"
+            },
+            {
+              "name": "crosshair"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "e-resize"
+            },
+            {
+              "name": "ew-resize"
+            },
+            {
+              "name": "grab"
+            },
+            {
+              "name": "grabbing"
+            },
+            {
+              "name": "help"
+            },
+            {
+              "name": "move"
+            },
+            {
+              "name": "n-resize"
+            },
+            {
+              "name": "ne-resize"
+            },
+            {
+              "name": "nesw-resize"
+            },
+            {
+              "name": "no-drop"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "not-allowed"
+            },
+            {
+              "name": "ns-resize"
+            },
+            {
+              "name": "nw-resize"
+            },
+            {
+              "name": "nwse-resize"
+            },
+            {
+              "name": "pointer"
+            },
+            {
+              "name": "progress"
+            },
+            {
+              "name": "row-resize"
+            },
+            {
+              "name": "s-resize"
+            },
+            {
+              "name": "se-resize"
+            },
+            {
+              "name": "sw-resize"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "vertical-text"
+            },
+            {
+              "name": "w-resize"
+            },
+            {
+              "name": "wait"
+            },
+            {
+              "name": "zoom-in"
+            },
+            {
+              "name": "zoom-out"
+            }
+          ]
+        },
+        {
           "name": "edit-button-icon",
           "description": ""
         },
         {
           "name": "edit-button-label",
+          "description": ""
+        },
+        {
+          "name": "error",
           "description": ""
         },
         {
@@ -24893,11 +25011,27 @@
           "description": ""
         },
         {
+          "name": "menu-button-label",
+          "description": ""
+        },
+        {
+          "name": "open-button-icon",
+          "description": ""
+        },
+        {
+          "name": "open-button-label",
+          "description": ""
+        },
+        {
           "name": "progress",
           "description": ""
         },
         {
           "name": "progress-label",
+          "description": ""
+        },
+        {
+          "name": "remove-button-icon",
           "description": ""
         },
         {
