@@ -2626,7 +2626,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"critical\" | \"grape\" | \"info\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\" | \"strong\"",
+                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"critical\" | \"grape\" | \"info\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\" | \"strong\" | \"success\"",
                 "references": [
                   {
                     "name": "SwirlBadgeIntent"
@@ -2684,7 +2684,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"critical\" | \"grape\" | \"info\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\" | \"strong\"",
+                "text": "\"banana\" | \"blueberry\" | \"chilli\" | \"critical\" | \"grape\" | \"info\" | \"kiwi\" | \"neutral\" | \"pumpkin\" | \"radish\" | \"strong\" | \"success\"",
                 "references": [
                   {
                     "name": "SwirlBadgeIntent"

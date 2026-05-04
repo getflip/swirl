@@ -13,7 +13,8 @@ export type SwirlBadgeIntent =
   | "neutral"
   | "pumpkin"
   | "radish"
-  | "strong";
+  | "strong"
+  | "success";
 
 export type SwirlBadgeSize = "xs" | "s" | "m";
 
