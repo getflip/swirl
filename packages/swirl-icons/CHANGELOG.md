@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.85.0
+
+### Minor Changes
+
+- [#1632](https://github.com/getflip/swirl/pull/1632)
+  [`075794368`](https://github.com/getflip/swirl/commit/075794368fd96e147446d8f85b643e3fbf8caa5a)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add label prop
+  to swirl icons
+
 ## 0.84.0
 
 ### Minor Changes
