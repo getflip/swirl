@@ -1,5 +1,28 @@
 # @getflip/swirl-components-angular
 
+## 0.484.0
+
+### Minor Changes
+
+- [#1614](https://github.com/getflip/swirl/pull/1614)
+  [`2602033cf`](https://github.com/getflip/swirl/commit/2602033cff1dc5bfe93032d92f77991252bb46a0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Revamp
+  swirl-thumbnail component
+
+### Patch Changes
+
+- [#1614](https://github.com/getflip/swirl/pull/1614)
+  [`2602033cf`](https://github.com/getflip/swirl/commit/2602033cff1dc5bfe93032d92f77991252bb46a0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  `swirl-popover` closing immediately after opening in iOS
+
+- Updated dependencies
+  [[`2602033cf`](https://github.com/getflip/swirl/commit/2602033cff1dc5bfe93032d92f77991252bb46a0),
+  [`2602033cf`](https://github.com/getflip/swirl/commit/2602033cff1dc5bfe93032d92f77991252bb46a0),
+  [`2602033cf`](https://github.com/getflip/swirl/commit/2602033cff1dc5bfe93032d92f77991252bb46a0),
+  [`2602033cf`](https://github.com/getflip/swirl/commit/2602033cff1dc5bfe93032d92f77991252bb46a0)]:
+  - @getflip/swirl-components@0.484.0
+
 ## 0.483.0
 
 ### Minor Changes
