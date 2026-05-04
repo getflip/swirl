@@ -127,7 +127,12 @@
 
 .badge--intent-strong {
   color: var(--s-text-on-status);
-  background-color: var(--s-interactive-neutral-default);
+  background-color: var(--s-icon-default);
+}
+
+.badge--intent-success {
+  color: var(--s-text-on-status);
+  background-color: var(--s-surface-success-default);
 }
 
 .badge--variant-dot {

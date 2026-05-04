@@ -777,6 +777,9 @@
             },
             {
               "name": "strong"
+            },
+            {
+              "name": "success"
             }
           ]
         },
