@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.485.0
+
+### Minor Changes
+
+- [#1638](https://github.com/getflip/swirl/pull/1638)
+  [`d488a66ea`](https://github.com/getflip/swirl/commit/d488a66eaabe748e6c114dd9c83dd56ce186ab42)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  sidebarWidth property to swirl-app-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d488a66ea`](https://github.com/getflip/swirl/commit/d488a66eaabe748e6c114dd9c83dd56ce186ab42)]:
+  - @getflip/swirl-components@0.485.0
+
 ## 0.484.0
 
 ### Minor Changes
