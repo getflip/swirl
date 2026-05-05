@@ -330,7 +330,7 @@
   }
   to {
     overflow: hidden;
-    grid-template-columns: 25rem 1fr 25rem;
+    grid-template-columns: 25rem 1fr var(--swirl-app-layout-sidebar-width);
   }
 }
 
@@ -341,14 +341,14 @@
   }
   to {
     overflow: hidden;
-    grid-template-columns: 0 1fr 25rem;
+    grid-template-columns: 0 1fr var(--swirl-app-layout-sidebar-width);
   }
 }
 
 @keyframes app-layout-sidebar-slide-out {
   from {
     overflow: hidden;
-    grid-template-columns: 25rem 1fr 25rem;
+    grid-template-columns: 25rem 1fr var(--swirl-app-layout-sidebar-width);
   }
   to {
     overflow: hidden;
@@ -359,7 +359,7 @@
 @keyframes app-layout-sidebar-slide-out-with-collapsed-nav {
   from {
     overflow: hidden;
-    grid-template-columns: 0 1fr 25rem;
+    grid-template-columns: 0 1fr var(--swirl-app-layout-sidebar-width);
   }
   to {
     overflow: hidden;
@@ -374,14 +374,14 @@
   }
   to {
     overflow: hidden;
-    grid-template-columns: 1fr 25rem;
+    grid-template-columns: 1fr var(--swirl-app-layout-sidebar-width);
   }
 }
 
 @keyframes app-layout-no-nav-sidebar-slide-out {
   from {
     overflow: hidden;
-    grid-template-columns: 1fr 25rem;
+    grid-template-columns: 1fr var(--swirl-app-layout-sidebar-width);
   }
   to {
     overflow: hidden;

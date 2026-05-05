@@ -7,6 +7,10 @@ export default {
       description:
         "Displayed above the navigation area, if present. Otherwise displayed above the content area.",
     },
+    sidebarWidth: {
+      description:
+        "Sets a fixed sidebar width on tablet and desktop viewports. Mobile sidebar views remain full width.",
+    },
     transitionStyle: {
       control: "select",
       options: ["none", "slides", "dialog"],

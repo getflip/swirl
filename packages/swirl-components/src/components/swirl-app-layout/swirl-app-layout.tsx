@@ -70,6 +70,7 @@ export class SwirlAppLayout {
   @Prop() sidebarPositioning?: SwirlAppLayoutSidebarPositioning = "auto";
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
+  @Prop() sidebarWidth?: string;
   @Prop() transitionStyle?: string = "slides";
 
   @State() contentScrollState = {
@@ -557,6 +558,11 @@ export class SwirlAppLayout {
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
         "app-layout--sidebar-closing": this.sidebarClosing,
+        "app-layout--sidebar-custom-width": Boolean(this.sidebarWidth),
+        "app-layout--sidebar-inline":
+          this.hasSidebar &&
+          !this.hasNavigation &&
+          this.sidebarPositioning !== "overlay",
         "app-layout--sidebar-opening": this.sidebarOpening,
         "app-layout--sidebar-scrollable": this.sidebarScrollState.scrollable,
         "app-layout--sidebar-scrolled-to-top":
@@ -565,7 +571,11 @@ export class SwirlAppLayout {
     );
 
     return (
-      <Host>
+      <Host
+        style={{
+          "--swirl-app-layout-sidebar-width": this.sidebarWidth,
+        }}
+      >
         <section aria-labelledby="app-name" class={className}>
           <div class="app-layout__grid">
             <header

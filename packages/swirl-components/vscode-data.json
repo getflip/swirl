@@ -445,6 +445,10 @@
           ]
         },
         {
+          "name": "sidebar-width",
+          "description": ""
+        },
+        {
           "name": "transition-style",
           "description": ""
         }

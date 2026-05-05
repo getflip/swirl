@@ -152,6 +152,33 @@ describe("swirl-app-layout", () => {
         "app-layout--sidebar-positioning-auto"
       )
     ).toBeTruthy();
+
+    expect(
+      page.root.shadowRoot.children[0].classList.contains(
+        "app-layout--sidebar-custom-width"
+      )
+    ).toBeFalsy();
+
+    expect(
+      page.root.style.getPropertyValue("--swirl-app-layout-sidebar-width")
+    ).toBe("");
+  });
+
+  it("applies custom sidebar width", async () => {
+    const page = await newSpecPage({
+      components: [SwirlAppLayout],
+      html: `<swirl-app-layout app-name="App" sidebar-width="32rem"></swirl-app-layout>`,
+    });
+
+    expect(
+      page.root.shadowRoot.children[0].classList.contains(
+        "app-layout--sidebar-custom-width"
+      )
+    ).toBeTruthy();
+
+    expect(
+      page.root.style.getPropertyValue("--swirl-app-layout-sidebar-width")
+    ).toBe("32rem");
   });
 
   it("applies overlay sidebar positioning class", async () => {

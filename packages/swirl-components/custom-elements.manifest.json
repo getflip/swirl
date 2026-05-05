@@ -1317,6 +1317,13 @@
               "fieldName": "sidebarPositioning"
             },
             {
+              "name": "sidebar-width",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "sidebarWidth"
+            },
+            {
               "name": "transition-style",
               "type": {
                 "text": "string"
@@ -1512,6 +1519,15 @@
               "default": "\"auto\"",
               "readonly": true,
               "attribute": "sidebar-positioning"
+            },
+            {
+              "kind": "field",
+              "name": "sidebarWidth",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "sidebar-width"
             },
             {
               "kind": "field",

@@ -357,6 +357,7 @@ export namespace Components {
           * @default "auto"
          */
         "sidebarPositioning"?: SwirlAppLayoutSidebarPositioning;
+        "sidebarWidth"?: string;
         /**
           * Toggle the sidebar
          */
@@ -10160,6 +10161,7 @@ declare namespace LocalJSX {
           * @default "auto"
          */
         "sidebarPositioning"?: SwirlAppLayoutSidebarPositioning;
+        "sidebarWidth"?: string;
         /**
           * @default "slides"
          */
@@ -15329,6 +15331,7 @@ declare namespace LocalJSX {
         "sidebarPositioning": SwirlAppLayoutSidebarPositioning;
         "sidebarCloseButtonLabel": string;
         "sidebarHeading": string;
+        "sidebarWidth": string;
         "transitionStyle": string;
     }
     interface SwirlAutocompleteAttributes {
