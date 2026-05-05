@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.485.1
+
+### Patch Changes
+
+- [#1641](https://github.com/getflip/swirl/pull/1641)
+  [`ee6f2f372`](https://github.com/getflip/swirl/commit/ee6f2f37237cd9b28736b54cd7faddc51e98b31d)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure image is
+  rendered after item is reconnected to the DOM in swirl-image-grid-item
+
 ## 0.485.0
 
 ### Minor Changes
