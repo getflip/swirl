@@ -55,18 +55,6 @@
     & ::part(avatar) {
       background-color: var(--s-surface-raised-hovered);
     }
-
-    & + .chip__remove-button {
-      background-color: var(--s-surface-raised-default);
-
-      &:hover {
-        background-color: var(--s-surface-raised-hovered);
-      }
-
-      &:active {
-        background-color: var(--s-state-pressed);
-      }
-    }
   }
 
   &:active {
@@ -74,10 +62,6 @@
 
     & ::part(avatar) {
       background-color: var(--s-surface-raised-pressed);
-    }
-
-    & + .chip__remove-button {
-      background-color: var(--s-state-pressed);
     }
   }
 }
@@ -138,18 +122,10 @@
 
     &:hover {
       background-color: var(--s-action-primary-hovered);
-
-      & + .chip__remove-button {
-        background-color: var(--s-action-primary-hovered);
-      }
     }
 
     &:active {
       background-color: var(--s-action-primary-pressed);
-
-      & + .chip__remove-button {
-        background-color: var(--s-action-primary-pressed);
-      }
     }
 
     & + .chip__remove-button {
