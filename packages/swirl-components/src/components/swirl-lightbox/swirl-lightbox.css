@@ -74,7 +74,8 @@
   right: 0;
   left: 0;
   display: flex;
-  padding: var(--s-space-12) var(--s-space-16);
+  padding: calc(var(--s-space-12) + env(safe-area-inset-top, 0))
+    var(--s-space-16) var(--s-space-12);
   align-items: flex-start;
   pointer-events: none;
   gap: var(--s-space-12);

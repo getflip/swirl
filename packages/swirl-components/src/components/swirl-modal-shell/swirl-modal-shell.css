@@ -42,7 +42,8 @@
   inset: 0;
   z-index: 2;
   display: grid;
-  padding: var(--s-space-24);
+  padding: calc(var(--s-space-24) + env(safe-area-inset-top, 0))
+    var(--s-space-24) var(--s-space-24);
   justify-content: center;
   align-items: center;
 }
@@ -56,7 +57,7 @@
 
 .modal-shell__close-button {
   position: fixed;
-  top: var(--s-space-16);
+  top: calc(var(--s-space-16) + env(safe-area-inset-top, 0));
   right: var(--s-space-16);
   z-index: 3;
   opacity: 1;

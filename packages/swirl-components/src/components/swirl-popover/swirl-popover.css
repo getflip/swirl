@@ -97,6 +97,7 @@
     }
 
     & .popover__content {
+      padding-top: env(safe-area-inset-top);
       top: 0;
       border-top-left-radius: 0;
       border-top-right-radius: 0;

@@ -412,6 +412,7 @@
   max-width: 100vw;
   height: var(--swirl-modal-view-height);
   max-height: var(--swirl-modal-view-height);
+  padding-top: env(safe-area-inset-top, 0);
   background-color: var(--s-surface-overlay-default);
 }
 

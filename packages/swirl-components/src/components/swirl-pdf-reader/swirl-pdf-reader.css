@@ -78,7 +78,8 @@
 
 .pdf-reader__header {
   display: flex;
-  height: 4rem;
+  height: calc(4rem + env(safe-area-inset-top, 0));
+  padding-top: env(safe-area-inset-top, 0);
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
   align-items: center;
