@@ -85,10 +85,6 @@ export class SwirlImageGridItem {
 
   componentDidLoad() {
     this.setupIntersectionObserver();
-
-    if (this.img?.complete) {
-      this.loaded = true;
-    }
   }
 
   componentDidRender() {
@@ -99,17 +95,18 @@ export class SwirlImageGridItem {
 
   connectedCallback() {
     this.computedSrc = this.src;
+    this.setupIntersectionObserver();
   }
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
-    this.computedSrc = "";
+    this.intersectionObserver = undefined;
     this.img?.removeEventListener("load", this.onLoad);
     this.img?.removeEventListener("error", this.onError);
   }
 
   private setupIntersectionObserver() {
-    if (this.loading !== "intersecting") {
+    if (this.loading !== "intersecting" || this.intersectionObserver) {
       return;
     }
 
