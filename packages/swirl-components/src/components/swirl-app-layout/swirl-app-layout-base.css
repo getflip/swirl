@@ -1,5 +1,5 @@
 :host {
-  --header-height: 3.5625rem;
+  --header-height: calc(3.5625rem + env(safe-area-inset-top, 0));
   --swirl-app-layout-sidebar-width: 25rem;
 
   position: relative;
@@ -531,7 +531,7 @@
   display: flex;
   min-width: 0;
   height: var(--header-height);
-  padding-top: var(--s-space-12);
+  padding-top: calc(var(--s-space-12) + env(safe-area-inset-top, 0));
   padding-right: var(--s-space-8);
   padding-bottom: var(--s-space-12);
   padding-left: var(--s-space-8);
@@ -629,6 +629,7 @@
   --swirl-tab-bar-height: 3.5rem;
 
   display: flex;
+  padding-top: env(safe-area-inset-top, 0px);
   min-width: 0;
   align-items: center;
   border-bottom: var(--s-border-width-default) solid transparent;
@@ -709,6 +710,7 @@
 .app-layout__custom-sidebar-header {
   display: none;
   min-width: 0;
+  padding-top: env(safe-area-inset-top, 0);
   border-bottom: var(--s-border-width-default) solid transparent;
   grid-area: sidebar-header;
 }
@@ -716,7 +718,7 @@
 .app-layout__sidebar-header {
   display: flex;
   min-width: 0;
-  padding-top: var(--s-space-12);
+  padding-top: calc(var(--s-space-12) + env(safe-area-inset-top, 0));
   padding-right: var(--s-space-8);
   padding-bottom: var(--s-space-12);
   padding-left: var(--s-space-8);
