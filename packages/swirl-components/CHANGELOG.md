@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.486.0
+
+### Minor Changes
+
+- [#1643](https://github.com/getflip/swirl/pull/1643)
+  [`e8d47c3f4`](https://github.com/getflip/swirl/commit/e8d47c3f4e21cea7b820898a2a690109849ebb50)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make components respect
+  env(safe-area-inset-top) to support iOS' transparent status bar
+
 ## 0.485.2
 
 ### Patch Changes
