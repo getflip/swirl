@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.485.2
+
+### Patch Changes
+
+- [#1645](https://github.com/getflip/swirl/pull/1645)
+  [`325acc1fd`](https://github.com/getflip/swirl/commit/325acc1fda2253359a93703c6e7b878256c701cb)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Allow autoGrow
+  input to shrink in swirl-text-input
+
+* [#1644](https://github.com/getflip/swirl/pull/1644)
+  [`5d49a9dd5`](https://github.com/getflip/swirl/commit/5d49a9dd5515dfa2b68a0164a0d4135d6a679af8)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Remove
+  hover/pressed effect from swirl-chip remove button
+
 ## 0.485.1
 
 ### Patch Changes
