@@ -140,6 +140,7 @@ export class SwirlTextInput implements SwirlFormInput {
   private adjustInputSize() {
     if (this.rows > 1 || this.autoGrow) {
       this.inputEl.style.width = "";
+      this.inputEl.style.height = "auto";
       this.inputEl.style.height = Boolean(this.inputEl.scrollHeight)
         ? this.inputEl.scrollHeight / 16 + "rem"
         : "";
