@@ -1,9 +1,18 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlProgressIndicatorSize = "s" | "m";
+export type SwirlProgressIndicatorSize = "xs" | "s" | "m";
 
 export type SwirlProgressIndicatorVariant = "bar" | "circle";
+
+const circleSizeConfig: Record<
+  SwirlProgressIndicatorSize,
+  { radius: number; strokeWidth: number }
+> = {
+  xs: { radius: 8, strokeWidth: 2 },
+  s: { radius: 10, strokeWidth: 2 },
+  m: { radius: 20, strokeWidth: 4 },
+};
 
 @Component({
   shadow: true,
@@ -23,8 +32,7 @@ export class SwirlProgressIndicator {
       `progress-indicator--variant-${this.variant}`
     );
 
-    const strokeWidth = this.size === "m" ? 4 : 2;
-    const radius = this.size === "m" ? 20 : 10;
+    const { radius, strokeWidth } = circleSizeConfig[this.size];
     const circumference = Math.round(radius * 2 * Math.PI);
     const dashOffset = Math.round(circumference * ((100 - this.value) / 100));
 
