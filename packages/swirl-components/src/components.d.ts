@@ -1050,6 +1050,11 @@ export namespace Components {
           * @default "Download"
          */
         "downloadButtonLabel"?: string;
+        "error"?: boolean;
+        /**
+          * @default "Error"
+         */
+        "errorLabel"?: string;
         "loading"?: boolean;
         /**
           * @default "Loading …"
@@ -10843,6 +10848,11 @@ declare namespace LocalJSX {
           * @default "Download"
          */
         "downloadButtonLabel"?: string;
+        "error"?: boolean;
+        /**
+          * @default "Error"
+         */
+        "errorLabel"?: string;
         "loading"?: boolean;
         /**
           * @default "Loading …"
@@ -15661,6 +15671,8 @@ declare namespace LocalJSX {
         "deleteButtonLabel": string;
         "description": string;
         "downloadButtonLabel": string;
+        "error": boolean;
+        "errorLabel": string;
         "loading": boolean;
         "loadingLabel": string;
         "name": string;
