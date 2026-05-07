@@ -119,6 +119,8 @@ StyleDictionary.registerTransform({
       category = "size";
     } else if (token.type === "color") {
       category = "color";
+    } else if (token.type === "dimension") {
+      category = "dimension";
     }
 
     const generatedAttrs = {
@@ -176,6 +178,16 @@ StyleDictionary.registerTransform({
         )}), offset: Offset(${x}, ${y}), blurRadius: ${blur})`;
       })
       .join(", ")}]`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: "blur/flutter",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.type === "dimension",
+  transformer: function (token) {
+    return parseFloat(String(token.value).replace("px", "")).toFixed(2);
   },
 });
 

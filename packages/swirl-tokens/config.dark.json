@@ -31,6 +31,7 @@
         "color/hex8flutter",
         "shadow-attribute/flutter",
         "shadow/flutter",
+        "blur/flutter",
         "content/flutter/literal",
         "asset/flutter/literal",
         "font/flutter/literal",
