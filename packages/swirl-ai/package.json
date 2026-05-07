@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@getflip/swirl-components": "0.492.0",
+    "@getflip/swirl-tokens": "2.14.2",
     "@types/node": "25.3.0",
     "tsx": "^4.7.0",
     "typescript": "5.9.3"
