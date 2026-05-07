@@ -163,7 +163,7 @@ describe("swirl-file-chip", () => {
   it("renders error state", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip, SwirlButtonGroup, SwirlButton],
-      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" error="true" show-delete-button="true"></swirl-file-chip>`,
+      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" has-error="true" show-delete-button="true"></swirl-file-chip>`,
     });
 
     const fileChip = page.root.shadowRoot.firstChild as HTMLElement;
@@ -177,7 +177,7 @@ describe("swirl-file-chip", () => {
       .querySelector(".file-chip__actions")
       ?.querySelector("swirl-button");
 
-    expect(fileChip.classList.contains("file-chip--error")).toBeTruthy();
+    expect(fileChip.classList.contains("file-chip--has-error")).toBeTruthy();
     expect(iconElement).toBeTruthy();
     expect(iconElement.getAttribute("color")).toBe("critical");
     expect(description.textContent).toBe("Error");
@@ -188,7 +188,7 @@ describe("swirl-file-chip", () => {
   it("renders custom errorLabel", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip],
-      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" error="true" error-label="Upload failed"></swirl-file-chip>`,
+      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" has-error="true" error-label="Upload failed"></swirl-file-chip>`,
     });
 
     const description = page.root.shadowRoot.querySelector(
@@ -201,7 +201,7 @@ describe("swirl-file-chip", () => {
   it("error state takes precedence over loading", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip],
-      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" loading="true" error="true"></swirl-file-chip>`,
+      html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" loading="true" has-error="true"></swirl-file-chip>`,
     });
 
     const errorIcon = page.root.shadowRoot.querySelector(

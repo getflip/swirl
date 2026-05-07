@@ -37,7 +37,7 @@ export class SwirlFileChip {
   @Prop() deleteButtonLabel?: string = "Delete";
   @Prop() description?: string;
   @Prop() downloadButtonLabel?: string = "Download";
-  @Prop() error?: boolean;
+  @Prop() hasError?: boolean;
   @Prop() errorLabel?: string = "Error";
   @Prop() loading?: boolean;
   @Prop() loadingLabel?: string = "Loading …";
@@ -116,7 +116,7 @@ export class SwirlFileChip {
   };
 
   private getFileIcon() {
-    if (this.error) {
+    if (this.hasError) {
       return <swirl-icon-error color="critical" size={20}></swirl-icon-error>;
     }
 
@@ -157,14 +157,14 @@ export class SwirlFileChip {
       !this.showDownloadButton &&
       !this.showDeleteButton;
 
-    const hasDescription = this.description || this.loading || this.error;
+    const hasDescription = this.description || this.loading || this.hasError;
 
     const className = classnames(
       "file-chip",
       `file-chip--type-${this.fileType}`,
       {
         "file-chip--loading": this.loading,
-        "file-chip--error": this.error,
+        "file-chip--has-error": this.hasError,
         "file-chip--has-description": hasDescription,
         "file-chip--has-download-action": this.showDownloadButton,
         "file-chip--has-preview-action": this.showPreviewButton,
@@ -187,9 +187,9 @@ export class SwirlFileChip {
               {this.name}
             </span>
             <span class="file-chip__suffix">
-              {(this.description || this.loading || this.error) && (
+              {(this.description || this.loading || this.hasError) && (
                 <span class="file-chip__description">
-                  {this.error
+                  {this.hasError
                     ? this.errorLabel
                     : this.loading
                     ? this.loadingLabel

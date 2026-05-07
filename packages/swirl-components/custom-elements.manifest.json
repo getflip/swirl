@@ -8768,19 +8768,19 @@
               "fieldName": "downloadButtonLabel"
             },
             {
-              "name": "error",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "error"
-            },
-            {
               "name": "error-label",
               "type": {
                 "text": "string"
               },
               "default": "\"Error\"",
               "fieldName": "errorLabel"
+            },
+            {
+              "name": "has-error",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "hasError"
             },
             {
               "name": "loading",
@@ -8887,15 +8887,6 @@
             },
             {
               "kind": "field",
-              "name": "error",
-              "type": {
-                "text": "boolean"
-              },
-              "readonly": true,
-              "attribute": "error"
-            },
-            {
-              "kind": "field",
               "name": "errorLabel",
               "type": {
                 "text": "string"
@@ -8903,6 +8894,15 @@
               "default": "\"Error\"",
               "readonly": true,
               "attribute": "error-label"
+            },
+            {
+              "kind": "field",
+              "name": "hasError",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "has-error"
             },
             {
               "kind": "field",

@@ -3044,11 +3044,11 @@
           "description": ""
         },
         {
-          "name": "error",
+          "name": "error-label",
           "description": ""
         },
         {
-          "name": "error-label",
+          "name": "has-error",
           "description": ""
         },
         {
