@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.487.0
+
+### Minor Changes
+
+- [#1629](https://github.com/getflip/swirl/pull/1629)
+  [`04d6e1e59`](https://github.com/getflip/swirl/commit/04d6e1e598e9e2124b6f59917b44521348c8aade)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Make sure
+  form controls inside data cells use the correct background color
+
+### Patch Changes
+
+- Updated dependencies
+  [[`04d6e1e59`](https://github.com/getflip/swirl/commit/04d6e1e598e9e2124b6f59917b44521348c8aade)]:
+  - @getflip/swirl-components@0.487.0
+
 ## 0.486.0
 
 ### Patch Changes
