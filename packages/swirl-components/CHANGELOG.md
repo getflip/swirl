@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.489.0
+
+### Minor Changes
+
+- [#1652](https://github.com/getflip/swirl/pull/1652)
+  [`2971f5b14`](https://github.com/getflip/swirl/commit/2971f5b14fe66a0b6ebc0d9109573cd75c889a52)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add error state
+  to swirl-file-chip
+
 ## 0.488.0
 
 ### Minor Changes
