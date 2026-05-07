@@ -181,6 +181,7 @@ describe("swirl-file-chip", () => {
     expect(iconElement).toBeTruthy();
     expect(iconElement.getAttribute("color")).toBe("critical");
     expect(description.textContent).toBe("Error");
+    expect(description.getAttribute("role")).toBe("status");
     expect(deleteButton).toBeTruthy();
     expect(deleteButton.icon).toContain("swirl-icon-close");
   });

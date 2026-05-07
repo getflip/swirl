@@ -188,7 +188,10 @@ export class SwirlFileChip {
             </span>
             <span class="file-chip__suffix">
               {(this.description || this.loading || this.hasError) && (
-                <span class="file-chip__description">
+                <span
+                  class="file-chip__description"
+                  role={this.hasError ? "status" : undefined}
+                >
                   {this.hasError
                     ? this.errorLabel
                     : this.loading
