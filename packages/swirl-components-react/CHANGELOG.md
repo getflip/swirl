@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.488.0
+
+### Minor Changes
+
+- [#1653](https://github.com/getflip/swirl/pull/1653)
+  [`f83e75068`](https://github.com/getflip/swirl/commit/f83e75068c6179ad66e7e1f4ed7e1d7389d0405a)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add xs size to
+  swirl-progress-indicator
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f83e75068`](https://github.com/getflip/swirl/commit/f83e75068c6179ad66e7e1f4ed7e1d7389d0405a)]:
+  - @getflip/swirl-components@0.488.0
+
 ## 0.487.0
 
 ### Minor Changes
