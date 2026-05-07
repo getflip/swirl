@@ -3044,6 +3044,14 @@
           "description": ""
         },
         {
+          "name": "error-label",
+          "description": ""
+        },
+        {
+          "name": "has-error",
+          "description": ""
+        },
+        {
           "name": "loading",
           "description": ""
         },

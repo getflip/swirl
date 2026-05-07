@@ -173,3 +173,13 @@
     background-color: transparent;
   }
 }
+
+.file-chip--has-error {
+  & .file-chip__icon {
+    background-color: var(--s-surface-critical-subdued);
+  }
+
+  & .file-chip__description {
+    color: var(--s-text-critical);
+  }
+}
