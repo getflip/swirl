@@ -1,4 +1,16 @@
-export class DataSource {
+import { readFileSync } from "fs";
+import { dirname, join, resolve } from "path";
+import { fileURLToPath } from "url";
+
+export interface DataSource {
+  readJson<T>(relativePath: string): Promise<T>;
+  readText(relativePath: string): Promise<string | undefined>;
+  readComponentSource(
+    tag: string
+  ): Promise<Record<"tsx" | "css", string | undefined>>;
+}
+
+export class RemoteDataSource implements DataSource {
   constructor(private readonly version: string) {}
 
   async readJson<T>(relativePath: string): Promise<T> {
@@ -54,3 +66,39 @@ export class DataSource {
     return `https://raw.githubusercontent.com/getflip/swirl/@getflip/swirl-components@${this.version}`;
   }
 }
+
+export class LocalDataSource implements DataSource {
+  async readJson<T>(relativePath: string): Promise<T> {
+    return JSON.parse(readFileSync(this.agentPath(relativePath), "utf8")) as T;
+  }
+
+  async readText(relativePath: string): Promise<string | undefined> {
+    try {
+      return readFileSync(this.agentPath(relativePath), "utf8");
+    } catch {
+      return undefined;
+    }
+  }
+
+  async readComponentSource(
+    tag: string
+  ): Promise<Record<"tsx" | "css", string | undefined>> {
+    const componentDir = join(packagesDir, "swirl-components", "src", "components", tag);
+
+    const read = (ext: "tsx" | "css"): string | undefined => {
+      try {
+        return readFileSync(join(componentDir, `${tag}.${ext}`), "utf8");
+      } catch {
+        return undefined;
+      }
+    };
+
+    return { tsx: read("tsx"), css: read("css") };
+  }
+
+  private agentPath(relativePath: string): string {
+    return join(packagesDir, "swirl-ai", "dist", "agent", relativePath);
+  }
+}
+
+const packagesDir = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");

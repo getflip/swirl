@@ -13,22 +13,34 @@ import {
 } from "./tools/list-components.js";
 
 const cache = new LibraryCache();
+const useLocal = Boolean(process.env.SWIRL_AI_LOCAL);
 
 async function loadLibrary(version: string): Promise<ArtifactLibrary> {
-  const cached = cache.get(version);
+  const cacheKey = useLocal ? "__local__" : version;
+  const cached = cache.get(cacheKey);
 
   if (cached) {
     return cached;
   }
 
   try {
-    const lib = await ArtifactLibrary.fromRemote(version);
+    const lib = useLocal
+      ? await ArtifactLibrary.fromLocal()
+      : await ArtifactLibrary.fromRemote(version);
 
-    cache.set(version, lib);
+    cache.set(cacheKey, lib);
 
     return lib;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
+
+    if (useLocal) {
+      throw new Error(
+        `Failed to load local swirl-ai artifacts. ` +
+          `Make sure swirl-ai has been built (\`pnpm --filter @getflip/swirl-ai build\`). ` +
+          `Details: ${message}`
+      );
+    }
 
     throw new Error(
       `Version "${version}" not found or failed to load. ` +
