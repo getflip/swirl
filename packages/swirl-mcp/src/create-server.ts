@@ -11,6 +11,11 @@ import {
   registerListIcons,
   registerListSymbols,
 } from "./tools/list-components.js";
+import {
+  registerListColorTokens,
+  registerListLayoutTokens,
+  registerListTypographyTokens,
+} from "./tools/list-tokens.js";
 
 const cache = new LibraryCache();
 const useLocal = Boolean(process.env.SWIRL_AI_LOCAL);
@@ -89,6 +94,9 @@ export function createMcpServer(): McpServer {
   registerGetComponentDetails(server, loadLibrary);
   registerGetComponentSource(server, loadLibrary);
   registerGetStarted(server, loadLibrary);
+  registerListColorTokens(server, loadLibrary);
+  registerListTypographyTokens(server, loadLibrary);
+  registerListLayoutTokens(server, loadLibrary);
 
   return server;
 }
