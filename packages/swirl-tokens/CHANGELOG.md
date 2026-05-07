@@ -1,5 +1,17 @@
 # swirl-tokens
 
+## 2.14.2
+
+### Patch Changes
+
+- [#1650](https://github.com/getflip/swirl/pull/1650)
+  [`fe823ffcf`](https://github.com/getflip/swirl/commit/fe823ffcf0a7d8a280d100bb1739e8061c65ff3a)
+  Thanks [@konnic](https://github.com/konnic)! - Make blur tokens
+  Flutter-compatible. Dimension-typed tokens (`blur-s`, `blur-m`, `blur-l`) are
+  now emitted as numeric `double` values in the generated Dart files instead of
+  CSS px strings, so they can be passed directly to `ImageFilter.blur` /
+  `BackdropFilter`.
+
 ## 2.14.1
 
 ### Patch Changes
