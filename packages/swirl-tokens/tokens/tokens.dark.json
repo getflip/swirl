@@ -1153,10 +1153,10 @@
     "type": "color",
     "comment": "Used if a component with “Interactive Primary/Default” has a pressed state."
   },
-  “interactive-primary-disabled”: {
-    “value”: “{core-translucent-white-20}”,
-    “type”: “color”,
-    “comment”: “Used if a component with “Interactive Primary/Default” has a disabled state.”
+  "interactive-primary-disabled": {
+    "value": "{core-translucent-white-20}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
   },
   "interactive-critical-default": {
     "value": "{core-status-dark-critical-default}",
