@@ -324,7 +324,9 @@ export default class OASBuilder implements IOASBuilder {
       ).map((key) => [key, "(" + key + ")"]) // {} does not work as its encoded in the url
     );
 
-    const allLanguages = Object.keys(supportedLanguages) as SupportedTargets[];
+    const allLanguages = Object
+      .keys(supportedLanguages)
+      .filter(language => language !== 'clojure') as SupportedTargets[];
     const allLanguageSnippets = allLanguages.map((language) => [
       language,
       String(
