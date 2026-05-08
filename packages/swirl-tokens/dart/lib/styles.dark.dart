@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 07 May 2026 08:31:14 GMT
+// Generated on Fri, 08 May 2026 09:13:59 GMT
 
 
 
@@ -231,7 +231,7 @@ class SwirlDesignTokensDark {
     static const interactiveNeutralHovered = Color(0xFF6C6C6C); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
     static const interactiveNeutralPressed = Color(0xFF6C6C6C); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
     static const interactivePrimaryDefault = Color(0xFF6DA8FB); /* Used for icon and text that are high emphasis interactive elements. */
-    static const interactivePrimaryDisabled = Color(0x0FFFFFFF); /* Used if a component with “Interactive Primary/Default” has a disabled state. */
+    static const interactivePrimaryDisabled = Color(0x33FFFFFF); /* Used if a component with “Interactive Primary/Default” has a disabled state. */
     static const interactivePrimaryHovered = Color(0xFF8DBCFF); /* Used if a component with “Interactive Primary/Default” has a hovered state. */
     static const interactivePrimaryPressed = Color(0xFFB6D5FF); /* Used if a component with “Interactive Primary/Default” has a pressed state. */
     static const letterSpacingNormal = 0.00;

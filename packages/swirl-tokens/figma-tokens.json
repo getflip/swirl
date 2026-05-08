@@ -2159,7 +2159,7 @@
         "description": "Used if a component with “Interactive Primary/Default” has a pressed state."
       },
       "disabled": {
-        "value": "{core.translucent-white.6}",
+        "value": "{core.translucent-white.20}",
         "type": "color",
         "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
       }
@@ -2858,11 +2858,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }
