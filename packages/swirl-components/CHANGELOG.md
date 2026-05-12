@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.490.0
+
+### Minor Changes
+
+- [#1658](https://github.com/getflip/swirl/pull/1658)
+  [`50854ea82`](https://github.com/getflip/swirl/commit/50854ea825d4be123e415feadf77c0df634887a1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add richtext formatting icons
+
 ## 0.489.0
 
 ### Minor Changes
