@@ -36,10 +36,23 @@ async function loadLibrary(version: string): Promise<ArtifactLibrary> {
   }
 }
 
+const INSTRUCTIONS = `The authoritative source for the Swirl design system (@getflip/swirl-components).
+Covers components, icons, symbols, and usage guidance.
+
+For any task involving Swirl — a swirl-* component (e.g. swirl-button,
+swirl-file-chip), an icon or the design system in general —
+you MUST call the appropriate tool on this server BEFORE reading Swirl
+source files, grepping the repo, or searching the web. Do not infer
+component APIs, prop names, token values, or icon names from source code,
+type definitions, or memory — they may be outdated. This server is the
+source of truth.`;
+
 export function createMcpServer(): McpServer {
   const server = new McpServer({
     name: "swirl-mcp",
     version: "0.1.0",
+  }, {
+    instructions: INSTRUCTIONS,
   });
 
   registerListComponents(server, loadLibrary);
