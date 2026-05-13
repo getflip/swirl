@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import { getActiveElement } from "../../utils";
+import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
 export type SwirlToolbarOrientation = "horizontal" | "vertical";
 
@@ -13,6 +14,7 @@ export class SwirlToolbar {
 
   @Prop() label: string;
   @Prop() orientation?: SwirlToolbarOrientation = "horizontal";
+  @Prop() spacing?: SwirlStackSpacing = "8";
 
   componentDidLoad() {
     const items = this.getItems();
@@ -110,7 +112,7 @@ export class SwirlToolbar {
           role="toolbar"
           onKeyDown={this.onKeyDown}
           orientation={this.orientation}
-          spacing="8"
+          spacing={this.spacing}
           wrap
         >
           <slot></slot>

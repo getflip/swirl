@@ -61246,6 +61246,20 @@
               },
               "default": "\"horizontal\"",
               "fieldName": "orientation"
+            },
+            {
+              "name": "spacing",
+              "type": {
+                "text": "\"0\" | \"12\" | \"16\" | \"2\" | \"24\" | \"32\" | \"4\" | \"40\" | \"48\" | \"64\" | \"8\"",
+                "references": [
+                  {
+                    "name": "SwirlStackSpacing",
+                    "module": "../swirl-stack/swirl-stack"
+                  }
+                ]
+              },
+              "default": "\"8\"",
+              "fieldName": "spacing"
             }
           ],
           "members": [
@@ -61272,6 +61286,22 @@
               "default": "\"horizontal\"",
               "readonly": true,
               "attribute": "orientation"
+            },
+            {
+              "kind": "field",
+              "name": "spacing",
+              "type": {
+                "text": "\"0\" | \"12\" | \"16\" | \"2\" | \"24\" | \"32\" | \"4\" | \"40\" | \"48\" | \"64\" | \"8\"",
+                "references": [
+                  {
+                    "name": "SwirlStackSpacing",
+                    "module": "../swirl-stack/swirl-stack"
+                  }
+                ]
+              },
+              "default": "\"8\"",
+              "readonly": true,
+              "attribute": "spacing"
             }
           ]
         }
