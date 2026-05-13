@@ -3739,6 +3739,10 @@ export namespace Components {
         "indeterminate"?: boolean;
         "label": string;
         /**
+          * @default "15rem"
+         */
+        "minWidth"?: string;
+        /**
           * @default false
          */
         "selected"?: boolean;
@@ -13526,6 +13530,10 @@ declare namespace LocalJSX {
          */
         "indeterminate"?: boolean;
         "label": string;
+        /**
+          * @default "15rem"
+         */
+        "minWidth"?: string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         /**
           * @default false
@@ -17338,11 +17346,12 @@ declare namespace LocalJSX {
         "icon": string;
         "iconBadge": string;
         "label": string;
+        "minWidth": string;
         "selected": boolean;
         "indeterminate": boolean;
         "swirlAriaRole": SwirlOptionListItemRole;
-        "value": string;
         "truncateLabel": boolean;
+        "value": string;
     }
     interface SwirlOptionListSectionAttributes {
         "label": string;

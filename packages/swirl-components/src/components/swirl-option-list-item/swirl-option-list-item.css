@@ -12,14 +12,13 @@
 
 :host(.option-list-item--drag) {
   border-radius: var(--s-border-radius-s);
-  background-color: var(--s-translucent-medium-pressed)
+  background-color: var(--s-translucent-medium-pressed);
 }
 
 .option-list-item {
   display: inline-flex;
   position: relative;
   width: 100%;
-  min-width: 15rem;
   min-height: 3rem;
   padding: var(--s-space-12) var(--s-space-16);
   border-radius: var(--s-border-radius-sm);
