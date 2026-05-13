@@ -45,7 +45,12 @@ you MUST call the appropriate tool on this server BEFORE reading Swirl
 source files, grepping the repo, or searching the web. Do not infer
 component APIs, prop names, token values, or icon names from source code,
 type definitions, or memory — they may be outdated. This server is the
-source of truth.`;
+source of truth.
+
+Every tool requires a 'version' parameter matching the project's
+installed @getflip/swirl-components version. Read it from the user's
+package.json (or node_modules/@getflip/swirl-components/package.json)
+before the first tool call and reuse it for subsequent calls.`;
 
 export function createMcpServer(): McpServer {
   const server = new McpServer({

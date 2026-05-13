@@ -17,8 +17,7 @@ export function registerGetStarted(
     {
       description:
         "Get installation and setup instructions for Swirl components. " +
-        "Covers Web Components, Angular, and React wrapper libraries. " +
-        "IMPORTANT: First read the user's package.json to determine their installed @getflip/swirl-components version, then pass it as the 'version' parameter.",
+        "Covers Web Components, Angular, and React wrapper libraries.",
       inputSchema: {
         version: z.string().describe(VERSION_DESCRIPTION),
       },

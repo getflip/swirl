@@ -17,8 +17,7 @@ export function registerGetComponentDetails(
     {
       description:
         "Get full details for a Swirl component including all props with types and defaults, " +
-        "events, methods, slots, accessibility info, and usage examples. " +
-        "IMPORTANT: First read the user's package.json to determine their installed @getflip/swirl-components version, then pass it as the 'version' parameter.",
+        "events, methods, slots, accessibility info, and usage examples.",
       inputSchema: {
         tag: z.string().describe('The component tag name, e.g. "swirl-button"'),
         version: z.string().describe(VERSION_DESCRIPTION),
