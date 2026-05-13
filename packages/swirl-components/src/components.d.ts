@@ -5526,6 +5526,10 @@ export namespace Components {
           * @default "horizontal"
          */
         "orientation"?: SwirlToolbarOrientation;
+        /**
+          * @default "8"
+         */
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlTooltip {
         /**
@@ -15280,6 +15284,10 @@ declare namespace LocalJSX {
           * @default "horizontal"
          */
         "orientation"?: SwirlToolbarOrientation;
+        /**
+          * @default "8"
+         */
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlTooltip {
         /**
@@ -18163,6 +18171,7 @@ declare namespace LocalJSX {
     interface SwirlToolbarAttributes {
         "label": string;
         "orientation": SwirlToolbarOrientation;
+        "spacing": SwirlStackSpacing;
     }
     interface SwirlTooltipAttributes {
         "active": boolean;
