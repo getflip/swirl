@@ -20,7 +20,7 @@ describe("swirl-option-list-item", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-option-list-item context="single-select" disabled="false" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option List Item" selected="true" value="Value">
-        <div aria-labelledby="${id}-label" aria-selected="true" class="option-list-item option-list-item--context-single-select option-list-item--selected" id="${id}" part="option-list-item" role="option">
+        <div aria-labelledby="${id}-label" aria-selected="true" class="option-list-item option-list-item--context-single-select option-list-item--selected" id="${id}" part="option-list-item" role="option" style="min-width: 15rem;">
           <span class="option-list-item__icon">
             <swirl-icon-mention size="24"></swirl-icon-mention>
           </span>
@@ -99,7 +99,7 @@ describe("swirl-option-list-item", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-option-list-item context="multi-select" indeterminate="true" label="Option List Item" value="Value">
-        <div aria-labelledby="${id}-label" class="option-list-item option-list-item--context-multi-select option-list-item--indeterminate" id="${id}" part="option-list-item" role="option">
+        <div aria-labelledby="${id}-label" class="option-list-item option-list-item--context-multi-select option-list-item--indeterminate" id="${id}" part="option-list-item" role="option" style="min-width: 15rem;">
           <span class="option-list-item__checkbox">
             <span class="option-list-item__checkbox-box">
               <span class="option-list-item__checkbox-indeterminate-icon"></span>

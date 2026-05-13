@@ -20709,6 +20709,10 @@
           "description": ""
         },
         {
+          "name": "min-width",
+          "description": ""
+        },
+        {
           "name": "selected",
           "description": ""
         },

@@ -39,11 +39,12 @@ export class SwirlOptionListItem {
   @Prop() icon?: string;
   @Prop() iconBadge?: string;
   @Prop() label!: string;
+  @Prop() minWidth?: string = "15rem";
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() indeterminate?: boolean = false;
   @Prop() swirlAriaRole?: SwirlOptionListItemRole = "option";
-  @Prop() value!: string;
   @Prop() truncateLabel?: boolean = true;
+  @Prop() value!: string;
 
   @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
 
@@ -135,6 +136,7 @@ export class SwirlOptionListItem {
           onFocus={this.onFocus}
           part="option-list-item"
           role={this.swirlAriaRole}
+          style={{ minWidth: this.minWidth }}
         >
           {showIcon && (
             <span

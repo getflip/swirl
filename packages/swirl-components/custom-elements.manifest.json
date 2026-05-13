@@ -43307,6 +43307,14 @@
               "fieldName": "label"
             },
             {
+              "name": "min-width",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"15rem\"",
+              "fieldName": "minWidth"
+            },
+            {
               "name": "selected",
               "type": {
                 "text": "boolean"
@@ -43450,6 +43458,16 @@
               },
               "readonly": true,
               "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "minWidth",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"15rem\"",
+              "readonly": true,
+              "attribute": "min-width"
             },
             {
               "kind": "field",
