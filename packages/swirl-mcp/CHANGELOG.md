@@ -1,5 +1,21 @@
 # @getflip/swirl-mcp
 
+## 0.3.0
+
+### Minor Changes
+
+- [#1666](https://github.com/getflip/swirl/pull/1666)
+  [`06a40f453`](https://github.com/getflip/swirl/commit/06a40f453ececf1e94d563b8c79ebaa931150a5b)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  `get_component_source` tool and improve MCP instructions
+
+### Patch Changes
+
+- [#1664](https://github.com/getflip/swirl/pull/1664)
+  [`3f9ff6179`](https://github.com/getflip/swirl/commit/3f9ff6179d660ed32b820993c57dd9c275680934)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Move
+  version-sourcing guidance into server instructions
+
 ## 0.2.0
 
 ### Minor Changes
