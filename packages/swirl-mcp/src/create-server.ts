@@ -1,5 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
+import pkg from "../package.json" with { type: "json" };
 import { ArtifactLibrary } from "./artifact-library.js";
 import { LibraryCache } from "./library-cache.js";
 import { registerGetComponentDetails } from "./tools/get-component-details.js";
@@ -63,7 +64,7 @@ export function createMcpServer(): McpServer {
   const server = new McpServer(
     {
       name: "swirl-mcp",
-      version: "0.1.0",
+      version: pkg.version,
     },
     {
       instructions: INSTRUCTIONS,

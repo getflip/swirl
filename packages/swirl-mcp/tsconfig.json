@@ -5,7 +5,9 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "types": ["node"],
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true
