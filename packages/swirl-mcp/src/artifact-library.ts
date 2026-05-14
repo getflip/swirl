@@ -1,9 +1,9 @@
+import { DataSource } from "./data-source";
 import type {
   AgentComponentsIndex,
   ComponentCategory,
   ComponentIndexEntry,
 } from "./types";
-import { DataSource } from "./data-source";
 
 export class ArtifactLibrary {
   private readonly catalog: ComponentIndexEntry[];
@@ -41,6 +41,12 @@ export class ArtifactLibrary {
 
   async getComponentMarkdown(tag: string): Promise<string | undefined> {
     return this.dataSource.readText(`components/${tag}.md`);
+  }
+
+  async getComponentSource(
+    tag: string
+  ): Promise<Record<"tsx" | "css", string | undefined>> {
+    return this.dataSource.readComponentSource(tag);
   }
 
   async getGuide(name: string): Promise<string | undefined> {
