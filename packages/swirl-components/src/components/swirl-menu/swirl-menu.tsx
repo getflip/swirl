@@ -410,7 +410,7 @@ export class SwirlMenu {
       this.position = await computePosition(trigger, this.menuContainer, {
         placement: this.placement,
         strategy: "fixed",
-        middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift(), flip()],
+        middleware: [offset({ mainAxis: -10, crossAxis: 0 }), flip(), shift()],
       });
     });
   };
