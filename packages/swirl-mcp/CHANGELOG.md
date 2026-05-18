@@ -1,5 +1,14 @@
 # @getflip/swirl-mcp
 
+## 0.4.0
+
+### Minor Changes
+
+- [#1668](https://github.com/getflip/swirl/pull/1668)
+  [`9edce5fa3`](https://github.com/getflip/swirl/commit/9edce5fa34ff3e8ced8cf17850e69b082b5689f8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  `list_color_tokens`, `list_typography_tokens`, and `list_layout_tokens` tools
+
 ## 0.3.0
 
 ### Minor Changes
