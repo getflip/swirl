@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.492.0
+
+### Minor Changes
+
+- [#1669](https://github.com/getflip/swirl/pull/1669)
+  [`09fb91f2c`](https://github.com/getflip/swirl/commit/09fb91f2c04e77a17cea2e8b9ab9190e878c3ead)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add border-radius props to
+  swirl-box
+
 ## 0.491.0
 
 ### Minor Changes
