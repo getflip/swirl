@@ -27,7 +27,7 @@ import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSi
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+import { SwirlDialogIntent, SwirlDialogSize } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlCursor, SwirlDialogToggleEvent } from "./utils";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
@@ -109,7 +109,7 @@ export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSi
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+export { SwirlDialogIntent, SwirlDialogSize } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlCursor, SwirlDialogToggleEvent } from "./utils";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
@@ -968,6 +968,10 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
+        /**
+          * @default "default"
+         */
+        "size"?: SwirlDialogSize;
     }
     interface SwirlEmoji {
         /**
@@ -10857,6 +10861,10 @@ declare namespace LocalJSX {
         "primaryActionLabel"?: string;
         "returnFocusTo"?: HTMLElement | string;
         "secondaryActionLabel"?: string;
+        /**
+          * @default "default"
+         */
+        "size"?: SwirlDialogSize;
     }
     interface SwirlEmoji {
         /**
@@ -15781,6 +15789,7 @@ declare namespace LocalJSX {
         "hideLabel": boolean;
         "intent": SwirlDialogIntent;
         "label": string;
+        "size": SwirlDialogSize;
         "primaryActionLabel": string;
         "returnFocusTo": HTMLElement | string;
         "secondaryActionLabel": string;

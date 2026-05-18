@@ -12,8 +12,10 @@ import {
 import classnames from "classnames";
 import { tabbable } from "tabbable";
 import { SwirlDialogToggleEvent } from "../../utils";
+import { SwirlButtonGroupOrientation } from "../swirl-button-group/swirl-button-group";
 
 export type SwirlDialogIntent = "primary" | "critical";
+export type SwirlDialogSize = "default" | "large";
 
 /**
  * @slot slot - The dialog content
@@ -27,9 +29,11 @@ export type SwirlDialogIntent = "primary" | "critical";
 export class SwirlDialog {
   @Element() el: HTMLElement;
 
+  @Prop() actionsOrientation?: SwirlButtonGroupOrientation = "horizontal";
   @Prop() hideLabel?: boolean;
   @Prop() intent?: SwirlDialogIntent = "primary";
   @Prop() label!: string;
+  @Prop() size?: SwirlDialogSize = "default";
   @Prop() primaryActionLabel?: string;
   @Prop() returnFocusTo?: HTMLElement | string;
   @Prop() secondaryActionLabel?: string;
@@ -175,7 +179,10 @@ export class SwirlDialog {
   }
 
   render() {
-    const className = classnames("dialog", { "dialog--closing": this.closing });
+    const className = classnames("dialog", {
+      "dialog--closing": this.closing,
+      "dialog--large": this.size === "large",
+    });
     const hasLeftControls = Boolean(
       this.el.querySelector('[slot="left-controls"]')
     );
@@ -213,7 +220,14 @@ export class SwirlDialog {
               )}
 
               {(hasSecondaryAction || hasPrimaryAction) && (
-                <div class="dialog__actions">
+                <swirl-button-group
+                  class={classnames("dialog__actions", {
+                    "dialog__actions--vertical":
+                      this.actionsOrientation === "vertical",
+                  })}
+                  orientation={this.actionsOrientation}
+                  stretch={this.actionsOrientation === "vertical"}
+                >
                   {hasSecondaryAction && (
                     <swirl-button
                       label={this.secondaryActionLabel}
@@ -228,7 +242,7 @@ export class SwirlDialog {
                       variant="flat"
                     ></swirl-button>
                   )}
-                </div>
+                </swirl-button-group>
               )}
             </div>
           </div>
