@@ -19,8 +19,7 @@ export function registerListComponents(
     "list_components",
     "List all Swirl design system UI components (buttons, modals, forms, etc.) with brief summaries and related components. " +
       "Does NOT include icons or symbols — use list_icons or list_symbols for those. " +
-      "Use get_component_details for full props, events, slots, and examples. " +
-      "IMPORTANT: First read the user's package.json to determine their installed @getflip/swirl-components version, then pass it as the 'version' parameter.",
+      "Use get_component_details for full props, events, slots, and examples.",
     "core"
   );
 }
@@ -31,8 +30,7 @@ export function registerListIcons(server: McpServer, loadLibrary: LoadLibrary) {
     loadLibrary,
     "list_icons",
     "List all Swirl icon components (swirl-icon-*). " +
-      "Use get_component_details for full details on a specific icon. " +
-      "IMPORTANT: First read the user's package.json to determine their installed @getflip/swirl-components version, then pass it as the 'version' parameter.",
+      "Use get_component_details for full details on a specific icon.",
     "icon"
   );
 }
@@ -46,8 +44,7 @@ export function registerListSymbols(
     loadLibrary,
     "list_symbols",
     "List all Swirl symbol components (swirl-symbol-*). " +
-      "Use get_component_details for full details on a specific symbol. " +
-      "IMPORTANT: First read the user's package.json to determine their installed @getflip/swirl-components version, then pass it as the 'version' parameter.",
+      "Use get_component_details for full details on a specific symbol.",
     "symbol"
   );
 }
