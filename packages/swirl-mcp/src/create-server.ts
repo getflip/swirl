@@ -1,5 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
+import pkg from "../package.json" with { type: "json" };
 import { ArtifactLibrary } from "./artifact-library.js";
 import { LibraryCache } from "./library-cache.js";
 import { registerGetComponentDetails } from "./tools/get-component-details.js";
@@ -10,24 +11,41 @@ import {
   registerListIcons,
   registerListSymbols,
 } from "./tools/list-components.js";
+import {
+  registerListColorTokens,
+  registerListLayoutTokens,
+  registerListTypographyTokens,
+} from "./tools/list-tokens.js";
 
 const cache = new LibraryCache();
+const useLocal = Boolean(process.env.SWIRL_AI_LOCAL);
 
 async function loadLibrary(version: string): Promise<ArtifactLibrary> {
-  const cached = cache.get(version);
+  const cacheKey = useLocal ? "__local__" : version;
+  const cached = cache.get(cacheKey);
 
   if (cached) {
     return cached;
   }
 
   try {
-    const lib = await ArtifactLibrary.fromRemote(version);
+    const lib = useLocal
+      ? await ArtifactLibrary.fromLocal()
+      : await ArtifactLibrary.fromRemote(version);
 
-    cache.set(version, lib);
+    cache.set(cacheKey, lib);
 
     return lib;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
+
+    if (useLocal) {
+      throw new Error(
+        `Failed to load local swirl-ai artifacts. ` +
+          `Make sure swirl-ai has been built (\`pnpm --filter @getflip/swirl-ai build\`). ` +
+          `Details: ${message}`
+      );
+    }
 
     throw new Error(
       `Version "${version}" not found or failed to load. ` +
@@ -63,7 +81,7 @@ export function createMcpServer(): McpServer {
   const server = new McpServer(
     {
       name: "swirl-mcp",
-      version: "0.1.0",
+      version: pkg.version,
     },
     {
       instructions: INSTRUCTIONS,
@@ -76,6 +94,9 @@ export function createMcpServer(): McpServer {
   registerGetComponentDetails(server, loadLibrary);
   registerGetComponentSource(server, loadLibrary);
   registerGetStarted(server, loadLibrary);
+  registerListColorTokens(server, loadLibrary);
+  registerListTypographyTokens(server, loadLibrary);
+  registerListLayoutTokens(server, loadLibrary);
 
   return server;
 }

@@ -1,17 +1,26 @@
-import { DataSource } from "./data-source";
+import { DataSource, LocalDataSource, RemoteDataSource } from "./data-source";
 import type {
   AgentComponentsIndex,
+  AgentTokensIndex,
   ComponentCategory,
   ComponentIndexEntry,
+  TokenCategory,
+  TokenEntry,
 } from "./types";
 
 export class ArtifactLibrary {
   private readonly catalog: ComponentIndexEntry[];
   private readonly tagIndex: Map<string, ComponentIndexEntry>;
+  private readonly tokens: AgentTokensIndex;
   private readonly dataSource: DataSource;
 
-  private constructor(catalog: ComponentIndexEntry[], dataSource: DataSource) {
+  private constructor(
+    catalog: ComponentIndexEntry[],
+    tokens: AgentTokensIndex,
+    dataSource: DataSource
+  ) {
     this.catalog = catalog;
+    this.tokens = tokens;
     this.dataSource = dataSource;
 
     this.tagIndex = new Map();
@@ -24,11 +33,16 @@ export class ArtifactLibrary {
    * Load artifacts from a remote base URL (CDN).
    */
   static async fromRemote(version: string): Promise<ArtifactLibrary> {
-    const ds = new DataSource(version);
-    const json = await ds.readJson<AgentComponentsIndex>(
-      "components-index.json"
-    );
-    return new ArtifactLibrary(json.components, ds);
+    return ArtifactLibrary.fromDataSource(new RemoteDataSource(version));
+  }
+
+  /**
+   * Load artifacts from the local monorepo (`packages/swirl-ai/dist` and
+   * `packages/swirl-components/src`) for development against an unpublished
+   * swirl-ai build.
+   */
+  static async fromLocal(): Promise<ArtifactLibrary> {
+    return ArtifactLibrary.fromDataSource(new LocalDataSource());
   }
 
   getByCategory(category: ComponentCategory): ComponentIndexEntry[] {
@@ -51,6 +65,21 @@ export class ArtifactLibrary {
 
   async getGuide(name: string): Promise<string | undefined> {
     return this.dataSource.readText(`${name}.md`);
+  }
+
+  getTokensByCategory(category: TokenCategory): TokenEntry[] {
+    return this.tokens[category];
+  }
+
+  private static async fromDataSource(
+    dataSource: DataSource
+  ): Promise<ArtifactLibrary> {
+    const [components, tokens] = await Promise.all([
+      dataSource.readJson<AgentComponentsIndex>("components-index.json"),
+      dataSource.readJson<AgentTokensIndex>("tokens.json"),
+    ]);
+
+    return new ArtifactLibrary(components.components, tokens, dataSource);
   }
 }
 

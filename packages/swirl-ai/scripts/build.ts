@@ -3,11 +3,13 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { buildAgentComponentDocs } from "../lib/agent-docs";
 import { buildAgentComponentsIndex } from "../lib/agent-index";
+import { buildAgentTokens } from "../lib/agent-tokens";
 import { augmentCustomElementsManifest } from "../lib/augment-manifest";
 import type { CustomElementsManifest } from "../lib/types";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const COMPONENTS_ROOT = join(__dirname, "..", "..", "swirl-components");
+const TOKENS_ROOT = join(__dirname, "..", "..", "swirl-tokens");
 const MANIFEST_SOURCE = join(COMPONENTS_ROOT, "custom-elements.manifest.json");
 const COMPONENTS_TYPES = join(COMPONENTS_ROOT, "dist", "types");
 const DIST_DIR = join(__dirname, "..", "dist");
@@ -18,6 +20,7 @@ generateCustomElementsManifest();
 copyComponentTypes();
 buildAgentComponentsIndex(MANIFEST_OUT, DIST_DIR, COMPONENTS_ROOT);
 buildAgentComponentDocs(MANIFEST_OUT, DIST_DIR, COMPONENTS_ROOT);
+buildAgentTokens(TOKENS_ROOT, DIST_DIR);
 copyGettingStarted();
 
 function generateCustomElementsManifest() {
