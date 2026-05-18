@@ -17,7 +17,7 @@ import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAv
 import { SwirlAvatarGroupLayout, SwirlAvatarGroupSemantics } from "./components/swirl-avatar-group/swirl-avatar-group";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
-import { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
+import { SwirlBoxBorderColor, SwirlBoxBorderRadius, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 import { SwirlButtonCursor, SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardAriaCurrent, SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
@@ -99,7 +99,7 @@ export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAv
 export { SwirlAvatarGroupLayout, SwirlAvatarGroupSemantics } from "./components/swirl-avatar-group/swirl-avatar-group";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
-export { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
+export { SwirlBoxBorderColor, SwirlBoxBorderRadius, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 export { SwirlButtonCursor, SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardAriaCurrent, SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
@@ -498,6 +498,14 @@ export namespace Components {
           * @default "default"
          */
         "borderColor"?: SwirlBoxBorderColor;
+        /**
+          * @default "none"
+         */
+        "borderRadius"?: SwirlBoxBorderRadius;
+        "borderRadiusEndEnd"?: SwirlBoxBorderRadius;
+        "borderRadiusEndStart"?: SwirlBoxBorderRadius;
+        "borderRadiusStartEnd"?: SwirlBoxBorderRadius;
+        "borderRadiusStartStart"?: SwirlBoxBorderRadius;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
         "borderedBlockEndWhenScrolled"?: boolean;
@@ -10391,6 +10399,14 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "borderColor"?: SwirlBoxBorderColor;
+        /**
+          * @default "none"
+         */
+        "borderRadius"?: SwirlBoxBorderRadius;
+        "borderRadiusEndEnd"?: SwirlBoxBorderRadius;
+        "borderRadiusEndStart"?: SwirlBoxBorderRadius;
+        "borderRadiusStartEnd"?: SwirlBoxBorderRadius;
+        "borderRadiusStartStart"?: SwirlBoxBorderRadius;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
         "borderedBlockEndWhenScrolled"?: boolean;
@@ -15539,6 +15555,11 @@ declare namespace LocalJSX {
         "borderedBlockStartWhenScrolled": boolean;
         "borderedInlineEnd": boolean;
         "borderedInlineStart": boolean;
+        "borderRadius": SwirlBoxBorderRadius;
+        "borderRadiusEndEnd": SwirlBoxBorderRadius;
+        "borderRadiusEndStart": SwirlBoxBorderRadius;
+        "borderRadiusStartEnd": SwirlBoxBorderRadius;
+        "borderRadiusStartStart": SwirlBoxBorderRadius;
         "bottom": string;
         "centerBlock": boolean;
         "centerInline": boolean;

@@ -3061,6 +3061,67 @@
               "fieldName": "borderColor"
             },
             {
+              "name": "border-radius",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "default": "\"none\"",
+              "fieldName": "borderRadius"
+            },
+            {
+              "name": "border-radius-end-end",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "fieldName": "borderRadiusEndEnd"
+            },
+            {
+              "name": "border-radius-end-start",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "fieldName": "borderRadiusEndStart"
+            },
+            {
+              "name": "border-radius-start-end",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "fieldName": "borderRadiusStartEnd"
+            },
+            {
+              "name": "border-radius-start-start",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "fieldName": "borderRadiusStartStart"
+            },
+            {
               "name": "bordered",
               "type": {
                 "text": "boolean"
@@ -3363,6 +3424,77 @@
               "default": "\"default\"",
               "readonly": true,
               "attribute": "border-color"
+            },
+            {
+              "kind": "field",
+              "name": "borderRadius",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "default": "\"none\"",
+              "readonly": true,
+              "attribute": "border-radius"
+            },
+            {
+              "kind": "field",
+              "name": "borderRadiusEndEnd",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "border-radius-end-end"
+            },
+            {
+              "kind": "field",
+              "name": "borderRadiusEndStart",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "border-radius-end-start"
+            },
+            {
+              "kind": "field",
+              "name": "borderRadiusStartEnd",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "border-radius-start-end"
+            },
+            {
+              "kind": "field",
+              "name": "borderRadiusStartStart",
+              "type": {
+                "text": "\"base\" | \"l\" | \"none\" | \"sm\" | \"xl\" | \"xs\"",
+                "references": [
+                  {
+                    "name": "SwirlBoxBorderRadius"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "border-radius-start-start"
             },
             {
               "kind": "field",
