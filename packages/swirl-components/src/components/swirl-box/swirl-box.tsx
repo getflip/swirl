@@ -13,6 +13,8 @@ import classnames from "classnames";
 
 export type SwirlBoxBorderColor = "default" | "strong";
 
+export type SwirlBoxBorderRadius = "none" | "xs" | "sm" | "base" | "l" | "xl";
+
 export type SwirlBoxOverflow =
   | "visible"
   | "hidden"
@@ -57,6 +59,11 @@ export class SwirlBox {
   @Prop() borderedBlockStartWhenScrolled?: boolean;
   @Prop() borderedInlineEnd?: boolean;
   @Prop() borderedInlineStart?: boolean;
+  @Prop() borderRadius?: SwirlBoxBorderRadius = "none";
+  @Prop() borderRadiusEndEnd?: SwirlBoxBorderRadius;
+  @Prop() borderRadiusEndStart?: SwirlBoxBorderRadius;
+  @Prop() borderRadiusStartEnd?: SwirlBoxBorderRadius;
+  @Prop() borderRadiusStartStart?: SwirlBoxBorderRadius;
   @Prop() bottom?: string;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
@@ -140,6 +147,18 @@ export class SwirlBox {
     this.updateScrollState();
   };
 
+  private getBorderRadiusStyle(
+    radius?: SwirlBoxBorderRadius
+  ): string | undefined {
+    if (radius === undefined) {
+      return undefined;
+    }
+
+    return radius === "none"
+      ? `var(--s-border-radius-null)`
+      : `var(--s-border-radius-${radius})`;
+  }
+
   private updateScrollState() {
     if (!this.el.isConnected) {
       return;
@@ -165,6 +184,17 @@ export class SwirlBox {
   render() {
     const styles = {
       alignItems: this.centerBlock ? "center" : undefined,
+      borderRadius: this.getBorderRadiusStyle(this.borderRadius),
+      borderEndEndRadius: this.getBorderRadiusStyle(this.borderRadiusEndEnd),
+      borderEndStartRadius: this.getBorderRadiusStyle(
+        this.borderRadiusEndStart
+      ),
+      borderStartEndRadius: this.getBorderRadiusStyle(
+        this.borderRadiusStartEnd
+      ),
+      borderStartStartRadius: this.getBorderRadiusStyle(
+        this.borderRadiusStartStart
+      ),
       bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
       flexBasis: this.basis,

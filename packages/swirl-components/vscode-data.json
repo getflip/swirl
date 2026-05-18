@@ -922,6 +922,126 @@
           ]
         },
         {
+          "name": "border-radius",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
+        },
+        {
+          "name": "border-radius-end-end",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
+        },
+        {
+          "name": "border-radius-end-start",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
+        },
+        {
+          "name": "border-radius-start-end",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
+        },
+        {
+          "name": "border-radius-start-start",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "none"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
+        },
+        {
           "name": "bordered",
           "description": ""
         },
