@@ -85,6 +85,18 @@ function registerListTokensTool(
     async ({ version, format }: { version: string; format: TokenFormat }) => {
       const lib = await loadLibrary(version);
       const tokens = lib.getTokensByCategory(category);
+
+      if (tokens === undefined) {
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text" as const,
+              text: `The "${name}" tool is not supported for the @getflip/swirl-components@${version} version`,
+            },
+          ],
+        };
+      }
       const formatted = tokens
         .map((t) => formatToken(t, format))
         .filter((t): t is FormattedToken => t !== null);

@@ -11,12 +11,12 @@ import type {
 export class ArtifactLibrary {
   private readonly catalog: ComponentIndexEntry[];
   private readonly tagIndex: Map<string, ComponentIndexEntry>;
-  private readonly tokens: AgentTokensIndex;
+  private readonly tokens: AgentTokensIndex | undefined;
   private readonly dataSource: DataSource;
 
   private constructor(
     catalog: ComponentIndexEntry[],
-    tokens: AgentTokensIndex,
+    tokens: AgentTokensIndex | undefined,
     dataSource: DataSource
   ) {
     this.catalog = catalog;
@@ -67,17 +67,23 @@ export class ArtifactLibrary {
     return this.dataSource.readText(`${name}.md`);
   }
 
-  getTokensByCategory(category: TokenCategory): TokenEntry[] {
-    return this.tokens[category];
+  getTokensByCategory(category: TokenCategory): TokenEntry[] | undefined {
+    return this.tokens?.[category];
   }
 
   private static async fromDataSource(
     dataSource: DataSource
   ): Promise<ArtifactLibrary> {
-    const [components, tokens] = await Promise.all([
-      dataSource.readJson<AgentComponentsIndex>("components-index.json"),
-      dataSource.readJson<AgentTokensIndex>("tokens.json"),
-    ]);
+    const components = await dataSource.readJson<AgentComponentsIndex>(
+      "components-index.json"
+    );
+
+    let tokens: AgentTokensIndex | undefined;
+    try {
+      tokens = await dataSource.readJson<AgentTokensIndex>("tokens.json");
+    } catch {
+      tokens = undefined;
+    }
 
     return new ArtifactLibrary(components.components, tokens, dataSource);
   }
