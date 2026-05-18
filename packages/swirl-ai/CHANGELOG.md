@@ -1,5 +1,14 @@
 # @getflip/swirl-ai
 
+## 0.492.1
+
+### Patch Changes
+
+- [#1668](https://github.com/getflip/swirl/pull/1668)
+  [`9edce5fa3`](https://github.com/getflip/swirl/commit/9edce5fa34ff3e8ced8cf17850e69b082b5689f8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Emit
+  `tokens.json` in the agent artifacts
+
 ## 0.492.0
 
 ## 0.491.0
