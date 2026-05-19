@@ -480,6 +480,35 @@
   }
 }
 
+.button--size-s {
+  font-size: var(--s-font-size-sm);
+  line-height: var(--s-line-height-sm);
+  gap: var(--s-space-4);
+  border-radius: var(--s-border-radius-sm);
+
+  &:not(.button--variant-plain),
+  &.button--variant-floating.button--intent-primary {
+    min-height: 1.75rem;
+    padding: var(--s-space-4) var(--s-space-8);
+  }
+
+  &.button--pill,
+  &.button--variant-floating.button--intent-primary {
+    border-radius: 0.875rem;
+  }
+
+  & .button__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &.button--icon-only:not(.button--variant-plain),
+  &.button--variant-floating.button--intent-primary.button--icon-only {
+    min-width: 1.75rem;
+    padding: var(--s-space-4);
+  }
+}
+
 .button--icon-only {
   padding: var(--s-space-8);
 

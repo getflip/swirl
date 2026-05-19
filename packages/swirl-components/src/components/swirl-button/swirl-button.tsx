@@ -7,7 +7,7 @@ export type SwirlButtonIconPosition = "start" | "end";
 
 export type SwirlButtonIntent = "default" | "primary" | "critical" | "strong";
 
-export type SwirlButtonSize = "m" | "l";
+export type SwirlButtonSize = "s" | "m" | "l";
 
 export type SwirlButtonTextAlign = "start" | "center" | "end";
 
@@ -107,7 +107,10 @@ export class SwirlButton {
       icon?.tagName.startsWith("SWIRL-EMOJI") ||
       icon?.tagName.startsWith("SWIRL-SYMBOL")
     ) {
-      icon?.setAttribute("size", this.isDesktop ? "20" : "24");
+      icon?.setAttribute(
+        "size",
+        this.isDesktop || this.size === "s" ? "20" : "24"
+      );
     }
   }
 
