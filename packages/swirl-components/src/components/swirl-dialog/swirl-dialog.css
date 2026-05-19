@@ -153,6 +153,7 @@
 .dialog__actions {
   min-width: 0;
   max-width: 100%;
+  width: 100%;
 
   @media (--from-desktop) {
     width: auto;
@@ -161,6 +162,19 @@
 
 .dialog__actions--vertical {
   width: 100%;
+}
+
+/* Horizontal: buttons share equal width on mobile, constrained to prevent overflow */
+.dialog__actions:not(.dialog__actions--vertical) > swirl-button {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+
+  @media (--from-desktop) {
+    flex: initial;
+    min-width: 0;
+    max-width: 100%;
+  }
 }
 
 .dialog__left_controls {
