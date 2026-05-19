@@ -4010,7 +4010,7 @@
             {
               "name": "size",
               "type": {
-                "text": "\"l\" | \"m\"",
+                "text": "\"l\" | \"m\" | \"s\"",
                 "references": [
                   {
                     "name": "SwirlButtonSize"
@@ -4274,7 +4274,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "\"l\" | \"m\"",
+                "text": "\"l\" | \"m\" | \"s\"",
                 "references": [
                   {
                     "name": "SwirlButtonSize"
@@ -7968,9 +7968,38 @@
                 "text": "string"
               },
               "fieldName": "secondaryActionLabel"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "\"default\" | \"large\"",
+                "references": [
+                  {
+                    "name": "SwirlDialogSize"
+                  }
+                ]
+              },
+              "default": "\"default\"",
+              "fieldName": "size"
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "actionsOrientation",
+              "type": {
+                "text": "\"horizontal\" | \"horizontal-reverse\" | \"vertical\" | \"vertical-reverse\"",
+                "references": [
+                  {
+                    "name": "SwirlButtonGroupOrientation",
+                    "module": "../swirl-button-group/swirl-button-group"
+                  }
+                ]
+              },
+              "default": "\"horizontal\"",
+              "readonly": true,
+              "attribute": "actions-orientation"
+            },
             {
               "kind": "field",
               "name": "hideLabel",
@@ -8036,6 +8065,21 @@
               },
               "readonly": true,
               "attribute": "secondary-action-label"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "\"default\" | \"large\"",
+                "references": [
+                  {
+                    "name": "SwirlDialogSize"
+                  }
+                ]
+              },
+              "default": "\"default\"",
+              "readonly": true,
+              "attribute": "size"
             },
             {
               "kind": "method",

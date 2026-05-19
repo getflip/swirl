@@ -42,6 +42,19 @@ describe("swirl-button", () => {
     expect(page.root.querySelector("[aria-label='Label']")).toBeDefined();
   });
 
+  it("renders as a small button", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button icon="<swirl-icon-close></swirl-icon-close>" label="Label" size="s"></swirl-button>`,
+    });
+
+    const buttonElement = page.root.querySelector("button");
+    const iconElement = page.root.querySelector("swirl-icon-close");
+
+    expect(buttonElement.classList.contains("button--size-s")).toBe(true);
+    expect(iconElement.getAttribute("size")).toBe("20");
+  });
+
   it("renders a link if href is set", async () => {
     const page = await newSpecPage({
       components: [SwirlButton],
