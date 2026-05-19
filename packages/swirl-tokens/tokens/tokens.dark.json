@@ -1154,7 +1154,7 @@
     "comment": "Used if a component with “Interactive Primary/Default” has a pressed state."
   },
   "interactive-primary-disabled": {
-    "value": "{core-translucent-white-6}",
+    "value": "{core-translucent-white-20}",
     "type": "color",
     "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
   },
