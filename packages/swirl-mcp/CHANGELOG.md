@@ -1,5 +1,14 @@
 # @getflip/swirl-mcp
 
+## 0.4.1
+
+### Patch Changes
+
+- [#1673](https://github.com/getflip/swirl/pull/1673)
+  [`c73286091`](https://github.com/getflip/swirl/commit/c732860912cecb9fd5a6b636f5767ea9098aefd7)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Introduce
+  graceful failure for not supported swirl versions in token tools
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @getflip/swirl-ai
 
+## 0.493.0
+
+### Minor Changes
+
+- [#1676](https://github.com/getflip/swirl/pull/1676)
+  [`1135ab61d`](https://github.com/getflip/swirl/commit/1135ab61db7af28ca3c769390023f56fb42b3387)
+  Thanks [@danizep](https://github.com/danizep)! - Add support small button
+
 ## 0.492.1
 
 ### Patch Changes

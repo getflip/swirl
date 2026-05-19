@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.14.3
+
+### Patch Changes
+
+- [#1656](https://github.com/getflip/swirl/pull/1656)
+  [`e6157a026`](https://github.com/getflip/swirl/commit/e6157a0266c30f1e4fa5f610c6de46110d7d9cde)
+  Thanks [@marcomFlip](https://github.com/marcomFlip)! - Update
+  "interactive-primary-disabled" token in dark mode
+
 ## 2.14.2
 
 ### Patch Changes
