@@ -3,10 +3,18 @@ import Docs from "./swirl-dialog.mdx";
 
 export default {
   argTypes: {
+    actionsOrientation: {
+      control: "radio",
+      options: ["horizontal", "vertical"],
+    },
     returnFocusTo: {
       control: "text",
       description:
         "Use when dialog trigger element is unmounted before the dialog is closed.",
+    },
+    size: {
+      control: "radio",
+      options: ["default", "large"],
     },
   },
   component: "swirl-dialog",
@@ -52,8 +60,10 @@ const Template = (args) => {
 export const SwirlDialog = Template.bind({});
 
 SwirlDialog.args = {
+  actionsOrientation: "horizontal",
   intent: "primary",
   label: "Dialog",
   primaryActionLabel: "Leave",
   secondaryActionLabel: "Cancel",
+  size: "default",
 };
