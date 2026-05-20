@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.493.1
+
+### Patch Changes
+
+- [#1678](https://github.com/getflip/swirl/pull/1678)
+  [`77e6a60ae`](https://github.com/getflip/swirl/commit/77e6a60aeef36973ad7b1b8d439bf56d1d9b199e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue causing the
+  swirl-select expansion indicator icon to prevent opening the drop down
+
 ## 0.493.0
 
 ### Minor Changes
