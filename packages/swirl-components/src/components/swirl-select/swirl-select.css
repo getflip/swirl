@@ -164,6 +164,7 @@
   display: inline-flex;
   color: var(--s-icon-default);
   transform: translateY(calc(-50% - var(--s-space-8)));
+  pointer-events: none;
 }
 
 .select__search {
@@ -250,7 +251,7 @@
 
   .select__option-list {
     padding: var(--s-space-4);
-        overflow: auto;
+    overflow: auto;
     min-height: 0;
   }
 }
