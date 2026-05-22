@@ -35,7 +35,7 @@ export class SwirlDatePicker {
 
   @Prop() disableDate?: (date: Date) => boolean = () => false;
   @Prop({ mutable: true }) firstDayOfWeek?: number = 0;
-  @Prop() fixedAspectRatio?: boolean = false;
+  @Prop() fixedAspectRatio?: boolean = true;
   @Prop() fixedMaxWidth: boolean = true;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
