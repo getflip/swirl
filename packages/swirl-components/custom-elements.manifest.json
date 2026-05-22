@@ -7599,6 +7599,14 @@
               "fieldName": "firstDayOfWeek"
             },
             {
+              "name": "fixed-aspect-ratio",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "fixedAspectRatio"
+            },
+            {
               "name": "fixed-max-width",
               "type": {
                 "text": "boolean"
@@ -7646,6 +7654,16 @@
               },
               "default": "0",
               "attribute": "first-day-of-week"
+            },
+            {
+              "kind": "field",
+              "name": "fixedAspectRatio",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "fixed-aspect-ratio"
             },
             {
               "kind": "field",
@@ -7915,6 +7933,20 @@
           "tagName": "swirl-dialog",
           "name": "SwirlDialog",
           "attributes": [
+            {
+              "name": "actions-orientation",
+              "type": {
+                "text": "\"horizontal\" | \"horizontal-reverse\" | \"vertical\" | \"vertical-reverse\"",
+                "references": [
+                  {
+                    "name": "SwirlButtonGroupOrientation",
+                    "module": "../swirl-button-group/swirl-button-group"
+                  }
+                ]
+              },
+              "default": "\"horizontal\"",
+              "fieldName": "actionsOrientation"
+            },
             {
               "name": "hide-label",
               "type": {
