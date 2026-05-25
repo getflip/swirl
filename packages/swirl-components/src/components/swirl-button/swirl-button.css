@@ -454,6 +454,14 @@
       color: var(--s-icon-default);
     }
   }
+
+  &.button--size-l {
+    padding: var(--s-space-12) var(--s-space-20);
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
+    }
+  }
 }
 
 .button--icon-position-end {
