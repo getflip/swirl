@@ -2916,6 +2916,10 @@
           "description": ""
         },
         {
+          "name": "fixed-aspect-ratio",
+          "description": ""
+        },
+        {
           "name": "fixed-max-width",
           "description": ""
         },
@@ -2970,6 +2974,24 @@
       },
       "attributes": [
         {
+          "name": "actions-orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "horizontal-reverse"
+            },
+            {
+              "name": "vertical"
+            },
+            {
+              "name": "vertical-reverse"
+            }
+          ]
+        },
+        {
           "name": "hide-label",
           "description": ""
         },
@@ -3000,6 +3022,18 @@
         {
           "name": "secondary-action-label",
           "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "large"
+            }
+          ]
         }
       ]
     },

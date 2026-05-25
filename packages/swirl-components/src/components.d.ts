@@ -27,6 +27,7 @@ import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSi
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
+import { SwirlButtonGroupOrientation as SwirlButtonGroupOrientation1 } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlDialogIntent, SwirlDialogSize } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlCursor, SwirlDialogToggleEvent } from "./utils";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
@@ -109,6 +110,7 @@ export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSi
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
+export { SwirlButtonGroupOrientation as SwirlButtonGroupOrientation1 } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlDialogIntent, SwirlDialogSize } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlCursor, SwirlDialogToggleEvent } from "./utils";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
@@ -927,6 +929,10 @@ export namespace Components {
          */
         "firstDayOfWeek"?: number;
         /**
+          * @default false
+         */
+        "fixedAspectRatio"?: boolean;
+        /**
           * @default true
          */
         "fixedMaxWidth": boolean;
@@ -951,6 +957,10 @@ export namespace Components {
         "tooltip"?: string;
     }
     interface SwirlDialog {
+        /**
+          * @default "horizontal"
+         */
+        "actionsOrientation"?: SwirlButtonGroupOrientation1;
         /**
           * Close the dialog.
          */
@@ -10822,6 +10832,10 @@ declare namespace LocalJSX {
          */
         "firstDayOfWeek"?: number;
         /**
+          * @default false
+         */
+        "fixedAspectRatio"?: boolean;
+        /**
           * @default true
          */
         "fixedMaxWidth"?: boolean;
@@ -10847,6 +10861,10 @@ declare namespace LocalJSX {
         "tooltip"?: string;
     }
     interface SwirlDialog {
+        /**
+          * @default "horizontal"
+         */
+        "actionsOrientation"?: SwirlButtonGroupOrientation1;
         "hideLabel"?: boolean;
         /**
           * @default "primary"
@@ -15775,6 +15793,7 @@ declare namespace LocalJSX {
     }
     interface SwirlDatePickerAttributes {
         "firstDayOfWeek": number;
+        "fixedAspectRatio": boolean;
         "fixedMaxWidth": boolean;
         "locale": string;
         "range": boolean;
@@ -15786,6 +15805,7 @@ declare namespace LocalJSX {
         "tooltip": string;
     }
     interface SwirlDialogAttributes {
+        "actionsOrientation": SwirlButtonGroupOrientation;
         "hideLabel": boolean;
         "intent": SwirlDialogIntent;
         "label": string;
