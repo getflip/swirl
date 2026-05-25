@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.493.2
+
+### Patch Changes
+
+- [#1681](https://github.com/getflip/swirl/pull/1681)
+  [`ded31dde4`](https://github.com/getflip/swirl/commit/ded31dde46f5089eeea7dd9fac5677bc54e441dc)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix size in
+  translucent swirl-button
+
 ## 0.493.1
 
 ### Patch Changes
