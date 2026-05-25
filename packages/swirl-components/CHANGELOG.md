@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.494.0
+
+### Minor Changes
+
+- [#1680](https://github.com/getflip/swirl/pull/1680)
+  [`a786d57d2`](https://github.com/getflip/swirl/commit/a786d57d2aac011e2c24c0f792d1a9ddeb4efaee)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Added fixed
+  aspect ratio prop to date picker
+
 ## 0.493.2
 
 ### Patch Changes
