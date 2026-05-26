@@ -1,5 +1,15 @@
 # @getflip/swirl-icons
 
+## 0.86.0
+
+### Minor Changes
+
+- [#1684](https://github.com/getflip/swirl/pull/1684)
+  [`77a1007e2`](https://github.com/getflip/swirl/commit/77a1007e2e03d9e39a594edd81350a45d17beb02)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add new icons:
+  `swirl-icon-redo`, `swirl-icon-zoom-in`, `swirl-icon-zoom-out`, and
+  `swirl-icon-swap-vert`
+
 ## 0.85.0
 
 ### Minor Changes
