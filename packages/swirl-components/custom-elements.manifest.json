@@ -33558,6 +33558,117 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/swirl-icon/icons/swirl-icon-redo.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-icon-redo",
+          "name": "SwirlIconRedo",
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "fieldName": "color"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "readonly": true,
+              "attribute": "size"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "icon"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIconRedo",
+          "declaration": {
+            "name": "SwirlIconRedo"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-icon-redo",
+          "declaration": {
+            "name": "SwirlIconRedo"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/swirl-icon/icons/swirl-icon-refresh.tsx",
       "declarations": [
         {
@@ -36771,6 +36882,117 @@
           "name": "swirl-icon-sunny",
           "declaration": {
             "name": "SwirlIconSunny"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-icon/icons/swirl-icon-swap-vert.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-icon-swap-vert",
+          "name": "SwirlIconSwapVert",
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "fieldName": "color"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "readonly": true,
+              "attribute": "size"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "icon"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIconSwapVert",
+          "declaration": {
+            "name": "SwirlIconSwapVert"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-icon-swap-vert",
+          "declaration": {
+            "name": "SwirlIconSwapVert"
           }
         }
       ]
@@ -40323,6 +40545,228 @@
           "name": "swirl-icon-workspace-premium",
           "declaration": {
             "name": "SwirlIconWorkspacePremium"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-icon/icons/swirl-icon-zoom-in.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-icon-zoom-in",
+          "name": "SwirlIconZoomIn",
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "fieldName": "color"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "readonly": true,
+              "attribute": "size"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "icon"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIconZoomIn",
+          "declaration": {
+            "name": "SwirlIconZoomIn"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-icon-zoom-in",
+          "declaration": {
+            "name": "SwirlIconZoomIn"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-icon/icons/swirl-icon-zoom-out.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-icon-zoom-out",
+          "name": "SwirlIconZoomOut",
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "fieldName": "color"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "\"critical\" | \"default\" | \"disabled\" | \"highlight\" | \"info\" | \"on-action-primary\" | \"on-image\" | \"on-status\" | \"on-surface-highlight\" | \"on-surface-highlight-subdued\" | \"strong\" | \"success\" | \"warning\"",
+                "references": [
+                  {
+                    "name": "SwirlIconColor",
+                    "module": "../swirl-icon"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28",
+                "references": [
+                  {
+                    "name": "SwirlIconSize",
+                    "module": "../swirl-icon.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "readonly": true,
+              "attribute": "size"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "icon"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIconZoomOut",
+          "declaration": {
+            "name": "SwirlIconZoomOut"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-icon-zoom-out",
+          "declaration": {
+            "name": "SwirlIconZoomOut"
           }
         }
       ]
