@@ -10,10 +10,13 @@ import {
   State,
   h,
 } from "@stencil/core";
-import { disableBodyScroll, enableBodyScroll } from "../../utils/body-scroll-lock";
 import classnames from "classnames";
 import { tabbable } from "tabbable";
 import { SwirlDialogToggleEvent } from "../../utils";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+} from "../../utils/body-scroll-lock";
 
 export type SwirlModalVariant = "default" | "drawer";
 
@@ -272,41 +275,41 @@ export class SwirlModal {
     this.secondaryAction.emit(event);
   };
 
-  private updateCustomFooterStatus() {
+  private updateCustomFooterStatus = () => {
     this.hasCustomFooter = Boolean(
       this.el.querySelector(':scope > [slot="custom-footer"]')
     );
-  }
+  };
 
-  private updateCustomHeaderStatus() {
+  private updateCustomHeaderStatus = () => {
     this.hasCustomHeader = Boolean(
       this.el.querySelector(':scope > [slot="custom-header"]')
     );
-  }
+  };
 
-  private updateHeaderToolsStatus() {
+  private updateHeaderToolsStatus = () => {
     this.hasHeaderTools = Boolean(
       this.el.querySelector(':scope > [slot="header-tools"]')
     );
-  }
+  };
 
-  private updateSecondaryContentStatus() {
+  private updateSecondaryContentStatus = () => {
     this.hasSecondaryContent = Boolean(
       this.el.querySelector(':scope > [slot="secondary-content"]')
     );
-  }
+  };
 
-  private updateSidebarContentStatus() {
+  private updateSidebarContentStatus = () => {
     this.hasSidebarContent = Boolean(
       this.el.querySelector(':scope > [slot="sidebar-content"]')
     );
-  }
+  };
 
-  private updateSidebarFooterStatus() {
+  private updateSidebarFooterStatus = () => {
     this.hasSidebarFooter = Boolean(
       this.el.querySelector(':scope > [slot="sidebar-footer"]')
     );
-  }
+  };
 
   private determineScrollStatus = () => {
     this.determineMainScrollStatus();
@@ -518,17 +521,26 @@ export class SwirlModal {
                 onScroll={this.determineSidebarScrollStatus}
                 ref={(el) => (this.sidebarScrollContainer = el)}
               >
-                <slot name="sidebar-content"></slot>
+                <slot
+                  name="sidebar-content"
+                  onSlotchange={this.updateSidebarContentStatus}
+                ></slot>
               </div>
 
               <div class="modal__sidebar-footer" part="modal__sidebar-footer">
-                <slot name="sidebar-footer"></slot>
+                <slot
+                  name="sidebar-footer"
+                  onSlotchange={this.updateSidebarFooterStatus}
+                ></slot>
               </div>
             </aside>
 
             <div class="modal__main-content">
               <header class="modal__custom-header" part="modal__custom-header">
-                <slot name="custom-header"></slot>
+                <slot
+                  name="custom-header"
+                  onSlotchange={this.updateCustomHeaderStatus}
+                ></slot>
               </header>
               {(!this.hideLabel || !this.hideCloseButton) && (
                 <header class="modal__header">
@@ -590,7 +602,10 @@ export class SwirlModal {
                   }}
                 >
                   <div class="modal__header-tools" part="modal__header-tools">
-                    <slot name="header-tools"></slot>
+                    <slot
+                      name="header-tools"
+                      onSlotchange={this.updateHeaderToolsStatus}
+                    ></slot>
                   </div>
                   <div
                     class="modal__content"
@@ -631,11 +646,17 @@ export class SwirlModal {
                       : undefined,
                   }}
                 >
-                  <slot name="secondary-content"></slot>
+                  <slot
+                    name="secondary-content"
+                    onSlotchange={this.updateSecondaryContentStatus}
+                  ></slot>
                 </div>
               </div>
               <div class="modal__custom-footer">
-                <slot name="custom-footer"></slot>
+                <slot
+                  name="custom-footer"
+                  onSlotchange={this.updateCustomFooterStatus}
+                ></slot>
               </div>
               {showControls && (
                 <footer class="modal__controls">
