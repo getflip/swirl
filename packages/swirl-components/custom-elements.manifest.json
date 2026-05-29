@@ -7603,7 +7603,7 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
+              "default": "true",
               "fieldName": "fixedAspectRatio"
             },
             {
@@ -7661,7 +7661,7 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
+              "default": "true",
               "readonly": true,
               "attribute": "fixed-aspect-ratio"
             },

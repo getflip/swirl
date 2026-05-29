@@ -929,7 +929,7 @@ export namespace Components {
          */
         "firstDayOfWeek"?: number;
         /**
-          * @default false
+          * @default true
          */
         "fixedAspectRatio"?: boolean;
         /**
@@ -10892,7 +10892,7 @@ declare namespace LocalJSX {
          */
         "firstDayOfWeek"?: number;
         /**
-          * @default false
+          * @default true
          */
         "fixedAspectRatio"?: boolean;
         /**
