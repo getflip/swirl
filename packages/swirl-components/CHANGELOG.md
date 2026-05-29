@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.496.0
+
+### Minor Changes
+
+- [#1690](https://github.com/getflip/swirl/pull/1690)
+  [`fdc29f0a5`](https://github.com/getflip/swirl/commit/fdc29f0a5d042eb9573e5ac57c97e7eb908205b2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Handle slot changes
+  (conditionally rendered slots) in swirl-modal
+
 ## 0.495.0
 
 ### Minor Changes
