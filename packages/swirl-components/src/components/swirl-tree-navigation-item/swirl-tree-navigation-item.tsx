@@ -12,6 +12,9 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
+/**
+ * @slot custom-icon - Custom icon element that takes precedence over the icon prop.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-tree-navigation-item.css",
@@ -35,6 +38,7 @@ export class SwirlTreeNavigationItem {
   @Event() expansionChange!: EventEmitter<boolean>;
   @State() expanded = false;
   @State() hasChildren = false;
+  @State() hasCustomIcon = false;
   @State() childrenHeight = "0";
 
   private buttonId = `${this.navigationItemId}-button`;
@@ -42,6 +46,7 @@ export class SwirlTreeNavigationItem {
   private childrenRef?: HTMLUListElement;
 
   componentWillLoad() {
+    this.hasCustomIcon = Boolean(this.el.querySelector("[slot='custom-icon']"));
     this.checkForChildren();
   }
 
@@ -125,7 +130,8 @@ export class SwirlTreeNavigationItem {
     const Tag = isLink ? "a" : "button";
     const linkClassName = classnames("tree-navigation-item__link", {
       "tree-navigation-item__link--active": this.active,
-      "tree-navigation-item__link--has-icon": Boolean(this.icon),
+      "tree-navigation-item__link--has-icon":
+        this.hasCustomIcon || Boolean(this.icon),
     });
 
     return (
@@ -152,7 +158,17 @@ export class SwirlTreeNavigationItem {
             aria-expanded={this.hasChildren ? this.expanded : undefined}
           >
             <span class="tree-navigation-item__content">
-              {this.icon && (
+              {this.hasCustomIcon && (
+                <span
+                  class="tree-navigation-item__icon"
+                  aria-hidden="true"
+                  role="img"
+                  aria-label={`${this.label} icon`}
+                >
+                  <slot name="custom-icon"></slot>
+                </span>
+              )}
+              {!this.hasCustomIcon && this.icon && (
                 <swirl-icon
                   class="tree-navigation-item__icon"
                   glyph={this.icon}
