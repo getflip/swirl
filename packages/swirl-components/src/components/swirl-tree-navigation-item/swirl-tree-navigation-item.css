@@ -100,6 +100,13 @@
   max-height: 1rem;
   color: var(--s-icon-default);
   margin-left: var(--s-space-4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tree-navigation-item__link:hover .tree-navigation-item__external-icon,
+.tree-navigation-item__link:focus-visible .tree-navigation-item__external-icon {
+  opacity: 1;
 }
 
 /* Label styles */
