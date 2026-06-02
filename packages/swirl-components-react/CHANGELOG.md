@@ -1,5 +1,21 @@
 # @getflip/swirl-components-react
 
+## 0.498.0
+
+### Minor Changes
+
+- [#1694](https://github.com/getflip/swirl/pull/1694)
+  [`c2b94a4ea`](https://github.com/getflip/swirl/commit/c2b94a4ea87b2725ef20c7862205e71c5610e56a)
+  Thanks [@danizep](https://github.com/danizep)! - Extend
+  SwirlTreeNavigationItem with custom icon and external link icon hover/focused
+  interaction
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c2b94a4ea`](https://github.com/getflip/swirl/commit/c2b94a4ea87b2725ef20c7862205e71c5610e56a)]:
+  - @getflip/swirl-components@0.498.0
+
 ## 0.497.0
 
 ### Minor Changes
