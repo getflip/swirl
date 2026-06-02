@@ -2996,6 +2996,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconRocketLaunch {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRotateLeft {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -7836,6 +7844,12 @@ declare global {
         prototype: HTMLSwirlIconRoadmapElement;
         new (): HTMLSwirlIconRoadmapElement;
     };
+    interface HTMLSwirlIconRocketLaunchElement extends Components.SwirlIconRocketLaunch, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRocketLaunchElement: {
+        prototype: HTMLSwirlIconRocketLaunchElement;
+        new (): HTMLSwirlIconRocketLaunchElement;
+    };
     interface HTMLSwirlIconRotateLeftElement extends Components.SwirlIconRotateLeft, HTMLStencilElement {
     }
     var HTMLSwirlIconRotateLeftElement: {
@@ -9935,6 +9949,7 @@ declare global {
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
         "swirl-icon-report": HTMLSwirlIconReportElement;
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
+        "swirl-icon-rocket-launch": HTMLSwirlIconRocketLaunchElement;
         "swirl-icon-rotate-left": HTMLSwirlIconRotateLeftElement;
         "swirl-icon-rotate-right": HTMLSwirlIconRotateRightElement;
         "swirl-icon-school": HTMLSwirlIconSchoolElement;
@@ -12924,6 +12939,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRocketLaunch {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -17100,6 +17123,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconRocketLaunchAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRotateLeftAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -18645,6 +18673,7 @@ declare namespace LocalJSX {
         "swirl-icon-reply": Omit<SwirlIconReply, keyof SwirlIconReplyAttributes> & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes]?: SwirlIconReply[K] } & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes as `attr:${K}`]?: SwirlIconReplyAttributes[K] } & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes as `prop:${K}`]?: SwirlIconReply[K] };
         "swirl-icon-report": Omit<SwirlIconReport, keyof SwirlIconReportAttributes> & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes]?: SwirlIconReport[K] } & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes as `attr:${K}`]?: SwirlIconReportAttributes[K] } & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes as `prop:${K}`]?: SwirlIconReport[K] };
         "swirl-icon-roadmap": Omit<SwirlIconRoadmap, keyof SwirlIconRoadmapAttributes> & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes]?: SwirlIconRoadmap[K] } & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes as `attr:${K}`]?: SwirlIconRoadmapAttributes[K] } & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes as `prop:${K}`]?: SwirlIconRoadmap[K] };
+        "swirl-icon-rocket-launch": Omit<SwirlIconRocketLaunch, keyof SwirlIconRocketLaunchAttributes> & { [K in keyof SwirlIconRocketLaunch & keyof SwirlIconRocketLaunchAttributes]?: SwirlIconRocketLaunch[K] } & { [K in keyof SwirlIconRocketLaunch & keyof SwirlIconRocketLaunchAttributes as `attr:${K}`]?: SwirlIconRocketLaunchAttributes[K] } & { [K in keyof SwirlIconRocketLaunch & keyof SwirlIconRocketLaunchAttributes as `prop:${K}`]?: SwirlIconRocketLaunch[K] };
         "swirl-icon-rotate-left": Omit<SwirlIconRotateLeft, keyof SwirlIconRotateLeftAttributes> & { [K in keyof SwirlIconRotateLeft & keyof SwirlIconRotateLeftAttributes]?: SwirlIconRotateLeft[K] } & { [K in keyof SwirlIconRotateLeft & keyof SwirlIconRotateLeftAttributes as `attr:${K}`]?: SwirlIconRotateLeftAttributes[K] } & { [K in keyof SwirlIconRotateLeft & keyof SwirlIconRotateLeftAttributes as `prop:${K}`]?: SwirlIconRotateLeft[K] };
         "swirl-icon-rotate-right": Omit<SwirlIconRotateRight, keyof SwirlIconRotateRightAttributes> & { [K in keyof SwirlIconRotateRight & keyof SwirlIconRotateRightAttributes]?: SwirlIconRotateRight[K] } & { [K in keyof SwirlIconRotateRight & keyof SwirlIconRotateRightAttributes as `attr:${K}`]?: SwirlIconRotateRightAttributes[K] } & { [K in keyof SwirlIconRotateRight & keyof SwirlIconRotateRightAttributes as `prop:${K}`]?: SwirlIconRotateRight[K] };
         "swirl-icon-school": Omit<SwirlIconSchool, keyof SwirlIconSchoolAttributes> & { [K in keyof SwirlIconSchool & keyof SwirlIconSchoolAttributes]?: SwirlIconSchool[K] } & { [K in keyof SwirlIconSchool & keyof SwirlIconSchoolAttributes as `attr:${K}`]?: SwirlIconSchoolAttributes[K] } & { [K in keyof SwirlIconSchool & keyof SwirlIconSchoolAttributes as `prop:${K}`]?: SwirlIconSchool[K] };
@@ -19155,6 +19184,7 @@ declare module "@stencil/core" {
             "swirl-icon-reply": LocalJSX.IntrinsicElements["swirl-icon-reply"] & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
             "swirl-icon-report": LocalJSX.IntrinsicElements["swirl-icon-report"] & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
             "swirl-icon-roadmap": LocalJSX.IntrinsicElements["swirl-icon-roadmap"] & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
+            "swirl-icon-rocket-launch": LocalJSX.IntrinsicElements["swirl-icon-rocket-launch"] & JSXBase.HTMLAttributes<HTMLSwirlIconRocketLaunchElement>;
             "swirl-icon-rotate-left": LocalJSX.IntrinsicElements["swirl-icon-rotate-left"] & JSXBase.HTMLAttributes<HTMLSwirlIconRotateLeftElement>;
             "swirl-icon-rotate-right": LocalJSX.IntrinsicElements["swirl-icon-rotate-right"] & JSXBase.HTMLAttributes<HTMLSwirlIconRotateRightElement>;
             "swirl-icon-school": LocalJSX.IntrinsicElements["swirl-icon-school"] & JSXBase.HTMLAttributes<HTMLSwirlIconSchoolElement>;
