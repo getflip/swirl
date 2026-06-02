@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.87.0
+
+### Minor Changes
+
+- [#1692](https://github.com/getflip/swirl/pull/1692)
+  [`cec0c9288`](https://github.com/getflip/swirl/commit/cec0c928885665435c790ec24ff437b7a184230f)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  rocket-launch icon
+
 ## 0.86.0
 
 ### Minor Changes

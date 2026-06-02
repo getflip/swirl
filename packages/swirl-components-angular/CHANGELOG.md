@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.497.0
+
+### Minor Changes
+
+- [#1692](https://github.com/getflip/swirl/pull/1692)
+  [`cec0c9288`](https://github.com/getflip/swirl/commit/cec0c928885665435c790ec24ff437b7a184230f)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add
+  rocket-launch icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`cec0c9288`](https://github.com/getflip/swirl/commit/cec0c928885665435c790ec24ff437b7a184230f)]:
+  - @getflip/swirl-components@0.497.0
+
 ## 0.496.0
 
 ### Patch Changes
