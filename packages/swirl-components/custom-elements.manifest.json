@@ -62649,6 +62649,12 @@
                 "text": "CustomEvent<boolean>"
               }
             }
+          ],
+          "slots": [
+            {
+              "name": "custom-icon",
+              "description": "Custom icon element that takes precedence over the icon prop."
+            }
           ]
         }
       ],

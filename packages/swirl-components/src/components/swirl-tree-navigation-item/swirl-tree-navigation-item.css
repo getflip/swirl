@@ -86,6 +86,7 @@
   display: inline-flex;
   flex-shrink: 0;
   padding-right: var(--s-space-8);
+  max-height: var(--s-line-height-sm);
 }
 
 .tree-navigation-item__toggle-icon {
