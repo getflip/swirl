@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.498.1
+
+### Patch Changes
+
+- [#1696](https://github.com/getflip/swirl/pull/1696)
+  [`82dd369f0`](https://github.com/getflip/swirl/commit/82dd369f020dc7ef1e88e5cf7343b4956c784c40)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix swirl-date-input
+  not clearing its mask when value is set to empty/falsy
+
+* [#1697](https://github.com/getflip/swirl/pull/1697)
+  [`05ada3a81`](https://github.com/getflip/swirl/commit/05ada3a81e5fd50b24e625114471ca926f83b29d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-popover pointer events
+  when nested inside swirl-resource-list-item's control slot
+
 ## 0.498.0
 
 ### Minor Changes
