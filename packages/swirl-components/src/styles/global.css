@@ -126,6 +126,17 @@ dt {
   padding: 0;
 }
 
+/*
+ * Sometimes a swirl-popover is slotted into a swirl-resource-list-item control
+ * slot. The controls pointer events are disabled if the item is not hovered or
+ * focused. This means that the popover will not be clickable if the item is not
+ * hovered or focused. This style ensures that the popover is clickable even if
+ * the item is not hovered or focused.
+*/
+swirl-resource-list-item swirl-popover {
+  pointer-events: auto;
+}
+
 /* Responsive design helper classes to hide elements for specific viewports */
 
 .hide-from-mobile {
