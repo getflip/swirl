@@ -1,5 +1,7 @@
 # @getflip/swirl-ai
 
+## 0.498.1
+
 ## 0.498.0
 
 ### Minor Changes
