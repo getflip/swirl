@@ -296,6 +296,8 @@ export class SwirlDateInput {
       } else {
         this.invalidInput.emit(this.value);
       }
+    } else {
+      this.mask.value = "";
     }
   }
 
