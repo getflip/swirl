@@ -18,9 +18,12 @@
     "legacy-icons"
   ],
   "devDependencies": {
+    "@types/node": "^25.9.2",
     "rimraf": "5.0.0",
     "svgtofont": "3.17.8",
-    "ts-node": "10.9.1"
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.3"
   },
   "scripts": {
     "clean": "rimraf dist",
