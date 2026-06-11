@@ -1,5 +1,13 @@
 # @getflip/swirl-ai
 
+## 0.501.0
+
+### Minor Changes
+
+- [#1705](https://github.com/getflip/swirl/pull/1705)
+  [`6543e8f90`](https://github.com/getflip/swirl/commit/6543e8f9022734b398f8122f729cf89db034e89c)
+  Thanks [@gliwka](https://github.com/gliwka)! - Add qr-code-scanner symbol
+
 ## 0.500.0
 
 ### Minor Changes
