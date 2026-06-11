@@ -51,7 +51,7 @@
       z-index: 1;
       max-width: 22.5rem;
       border-radius: var(--s-border-radius-base);
-      box-shadow: var(--s-shadow-level-1);
+      box-shadow: var(--s-shadow-level-2);
       padding: var(--s-space-4);
       outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
 
