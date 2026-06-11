@@ -4986,6 +4986,12 @@ export namespace Components {
          */
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolQrCodeScanner {
+        /**
+          * @default 24
+         */
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolRecycling {
         /**
           * @default 24
@@ -9171,6 +9177,12 @@ declare global {
         prototype: HTMLSwirlSymbolPushPinElement;
         new (): HTMLSwirlSymbolPushPinElement;
     };
+    interface HTMLSwirlSymbolQrCodeScannerElement extends Components.SwirlSymbolQrCodeScanner, HTMLStencilElement {
+    }
+    var HTMLSwirlSymbolQrCodeScannerElement: {
+        prototype: HTMLSwirlSymbolQrCodeScannerElement;
+        new (): HTMLSwirlSymbolQrCodeScannerElement;
+    };
     interface HTMLSwirlSymbolRecyclingElement extends Components.SwirlSymbolRecycling, HTMLStencilElement {
     }
     var HTMLSwirlSymbolRecyclingElement: {
@@ -10145,6 +10157,7 @@ declare global {
         "swirl-symbol-precision-manufacturing": HTMLSwirlSymbolPrecisionManufacturingElement;
         "swirl-symbol-print": HTMLSwirlSymbolPrintElement;
         "swirl-symbol-push-pin": HTMLSwirlSymbolPushPinElement;
+        "swirl-symbol-qr-code-scanner": HTMLSwirlSymbolQrCodeScannerElement;
         "swirl-symbol-recycling": HTMLSwirlSymbolRecyclingElement;
         "swirl-symbol-redeem": HTMLSwirlSymbolRedeemElement;
         "swirl-symbol-report-problem": HTMLSwirlSymbolReportProblemElement;
@@ -14884,6 +14897,12 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlSymbolSize;
     }
+    interface SwirlSymbolQrCodeScanner {
+        /**
+          * @default 24
+         */
+        "size"?: SwirlSymbolSize;
+    }
     interface SwirlSymbolRecycling {
         /**
           * @default 24
@@ -18108,6 +18127,9 @@ declare namespace LocalJSX {
     interface SwirlSymbolPushPinAttributes {
         "size": SwirlSymbolSize;
     }
+    interface SwirlSymbolQrCodeScannerAttributes {
+        "size": SwirlSymbolSize;
+    }
     interface SwirlSymbolRecyclingAttributes {
         "size": SwirlSymbolSize;
     }
@@ -18888,6 +18910,7 @@ declare namespace LocalJSX {
         "swirl-symbol-precision-manufacturing": Omit<SwirlSymbolPrecisionManufacturing, keyof SwirlSymbolPrecisionManufacturingAttributes> & { [K in keyof SwirlSymbolPrecisionManufacturing & keyof SwirlSymbolPrecisionManufacturingAttributes]?: SwirlSymbolPrecisionManufacturing[K] } & { [K in keyof SwirlSymbolPrecisionManufacturing & keyof SwirlSymbolPrecisionManufacturingAttributes as `attr:${K}`]?: SwirlSymbolPrecisionManufacturingAttributes[K] } & { [K in keyof SwirlSymbolPrecisionManufacturing & keyof SwirlSymbolPrecisionManufacturingAttributes as `prop:${K}`]?: SwirlSymbolPrecisionManufacturing[K] };
         "swirl-symbol-print": Omit<SwirlSymbolPrint, keyof SwirlSymbolPrintAttributes> & { [K in keyof SwirlSymbolPrint & keyof SwirlSymbolPrintAttributes]?: SwirlSymbolPrint[K] } & { [K in keyof SwirlSymbolPrint & keyof SwirlSymbolPrintAttributes as `attr:${K}`]?: SwirlSymbolPrintAttributes[K] } & { [K in keyof SwirlSymbolPrint & keyof SwirlSymbolPrintAttributes as `prop:${K}`]?: SwirlSymbolPrint[K] };
         "swirl-symbol-push-pin": Omit<SwirlSymbolPushPin, keyof SwirlSymbolPushPinAttributes> & { [K in keyof SwirlSymbolPushPin & keyof SwirlSymbolPushPinAttributes]?: SwirlSymbolPushPin[K] } & { [K in keyof SwirlSymbolPushPin & keyof SwirlSymbolPushPinAttributes as `attr:${K}`]?: SwirlSymbolPushPinAttributes[K] } & { [K in keyof SwirlSymbolPushPin & keyof SwirlSymbolPushPinAttributes as `prop:${K}`]?: SwirlSymbolPushPin[K] };
+        "swirl-symbol-qr-code-scanner": Omit<SwirlSymbolQrCodeScanner, keyof SwirlSymbolQrCodeScannerAttributes> & { [K in keyof SwirlSymbolQrCodeScanner & keyof SwirlSymbolQrCodeScannerAttributes]?: SwirlSymbolQrCodeScanner[K] } & { [K in keyof SwirlSymbolQrCodeScanner & keyof SwirlSymbolQrCodeScannerAttributes as `attr:${K}`]?: SwirlSymbolQrCodeScannerAttributes[K] } & { [K in keyof SwirlSymbolQrCodeScanner & keyof SwirlSymbolQrCodeScannerAttributes as `prop:${K}`]?: SwirlSymbolQrCodeScanner[K] };
         "swirl-symbol-recycling": Omit<SwirlSymbolRecycling, keyof SwirlSymbolRecyclingAttributes> & { [K in keyof SwirlSymbolRecycling & keyof SwirlSymbolRecyclingAttributes]?: SwirlSymbolRecycling[K] } & { [K in keyof SwirlSymbolRecycling & keyof SwirlSymbolRecyclingAttributes as `attr:${K}`]?: SwirlSymbolRecyclingAttributes[K] } & { [K in keyof SwirlSymbolRecycling & keyof SwirlSymbolRecyclingAttributes as `prop:${K}`]?: SwirlSymbolRecycling[K] };
         "swirl-symbol-redeem": Omit<SwirlSymbolRedeem, keyof SwirlSymbolRedeemAttributes> & { [K in keyof SwirlSymbolRedeem & keyof SwirlSymbolRedeemAttributes]?: SwirlSymbolRedeem[K] } & { [K in keyof SwirlSymbolRedeem & keyof SwirlSymbolRedeemAttributes as `attr:${K}`]?: SwirlSymbolRedeemAttributes[K] } & { [K in keyof SwirlSymbolRedeem & keyof SwirlSymbolRedeemAttributes as `prop:${K}`]?: SwirlSymbolRedeem[K] };
         "swirl-symbol-report-problem": Omit<SwirlSymbolReportProblem, keyof SwirlSymbolReportProblemAttributes> & { [K in keyof SwirlSymbolReportProblem & keyof SwirlSymbolReportProblemAttributes]?: SwirlSymbolReportProblem[K] } & { [K in keyof SwirlSymbolReportProblem & keyof SwirlSymbolReportProblemAttributes as `attr:${K}`]?: SwirlSymbolReportProblemAttributes[K] } & { [K in keyof SwirlSymbolReportProblem & keyof SwirlSymbolReportProblemAttributes as `prop:${K}`]?: SwirlSymbolReportProblem[K] };
@@ -19406,6 +19429,7 @@ declare module "@stencil/core" {
             "swirl-symbol-precision-manufacturing": LocalJSX.IntrinsicElements["swirl-symbol-precision-manufacturing"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolPrecisionManufacturingElement>;
             "swirl-symbol-print": LocalJSX.IntrinsicElements["swirl-symbol-print"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolPrintElement>;
             "swirl-symbol-push-pin": LocalJSX.IntrinsicElements["swirl-symbol-push-pin"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolPushPinElement>;
+            "swirl-symbol-qr-code-scanner": LocalJSX.IntrinsicElements["swirl-symbol-qr-code-scanner"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolQrCodeScannerElement>;
             "swirl-symbol-recycling": LocalJSX.IntrinsicElements["swirl-symbol-recycling"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolRecyclingElement>;
             "swirl-symbol-redeem": LocalJSX.IntrinsicElements["swirl-symbol-redeem"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolRedeemElement>;
             "swirl-symbol-report-problem": LocalJSX.IntrinsicElements["swirl-symbol-report-problem"] & JSXBase.HTMLAttributes<HTMLSwirlSymbolReportProblemElement>;
