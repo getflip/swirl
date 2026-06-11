@@ -10,6 +10,8 @@ import {
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
+export type SwirlToastActionPosition = "bottom" | "inline";
+
 export type SwirlToastIntent = "default" | "critical" | "success";
 
 /**
@@ -23,6 +25,7 @@ export type SwirlToastIntent = "default" | "critical" | "success";
 export class SwirlToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
   @Prop() actionLabel?: string;
+  @Prop() actionPosition?: SwirlToastActionPosition = "inline";
   @Prop() content?: string;
   @Prop() dismissLabel?: string;
   /**
@@ -96,7 +99,11 @@ export class SwirlToast {
   };
 
   render() {
-    const className = classnames("toast", `toast--intent-${this.intent}`);
+    const className = classnames(
+      "toast",
+      `toast--intent-${this.intent}`,
+      `toast--action-position-${this.actionPosition}`
+    );
 
     return (
       <Host>
@@ -109,21 +116,23 @@ export class SwirlToast {
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span
-            class="toast__content"
-            innerHTML={this.content}
-            part="toast__content"
-          >
-            <slot></slot>
+          <span class="toast__content-container">
+            <span
+              class="toast__content"
+              innerHTML={this.content}
+              part="toast__content"
+            >
+              <slot></slot>
+            </span>
+            {this.actionLabel && (
+              <swirl-button
+                class="toast__action-button"
+                label={this.actionLabel}
+                onClick={this.onAction}
+                variant="plain"
+              ></swirl-button>
+            )}
           </span>
-          {this.actionLabel && (
-            <swirl-button
-              class="toast__action-button"
-              label={this.actionLabel}
-              onClick={this.onAction}
-              variant="plain"
-            ></swirl-button>
-          )}
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}
             class="toast__dismiss-button"

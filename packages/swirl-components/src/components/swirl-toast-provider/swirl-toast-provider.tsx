@@ -10,13 +10,17 @@ import {
   Watch,
 } from "@stencil/core";
 import { SwirlToastCustomEvent } from "../../components";
-import { SwirlToastIntent } from "../swirl-toast/swirl-toast";
 import { SwirlDialogToggleEvent } from "../../utils";
+import {
+  SwirlToastActionPosition,
+  SwirlToastIntent,
+} from "../swirl-toast/swirl-toast";
 
 export type SwirlToastConfig = {
   accessibleDismissLabel?: string;
   content: string;
   actionLabel?: string;
+  actionPosition?: SwirlToastActionPosition;
   dismissOnAction?: boolean;
   dismissLabel?: string;
   duration?: number;
