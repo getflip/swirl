@@ -55751,6 +55751,73 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/swirl-symbol/symbols/swirl-symbol-qr-code-scanner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-symbol-qr-code-scanner",
+          "name": "SwirlSymbolQrCodeScanner",
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28 | 32",
+                "references": [
+                  {
+                    "name": "SwirlSymbolSize",
+                    "module": "../swirl-symbol.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "16 | 20 | 24 | 28 | 32",
+                "references": [
+                  {
+                    "name": "SwirlSymbolSize",
+                    "module": "../swirl-symbol.types"
+                  }
+                ]
+              },
+              "default": "24",
+              "readonly": true,
+              "attribute": "size"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "symbol"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlSymbolQrCodeScanner",
+          "declaration": {
+            "name": "SwirlSymbolQrCodeScanner"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-symbol-qr-code-scanner",
+          "declaration": {
+            "name": "SwirlSymbolQrCodeScanner"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/swirl-symbol/symbols/swirl-symbol-recycling.tsx",
       "declarations": [
         {

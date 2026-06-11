@@ -24219,6 +24219,19 @@
       ]
     },
     {
+      "name": "swirl-symbol-qr-code-scanner",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-symbol-recycling",
       "description": {
         "kind": "markdown",
