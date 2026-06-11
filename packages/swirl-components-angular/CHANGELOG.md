@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.500.0
+
+### Minor Changes
+
+- [#1702](https://github.com/getflip/swirl/pull/1702)
+  [`47d1ac222`](https://github.com/getflip/swirl/commit/47d1ac222c0ba7ea0024810a2a1c36b8fb5a53cc)
+  Thanks [@danizep](https://github.com/danizep)! - Add api icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`47d1ac222`](https://github.com/getflip/swirl/commit/47d1ac222c0ba7ea0024810a2a1c36b8fb5a53cc)]:
+  - @getflip/swirl-components@0.500.0
+
 ## 0.499.0
 
 ### Patch Changes
