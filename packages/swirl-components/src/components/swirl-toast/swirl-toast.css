@@ -27,6 +27,18 @@
   background-color: var(--s-surface-success-default);
 }
 
+.toast--action-position-bottom {
+  & .toast__content-container {
+    flex-direction: column;
+  }
+
+  & .toast__action-button {
+    margin-top: var(--s-space-8);
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}
+
 .toast__icon {
   display: inline-flex;
   width: 1.5rem;
@@ -44,7 +56,14 @@
   }
 }
 
+.toast__content-container {
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+}
+
 .toast__content {
+  flex-basis: min-content;
   flex-grow: 1;
   line-height: var(--s-line-height-base);
   text-align: left;
@@ -64,7 +83,10 @@
   --swirl-plain-button-text-color-default: var(--s-text-on-status);
   --swirl-plain-button-text-color-hovered: var(--s-text-on-status);
   --swirl-plain-button-text-color-pressed: var(--s-text-on-status);
+
   margin-left: var(--s-space-16);
+  min-width: 0;
+  flex-shrink: 1;
 
   @media (--from-desktop-without-touch) {
     margin-top: -1px;

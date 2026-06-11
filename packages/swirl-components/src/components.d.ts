@@ -80,7 +80,7 @@ import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle
 import { SwirlTextInputFontSize, SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
-import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
+import { SwirlToastActionPosition, SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
@@ -163,7 +163,7 @@ export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle
 export { SwirlTextInputFontSize, SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
-export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
+export { SwirlToastActionPosition, SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 export { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
@@ -5526,6 +5526,10 @@ export namespace Components {
          */
         "accessibleDismissLabel"?: string;
         "actionLabel"?: string;
+        /**
+          * @default "inline"
+         */
+        "actionPosition"?: SwirlToastActionPosition;
         "content"?: string;
         "dismissLabel"?: string;
         /**
@@ -15394,6 +15398,10 @@ declare namespace LocalJSX {
          */
         "accessibleDismissLabel"?: string;
         "actionLabel"?: string;
+        /**
+          * @default "inline"
+         */
+        "actionPosition"?: SwirlToastActionPosition;
         "content"?: string;
         "dismissLabel"?: string;
         /**
@@ -18335,6 +18343,7 @@ declare namespace LocalJSX {
     interface SwirlToastAttributes {
         "accessibleDismissLabel": string;
         "actionLabel": string;
+        "actionPosition": SwirlToastActionPosition;
         "content": string;
         "dismissLabel": string;
         "duration": number;

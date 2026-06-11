@@ -61449,6 +61449,19 @@
               "fieldName": "actionLabel"
             },
             {
+              "name": "action-position",
+              "type": {
+                "text": "\"bottom\" | \"inline\"",
+                "references": [
+                  {
+                    "name": "SwirlToastActionPosition"
+                  }
+                ]
+              },
+              "default": "\"inline\"",
+              "fieldName": "actionPosition"
+            },
+            {
               "name": "content",
               "type": {
                 "text": "string"
@@ -61517,6 +61530,21 @@
               },
               "readonly": true,
               "attribute": "action-label"
+            },
+            {
+              "kind": "field",
+              "name": "actionPosition",
+              "type": {
+                "text": "\"bottom\" | \"inline\"",
+                "references": [
+                  {
+                    "name": "SwirlToastActionPosition"
+                  }
+                ]
+              },
+              "default": "\"inline\"",
+              "readonly": true,
+              "attribute": "action-position"
             },
             {
               "kind": "field",
@@ -61709,7 +61737,7 @@
                 {
                   "name": "newToast",
                   "type": {
-                    "text": "{ accessibleDismissLabel?: string; content: string; actionLabel?: string; dismissOnAction?: boolean; dismissLabel?: string; duration?: number; icon?: string; intent?: SwirlToastIntent; toastId?: string; onDismiss?: (toastId: string) => void; onAction?: (toastId: string) => void; }",
+                    "text": "{ accessibleDismissLabel?: string; content: string; actionLabel?: string; actionPosition?: SwirlToastActionPosition; dismissOnAction?: boolean; dismissLabel?: string; duration?: number; icon?: string; intent?: SwirlToastIntent; toastId?: string; onDismiss?: (toastId: string) => void; onAction?: (toastId: string) => void; }",
                     "references": [
                       {
                         "name": "Promise",

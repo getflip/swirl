@@ -12,12 +12,14 @@ describe("swirl-toast", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toast icon="<swirl-icon-mail></swirl-icon-mail>">
         <mock:shadow-root>
-          <div class="toast toast--intent-default">
+          <div class="toast toast--action-position-inline toast--intent-default">
             <span class="toast__icon" part="toast__icon">
               <swirl-icon-mail size="24"></swirl-icon-mail>
             </span>
-            <span class="toast__content" part="toast__content">
-              <slot></slot>
+            <span class="toast__content-container">
+              <span class="toast__content" part="toast__content">
+                <slot></slot>
+              </span>
             </span>
             <button aria-label="Dismiss" class="toast__dismiss-button" type="button">
               <swirl-icon-close size="24"></swirl-icon-close>
