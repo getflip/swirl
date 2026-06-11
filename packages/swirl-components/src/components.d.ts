@@ -1404,6 +1404,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconApi {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconApparel {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -6650,6 +6658,12 @@ declare global {
         prototype: HTMLSwirlIconAiFilledElement;
         new (): HTMLSwirlIconAiFilledElement;
     };
+    interface HTMLSwirlIconApiElement extends Components.SwirlIconApi, HTMLStencilElement {
+    }
+    var HTMLSwirlIconApiElement: {
+        prototype: HTMLSwirlIconApiElement;
+        new (): HTMLSwirlIconApiElement;
+    };
     interface HTMLSwirlIconApparelElement extends Components.SwirlIconApparel, HTMLStencilElement {
     }
     var HTMLSwirlIconApparelElement: {
@@ -9750,6 +9764,7 @@ declare global {
         "swirl-icon-admin-panel-settings": HTMLSwirlIconAdminPanelSettingsElement;
         "swirl-icon-ai": HTMLSwirlIconAiElement;
         "swirl-icon-ai-filled": HTMLSwirlIconAiFilledElement;
+        "swirl-icon-api": HTMLSwirlIconApiElement;
         "swirl-icon-apparel": HTMLSwirlIconApparelElement;
         "swirl-icon-apps": HTMLSwirlIconAppsElement;
         "swirl-icon-arrow-back": HTMLSwirlIconArrowBackElement;
@@ -11347,6 +11362,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAiFilled {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconApi {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -16128,6 +16151,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconApiAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconApparelAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -18474,6 +18502,7 @@ declare namespace LocalJSX {
         "swirl-icon-admin-panel-settings": Omit<SwirlIconAdminPanelSettings, keyof SwirlIconAdminPanelSettingsAttributes> & { [K in keyof SwirlIconAdminPanelSettings & keyof SwirlIconAdminPanelSettingsAttributes]?: SwirlIconAdminPanelSettings[K] } & { [K in keyof SwirlIconAdminPanelSettings & keyof SwirlIconAdminPanelSettingsAttributes as `attr:${K}`]?: SwirlIconAdminPanelSettingsAttributes[K] } & { [K in keyof SwirlIconAdminPanelSettings & keyof SwirlIconAdminPanelSettingsAttributes as `prop:${K}`]?: SwirlIconAdminPanelSettings[K] };
         "swirl-icon-ai": Omit<SwirlIconAi, keyof SwirlIconAiAttributes> & { [K in keyof SwirlIconAi & keyof SwirlIconAiAttributes]?: SwirlIconAi[K] } & { [K in keyof SwirlIconAi & keyof SwirlIconAiAttributes as `attr:${K}`]?: SwirlIconAiAttributes[K] } & { [K in keyof SwirlIconAi & keyof SwirlIconAiAttributes as `prop:${K}`]?: SwirlIconAi[K] };
         "swirl-icon-ai-filled": Omit<SwirlIconAiFilled, keyof SwirlIconAiFilledAttributes> & { [K in keyof SwirlIconAiFilled & keyof SwirlIconAiFilledAttributes]?: SwirlIconAiFilled[K] } & { [K in keyof SwirlIconAiFilled & keyof SwirlIconAiFilledAttributes as `attr:${K}`]?: SwirlIconAiFilledAttributes[K] } & { [K in keyof SwirlIconAiFilled & keyof SwirlIconAiFilledAttributes as `prop:${K}`]?: SwirlIconAiFilled[K] };
+        "swirl-icon-api": Omit<SwirlIconApi, keyof SwirlIconApiAttributes> & { [K in keyof SwirlIconApi & keyof SwirlIconApiAttributes]?: SwirlIconApi[K] } & { [K in keyof SwirlIconApi & keyof SwirlIconApiAttributes as `attr:${K}`]?: SwirlIconApiAttributes[K] } & { [K in keyof SwirlIconApi & keyof SwirlIconApiAttributes as `prop:${K}`]?: SwirlIconApi[K] };
         "swirl-icon-apparel": Omit<SwirlIconApparel, keyof SwirlIconApparelAttributes> & { [K in keyof SwirlIconApparel & keyof SwirlIconApparelAttributes]?: SwirlIconApparel[K] } & { [K in keyof SwirlIconApparel & keyof SwirlIconApparelAttributes as `attr:${K}`]?: SwirlIconApparelAttributes[K] } & { [K in keyof SwirlIconApparel & keyof SwirlIconApparelAttributes as `prop:${K}`]?: SwirlIconApparel[K] };
         "swirl-icon-apps": Omit<SwirlIconApps, keyof SwirlIconAppsAttributes> & { [K in keyof SwirlIconApps & keyof SwirlIconAppsAttributes]?: SwirlIconApps[K] } & { [K in keyof SwirlIconApps & keyof SwirlIconAppsAttributes as `attr:${K}`]?: SwirlIconAppsAttributes[K] } & { [K in keyof SwirlIconApps & keyof SwirlIconAppsAttributes as `prop:${K}`]?: SwirlIconApps[K] };
         "swirl-icon-arrow-back": Omit<SwirlIconArrowBack, keyof SwirlIconArrowBackAttributes> & { [K in keyof SwirlIconArrowBack & keyof SwirlIconArrowBackAttributes]?: SwirlIconArrowBack[K] } & { [K in keyof SwirlIconArrowBack & keyof SwirlIconArrowBackAttributes as `attr:${K}`]?: SwirlIconArrowBackAttributes[K] } & { [K in keyof SwirlIconArrowBack & keyof SwirlIconArrowBackAttributes as `prop:${K}`]?: SwirlIconArrowBack[K] };
@@ -18985,6 +19014,7 @@ declare module "@stencil/core" {
             "swirl-icon-admin-panel-settings": LocalJSX.IntrinsicElements["swirl-icon-admin-panel-settings"] & JSXBase.HTMLAttributes<HTMLSwirlIconAdminPanelSettingsElement>;
             "swirl-icon-ai": LocalJSX.IntrinsicElements["swirl-icon-ai"] & JSXBase.HTMLAttributes<HTMLSwirlIconAiElement>;
             "swirl-icon-ai-filled": LocalJSX.IntrinsicElements["swirl-icon-ai-filled"] & JSXBase.HTMLAttributes<HTMLSwirlIconAiFilledElement>;
+            "swirl-icon-api": LocalJSX.IntrinsicElements["swirl-icon-api"] & JSXBase.HTMLAttributes<HTMLSwirlIconApiElement>;
             "swirl-icon-apparel": LocalJSX.IntrinsicElements["swirl-icon-apparel"] & JSXBase.HTMLAttributes<HTMLSwirlIconApparelElement>;
             "swirl-icon-apps": LocalJSX.IntrinsicElements["swirl-icon-apps"] & JSXBase.HTMLAttributes<HTMLSwirlIconAppsElement>;
             "swirl-icon-arrow-back": LocalJSX.IntrinsicElements["swirl-icon-arrow-back"] & JSXBase.HTMLAttributes<HTMLSwirlIconArrowBackElement>;
