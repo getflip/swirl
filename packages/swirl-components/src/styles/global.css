@@ -133,7 +133,8 @@ dt {
  * hovered or focused. This style ensures that the popover is clickable even if
  * the item is not hovered or focused.
 */
-swirl-resource-list-item swirl-popover {
+swirl-resource-list-item swirl-popover,
+swirl-card swirl-popover {
   pointer-events: auto;
 }
 
