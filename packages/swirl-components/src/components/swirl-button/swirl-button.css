@@ -112,6 +112,10 @@
   &.button--pressed {
     color: var(--s-text-highlight);
 
+    &:where(:not(:hover)) {
+      background-color: var(--s-state-pressed);
+    }
+
     & .button__icon {
       color: var(--s-icon-highlight);
     }
