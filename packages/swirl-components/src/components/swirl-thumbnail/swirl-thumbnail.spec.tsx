@@ -40,6 +40,16 @@ describe("swirl-thumbnail", () => {
     ).toBe("https://picsum.photos/id/433/400/400");
   });
 
+  it("preserves native Element.remove on the host", async () => {
+    const page = await newSpecPage({
+      components: [SwirlThumbnail],
+      html: `<swirl-thumbnail alt="x" src="/x.png"></swirl-thumbnail>`,
+    });
+
+    expect(typeof page.root.remove).toBe("function");
+    expect(page.root.remove).toBe(HTMLElement.prototype.remove);
+  });
+
   it("renders a segmented button group on larger sizes", async () => {
     const page = await newSpecPage({
       components: [SwirlThumbnail],

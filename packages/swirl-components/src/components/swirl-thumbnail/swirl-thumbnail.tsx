@@ -44,7 +44,7 @@ export class SwirlThumbnail {
   @Prop() timestamp?: string;
 
   @Event() edit: EventEmitter<MouseEvent>;
-  @Event() remove: EventEmitter<MouseEvent>;
+  @Event({ eventName: "remove" }) removeThumbnail?: EventEmitter<MouseEvent>;
   @Event() thumbnailClick: EventEmitter<MouseEvent>;
 
   @State() hasHover: boolean = true;
@@ -85,7 +85,7 @@ export class SwirlThumbnail {
   };
 
   private onRemoveClick = (event: MouseEvent) => {
-    this.remove.emit(event);
+    this.removeThumbnail.emit(event);
     this.popoverEl?.close();
   };
 
@@ -213,7 +213,7 @@ export class SwirlThumbnail {
                     hideLabel
                     icon={this.removeButtonIcon}
                     label={this.removeButtonLabel}
-                    onClick={this.remove.emit}
+                    onClick={this.removeThumbnail.emit}
                     variant="on-image"
                   ></swirl-button>
                 </span>
@@ -231,7 +231,7 @@ export class SwirlThumbnail {
                 }
                 class="thumbnail__compact-button"
                 onClick={
-                  showCompactEditButton ? this.edit.emit : this.remove.emit
+                  showCompactEditButton ? this.edit.emit : this.removeThumbnail.emit
                 }
                 type="button"
               >
