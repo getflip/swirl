@@ -90,7 +90,7 @@ export class SwirlPopoverTrigger {
         this.onVisibilityChange.bind(this),
         {
           root: this.parentScrollContainer,
-          threshold: 1,
+          threshold: 0,
         }
       );
 
