@@ -210,10 +210,10 @@ export class SwirlTreeNavigationItem {
               {this.markAsNew && (
                 <swirl-tag
                   class="tree-navigation-item__is-new-tag"
-                  intent="info"
+                  intent="default"
                   label={this.markAsNewLabel}
-                  size="m"
-                  variant="default"
+                  size="s"
+                  variant="strong"
                 ></swirl-tag>
               )}
             </span>
