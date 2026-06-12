@@ -44,7 +44,7 @@
     "patch-package": "6.4.7",
     "postinstall-postinstall": "2.1.0",
     "prettier": "2.8.8",
-    "turbo": "1.9.9"
+    "turbo": "2.9.14"
   },
   "resolutions": {
     "svgicons2svgfont": "10.0.6"
