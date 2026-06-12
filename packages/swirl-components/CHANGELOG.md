@@ -1,5 +1,22 @@
 # @getflip/swirl-components
 
+## 0.502.0
+
+### Minor Changes
+
+- [#1711](https://github.com/getflip/swirl/pull/1711)
+  [`5e8eb1fb6`](https://github.com/getflip/swirl/commit/5e8eb1fb6952bcb5dfe364833915524c08dbee60)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Only automatically hide a
+  swirl-popover when its swirl-popover-trigger is completely scrolled out of
+  view
+
+### Patch Changes
+
+- [#1709](https://github.com/getflip/swirl/pull/1709)
+  [`614d45ca1`](https://github.com/getflip/swirl/commit/614d45ca1a3f128da8d62aad4d009e7e0f84ef31)
+  Thanks [@danizep](https://github.com/danizep)! - Rename `remove` event to
+  `removeThumbnail` to avoid conflicts with native `HTMLElement.remove` function
+
 ## 0.501.0
 
 ### Minor Changes
