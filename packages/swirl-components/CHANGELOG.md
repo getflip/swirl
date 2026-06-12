@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.502.1
+
+### Patch Changes
+
+- [#1712](https://github.com/getflip/swirl/pull/1712)
+  [`81c20caa4`](https://github.com/getflip/swirl/commit/81c20caa40111429a509049184455b8d6e9c9940)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a Chrome issue causing
+  swirl-popovers inside swirl-cards to flicker
+
 ## 0.502.0
 
 ### Minor Changes
