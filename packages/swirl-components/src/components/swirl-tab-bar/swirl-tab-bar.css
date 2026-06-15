@@ -27,6 +27,10 @@
   }
 }
 
+.tab-bar--wrap {
+  flex-wrap: wrap;
+}
+
 .tab-bar--justify-evenly > * {
   flex: 1;
 }

@@ -50,6 +50,7 @@ export class SwirlTabBar {
   @Prop() paddingInlineStart?: SwirlTabBarPadding;
   @Prop() tabs: SwirlTabBarTab[] = [];
   @Prop() variant?: SwirlTabBarVariant = "default";
+  @Prop() wrap?: boolean;
 
   @Event() activateNextTab: EventEmitter<void>;
   @Event() activatePreviousTab: EventEmitter<void>;
@@ -99,6 +100,7 @@ export class SwirlTabBar {
       {
         "tab-bar--variant-pill": this.variant === "pill",
         "tab-bar--variant-default": this.variant === "default",
+        "tab-bar--wrap": this.wrap,
       }
     );
     const styles = {
