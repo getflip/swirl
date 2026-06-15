@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.503.0
+
+### Minor Changes
+
+- [#1714](https://github.com/getflip/swirl/pull/1714)
+  [`467c03557`](https://github.com/getflip/swirl/commit/467c0355783590145fcc177d1c16501f01010934)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "wrap" property to
+  swirl-tab-bar
+
 ## 0.502.1
 
 ### Patch Changes
