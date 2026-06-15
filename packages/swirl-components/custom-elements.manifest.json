@@ -58449,6 +58449,13 @@
               },
               "default": "\"default\"",
               "fieldName": "variant"
+            },
+            {
+              "name": "wrap",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "wrap"
             }
           ],
           "members": [
@@ -58569,6 +58576,15 @@
               "default": "\"default\"",
               "readonly": true,
               "attribute": "variant"
+            },
+            {
+              "kind": "field",
+              "name": "wrap",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "wrap"
             }
           ],
           "events": [

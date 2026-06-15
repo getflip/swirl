@@ -5237,6 +5237,7 @@ export namespace Components {
           * @default "default"
          */
         "variant"?: SwirlTabBarVariant;
+        "wrap"?: boolean;
     }
     interface SwirlTable {
         "caption"?: string;
@@ -15151,6 +15152,7 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "variant"?: SwirlTabBarVariant;
+        "wrap"?: boolean;
     }
     interface SwirlTable {
         "caption"?: string;
@@ -18254,6 +18256,7 @@ declare namespace LocalJSX {
         "paddingInlineEnd": SwirlTabBarPadding;
         "paddingInlineStart": SwirlTabBarPadding;
         "variant": SwirlTabBarVariant;
+        "wrap": boolean;
     }
     interface SwirlTableAttributes {
         "caption": string;
