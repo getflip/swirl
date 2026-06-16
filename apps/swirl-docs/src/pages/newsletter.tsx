@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Script from "next/script";
-import { useEffect } from "react";
 import Footer from "src/components/Layout/Footer";
 
 const HUBSPOT_PORTAL_ID = "7401529";
@@ -26,42 +25,6 @@ declare global {
 const TARGET_ID = "hubspotForm";
 
 const Newsletter: NextPage = () => {
-  useEffect(() => {
-    let cancelled = false;
-    let intervalId: ReturnType<typeof setInterval> | undefined;
-
-    const mount = () => {
-      const target = document.getElementById(TARGET_ID);
-      if (!target) return false;
-      target.innerHTML = "";
-      window.hbspt.forms.create({
-        portalId: HUBSPOT_PORTAL_ID,
-        formId: HUBSPOT_FORM_ID,
-        region: HUBSPOT_REGION,
-        target: `#${TARGET_ID}`,
-      });
-      return true;
-    };
-
-    if (window.hbspt?.forms?.create) {
-      mount();
-    } else {
-      intervalId = setInterval(() => {
-        if (cancelled) return;
-        if (window.hbspt?.forms?.create && mount()) {
-          clearInterval(intervalId);
-        }
-      }, 100);
-    }
-
-    return () => {
-      cancelled = true;
-      if (intervalId) clearInterval(intervalId);
-      const target = document.getElementById(TARGET_ID);
-      if (target) target.innerHTML = "";
-    };
-  }, []);
-
   return (
     <>
       <Head>
@@ -77,6 +40,16 @@ const Newsletter: NextPage = () => {
       <Script
         src="https://js.hsforms.net/forms/embed/v2.js"
         strategy="afterInteractive"
+        onReady={() => {
+          const target = document.getElementById(TARGET_ID);
+          if (target) target.innerHTML = "";
+          window.hbspt.forms.create({
+            portalId: HUBSPOT_PORTAL_ID,
+            formId: HUBSPOT_FORM_ID,
+            region: HUBSPOT_REGION,
+            target: `#${TARGET_ID}`,
+          });
+        }}
       />
 
       <div className="flex flex-col items-center h-[calc(100vh_-_72px)] md:px-space-16 overflow-auto">
