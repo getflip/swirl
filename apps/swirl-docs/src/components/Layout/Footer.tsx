@@ -20,6 +20,10 @@ const links: NavLink[] = [
     name: "Contact",
     path: "https://www.getflip.com/contact/",
   },
+  {
+    name: "Newsletter",
+    path: "/newsletter",
+  },
 ];
 
 const Footer = () => {
@@ -42,7 +46,7 @@ const Footer = () => {
               <Link
                 href={link.path}
                 className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
-                target="_blank"
+                target={link.path.startsWith("http") ? "_blank" : undefined}
               >
                 {link.name}
               </Link>
