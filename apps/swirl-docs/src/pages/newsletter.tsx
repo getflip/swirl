@@ -42,7 +42,9 @@ const Newsletter: NextPage = () => {
         strategy="afterInteractive"
         onReady={() => {
           const target = document.getElementById(TARGET_ID);
-          if (target) target.innerHTML = "";
+          if (target) {
+            target.innerHTML = "";
+          }
           window.hbspt.forms.create({
             portalId: HUBSPOT_PORTAL_ID,
             formId: HUBSPOT_FORM_ID,
