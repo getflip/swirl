@@ -15,7 +15,6 @@
   gap: var(--s-space-8);
   width: 100%;
   padding: var(--s-space-12) var(--s-space-16);
-  background-color: var(--s-surface-raised-50-default);
   border-radius: var(--swirl-data-cell-border-radius, var(--s-border-radius-l));
 }
 
@@ -25,7 +24,7 @@
 
 /* Intent backgrounds */
 .data-cell--intent-default {
-  background-color: var(--swirl-tag-background-default);
+  background-color: var(--s-surface-raised-50-default);
 }
 
 .data-cell--intent-info {
@@ -50,6 +49,10 @@
 
 .data-cell--intent-translucent {
   background-color: var(--s-surface-on-image-default);
+}
+
+.data-cell--intent-subdued {
+  background-color: var(--s-surface-raised-default);
 }
 
 .data-cell--vertical {

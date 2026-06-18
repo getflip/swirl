@@ -17,7 +17,8 @@ export type SwirlDataCellIntent =
   | "success"
   | "info"
   | "special"
-  | "translucent";
+  | "translucent"
+  | "subdued";
 
 /**
  * @slot media - Optional media content (e.g., swirl-avatar, icons). Only swirl-avatar and icon elements are styled.
