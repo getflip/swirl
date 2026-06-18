@@ -134,7 +134,11 @@ dt {
  * the item is not hovered or focused.
 */
 swirl-resource-list-item swirl-popover,
-swirl-card swirl-popover {
+swirl-resource-list-item swirl-dialog,
+swirl-resource-list-item swirl-modal,
+swirl-card swirl-popover,
+swirl-card swirl-dialog,
+swirl-card swirl-modal {
   pointer-events: auto;
 }
 
