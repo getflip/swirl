@@ -57,7 +57,7 @@ import { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
-import { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
+import { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight, SwirlResourceListItemRel, SwirlResourceListItemTarget } from "./components/swirl-resource-list-item/swirl-resource-list-item.types";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -140,7 +140,7 @@ export { SwirlPopover } from "./components/swirl-popover/swirl-popover";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
-export { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
+export { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight, SwirlResourceListItemRel, SwirlResourceListItemTarget } from "./components/swirl-resource-list-item/swirl-resource-list-item.types";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -4193,9 +4193,11 @@ export namespace Components {
          */
         "menuTriggerLabel"?: string;
         "meta"?: string;
+        "rel"?: SwirlResourceListItemRel;
         "selectable"?: boolean;
         "swirlAriaCurrent"?: SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel"?: string;
+        "target"?: SwirlResourceListItemTarget;
         "value"?: string;
     }
     interface SwirlResourceListSection {
@@ -14106,9 +14108,11 @@ declare namespace LocalJSX {
         "meta"?: string;
         "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
+        "rel"?: SwirlResourceListItemRel;
         "selectable"?: boolean;
         "swirlAriaCurrent"?: SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel"?: string;
+        "target"?: SwirlResourceListItemTarget;
         "value"?: string;
     }
     interface SwirlResourceListSection {
@@ -17750,9 +17754,11 @@ declare namespace LocalJSX {
         "menuTriggerId": string;
         "menuTriggerLabel": string;
         "meta": string;
+        "rel": SwirlResourceListItemRel;
         "selectable": boolean;
         "swirlAriaCurrent": SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel": string;
+        "target": SwirlResourceListItemTarget;
         "value": string;
         "alignItems": string;
     }

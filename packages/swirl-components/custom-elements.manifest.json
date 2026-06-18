@@ -47238,7 +47238,8 @@
                 "text": "\"bold\" | \"medium\" | \"regular\" | \"semibold\"",
                 "references": [
                   {
-                    "name": "SwirlResourceListItemLabelWeight"
+                    "name": "SwirlResourceListItemLabelWeight",
+                    "module": "./swirl-resource-list-item.types"
                   }
                 ]
               },
@@ -47282,6 +47283,19 @@
               "fieldName": "meta"
             },
             {
+              "name": "rel",
+              "type": {
+                "text": "\"external\" | \"nofollow\" | \"noindex\" | \"noopener noreferrer\" | \"noopener\" | \"noreferrer\"",
+                "references": [
+                  {
+                    "name": "SwirlResourceListItemRel",
+                    "module": "./swirl-resource-list-item.types"
+                  }
+                ]
+              },
+              "fieldName": "rel"
+            },
+            {
               "name": "selectable",
               "type": {
                 "text": "boolean"
@@ -47294,7 +47308,8 @@
                 "text": "\"date\" | \"location\" | \"page\" | \"step\" | \"time\" | \"true\"",
                 "references": [
                   {
-                    "name": "SwirlResourceListItemAriaCurrent"
+                    "name": "SwirlResourceListItemAriaCurrent",
+                    "module": "./swirl-resource-list-item.types"
                   }
                 ]
               },
@@ -47306,6 +47321,19 @@
                 "text": "string"
               },
               "fieldName": "swirlAriaLabel"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\"",
+                "references": [
+                  {
+                    "name": "SwirlResourceListItemTarget",
+                    "module": "./swirl-resource-list-item.types"
+                  }
+                ]
+              },
+              "fieldName": "target"
             },
             {
               "name": "value",
@@ -47504,7 +47532,8 @@
                 "text": "\"bold\" | \"medium\" | \"regular\" | \"semibold\"",
                 "references": [
                   {
-                    "name": "SwirlResourceListItemLabelWeight"
+                    "name": "SwirlResourceListItemLabelWeight",
+                    "module": "./swirl-resource-list-item.types"
                   }
                 ]
               },
@@ -47560,6 +47589,21 @@
             },
             {
               "kind": "field",
+              "name": "rel",
+              "type": {
+                "text": "\"external\" | \"nofollow\" | \"noindex\" | \"noopener noreferrer\" | \"noopener\" | \"noreferrer\"",
+                "references": [
+                  {
+                    "name": "SwirlResourceListItemRel",
+                    "module": "./swirl-resource-list-item.types"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "rel"
+            },
+            {
+              "kind": "field",
               "name": "selectable",
               "type": {
                 "text": "boolean"
@@ -47574,7 +47618,8 @@
                 "text": "\"date\" | \"location\" | \"page\" | \"step\" | \"time\" | \"true\"",
                 "references": [
                   {
-                    "name": "SwirlResourceListItemAriaCurrent"
+                    "name": "SwirlResourceListItemAriaCurrent",
+                    "module": "./swirl-resource-list-item.types"
                   }
                 ]
               },
@@ -47589,6 +47634,21 @@
               },
               "readonly": true,
               "attribute": "swirl-aria-label"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\"",
+                "references": [
+                  {
+                    "name": "SwirlResourceListItemTarget",
+                    "module": "./swirl-resource-list-item.types"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "target"
             },
             {
               "kind": "field",

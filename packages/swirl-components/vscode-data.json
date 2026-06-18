@@ -22191,6 +22191,30 @@
           "description": ""
         },
         {
+          "name": "rel",
+          "description": "",
+          "values": [
+            {
+              "name": "external"
+            },
+            {
+              "name": "nofollow"
+            },
+            {
+              "name": "noindex"
+            },
+            {
+              "name": "noopener noreferrer"
+            },
+            {
+              "name": "noopener"
+            },
+            {
+              "name": "noreferrer"
+            }
+          ]
+        },
+        {
           "name": "selectable",
           "description": ""
         },
@@ -22221,6 +22245,24 @@
         {
           "name": "swirl-aria-label",
           "description": ""
+        },
+        {
+          "name": "target",
+          "description": "",
+          "values": [
+            {
+              "name": "_blank"
+            },
+            {
+              "name": "_parent"
+            },
+            {
+              "name": "_self"
+            },
+            {
+              "name": "_top"
+            }
+          ]
         },
         {
           "name": "value",

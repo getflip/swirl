@@ -14,20 +14,12 @@ import {
 import { DesktopMediaQuery } from "../../services/media-query.service";
 import { SwirlResourceListSemantics } from "../swirl-resource-list/swirl-resource-list";
 import { SwirlTooltipPosition } from "../swirl-tooltip/swirl-tooltip";
-
-export type SwirlResourceListItemLabelWeight =
-  | "medium"
-  | "regular"
-  | "semibold"
-  | "bold";
-
-export type SwirlResourceListItemAriaCurrent =
-  | "page"
-  | "step"
-  | "location"
-  | "date"
-  | "time"
-  | "true";
+import {
+  SwirlResourceListItemAriaCurrent,
+  SwirlResourceListItemLabelWeight,
+  SwirlResourceListItemRel,
+  SwirlResourceListItemTarget,
+} from "./swirl-resource-list-item.types";
 
 /**
  * @slot control - Used to add a menu button to the item
@@ -67,9 +59,11 @@ export class SwirlResourceListItem {
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
+  @Prop() rel?: SwirlResourceListItemRel;
   @Prop() selectable?: boolean;
   @Prop() swirlAriaCurrent?: SwirlResourceListItemAriaCurrent;
   @Prop() swirlAriaLabel?: string;
+  @Prop() target?: SwirlResourceListItemTarget;
   @Prop() value?: string;
   @Prop() alignItems?: string;
 
@@ -211,6 +205,7 @@ export class SwirlResourceListItem {
         ? "a"
         : "button";
 
+    const isLink = Tag === "a";
     const disabled = this.disabled && !Boolean(this.href);
 
     const hasBadges = this.hasBadges;
@@ -288,6 +283,8 @@ export class SwirlResourceListItem {
             class="resource-list-item__content"
             style={{ alignItems: this.alignItems }}
             href={href}
+            rel={isLink ? this.rel : undefined}
+            target={isLink ? this.target : undefined}
             disabled={disabled}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
