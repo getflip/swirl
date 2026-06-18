@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.505.0
+
+### Minor Changes
+
+- [#1720](https://github.com/getflip/swirl/pull/1720)
+  [`206be7098`](https://github.com/getflip/swirl/commit/206be7098fd6104bf4729eb0d0652ff1eb3ed147)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Fix data
+  cell intent background colors
+
 ## 0.504.0
 
 ### Minor Changes
