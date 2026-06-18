@@ -6976,7 +6976,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"success\" | \"translucent\" | \"warning\"",
+                "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"subdued\" | \"success\" | \"translucent\" | \"warning\"",
                 "references": [
                   {
                     "name": "SwirlDataCellIntent"
@@ -7021,7 +7021,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"success\" | \"translucent\" | \"warning\"",
+                "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"subdued\" | \"success\" | \"translucent\" | \"warning\"",
                 "references": [
                   {
                     "name": "SwirlDataCellIntent"
