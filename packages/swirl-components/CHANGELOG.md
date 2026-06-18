@@ -1,5 +1,22 @@
 # @getflip/swirl-components
 
+## 0.504.0
+
+### Minor Changes
+
+- [#1718](https://github.com/getflip/swirl/pull/1718)
+  [`ed983265a`](https://github.com/getflip/swirl/commit/ed983265afe3eb276c4bae40e0fde8c94e0b7390)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add typed
+  rel and target props to swirl-resource-list-item
+
+### Patch Changes
+
+- [#1717](https://github.com/getflip/swirl/pull/1717)
+  [`984b9c304`](https://github.com/getflip/swirl/commit/984b9c30435a55d371518e5f51c5c1e9629a0e98)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix pointer-events issue for
+  nested top-layer elements broken in Chrome
+  (https://developer.chrome.com/release-notes/149?hl=en#user_action_pseudo-class_top_layer_boundary)
+
 ## 0.503.0
 
 ### Minor Changes
