@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.506.0
+
+### Minor Changes
+
+- [#1724](https://github.com/getflip/swirl/pull/1724)
+  [`6750f0d5c`](https://github.com/getflip/swirl/commit/6750f0d5cc73810edc25c27e1483b2ba2df379a5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add optional tooltips to tabs
+
+* [#1722](https://github.com/getflip/swirl/pull/1722)
+  [`33fcd52a8`](https://github.com/getflip/swirl/commit/33fcd52a89499ed1a4dab335783b0b7ad768a08a)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add
+  Password, FactCheck and MarkEmailRead icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`33fcd52a8`](https://github.com/getflip/swirl/commit/33fcd52a89499ed1a4dab335783b0b7ad768a08a)]:
+  - @getflip/swirl-icons@0.90.0
+
 ## 0.505.0
 
 ### Minor Changes
