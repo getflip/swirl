@@ -119,10 +119,11 @@ export class SwirlTabs {
 
   private updateTabBarTabs() {
     this.tabBarTabs = this.tabs.map((tab) => ({
+      active: this.activeTab === tab.tabId,
       icon: tab.icon,
       id: tab.tabId,
       label: tab.label,
-      active: this.activeTab === tab.tabId,
+      tooltip: tab.tooltip,
     }));
   }
 

@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+import { SwirlTooltip } from "../swirl-tooltip/swirl-tooltip";
 import { SwirlTabBar } from "./swirl-tab-bar";
 
 describe("swirl-tab-bar", () => {
@@ -103,5 +104,41 @@ describe("swirl-tab-bar", () => {
       .querySelector('[role="tablist"]')
       .dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
     expect(spy).toHaveBeenCalledTimes(4);
+  });
+
+  it("wraps tabs with tooltips in swirl-tooltip", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTabBar, SwirlTooltip],
+      html: `<swirl-tab-bar label="Tabs"></swirl-tab-bar>`,
+    });
+
+    page.root.tabs = [
+      {
+        active: true,
+        id: "tab1",
+        label: "Tab #1",
+        tooltip: "First tab tooltip",
+      },
+      {
+        active: false,
+        id: "tab2",
+        label: "Tab #2",
+      },
+    ];
+
+    await page.waitForChanges();
+
+    const tooltip = page.root.querySelector("swirl-tooltip");
+
+    expect(tooltip).not.toBeNull();
+    expect(tooltip.content).toBe("First tab tooltip");
+    expect(
+      page.root
+        .querySelector<HTMLButtonElement>("#tab-tab1")
+        ?.getAttribute("role")
+    ).toBe("tab");
+    expect(page.root.querySelector("#tab-tab2")?.closest("swirl-tooltip")).toBe(
+      null
+    );
   });
 });

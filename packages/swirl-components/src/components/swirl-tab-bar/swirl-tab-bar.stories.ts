@@ -27,6 +27,7 @@ SwirlTabBar.args = {
       id: "tab1",
       label: "A Tab",
       suffix: "2",
+      tooltip: "With a tooltip",
     },
     {
       active: true,

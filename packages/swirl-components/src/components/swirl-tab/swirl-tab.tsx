@@ -14,6 +14,7 @@ export class SwirlTab {
   @Prop() label!: string;
   @Prop() padding?: SwirlTabPadding = "8";
   @Prop() tabId!: string;
+  @Prop() tooltip?: string;
 
   render() {
     const className = classnames("tab", { "tab--active": this.active });
