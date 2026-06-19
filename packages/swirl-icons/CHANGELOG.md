@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.90.0
+
+### Minor Changes
+
+- [#1722](https://github.com/getflip/swirl/pull/1722)
+  [`33fcd52a8`](https://github.com/getflip/swirl/commit/33fcd52a89499ed1a4dab335783b0b7ad768a08a)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add
+  Password, FactCheck and MarkEmailRead icons
+
 ## 0.89.0
 
 ### Minor Changes
