@@ -2044,6 +2044,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconFactCheck {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -2492,6 +2500,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconMarkEmailRead {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconMention {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -2669,6 +2685,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconPasskey {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconPassword {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -5219,6 +5243,7 @@ export namespace Components {
          */
         "padding"?: SwirlTabPadding;
         "tabId": string;
+        "tooltip"?: string;
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
@@ -7151,6 +7176,12 @@ declare global {
         prototype: HTMLSwirlIconExperimentElement;
         new (): HTMLSwirlIconExperimentElement;
     };
+    interface HTMLSwirlIconFactCheckElement extends Components.SwirlIconFactCheck, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFactCheckElement: {
+        prototype: HTMLSwirlIconFactCheckElement;
+        new (): HTMLSwirlIconFactCheckElement;
+    };
     interface HTMLSwirlIconFileElement extends Components.SwirlIconFile, HTMLStencilElement {
     }
     var HTMLSwirlIconFileElement: {
@@ -7487,6 +7518,12 @@ declare global {
         prototype: HTMLSwirlIconMarkChatUnreadElement;
         new (): HTMLSwirlIconMarkChatUnreadElement;
     };
+    interface HTMLSwirlIconMarkEmailReadElement extends Components.SwirlIconMarkEmailRead, HTMLStencilElement {
+    }
+    var HTMLSwirlIconMarkEmailReadElement: {
+        prototype: HTMLSwirlIconMarkEmailReadElement;
+        new (): HTMLSwirlIconMarkEmailReadElement;
+    };
     interface HTMLSwirlIconMentionElement extends Components.SwirlIconMention, HTMLStencilElement {
     }
     var HTMLSwirlIconMentionElement: {
@@ -7624,6 +7661,12 @@ declare global {
     var HTMLSwirlIconPasskeyElement: {
         prototype: HTMLSwirlIconPasskeyElement;
         new (): HTMLSwirlIconPasskeyElement;
+    };
+    interface HTMLSwirlIconPasswordElement extends Components.SwirlIconPassword, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPasswordElement: {
+        prototype: HTMLSwirlIconPasswordElement;
+        new (): HTMLSwirlIconPasswordElement;
     };
     interface HTMLSwirlIconPatientListElement extends Components.SwirlIconPatientList, HTMLStencilElement {
     }
@@ -9863,6 +9906,7 @@ declare global {
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
         "swirl-icon-experiment": HTMLSwirlIconExperimentElement;
+        "swirl-icon-fact-check": HTMLSwirlIconFactCheckElement;
         "swirl-icon-file": HTMLSwirlIconFileElement;
         "swirl-icon-file-copy": HTMLSwirlIconFileCopyElement;
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
@@ -9919,6 +9963,7 @@ declare global {
         "swirl-icon-manage-accounts": HTMLSwirlIconManageAccountsElement;
         "swirl-icon-mark-chat-read": HTMLSwirlIconMarkChatReadElement;
         "swirl-icon-mark-chat-unread": HTMLSwirlIconMarkChatUnreadElement;
+        "swirl-icon-mark-email-read": HTMLSwirlIconMarkEmailReadElement;
         "swirl-icon-mention": HTMLSwirlIconMentionElement;
         "swirl-icon-menu": HTMLSwirlIconMenuElement;
         "swirl-icon-menu-book": HTMLSwirlIconMenuBookElement;
@@ -9942,6 +9987,7 @@ declare global {
         "swirl-icon-open-in-full": HTMLSwirlIconOpenInFullElement;
         "swirl-icon-open-in-new": HTMLSwirlIconOpenInNewElement;
         "swirl-icon-passkey": HTMLSwirlIconPasskeyElement;
+        "swirl-icon-password": HTMLSwirlIconPasswordElement;
         "swirl-icon-patient-list": HTMLSwirlIconPatientListElement;
         "swirl-icon-pause": HTMLSwirlIconPauseElement;
         "swirl-icon-pause-circle": HTMLSwirlIconPauseCircleElement;
@@ -12029,6 +12075,14 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconFactCheck {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -12477,6 +12531,14 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconMarkEmailRead {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconMention {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -12654,6 +12716,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPasskey {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPassword {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -15133,6 +15203,7 @@ declare namespace LocalJSX {
          */
         "padding"?: SwirlTabPadding;
         "tabId": string;
+        "tooltip"?: string;
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
@@ -16584,6 +16655,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconFactCheckAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFileAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -16864,6 +16940,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconMarkEmailReadAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconMentionAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -16975,6 +17056,11 @@ declare namespace LocalJSX {
         "size": SwirlIconSize;
     }
     interface SwirlIconPasskeyAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconPasswordAttributes {
         "color": SwirlIconColor;
         "label": string;
         "size": SwirlIconSize;
@@ -18252,6 +18338,7 @@ declare namespace LocalJSX {
         "label": string;
         "padding": SwirlTabPadding;
         "tabId": string;
+        "tooltip": string;
     }
     interface SwirlTabBarAttributes {
         "disableTabSemantics": boolean;
@@ -18622,6 +18709,7 @@ declare namespace LocalJSX {
         "swirl-icon-expand-less": Omit<SwirlIconExpandLess, keyof SwirlIconExpandLessAttributes> & { [K in keyof SwirlIconExpandLess & keyof SwirlIconExpandLessAttributes]?: SwirlIconExpandLess[K] } & { [K in keyof SwirlIconExpandLess & keyof SwirlIconExpandLessAttributes as `attr:${K}`]?: SwirlIconExpandLessAttributes[K] } & { [K in keyof SwirlIconExpandLess & keyof SwirlIconExpandLessAttributes as `prop:${K}`]?: SwirlIconExpandLess[K] };
         "swirl-icon-expand-more": Omit<SwirlIconExpandMore, keyof SwirlIconExpandMoreAttributes> & { [K in keyof SwirlIconExpandMore & keyof SwirlIconExpandMoreAttributes]?: SwirlIconExpandMore[K] } & { [K in keyof SwirlIconExpandMore & keyof SwirlIconExpandMoreAttributes as `attr:${K}`]?: SwirlIconExpandMoreAttributes[K] } & { [K in keyof SwirlIconExpandMore & keyof SwirlIconExpandMoreAttributes as `prop:${K}`]?: SwirlIconExpandMore[K] };
         "swirl-icon-experiment": Omit<SwirlIconExperiment, keyof SwirlIconExperimentAttributes> & { [K in keyof SwirlIconExperiment & keyof SwirlIconExperimentAttributes]?: SwirlIconExperiment[K] } & { [K in keyof SwirlIconExperiment & keyof SwirlIconExperimentAttributes as `attr:${K}`]?: SwirlIconExperimentAttributes[K] } & { [K in keyof SwirlIconExperiment & keyof SwirlIconExperimentAttributes as `prop:${K}`]?: SwirlIconExperiment[K] };
+        "swirl-icon-fact-check": Omit<SwirlIconFactCheck, keyof SwirlIconFactCheckAttributes> & { [K in keyof SwirlIconFactCheck & keyof SwirlIconFactCheckAttributes]?: SwirlIconFactCheck[K] } & { [K in keyof SwirlIconFactCheck & keyof SwirlIconFactCheckAttributes as `attr:${K}`]?: SwirlIconFactCheckAttributes[K] } & { [K in keyof SwirlIconFactCheck & keyof SwirlIconFactCheckAttributes as `prop:${K}`]?: SwirlIconFactCheck[K] };
         "swirl-icon-file": Omit<SwirlIconFile, keyof SwirlIconFileAttributes> & { [K in keyof SwirlIconFile & keyof SwirlIconFileAttributes]?: SwirlIconFile[K] } & { [K in keyof SwirlIconFile & keyof SwirlIconFileAttributes as `attr:${K}`]?: SwirlIconFileAttributes[K] } & { [K in keyof SwirlIconFile & keyof SwirlIconFileAttributes as `prop:${K}`]?: SwirlIconFile[K] };
         "swirl-icon-file-copy": Omit<SwirlIconFileCopy, keyof SwirlIconFileCopyAttributes> & { [K in keyof SwirlIconFileCopy & keyof SwirlIconFileCopyAttributes]?: SwirlIconFileCopy[K] } & { [K in keyof SwirlIconFileCopy & keyof SwirlIconFileCopyAttributes as `attr:${K}`]?: SwirlIconFileCopyAttributes[K] } & { [K in keyof SwirlIconFileCopy & keyof SwirlIconFileCopyAttributes as `prop:${K}`]?: SwirlIconFileCopy[K] };
         "swirl-icon-filter": Omit<SwirlIconFilter, keyof SwirlIconFilterAttributes> & { [K in keyof SwirlIconFilter & keyof SwirlIconFilterAttributes]?: SwirlIconFilter[K] } & { [K in keyof SwirlIconFilter & keyof SwirlIconFilterAttributes as `attr:${K}`]?: SwirlIconFilterAttributes[K] } & { [K in keyof SwirlIconFilter & keyof SwirlIconFilterAttributes as `prop:${K}`]?: SwirlIconFilter[K] };
@@ -18678,6 +18766,7 @@ declare namespace LocalJSX {
         "swirl-icon-manage-accounts": Omit<SwirlIconManageAccounts, keyof SwirlIconManageAccountsAttributes> & { [K in keyof SwirlIconManageAccounts & keyof SwirlIconManageAccountsAttributes]?: SwirlIconManageAccounts[K] } & { [K in keyof SwirlIconManageAccounts & keyof SwirlIconManageAccountsAttributes as `attr:${K}`]?: SwirlIconManageAccountsAttributes[K] } & { [K in keyof SwirlIconManageAccounts & keyof SwirlIconManageAccountsAttributes as `prop:${K}`]?: SwirlIconManageAccounts[K] };
         "swirl-icon-mark-chat-read": Omit<SwirlIconMarkChatRead, keyof SwirlIconMarkChatReadAttributes> & { [K in keyof SwirlIconMarkChatRead & keyof SwirlIconMarkChatReadAttributes]?: SwirlIconMarkChatRead[K] } & { [K in keyof SwirlIconMarkChatRead & keyof SwirlIconMarkChatReadAttributes as `attr:${K}`]?: SwirlIconMarkChatReadAttributes[K] } & { [K in keyof SwirlIconMarkChatRead & keyof SwirlIconMarkChatReadAttributes as `prop:${K}`]?: SwirlIconMarkChatRead[K] };
         "swirl-icon-mark-chat-unread": Omit<SwirlIconMarkChatUnread, keyof SwirlIconMarkChatUnreadAttributes> & { [K in keyof SwirlIconMarkChatUnread & keyof SwirlIconMarkChatUnreadAttributes]?: SwirlIconMarkChatUnread[K] } & { [K in keyof SwirlIconMarkChatUnread & keyof SwirlIconMarkChatUnreadAttributes as `attr:${K}`]?: SwirlIconMarkChatUnreadAttributes[K] } & { [K in keyof SwirlIconMarkChatUnread & keyof SwirlIconMarkChatUnreadAttributes as `prop:${K}`]?: SwirlIconMarkChatUnread[K] };
+        "swirl-icon-mark-email-read": Omit<SwirlIconMarkEmailRead, keyof SwirlIconMarkEmailReadAttributes> & { [K in keyof SwirlIconMarkEmailRead & keyof SwirlIconMarkEmailReadAttributes]?: SwirlIconMarkEmailRead[K] } & { [K in keyof SwirlIconMarkEmailRead & keyof SwirlIconMarkEmailReadAttributes as `attr:${K}`]?: SwirlIconMarkEmailReadAttributes[K] } & { [K in keyof SwirlIconMarkEmailRead & keyof SwirlIconMarkEmailReadAttributes as `prop:${K}`]?: SwirlIconMarkEmailRead[K] };
         "swirl-icon-mention": Omit<SwirlIconMention, keyof SwirlIconMentionAttributes> & { [K in keyof SwirlIconMention & keyof SwirlIconMentionAttributes]?: SwirlIconMention[K] } & { [K in keyof SwirlIconMention & keyof SwirlIconMentionAttributes as `attr:${K}`]?: SwirlIconMentionAttributes[K] } & { [K in keyof SwirlIconMention & keyof SwirlIconMentionAttributes as `prop:${K}`]?: SwirlIconMention[K] };
         "swirl-icon-menu": Omit<SwirlIconMenu, keyof SwirlIconMenuAttributes> & { [K in keyof SwirlIconMenu & keyof SwirlIconMenuAttributes]?: SwirlIconMenu[K] } & { [K in keyof SwirlIconMenu & keyof SwirlIconMenuAttributes as `attr:${K}`]?: SwirlIconMenuAttributes[K] } & { [K in keyof SwirlIconMenu & keyof SwirlIconMenuAttributes as `prop:${K}`]?: SwirlIconMenu[K] };
         "swirl-icon-menu-book": Omit<SwirlIconMenuBook, keyof SwirlIconMenuBookAttributes> & { [K in keyof SwirlIconMenuBook & keyof SwirlIconMenuBookAttributes]?: SwirlIconMenuBook[K] } & { [K in keyof SwirlIconMenuBook & keyof SwirlIconMenuBookAttributes as `attr:${K}`]?: SwirlIconMenuBookAttributes[K] } & { [K in keyof SwirlIconMenuBook & keyof SwirlIconMenuBookAttributes as `prop:${K}`]?: SwirlIconMenuBook[K] };
@@ -18701,6 +18790,7 @@ declare namespace LocalJSX {
         "swirl-icon-open-in-full": Omit<SwirlIconOpenInFull, keyof SwirlIconOpenInFullAttributes> & { [K in keyof SwirlIconOpenInFull & keyof SwirlIconOpenInFullAttributes]?: SwirlIconOpenInFull[K] } & { [K in keyof SwirlIconOpenInFull & keyof SwirlIconOpenInFullAttributes as `attr:${K}`]?: SwirlIconOpenInFullAttributes[K] } & { [K in keyof SwirlIconOpenInFull & keyof SwirlIconOpenInFullAttributes as `prop:${K}`]?: SwirlIconOpenInFull[K] };
         "swirl-icon-open-in-new": Omit<SwirlIconOpenInNew, keyof SwirlIconOpenInNewAttributes> & { [K in keyof SwirlIconOpenInNew & keyof SwirlIconOpenInNewAttributes]?: SwirlIconOpenInNew[K] } & { [K in keyof SwirlIconOpenInNew & keyof SwirlIconOpenInNewAttributes as `attr:${K}`]?: SwirlIconOpenInNewAttributes[K] } & { [K in keyof SwirlIconOpenInNew & keyof SwirlIconOpenInNewAttributes as `prop:${K}`]?: SwirlIconOpenInNew[K] };
         "swirl-icon-passkey": Omit<SwirlIconPasskey, keyof SwirlIconPasskeyAttributes> & { [K in keyof SwirlIconPasskey & keyof SwirlIconPasskeyAttributes]?: SwirlIconPasskey[K] } & { [K in keyof SwirlIconPasskey & keyof SwirlIconPasskeyAttributes as `attr:${K}`]?: SwirlIconPasskeyAttributes[K] } & { [K in keyof SwirlIconPasskey & keyof SwirlIconPasskeyAttributes as `prop:${K}`]?: SwirlIconPasskey[K] };
+        "swirl-icon-password": Omit<SwirlIconPassword, keyof SwirlIconPasswordAttributes> & { [K in keyof SwirlIconPassword & keyof SwirlIconPasswordAttributes]?: SwirlIconPassword[K] } & { [K in keyof SwirlIconPassword & keyof SwirlIconPasswordAttributes as `attr:${K}`]?: SwirlIconPasswordAttributes[K] } & { [K in keyof SwirlIconPassword & keyof SwirlIconPasswordAttributes as `prop:${K}`]?: SwirlIconPassword[K] };
         "swirl-icon-patient-list": Omit<SwirlIconPatientList, keyof SwirlIconPatientListAttributes> & { [K in keyof SwirlIconPatientList & keyof SwirlIconPatientListAttributes]?: SwirlIconPatientList[K] } & { [K in keyof SwirlIconPatientList & keyof SwirlIconPatientListAttributes as `attr:${K}`]?: SwirlIconPatientListAttributes[K] } & { [K in keyof SwirlIconPatientList & keyof SwirlIconPatientListAttributes as `prop:${K}`]?: SwirlIconPatientList[K] };
         "swirl-icon-pause": Omit<SwirlIconPause, keyof SwirlIconPauseAttributes> & { [K in keyof SwirlIconPause & keyof SwirlIconPauseAttributes]?: SwirlIconPause[K] } & { [K in keyof SwirlIconPause & keyof SwirlIconPauseAttributes as `attr:${K}`]?: SwirlIconPauseAttributes[K] } & { [K in keyof SwirlIconPause & keyof SwirlIconPauseAttributes as `prop:${K}`]?: SwirlIconPause[K] };
         "swirl-icon-pause-circle": Omit<SwirlIconPauseCircle, keyof SwirlIconPauseCircleAttributes> & { [K in keyof SwirlIconPauseCircle & keyof SwirlIconPauseCircleAttributes]?: SwirlIconPauseCircle[K] } & { [K in keyof SwirlIconPauseCircle & keyof SwirlIconPauseCircleAttributes as `attr:${K}`]?: SwirlIconPauseCircleAttributes[K] } & { [K in keyof SwirlIconPauseCircle & keyof SwirlIconPauseCircleAttributes as `prop:${K}`]?: SwirlIconPauseCircle[K] };
@@ -19135,6 +19225,7 @@ declare module "@stencil/core" {
             "swirl-icon-expand-less": LocalJSX.IntrinsicElements["swirl-icon-expand-less"] & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.IntrinsicElements["swirl-icon-expand-more"] & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
             "swirl-icon-experiment": LocalJSX.IntrinsicElements["swirl-icon-experiment"] & JSXBase.HTMLAttributes<HTMLSwirlIconExperimentElement>;
+            "swirl-icon-fact-check": LocalJSX.IntrinsicElements["swirl-icon-fact-check"] & JSXBase.HTMLAttributes<HTMLSwirlIconFactCheckElement>;
             "swirl-icon-file": LocalJSX.IntrinsicElements["swirl-icon-file"] & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
             "swirl-icon-file-copy": LocalJSX.IntrinsicElements["swirl-icon-file-copy"] & JSXBase.HTMLAttributes<HTMLSwirlIconFileCopyElement>;
             "swirl-icon-filter": LocalJSX.IntrinsicElements["swirl-icon-filter"] & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
@@ -19191,6 +19282,7 @@ declare module "@stencil/core" {
             "swirl-icon-manage-accounts": LocalJSX.IntrinsicElements["swirl-icon-manage-accounts"] & JSXBase.HTMLAttributes<HTMLSwirlIconManageAccountsElement>;
             "swirl-icon-mark-chat-read": LocalJSX.IntrinsicElements["swirl-icon-mark-chat-read"] & JSXBase.HTMLAttributes<HTMLSwirlIconMarkChatReadElement>;
             "swirl-icon-mark-chat-unread": LocalJSX.IntrinsicElements["swirl-icon-mark-chat-unread"] & JSXBase.HTMLAttributes<HTMLSwirlIconMarkChatUnreadElement>;
+            "swirl-icon-mark-email-read": LocalJSX.IntrinsicElements["swirl-icon-mark-email-read"] & JSXBase.HTMLAttributes<HTMLSwirlIconMarkEmailReadElement>;
             "swirl-icon-mention": LocalJSX.IntrinsicElements["swirl-icon-mention"] & JSXBase.HTMLAttributes<HTMLSwirlIconMentionElement>;
             "swirl-icon-menu": LocalJSX.IntrinsicElements["swirl-icon-menu"] & JSXBase.HTMLAttributes<HTMLSwirlIconMenuElement>;
             "swirl-icon-menu-book": LocalJSX.IntrinsicElements["swirl-icon-menu-book"] & JSXBase.HTMLAttributes<HTMLSwirlIconMenuBookElement>;
@@ -19214,6 +19306,7 @@ declare module "@stencil/core" {
             "swirl-icon-open-in-full": LocalJSX.IntrinsicElements["swirl-icon-open-in-full"] & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInFullElement>;
             "swirl-icon-open-in-new": LocalJSX.IntrinsicElements["swirl-icon-open-in-new"] & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInNewElement>;
             "swirl-icon-passkey": LocalJSX.IntrinsicElements["swirl-icon-passkey"] & JSXBase.HTMLAttributes<HTMLSwirlIconPasskeyElement>;
+            "swirl-icon-password": LocalJSX.IntrinsicElements["swirl-icon-password"] & JSXBase.HTMLAttributes<HTMLSwirlIconPasswordElement>;
             "swirl-icon-patient-list": LocalJSX.IntrinsicElements["swirl-icon-patient-list"] & JSXBase.HTMLAttributes<HTMLSwirlIconPatientListElement>;
             "swirl-icon-pause": LocalJSX.IntrinsicElements["swirl-icon-pause"] & JSXBase.HTMLAttributes<HTMLSwirlIconPauseElement>;
             "swirl-icon-pause-circle": LocalJSX.IntrinsicElements["swirl-icon-pause-circle"] & JSXBase.HTMLAttributes<HTMLSwirlIconPauseCircleElement>;

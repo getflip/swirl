@@ -16,6 +16,7 @@ export type SwirlTabBarTab = {
   id: string;
   label: string;
   suffix?: string;
+  tooltip?: string;
 };
 
 export type SwirlTabBarJustify = "start" | "evenly";
@@ -138,7 +139,7 @@ export class SwirlTabBar {
               "tab-bar__tab-label--variant-pill": this.variant === "pill",
             });
 
-            return (
+            const tabButton = (
               <button
                 aria-controls={this.disableTabSemantics ? undefined : tab.id}
                 aria-selected={
@@ -150,7 +151,7 @@ export class SwirlTabBar {
                 }
                 class={className}
                 id={`tab-${tab.id}`}
-                key={tab.id}
+                key={tab.tooltip ? undefined : tab.id}
                 // eslint-disable-next-line react/jsx-no-bind
                 onClick={() => this.activateTab.emit(tab.id)}
                 onFocus={this.onTabFocus}
@@ -170,6 +171,14 @@ export class SwirlTabBar {
                   )}
                 </span>
               </button>
+            );
+
+            return tab.tooltip ? (
+              <swirl-tooltip content={tab.tooltip} key={tab.id}>
+                {tabButton}
+              </swirl-tooltip>
+            ) : (
+              tabButton
             );
           })}
         </div>

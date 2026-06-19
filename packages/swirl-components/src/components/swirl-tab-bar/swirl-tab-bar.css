@@ -31,7 +31,8 @@
   flex-wrap: wrap;
 }
 
-.tab-bar--justify-evenly > * {
+.tab-bar--justify-evenly > *,
+.tab-bar--justify-evenly .tab-bar__tab {
   flex: 1;
 }
 
