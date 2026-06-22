@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.507.0
+
+### Minor Changes
+
+- [#1725](https://github.com/getflip/swirl/pull/1725)
+  [`d0092ca2f`](https://github.com/getflip/swirl/commit/d0092ca2f4d7363c5e5f1d1637f520b9e2cb0b9f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add playback events to
+  swirl-file-viewer-video
+
 ## 0.506.0
 
 ### Minor Changes
