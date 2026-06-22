@@ -10849,6 +10849,83 @@
                   }
                 ]
               }
+            },
+            {
+              "name": "playbackEnded",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbackPause",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbackPlay",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbackRateChange",
+              "type": {
+                "text": "CustomEvent<SwirlFileViewerVideoPlaybackDetail & { playbackRate: number; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackRateChangeDetail"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbackSeeked",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbackTeardown",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "playbackTimeUpdate",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
             }
           ]
         }

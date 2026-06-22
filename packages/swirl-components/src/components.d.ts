@@ -34,6 +34,7 @@ import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerVideoPlaybackDetail, SwirlFileViewerVideoPlaybackRateChangeDetail } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-video/swirl-file-viewer-video";
 import { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
@@ -117,6 +118,7 @@ export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFileViewerVideoPlaybackDetail, SwirlFileViewerVideoPlaybackRateChangeDetail } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-video/swirl-file-viewer-video";
 export { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
@@ -6609,6 +6611,13 @@ declare global {
     };
     interface HTMLSwirlFileViewerVideoElementEventMap {
         "activate": HTMLElement;
+        "playbackPlay": SwirlFileViewerVideoPlaybackDetail;
+        "playbackPause": SwirlFileViewerVideoPlaybackDetail;
+        "playbackTimeUpdate": SwirlFileViewerVideoPlaybackDetail;
+        "playbackSeeked": SwirlFileViewerVideoPlaybackDetail;
+        "playbackRateChange": SwirlFileViewerVideoPlaybackRateChangeDetail;
+        "playbackEnded": SwirlFileViewerVideoPlaybackDetail;
+        "playbackTeardown": SwirlFileViewerVideoPlaybackDetail;
     }
     interface HTMLSwirlFileViewerVideoElement extends Components.SwirlFileViewerVideo, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileViewerVideoElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerVideoElement, ev: SwirlFileViewerVideoCustomEvent<HTMLSwirlFileViewerVideoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -11310,6 +11319,13 @@ declare namespace LocalJSX {
         "disableDownload"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
+        "onPlaybackEnded"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
+        "onPlaybackPause"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
+        "onPlaybackPlay"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
+        "onPlaybackRateChange"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackRateChangeDetail>) => void;
+        "onPlaybackSeeked"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
+        "onPlaybackTeardown"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
+        "onPlaybackTimeUpdate"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
     }
     interface SwirlFormControl {
         "description"?: string;
