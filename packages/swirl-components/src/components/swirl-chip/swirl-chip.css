@@ -247,7 +247,8 @@
   color: var(--s-icon-default);
 }
 
-.chip__trailing-icon {
+.chip__trailing-icon,
+.chip__trailing-content {
   display: inline-flex;
   flex-shrink: 0;
   margin-left: var(--s-space-8);

@@ -22,6 +22,7 @@ export type SwirlChipVariant = "outline" | "plain" | "translucent";
 
 /**
  * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".
+ * @slot trailing-content - Optional content displayed at the end of the chip.
  */
 @Component({
   shadow: false,
@@ -94,6 +95,9 @@ export class SwirlChip {
 
     const showAvatar = Boolean(this.el.querySelector('[slot="avatar"]'));
     const showIcon = !showAvatar && Boolean(this.icon);
+    const showTrailingContent = Boolean(
+      this.el.querySelector('[slot="trailing-content"]')
+    );
 
     const className = classnames(
       "chip",
@@ -140,6 +144,11 @@ export class SwirlChip {
                 innerHTML={this.trailingIcon}
                 ref={(el) => (this.trailingIconEl = el)}
               ></span>
+            )}
+            {showTrailingContent && (
+              <span class="chip__trailing-content">
+                <slot name="trailing-content"></slot>
+              </span>
             )}
           </span>
           {this.progress !== undefined && (

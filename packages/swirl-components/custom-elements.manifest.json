@@ -6246,6 +6246,10 @@
             {
               "name": "avatar",
               "description": "Optional avatar displayed inside the chip. Should have size \"xs\"."
+            },
+            {
+              "name": "trailing-content",
+              "description": "Optional content displayed at the end of the chip."
             }
           ]
         }
