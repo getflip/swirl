@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.508.0
+
+### Minor Changes
+
+- [#1727](https://github.com/getflip/swirl/pull/1727)
+  [`dcad8a48b`](https://github.com/getflip/swirl/commit/dcad8a48bfa42566ffc010d90ead2872ffee9715)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Added
+  trailing content slot to Swirl-Chip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dcad8a48b`](https://github.com/getflip/swirl/commit/dcad8a48bfa42566ffc010d90ead2872ffee9715)]:
+  - @getflip/swirl-components@0.508.0
+
 ## 0.507.0
 
 ### Patch Changes
