@@ -16,7 +16,8 @@
     "build:swirl-docs": "next build",
     "postbuild": "tsx src/scripts/postbuild.ts",
     "start": "next start",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "next lint",
     "prebuild": "rm -rf components.json && rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/prebuild.ts"
   },
