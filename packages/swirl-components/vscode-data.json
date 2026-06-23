@@ -2745,6 +2745,10 @@
           "description": ""
         },
         {
+          "name": "sidebar-visibility-state-storage-key",
+          "description": ""
+        },
+        {
           "name": "subheading",
           "description": ""
         }
@@ -22722,6 +22726,35 @@
         },
         {
           "name": "with-gradient",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-sidebar-navigation",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "app-name",
+          "description": ""
+        },
+        {
+          "name": "collapse-button-label",
+          "description": ""
+        },
+        {
+          "name": "elevated",
+          "description": ""
+        },
+        {
+          "name": "hide-collapse-button",
+          "description": ""
+        },
+        {
+          "name": "navigation-label",
           "description": ""
         }
       ]
