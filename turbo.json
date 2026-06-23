@@ -1,5 +1,15 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "globalPassThroughEnv": [
+    "ALGOLIA_SEARCH_ADMIN_KEY",
+    "GITLAB_ACCESS_TOKEN",
+    "GITLAB_FLIP_REPO_ID",
+    "REFERENCE_BRANCH",
+    "NEXT_PUBLIC_ALGOLIA_APP_ID",
+    "NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY",
+    "NEXT_PUBLIC_DEPLOYMENT_STAGE",
+    "SITE_PASSWORD"
+  ],
   "tasks": {
     "build": {
       "outputs": [
