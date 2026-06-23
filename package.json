@@ -48,6 +48,9 @@
     "turbo": "2.9.18"
   },
   "resolutions": {
+    "form-data": "4.0.6",
+    "jsonpath-plus": "10.2.0",
+    "shell-quote": "1.8.4",
     "svgicons2svgfont": "10.0.6"
   },
   "dependencies": {}
