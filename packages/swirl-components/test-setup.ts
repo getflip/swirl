@@ -2,6 +2,14 @@
  * Global test setup for Stencil components
  */
 
+import { webcrypto } from "node:crypto";
+
+if (!globalThis.crypto) {
+  Object.defineProperty(globalThis, "crypto", {
+    value: webcrypto,
+  });
+}
+
 // Mock native Popover API and :scope selector for Stencil's mock-doc
 const mockDoc = require("@stencil/core/mock-doc");
 

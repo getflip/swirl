@@ -22,8 +22,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
-    "@getflip/swirl-components": "0.508.0",
-    "uuid": "9.0.1"
+    "@getflip/swirl-components": "0.508.0"
   },
   "devDependencies": {
     "@babel/core": "7.20.12",

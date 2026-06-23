@@ -10,7 +10,7 @@ import { Config } from "@stencil/core";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
 
-const esModules = ["vanilla-colorful"].join("|");
+const esModules = ["vanilla-colorful", "uuid"].join("|");
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
