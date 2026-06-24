@@ -206,7 +206,7 @@ export namespace Components {
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;
         /**
-          * @default uuid()
+          * @default crypto.randomUUID()
          */
         "itemId"?: string;
         /**
@@ -10300,7 +10300,7 @@ declare namespace LocalJSX {
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;
         /**
-          * @default uuid()
+          * @default crypto.randomUUID()
          */
         "itemId"?: string;
         "onExpansionChange"?: (event: SwirlAccordionItemCustomEvent<boolean>) => void;

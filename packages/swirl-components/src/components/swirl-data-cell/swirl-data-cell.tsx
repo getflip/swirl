@@ -8,7 +8,6 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
-import { v4 as uuid } from "uuid";
 
 export type SwirlDataCellIntent =
   | "default"
@@ -41,7 +40,7 @@ export class SwirlDataCell {
 
   @Event() valueChange: EventEmitter<MouseEvent>;
 
-  private elementId = `data-cell-${uuid()}`;
+  private elementId = `data-cell-${crypto.randomUUID()}`;
 
   private handleRadioClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;

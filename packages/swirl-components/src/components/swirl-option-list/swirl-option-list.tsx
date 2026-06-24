@@ -16,7 +16,6 @@ import {
   querySelectorAllDeep,
   SwirlFormInput,
 } from "../../utils";
-import { v4 as uuid } from "uuid";
 
 /**
  * @slot slot - The option list items and sections (e.g. swirl-option-list-item, swirl-option-list-section).
@@ -68,7 +67,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
   private selectAllEl: HTMLSwirlOptionListItemElement | undefined;
-  private selectAllValue = uuid();
+  private selectAllValue = crypto.randomUUID();
   private sortable: Sortable;
   private swirlPopover: HTMLSwirlPopoverElement | undefined;
 

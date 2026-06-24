@@ -9,7 +9,6 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { v4 as uuid } from "uuid";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
@@ -52,7 +51,7 @@ export class SwirlOptionListItem {
   @State() focused: boolean;
 
   private iconEl: HTMLElement;
-  private elementId = uuid();
+  private elementId = crypto.randomUUID();
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {

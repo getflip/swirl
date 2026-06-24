@@ -1,15 +1,14 @@
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
-  ShowToastRequestParams,
   ShowToastRequest,
+  ShowToastRequestParams,
   ShowToastResult,
 } from "./toast.types";
 
 export async function showToast(params: ShowToastRequestParams) {
   const request: ShowToastRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.SHOW_TOAST,
     params,
   };

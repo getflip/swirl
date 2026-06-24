@@ -14,6 +14,5 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ["uuid"],
   plugins: [typescript()],
 };

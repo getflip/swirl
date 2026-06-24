@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
@@ -10,7 +9,7 @@ import {
 
 export function getAvailableLangs() {
   const request: GetAvailableLangsRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.GET_AVAILABLE_LANGS,
   };
 
@@ -19,7 +18,7 @@ export function getAvailableLangs() {
 
 export function getLang() {
   const request: GetLangRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.GET_LANG,
   };
 

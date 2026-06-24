@@ -1,6 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { v4 as uuid } from "uuid";
 
 /**
  * @slot cta - Optional call-to-action (e.g., button)
@@ -18,7 +17,7 @@ export class SwirlDataCellStack {
   @Prop() hideLabel?: boolean = false;
   @Prop() label?: string;
 
-  private headerId = `data-cell-stack-header-${uuid()}`;
+  private headerId = `data-cell-stack-header-${crypto.randomUUID()}`;
 
   private onSlotChange = (event: Event) => {
     const slot = event.target as HTMLSlotElement;

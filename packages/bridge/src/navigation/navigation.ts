@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
@@ -10,7 +9,7 @@ import {
 
 export function close() {
   const request: CloseRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.CLOSE,
   };
 
@@ -19,7 +18,7 @@ export function close() {
 
 export function navigate(path: string) {
   const request: NavigateRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.NAVIGATE,
     params: { path },
   };

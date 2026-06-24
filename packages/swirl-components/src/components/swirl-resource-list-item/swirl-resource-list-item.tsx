@@ -1,5 +1,4 @@
 import classnames from "classnames";
-import { v4 as uuid } from "uuid";
 
 import {
   Component,
@@ -73,7 +72,7 @@ export class SwirlResourceListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
-  private elementId = uuid();
+  private elementId = crypto.randomUUID();
   private iconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
   private parentSemantics: SwirlResourceListSemantics | undefined;

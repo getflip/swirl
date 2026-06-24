@@ -10,7 +10,6 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { v4 as uuid } from "uuid";
 import { SwirlHeadingLevel } from "../swirl-heading/swirl-heading";
 
 /**
@@ -31,14 +30,14 @@ export class SwirlAccordionItem {
   @Prop() heading!: string;
   @Prop() headingLevel?: SwirlHeadingLevel = 2;
   @Prop() initiallyOpen?: boolean;
-  @Prop() itemId?: string = uuid();
+  @Prop() itemId?: string = crypto.randomUUID();
 
   @Event({ bubbles: true }) expansionChange: EventEmitter<boolean>;
 
   @State() expanded = false;
 
   private accordion: HTMLSwirlAccordionElement;
-  private headingId = `${uuid()}-heading`;
+  private headingId = `${crypto.randomUUID()}-heading`;
 
   componentWillLoad() {
     this.accordion = this.el.closest("swirl-accordion");

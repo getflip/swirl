@@ -11,7 +11,6 @@ import {
   Watch,
 } from "@stencil/core";
 import Sortable, { SortableEvent } from "sortablejs";
-import { v4 as uuid } from "uuid";
 import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
 export type SwirlBoxPadding = "0" | "2" | "4" | "8" | "12" | "16";
@@ -45,7 +44,7 @@ export class SwirlResourceList {
   @Prop() spacing?: SwirlStackSpacing = "0";
 
   @State() assistiveText: string;
-  @State() listId = uuid();
+  @State() listId = crypto.randomUUID();
 
   @Event() itemDrop: EventEmitter<{
     item: HTMLSwirlResourceListItemElement;
