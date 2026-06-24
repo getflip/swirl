@@ -6615,6 +6615,7 @@ declare global {
         "playbackPause": SwirlFileViewerVideoPlaybackDetail;
         "playbackTimeUpdate": SwirlFileViewerVideoPlaybackDetail;
         "playbackSeeked": SwirlFileViewerVideoPlaybackDetail;
+        "playbackSeeking": SwirlFileViewerVideoPlaybackDetail;
         "playbackRateChange": SwirlFileViewerVideoPlaybackRateChangeDetail;
         "playbackEnded": SwirlFileViewerVideoPlaybackDetail;
         "playbackTeardown": SwirlFileViewerVideoPlaybackDetail;
@@ -11324,6 +11325,7 @@ declare namespace LocalJSX {
         "onPlaybackPlay"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
         "onPlaybackRateChange"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackRateChangeDetail>) => void;
         "onPlaybackSeeked"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
+        "onPlaybackSeeking"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
         "onPlaybackTeardown"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
         "onPlaybackTimeUpdate"?: (event: SwirlFileViewerVideoCustomEvent<SwirlFileViewerVideoPlaybackDetail>) => void;
     }
