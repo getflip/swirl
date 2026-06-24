@@ -182,7 +182,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "uuid()",
+              "default": "crypto.randomUUID()",
               "fieldName": "itemId"
             }
           ],
@@ -245,7 +245,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "uuid()",
+              "default": "crypto.randomUUID()",
               "readonly": true,
               "attribute": "item-id"
             },

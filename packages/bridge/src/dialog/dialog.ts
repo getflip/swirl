@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
@@ -14,7 +13,7 @@ import {
 
 export async function createDialog(params: CreateDialogRequestParams) {
   const request: CreateDialogRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.CREATE_DIALOG,
     params,
   };
@@ -35,7 +34,7 @@ export async function createDialog(params: CreateDialogRequestParams) {
 
 export async function openDialog(params: OpenDialogRequestParams) {
   const request: OpenDialogRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.OPEN_DIALOG,
     params,
   };
@@ -45,7 +44,7 @@ export async function openDialog(params: OpenDialogRequestParams) {
 
 export async function closeDialog(params: CloseDialogRequestParams) {
   const request: CloseDialogRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.CLOSE_DIALOG,
     params,
   };
@@ -55,7 +54,7 @@ export async function closeDialog(params: CloseDialogRequestParams) {
 
 export async function destroyDialog(params: DestroyDialogRequestParams) {
   const request: DestroyDialogRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.DESTROY_DIALOG,
     params,
   };

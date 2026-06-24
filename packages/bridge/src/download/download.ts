@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import { DownloadRequest, DownloadResult } from "./download.types";
@@ -10,7 +9,7 @@ export function download(
   dataUrl?: string
 ) {
   const request: DownloadRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.DOWNLOAD,
     params: {
       fileName,

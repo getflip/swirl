@@ -1,5 +1,4 @@
 import { SwirlOSTheme } from "@getflip/swirl-components";
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
@@ -11,7 +10,7 @@ import {
 
 export function getTheme() {
   const request: GetThemeRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.GET_THEME,
   };
 
@@ -20,7 +19,7 @@ export function getTheme() {
 
 export function setTheme(theme: SwirlOSTheme) {
   const request: SetThemeRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.SET_THEME,
     params: { theme },
   };

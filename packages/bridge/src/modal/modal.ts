@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
@@ -14,7 +13,7 @@ import {
 
 export async function createModal(params: CreateModalRequestParams) {
   const request: CreateModalRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.CREATE_MODAL,
     params,
   };
@@ -35,7 +34,7 @@ export async function createModal(params: CreateModalRequestParams) {
 
 export async function openModal(params: OpenModalRequestParams) {
   const request: OpenModalRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.OPEN_MODAL,
     params,
   };
@@ -45,7 +44,7 @@ export async function openModal(params: OpenModalRequestParams) {
 
 export async function closeModal(params: CloseModalRequestParams) {
   const request: CloseModalRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.CLOSE_MODAL,
     params,
   };
@@ -55,7 +54,7 @@ export async function closeModal(params: CloseModalRequestParams) {
 
 export async function destroyModal(params: DestroyModalRequestParams) {
   const request: DestroyModalRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.DESTROY_MODAL,
     params,
   };

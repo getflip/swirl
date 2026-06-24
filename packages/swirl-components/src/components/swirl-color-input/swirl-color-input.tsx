@@ -8,7 +8,6 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { v4 as uuid } from "uuid";
 import "vanilla-colorful";
 import type { HexColorPicker } from "vanilla-colorful";
 
@@ -44,7 +43,7 @@ export class SwirlColorInput {
 
   private inputEl: HTMLInputElement;
   private picker: HexColorPicker;
-  private pickerId = `color-picker-${uuid()}`;
+  private pickerId = `color-picker-${crypto.randomUUID()}`;
 
   componentDidLoad() {
     // see https://stackoverflow.com/a/27314017

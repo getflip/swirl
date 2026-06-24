@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { log } from "../logging";
 import { isAllowedOrigin, makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
@@ -18,10 +17,10 @@ export async function subscribe<EventDataType = unknown>(
   callback: (event?: BridgeEvent<EventDataType>) => void,
   options?: SubscribeOptions
 ): Promise<UnsubscribeFunction> {
-  const subscriptionId = options?.id || uuidv4();
+  const subscriptionId = options?.id || crypto.randomUUID();
 
   const subscribeRequest: SubscribeRequest = {
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     method: BridgeMethod.SUBSCRIBE,
     params: { id: subscriptionId, type },
   };
@@ -52,7 +51,7 @@ export async function subscribe<EventDataType = unknown>(
 
   return async () => {
     const unsubscribeRequest: UnsubscribeRequest = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       method: BridgeMethod.UNSUBSCRIBE,
       params: { id: subscriptionId, type },
     };
