@@ -10910,6 +10910,17 @@
               }
             },
             {
+              "name": "playbackSeeking",
+              "type": {
+                "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",
+                "references": [
+                  {
+                    "name": "SwirlFileViewerVideoPlaybackDetail"
+                  }
+                ]
+              }
+            },
+            {
               "name": "playbackTeardown",
               "type": {
                 "text": "CustomEvent<{ currentTime: number; duration: number; videoEl: HTMLVideoElement; }>",

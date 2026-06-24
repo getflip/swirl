@@ -42,6 +42,8 @@ export class SwirlFileViewerVideo {
   @Event({ bubbles: true, composed: true })
   playbackSeeked: EventEmitter<SwirlFileViewerVideoPlaybackDetail>;
   @Event({ bubbles: true, composed: true })
+  playbackSeeking: EventEmitter<SwirlFileViewerVideoPlaybackDetail>;
+  @Event({ bubbles: true, composed: true })
   playbackRateChange: EventEmitter<SwirlFileViewerVideoPlaybackRateChangeDetail>;
   @Event({ bubbles: true, composed: true })
   playbackEnded: EventEmitter<SwirlFileViewerVideoPlaybackDetail>;
@@ -115,6 +117,10 @@ export class SwirlFileViewerVideo {
     this.playbackSeeked.emit(this.getPlaybackDetail());
   };
 
+  private onNativeSeeking = () => {
+    this.playbackSeeking.emit(this.getPlaybackDetail());
+  };
+
   private onNativeRateChange = () => {
     this.playbackRateChange.emit(this.getPlaybackRateChangeDetail());
   };
@@ -135,6 +141,7 @@ export class SwirlFileViewerVideo {
           onPlay={this.onNativePlay}
           onRateChange={this.onNativeRateChange}
           onSeeked={this.onNativeSeeked}
+          onSeeking={this.onNativeSeeking}
           onTimeUpdate={this.onNativeTimeUpdate}
           src={this.file}
           ref={(el) => (this.videoEl = el)}
