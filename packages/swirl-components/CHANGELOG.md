@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.510.0
+
+### Minor Changes
+
+- [#1737](https://github.com/getflip/swirl/pull/1737)
+  [`6149aa311`](https://github.com/getflip/swirl/commit/6149aa311e1d9062a3daa1f33ea89a2a1acd9e09)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "disabled" prop to swirl-chip
+
 ## 0.509.0
 
 ### Minor Changes
