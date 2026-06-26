@@ -34,6 +34,7 @@ export class SwirlChip {
   @Element() el: HTMLElement;
 
   @Prop() borderRadius?: SwirlChipBorderRadius = "pill";
+  @Prop() disabled?: boolean;
   @Prop() icon?: string;
   @Prop() iconColor?: SwirlChipIconColor = "default";
   @Prop() trailingIcon?: string;
@@ -117,10 +118,12 @@ export class SwirlChip {
     return (
       <Host>
         <Tag
+          aria-disabled={this.interactive && this.disabled ? "true" : undefined}
           aria-pressed={
             this.pressed !== undefined ? String(this.pressed) : undefined
           }
           class={className}
+          disabled={this.interactive ? this.disabled : undefined}
           onClick={this.chipClick.emit}
           type={this.interactive ? "button" : undefined}
         >
@@ -162,8 +165,10 @@ export class SwirlChip {
         </Tag>
         {this.removable && (
           <button
+            aria-disabled={this.disabled ? "true" : undefined}
             aria-label={this.removeButtonLabel}
             class="chip__remove-button"
+            disabled={this.disabled}
             onClick={this.removeChip.emit}
             type="button"
           >

@@ -745,6 +745,7 @@ export namespace Components {
           * @default "pill"
          */
         "borderRadius"?: SwirlChipBorderRadius;
+        "disabled"?: boolean;
         "icon"?: string;
         /**
           * @default "default"
@@ -10818,6 +10819,7 @@ declare namespace LocalJSX {
           * @default "pill"
          */
         "borderRadius"?: SwirlChipBorderRadius;
+        "disabled"?: boolean;
         "icon"?: string;
         /**
           * @default "default"
@@ -15974,6 +15976,7 @@ declare namespace LocalJSX {
     }
     interface SwirlChipAttributes {
         "borderRadius": SwirlChipBorderRadius;
+        "disabled": boolean;
         "icon": string;
         "iconColor": SwirlChipIconColor;
         "trailingIcon": string;

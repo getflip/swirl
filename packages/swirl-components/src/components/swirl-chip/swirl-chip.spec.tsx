@@ -99,4 +99,41 @@ describe("swirl-chip", () => {
     expect(trailingIcon).toBeTruthy();
     expect(trailingIcon.getAttribute("size")).toBe("24");
   });
+
+  it("renders disabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlChip],
+      html: `<swirl-chip disabled="true" interactive="true" label="Label"></swirl-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-chip disabled="true" interactive="true" label="Label">
+        <button aria-disabled="true" class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--interactive chip--variant-outline" disabled="" type="button">
+          <span class="chip__inner">
+            <span class="chip__label">Label</span>
+          </span>
+        </button>
+      </swirl-chip>
+    `);
+  });
+
+  it("renders disabled remove button", async () => {
+    const page = await newSpecPage({
+      components: [SwirlChip],
+      html: `<swirl-chip disabled="true" label="Label" removable="true"></swirl-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-chip disabled="true" label="Label" removable="true">
+        <span class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--removable chip--variant-outline">
+          <span class="chip__inner">
+            <span class="chip__label">Label</span>
+          </span>
+        </span>
+        <button aria-disabled="true" aria-label="Remove" class="chip__remove-button" disabled="" type="button">
+          <swirl-icon-close size="20"></swirl-icon-close>
+        </button>
+      </swirl-chip>
+    `);
+  });
 });

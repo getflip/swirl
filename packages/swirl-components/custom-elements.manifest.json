@@ -5937,6 +5937,13 @@
               "fieldName": "borderRadius"
             },
             {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "disabled"
+            },
+            {
               "name": "icon",
               "type": {
                 "text": "string"
@@ -6070,6 +6077,15 @@
               "default": "\"pill\"",
               "readonly": true,
               "attribute": "border-radius"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "disabled"
             },
             {
               "kind": "field",
