@@ -49,7 +49,16 @@
 .chip--interactive {
   cursor: pointer;
 
-  &:hover {
+  &:disabled {
+    cursor: default;
+    color: var(--s-text-disabled);
+
+    & .chip__icon {
+      color: var(--s-icon-disabled);
+    }
+  }
+
+  &:hover:not(:disabled) {
     background-color: var(--s-state-hovered);
 
     & ::part(avatar) {
@@ -57,7 +66,7 @@
     }
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background-color: var(--s-state-pressed);
 
     & ::part(avatar) {
@@ -79,11 +88,13 @@
 }
 
 .chip--intent-critical {
-  border-color: var(--s-border-critical);
-  color: var(--s-text-critical);
+  &:not(:disabled) {
+    border-color: var(--s-border-critical);
+    color: var(--s-text-critical);
 
-  & .chip__icon {
-    color: var(--s-icon-critical);
+    & .chip__icon {
+      color: var(--s-icon-critical);
+    }
   }
 }
 
@@ -92,26 +103,30 @@
 }
 
 .chip--intent-success {
-  border-color: var(--s-border-success);
-  color: var(--s-text-success);
+  &:not(:disabled) {
+    border-color: var(--s-border-success);
+    color: var(--s-text-success);
 
-  & .chip__icon {
-    color: var(--s-icon-success);
+    & .chip__icon {
+      color: var(--s-icon-success);
+    }
   }
 }
 
 .chip--intent-highlight {
-  border-color: var(--s-border-highlight);
-  color: var(--s-text-highlight);
+  &:not(:disabled) {
+    border-color: var(--s-border-highlight);
+    color: var(--s-text-highlight);
 
-  & .chip__icon {
-    color: var(--s-icon-highlight);
+    & .chip__icon {
+      color: var(--s-icon-highlight);
+    }
   }
 }
 
 .chip--variant-outline,
 .chip--variant-translucent {
-  &.chip--pressed {
+  &.chip--pressed:not(:disabled) {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
     border-color: var(--s-action-primary-default);
@@ -120,11 +135,11 @@
       color: var(--s-text-on-action-primary);
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: var(--s-action-primary-hovered);
     }
 
-    &:active {
+    &:active:not(:disabled) {
       background-color: var(--s-action-primary-pressed);
     }
 
@@ -132,11 +147,11 @@
       color: var(--s-text-on-action-primary);
       background-color: var(--s-action-primary-default);
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: var(--s-action-primary-hovered);
       }
 
-      &:active {
+      &:active:not(:disabled) {
         background-color: var(--s-action-primary-pressed);
       }
     }
@@ -148,11 +163,11 @@
   backdrop-filter: blur(var(--s-blur-s));
 
   &.chip--interactive {
-    &:hover {
+    &:hover:not(:disabled) {
       background: var(--s-translucent-medium-hovered);
     }
 
-    &:active {
+    &:active:not(:disabled) {
       background: var(--s-translucent-medium-pressed);
     }
   }
@@ -165,7 +180,7 @@
   background-color: transparent;
 
   &.chip--interactive {
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: transparent;
       text-decoration: underline;
       text-underline-offset: var(--s-space-4);
@@ -175,7 +190,7 @@
       }
     }
 
-    &:active {
+    &:active:not(:disabled) {
       background-color: transparent;
 
       & ::part(avatar) {
@@ -281,11 +296,19 @@
   background-color: transparent;
   cursor: pointer;
 
-  &:hover {
+  &:disabled {
+    cursor: default;
+
+    & > *::part(icon) {
+      color: var(--s-icon-disabled);
+    }
+  }
+
+  &:hover:not(:disabled) {
     background-color: var(--s-state-hovered);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background-color: var(--s-state-pressed);
   }
 }

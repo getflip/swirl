@@ -2495,6 +2495,10 @@
           ]
         },
         {
+          "name": "disabled",
+          "description": ""
+        },
+        {
           "name": "icon",
           "description": ""
         },
