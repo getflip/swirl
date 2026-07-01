@@ -1,5 +1,13 @@
 # @getflip/bridge
 
+## 0.11.60
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6acef0b19`](https://github.com/getflip/swirl/commit/6acef0b19038c2c02a167c0f8f050bc85791cb1f)]:
+  - @getflip/swirl-components@0.511.0
+
 ## 0.11.59
 
 ### Patch Changes
