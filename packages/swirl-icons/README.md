@@ -59,6 +59,6 @@ have to be named in PascalCase followed by the size, e.g. `AddPhoto16.svg`!**
 
 1. Modify the icon files in a new branch
 2. Run `yarn generate`, select "icons" when prompted
-3. Run `yarn changeset` to create a corresponding changelog item
-4. Run `yarn build`
+3. Run `yarn build`
+4. Run `yarn changeset` to create a corresponding changelog item
 5. Check, commit and push all changes and create a PR
