@@ -1823,6 +1823,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconDataObject {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDateRange {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -7019,6 +7027,12 @@ declare global {
         prototype: HTMLSwirlIconDarkModeElement;
         new (): HTMLSwirlIconDarkModeElement;
     };
+    interface HTMLSwirlIconDataObjectElement extends Components.SwirlIconDataObject, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDataObjectElement: {
+        prototype: HTMLSwirlIconDataObjectElement;
+        new (): HTMLSwirlIconDataObjectElement;
+    };
     interface HTMLSwirlIconDateRangeElement extends Components.SwirlIconDateRange, HTMLStencilElement {
     }
     var HTMLSwirlIconDateRangeElement: {
@@ -9889,6 +9903,7 @@ declare global {
         "swirl-icon-copy": HTMLSwirlIconCopyElement;
         "swirl-icon-crop": HTMLSwirlIconCropElement;
         "swirl-icon-dark-mode": HTMLSwirlIconDarkModeElement;
+        "swirl-icon-data-object": HTMLSwirlIconDataObjectElement;
         "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-deployed-code": HTMLSwirlIconDeployedCodeElement;
@@ -11864,6 +11879,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDarkMode {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDataObject {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -16536,6 +16559,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconDataObjectAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDateRangeAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -18702,6 +18730,7 @@ declare namespace LocalJSX {
         "swirl-icon-copy": Omit<SwirlIconCopy, keyof SwirlIconCopyAttributes> & { [K in keyof SwirlIconCopy & keyof SwirlIconCopyAttributes]?: SwirlIconCopy[K] } & { [K in keyof SwirlIconCopy & keyof SwirlIconCopyAttributes as `attr:${K}`]?: SwirlIconCopyAttributes[K] } & { [K in keyof SwirlIconCopy & keyof SwirlIconCopyAttributes as `prop:${K}`]?: SwirlIconCopy[K] };
         "swirl-icon-crop": Omit<SwirlIconCrop, keyof SwirlIconCropAttributes> & { [K in keyof SwirlIconCrop & keyof SwirlIconCropAttributes]?: SwirlIconCrop[K] } & { [K in keyof SwirlIconCrop & keyof SwirlIconCropAttributes as `attr:${K}`]?: SwirlIconCropAttributes[K] } & { [K in keyof SwirlIconCrop & keyof SwirlIconCropAttributes as `prop:${K}`]?: SwirlIconCrop[K] };
         "swirl-icon-dark-mode": Omit<SwirlIconDarkMode, keyof SwirlIconDarkModeAttributes> & { [K in keyof SwirlIconDarkMode & keyof SwirlIconDarkModeAttributes]?: SwirlIconDarkMode[K] } & { [K in keyof SwirlIconDarkMode & keyof SwirlIconDarkModeAttributes as `attr:${K}`]?: SwirlIconDarkModeAttributes[K] } & { [K in keyof SwirlIconDarkMode & keyof SwirlIconDarkModeAttributes as `prop:${K}`]?: SwirlIconDarkMode[K] };
+        "swirl-icon-data-object": Omit<SwirlIconDataObject, keyof SwirlIconDataObjectAttributes> & { [K in keyof SwirlIconDataObject & keyof SwirlIconDataObjectAttributes]?: SwirlIconDataObject[K] } & { [K in keyof SwirlIconDataObject & keyof SwirlIconDataObjectAttributes as `attr:${K}`]?: SwirlIconDataObjectAttributes[K] } & { [K in keyof SwirlIconDataObject & keyof SwirlIconDataObjectAttributes as `prop:${K}`]?: SwirlIconDataObject[K] };
         "swirl-icon-date-range": Omit<SwirlIconDateRange, keyof SwirlIconDateRangeAttributes> & { [K in keyof SwirlIconDateRange & keyof SwirlIconDateRangeAttributes]?: SwirlIconDateRange[K] } & { [K in keyof SwirlIconDateRange & keyof SwirlIconDateRangeAttributes as `attr:${K}`]?: SwirlIconDateRangeAttributes[K] } & { [K in keyof SwirlIconDateRange & keyof SwirlIconDateRangeAttributes as `prop:${K}`]?: SwirlIconDateRange[K] };
         "swirl-icon-delete": Omit<SwirlIconDelete, keyof SwirlIconDeleteAttributes> & { [K in keyof SwirlIconDelete & keyof SwirlIconDeleteAttributes]?: SwirlIconDelete[K] } & { [K in keyof SwirlIconDelete & keyof SwirlIconDeleteAttributes as `attr:${K}`]?: SwirlIconDeleteAttributes[K] } & { [K in keyof SwirlIconDelete & keyof SwirlIconDeleteAttributes as `prop:${K}`]?: SwirlIconDelete[K] };
         "swirl-icon-deployed-code": Omit<SwirlIconDeployedCode, keyof SwirlIconDeployedCodeAttributes> & { [K in keyof SwirlIconDeployedCode & keyof SwirlIconDeployedCodeAttributes]?: SwirlIconDeployedCode[K] } & { [K in keyof SwirlIconDeployedCode & keyof SwirlIconDeployedCodeAttributes as `attr:${K}`]?: SwirlIconDeployedCodeAttributes[K] } & { [K in keyof SwirlIconDeployedCode & keyof SwirlIconDeployedCodeAttributes as `prop:${K}`]?: SwirlIconDeployedCode[K] };
@@ -19218,6 +19247,7 @@ declare module "@stencil/core" {
             "swirl-icon-copy": LocalJSX.IntrinsicElements["swirl-icon-copy"] & JSXBase.HTMLAttributes<HTMLSwirlIconCopyElement>;
             "swirl-icon-crop": LocalJSX.IntrinsicElements["swirl-icon-crop"] & JSXBase.HTMLAttributes<HTMLSwirlIconCropElement>;
             "swirl-icon-dark-mode": LocalJSX.IntrinsicElements["swirl-icon-dark-mode"] & JSXBase.HTMLAttributes<HTMLSwirlIconDarkModeElement>;
+            "swirl-icon-data-object": LocalJSX.IntrinsicElements["swirl-icon-data-object"] & JSXBase.HTMLAttributes<HTMLSwirlIconDataObjectElement>;
             "swirl-icon-date-range": LocalJSX.IntrinsicElements["swirl-icon-date-range"] & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
             "swirl-icon-delete": LocalJSX.IntrinsicElements["swirl-icon-delete"] & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-deployed-code": LocalJSX.IntrinsicElements["swirl-icon-deployed-code"] & JSXBase.HTMLAttributes<HTMLSwirlIconDeployedCodeElement>;
