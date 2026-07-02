@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.512.0
+
+### Minor Changes
+
+- [#1740](https://github.com/getflip/swirl/pull/1740)
+  [`8cc0c2838`](https://github.com/getflip/swirl/commit/8cc0c283804122878383e785e6da8f87eb9245bc)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Prevent
+  text selection when double clicking swirl-text-input stepper arrows
+
 ## 0.511.0
 
 ### Minor Changes
