@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.91.0
+
+### Minor Changes
+
+- [#1738](https://github.com/getflip/swirl/pull/1738)
+  [`6acef0b19`](https://github.com/getflip/swirl/commit/6acef0b19038c2c02a167c0f8f050bc85791cb1f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add data-object
+  icon
+
 ## 0.90.0
 
 ### Minor Changes
