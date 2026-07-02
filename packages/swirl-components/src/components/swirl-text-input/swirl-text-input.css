@@ -189,6 +189,8 @@
   color: var(--s-icon-default);
   background-color: transparent;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 
   &:focus:not(:focus-visible) {
     outline: none;
@@ -209,6 +211,8 @@
   right: 0;
   display: flex;
   flex-direction: column;
+  -webkit-user-select: none;
+  user-select: none;
 
   @media (--from-desktop-without-touch) {
     top: -1.25rem;
@@ -223,6 +227,8 @@
   color: var(--s-icon-default);
   background-color: transparent;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 
   &:focus:not(:focus-visible) {
     outline: none;
