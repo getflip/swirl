@@ -4284,6 +4284,7 @@ export namespace Components {
           * @default "No results found."
          */
         "emptyListLabel"?: string;
+        "focusSearchInput": () => Promise<void>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -4299,6 +4300,7 @@ export namespace Components {
           * @default Math.round(Math.random() * 1000000).toString()
          */
         "selectId"?: string;
+        "selectSearchInput": () => Promise<void>;
         "standalone"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];

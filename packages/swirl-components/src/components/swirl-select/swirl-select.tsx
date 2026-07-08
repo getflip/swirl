@@ -7,6 +7,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
@@ -56,7 +57,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private input: HTMLInputElement;
   private observer: MutationObserver;
   private optionList: HTMLSwirlOptionListElement;
-  private searchInput: HTMLInputElement;
+  private searchInput: HTMLInputElement | undefined;
   private swirlPopover: HTMLSwirlPopoverElement;
   private typeaheadBuffer: string = "";
   private typeaheadTimeout: ReturnType<typeof setTimeout>;
@@ -91,6 +92,16 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     }
 
     this.valueChange.emit(this.value);
+  }
+
+  @Method()
+  async selectSearchInput() {
+    this.searchInput?.select();
+  }
+
+  @Method()
+  async focusSearchInput() {
+    this.searchInput?.focus();
   }
 
   private observeSlotChanges() {

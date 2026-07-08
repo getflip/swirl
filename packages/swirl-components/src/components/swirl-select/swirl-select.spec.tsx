@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { SwirlOptionList } from "../swirl-option-list/swirl-option-list";
 import { SwirlOptionListItem } from "../swirl-option-list-item/swirl-option-list-item";
+import { SwirlOptionList } from "../swirl-option-list/swirl-option-list";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
 import { SwirlSelect } from "./swirl-select";
@@ -140,6 +140,81 @@ describe("swirl-select", () => {
     expect(spy.mock.calls[1][0].detail).toEqual(["1"]);
   });
 
+  describe("search input methods", () => {
+    const searchTemplate = `
+      <swirl-select label="Select" with-search="true" search-placeholder="Search">
+        <swirl-option-list-item label="Option 1" value="1"></swirl-option-list-item>
+        <swirl-option-list-item label="Option 2" value="2"></swirl-option-list-item>
+      </swirl-select>
+    `;
+
+    async function createSearchPage() {
+      return newSpecPage({
+        components: [SwirlSelect, SwirlOptionList, SwirlOptionListItem],
+        html: searchTemplate,
+      });
+    }
+
+    it("focusSearchInput focuses the search input", async () => {
+      const page = await createSearchPage();
+      const select = page.rootInstance as SwirlSelect;
+      const searchInput = page.root.querySelector<HTMLInputElement>(
+        ".select__search-input"
+      );
+      const focusSpy = jest.fn();
+
+      searchInput.addEventListener("focus", focusSpy);
+
+      await select.focusSearchInput();
+
+      expect(focusSpy).toHaveBeenCalled();
+    });
+
+    it("selectSearchInput selects the search input text", async () => {
+      const page = await createSearchPage();
+      const select = page.rootInstance as SwirlSelect;
+      const searchInput = page.root.querySelector<HTMLInputElement>(
+        ".select__search-input"
+      );
+      const selectSpy = jest.fn();
+
+      searchInput.select = selectSpy;
+      searchInput.value = "query";
+
+      await select.selectSearchInput();
+
+      expect(selectSpy).toHaveBeenCalled();
+    });
+
+    it("focusSearchInput is a no-op without search", async () => {
+      const page = await newSpecPage({
+        components: [SwirlSelect],
+        html: `
+          <swirl-select label="Select">
+            <swirl-option-list-item label="Option 1" value="1"></swirl-option-list-item>
+          </swirl-select>
+        `,
+      });
+      const select = page.rootInstance as SwirlSelect;
+
+      await expect(select.focusSearchInput()).resolves.toBeUndefined();
+    });
+
+    it("selectSearchInput is a no-op without search", async () => {
+      const page = await newSpecPage({
+        components: [SwirlSelect],
+        html: `
+          <swirl-select label="Select">
+            <swirl-option-list-item label="Option 1" value="1"></swirl-option-list-item>
+          </swirl-select>
+        `,
+      });
+      const select = page.rootInstance as SwirlSelect;
+
+      await expect(select.selectSearchInput()).resolves.toBeUndefined();
+    });
+  });
+
   describe("typeahead", () => {
     const typeaheadTemplate = `
       <swirl-select label="Select">
@@ -166,9 +241,7 @@ describe("swirl-select", () => {
     }
 
     function pressKey(el: Element, key: string) {
-      el.dispatchEvent(
-        new KeyboardEvent("keydown", { key, bubbles: true })
-      );
+      el.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true }));
     }
 
     function getFocusedOptionValue(page: any): string | undefined {
