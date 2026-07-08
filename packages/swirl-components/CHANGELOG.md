@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.513.0
+
+### Minor Changes
+
+- [#1742](https://github.com/getflip/swirl/pull/1742)
+  [`7d01b0607`](https://github.com/getflip/swirl/commit/7d01b06070ed45bc9761b01604b90ef09e9899bd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add selectSearchInput() and
+  focusSearchInput() methods to swirl-select
+
 ## 0.512.0
 
 ### Minor Changes
