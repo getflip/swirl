@@ -1,5 +1,14 @@
 # @getflip/swirl-ai
 
+## 0.514.0
+
+### Minor Changes
+
+- [#1744](https://github.com/getflip/swirl/pull/1744)
+  [`1bef57e80`](https://github.com/getflip/swirl/commit/1bef57e8078345792ab08cb9a1dd3be6620f78a5)
+  Thanks [@danizep](https://github.com/danizep)! - Add select and select-edit
+  icons to Swirl components
+
 ## 0.513.0
 
 ## 0.512.0

@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-ai",
-  "version": "0.513.0",
+  "version": "0.514.0",
   "description": "Swirl Design System AI package with artifacts for AI agents",
   "author": "Flip GmbH",
   "repository": {
@@ -26,7 +26,7 @@
     "lint": "tsc --noEmit"
   },
   "devDependencies": {
-    "@getflip/swirl-components": "0.513.0",
+    "@getflip/swirl-components": "0.514.0",
     "@getflip/swirl-tokens": "2.14.3",
     "@types/node": "25.3.0",
     "tsx": "^4.7.0",
