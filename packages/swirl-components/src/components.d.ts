@@ -3119,6 +3119,22 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconSelect {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconSelectEdit {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconSell {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -8001,6 +8017,18 @@ declare global {
         prototype: HTMLSwirlIconSecureElement;
         new (): HTMLSwirlIconSecureElement;
     };
+    interface HTMLSwirlIconSelectElement extends Components.SwirlIconSelect, HTMLStencilElement {
+    }
+    var HTMLSwirlIconSelectElement: {
+        prototype: HTMLSwirlIconSelectElement;
+        new (): HTMLSwirlIconSelectElement;
+    };
+    interface HTMLSwirlIconSelectEditElement extends Components.SwirlIconSelectEdit, HTMLStencilElement {
+    }
+    var HTMLSwirlIconSelectEditElement: {
+        prototype: HTMLSwirlIconSelectEditElement;
+        new (): HTMLSwirlIconSelectEditElement;
+    };
     interface HTMLSwirlIconSellElement extends Components.SwirlIconSell, HTMLStencilElement {
     }
     var HTMLSwirlIconSellElement: {
@@ -10067,6 +10095,8 @@ declare global {
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
         "swirl-icon-section": HTMLSwirlIconSectionElement;
         "swirl-icon-secure": HTMLSwirlIconSecureElement;
+        "swirl-icon-select": HTMLSwirlIconSelectElement;
+        "swirl-icon-select-edit": HTMLSwirlIconSelectEditElement;
         "swirl-icon-sell": HTMLSwirlIconSellElement;
         "swirl-icon-send": HTMLSwirlIconSendElement;
         "swirl-icon-settings": HTMLSwirlIconSettingsElement;
@@ -13177,6 +13207,22 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSecure {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconSelect {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconSelectEdit {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -17371,6 +17417,16 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconSelectAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconSelectEditAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconSellAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -18894,6 +18950,8 @@ declare namespace LocalJSX {
         "swirl-icon-search-strong": Omit<SwirlIconSearchStrong, keyof SwirlIconSearchStrongAttributes> & { [K in keyof SwirlIconSearchStrong & keyof SwirlIconSearchStrongAttributes]?: SwirlIconSearchStrong[K] } & { [K in keyof SwirlIconSearchStrong & keyof SwirlIconSearchStrongAttributes as `attr:${K}`]?: SwirlIconSearchStrongAttributes[K] } & { [K in keyof SwirlIconSearchStrong & keyof SwirlIconSearchStrongAttributes as `prop:${K}`]?: SwirlIconSearchStrong[K] };
         "swirl-icon-section": Omit<SwirlIconSection, keyof SwirlIconSectionAttributes> & { [K in keyof SwirlIconSection & keyof SwirlIconSectionAttributes]?: SwirlIconSection[K] } & { [K in keyof SwirlIconSection & keyof SwirlIconSectionAttributes as `attr:${K}`]?: SwirlIconSectionAttributes[K] } & { [K in keyof SwirlIconSection & keyof SwirlIconSectionAttributes as `prop:${K}`]?: SwirlIconSection[K] };
         "swirl-icon-secure": Omit<SwirlIconSecure, keyof SwirlIconSecureAttributes> & { [K in keyof SwirlIconSecure & keyof SwirlIconSecureAttributes]?: SwirlIconSecure[K] } & { [K in keyof SwirlIconSecure & keyof SwirlIconSecureAttributes as `attr:${K}`]?: SwirlIconSecureAttributes[K] } & { [K in keyof SwirlIconSecure & keyof SwirlIconSecureAttributes as `prop:${K}`]?: SwirlIconSecure[K] };
+        "swirl-icon-select": Omit<SwirlIconSelect, keyof SwirlIconSelectAttributes> & { [K in keyof SwirlIconSelect & keyof SwirlIconSelectAttributes]?: SwirlIconSelect[K] } & { [K in keyof SwirlIconSelect & keyof SwirlIconSelectAttributes as `attr:${K}`]?: SwirlIconSelectAttributes[K] } & { [K in keyof SwirlIconSelect & keyof SwirlIconSelectAttributes as `prop:${K}`]?: SwirlIconSelect[K] };
+        "swirl-icon-select-edit": Omit<SwirlIconSelectEdit, keyof SwirlIconSelectEditAttributes> & { [K in keyof SwirlIconSelectEdit & keyof SwirlIconSelectEditAttributes]?: SwirlIconSelectEdit[K] } & { [K in keyof SwirlIconSelectEdit & keyof SwirlIconSelectEditAttributes as `attr:${K}`]?: SwirlIconSelectEditAttributes[K] } & { [K in keyof SwirlIconSelectEdit & keyof SwirlIconSelectEditAttributes as `prop:${K}`]?: SwirlIconSelectEdit[K] };
         "swirl-icon-sell": Omit<SwirlIconSell, keyof SwirlIconSellAttributes> & { [K in keyof SwirlIconSell & keyof SwirlIconSellAttributes]?: SwirlIconSell[K] } & { [K in keyof SwirlIconSell & keyof SwirlIconSellAttributes as `attr:${K}`]?: SwirlIconSellAttributes[K] } & { [K in keyof SwirlIconSell & keyof SwirlIconSellAttributes as `prop:${K}`]?: SwirlIconSell[K] };
         "swirl-icon-send": Omit<SwirlIconSend, keyof SwirlIconSendAttributes> & { [K in keyof SwirlIconSend & keyof SwirlIconSendAttributes]?: SwirlIconSend[K] } & { [K in keyof SwirlIconSend & keyof SwirlIconSendAttributes as `attr:${K}`]?: SwirlIconSendAttributes[K] } & { [K in keyof SwirlIconSend & keyof SwirlIconSendAttributes as `prop:${K}`]?: SwirlIconSend[K] };
         "swirl-icon-settings": Omit<SwirlIconSettings, keyof SwirlIconSettingsAttributes> & { [K in keyof SwirlIconSettings & keyof SwirlIconSettingsAttributes]?: SwirlIconSettings[K] } & { [K in keyof SwirlIconSettings & keyof SwirlIconSettingsAttributes as `attr:${K}`]?: SwirlIconSettingsAttributes[K] } & { [K in keyof SwirlIconSettings & keyof SwirlIconSettingsAttributes as `prop:${K}`]?: SwirlIconSettings[K] };
@@ -19411,6 +19469,8 @@ declare module "@stencil/core" {
             "swirl-icon-search-strong": LocalJSX.IntrinsicElements["swirl-icon-search-strong"] & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
             "swirl-icon-section": LocalJSX.IntrinsicElements["swirl-icon-section"] & JSXBase.HTMLAttributes<HTMLSwirlIconSectionElement>;
             "swirl-icon-secure": LocalJSX.IntrinsicElements["swirl-icon-secure"] & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
+            "swirl-icon-select": LocalJSX.IntrinsicElements["swirl-icon-select"] & JSXBase.HTMLAttributes<HTMLSwirlIconSelectElement>;
+            "swirl-icon-select-edit": LocalJSX.IntrinsicElements["swirl-icon-select-edit"] & JSXBase.HTMLAttributes<HTMLSwirlIconSelectEditElement>;
             "swirl-icon-sell": LocalJSX.IntrinsicElements["swirl-icon-sell"] & JSXBase.HTMLAttributes<HTMLSwirlIconSellElement>;
             "swirl-icon-send": LocalJSX.IntrinsicElements["swirl-icon-send"] & JSXBase.HTMLAttributes<HTMLSwirlIconSendElement>;
             "swirl-icon-settings": LocalJSX.IntrinsicElements["swirl-icon-settings"] & JSXBase.HTMLAttributes<HTMLSwirlIconSettingsElement>;
