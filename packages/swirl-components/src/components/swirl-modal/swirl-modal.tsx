@@ -62,6 +62,7 @@ export class SwirlModal {
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
+  @Prop() showBackdrop?: boolean;
   @Prop() variant?: SwirlModalVariant = "default";
   @Prop() contentGap?: SwirlModalSpacing;
   @Prop() hideSecondaryContent?: boolean;
@@ -464,6 +465,8 @@ export class SwirlModal {
       "modal--sidebar-scrolled": this.sidebarScrolled,
       "modal--sidebar-scrolled-down": this.sidebarScrolledDown,
       "modal--sidebar-scrollable": this.sidebarScrollable,
+      "modal--show-backdrop": this.showBackdrop === true,
+      "modal--hide-backdrop": this.showBackdrop === false,
     });
 
     return (

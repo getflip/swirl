@@ -21454,6 +21454,10 @@
           ]
         },
         {
+          "name": "show-backdrop",
+          "description": ""
+        },
+        {
           "name": "show-fullscreen-button",
           "description": ""
         },

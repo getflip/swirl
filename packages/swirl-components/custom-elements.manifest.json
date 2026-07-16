@@ -43808,6 +43808,13 @@
               "fieldName": "secondaryContentPaddingInlineStart"
             },
             {
+              "name": "show-backdrop",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "showBackdrop"
+            },
+            {
               "name": "show-fullscreen-button",
               "type": {
                 "text": "boolean"
@@ -44169,6 +44176,15 @@
               },
               "readonly": true,
               "attribute": "secondary-content-padding-inline-start"
+            },
+            {
+              "kind": "field",
+              "name": "showBackdrop",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "show-backdrop"
             },
             {
               "kind": "field",
