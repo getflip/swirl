@@ -20,4 +20,8 @@
     outline: var(--s-border-width-default) solid var(--s-border-strong);
     outline-offset: calc(var(--s-border-width-default) * -1);
   }
+
+  &--variant-translucent {
+    background-color: transparent;
+  }
 }

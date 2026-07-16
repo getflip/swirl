@@ -10,7 +10,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlToggleGroupVariant = "flat" | "outline";
+export type SwirlToggleGroupVariant = "flat" | "outline" | "translucent";
 
 @Component({
   shadow: true,
