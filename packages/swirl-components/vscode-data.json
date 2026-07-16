@@ -26568,6 +26568,9 @@
             },
             {
               "name": "outline"
+            },
+            {
+              "name": "translucent"
             }
           ]
         }

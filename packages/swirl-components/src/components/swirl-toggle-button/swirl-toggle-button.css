@@ -16,7 +16,7 @@
   border: none;
   border-radius: 0.375rem;
   color: var(--s-text-default);
-  background-color: var(--s-surface-sunken-default);
+  background-color: transparent;
   font: inherit;
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-lg);

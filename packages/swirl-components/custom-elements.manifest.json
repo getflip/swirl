@@ -63035,7 +63035,7 @@
             {
               "name": "variant",
               "type": {
-                "text": "\"flat\" | \"outline\"",
+                "text": "\"flat\" | \"outline\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlToggleGroupVariant"
@@ -63077,7 +63077,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "\"flat\" | \"outline\"",
+                "text": "\"flat\" | \"outline\" | \"translucent\"",
                 "references": [
                   {
                     "name": "SwirlToggleGroupVariant"
