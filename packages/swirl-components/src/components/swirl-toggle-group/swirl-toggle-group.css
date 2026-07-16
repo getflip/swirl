@@ -22,6 +22,6 @@
   }
 
   &--variant-translucent {
-    background-color: transparent;
+    background-color: var(--s-surface-raised-default);
   }
 }
