@@ -1,5 +1,16 @@
 # @getflip/swirl-ai
 
+## 0.514.1
+
+### Patch Changes
+
+- [#1746](https://github.com/getflip/swirl/pull/1746)
+  [`82029004c`](https://github.com/getflip/swirl/commit/82029004ce20906b6c225d0b2ae4d0f5d15db587)
+  Thanks [@lukasballier](https://github.com/lukasballier)! - Improve toggle
+  filter contrast by removing the default SwirlToggleButton background and
+  adding a raised surface background for the translucent SwirlToggleGroup
+  variant.
+
 ## 0.514.0
 
 ### Minor Changes
