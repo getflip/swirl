@@ -3778,6 +3778,7 @@ export namespace Components {
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "setFullscreen": (isFullscreen: boolean) => Promise<void>;
+        "showBackdrop"?: boolean;
         "showFullscreenButton"?: boolean;
         /**
           * @default "Close sidebar"
@@ -13809,6 +13810,7 @@ declare namespace LocalJSX {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "showBackdrop"?: boolean;
         "showFullscreenButton"?: boolean;
         /**
           * @default "Close sidebar"
@@ -17747,6 +17749,7 @@ declare namespace LocalJSX {
         "padded": boolean;
         "primaryActionLabel": string;
         "secondaryActionLabel": string;
+        "showBackdrop": boolean;
         "variant": SwirlModalVariant;
         "contentGap": SwirlModalSpacing;
         "hideSecondaryContent": boolean;
