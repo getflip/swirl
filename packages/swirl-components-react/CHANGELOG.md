@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.515.0
+
+### Minor Changes
+
+- [#1747](https://github.com/getflip/swirl/pull/1747)
+  [`72888f987`](https://github.com/getflip/swirl/commit/72888f9876b524096a00010ae52c582e8ba92708)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add backdrop
+  toggle to swirl modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`72888f987`](https://github.com/getflip/swirl/commit/72888f9876b524096a00010ae52c582e8ba92708)]:
+  - @getflip/swirl-components@0.515.0
+
 ## 0.514.1
 
 ### Patch Changes
