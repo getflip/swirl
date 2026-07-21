@@ -26,6 +26,7 @@
   font: inherit;
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-lg);
+  min-width: var(--s-line-height-lg);
   text-decoration: none;
   cursor: pointer;
   gap: var(--s-space-8);
@@ -68,6 +69,7 @@
     padding: var(--s-space-8) var(--s-space-12);
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
+    min-width: var(--s-line-height-sm);
     gap: var(--s-space-4);
   }
 }
@@ -491,6 +493,7 @@
 .button--size-s {
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
+  min-width: var(--s-line-height-sm);
   gap: var(--s-space-4);
   border-radius: var(--s-border-radius-sm);
 
