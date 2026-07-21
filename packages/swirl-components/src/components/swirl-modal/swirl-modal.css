@@ -87,11 +87,22 @@
   align-items: stretch;
 
   &.modal--closing {
-    animation: 0.15s modal-drawer-slide-out;
-    animation-fill-mode: forwards;
+    & .modal__body {
+      animation: 0.15s modal-drawer-slide-out;
+      animation-fill-mode: forwards;
 
-    @media (prefers-reduced-motion) {
-      animation: none;
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+
+    & .modal__backdrop {
+      animation: 0.15s modal-fade-out;
+      animation-fill-mode: forwards;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
     }
   }
 
