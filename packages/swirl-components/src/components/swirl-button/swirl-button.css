@@ -203,6 +203,14 @@
     outline-color: var(--s-border-default);
   }
 
+  &.button--intent-strong:where(:not(:disabled):not(.button--disabled)) {
+    color: var(--s-text-default);
+
+    & .button__icon {
+      color: var(--s-icon-strong);
+    }
+  }
+
   &.button--intent-critical:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-critical);
     outline-color: var(--s-border-critical);
