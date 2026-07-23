@@ -1,5 +1,33 @@
 # @getflip/swirl-components
 
+## 0.516.0
+
+### Minor Changes
+
+- [#1750](https://github.com/getflip/swirl/pull/1750)
+  [`56ec55e61`](https://github.com/getflip/swirl/commit/56ec55e6134ad433bc8b194ff599802b01e373e6)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Fix Drawer
+  backdrop fade-out
+
+* [#1751](https://github.com/getflip/swirl/pull/1751)
+  [`7321d3b0b`](https://github.com/getflip/swirl/commit/7321d3b0b918212b49b4acd5668aa56653fe7a92)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add
+  min-width to swirl-button for improved layout consistency
+
+### Patch Changes
+
+- [#1754](https://github.com/getflip/swirl/pull/1754)
+  [`cf4592931`](https://github.com/getflip/swirl/commit/cf4592931eb2128cdff29979c39d78709ddd6618)
+  Thanks [@lukasballier](https://github.com/lukasballier)! - Fix SwirlSeparator
+  (color=critical) label rendering with the subdued text token instead of the
+  critical text token
+
+* [#1753](https://github.com/getflip/swirl/pull/1753)
+  [`c3907322d`](https://github.com/getflip/swirl/commit/c3907322d490be6c15d98c6cab0ee3f75ec47ef9)
+  Thanks [@marcomFlip](https://github.com/marcomFlip)! - Fix SwirlButton
+  (intent=strong, variant=outline) icon and text rendering with the
+  subdued/default gray tokens instead of the strong/default dark tokens
+
 ## 0.515.0
 
 ### Minor Changes
