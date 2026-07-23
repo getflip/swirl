@@ -6,7 +6,7 @@
   height: 100vh;
   --console-footer-height: 4.25rem;
   --console-app-bar-height: 3.5rem;
-  --console-sidebar-width: 18.5rem;
+  --console-sidebar-width: 18.5rem; /* 296px */
 
   & * {
     box-sizing: border-box;
@@ -15,14 +15,34 @@
 
 .console-layout {
   display: grid;
+  overflow: hidden;
   width: 100%;
   height: 100%;
+  padding: var(--s-space-8);
+  background: var(
+    --swirl-console-layout-background,
+    radial-gradient(
+        140% 78% at 50% 116%,
+        rgba(20, 90, 245, 0.46) 0%,
+        rgba(20, 90, 245, 0) 68%
+      )
+      var(--s-surface-sunken-default)
+  );
+  gap: var(--s-space-8);
   grid-template-columns: 1fr;
+  /* Constrain the single row to the layout height so the inner areas stay
+     within the viewport and scroll internally instead of growing the layout */
+  grid-template-rows: minmax(0, 1fr);
   grid-template-areas: "main";
 
   @media (--from-tablet) {
+    transition: grid-template-columns 0.15s, gap 0.15s;
     grid-template-columns: var(--console-sidebar-width) 1fr;
     grid-template-areas: "sidebar main";
+  }
+
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 }
 
@@ -35,11 +55,28 @@
   }
 }
 
+.console-layout--sidebar-hidden {
+  @media (--from-tablet) {
+    gap: 0;
+    grid-template-columns: 0 1fr;
+
+    & .console-layout__sidebar {
+      visibility: hidden;
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+      /* Delay hiding until the slide-out finished; when showing, the base
+         transition applies and visibility flips back instantly so the
+         sidebar can receive focus right away */
+      transition: transform 0.15s, opacity 0.15s, visibility 0s linear 0.15s;
+    }
+  }
+}
+
 .console-layout--empty-app-bar {
   & .console-layout__main {
     @media (--from-tablet) {
       grid-template-areas: "content";
-      grid-template-rows: 1fr;
+      grid-template-rows: minmax(0, 1fr);
     }
   }
 
@@ -56,93 +93,140 @@
       grid-template-areas:
         "content"
         "footer";
-      grid-template-rows: 1fr min-content;
+      grid-template-rows: minmax(0, 1fr) min-content;
     }
   }
 }
 
 .console-layout__sidebar {
   position: fixed;
-  z-index: var(--s-z-30);
-  top: 4rem;
+  /* Above the sticky app bar (z-30) so the full-height drawer is not
+     covered by it on mobile */
+  z-index: var(--s-z-40);
+  top: 0;
   bottom: 0;
   left: 0;
-  display: grid;
-  overflow-x: hidden;
-  overflow-y: auto;
+  display: block;
   width: 100%;
-  max-width: 20rem;
-  border-right: var(--s-border-width-default) solid var(--s-border-default);
+  max-width: var(--console-sidebar-width);
   transition: transform 0.15s, box-shadow 0.15s;
   transform: translate3d(-100%, 0, 0);
-  grid-template-rows: auto 1fr min-content;
-  grid-template-areas:
-    "header"
-    "navigation"
-    "user";
 
-  @media (prefers-reduced-motion) {
-    transition: none;
+  @media (--to-tablet) {
+    --swirl-sidebar-navigation-background: var(--s-background-default);
+    --swirl-sidebar-navigation-border-radius: 0 var(--s-border-radius-l)
+      var(--s-border-radius-l) 0;
   }
 
   @media (--from-tablet) {
     position: static;
     top: auto;
     left: auto;
+    /* Fixed width keeps the content from reflowing while the grid column
+       animates; the transform slides the sidebar out in lockstep with the
+       shrinking column, clipped by the shell's overflow */
+    min-width: var(--console-sidebar-width);
+    /* Allow the sidebar grid cell to shrink so its nav scrolls internally
+       rather than stretching the layout to the navigation's full height */
+    min-height: 0;
     max-width: none;
     height: 100%;
+    transition: transform 0.15s, opacity 0.15s;
     transform: none;
     box-shadow: none;
     grid-area: sidebar;
   }
-}
 
-.console-layout__header {
-  overflow: hidden;
-  min-width: 0;
-  padding: var(--s-space-20) var(--s-space-24);
-  background-color: var(--s-background-default);
-  grid-area: header;
-}
-
-.console-layout__navigation {
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-top: var(--s-space-8);
-  padding-bottom: var(--s-space-8);
-  background-color: var(--s-background-default);
-  grid-area: navigation;
-}
-
-.console-layout__user {
-  overflow: hidden;
-  padding: var(--s-space-16) var(--s-space-24);
-  border-top: var(--s-border-width-default) solid var(--s-border-default);
-  background-color: var(--s-background-default);
-  grid-area: user;
-  min-height: var(--console-footer-height);
-  box-sizing: border-box;
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
 }
 
 .console-layout__main {
+  position: relative;
   display: grid;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  /* Allow the grid cell to shrink below its content's intrinsic height so the
+     content area scrolls internally instead of stretching the layout */
+  min-height: 0;
+  border-radius: var(--s-border-radius-l);
+  background-color: var(--s-background-default);
   grid-area: main;
   gap: var(--s-border-width-default);
-  grid-template-rows: var(--console-app-bar-height) 1fr;
+  grid-template-rows: var(--console-app-bar-height) minmax(0, 1fr);
   grid-template-areas:
     "app-bar"
     "content";
 }
 
 .console-layout--has-footer .console-layout__main {
-  grid-template-rows: var(--console-app-bar-height) 1fr min-content;
+  grid-template-rows: var(--console-app-bar-height) minmax(0, 1fr) min-content;
   grid-template-areas:
     "app-bar"
     "content"
     "footer";
+}
+
+.console-layout__show-sidebar-button {
+  position: absolute;
+  z-index: var(--s-z-20);
+  top: var(--s-space-16);
+  left: var(--s-space-16);
+  display: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: var(--s-space-8);
+  align-items: center;
+  justify-content: center;
+  border: var(--s-border-width-default) solid
+    var(--s-border-translucent-outline);
+  border-radius: var(--s-border-radius-sm);
+  color: var(--s-icon-strong);
+  background-color: var(--s-translucent-medium-default);
+  backdrop-filter: blur(var(--s-blur-s));
+  -webkit-backdrop-filter: blur(var(--s-blur-s));
+  box-shadow: var(--s-shadow-level-2);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--s-translucent-medium-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-translucent-medium-pressed);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--s-shadow-level-2), 0 0 0 0.125rem var(--s-focus-default);
+  }
+
+  @media (--from-tablet) {
+    display: flex;
+  }
+}
+
+/* When the default app bar is visible, the sidebar toggle moves into it
+   instead of floating over the content */
+.console-layout:not(.console-layout--empty-app-bar):not(
+    .console-layout--has-custom-app-bar
+  )
+  .console-layout__show-sidebar-button {
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+/* A custom app bar occupies the top edge; offset the floating button below it */
+.console-layout--has-custom-app-bar .console-layout__show-sidebar-button {
+  @media (--from-tablet) {
+    top: calc(var(--console-app-bar-height) + var(--s-space-16));
+  }
 }
 
 .console-layout__app-bar {
@@ -168,6 +252,14 @@
 .console-layout__mobile-navigation-button {
   @media (--from-tablet) {
     display: none;
+  }
+}
+
+/* Desktop: show the app bar toggle when the sidebar is hidden (the default
+   app bar is only rendered visible when appName/help button are set) */
+.console-layout--sidebar-hidden .console-layout__mobile-navigation-button {
+  @media (--from-tablet) {
+    display: inline-block;
   }
 }
 
@@ -220,27 +312,6 @@
   }
 
   width: 100%;
-}
-
-.console-layout__logo {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: var(--s-space-12);
-}
-
-.console-layout__logo-mark {
-  flex-shrink: 0;
-}
-
-.console-layout__logo-text {
-  min-width: 0;
-
-  &::part(text) {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
 }
 
 .console-layout__content-header {

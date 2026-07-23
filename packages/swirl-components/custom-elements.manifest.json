@@ -6724,6 +6724,14 @@
               "fieldName": "showNavigationButtonLabel"
             },
             {
+              "name": "sidebar-visibility-state-storage-key",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"SWIRL_CONSOLE_LAYOUT_SIDEBAR_STATE\"",
+              "fieldName": "sidebarVisibilityStateStorageKey"
+            },
+            {
               "name": "subheading",
               "type": {
                 "text": "string"
@@ -6848,6 +6856,16 @@
             },
             {
               "kind": "field",
+              "name": "sidebarVisibilityStateStorageKey",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"SWIRL_CONSOLE_LAYOUT_SIDEBAR_STATE\"",
+              "readonly": true,
+              "attribute": "sidebar-visibility-state-storage-key"
+            },
+            {
+              "kind": "field",
               "name": "subheading",
               "type": {
                 "text": "string"
@@ -6858,7 +6876,7 @@
             {
               "kind": "method",
               "name": "hideSidebar",
-              "description": "Hide the mobile navigation.",
+              "description": "Hide the sidebar.",
               "return": {
                 "type": {
                   "text": "Promise<void>",
@@ -6874,7 +6892,7 @@
             {
               "kind": "method",
               "name": "showSidebar",
-              "description": "Show the mobile navigation.",
+              "description": "Show the sidebar.",
               "return": {
                 "type": {
                   "text": "Promise<void>",
@@ -6890,7 +6908,7 @@
             {
               "kind": "method",
               "name": "toggleSidebar",
-              "description": "Toggle the mobile navigation visibility.",
+              "description": "Toggle the sidebar visibility.",
               "return": {
                 "type": {
                   "text": "Promise<void>",
@@ -6928,6 +6946,12 @@
                   }
                 ]
               }
+            },
+            {
+              "name": "sidebarVisibilityChange",
+              "type": {
+                "text": "CustomEvent<boolean>"
+              }
             }
           ],
           "slots": [
@@ -6950,6 +6974,10 @@
             {
               "name": "heading",
               "description": "The main content's heading (only rendered if \"heading\" prop is not set)."
+            },
+            {
+              "name": "logo",
+              "description": "Custom logo (forwarded to the sidebar navigation)"
             },
             {
               "name": "navigation",
@@ -50164,6 +50192,170 @@
           "name": "swirl-shell-navigation-item",
           "declaration": {
             "name": "SwirlShellNavigationItem"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-sidebar-navigation/swirl-sidebar-navigation.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-sidebar-navigation",
+          "name": "SwirlSidebarNavigation",
+          "attributes": [
+            {
+              "name": "app-name",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "appName"
+            },
+            {
+              "name": "collapse-button-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Hide navigation\"",
+              "fieldName": "collapseButtonLabel"
+            },
+            {
+              "name": "elevated",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "elevated"
+            },
+            {
+              "name": "hide-collapse-button",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "hideCollapseButton"
+            },
+            {
+              "name": "navigation-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Main\"",
+              "fieldName": "navigationLabel"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "app-name"
+            },
+            {
+              "kind": "field",
+              "name": "collapseButtonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Hide navigation\"",
+              "readonly": true,
+              "attribute": "collapse-button-label"
+            },
+            {
+              "kind": "field",
+              "name": "elevated",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "elevated"
+            },
+            {
+              "kind": "field",
+              "name": "hideCollapseButton",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "hide-collapse-button"
+            },
+            {
+              "kind": "field",
+              "name": "navigationLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Main\"",
+              "readonly": true,
+              "attribute": "navigation-label"
+            },
+            {
+              "kind": "method",
+              "name": "focusCollapseButton",
+              "description": "Focus the collapse button.",
+              "return": {
+                "type": {
+                  "text": "Promise<void>",
+                  "references": [
+                    {
+                      "name": "Promise",
+                      "package": "global:"
+                    },
+                    {
+                      "name": "HTMLButtonElement",
+                      "package": "global:"
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "collapseButtonClick",
+              "type": {
+                "text": "CustomEvent<MouseEvent>",
+                "references": [
+                  {
+                    "name": "MouseEvent",
+                    "package": "global:"
+                  }
+                ]
+              }
+            }
+          ],
+          "slots": [
+            {
+              "name": "(default)",
+              "description": "Navigation content (e.g. swirl-tree-navigation)"
+            },
+            {
+              "name": "logo",
+              "description": "Custom logo/brand mark shown in the header (32×32). Falls back to the Flip logo mark."
+            },
+            {
+              "name": "user",
+              "description": "User profile content pinned to the bottom"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlSidebarNavigation",
+          "declaration": {
+            "name": "SwirlSidebarNavigation"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-sidebar-navigation",
+          "declaration": {
+            "name": "SwirlSidebarNavigation"
           }
         }
       ]

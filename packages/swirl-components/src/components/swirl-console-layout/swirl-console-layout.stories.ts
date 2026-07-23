@@ -17,11 +17,38 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-console-layout", args);
 
   element.innerHTML = `
-    <swirl-box padding="24" slot="navigation"><a href="#">Test</a></swirl-box>
-    <div slot="user">User</div>
+    <swirl-tree-navigation label="Main" slot="navigation">
+      <swirl-tree-navigation-item href="#home" icon="home" label="Home" navigation-item-id="home"></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item icon="person" label="User management" navigation-item-id="user-management">
+        <swirl-tree-navigation-item active="true" href="#users" label="Users" navigation-item-id="users"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item href="#user-groups" label="User groups" navigation-item-id="user-groups"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item href="#user-attributes" label="User attributes" navigation-item-id="user-attributes"></swirl-tree-navigation-item>
+        <swirl-tree-navigation-item href="#post-on-behalf" label="Post on behalf" navigation-item-id="post-on-behalf"></swirl-tree-navigation-item>
+      </swirl-tree-navigation-item>
+      <swirl-tree-navigation-item href="#content" icon="description" label="Content" navigation-item-id="content"></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item href="#analytics" icon="bar-chart" label="Analytics" navigation-item-id="analytics"></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item href="#settings" icon="settings" label="Settings" navigation-item-id="settings"></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item href="#access-security" icon="secure" label="Access &amp; security" navigation-item-id="access-security"></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item href="#roadmap" icon="roadmap" label="Roadmap" navigation-item-id="roadmap"></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item href="#excel-import" icon="upload" label="Excel import" navigation-item-id="excel-import"></swirl-tree-navigation-item>
+    </swirl-tree-navigation>
+    <div slot="user" style="display: flex; align-items: center; gap: 0.5rem; width: 100%; padding: 0.5rem; border-radius: 0.75rem;">
+      <swirl-avatar label="Catherine Carter" size="s"></swirl-avatar>
+      <swirl-text size="sm" weight="medium">Catherine Carter</swirl-text>
+    </div>
     <swirl-box center-block center-inline cover slot="content">Content</swirl-box>
-    <swirl-button intent="primary" label="Button" slot="content-header-tools" variant="flat"></swirl-button>
+    <swirl-button intent="primary" label="Add user" slot="content-header-tools" variant="flat"></swirl-button>
   `;
+
+  // Expand the "User management" item to match the design
+  customElements.whenDefined("swirl-tree-navigation-item").then(async () => {
+    const userManagementItem = element.querySelector(
+      '[navigation-item-id="user-management"]'
+    ) as HTMLSwirlTreeNavigationItemElement;
+
+    await userManagementItem?.componentOnReady();
+    await userManagementItem?.expand();
+  });
 
   return element;
 };
@@ -29,11 +56,9 @@ const Template = (args) => {
 export const SwirlConsoleLayout = Template.bind({});
 
 SwirlConsoleLayout.args = {
-  appName: "App name",
-  heading: "Heading",
-  showBackButton: true,
-  showHelpButton: true,
-  subheading: "Subheading",
+  heading: "Users",
+  logoText: "Admin Console",
+  maxContentWidth: "1200px",
 };
 
 const TemplateWithBothSlots = (args) => {
