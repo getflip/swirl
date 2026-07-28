@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlProgressIndicatorSize = "xs" | "s" | "m";
+export type SwirlProgressIndicatorSize = "xs" | "s" | "m" | "l";
 
 export type SwirlProgressIndicatorVariant = "bar" | "circle";
 
@@ -12,6 +12,7 @@ const circleSizeConfig: Record<
   xs: { radius: 8, strokeWidth: 2 },
   s: { radius: 10, strokeWidth: 2 },
   m: { radius: 20, strokeWidth: 4 },
+  l: { radius: 40, strokeWidth: 8 },
 };
 
 @Component({
