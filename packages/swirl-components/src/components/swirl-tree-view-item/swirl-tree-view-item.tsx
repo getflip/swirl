@@ -589,7 +589,7 @@ export class SwirlTreeViewItem {
                   : undefined,
             }}
           >
-            <slot></slot>
+            <slot onSlotchange={() => forceUpdate(this.el)}></slot>
           </ul>
         </Tag>
       </Host>

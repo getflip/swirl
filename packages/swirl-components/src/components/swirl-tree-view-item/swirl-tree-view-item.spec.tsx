@@ -91,4 +91,69 @@ describe("swirl-tree-view-item", () => {
 
     expect(page.root.querySelector('[aria-selected="true"]')).toBeTruthy();
   });
+
+  it("re-renders when slotted children change", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTreeViewItem],
+      html: `
+        <div role="tree">
+          <swirl-tree-view-item item-id="parent" label="Parent"></swirl-tree-view-item>
+        </div>
+      `,
+    });
+
+    expect(page.root.querySelector("[aria-expanded]")).toBeNull();
+
+    const child = document.createElement("swirl-tree-view-item");
+    child.setAttribute("item-id", "child-1");
+    child.setAttribute("label", "Child");
+    page.root.appendChild(child);
+
+    dispatchDefaultSlotChange(page.root);
+    await page.waitForChanges();
+
+    expect(page.root.querySelector('[aria-expanded="false"]')).not.toBeNull();
+
+    page.root.querySelector("swirl-tree-view-item").remove();
+
+    dispatchDefaultSlotChange(page.root);
+    await page.waitForChanges();
+
+    expect(page.root.querySelector("[aria-expanded]")).toBeNull();
+  });
 });
+
+function findDefaultSlotReferenceNode(root: Node): Node | undefined {
+  const walk = (node: Node): Node | undefined => {
+    const slotReferenceNode = node as HTMLElement & {
+      "s-sr"?: boolean;
+      "s-sn"?: string;
+    };
+
+    if (slotReferenceNode["s-sr"] && slotReferenceNode["s-sn"] === "") {
+      return node;
+    }
+
+    for (const childNode of Array.from(node.childNodes)) {
+      const foundNode = walk(childNode);
+
+      if (foundNode) {
+        return foundNode;
+      }
+    }
+
+    return undefined;
+  };
+
+  return walk(root);
+}
+
+function dispatchDefaultSlotChange(root: Node) {
+  const defaultSlotReferenceNode = findDefaultSlotReferenceNode(root);
+  console.log(
+    "dispatchDefaultSlotChange",
+    defaultSlotReferenceNode.textContent
+  );
+
+  defaultSlotReferenceNode?.dispatchEvent(new Event("slotchange"));
+}
