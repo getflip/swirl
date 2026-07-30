@@ -19,26 +19,12 @@ swirl-tree-view-item {
 
   & .tree-view-item__link {
     background-color: var(--s-translucent-low-pressed);
-
-    &:hover {
-      & .tree-view-item__drag-handle {
-        opacity: 0;
-      }
-    }
   }
 }
 
 .tree-view-item--ghost {
   border: var(--s-border-width-default) solid var(--s-border-highlight);
   border-radius: var(--s-border-radius-sm);
-
-  & .tree-view-item__link {
-    &:hover {
-      & .tree-view-item__drag-handle {
-        opacity: 0;
-      }
-    }
-  }
 }
 
 .tree-view-item--moving-via-keyboard {
@@ -101,10 +87,6 @@ swirl-tree-view-item {
 
   &:hover {
     background-color: var(--s-state-hovered);
-
-    & .tree-view-item__drag-handle {
-      opacity: 1;
-    }
   }
 
   &:active {
@@ -121,17 +103,6 @@ swirl-tree-view-item {
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
-  }
-}
-
-.tree-view-item__drag-handle {
-  display: inline-flex;
-  flex-shrink: 0;
-  cursor: grab;
-  opacity: 0;
-
-  &:active {
-    cursor: grabbing;
   }
 }
 

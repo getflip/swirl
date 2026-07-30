@@ -24,9 +24,5 @@ swirl-tree-view {
   & .tree-view-item__link:hover,
   & .tree-view-item__link:active {
     background-color: var(--s-background-default) !important;
-
-    & .tree-view-item__drag-handle {
-      opacity: 0;
-    }
   }
 }

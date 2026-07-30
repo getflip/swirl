@@ -545,11 +545,6 @@ export class SwirlTreeViewItem {
             role={semantics === "tree" ? "treeitem" : undefined}
             tabIndex={tabIndex}
           >
-            {!this.disableDrag && this.enableDragDrop && (
-              <span class="tree-view-item__drag-handle">
-                <swirl-icon-drag-handle size={20}></swirl-icon-drag-handle>
-              </span>
-            )}
             {this.expandable && semantics === "tree" && (
               <span class="tree-view-item__toggle-icon">
                 {hasChildren && (
