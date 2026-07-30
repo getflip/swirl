@@ -23,6 +23,24 @@ The SwirlTreeViewItem component is used to render nodes in a
   code={`<swirl-tree-view-item href="#" icon="🪁" item-id="item" label="Label"></swirl-tree-view-item>`}
 />
 
+## Custom expand/collapse icons
+
+Set `expanded-icon`/`collapsed-icon` to override the toggle icons for this
+item (and any descendant that doesn't set its own). Without these props, the
+item falls back to the `expanded-icon`/`collapsed-icon` set on the parent
+[swirl-tree-view](?path=/docs/components-swirltreeview--docs), or to
+`expand-more`/`chevron-right` if neither is set.
+
+<Source
+  code={`<swirl-tree-view-item
+    collapsed-icon="folder"
+    expanded-icon="folder-open"
+    href="#"
+    item-id="item"
+    label="Label"
+></swirl-tree-view-item>`}
+/>
+
 ## Related components
 
 - **[swirl-tree-view](?path=/docs/components-swirltreeview--docs)** (parent) —

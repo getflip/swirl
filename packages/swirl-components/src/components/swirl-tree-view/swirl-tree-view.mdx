@@ -40,6 +40,22 @@ hierarchical list of items.
 </swirl-tree-view>`}
 />
 
+## Custom expand/collapse icons
+
+By default, tree view items use `expand-more`/`chevron-right` as their
+expand/collapse toggle icons. Set `expanded-icon`/`collapsed-icon` on
+`swirl-tree-view` to change the default for every item in the tree; set the
+same props on an individual `swirl-tree-view-item` to override it for that
+item (and its descendants that don't set their own).
+
+<Source
+  code={`<swirl-tree-view collapsed-icon="add" expanded-icon="remove" label="Tree view">
+    <swirl-tree-view-item item-id="item-1" label="Item 1">
+        <swirl-tree-view-item item-id="item-1-1" label="Item 1.1"></swirl-tree-view-item>
+    </swirl-tree-view-item>
+</swirl-tree-view>`}
+/>
+
 ## Related components
 
 - **[swirl-tree-view-item](?path=/docs/components-swirltreeviewitem--docs)**
