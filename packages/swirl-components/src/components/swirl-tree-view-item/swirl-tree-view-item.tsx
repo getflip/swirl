@@ -42,8 +42,10 @@ export class SwirlTreeViewItem {
   @Element() el!: HTMLSwirlTreeViewItemElement;
 
   @Prop() active?: boolean;
+  @Prop() collapsedIcon?: string;
   @Prop() disableDrag?: boolean;
   @Prop() expandable?: boolean = true;
+  @Prop() expandedIcon?: string;
   @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() iconColor?: SwirlIconColor;
@@ -68,6 +70,8 @@ export class SwirlTreeViewItem {
   @State() level = 0;
   @State() movingViaKeyboard = false;
   @State() selected = false;
+  @State() treeCollapsedIcon?: string;
+  @State() treeExpandedIcon?: string;
 
   private childList?: HTMLElement;
   private positionBeforeKeyboardMove?: {
@@ -85,6 +89,14 @@ export class SwirlTreeViewItem {
     this.enableDragDrop = treeView?.enableDragDrop;
     this.canDrop = treeView?.canDrop;
     this.dragDropItemSelector = treeView?.dragDropItemSelector;
+    this.treeCollapsedIcon =
+      treeView?.collapsedIcon ??
+      treeView?.getAttribute("collapsed-icon") ??
+      undefined;
+    this.treeExpandedIcon =
+      treeView?.expandedIcon ??
+      treeView?.getAttribute("expanded-icon") ??
+      undefined;
   }
 
   componentDidLoad() {
@@ -485,6 +497,11 @@ export class SwirlTreeViewItem {
 
     const shouldShowChildrenDropZone = this.enableDragDrop && !hasChildren;
 
+    const expandedGlyph =
+      this.expandedIcon ?? this.treeExpandedIcon ?? "expand-more";
+    const collapsedGlyph =
+      this.collapsedIcon ?? this.treeCollapsedIcon ?? "chevron-right";
+
     const semantics = this.getSemantics();
     const expanded = this.expanded || semantics !== "tree";
     const tabIndex =
@@ -538,15 +555,17 @@ export class SwirlTreeViewItem {
                 {hasChildren && (
                   <Fragment>
                     {expanded ? (
-                      <swirl-icon-expand-more
+                      <swirl-icon
+                        glyph={expandedGlyph}
                         onClick={this.onClickCollapse}
                         size={24}
-                      ></swirl-icon-expand-more>
+                      ></swirl-icon>
                     ) : (
-                      <swirl-icon-chevron-right
+                      <swirl-icon
+                        glyph={collapsedGlyph}
                         onClick={this.onClickExpand}
                         size={24}
-                      ></swirl-icon-chevron-right>
+                      ></swirl-icon>
                     )}
                   </Fragment>
                 )}

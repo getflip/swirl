@@ -57,9 +57,11 @@ export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
   @Prop() canDrop?: SwirlTreeViewCanDropHandler;
+  @Prop() collapsedIcon?: string;
   @Prop() dragDropInstructions = defaultDragDropInstructions;
   @Prop() dragDropItemSelector?: string = "swirl-tree-view-item";
   @Prop() enableDragDrop?: boolean;
+  @Prop() expandedIcon?: string;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
   @Prop() semantics?: SwirlTreeViewSemantics = "tree";

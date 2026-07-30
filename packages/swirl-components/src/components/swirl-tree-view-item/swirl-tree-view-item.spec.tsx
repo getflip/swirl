@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+import { SwirlTreeView } from "../swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewItem } from "./swirl-tree-view-item";
 
 describe("swirl-tree-view-item", () => {
@@ -90,5 +91,51 @@ describe("swirl-tree-view-item", () => {
     await page.waitForChanges();
 
     expect(page.root.querySelector('[aria-selected="true"]')).toBeTruthy();
+  });
+
+  it("uses custom expanded/collapsed icons from the tree view, overridable per item", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTreeView, SwirlTreeViewItem],
+      html: `
+        <swirl-tree-view label="Tree" expanded-icon="remove" collapsed-icon="add">
+          <swirl-tree-view-item item-id="1" label="Inherits tree icons">
+            <swirl-tree-view-item item-id="2" label="Child"></swirl-tree-view-item>
+          </swirl-tree-view-item>
+          <swirl-tree-view-item
+            item-id="3"
+            label="Overrides tree icons"
+            expanded-icon="folder-open"
+            collapsed-icon="folder"
+          >
+            <swirl-tree-view-item item-id="4" label="Child"></swirl-tree-view-item>
+          </swirl-tree-view-item>
+        </swirl-tree-view>
+      `,
+    });
+
+    const inheritingItem = page.root.querySelector(
+      '[item-id="1"]'
+    ) as HTMLSwirlTreeViewItemElement;
+    const overridingItem = page.root.querySelector(
+      '[item-id="3"]'
+    ) as HTMLSwirlTreeViewItemElement;
+
+    expect(
+      inheritingItem.querySelector("swirl-icon")?.getAttribute("glyph")
+    ).toBe("add");
+    expect(
+      overridingItem.querySelector("swirl-icon")?.getAttribute("glyph")
+    ).toBe("folder");
+
+    await inheritingItem.expand();
+    await overridingItem.expand();
+    await page.waitForChanges();
+
+    expect(
+      inheritingItem.querySelector("swirl-icon")?.getAttribute("glyph")
+    ).toBe("remove");
+    expect(
+      overridingItem.querySelector("swirl-icon")?.getAttribute("glyph")
+    ).toBe("folder-open");
   });
 });

@@ -63804,6 +63804,13 @@
           "name": "SwirlTreeView",
           "attributes": [
             {
+              "name": "collapsed-icon",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "collapsedIcon"
+            },
+            {
               "name": "drag-drop-item-selector",
               "type": {
                 "text": "string"
@@ -63817,6 +63824,13 @@
                 "text": "boolean"
               },
               "fieldName": "enableDragDrop"
+            },
+            {
+              "name": "expanded-icon",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "expandedIcon"
             },
             {
               "name": "label",
@@ -63855,6 +63869,15 @@
             },
             {
               "kind": "field",
+              "name": "collapsedIcon",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "collapsed-icon"
+            },
+            {
+              "kind": "field",
               "name": "dragDropInstructions",
               "type": {
                 "text": "{ cannotBeDropped: string; end: string; initial: string; moved: string; start: string; }"
@@ -63880,6 +63903,15 @@
               },
               "readonly": true,
               "attribute": "enable-drag-drop"
+            },
+            {
+              "kind": "field",
+              "name": "expandedIcon",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "expanded-icon"
             },
             {
               "kind": "field",
@@ -64005,6 +64037,13 @@
               "fieldName": "active"
             },
             {
+              "name": "collapsed-icon",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "collapsedIcon"
+            },
+            {
               "name": "disable-drag",
               "type": {
                 "text": "boolean"
@@ -64018,6 +64057,13 @@
               },
               "default": "true",
               "fieldName": "expandable"
+            },
+            {
+              "name": "expanded-icon",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "expandedIcon"
             },
             {
               "name": "href",
@@ -64073,6 +64119,15 @@
             },
             {
               "kind": "field",
+              "name": "collapsedIcon",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "collapsed-icon"
+            },
+            {
+              "kind": "field",
               "name": "disableDrag",
               "type": {
                 "text": "boolean"
@@ -64089,6 +64144,15 @@
               "default": "true",
               "readonly": true,
               "attribute": "expandable"
+            },
+            {
+              "kind": "field",
+              "name": "expandedIcon",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "expanded-icon"
             },
             {
               "kind": "field",

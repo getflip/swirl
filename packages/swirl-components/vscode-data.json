@@ -26788,11 +26788,19 @@
       },
       "attributes": [
         {
+          "name": "collapsed-icon",
+          "description": ""
+        },
+        {
           "name": "drag-drop-item-selector",
           "description": ""
         },
         {
           "name": "enable-drag-drop",
+          "description": ""
+        },
+        {
+          "name": "expanded-icon",
           "description": ""
         },
         {
@@ -26825,11 +26833,19 @@
           "description": ""
         },
         {
+          "name": "collapsed-icon",
+          "description": ""
+        },
+        {
           "name": "disable-drag",
           "description": ""
         },
         {
           "name": "expandable",
+          "description": ""
+        },
+        {
+          "name": "expanded-icon",
           "description": ""
         },
         {

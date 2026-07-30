@@ -5735,6 +5735,7 @@ export namespace Components {
     }
     interface SwirlTreeView {
         "canDrop"?: SwirlTreeViewCanDropHandler;
+        "collapsedIcon"?: string;
         /**
           * @default defaultDragDropInstructions
          */
@@ -5745,6 +5746,7 @@ export namespace Components {
         "dragDropItemSelector"?: string;
         "enableDragDrop"?: boolean;
         "expandItems": (itemIds: string[]) => Promise<void>;
+        "expandedIcon"?: string;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
         /**
@@ -5755,12 +5757,14 @@ export namespace Components {
     interface SwirlTreeViewItem {
         "active"?: boolean;
         "collapse": () => Promise<void>;
+        "collapsedIcon"?: string;
         "disableDrag"?: boolean;
         "expand": () => Promise<void>;
         /**
           * @default true
          */
         "expandable"?: boolean;
+        "expandedIcon"?: string;
         "href"?: string;
         "icon"?: string;
         "iconColor"?: SwirlIconColor1;
@@ -15729,6 +15733,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeView {
         "canDrop"?: SwirlTreeViewCanDropHandler;
+        "collapsedIcon"?: string;
         /**
           * @default defaultDragDropInstructions
          */
@@ -15738,6 +15743,7 @@ declare namespace LocalJSX {
          */
         "dragDropItemSelector"?: string;
         "enableDragDrop"?: boolean;
+        "expandedIcon"?: string;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
         "onDropItem"?: (event: SwirlTreeViewCustomEvent<SwirlTreeViewDropItemEvent>) => void;
@@ -15752,11 +15758,13 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
+        "collapsedIcon"?: string;
         "disableDrag"?: boolean;
         /**
           * @default true
          */
         "expandable"?: boolean;
+        "expandedIcon"?: string;
         "href"?: string;
         "icon"?: string;
         "iconColor"?: SwirlIconColor1;
@@ -18655,15 +18663,19 @@ declare namespace LocalJSX {
         "external": boolean;
     }
     interface SwirlTreeViewAttributes {
+        "collapsedIcon": string;
         "dragDropItemSelector": string;
         "enableDragDrop": boolean;
+        "expandedIcon": string;
         "label": string;
         "semantics": SwirlTreeViewSemantics;
     }
     interface SwirlTreeViewItemAttributes {
         "active": boolean;
+        "collapsedIcon": string;
         "disableDrag": boolean;
         "expandable": boolean;
+        "expandedIcon": string;
         "href": string;
         "icon": string;
         "iconColor": SwirlIconColor;
