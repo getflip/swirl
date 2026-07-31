@@ -36,7 +36,7 @@ describe("swirl-tree-view", () => {
             <li class="tree-view-item" role="none">
               <a aria-expanded="false" aria-level="1" aria-owns="undefined-children" aria-selected="true" class="tree-view-item__link" href="#" role="treeitem" tabindex="0">
                 <span class="tree-view-item__toggle-icon">
-                  <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
+                  <swirl-icon glyph="chevron-right" size="24"></swirl-icon>
                 </span>
                 <span class="tree-view-item__icon">
                   🪁
@@ -68,7 +68,7 @@ describe("swirl-tree-view", () => {
                   <li class="tree-view-item" role="none">
                     <a aria-expanded="false" aria-level="2" aria-owns="undefined-children" aria-selected="false" class="tree-view-item__link" href="#" role="treeitem" tabindex="-1">
                       <span class="tree-view-item__toggle-icon">
-                        <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
+                        <swirl-icon glyph="chevron-right" size="24"></swirl-icon>
                       </span>
                       <span class="tree-view-item__icon">
                         🌎
@@ -157,7 +157,7 @@ describe("swirl-tree-view", () => {
             <li class="tree-view-item" role="none">
               <a aria-expanded="false" aria-level="1" aria-owns="undefined-children" aria-selected="false" class="tree-view-item__link" href="#" role="treeitem" tabindex="-1">
                 <span class="tree-view-item__toggle-icon">
-                  <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
+                  <swirl-icon glyph="chevron-right" size="24"></swirl-icon>
                 </span>
                 <span class="tree-view-item__icon">
                   🎮
