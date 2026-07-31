@@ -1,5 +1,15 @@
 # @getflip/swirl-ai
 
+## 0.516.0
+
+### Minor Changes
+
+- [#1757](https://github.com/getflip/swirl/pull/1757)
+  [`991e37909`](https://github.com/getflip/swirl/commit/991e37909590a077d71a3f9ed32b40e3a1bc3e94)
+  Thanks [@danizep](https://github.com/danizep)! - Update SwirlTreeView to
+  support custom expand/collapse icons, remove drag handle and add grouping line
+  on nested items
+
 ## 0.515.0
 
 ## 0.514.1
