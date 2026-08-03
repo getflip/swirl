@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.517.0
+
+### Minor Changes
+
+- [#1758](https://github.com/getflip/swirl/pull/1758)
+  [`a477973a0`](https://github.com/getflip/swirl/commit/a477973a0d2769040da1db052505bb2edb51d3fb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-aria-label attribute to
+  swirl-chip
+
 ## 0.516.0
 
 ### Minor Changes
