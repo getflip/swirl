@@ -47,6 +47,7 @@ export class SwirlChip {
   @Prop() removable?: boolean;
   @Prop() removeButtonLabel?: string = "Remove";
   @Prop() size?: SwirlChipSize = "m";
+  @Prop() swirlAriaLabel?: string;
   @Prop() variant?: SwirlChipVariant = "outline";
 
   @Event() chipClick: EventEmitter<MouseEvent>;
@@ -119,6 +120,7 @@ export class SwirlChip {
       <Host>
         <Tag
           aria-disabled={this.interactive && this.disabled ? "true" : undefined}
+          aria-label={this.swirlAriaLabel}
           aria-pressed={
             this.pressed !== undefined ? String(this.pressed) : undefined
           }

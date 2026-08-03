@@ -117,6 +117,17 @@ describe("swirl-chip", () => {
     `);
   });
 
+  it("renders with custom aria label", async () => {
+    const page = await newSpecPage({
+      components: [SwirlChip],
+      html: `<swirl-chip label="Label" swirl-aria-label="Custom label"></swirl-chip>`,
+    });
+
+    expect(page.root.querySelector(".chip").getAttribute("aria-label")).toBe(
+      "Custom label"
+    );
+  });
+
   it("renders disabled remove button", async () => {
     const page = await newSpecPage({
       components: [SwirlChip],
