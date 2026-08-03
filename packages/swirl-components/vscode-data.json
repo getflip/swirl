@@ -2573,6 +2573,10 @@
           ]
         },
         {
+          "name": "swirl-aria-label",
+          "description": ""
+        },
+        {
           "name": "trailing-icon",
           "description": ""
         },

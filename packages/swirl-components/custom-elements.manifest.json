@@ -6042,6 +6042,13 @@
               "fieldName": "size"
             },
             {
+              "name": "swirl-aria-label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "swirlAriaLabel"
+            },
+            {
               "name": "trailing-icon",
               "type": {
                 "text": "string"
@@ -6206,6 +6213,15 @@
               "default": "\"m\"",
               "readonly": true,
               "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "swirlAriaLabel",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "swirl-aria-label"
             },
             {
               "kind": "field",

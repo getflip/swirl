@@ -775,6 +775,7 @@ export namespace Components {
           * @default "m"
          */
         "size"?: SwirlChipSize;
+        "swirlAriaLabel"?: string;
         "trailingIcon"?: string;
         /**
           * @default "outline"
@@ -10903,6 +10904,7 @@ declare namespace LocalJSX {
           * @default "m"
          */
         "size"?: SwirlChipSize;
+        "swirlAriaLabel"?: string;
         "trailingIcon"?: string;
         /**
           * @default "outline"
@@ -16070,6 +16072,7 @@ declare namespace LocalJSX {
         "removable": boolean;
         "removeButtonLabel": string;
         "size": SwirlChipSize;
+        "swirlAriaLabel": string;
         "variant": SwirlChipVariant;
     }
     interface SwirlColorInputAttributes {
