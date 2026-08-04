@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.517.1
+
+### Patch Changes
+
+- [#1760](https://github.com/getflip/swirl/pull/1760)
+  [`309b88f5f`](https://github.com/getflip/swirl/commit/309b88f5f2837c93d46745ab5a527ca6898a4470)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-lightbox from
+  interfering with native video player keyboard controls
+
 ## 0.517.0
 
 ### Minor Changes
