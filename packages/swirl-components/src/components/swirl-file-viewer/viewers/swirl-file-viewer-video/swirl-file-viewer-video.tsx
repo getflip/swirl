@@ -129,6 +129,10 @@ export class SwirlFileViewerVideo {
     this.playbackEnded.emit(this.getPlaybackDetail());
   };
 
+  private onKeyDown = (event: Event) => {
+    event.stopPropagation();
+  };
+
   render() {
     return (
       <Host class="file-viewer-video">
@@ -137,6 +141,7 @@ export class SwirlFileViewerVideo {
           class="file-viewer-video__video"
           controls
           onEnded={this.onNativeEnded}
+          onKeyDown={this.onKeyDown}
           onPause={this.onNativePause}
           onPlay={this.onNativePlay}
           onRateChange={this.onNativeRateChange}
