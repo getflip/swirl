@@ -41785,6 +41785,1209 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/swirl-illustration.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration",
+          "name": "SwirlIllustration",
+          "attributes": [
+            {
+              "name": "svg",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "svg"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "svg",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "svg"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustration",
+          "declaration": {
+            "name": "SwirlIllustration"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration",
+          "declaration": {
+            "name": "SwirlIllustration"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-absence.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-absence",
+          "name": "SwirlIllustrationAbsence",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationAbsence",
+          "declaration": {
+            "name": "SwirlIllustrationAbsence"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-absence",
+          "declaration": {
+            "name": "SwirlIllustrationAbsence"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-bookmarks.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-bookmarks",
+          "name": "SwirlIllustrationBookmarks",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationBookmarks",
+          "declaration": {
+            "name": "SwirlIllustrationBookmarks"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-bookmarks",
+          "declaration": {
+            "name": "SwirlIllustrationBookmarks"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-calendar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-calendar",
+          "name": "SwirlIllustrationCalendar",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationCalendar",
+          "declaration": {
+            "name": "SwirlIllustrationCalendar"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-calendar",
+          "declaration": {
+            "name": "SwirlIllustrationCalendar"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-celebrate.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-celebrate",
+          "name": "SwirlIllustrationCelebrate",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationCelebrate",
+          "declaration": {
+            "name": "SwirlIllustrationCelebrate"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-celebrate",
+          "declaration": {
+            "name": "SwirlIllustrationCelebrate"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-chat-messages.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-chat-messages",
+          "name": "SwirlIllustrationChatMessages",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationChatMessages",
+          "declaration": {
+            "name": "SwirlIllustrationChatMessages"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-chat-messages",
+          "declaration": {
+            "name": "SwirlIllustrationChatMessages"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-chat-security.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-chat-security",
+          "name": "SwirlIllustrationChatSecurity",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationChatSecurity",
+          "declaration": {
+            "name": "SwirlIllustrationChatSecurity"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-chat-security",
+          "declaration": {
+            "name": "SwirlIllustrationChatSecurity"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-completed-task.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-completed-task",
+          "name": "SwirlIllustrationCompletedTask",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationCompletedTask",
+          "declaration": {
+            "name": "SwirlIllustrationCompletedTask"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-completed-task",
+          "declaration": {
+            "name": "SwirlIllustrationCompletedTask"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-construction.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-construction",
+          "name": "SwirlIllustrationConstruction",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationConstruction",
+          "declaration": {
+            "name": "SwirlIllustrationConstruction"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-construction",
+          "declaration": {
+            "name": "SwirlIllustrationConstruction"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-contrast.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-contrast",
+          "name": "SwirlIllustrationContrast",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationContrast",
+          "declaration": {
+            "name": "SwirlIllustrationContrast"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-contrast",
+          "declaration": {
+            "name": "SwirlIllustrationContrast"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-directory.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-directory",
+          "name": "SwirlIllustrationDirectory",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationDirectory",
+          "declaration": {
+            "name": "SwirlIllustrationDirectory"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-directory",
+          "declaration": {
+            "name": "SwirlIllustrationDirectory"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-door.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-door",
+          "name": "SwirlIllustrationDoor",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationDoor",
+          "declaration": {
+            "name": "SwirlIllustrationDoor"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-door",
+          "declaration": {
+            "name": "SwirlIllustrationDoor"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-empty-folder.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-empty-folder",
+          "name": "SwirlIllustrationEmptyFolder",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationEmptyFolder",
+          "declaration": {
+            "name": "SwirlIllustrationEmptyFolder"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-empty-folder",
+          "declaration": {
+            "name": "SwirlIllustrationEmptyFolder"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-invites.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-invites",
+          "name": "SwirlIllustrationInvites",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationInvites",
+          "declaration": {
+            "name": "SwirlIllustrationInvites"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-invites",
+          "declaration": {
+            "name": "SwirlIllustrationInvites"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-invites-declined.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-invites-declined",
+          "name": "SwirlIllustrationInvitesDeclined",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationInvitesDeclined",
+          "declaration": {
+            "name": "SwirlIllustrationInvitesDeclined"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-invites-declined",
+          "declaration": {
+            "name": "SwirlIllustrationInvitesDeclined"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-key.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-key",
+          "name": "SwirlIllustrationKey",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationKey",
+          "declaration": {
+            "name": "SwirlIllustrationKey"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-key",
+          "declaration": {
+            "name": "SwirlIllustrationKey"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-keyboard.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-keyboard",
+          "name": "SwirlIllustrationKeyboard",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationKeyboard",
+          "declaration": {
+            "name": "SwirlIllustrationKeyboard"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-keyboard",
+          "declaration": {
+            "name": "SwirlIllustrationKeyboard"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-light.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-light",
+          "name": "SwirlIllustrationLight",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationLight",
+          "declaration": {
+            "name": "SwirlIllustrationLight"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-light",
+          "declaration": {
+            "name": "SwirlIllustrationLight"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-mail.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-mail",
+          "name": "SwirlIllustrationMail",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationMail",
+          "declaration": {
+            "name": "SwirlIllustrationMail"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-mail",
+          "declaration": {
+            "name": "SwirlIllustrationMail"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-maintenance.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-maintenance",
+          "name": "SwirlIllustrationMaintenance",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationMaintenance",
+          "declaration": {
+            "name": "SwirlIllustrationMaintenance"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-maintenance",
+          "declaration": {
+            "name": "SwirlIllustrationMaintenance"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-meteor.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-meteor",
+          "name": "SwirlIllustrationMeteor",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationMeteor",
+          "declaration": {
+            "name": "SwirlIllustrationMeteor"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-meteor",
+          "declaration": {
+            "name": "SwirlIllustrationMeteor"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-moon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-moon",
+          "name": "SwirlIllustrationMoon",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationMoon",
+          "declaration": {
+            "name": "SwirlIllustrationMoon"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-moon",
+          "declaration": {
+            "name": "SwirlIllustrationMoon"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-news.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-news",
+          "name": "SwirlIllustrationNews",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationNews",
+          "declaration": {
+            "name": "SwirlIllustrationNews"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-news",
+          "declaration": {
+            "name": "SwirlIllustrationNews"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-no-notifications.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-no-notifications",
+          "name": "SwirlIllustrationNoNotifications",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationNoNotifications",
+          "declaration": {
+            "name": "SwirlIllustrationNoNotifications"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-no-notifications",
+          "declaration": {
+            "name": "SwirlIllustrationNoNotifications"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-notification.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-notification",
+          "name": "SwirlIllustrationNotification",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationNotification",
+          "declaration": {
+            "name": "SwirlIllustrationNotification"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-notification",
+          "declaration": {
+            "name": "SwirlIllustrationNotification"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-paper-roll.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-paper-roll",
+          "name": "SwirlIllustrationPaperRoll",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationPaperRoll",
+          "declaration": {
+            "name": "SwirlIllustrationPaperRoll"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-paper-roll",
+          "declaration": {
+            "name": "SwirlIllustrationPaperRoll"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-pending.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-pending",
+          "name": "SwirlIllustrationPending",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationPending",
+          "declaration": {
+            "name": "SwirlIllustrationPending"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-pending",
+          "declaration": {
+            "name": "SwirlIllustrationPending"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-profile.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-profile",
+          "name": "SwirlIllustrationProfile",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationProfile",
+          "declaration": {
+            "name": "SwirlIllustrationProfile"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-profile",
+          "declaration": {
+            "name": "SwirlIllustrationProfile"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-root.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-root",
+          "name": "SwirlIllustrationRoot",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationRoot",
+          "declaration": {
+            "name": "SwirlIllustrationRoot"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-root",
+          "declaration": {
+            "name": "SwirlIllustrationRoot"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-search.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-search",
+          "name": "SwirlIllustrationSearch",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationSearch",
+          "declaration": {
+            "name": "SwirlIllustrationSearch"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-search",
+          "declaration": {
+            "name": "SwirlIllustrationSearch"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-shifts.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-shifts",
+          "name": "SwirlIllustrationShifts",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationShifts",
+          "declaration": {
+            "name": "SwirlIllustrationShifts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-shifts",
+          "declaration": {
+            "name": "SwirlIllustrationShifts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-sorry.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-sorry",
+          "name": "SwirlIllustrationSorry",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationSorry",
+          "declaration": {
+            "name": "SwirlIllustrationSorry"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-sorry",
+          "declaration": {
+            "name": "SwirlIllustrationSorry"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-start.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-start",
+          "name": "SwirlIllustrationStart",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationStart",
+          "declaration": {
+            "name": "SwirlIllustrationStart"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-start",
+          "declaration": {
+            "name": "SwirlIllustrationStart"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-tasks.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-tasks",
+          "name": "SwirlIllustrationTasks",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationTasks",
+          "declaration": {
+            "name": "SwirlIllustrationTasks"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-tasks",
+          "declaration": {
+            "name": "SwirlIllustrationTasks"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-warning-sign.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-warning-sign",
+          "name": "SwirlIllustrationWarningSign",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationWarningSign",
+          "declaration": {
+            "name": "SwirlIllustrationWarningSign"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-warning-sign",
+          "declaration": {
+            "name": "SwirlIllustrationWarningSign"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/swirl-illustration/illustrations/swirl-illustration-wave.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "customElement": true,
+          "tagName": "swirl-illustration-wave",
+          "name": "SwirlIllustrationWave",
+          "cssParts": [
+            {
+              "name": "illustration"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SwirlIllustrationWave",
+          "declaration": {
+            "name": "SwirlIllustrationWave"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "swirl-illustration-wave",
+          "declaration": {
+            "name": "SwirlIllustrationWave"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/swirl-image-grid/swirl-image-grid.tsx",
       "declarations": [
         {
