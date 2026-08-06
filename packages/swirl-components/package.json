@@ -23,6 +23,7 @@
     "vscode-data.json",
     "components.json",
     "icons.json",
+    "illustrations.json",
     "symbols.json"
   ],
   "scripts": {

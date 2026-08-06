@@ -3512,6 +3512,79 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIllustration {
+        "svg": string;
+    }
+    interface SwirlIllustrationAbsence {
+    }
+    interface SwirlIllustrationBookmarks {
+    }
+    interface SwirlIllustrationCalendar {
+    }
+    interface SwirlIllustrationCelebrate {
+    }
+    interface SwirlIllustrationChatMessages {
+    }
+    interface SwirlIllustrationChatSecurity {
+    }
+    interface SwirlIllustrationCompletedTask {
+    }
+    interface SwirlIllustrationConstruction {
+    }
+    interface SwirlIllustrationContrast {
+    }
+    interface SwirlIllustrationDirectory {
+    }
+    interface SwirlIllustrationDoor {
+    }
+    interface SwirlIllustrationEmptyFolder {
+    }
+    interface SwirlIllustrationInvites {
+    }
+    interface SwirlIllustrationInvitesDeclined {
+    }
+    interface SwirlIllustrationKey {
+    }
+    interface SwirlIllustrationKeyboard {
+    }
+    interface SwirlIllustrationLight {
+    }
+    interface SwirlIllustrationMail {
+    }
+    interface SwirlIllustrationMaintenance {
+    }
+    interface SwirlIllustrationMeteor {
+    }
+    interface SwirlIllustrationMoon {
+    }
+    interface SwirlIllustrationNews {
+    }
+    interface SwirlIllustrationNoNotifications {
+    }
+    interface SwirlIllustrationNotification {
+    }
+    interface SwirlIllustrationPaperRoll {
+    }
+    interface SwirlIllustrationPending {
+    }
+    interface SwirlIllustrationProfile {
+    }
+    interface SwirlIllustrationRoot {
+    }
+    interface SwirlIllustrationSearch {
+    }
+    interface SwirlIllustrationShifts {
+    }
+    interface SwirlIllustrationSorry {
+    }
+    interface SwirlIllustrationStart {
+    }
+    interface SwirlIllustrationTasks {
+    }
+    interface SwirlIllustrationWarningSign {
+    }
+    interface SwirlIllustrationWave {
+    }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
         /**
@@ -8317,6 +8390,222 @@ declare global {
         prototype: HTMLSwirlIconZoomOutElement;
         new (): HTMLSwirlIconZoomOutElement;
     };
+    interface HTMLSwirlIllustrationElement extends Components.SwirlIllustration, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationElement: {
+        prototype: HTMLSwirlIllustrationElement;
+        new (): HTMLSwirlIllustrationElement;
+    };
+    interface HTMLSwirlIllustrationAbsenceElement extends Components.SwirlIllustrationAbsence, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationAbsenceElement: {
+        prototype: HTMLSwirlIllustrationAbsenceElement;
+        new (): HTMLSwirlIllustrationAbsenceElement;
+    };
+    interface HTMLSwirlIllustrationBookmarksElement extends Components.SwirlIllustrationBookmarks, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationBookmarksElement: {
+        prototype: HTMLSwirlIllustrationBookmarksElement;
+        new (): HTMLSwirlIllustrationBookmarksElement;
+    };
+    interface HTMLSwirlIllustrationCalendarElement extends Components.SwirlIllustrationCalendar, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationCalendarElement: {
+        prototype: HTMLSwirlIllustrationCalendarElement;
+        new (): HTMLSwirlIllustrationCalendarElement;
+    };
+    interface HTMLSwirlIllustrationCelebrateElement extends Components.SwirlIllustrationCelebrate, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationCelebrateElement: {
+        prototype: HTMLSwirlIllustrationCelebrateElement;
+        new (): HTMLSwirlIllustrationCelebrateElement;
+    };
+    interface HTMLSwirlIllustrationChatMessagesElement extends Components.SwirlIllustrationChatMessages, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationChatMessagesElement: {
+        prototype: HTMLSwirlIllustrationChatMessagesElement;
+        new (): HTMLSwirlIllustrationChatMessagesElement;
+    };
+    interface HTMLSwirlIllustrationChatSecurityElement extends Components.SwirlIllustrationChatSecurity, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationChatSecurityElement: {
+        prototype: HTMLSwirlIllustrationChatSecurityElement;
+        new (): HTMLSwirlIllustrationChatSecurityElement;
+    };
+    interface HTMLSwirlIllustrationCompletedTaskElement extends Components.SwirlIllustrationCompletedTask, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationCompletedTaskElement: {
+        prototype: HTMLSwirlIllustrationCompletedTaskElement;
+        new (): HTMLSwirlIllustrationCompletedTaskElement;
+    };
+    interface HTMLSwirlIllustrationConstructionElement extends Components.SwirlIllustrationConstruction, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationConstructionElement: {
+        prototype: HTMLSwirlIllustrationConstructionElement;
+        new (): HTMLSwirlIllustrationConstructionElement;
+    };
+    interface HTMLSwirlIllustrationContrastElement extends Components.SwirlIllustrationContrast, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationContrastElement: {
+        prototype: HTMLSwirlIllustrationContrastElement;
+        new (): HTMLSwirlIllustrationContrastElement;
+    };
+    interface HTMLSwirlIllustrationDirectoryElement extends Components.SwirlIllustrationDirectory, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationDirectoryElement: {
+        prototype: HTMLSwirlIllustrationDirectoryElement;
+        new (): HTMLSwirlIllustrationDirectoryElement;
+    };
+    interface HTMLSwirlIllustrationDoorElement extends Components.SwirlIllustrationDoor, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationDoorElement: {
+        prototype: HTMLSwirlIllustrationDoorElement;
+        new (): HTMLSwirlIllustrationDoorElement;
+    };
+    interface HTMLSwirlIllustrationEmptyFolderElement extends Components.SwirlIllustrationEmptyFolder, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationEmptyFolderElement: {
+        prototype: HTMLSwirlIllustrationEmptyFolderElement;
+        new (): HTMLSwirlIllustrationEmptyFolderElement;
+    };
+    interface HTMLSwirlIllustrationInvitesElement extends Components.SwirlIllustrationInvites, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationInvitesElement: {
+        prototype: HTMLSwirlIllustrationInvitesElement;
+        new (): HTMLSwirlIllustrationInvitesElement;
+    };
+    interface HTMLSwirlIllustrationInvitesDeclinedElement extends Components.SwirlIllustrationInvitesDeclined, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationInvitesDeclinedElement: {
+        prototype: HTMLSwirlIllustrationInvitesDeclinedElement;
+        new (): HTMLSwirlIllustrationInvitesDeclinedElement;
+    };
+    interface HTMLSwirlIllustrationKeyElement extends Components.SwirlIllustrationKey, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationKeyElement: {
+        prototype: HTMLSwirlIllustrationKeyElement;
+        new (): HTMLSwirlIllustrationKeyElement;
+    };
+    interface HTMLSwirlIllustrationKeyboardElement extends Components.SwirlIllustrationKeyboard, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationKeyboardElement: {
+        prototype: HTMLSwirlIllustrationKeyboardElement;
+        new (): HTMLSwirlIllustrationKeyboardElement;
+    };
+    interface HTMLSwirlIllustrationLightElement extends Components.SwirlIllustrationLight, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationLightElement: {
+        prototype: HTMLSwirlIllustrationLightElement;
+        new (): HTMLSwirlIllustrationLightElement;
+    };
+    interface HTMLSwirlIllustrationMailElement extends Components.SwirlIllustrationMail, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationMailElement: {
+        prototype: HTMLSwirlIllustrationMailElement;
+        new (): HTMLSwirlIllustrationMailElement;
+    };
+    interface HTMLSwirlIllustrationMaintenanceElement extends Components.SwirlIllustrationMaintenance, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationMaintenanceElement: {
+        prototype: HTMLSwirlIllustrationMaintenanceElement;
+        new (): HTMLSwirlIllustrationMaintenanceElement;
+    };
+    interface HTMLSwirlIllustrationMeteorElement extends Components.SwirlIllustrationMeteor, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationMeteorElement: {
+        prototype: HTMLSwirlIllustrationMeteorElement;
+        new (): HTMLSwirlIllustrationMeteorElement;
+    };
+    interface HTMLSwirlIllustrationMoonElement extends Components.SwirlIllustrationMoon, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationMoonElement: {
+        prototype: HTMLSwirlIllustrationMoonElement;
+        new (): HTMLSwirlIllustrationMoonElement;
+    };
+    interface HTMLSwirlIllustrationNewsElement extends Components.SwirlIllustrationNews, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationNewsElement: {
+        prototype: HTMLSwirlIllustrationNewsElement;
+        new (): HTMLSwirlIllustrationNewsElement;
+    };
+    interface HTMLSwirlIllustrationNoNotificationsElement extends Components.SwirlIllustrationNoNotifications, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationNoNotificationsElement: {
+        prototype: HTMLSwirlIllustrationNoNotificationsElement;
+        new (): HTMLSwirlIllustrationNoNotificationsElement;
+    };
+    interface HTMLSwirlIllustrationNotificationElement extends Components.SwirlIllustrationNotification, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationNotificationElement: {
+        prototype: HTMLSwirlIllustrationNotificationElement;
+        new (): HTMLSwirlIllustrationNotificationElement;
+    };
+    interface HTMLSwirlIllustrationPaperRollElement extends Components.SwirlIllustrationPaperRoll, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationPaperRollElement: {
+        prototype: HTMLSwirlIllustrationPaperRollElement;
+        new (): HTMLSwirlIllustrationPaperRollElement;
+    };
+    interface HTMLSwirlIllustrationPendingElement extends Components.SwirlIllustrationPending, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationPendingElement: {
+        prototype: HTMLSwirlIllustrationPendingElement;
+        new (): HTMLSwirlIllustrationPendingElement;
+    };
+    interface HTMLSwirlIllustrationProfileElement extends Components.SwirlIllustrationProfile, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationProfileElement: {
+        prototype: HTMLSwirlIllustrationProfileElement;
+        new (): HTMLSwirlIllustrationProfileElement;
+    };
+    interface HTMLSwirlIllustrationRootElement extends Components.SwirlIllustrationRoot, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationRootElement: {
+        prototype: HTMLSwirlIllustrationRootElement;
+        new (): HTMLSwirlIllustrationRootElement;
+    };
+    interface HTMLSwirlIllustrationSearchElement extends Components.SwirlIllustrationSearch, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationSearchElement: {
+        prototype: HTMLSwirlIllustrationSearchElement;
+        new (): HTMLSwirlIllustrationSearchElement;
+    };
+    interface HTMLSwirlIllustrationShiftsElement extends Components.SwirlIllustrationShifts, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationShiftsElement: {
+        prototype: HTMLSwirlIllustrationShiftsElement;
+        new (): HTMLSwirlIllustrationShiftsElement;
+    };
+    interface HTMLSwirlIllustrationSorryElement extends Components.SwirlIllustrationSorry, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationSorryElement: {
+        prototype: HTMLSwirlIllustrationSorryElement;
+        new (): HTMLSwirlIllustrationSorryElement;
+    };
+    interface HTMLSwirlIllustrationStartElement extends Components.SwirlIllustrationStart, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationStartElement: {
+        prototype: HTMLSwirlIllustrationStartElement;
+        new (): HTMLSwirlIllustrationStartElement;
+    };
+    interface HTMLSwirlIllustrationTasksElement extends Components.SwirlIllustrationTasks, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationTasksElement: {
+        prototype: HTMLSwirlIllustrationTasksElement;
+        new (): HTMLSwirlIllustrationTasksElement;
+    };
+    interface HTMLSwirlIllustrationWarningSignElement extends Components.SwirlIllustrationWarningSign, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationWarningSignElement: {
+        prototype: HTMLSwirlIllustrationWarningSignElement;
+        new (): HTMLSwirlIllustrationWarningSignElement;
+    };
+    interface HTMLSwirlIllustrationWaveElement extends Components.SwirlIllustrationWave, HTMLStencilElement {
+    }
+    var HTMLSwirlIllustrationWaveElement: {
+        prototype: HTMLSwirlIllustrationWaveElement;
+        new (): HTMLSwirlIllustrationWaveElement;
+    };
     interface HTMLSwirlImageGridElement extends Components.SwirlImageGrid, HTMLStencilElement {
     }
     var HTMLSwirlImageGridElement: {
@@ -10150,6 +10439,42 @@ declare global {
         "swirl-icon-workspace-premium": HTMLSwirlIconWorkspacePremiumElement;
         "swirl-icon-zoom-in": HTMLSwirlIconZoomInElement;
         "swirl-icon-zoom-out": HTMLSwirlIconZoomOutElement;
+        "swirl-illustration": HTMLSwirlIllustrationElement;
+        "swirl-illustration-absence": HTMLSwirlIllustrationAbsenceElement;
+        "swirl-illustration-bookmarks": HTMLSwirlIllustrationBookmarksElement;
+        "swirl-illustration-calendar": HTMLSwirlIllustrationCalendarElement;
+        "swirl-illustration-celebrate": HTMLSwirlIllustrationCelebrateElement;
+        "swirl-illustration-chat-messages": HTMLSwirlIllustrationChatMessagesElement;
+        "swirl-illustration-chat-security": HTMLSwirlIllustrationChatSecurityElement;
+        "swirl-illustration-completed-task": HTMLSwirlIllustrationCompletedTaskElement;
+        "swirl-illustration-construction": HTMLSwirlIllustrationConstructionElement;
+        "swirl-illustration-contrast": HTMLSwirlIllustrationContrastElement;
+        "swirl-illustration-directory": HTMLSwirlIllustrationDirectoryElement;
+        "swirl-illustration-door": HTMLSwirlIllustrationDoorElement;
+        "swirl-illustration-empty-folder": HTMLSwirlIllustrationEmptyFolderElement;
+        "swirl-illustration-invites": HTMLSwirlIllustrationInvitesElement;
+        "swirl-illustration-invites-declined": HTMLSwirlIllustrationInvitesDeclinedElement;
+        "swirl-illustration-key": HTMLSwirlIllustrationKeyElement;
+        "swirl-illustration-keyboard": HTMLSwirlIllustrationKeyboardElement;
+        "swirl-illustration-light": HTMLSwirlIllustrationLightElement;
+        "swirl-illustration-mail": HTMLSwirlIllustrationMailElement;
+        "swirl-illustration-maintenance": HTMLSwirlIllustrationMaintenanceElement;
+        "swirl-illustration-meteor": HTMLSwirlIllustrationMeteorElement;
+        "swirl-illustration-moon": HTMLSwirlIllustrationMoonElement;
+        "swirl-illustration-news": HTMLSwirlIllustrationNewsElement;
+        "swirl-illustration-no-notifications": HTMLSwirlIllustrationNoNotificationsElement;
+        "swirl-illustration-notification": HTMLSwirlIllustrationNotificationElement;
+        "swirl-illustration-paper-roll": HTMLSwirlIllustrationPaperRollElement;
+        "swirl-illustration-pending": HTMLSwirlIllustrationPendingElement;
+        "swirl-illustration-profile": HTMLSwirlIllustrationProfileElement;
+        "swirl-illustration-root": HTMLSwirlIllustrationRootElement;
+        "swirl-illustration-search": HTMLSwirlIllustrationSearchElement;
+        "swirl-illustration-shifts": HTMLSwirlIllustrationShiftsElement;
+        "swirl-illustration-sorry": HTMLSwirlIllustrationSorryElement;
+        "swirl-illustration-start": HTMLSwirlIllustrationStartElement;
+        "swirl-illustration-tasks": HTMLSwirlIllustrationTasksElement;
+        "swirl-illustration-warning-sign": HTMLSwirlIllustrationWarningSignElement;
+        "swirl-illustration-wave": HTMLSwirlIllustrationWaveElement;
         "swirl-image-grid": HTMLSwirlImageGridElement;
         "swirl-image-grid-item": HTMLSwirlImageGridItemElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
@@ -13612,6 +13937,79 @@ declare namespace LocalJSX {
           * @default 24
          */
         "size"?: SwirlIconSize;
+    }
+    interface SwirlIllustration {
+        "svg": string;
+    }
+    interface SwirlIllustrationAbsence {
+    }
+    interface SwirlIllustrationBookmarks {
+    }
+    interface SwirlIllustrationCalendar {
+    }
+    interface SwirlIllustrationCelebrate {
+    }
+    interface SwirlIllustrationChatMessages {
+    }
+    interface SwirlIllustrationChatSecurity {
+    }
+    interface SwirlIllustrationCompletedTask {
+    }
+    interface SwirlIllustrationConstruction {
+    }
+    interface SwirlIllustrationContrast {
+    }
+    interface SwirlIllustrationDirectory {
+    }
+    interface SwirlIllustrationDoor {
+    }
+    interface SwirlIllustrationEmptyFolder {
+    }
+    interface SwirlIllustrationInvites {
+    }
+    interface SwirlIllustrationInvitesDeclined {
+    }
+    interface SwirlIllustrationKey {
+    }
+    interface SwirlIllustrationKeyboard {
+    }
+    interface SwirlIllustrationLight {
+    }
+    interface SwirlIllustrationMail {
+    }
+    interface SwirlIllustrationMaintenance {
+    }
+    interface SwirlIllustrationMeteor {
+    }
+    interface SwirlIllustrationMoon {
+    }
+    interface SwirlIllustrationNews {
+    }
+    interface SwirlIllustrationNoNotifications {
+    }
+    interface SwirlIllustrationNotification {
+    }
+    interface SwirlIllustrationPaperRoll {
+    }
+    interface SwirlIllustrationPending {
+    }
+    interface SwirlIllustrationProfile {
+    }
+    interface SwirlIllustrationRoot {
+    }
+    interface SwirlIllustrationSearch {
+    }
+    interface SwirlIllustrationShifts {
+    }
+    interface SwirlIllustrationSorry {
+    }
+    interface SwirlIllustrationStart {
+    }
+    interface SwirlIllustrationTasks {
+    }
+    interface SwirlIllustrationWarningSign {
+    }
+    interface SwirlIllustrationWave {
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
@@ -17675,6 +18073,9 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIllustrationAttributes {
+        "svg": string;
+    }
     interface SwirlImageGridAttributes {
         "aspectRatio": string;
         "borderRadius": SwirlImageGridBorderRadius;
@@ -19017,6 +19418,42 @@ declare namespace LocalJSX {
         "swirl-icon-workspace-premium": Omit<SwirlIconWorkspacePremium, keyof SwirlIconWorkspacePremiumAttributes> & { [K in keyof SwirlIconWorkspacePremium & keyof SwirlIconWorkspacePremiumAttributes]?: SwirlIconWorkspacePremium[K] } & { [K in keyof SwirlIconWorkspacePremium & keyof SwirlIconWorkspacePremiumAttributes as `attr:${K}`]?: SwirlIconWorkspacePremiumAttributes[K] } & { [K in keyof SwirlIconWorkspacePremium & keyof SwirlIconWorkspacePremiumAttributes as `prop:${K}`]?: SwirlIconWorkspacePremium[K] };
         "swirl-icon-zoom-in": Omit<SwirlIconZoomIn, keyof SwirlIconZoomInAttributes> & { [K in keyof SwirlIconZoomIn & keyof SwirlIconZoomInAttributes]?: SwirlIconZoomIn[K] } & { [K in keyof SwirlIconZoomIn & keyof SwirlIconZoomInAttributes as `attr:${K}`]?: SwirlIconZoomInAttributes[K] } & { [K in keyof SwirlIconZoomIn & keyof SwirlIconZoomInAttributes as `prop:${K}`]?: SwirlIconZoomIn[K] };
         "swirl-icon-zoom-out": Omit<SwirlIconZoomOut, keyof SwirlIconZoomOutAttributes> & { [K in keyof SwirlIconZoomOut & keyof SwirlIconZoomOutAttributes]?: SwirlIconZoomOut[K] } & { [K in keyof SwirlIconZoomOut & keyof SwirlIconZoomOutAttributes as `attr:${K}`]?: SwirlIconZoomOutAttributes[K] } & { [K in keyof SwirlIconZoomOut & keyof SwirlIconZoomOutAttributes as `prop:${K}`]?: SwirlIconZoomOut[K] };
+        "swirl-illustration": Omit<SwirlIllustration, keyof SwirlIllustrationAttributes> & { [K in keyof SwirlIllustration & keyof SwirlIllustrationAttributes]?: SwirlIllustration[K] } & { [K in keyof SwirlIllustration & keyof SwirlIllustrationAttributes as `attr:${K}`]?: SwirlIllustrationAttributes[K] } & { [K in keyof SwirlIllustration & keyof SwirlIllustrationAttributes as `prop:${K}`]?: SwirlIllustration[K] } & OneOf<"svg", SwirlIllustration["svg"], SwirlIllustrationAttributes["svg"]>;
+        "swirl-illustration-absence": SwirlIllustrationAbsence;
+        "swirl-illustration-bookmarks": SwirlIllustrationBookmarks;
+        "swirl-illustration-calendar": SwirlIllustrationCalendar;
+        "swirl-illustration-celebrate": SwirlIllustrationCelebrate;
+        "swirl-illustration-chat-messages": SwirlIllustrationChatMessages;
+        "swirl-illustration-chat-security": SwirlIllustrationChatSecurity;
+        "swirl-illustration-completed-task": SwirlIllustrationCompletedTask;
+        "swirl-illustration-construction": SwirlIllustrationConstruction;
+        "swirl-illustration-contrast": SwirlIllustrationContrast;
+        "swirl-illustration-directory": SwirlIllustrationDirectory;
+        "swirl-illustration-door": SwirlIllustrationDoor;
+        "swirl-illustration-empty-folder": SwirlIllustrationEmptyFolder;
+        "swirl-illustration-invites": SwirlIllustrationInvites;
+        "swirl-illustration-invites-declined": SwirlIllustrationInvitesDeclined;
+        "swirl-illustration-key": SwirlIllustrationKey;
+        "swirl-illustration-keyboard": SwirlIllustrationKeyboard;
+        "swirl-illustration-light": SwirlIllustrationLight;
+        "swirl-illustration-mail": SwirlIllustrationMail;
+        "swirl-illustration-maintenance": SwirlIllustrationMaintenance;
+        "swirl-illustration-meteor": SwirlIllustrationMeteor;
+        "swirl-illustration-moon": SwirlIllustrationMoon;
+        "swirl-illustration-news": SwirlIllustrationNews;
+        "swirl-illustration-no-notifications": SwirlIllustrationNoNotifications;
+        "swirl-illustration-notification": SwirlIllustrationNotification;
+        "swirl-illustration-paper-roll": SwirlIllustrationPaperRoll;
+        "swirl-illustration-pending": SwirlIllustrationPending;
+        "swirl-illustration-profile": SwirlIllustrationProfile;
+        "swirl-illustration-root": SwirlIllustrationRoot;
+        "swirl-illustration-search": SwirlIllustrationSearch;
+        "swirl-illustration-shifts": SwirlIllustrationShifts;
+        "swirl-illustration-sorry": SwirlIllustrationSorry;
+        "swirl-illustration-start": SwirlIllustrationStart;
+        "swirl-illustration-tasks": SwirlIllustrationTasks;
+        "swirl-illustration-warning-sign": SwirlIllustrationWarningSign;
+        "swirl-illustration-wave": SwirlIllustrationWave;
         "swirl-image-grid": Omit<SwirlImageGrid, keyof SwirlImageGridAttributes> & { [K in keyof SwirlImageGrid & keyof SwirlImageGridAttributes]?: SwirlImageGrid[K] } & { [K in keyof SwirlImageGrid & keyof SwirlImageGridAttributes as `attr:${K}`]?: SwirlImageGridAttributes[K] } & { [K in keyof SwirlImageGrid & keyof SwirlImageGridAttributes as `prop:${K}`]?: SwirlImageGrid[K] };
         "swirl-image-grid-item": Omit<SwirlImageGridItem, keyof SwirlImageGridItemAttributes> & { [K in keyof SwirlImageGridItem & keyof SwirlImageGridItemAttributes]?: SwirlImageGridItem[K] } & { [K in keyof SwirlImageGridItem & keyof SwirlImageGridItemAttributes as `attr:${K}`]?: SwirlImageGridItemAttributes[K] } & { [K in keyof SwirlImageGridItem & keyof SwirlImageGridItemAttributes as `prop:${K}`]?: SwirlImageGridItem[K] } & OneOf<"alt", SwirlImageGridItem["alt"], SwirlImageGridItemAttributes["alt"]> & OneOf<"src", SwirlImageGridItem["src"], SwirlImageGridItemAttributes["src"]>;
         "swirl-inline-error": Omit<SwirlInlineError, keyof SwirlInlineErrorAttributes> & { [K in keyof SwirlInlineError & keyof SwirlInlineErrorAttributes]?: SwirlInlineError[K] } & { [K in keyof SwirlInlineError & keyof SwirlInlineErrorAttributes as `attr:${K}`]?: SwirlInlineErrorAttributes[K] } & { [K in keyof SwirlInlineError & keyof SwirlInlineErrorAttributes as `prop:${K}`]?: SwirlInlineError[K] } & OneOf<"message", SwirlInlineError["message"], SwirlInlineErrorAttributes["message"]>;
@@ -19536,6 +19973,42 @@ declare module "@stencil/core" {
             "swirl-icon-workspace-premium": LocalJSX.IntrinsicElements["swirl-icon-workspace-premium"] & JSXBase.HTMLAttributes<HTMLSwirlIconWorkspacePremiumElement>;
             "swirl-icon-zoom-in": LocalJSX.IntrinsicElements["swirl-icon-zoom-in"] & JSXBase.HTMLAttributes<HTMLSwirlIconZoomInElement>;
             "swirl-icon-zoom-out": LocalJSX.IntrinsicElements["swirl-icon-zoom-out"] & JSXBase.HTMLAttributes<HTMLSwirlIconZoomOutElement>;
+            "swirl-illustration": LocalJSX.IntrinsicElements["swirl-illustration"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationElement>;
+            "swirl-illustration-absence": LocalJSX.IntrinsicElements["swirl-illustration-absence"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationAbsenceElement>;
+            "swirl-illustration-bookmarks": LocalJSX.IntrinsicElements["swirl-illustration-bookmarks"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationBookmarksElement>;
+            "swirl-illustration-calendar": LocalJSX.IntrinsicElements["swirl-illustration-calendar"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationCalendarElement>;
+            "swirl-illustration-celebrate": LocalJSX.IntrinsicElements["swirl-illustration-celebrate"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationCelebrateElement>;
+            "swirl-illustration-chat-messages": LocalJSX.IntrinsicElements["swirl-illustration-chat-messages"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationChatMessagesElement>;
+            "swirl-illustration-chat-security": LocalJSX.IntrinsicElements["swirl-illustration-chat-security"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationChatSecurityElement>;
+            "swirl-illustration-completed-task": LocalJSX.IntrinsicElements["swirl-illustration-completed-task"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationCompletedTaskElement>;
+            "swirl-illustration-construction": LocalJSX.IntrinsicElements["swirl-illustration-construction"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationConstructionElement>;
+            "swirl-illustration-contrast": LocalJSX.IntrinsicElements["swirl-illustration-contrast"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationContrastElement>;
+            "swirl-illustration-directory": LocalJSX.IntrinsicElements["swirl-illustration-directory"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationDirectoryElement>;
+            "swirl-illustration-door": LocalJSX.IntrinsicElements["swirl-illustration-door"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationDoorElement>;
+            "swirl-illustration-empty-folder": LocalJSX.IntrinsicElements["swirl-illustration-empty-folder"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationEmptyFolderElement>;
+            "swirl-illustration-invites": LocalJSX.IntrinsicElements["swirl-illustration-invites"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationInvitesElement>;
+            "swirl-illustration-invites-declined": LocalJSX.IntrinsicElements["swirl-illustration-invites-declined"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationInvitesDeclinedElement>;
+            "swirl-illustration-key": LocalJSX.IntrinsicElements["swirl-illustration-key"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationKeyElement>;
+            "swirl-illustration-keyboard": LocalJSX.IntrinsicElements["swirl-illustration-keyboard"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationKeyboardElement>;
+            "swirl-illustration-light": LocalJSX.IntrinsicElements["swirl-illustration-light"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationLightElement>;
+            "swirl-illustration-mail": LocalJSX.IntrinsicElements["swirl-illustration-mail"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationMailElement>;
+            "swirl-illustration-maintenance": LocalJSX.IntrinsicElements["swirl-illustration-maintenance"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationMaintenanceElement>;
+            "swirl-illustration-meteor": LocalJSX.IntrinsicElements["swirl-illustration-meteor"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationMeteorElement>;
+            "swirl-illustration-moon": LocalJSX.IntrinsicElements["swirl-illustration-moon"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationMoonElement>;
+            "swirl-illustration-news": LocalJSX.IntrinsicElements["swirl-illustration-news"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationNewsElement>;
+            "swirl-illustration-no-notifications": LocalJSX.IntrinsicElements["swirl-illustration-no-notifications"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationNoNotificationsElement>;
+            "swirl-illustration-notification": LocalJSX.IntrinsicElements["swirl-illustration-notification"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationNotificationElement>;
+            "swirl-illustration-paper-roll": LocalJSX.IntrinsicElements["swirl-illustration-paper-roll"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationPaperRollElement>;
+            "swirl-illustration-pending": LocalJSX.IntrinsicElements["swirl-illustration-pending"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationPendingElement>;
+            "swirl-illustration-profile": LocalJSX.IntrinsicElements["swirl-illustration-profile"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationProfileElement>;
+            "swirl-illustration-root": LocalJSX.IntrinsicElements["swirl-illustration-root"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationRootElement>;
+            "swirl-illustration-search": LocalJSX.IntrinsicElements["swirl-illustration-search"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationSearchElement>;
+            "swirl-illustration-shifts": LocalJSX.IntrinsicElements["swirl-illustration-shifts"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationShiftsElement>;
+            "swirl-illustration-sorry": LocalJSX.IntrinsicElements["swirl-illustration-sorry"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationSorryElement>;
+            "swirl-illustration-start": LocalJSX.IntrinsicElements["swirl-illustration-start"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationStartElement>;
+            "swirl-illustration-tasks": LocalJSX.IntrinsicElements["swirl-illustration-tasks"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationTasksElement>;
+            "swirl-illustration-warning-sign": LocalJSX.IntrinsicElements["swirl-illustration-warning-sign"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationWarningSignElement>;
+            "swirl-illustration-wave": LocalJSX.IntrinsicElements["swirl-illustration-wave"] & JSXBase.HTMLAttributes<HTMLSwirlIllustrationWaveElement>;
             "swirl-image-grid": LocalJSX.IntrinsicElements["swirl-image-grid"] & JSXBase.HTMLAttributes<HTMLSwirlImageGridElement>;
             "swirl-image-grid-item": LocalJSX.IntrinsicElements["swirl-image-grid-item"] & JSXBase.HTMLAttributes<HTMLSwirlImageGridItemElement>;
             "swirl-inline-error": LocalJSX.IntrinsicElements["swirl-inline-error"] & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;

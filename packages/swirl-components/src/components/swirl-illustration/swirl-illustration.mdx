@@ -1,0 +1,81 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import IllustrationsJSON from "../../../illustrations.json";
+import * as Stories from "./swirl-illustration.stories";
+
+<Meta title="Components/SwirlIllustration" />
+
+# SwirlIllustration
+
+Illustrations are decorative graphics used to support empty states, onboarding
+flows, and other messaging throughout the product.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-illustration)**
+
+## Usage
+
+<Canvas of={Stories.SwirlIllustration}></Canvas>
+
+<Controls of={Stories.SwirlIllustration} />
+
+## Related components
+
+No related components.
+
+## Accessibility
+
+SwirlIllustration is a presentational graphic component with no ARIA attributes
+or keyboard-specific behavior. When an illustration conveys meaning that isn't
+otherwise available in text, ensure the surrounding content provides an
+accessible description.
+
+### Keyboard
+
+No component-specific keyboard behavior.
+
+## Alternative usage
+
+Each illustration also comes with its own component, used via
+`<swirl-illustration-*></swirl-illustration-*>`. E.g.:
+
+<Source code={"<swirl-illustration-absence></swirl-illustration-absence>"} />
+
+## Illustration overview
+
+<div className="illustration-grid">
+  {Object.values(IllustrationsJSON).map((illustration) => {
+    const Illustration = `swirl-illustration-${illustration.name}`;
+
+    return (
+      <div className="illustration-grid-item" key={illustration.id}>
+        <Illustration />
+        <span className="illustration-grid-item-name">
+          {illustration.name}
+        </span>
+      </div>
+    );
+
+})}
+
+</div>
+
+<style>{`
+  .illustration-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .illustration-grid-item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .illustration-grid-item-name {
+    color: #666;
+    font-size: 12px;
+    word-break: break-word;
+  }
+`}</style>

@@ -149,6 +149,34 @@ export class SwirlIcon{{iconName}} {
 }
 `;
 
+export const illustrationComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h } from "@stencil/core";
+
+@Component({
+  shadow: true,
+  styleUrl: "../swirl-illustration.css",
+  tag: "swirl-illustration-{{illustrationName}}",
+})
+export class SwirlIllustration{{illustrationNamePascalCase}} {
+  render() {
+    return (
+      <svg
+        class="illustration"
+        fill="none"
+        height="120"
+        part="illustration"
+        viewBox="0 0 120 120"
+        width="120"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Fragment>{{{illustrationSvg}}}</Fragment>
+      </svg>
+    );
+  }
+}
+`;
+
 export const symbolComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";

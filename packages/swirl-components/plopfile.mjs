@@ -4,6 +4,7 @@ import {
   docsTemplate,
   emojiComponentTemplate,
   iconComponentTemplate,
+  illustrationComponentTemplate,
   storiesTemplate,
   symbolComponentTemplate,
   unitTestTemplate,
@@ -263,6 +264,90 @@ export default function (
         );
 
         return `${symbolNames.length} symbols generated.`;
+      },
+    ],
+  });
+
+  plop.setGenerator("illustrations", {
+    description: "Generate illustration components from SVG",
+    prompts: [],
+    actions: [
+      function (answers, config, plop) {
+        const illustrationsPath = "./src/assets/illustrations";
+
+        const svgFileNames = readdirSync(illustrationsPath);
+
+        const optimizedIllustrations = {};
+
+        const illustrationNames = Array.from(
+          new Set(
+            svgFileNames.map((svgFileName) =>
+              svgFileName
+                .replace(".svg", "")
+                .replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) =>
+                  ofs ? `-${$.toLowerCase()}` : $.toLowerCase()
+                )
+            )
+          )
+        );
+
+        for (const svgFileName of svgFileNames) {
+          const path = `${illustrationsPath}/${svgFileName}`;
+          const svg = readFileSync(path);
+          const optimized = optimize(svg, { path });
+          const illustrationName =
+            illustrationNames[svgFileNames.indexOf(svgFileName)];
+
+          optimizedIllustrations[illustrationName] = optimized.data
+            .replace(/^<svg [^>]*>/, "")
+            .replace(/<\/svg>/, "");
+        }
+
+        const illustrationsJson = illustrationNames.reduce(
+          (content, symbolName, index) => ({
+            ...content,
+            [symbolName]: {
+              id: symbolName,
+              name: symbolName,
+            },
+          }),
+          {}
+        );
+
+        writeFileSync(
+          `./illustrations.json`,
+          JSON.stringify(illustrationsJson)
+        );
+
+        for (const illustrationName of illustrationNames) {
+          const componentTemplate = Handlebars.compile(
+            illustrationComponentTemplate
+          );
+
+          const illustrationNamePascalCase = illustrationName
+            .split("-")
+            .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+            .join("");
+
+          const templateData = {
+            illustrationName,
+            illustrationNamePascalCase,
+            illustrationSvg: optimizedIllustrations[illustrationName],
+          };
+
+          const component = componentTemplate(templateData);
+
+          writeFileSync(
+            `./src/components/swirl-illustration/illustrations/swirl-illustration-${illustrationName}.tsx`,
+            component
+          );
+        }
+
+        execSync(
+          "PATH=$(npm bin):$PATH prettier ./src/components/swirl-illustration/illustrations/* --write"
+        );
+
+        return `${illustrationNames.length} illustrations generated.`;
       },
     ],
   });
