@@ -1,0 +1,131 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-navigation {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background: var(
+    --swirl-sidebar-navigation-background,
+    var(--s-translucent-low-default)
+  );
+  backdrop-filter: blur(var(--s-blur-l));
+  -webkit-backdrop-filter: blur(var(--s-blur-l));
+  border-radius: var(
+    --swirl-sidebar-navigation-border-radius,
+    var(--s-border-radius-l)
+  );
+  overflow: hidden;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.sidebar-navigation--elevated {
+  box-shadow: var(--s-shadow-level-2);
+}
+
+.sidebar-navigation__header {
+  display: flex;
+  min-height: 4.5rem; /* 56px row + 2×8px padding */
+  padding: var(--s-space-8);
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  /* Transparent by default; reveals a divider once the nav scrolls so the
+     scrolling content does not bleed flush against the header */
+  border-bottom: var(--s-border-width-default) solid transparent;
+  gap: var(--s-space-8);
+}
+
+.sidebar-navigation--scrollable:not(.sidebar-navigation--scrolled-to-top)
+  .sidebar-navigation__header {
+  border-bottom-color: var(--s-border-default);
+}
+
+.sidebar-navigation__logo-section {
+  display: flex;
+  min-width: 0;
+  height: 3.5rem;
+  padding-left: var(--s-space-8);
+  align-items: center;
+  gap: var(--s-space-16);
+  flex-grow: 1;
+}
+
+.sidebar-navigation__logo,
+::slotted([slot="logo"]) {
+  flex-shrink: 0;
+}
+
+.sidebar-navigation__app-name {
+  overflow: hidden;
+  color: var(--s-text-default);
+  font-family: var(
+    --swirl-sidebar-navigation-app-name-font-family,
+    "Clash Grotesk Variable",
+    var(--s-font-family-text)
+  );
+  font-size: var(--swirl-sidebar-navigation-app-name-font-size, 1.5rem);
+  font-style: normal;
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
+  letter-spacing: var(--s-letter-spacing-normal);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sidebar-navigation__collapse-button {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: var(--s-space-8);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--s-border-radius-full-round);
+  background-color: var(--s-surface-raised-50-default);
+  color: var(--s-icon-strong);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--s-surface-raised-50-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-surface-raised-50-pressed);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 0.125rem var(--s-focus-default);
+  }
+}
+
+.sidebar-navigation__content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 var(--s-space-8);
+  flex: 1 1 auto;
+}
+
+.sidebar-navigation__footer {
+  padding: var(--s-space-8);
+  flex-shrink: 0;
+  /* Transparent by default; reveals a divider while more nav content remains
+     below the fold so the scrolling content does not bleed into the footer */
+  border-top: var(--s-border-width-default) solid transparent;
+}
+
+.sidebar-navigation--scrollable:not(.sidebar-navigation--scrolled-to-bottom)
+  .sidebar-navigation__footer {
+  border-top-color: var(--s-border-default);
+}

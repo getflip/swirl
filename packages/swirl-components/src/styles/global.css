@@ -45,6 +45,13 @@
 
   --swirl-carousel-gradient: 255, 255, 255;
 
+  --swirl-console-layout-background: radial-gradient(
+      140% 78% at 50% 116%,
+      rgba(20, 90, 245, 0.46) 0%,
+      rgba(20, 90, 245, 0) 68%
+    ),
+    var(--s-surface-sunken-default);
+
   --swirl-icon-button-border-top-right-radius: 50%;
   --swirl-icon-button-border-top-left-radius: 50%;
   --swirl-icon-button-border-bottom-right-radius: 50%;
@@ -100,6 +107,7 @@
 
 html.theme-dark {
   --swirl-carousel-gradient: 25, 26, 28;
+  --swirl-console-layout-background: var(--s-surface-sunken-default);
   color-scheme: dark;
 }
 
