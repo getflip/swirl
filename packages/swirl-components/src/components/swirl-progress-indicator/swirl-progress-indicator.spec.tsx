@@ -47,6 +47,28 @@ describe("swirl-progress-indicator", () => {
     `);
   });
 
+  it("renders a large progress bar", async () => {
+    const page = await newSpecPage({
+      components: [SwirlProgressIndicator],
+      html: `<swirl-progress-indicator label="Progress" size="l" value="60"></swirl-progress-indicator>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-progress-indicator class="bar" label="Progress" size="l" value="60">
+        <mock:shadow-root>
+          <progress
+            aria-label="Progress"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="60"
+            class="progress-indicator progress-indicator--size-l progress-indicator--variant-bar"
+            max="100"
+            value="60"></progress>
+        </mock:shadow-root>
+      </swirl-progress-indicator>
+    `);
+  });
+
   it("renders a progress circle", async () => {
     const page = await newSpecPage({
       components: [SwirlProgressIndicator],
@@ -80,6 +102,26 @@ describe("swirl-progress-indicator", () => {
             <svg class="progress-indicator__circle" focusable="false" viewBox="0 0 20 20">
               <circle class="progress-indicator__circle-background" cx="10" cy="10" fill="none" r="8" stroke-width="2"></circle>
               <circle class="progress-indicator__circle-value" cx="10" cy="10" fill="none" r="8" stroke-dasharray="50" stroke-dashoffset="20" stroke-width="2"></circle>
+            </svg>
+          </span>
+        </mock:shadow-root>
+      </swirl-progress-indicator>
+    `);
+  });
+
+  it("renders a large progress circle", async () => {
+    const page = await newSpecPage({
+      components: [SwirlProgressIndicator],
+      html: `<swirl-progress-indicator label="Progress" size="l" value="60" variant="circle"></swirl-progress-indicator>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-progress-indicator class="circle" label="Progress" size="l" value="60" variant="circle">
+        <mock:shadow-root>
+          <span aria-label="Progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-indicator progress-indicator--size-l progress-indicator--variant-circle" role="progressbar">
+            <svg class="progress-indicator__circle" focusable="false" viewBox="0 0 96 96">
+              <circle class="progress-indicator__circle-background" cx="48" cy="48" fill="none" r="40" stroke-width="8"></circle>
+              <circle class="progress-indicator__circle-value" cx="48" cy="48" fill="none" r="40" stroke-dasharray="251" stroke-dashoffset="100" stroke-width="8"></circle>
             </svg>
           </span>
         </mock:shadow-root>

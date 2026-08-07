@@ -48271,7 +48271,7 @@
             {
               "name": "size",
               "type": {
-                "text": "\"m\" | \"s\" | \"xs\"",
+                "text": "\"l\" | \"m\" | \"s\" | \"xs\"",
                 "references": [
                   {
                     "name": "SwirlProgressIndicatorSize"
@@ -48317,7 +48317,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "\"m\" | \"s\" | \"xs\"",
+                "text": "\"l\" | \"m\" | \"s\" | \"xs\"",
                 "references": [
                   {
                     "name": "SwirlProgressIndicatorSize"
