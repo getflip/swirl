@@ -1768,6 +1768,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconCode {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconColumn {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -7082,6 +7090,12 @@ declare global {
         prototype: HTMLSwirlIconCoPresentElement;
         new (): HTMLSwirlIconCoPresentElement;
     };
+    interface HTMLSwirlIconCodeElement extends Components.SwirlIconCode, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCodeElement: {
+        prototype: HTMLSwirlIconCodeElement;
+        new (): HTMLSwirlIconCodeElement;
+    };
     interface HTMLSwirlIconColumnElement extends Components.SwirlIconColumn, HTMLStencilElement {
     }
     var HTMLSwirlIconColumnElement: {
@@ -10221,6 +10235,7 @@ declare global {
         "swirl-icon-close-small": HTMLSwirlIconCloseSmallElement;
         "swirl-icon-cloud-upload": HTMLSwirlIconCloudUploadElement;
         "swirl-icon-co-present": HTMLSwirlIconCoPresentElement;
+        "swirl-icon-code": HTMLSwirlIconCodeElement;
         "swirl-icon-column": HTMLSwirlIconColumnElement;
         "swirl-icon-comment": HTMLSwirlIconCommentElement;
         "swirl-icon-contract-edit": HTMLSwirlIconContractEditElement;
@@ -12187,6 +12202,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCoPresent {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCode {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -16983,6 +17006,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconCodeAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconColumnAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -19200,6 +19228,7 @@ declare namespace LocalJSX {
         "swirl-icon-close-small": Omit<SwirlIconCloseSmall, keyof SwirlIconCloseSmallAttributes> & { [K in keyof SwirlIconCloseSmall & keyof SwirlIconCloseSmallAttributes]?: SwirlIconCloseSmall[K] } & { [K in keyof SwirlIconCloseSmall & keyof SwirlIconCloseSmallAttributes as `attr:${K}`]?: SwirlIconCloseSmallAttributes[K] } & { [K in keyof SwirlIconCloseSmall & keyof SwirlIconCloseSmallAttributes as `prop:${K}`]?: SwirlIconCloseSmall[K] };
         "swirl-icon-cloud-upload": Omit<SwirlIconCloudUpload, keyof SwirlIconCloudUploadAttributes> & { [K in keyof SwirlIconCloudUpload & keyof SwirlIconCloudUploadAttributes]?: SwirlIconCloudUpload[K] } & { [K in keyof SwirlIconCloudUpload & keyof SwirlIconCloudUploadAttributes as `attr:${K}`]?: SwirlIconCloudUploadAttributes[K] } & { [K in keyof SwirlIconCloudUpload & keyof SwirlIconCloudUploadAttributes as `prop:${K}`]?: SwirlIconCloudUpload[K] };
         "swirl-icon-co-present": Omit<SwirlIconCoPresent, keyof SwirlIconCoPresentAttributes> & { [K in keyof SwirlIconCoPresent & keyof SwirlIconCoPresentAttributes]?: SwirlIconCoPresent[K] } & { [K in keyof SwirlIconCoPresent & keyof SwirlIconCoPresentAttributes as `attr:${K}`]?: SwirlIconCoPresentAttributes[K] } & { [K in keyof SwirlIconCoPresent & keyof SwirlIconCoPresentAttributes as `prop:${K}`]?: SwirlIconCoPresent[K] };
+        "swirl-icon-code": Omit<SwirlIconCode, keyof SwirlIconCodeAttributes> & { [K in keyof SwirlIconCode & keyof SwirlIconCodeAttributes]?: SwirlIconCode[K] } & { [K in keyof SwirlIconCode & keyof SwirlIconCodeAttributes as `attr:${K}`]?: SwirlIconCodeAttributes[K] } & { [K in keyof SwirlIconCode & keyof SwirlIconCodeAttributes as `prop:${K}`]?: SwirlIconCode[K] };
         "swirl-icon-column": Omit<SwirlIconColumn, keyof SwirlIconColumnAttributes> & { [K in keyof SwirlIconColumn & keyof SwirlIconColumnAttributes]?: SwirlIconColumn[K] } & { [K in keyof SwirlIconColumn & keyof SwirlIconColumnAttributes as `attr:${K}`]?: SwirlIconColumnAttributes[K] } & { [K in keyof SwirlIconColumn & keyof SwirlIconColumnAttributes as `prop:${K}`]?: SwirlIconColumn[K] };
         "swirl-icon-comment": Omit<SwirlIconComment, keyof SwirlIconCommentAttributes> & { [K in keyof SwirlIconComment & keyof SwirlIconCommentAttributes]?: SwirlIconComment[K] } & { [K in keyof SwirlIconComment & keyof SwirlIconCommentAttributes as `attr:${K}`]?: SwirlIconCommentAttributes[K] } & { [K in keyof SwirlIconComment & keyof SwirlIconCommentAttributes as `prop:${K}`]?: SwirlIconComment[K] };
         "swirl-icon-contract-edit": Omit<SwirlIconContractEdit, keyof SwirlIconContractEditAttributes> & { [K in keyof SwirlIconContractEdit & keyof SwirlIconContractEditAttributes]?: SwirlIconContractEdit[K] } & { [K in keyof SwirlIconContractEdit & keyof SwirlIconContractEditAttributes as `attr:${K}`]?: SwirlIconContractEditAttributes[K] } & { [K in keyof SwirlIconContractEdit & keyof SwirlIconContractEditAttributes as `prop:${K}`]?: SwirlIconContractEdit[K] };
@@ -19755,6 +19784,7 @@ declare module "@stencil/core" {
             "swirl-icon-close-small": LocalJSX.IntrinsicElements["swirl-icon-close-small"] & JSXBase.HTMLAttributes<HTMLSwirlIconCloseSmallElement>;
             "swirl-icon-cloud-upload": LocalJSX.IntrinsicElements["swirl-icon-cloud-upload"] & JSXBase.HTMLAttributes<HTMLSwirlIconCloudUploadElement>;
             "swirl-icon-co-present": LocalJSX.IntrinsicElements["swirl-icon-co-present"] & JSXBase.HTMLAttributes<HTMLSwirlIconCoPresentElement>;
+            "swirl-icon-code": LocalJSX.IntrinsicElements["swirl-icon-code"] & JSXBase.HTMLAttributes<HTMLSwirlIconCodeElement>;
             "swirl-icon-column": LocalJSX.IntrinsicElements["swirl-icon-column"] & JSXBase.HTMLAttributes<HTMLSwirlIconColumnElement>;
             "swirl-icon-comment": LocalJSX.IntrinsicElements["swirl-icon-comment"] & JSXBase.HTMLAttributes<HTMLSwirlIconCommentElement>;
             "swirl-icon-contract-edit": LocalJSX.IntrinsicElements["swirl-icon-contract-edit"] & JSXBase.HTMLAttributes<HTMLSwirlIconContractEditElement>;
