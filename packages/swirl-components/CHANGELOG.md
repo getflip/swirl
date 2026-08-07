@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.518.0
+
+### Minor Changes
+
+- [#1764](https://github.com/getflip/swirl/pull/1764)
+  [`8c19d7d96`](https://github.com/getflip/swirl/commit/8c19d7d9617f079b260ec0f3802782603ce9b6f9)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add code icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8c19d7d96`](https://github.com/getflip/swirl/commit/8c19d7d9617f079b260ec0f3802782603ce9b6f9)]:
+  - @getflip/swirl-icons@0.93.0
+
 ## 0.517.1
 
 ### Patch Changes
