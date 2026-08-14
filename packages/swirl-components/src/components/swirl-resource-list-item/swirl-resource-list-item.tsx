@@ -107,7 +107,7 @@ export class SwirlResourceListItem {
   }
 
   private get showMeta() {
-    return (Boolean(this.meta) || this.hasBadges) && !this.selectable;
+    return Boolean(this.meta) || this.hasBadges;
   }
 
   private forceIconProps(smallIcon: boolean) {
