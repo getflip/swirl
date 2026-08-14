@@ -112,13 +112,15 @@
 
 .resource-list-item--selectable {
   & .resource-list-item__content {
+    padding-left: calc(var(--s-space-16) + 0.75rem + var(--s-space-12));
+
     @media (--from-tablet) {
       padding-left: calc(var(--s-space-16) + 1.5rem + var(--s-space-12));
     }
   }
 
   & .resource-list-item__label-container {
-    padding-right: calc(var(--s-space-16) + 1.5rem + var(--s-space-12));
+    padding-right: var(--s-space-8);
 
     @media (--from-tablet) {
       padding-right: var(--s-space-16);
@@ -321,7 +323,7 @@
 .resource-list-item__checkbox {
   position: absolute;
   top: 50%;
-  right: var(--s-space-16);
+  left: calc(var(--s-space-16) - var(--s-space-2));
   display: flex;
   width: 1.125rem;
   height: 1.125rem;
@@ -331,11 +333,6 @@
   border-radius: var(--s-border-radius-s);
   transform: translateY(-50%);
   pointer-events: none;
-
-  @media (--from-tablet) {
-    right: auto;
-    left: calc(var(--s-space-16) - var(--s-space-2));
-  }
 }
 
 .resource-list-item__checkbox-icon {
