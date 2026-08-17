@@ -31,7 +31,7 @@
     "dev": "yarn start",
     "test": "yarn stencil:test",
     "test:coverage": "yarn stencil:test:coverage",
-    "build": "yarn stencil:build && yarn storybook:build",
+    "build": "yarn storybook:build",
     "generate": "plop",
     "lint": "eslint src/**/*{.ts,.tsx}",
     "stencil:build": "stencil build",

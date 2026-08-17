@@ -67,6 +67,10 @@
     "@getflip/swirl-ai#build": {
       "dependsOn": ["^build", "@getflip/swirl-components#build"]
     },
+    "@getflip/swirl-components#build": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build", "@getflip/swirl-components#stencil:build"]
+    },
     "stencil:build": {
       "outputs": ["dist/**", "components.json"],
       "dependsOn": ["@getflip/swirl-tokens#build"]
