@@ -2410,7 +2410,8 @@
               },
               "default": "\"m\"",
               "readonly": true,
-              "attribute": "size"
+              "attribute": "size",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -2449,7 +2450,8 @@
               },
               "default": "\"round\"",
               "readonly": true,
-              "attribute": "variant"
+              "attribute": "variant",
+              "reflects": true
             }
           ],
           "events": [

@@ -59,3 +59,21 @@ export const WithHorizontalLayout = TemplateWithHorizontalLayout.bind({});
 WithHorizontalLayout.args = {
   layout: "horizontal",
 };
+
+const TemplateWithSquareAvatars = (args) => {
+  const element = generateStoryElement("swirl-avatar-group", args);
+
+  element.innerHTML = `
+    <swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="xs" variant="square"></swirl-avatar>
+    <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="xs" variant="square"></swirl-avatar>
+    <swirl-avatar label="Jack Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=c" size="xs" variant="square"></swirl-avatar>
+  `;
+
+  return element;
+};
+
+export const WithSquareAvatars = TemplateWithSquareAvatars.bind({});
+
+WithSquareAvatars.args = {
+  layout: "horizontal",
+};
