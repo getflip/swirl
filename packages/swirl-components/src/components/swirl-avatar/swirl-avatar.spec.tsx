@@ -10,7 +10,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar label="John Doe">
+      <swirl-avatar label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -39,7 +39,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar label="John Doe" src="https://">
+      <swirl-avatar label="John Doe" size="m" src="https://" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__image">
@@ -61,7 +61,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar initials="JD" label="John Doe">
+      <swirl-avatar initials="JD" label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-initials avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__initials">
@@ -85,7 +85,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar icon="<swirl-icon-close></swirl-icon-close>" label="John Doe">
+      <swirl-avatar icon="<swirl-icon-close></swirl-icon-close>" label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -153,7 +153,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe">
+      <swirl-avatar badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -178,7 +178,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar label="John Doe" show-label="">
+      <swirl-avatar label="John Doe" show-label="" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -215,5 +215,22 @@ describe("swirl-avatar", () => {
     await page.waitForChanges();
 
     expect(buttonSpy).toHaveBeenCalledTimes(3);
+  });
+
+  it("reflects size and variant to attributes so ancestors can style by them", async () => {
+    const page = await newSpecPage({
+      components: [SwirlAvatar],
+      html: `<swirl-avatar label="John Doe"></swirl-avatar>`,
+    });
+
+    expect(page.root.getAttribute("size")).toBe("m");
+    expect(page.root.getAttribute("variant")).toBe("round");
+
+    page.root.setAttribute("variant", "square");
+    page.root.setAttribute("size", "s");
+    await page.waitForChanges();
+
+    expect(page.root.getAttribute("size")).toBe("s");
+    expect(page.root.getAttribute("variant")).toBe("square");
   });
 });

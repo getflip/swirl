@@ -70,10 +70,10 @@ export class SwirlAvatar {
   @Prop() label!: string;
   @Prop() loading?: SwirlAvatarLoading;
   @Prop() showLabel?: boolean = false;
-  @Prop() size?: SwirlAvatarSize = "m";
+  @Prop({ reflect: true }) size?: SwirlAvatarSize = "m";
   @Prop() src?: string;
   @Prop() toolPosition?: SwirlAvatarToolPosition = "bottom";
-  @Prop() variant?: SwirlAvatarVariant = "round";
+  @Prop({ reflect: true }) variant?: SwirlAvatarVariant = "round";
 
   @State() loadingError = false;
   @State() loaded = false;
