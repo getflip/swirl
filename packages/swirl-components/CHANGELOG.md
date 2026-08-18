@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.519.0
+
+### Minor Changes
+
+- [#1768](https://github.com/getflip/swirl/pull/1768)
+  [`6edc257b3`](https://github.com/getflip/swirl/commit/6edc257b3399279b8fde14aafbcca0ed701ac494)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Support swirl-resource-list-item
+  meta text and badges slot when item is selectable
+
+* [#1770](https://github.com/getflip/swirl/pull/1770)
+  [`cfe1b9fd7`](https://github.com/getflip/swirl/commit/cfe1b9fd74e48ea33e63f2745def987a1dd1e84f)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Support square
+  avatars in swirl-avatar-group
+
 ## 0.518.0
 
 ### Minor Changes
