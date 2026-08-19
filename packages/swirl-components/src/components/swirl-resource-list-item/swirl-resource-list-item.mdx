@@ -55,7 +55,7 @@ control.
 | `role="gridcell"` | Set on the inner container element; for usage inside the SwirlResourceList component.           |
 | `role="button"`   | Implicit when used as a button.                                                                 |
 | `role="link"`     | Implicit when used as a link.                                                                   |
-| `role="checkbox"` | Set on the interactive part if used as a checkbox.                                              |
+| `role="checkbox"` | Set on the interactive part if used as a checkbox, or on the checkbox itself with `selection-mode="checkbox"`. |
 | `aria-disabled`   | If not used as a link, the `aria-disabled` attribute is set to `true` for the disabled element. |
 
 ### Keyboard
@@ -64,3 +64,8 @@ control.
 | ---------------- | --------------------------------------------------------------------------------------- |
 | <kbd>ENTER</kbd> | Activates the item if used as a button or link.                                         |
 | <kbd>SPACE</kbd> | Activates the item if used as a button or link. Toggles the item if used as a checkbox. |
+
+With `selection-mode="checkbox"`, <kbd>ENTER</kbd> on the row activates it, and
+<kbd>SPACE</kbd> or <kbd>ENTER</kbd> on the checkbox toggles it. Inside a
+`swirl-resource-list` with grid semantics the checkbox is reached with
+<kbd>TAB</kbd> from the row, while the arrow keys keep moving between rows.

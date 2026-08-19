@@ -7,6 +7,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Prop,
   State,
 } from "@stencil/core";
@@ -17,6 +18,7 @@ import {
   SwirlResourceListItemAriaCurrent,
   SwirlResourceListItemLabelWeight,
   SwirlResourceListItemRel,
+  SwirlResourceListItemSelectionMode,
   SwirlResourceListItemTarget,
 } from "./swirl-resource-list-item.types";
 
@@ -37,6 +39,7 @@ export class SwirlResourceListItem {
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
   @Prop() allowHtml?: boolean;
+  @Prop() checkboxLabel?: string = "Select";
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() compact?: boolean;
   @Prop() description?: string;
@@ -60,6 +63,7 @@ export class SwirlResourceListItem {
   @Prop() meta?: string;
   @Prop() rel?: SwirlResourceListItemRel;
   @Prop() selectable?: boolean;
+  @Prop() selectionMode?: SwirlResourceListItemSelectionMode = "row";
   @Prop() swirlAriaCurrent?: SwirlResourceListItemAriaCurrent;
   @Prop() swirlAriaLabel?: string;
   @Prop() target?: SwirlResourceListItemTarget;
@@ -69,13 +73,16 @@ export class SwirlResourceListItem {
   @State() hasMedia: boolean = false;
   @State() iconSize: 20 | 24 = 24;
 
+  @Event() activate: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
+  private checkboxEl: HTMLElement;
   private elementId = crypto.randomUUID();
   private iconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
   private parentSemantics: SwirlResourceListSemantics | undefined;
+  private rowHasFocus = false;
 
   componentWillLoad() {
     this.updateMediaState();
@@ -89,7 +96,10 @@ export class SwirlResourceListItem {
       this.updateIconSize(isDesktop);
     });
 
-    this.makeControlUnfocusable();
+    this.rowHasFocus = this.el.contains(document.activeElement);
+
+    this.syncTabIndex(this.getControl());
+    this.syncTabIndex(this.checkboxEl);
 
     if (Boolean(this.menuTriggerId)) {
       console.warn(
@@ -98,8 +108,40 @@ export class SwirlResourceListItem {
     }
   }
 
+  componentDidRender() {
+    this.syncTabIndex(this.checkboxEl);
+  }
+
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+  }
+
+  @Listen("focusin")
+  onFocusIn() {
+    this.rowHasFocus = true;
+
+    this.syncTabIndex(this.getControl());
+    this.syncTabIndex(this.checkboxEl);
+  }
+
+  @Listen("focusout")
+  onFocusOut(event: FocusEvent) {
+    const nextFocusedElement = event.relatedTarget as Node | null;
+
+    if (Boolean(nextFocusedElement) && this.el.contains(nextFocusedElement)) {
+      return;
+    }
+
+    this.rowHasFocus = false;
+
+    this.syncTabIndex(this.getControl());
+    this.syncTabIndex(this.checkboxEl);
+  }
+
+  private get hasInteractiveCheckbox() {
+    return (
+      this.interactive && this.selectable && this.selectionMode === "checkbox"
+    );
   }
 
   private get hasBadges() {
@@ -133,32 +175,12 @@ export class SwirlResourceListItem {
     return this.el.querySelector<HTMLButtonElement>('[slot="control"] button');
   }
 
-  private makeControlFocusable() {
-    if (this.parentSemantics !== "grid") {
+  private syncTabIndex(el?: HTMLElement) {
+    if (!Boolean(el) || !el.isConnected || this.parentSemantics !== "grid") {
       return;
     }
 
-    const control = this.getControl();
-
-    if (!Boolean(control)) {
-      return;
-    }
-
-    control.tabIndex = 0;
-  }
-
-  private makeControlUnfocusable() {
-    if (this.parentSemantics !== "grid") {
-      return;
-    }
-
-    const control = this.getControl();
-
-    if (!Boolean(control)) {
-      return;
-    }
-
-    control.tabIndex = -1;
+    el.tabIndex = this.rowHasFocus ? 0 : -1;
   }
 
   private onClick = () => {
@@ -166,16 +188,16 @@ export class SwirlResourceListItem {
       return;
     }
 
-    this.checked = !this.checked;
-    this.valueChange.emit(this.checked);
-  };
+    if (this.hasInteractiveCheckbox) {
+      if (this.disabled) {
+        return;
+      }
 
-  private onBlur = () => {
-    this.makeControlUnfocusable();
-  };
+      this.activate.emit(this.el);
+      return;
+    }
 
-  private onFocus = () => {
-    this.makeControlFocusable();
+    this.toggle();
   };
 
   private onMenuTriggerClick = (event: MouseEvent) => {
@@ -196,6 +218,23 @@ export class SwirlResourceListItem {
     event.stopPropagation();
   };
 
+  private onCheckboxClick = (event: MouseEvent) => {
+    // The checkbox consumes the click, so it never reads as a row activation.
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (this.disabled) {
+      return;
+    }
+
+    this.toggle();
+  };
+
+  private toggle() {
+    this.checked = !this.checked;
+    this.valueChange.emit(this.checked);
+  }
+
   render() {
     const Tag =
       !this.interactive && !this.selectable
@@ -210,6 +249,7 @@ export class SwirlResourceListItem {
     const hasBadges = this.hasBadges;
     const hasControl = this.el.querySelector("[slot='control']");
     const hasMenu = Boolean(this.menuTriggerId) || hasControl;
+    const hasInteractiveCheckbox = this.hasInteractiveCheckbox;
 
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
 
@@ -221,8 +261,16 @@ export class SwirlResourceListItem {
     const ariaLabel = Boolean(this.swirlAriaLabel)
       ? this.swirlAriaLabel
       : this.label;
-    const ariaChecked = this.selectable ? String(this.checked) : undefined;
-    const role = this.interactive && this.selectable ? "checkbox" : undefined;
+
+    const ariaChecked =
+      this.selectable && !hasInteractiveCheckbox
+        ? String(this.checked)
+        : undefined;
+
+    const role =
+      this.interactive && this.selectable && !hasInteractiveCheckbox
+        ? "checkbox"
+        : undefined;
     const hostRole = !!this.el.closest('[role="grid"]') ? "row" : "listitem";
     const containerRole = hostRole === "row" ? "gridcell" : undefined;
 
@@ -285,8 +333,6 @@ export class SwirlResourceListItem {
             rel={isLink ? this.rel : undefined}
             target={isLink ? this.target : undefined}
             disabled={disabled}
-            onBlur={this.onBlur}
-            onFocus={this.onFocus}
             part="resource-list-item__content"
             role={role}
             tabIndex={0}
@@ -321,15 +367,33 @@ export class SwirlResourceListItem {
               )}
             </span>
           </Tag>
-          {this.selectable && (
-            <span aria-hidden="true" class="resource-list-item__checkbox">
-              <span class="resource-list-item__checkbox-icon">
-                {this.checked && (
-                  <swirl-icon-check-strong></swirl-icon-check-strong>
-                )}
+          {this.selectable &&
+            (hasInteractiveCheckbox ? (
+              <button
+                aria-checked={String(this.checked)}
+                aria-label={`${this.checkboxLabel} "${this.label}"`}
+                class="resource-list-item__checkbox"
+                disabled={disabled}
+                onClick={this.onCheckboxClick}
+                ref={(el) => (this.checkboxEl = el)}
+                role="checkbox"
+                type="button"
+              >
+                <span class="resource-list-item__checkbox-icon">
+                  {this.checked && (
+                    <swirl-icon-check-strong></swirl-icon-check-strong>
+                  )}
+                </span>
+              </button>
+            ) : (
+              <span aria-hidden="true" class="resource-list-item__checkbox">
+                <span class="resource-list-item__checkbox-icon">
+                  {this.checked && (
+                    <swirl-icon-check-strong></swirl-icon-check-strong>
+                  )}
+                </span>
               </span>
-            </span>
-          )}
+            ))}
           {showMeta && (
             <span class="resource-list-item__meta">
               {this.meta && (
