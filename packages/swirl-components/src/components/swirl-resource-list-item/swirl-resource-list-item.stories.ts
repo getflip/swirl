@@ -90,3 +90,42 @@ SwirlResourceListItem.args = {
   label: "This is a resource item",
   meta: "Today",
 };
+
+const channels = ["General", "Engineering", "Design", "Marketing"];
+
+const ProgressiveSelectionTemplate = () => {
+  const list = document.createElement("swirl-resource-list");
+
+  list.setAttribute("label", "Channels");
+
+  const items = channels.map((channel) => {
+    const item = document.createElement("swirl-resource-list-item");
+
+    item.setAttribute("label", channel);
+    item.setAttribute("meta", "admin");
+    item.setAttribute("selectable", "true");
+    item.setAttribute("selection-mode", "checkbox");
+
+    return item;
+  });
+
+  items.forEach((item) => {
+    item.addEventListener("valueChange", () => {
+      console.log("valueChange");
+    });
+
+    item.addEventListener("activate", () => {
+      console.log("activate");
+    });
+  });
+
+  list.append(...items);
+
+  return list;
+};
+
+export const ProgressiveSelection = ProgressiveSelectionTemplate.bind({});
+
+ProgressiveSelection.parameters = {
+  controls: { disable: true },
+};
