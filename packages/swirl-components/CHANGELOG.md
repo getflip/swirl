@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.520.0
+
+### Minor Changes
+
+- [#1771](https://github.com/getflip/swirl/pull/1771)
+  [`3e416a58e`](https://github.com/getflip/swirl/commit/3e416a58e6895b904d4d4cf0dbc120f079a3f176)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add selection
+  mode to swirl-resource-list-item
+
 ## 0.519.0
 
 ### Minor Changes
