@@ -8,17 +8,10 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
-import { DesktopMediaQuery } from "../../services/media-query.service";
-
-export type SwirlChipBorderRadius = "pill" | "sm";
 
 export type SwirlChipIconColor = "default" | "highlight";
 
-export type SwirlChipIntent = "default" | "critical" | "success" | "highlight";
-
-export type SwirlChipSize = "s" | "m";
-
-export type SwirlChipVariant = "outline" | "plain" | "translucent";
+export type SwirlChipIntent = "default" | "critical" | "highlight";
 
 /**
  * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".
@@ -33,7 +26,6 @@ export type SwirlChipVariant = "outline" | "plain" | "translucent";
 export class SwirlChip {
   @Element() el: HTMLElement;
 
-  @Prop() borderRadius?: SwirlChipBorderRadius = "pill";
   @Prop() disabled?: boolean;
   @Prop() icon?: string;
   @Prop() iconColor?: SwirlChipIconColor = "default";
@@ -41,36 +33,19 @@ export class SwirlChip {
   @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
-  @Prop() progress?: number;
   @Prop() pressed?: boolean;
-  @Prop() progressBarLabel?: string = "Loading progress";
   @Prop() removable?: boolean;
   @Prop() removeButtonLabel?: string = "Remove";
-  @Prop() size?: SwirlChipSize = "m";
   @Prop() swirlAriaLabel?: string;
-  @Prop() variant?: SwirlChipVariant = "outline";
 
   @Event() chipClick: EventEmitter<MouseEvent>;
   @Event({ eventName: "remove" }) removeChip?: EventEmitter<MouseEvent>;
 
   private iconEl: HTMLElement;
   private trailingIconEl: HTMLElement;
-  private isDesktop: boolean;
-  private mediaQueryUnsubscribe: () => void = () => {};
-
-  componentDidLoad() {
-    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
-      this.isDesktop = isDesktop;
-      this.forceIconProps();
-    });
-  }
 
   componentDidRender() {
     this.forceIconProps();
-  }
-
-  disconnectedCallback() {
-    this.mediaQueryUnsubscribe();
   }
 
   private forceIconProps() {
@@ -78,7 +53,7 @@ export class SwirlChip {
       return;
     }
 
-    const iconSize = this.size === "s" ? "16" : this.isDesktop ? "20" : "24";
+    const iconSize = "20";
 
     if (this.iconEl) {
       const icon = this.iconEl.children[0];
@@ -103,14 +78,10 @@ export class SwirlChip {
 
     const className = classnames(
       "chip",
-      `chip--border-radius-${this.borderRadius}`,
       `chip--icon-color-${this.iconColor}`,
       `chip--intent-${this.intent}`,
-      `chip--size-${this.size}`,
-      `chip--variant-${this.variant}`,
       {
         "chip--pressed": this.pressed,
-        "chip--has-progress": this.progress !== undefined,
         "chip--interactive": this.interactive || this.pressed !== undefined,
         "chip--removable": this.removable,
       }
@@ -156,14 +127,6 @@ export class SwirlChip {
               </span>
             )}
           </span>
-          {this.progress !== undefined && (
-            <span class="chip__progress-indicator">
-              <swirl-progress-indicator
-                label={this.progressBarLabel}
-                value={this.progress}
-              ></swirl-progress-indicator>
-            </span>
-          )}
         </Tag>
         {this.removable && (
           <button

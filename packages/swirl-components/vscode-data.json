@@ -2483,18 +2483,6 @@
       },
       "attributes": [
         {
-          "name": "border-radius",
-          "description": "",
-          "values": [
-            {
-              "name": "pill"
-            },
-            {
-              "name": "sm"
-            }
-          ]
-        },
-        {
           "name": "disabled",
           "description": ""
         },
@@ -2526,9 +2514,6 @@
             },
             {
               "name": "highlight"
-            },
-            {
-              "name": "success"
             }
           ]
         },
@@ -2545,14 +2530,6 @@
           "description": ""
         },
         {
-          "name": "progress",
-          "description": ""
-        },
-        {
-          "name": "progress-bar-label",
-          "description": ""
-        },
-        {
           "name": "removable",
           "description": ""
         },
@@ -2561,39 +2538,12 @@
           "description": ""
         },
         {
-          "name": "size",
-          "description": "",
-          "values": [
-            {
-              "name": "m"
-            },
-            {
-              "name": "s"
-            }
-          ]
-        },
-        {
           "name": "swirl-aria-label",
           "description": ""
         },
         {
           "name": "trailing-icon",
           "description": ""
-        },
-        {
-          "name": "variant",
-          "description": "",
-          "values": [
-            {
-              "name": "outline"
-            },
-            {
-              "name": "plain"
-            },
-            {
-              "name": "translucent"
-            }
-          ]
         }
       ]
     },

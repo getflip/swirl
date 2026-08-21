@@ -12,38 +12,18 @@
   display: inline-flex;
   overflow: hidden;
   max-width: 100%;
-  height: 2.25rem;
+  height: 2rem;
   padding: 0;
   border: 0.0625rem solid var(--s-border-default);
   border-radius: 1.25rem;
   color: var(--s-text-subdued);
-  background-color: transparent;
+  background: var(--s-surface-raised-50-default);
+  backdrop-filter: blur(var(--s-blur-s));
   font: inherit;
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
   flex-direction: column;
-}
-
-.chip--size-s {
-  height: 2rem;
-
-  &.chip--removable {
-    & .chip__inner {
-      padding-right: calc(1.5rem + var(--s-space-12));
-    }
-  }
-
-  & .chip__inner {
-    padding-right: var(--s-space-12);
-    padding-left: var(--s-space-12);
-  }
-
-  & + .chip__remove-button {
-    top: var(--s-space-4);
-    width: 1.5rem;
-    height: 1.5rem;
-  }
 }
 
 .chip--interactive {
@@ -59,7 +39,7 @@
   }
 
   &:hover:not(:disabled) {
-    background-color: var(--s-state-hovered);
+    background: var(--s-surface-raised-50-hovered);
 
     & ::part(avatar) {
       background-color: var(--s-surface-raised-hovered);
@@ -67,7 +47,7 @@
   }
 
   &:active:not(:disabled) {
-    background-color: var(--s-state-pressed);
+    background: var(--s-surface-raised-50-pressed);
 
     & ::part(avatar) {
       background-color: var(--s-surface-raised-pressed);
@@ -83,7 +63,7 @@
 
 .chip--removable {
   & .chip__inner {
-    padding-right: calc(1.875rem + var(--s-space-12));
+    padding-right: calc(1.5rem + var(--s-space-8));
   }
 }
 
@@ -92,23 +72,9 @@
     border-color: var(--s-border-critical);
     color: var(--s-text-critical);
 
-    & .chip__icon {
+    & .chip__icon,
+    & + .chip__remove-button {
       color: var(--s-icon-critical);
-    }
-  }
-}
-
-.chip--border-radius-sm {
-  border-radius: var(--s-border-radius-sm);
-}
-
-.chip--intent-success {
-  &:not(:disabled) {
-    border-color: var(--s-border-success);
-    color: var(--s-text-success);
-
-    & .chip__icon {
-      color: var(--s-icon-success);
     }
   }
 }
@@ -118,22 +84,53 @@
     border-color: var(--s-border-highlight);
     color: var(--s-text-highlight);
 
-    & .chip__icon {
+    & .chip__icon,
+    & + .chip__remove-button {
       color: var(--s-icon-highlight);
     }
   }
 }
 
-.chip--variant-outline,
-.chip--variant-translucent {
-  &.chip--pressed:not(:disabled) {
+.chip--pressed {
+  color: var(--s-text-on-action-primary);
+  background-color: var(--s-action-primary-default);
+  border-color: var(--s-action-primary-default);
+
+  &:disabled {
+    background-color: var(--s-action-primary-disabled);
+    color: var(--s-text-disabled);
+    border-color: var(--s-action-primary-disabled);
+
+    & + .chip__remove-button {
+      background-color: transparent;
+    }
+  }
+
+  & .chip__icon {
+    color: var(--s-text-on-action-primary);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--s-action-primary-hovered);
+    border-color: var(--s-action-primary-hovered);
+
+    & + .chip__remove-button {
+      background-color: var(--s-action-primary-hovered);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--s-action-primary-pressed);
+    border-color: var(--s-action-primary-pressed);
+
+    & + .chip__remove-button {
+      background-color: var(--s-action-primary-pressed);
+    }
+  }
+
+  & + .chip__remove-button {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
-    border-color: var(--s-action-primary-default);
-
-    & .chip__icon {
-      color: var(--s-text-on-action-primary);
-    }
 
     &:hover:not(:disabled) {
       background-color: var(--s-action-primary-hovered);
@@ -142,95 +139,6 @@
     &:active:not(:disabled) {
       background-color: var(--s-action-primary-pressed);
     }
-
-    & + .chip__remove-button {
-      color: var(--s-text-on-action-primary);
-      background-color: var(--s-action-primary-default);
-
-      &:hover:not(:disabled) {
-        background-color: var(--s-action-primary-hovered);
-      }
-
-      &:active:not(:disabled) {
-        background-color: var(--s-action-primary-pressed);
-      }
-    }
-  }
-}
-
-.chip--variant-translucent {
-  background: var(--s-translucent-medium-default);
-  backdrop-filter: blur(var(--s-blur-s));
-
-  &.chip--interactive {
-    &:hover:not(:disabled) {
-      background: var(--s-translucent-medium-hovered);
-    }
-
-    &:active:not(:disabled) {
-      background: var(--s-translucent-medium-pressed);
-    }
-  }
-}
-
-.chip--variant-plain {
-  height: auto;
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-
-  &.chip--interactive {
-    &:hover:not(:disabled) {
-      background-color: transparent;
-      text-decoration: underline;
-      text-underline-offset: var(--s-space-4);
-
-      & ::part(avatar) {
-        background-color: var(--s-surface-raised-hovered);
-      }
-    }
-
-    &:active:not(:disabled) {
-      background-color: transparent;
-
-      & ::part(avatar) {
-        background-color: var(--s-surface-raised-pressed);
-      }
-    }
-  }
-
-  &.chip--removable {
-    & .chip__inner {
-      padding-right: var(--s-space-12);
-    }
-  }
-
-  & + .chip__remove-button {
-    position: relative;
-    top: 0;
-    right: auto;
-  }
-
-  & .chip__inner {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  & .chip__icon,
-  & .chip__avatar {
-    margin-left: 0;
-  }
-}
-
-.chip--has-progress {
-  & + .chip__remove-button {
-    top: 0.1875rem;
-  }
-}
-
-.chip--has-progress:not(.chip--size-s) {
-  & + .chip__remove-button {
-    top: 0.0625rem;
   }
 }
 
@@ -238,27 +146,28 @@
   display: inline-flex;
   max-width: 100%;
   height: 100%;
-  padding-right: var(--s-space-16);
-  padding-left: var(--s-space-16);
+  padding-right: var(--s-space-12);
+  padding-left: var(--s-space-12);
   align-items: center;
 }
 
 .chip__avatar,
 .chip__icon {
   display: inline-flex;
-  margin-right: var(--s-space-8);
+  margin-right: var(--s-space-4);
   flex-shrink: 0;
+  align-items: center;
 }
 
 .chip__avatar {
   overflow: hidden;
-  width: 1.75rem;
-  height: 1.75rem;
-  margin-left: -0.625rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: -0.5rem;
 }
 
 .chip__icon {
-  margin-left: -0.25rem;
+  margin-left: -0.375rem;
   color: var(--s-icon-default);
 }
 
@@ -276,17 +185,13 @@
   text-overflow: ellipsis;
 }
 
-.chip__progress-indicator {
-  width: 100%;
-}
-
 .chip__remove-button {
   position: absolute;
-  top: 0.1875rem;
+  top: var(--s-space-4);
   right: var(--s-space-4);
   display: inline-flex;
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 0;
   justify-content: center;
   align-items: center;

@@ -5926,19 +5926,6 @@
           "name": "SwirlChip",
           "attributes": [
             {
-              "name": "border-radius",
-              "type": {
-                "text": "\"pill\" | \"sm\"",
-                "references": [
-                  {
-                    "name": "SwirlChipBorderRadius"
-                  }
-                ]
-              },
-              "default": "\"pill\"",
-              "fieldName": "borderRadius"
-            },
-            {
               "name": "disabled",
               "type": {
                 "text": "boolean"
@@ -5968,7 +5955,7 @@
             {
               "name": "intent",
               "type": {
-                "text": "\"critical\" | \"default\" | \"highlight\" | \"success\"",
+                "text": "\"critical\" | \"default\" | \"highlight\"",
                 "references": [
                   {
                     "name": "SwirlChipIntent"
@@ -6001,21 +5988,6 @@
               "fieldName": "pressed"
             },
             {
-              "name": "progress",
-              "type": {
-                "text": "number"
-              },
-              "fieldName": "progress"
-            },
-            {
-              "name": "progress-bar-label",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"Loading progress\"",
-              "fieldName": "progressBarLabel"
-            },
-            {
               "name": "removable",
               "type": {
                 "text": "boolean"
@@ -6031,19 +6003,6 @@
               "fieldName": "removeButtonLabel"
             },
             {
-              "name": "size",
-              "type": {
-                "text": "\"m\" | \"s\"",
-                "references": [
-                  {
-                    "name": "SwirlChipSize"
-                  }
-                ]
-              },
-              "default": "\"m\"",
-              "fieldName": "size"
-            },
-            {
               "name": "swirl-aria-label",
               "type": {
                 "text": "string"
@@ -6056,37 +6015,9 @@
                 "text": "string"
               },
               "fieldName": "trailingIcon"
-            },
-            {
-              "name": "variant",
-              "type": {
-                "text": "\"outline\" | \"plain\" | \"translucent\"",
-                "references": [
-                  {
-                    "name": "SwirlChipVariant"
-                  }
-                ]
-              },
-              "default": "\"outline\"",
-              "fieldName": "variant"
             }
           ],
           "members": [
-            {
-              "kind": "field",
-              "name": "borderRadius",
-              "type": {
-                "text": "\"pill\" | \"sm\"",
-                "references": [
-                  {
-                    "name": "SwirlChipBorderRadius"
-                  }
-                ]
-              },
-              "default": "\"pill\"",
-              "readonly": true,
-              "attribute": "border-radius"
-            },
             {
               "kind": "field",
               "name": "disabled",
@@ -6124,7 +6055,7 @@
               "kind": "field",
               "name": "intent",
               "type": {
-                "text": "\"critical\" | \"default\" | \"highlight\" | \"success\"",
+                "text": "\"critical\" | \"default\" | \"highlight\"",
                 "references": [
                   {
                     "name": "SwirlChipIntent"
@@ -6165,25 +6096,6 @@
             },
             {
               "kind": "field",
-              "name": "progress",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "attribute": "progress"
-            },
-            {
-              "kind": "field",
-              "name": "progressBarLabel",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"Loading progress\"",
-              "readonly": true,
-              "attribute": "progress-bar-label"
-            },
-            {
-              "kind": "field",
               "name": "removable",
               "type": {
                 "text": "boolean"
@@ -6203,21 +6115,6 @@
             },
             {
               "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "\"m\" | \"s\"",
-                "references": [
-                  {
-                    "name": "SwirlChipSize"
-                  }
-                ]
-              },
-              "default": "\"m\"",
-              "readonly": true,
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
               "name": "swirlAriaLabel",
               "type": {
                 "text": "string"
@@ -6233,21 +6130,6 @@
               },
               "readonly": true,
               "attribute": "trailing-icon"
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "\"outline\" | \"plain\" | \"translucent\"",
-                "references": [
-                  {
-                    "name": "SwirlChipVariant"
-                  }
-                ]
-              },
-              "default": "\"outline\"",
-              "readonly": true,
-              "attribute": "variant"
             }
           ],
           "events": [

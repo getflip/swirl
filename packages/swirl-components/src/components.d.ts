@@ -23,7 +23,7 @@ import { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./componen
 import { SwirlCardAriaCurrent, SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-carousel/swirl-carousel";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
-import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
+import { SwirlChipIconColor, SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -107,7 +107,7 @@ export { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./componen
 export { SwirlCardAriaCurrent, SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-carousel/swirl-carousel";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
-export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
+export { SwirlChipIconColor, SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -741,10 +741,6 @@ export namespace Components {
         "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
-        /**
-          * @default "pill"
-         */
-        "borderRadius"?: SwirlChipBorderRadius;
         "disabled"?: boolean;
         "icon"?: string;
         /**
@@ -761,26 +757,13 @@ export namespace Components {
         "interactive"?: boolean;
         "label": string;
         "pressed"?: boolean;
-        "progress"?: number;
-        /**
-          * @default "Loading progress"
-         */
-        "progressBarLabel"?: string;
         "removable"?: boolean;
         /**
           * @default "Remove"
          */
         "removeButtonLabel"?: string;
-        /**
-          * @default "m"
-         */
-        "size"?: SwirlChipSize;
         "swirlAriaLabel"?: string;
         "trailingIcon"?: string;
-        /**
-          * @default "outline"
-         */
-        "variant"?: SwirlChipVariant;
     }
     interface SwirlColorInput {
         "autoFocus"?: boolean;
@@ -11217,10 +11200,6 @@ declare namespace LocalJSX {
         "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
-        /**
-          * @default "pill"
-         */
-        "borderRadius"?: SwirlChipBorderRadius;
         "disabled"?: boolean;
         "icon"?: string;
         /**
@@ -11239,26 +11218,13 @@ declare namespace LocalJSX {
         "onChipClick"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "pressed"?: boolean;
-        "progress"?: number;
-        /**
-          * @default "Loading progress"
-         */
-        "progressBarLabel"?: string;
         "removable"?: boolean;
         /**
           * @default "Remove"
          */
         "removeButtonLabel"?: string;
-        /**
-          * @default "m"
-         */
-        "size"?: SwirlChipSize;
         "swirlAriaLabel"?: string;
         "trailingIcon"?: string;
-        /**
-          * @default "outline"
-         */
-        "variant"?: SwirlChipVariant;
     }
     interface SwirlColorInput {
         "autoFocus"?: boolean;
@@ -16497,7 +16463,6 @@ declare namespace LocalJSX {
         "variant": SwirlCheckboxVariant;
     }
     interface SwirlChipAttributes {
-        "borderRadius": SwirlChipBorderRadius;
         "disabled": boolean;
         "icon": string;
         "iconColor": SwirlChipIconColor;
@@ -16505,14 +16470,10 @@ declare namespace LocalJSX {
         "intent": SwirlChipIntent;
         "interactive": boolean;
         "label": string;
-        "progress": number;
         "pressed": boolean;
-        "progressBarLabel": string;
         "removable": boolean;
         "removeButtonLabel": string;
-        "size": SwirlChipSize;
         "swirlAriaLabel": string;
-        "variant": SwirlChipVariant;
     }
     interface SwirlColorInputAttributes {
         "autoFocus": boolean;
