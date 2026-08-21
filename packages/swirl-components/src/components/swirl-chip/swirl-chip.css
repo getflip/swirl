@@ -67,7 +67,7 @@
   }
 }
 
-.chip--intent-critical {
+.chip--intent-critical:not(.chip--pressed) {
   &:not(:disabled) {
     border-color: var(--s-border-critical);
     color: var(--s-text-critical);
@@ -79,7 +79,7 @@
   }
 }
 
-.chip--intent-highlight {
+.chip--intent-highlight:not(.chip--pressed) {
   &:not(:disabled) {
     border-color: var(--s-border-highlight);
     color: var(--s-text-highlight);
