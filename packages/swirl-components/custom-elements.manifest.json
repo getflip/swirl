@@ -49239,6 +49239,14 @@
               "fieldName": "allowHtml"
             },
             {
+              "name": "checkbox-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Select\"",
+              "fieldName": "checkboxLabel"
+            },
+            {
               "name": "checked",
               "type": {
                 "text": "boolean"
@@ -49425,6 +49433,20 @@
               "fieldName": "selectable"
             },
             {
+              "name": "selection-mode",
+              "type": {
+                "text": "\"checkbox\" | \"row\"",
+                "references": [
+                  {
+                    "name": "SwirlResourceListItemSelectionMode",
+                    "module": "./swirl-resource-list-item.types"
+                  }
+                ]
+              },
+              "default": "\"row\"",
+              "fieldName": "selectionMode"
+            },
+            {
               "name": "swirl-aria-current",
               "type": {
                 "text": "\"date\" | \"location\" | \"page\" | \"step\" | \"time\" | \"true\"",
@@ -49501,6 +49523,16 @@
               },
               "readonly": true,
               "attribute": "allow-html"
+            },
+            {
+              "kind": "field",
+              "name": "checkboxLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"Select\"",
+              "readonly": true,
+              "attribute": "checkbox-label"
             },
             {
               "kind": "field",
@@ -49735,6 +49767,22 @@
             },
             {
               "kind": "field",
+              "name": "selectionMode",
+              "type": {
+                "text": "\"checkbox\" | \"row\"",
+                "references": [
+                  {
+                    "name": "SwirlResourceListItemSelectionMode",
+                    "module": "./swirl-resource-list-item.types"
+                  }
+                ]
+              },
+              "default": "\"row\"",
+              "readonly": true,
+              "attribute": "selection-mode"
+            },
+            {
+              "kind": "field",
               "name": "swirlAriaCurrent",
               "type": {
                 "text": "\"date\" | \"location\" | \"page\" | \"step\" | \"time\" | \"true\"",
@@ -49783,6 +49831,18 @@
             }
           ],
           "events": [
+            {
+              "name": "activate",
+              "type": {
+                "text": "CustomEvent<HTMLSwirlResourceListItemElement>",
+                "references": [
+                  {
+                    "name": "HTMLSwirlResourceListItemElement",
+                    "package": "global:"
+                  }
+                ]
+              }
+            },
             {
               "name": "toggleDrag",
               "type": {

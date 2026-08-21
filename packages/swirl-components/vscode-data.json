@@ -22821,6 +22821,10 @@
           "description": ""
         },
         {
+          "name": "checkbox-label",
+          "description": ""
+        },
+        {
           "name": "checked",
           "description": ""
         },
@@ -22959,6 +22963,18 @@
         {
           "name": "selectable",
           "description": ""
+        },
+        {
+          "name": "selection-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "checkbox"
+            },
+            {
+              "name": "row"
+            }
+          ]
         },
         {
           "name": "swirl-aria-current",
