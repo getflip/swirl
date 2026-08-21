@@ -1,5 +1,13 @@
 # @getflip/swirl-components-react
 
+## 0.520.0
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3e416a58e`](https://github.com/getflip/swirl/commit/3e416a58e6895b904d4d4cf0dbc120f079a3f176)]:
+  - @getflip/swirl-components@0.520.0
+
 ## 0.519.0
 
 ### Patch Changes
