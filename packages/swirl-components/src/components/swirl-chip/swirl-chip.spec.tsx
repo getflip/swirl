@@ -11,7 +11,7 @@ describe("swirl-chip", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-chip intent="critical" label="Label">
-        <span class="chip chip--border-radius-pill chip--icon-color-default chip--intent-critical chip--size-m chip--variant-outline">
+        <span class="chip chip--icon-color-default chip--intent-critical">
           <span class="chip__inner">
             <span class="chip__label">Label</span>
           </span>
@@ -28,7 +28,7 @@ describe("swirl-chip", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-chip interactive="true" label="Label">
-        <button class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--interactive chip--variant-outline" type="button">
+        <button class="chip chip--icon-color-default chip--intent-default chip--interactive" type="button">
           <span class="chip__inner">
             <span class="chip__label">Label</span>
           </span>
@@ -46,7 +46,7 @@ describe("swirl-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-chip label="Label">
         <swirl-avatar hidden="" initials="JD" size="xs"></swirl-avatar>
-        <span class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--variant-outline">
+        <span class="chip chip--icon-color-default chip--intent-default">
           <span class="chip__inner">
             <span class="chip__label">Label</span>
           </span>
@@ -63,7 +63,7 @@ describe("swirl-chip", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-chip pressed="true" label="Label">
-        <button aria-pressed="true" class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--variant-outline chip--interactive chip--pressed">
+        <button aria-pressed="true" class="chip chip--icon-color-default chip--intent-default chip--interactive chip--pressed">
           <span class="chip__inner">
             <span class="chip__label">Label</span>
           </span>
@@ -83,7 +83,7 @@ describe("swirl-chip", () => {
     await page.waitForChanges();
 
     expect(icon).toBeTruthy();
-    expect(icon.getAttribute("size")).toBe("24");
+    expect(icon.getAttribute("size")).toBe("20");
   });
 
   it("renders trailing icon with overwritten props", async () => {
@@ -97,7 +97,7 @@ describe("swirl-chip", () => {
     await page.waitForChanges();
 
     expect(trailingIcon).toBeTruthy();
-    expect(trailingIcon.getAttribute("size")).toBe("24");
+    expect(trailingIcon.getAttribute("size")).toBe("20");
   });
 
   it("renders disabled", async () => {
@@ -108,7 +108,7 @@ describe("swirl-chip", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-chip disabled="true" interactive="true" label="Label">
-        <button aria-disabled="true" class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--interactive chip--variant-outline" disabled="" type="button">
+        <button aria-disabled="true" class="chip chip--icon-color-default chip--intent-default chip--interactive" disabled="" type="button">
           <span class="chip__inner">
             <span class="chip__label">Label</span>
           </span>
@@ -136,7 +136,7 @@ describe("swirl-chip", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-chip disabled="true" label="Label" removable="true">
-        <span class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--removable chip--variant-outline">
+        <span class="chip chip--icon-color-default chip--intent-default chip--removable">
           <span class="chip__inner">
             <span class="chip__label">Label</span>
           </span>
