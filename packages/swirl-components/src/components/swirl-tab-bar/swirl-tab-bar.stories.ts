@@ -1,4 +1,5 @@
 import { generateStoryElement } from "../../utils";
+import { SwirlTabBarTab } from "./swirl-tab-bar";
 import Docs from "./swirl-tab-bar.mdx";
 
 export default {
@@ -18,29 +19,44 @@ const Template = (args) => {
   return element;
 };
 
+// the badge sits on the active tab so the pill variant story shows the
+// combination where the intent color has no contrast and has to be adjusted
+const tabs: SwirlTabBarTab[] = [
+  {
+    active: false,
+    id: "tab1",
+    label: "A Tab",
+    suffix: "2",
+    tooltip: "With a tooltip",
+  },
+  {
+    active: true,
+    badge: {
+      intent: "info",
+      label: "Batches running",
+    },
+    icon: '<swirl-icon glyph="emoji-mood" size="20"></swirl-icon>',
+    id: "tab2",
+    label: "Another Tab",
+    suffix: "12",
+  },
+  {
+    active: false,
+    icon: '<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>',
+    id: "tab3",
+    label: "Yet Another Tab",
+  },
+];
+
 export const SwirlTabBar = Template.bind({});
 
 SwirlTabBar.args = {
-  tabs: [
-    {
-      active: false,
-      id: "tab1",
-      label: "A Tab",
-      suffix: "2",
-      tooltip: "With a tooltip",
-    },
-    {
-      active: true,
-      icon: '<swirl-icon glyph="emoji-mood" size="20"></swirl-icon>',
-      id: "tab2",
-      label: "Another Tab",
-      suffix: "12",
-    },
-    {
-      active: false,
-      icon: '<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>',
-      id: "tab3",
-      label: "Yet Another Tab",
-    },
-  ],
+  tabs,
+};
+
+export const WithPillVariant = Template.bind({});
+
+WithPillVariant.args = {
+  tabs,
+  variant: "pill",
 };

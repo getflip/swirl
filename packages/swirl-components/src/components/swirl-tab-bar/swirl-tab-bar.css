@@ -150,6 +150,11 @@
     & .tab-bar__tab-suffix {
       color: var(--s-text-subdued);
     }
+
+    /* the badge sits inline on a pill, so it needs no border to separate it from its surroundings */
+    & .tab-bar__tab-badge {
+      --swirl-badge-border-color: transparent;
+    }
   }
 
   @media (--from-desktop-without-touch) {
@@ -178,4 +183,8 @@
 .tab-bar__tab-suffix {
   color: var(--s-interactive-neutral-default);
   font-weight: var(--s-font-weight-normal);
+}
+
+.tab-bar__tab-badge {
+  padding-left: var(--s-space-4);
 }

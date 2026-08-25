@@ -83,6 +83,49 @@ describe("swirl-tabs", () => {
     expect(tabs.find((tab) => tab.active).tabId).toBe("tab-2");
   });
 
+  it("forwards tab badges to the tab bar", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTabs, SwirlTab, SwirlTabBar],
+      html: `
+        <swirl-tabs label="Tabs">
+          <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
+          <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
+        </swirl-tabs>
+      `,
+    });
+
+    expect(page.root.querySelector("#tab-tab-2 swirl-badge")).toBeNull();
+
+    page.root.querySelector<HTMLSwirlTabElement>(
+      "swirl-tab[tab-id='tab-2']"
+    ).badge = {
+      intent: "info",
+      label: "Batches running",
+    };
+
+    // the tab bar renders from a snapshot taken on load and on activation, so
+    // the badge reaches it with the next activation
+    await page.rootInstance.activateTab("tab-2");
+    await page.waitForChanges();
+
+    const badge = page.root.querySelector("#tab-tab-2 swirl-badge");
+
+    expect(badge).not.toBeNull();
+    expect(badge.getAttribute("variant")).toBe("dot");
+    expect(badge.getAttribute("intent")).toBe("info");
+    expect(badge.getAttribute("label")).toBe("Batches running");
+
+    // and clearing it removes the badge again
+    page.root.querySelector<HTMLSwirlTabElement>(
+      "swirl-tab[tab-id='tab-2']"
+    ).badge = undefined;
+
+    await page.rootInstance.activateTab("tab-1");
+    await page.waitForChanges();
+
+    expect(page.root.querySelector("#tab-tab-2 swirl-badge")).toBeNull();
+  });
+
   it("activates tabs via keyboard", async () => {
     const page = await newSpecPage({
       components: [SwirlTabs, SwirlTab, SwirlTabBar],

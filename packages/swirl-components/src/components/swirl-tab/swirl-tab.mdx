@@ -25,6 +25,27 @@ The SwirlTab component is used to display a tab panel inside the
 </swirl-tab>`}
 />
 
+## Tab item props
+
+`swirl-tab` renders only the tab panel. The `badge`, `icon`, `label` and
+`tooltip` props describe the corresponding tab bar item, and are forwarded by
+[SwirlTabs](?path=/docs/components-swirltabs--docs) to
+[SwirlTabBar](?path=/docs/components-swirltabbar--docs).
+
+`badge` renders a status badge — a dot — after the tab label. Because it is an
+object it has to be set as a property, not an attribute:
+
+<Source
+  code={`document.querySelector("[tab-id='tab-id']").badge = {
+    intent: "info",
+    label: "Batches running",
+};`}
+/>
+
+`swirl-tabs` reads these props when it builds the tab bar, which happens on load
+and on tab activation, so set them before mount. Changing one at runtime does not
+refresh the tab bar until the next activation.
+
 ## Related components
 
 - **[swirl-tabs](?path=/docs/components-swirltabs--docs)** (parent) — Tab

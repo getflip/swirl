@@ -106,6 +106,112 @@ describe("swirl-tab-bar", () => {
     expect(spy).toHaveBeenCalledTimes(4);
   });
 
+  it("renders tab status badges", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTabBar],
+      html: `<swirl-tab-bar label="Tabs"></swirl-tab-bar>`,
+    });
+
+    page.root.tabs = [
+      {
+        active: false,
+        badge: { intent: "info", label: "Batches running" },
+        id: "tab1",
+        label: "Tab #1",
+      },
+      {
+        active: true,
+        badge: { label: "Syncing" },
+        id: "tab2",
+        label: "Tab #2",
+      },
+      {
+        active: false,
+        id: "tab3",
+        label: "Tab #3",
+      },
+    ];
+
+    await page.waitForChanges();
+
+    expect(page.root).toEqualHtml(`
+      <swirl-tab-bar label="Tabs">
+        <div aria-label="Tabs" class="tab-bar tab-bar--justify-start tab-bar--variant-default" role="tablist">
+          <button aria-controls="tab1" aria-selected="false" class="tab-bar__tab tab-bar__tab--variant-default" id="tab-tab1" role="tab" tabindex="-1" type="button">
+            <span class="tab-bar__tab-label">
+              Tab #1
+              <swirl-badge class="tab-bar__tab-badge" intent="info" label="Batches running" size="xs" variant="dot"></swirl-badge>
+            </span>
+          </button>
+          <button aria-controls="tab2" aria-selected="true" class="tab-bar__tab tab-bar__tab--variant-default tab-bar__tab--active" id="tab-tab2" role="tab" tabindex="0" type="button">
+            <span class="tab-bar__tab-label">
+              Tab #2
+              <swirl-badge class="tab-bar__tab-badge" intent="info" label="Syncing" size="xs" variant="dot"></swirl-badge>
+            </span>
+          </button>
+          <button aria-controls="tab3" aria-selected="false" class="tab-bar__tab tab-bar__tab--variant-default" id="tab-tab3" role="tab" tabindex="-1" type="button">
+            <span class="tab-bar__tab-label">
+              Tab #3
+            </span>
+          </button>
+        </div>
+      </swirl-tab-bar>
+    `);
+
+    // the badge carries its own accessible label, which swirl-badge renders
+    // into a swirl-visually-hidden for the dot variant
+    expect(
+      page.root.querySelector("#tab-tab1 swirl-badge").getAttribute("label")
+    ).toBe("Batches running");
+
+    // an omitted intent falls back to "info" rather than swirl-badge's own
+    // "critical" default
+    expect(
+      page.root.querySelector("#tab-tab2 swirl-badge").getAttribute("intent")
+    ).toBe("info");
+
+    // tabs without a badge render none
+    expect(page.root.querySelector("#tab-tab3 swirl-badge")).toBeNull();
+  });
+
+  it("renders tab status badges in the pill variant", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTabBar],
+      html: `<swirl-tab-bar label="Tabs" variant="pill"></swirl-tab-bar>`,
+    });
+
+    page.root.tabs = [
+      {
+        active: true,
+        badge: { intent: "info", label: "Batches running" },
+        id: "tab1",
+        label: "Tab #1",
+      },
+      {
+        active: false,
+        badge: { intent: "info", label: "Syncing" },
+        id: "tab2",
+        label: "Tab #2",
+      },
+    ];
+
+    await page.waitForChanges();
+
+    expect(page.root.querySelector("#tab-tab1").className).toContain(
+      "tab-bar__tab--variant-pill"
+    );
+
+    // an `info` dot would be invisible against the active pill, so its intent
+    // is forced to `critical`. inactive pills keep the requested intent
+    expect(
+      page.root.querySelector("#tab-tab1 swirl-badge").getAttribute("intent")
+    ).toBe("critical");
+
+    expect(
+      page.root.querySelector("#tab-tab2 swirl-badge").getAttribute("intent")
+    ).toBe("info");
+  });
+
   it("wraps tabs with tooltips in swirl-tooltip", async () => {
     const page = await newSpecPage({
       components: [SwirlTabBar, SwirlTooltip],

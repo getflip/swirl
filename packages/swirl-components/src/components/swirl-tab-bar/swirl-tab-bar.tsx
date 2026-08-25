@@ -9,9 +9,21 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { getCircularArrayIndex } from "../../utils";
+import { SwirlBadgeIntent } from "../swirl-badge/swirl-badge";
+
+/**
+ * A status badge on a tab. Renders as a dot; `label` is not shown but is
+ * announced as part of the tab's accessible name. A counted badge is not
+ * supported yet.
+ */
+export type SwirlTabBarTabBadge = {
+  intent?: SwirlBadgeIntent;
+  label: string;
+};
 
 export type SwirlTabBarTab = {
   active?: boolean;
+  badge?: SwirlTabBarTabBadge;
   icon?: string;
   id: string;
   label: string;
@@ -139,6 +151,15 @@ export class SwirlTabBar {
               "tab-bar__tab-label--variant-pill": this.variant === "pill",
             });
 
+            // a dot has no text, so its intent color is the only thing carrying
+            // its meaning — and on the filled pill `info` resolves to the pill
+            // color itself, leaving nothing visible. `critical` reads against it
+            // behaving like a notification indicator.
+            const badgeIntent: SwirlBadgeIntent =
+              this.variant === "pill" && tab.active
+                ? "neutral"
+                : tab.badge?.intent ?? "info";
+
             const tabButton = (
               <button
                 aria-controls={this.disableTabSemantics ? undefined : tab.id}
@@ -168,6 +189,15 @@ export class SwirlTabBar {
                   {tab.label}
                   {tab.suffix && (
                     <span class="tab-bar__tab-suffix">{tab.suffix}</span>
+                  )}
+                  {tab.badge && (
+                    <swirl-badge
+                      class="tab-bar__tab-badge"
+                      intent={badgeIntent}
+                      label={tab.badge.label}
+                      size="xs"
+                      variant="dot"
+                    />
                   )}
                 </span>
               </button>
