@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.521.0
+
+### Minor Changes
+
+- [#1775](https://github.com/getflip/swirl/pull/1775)
+  [`649df9a7a`](https://github.com/getflip/swirl/commit/649df9a7a27a843b9c460f3a037381d8ee4429d5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Simplify swirl-chip component.
+
+  - Remove border-radius property. All chips render as pills now.
+  - Remove size property. All chips use size "s".
+  - Remove "success" intent.
+  - Remove variant prop. All chips render as translucent.
+  - Remove the progress properties.
+
 ## 0.520.0
 
 ### Minor Changes
