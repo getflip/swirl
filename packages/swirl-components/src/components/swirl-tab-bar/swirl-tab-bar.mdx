@@ -73,7 +73,8 @@ second.
 In the `pill` variant, no intent color has usable contrast against the active
 pill's filled primary background — `info` in particular resolves to the same
 color as the pill, leaving nothing visible. On the active pill the dot therefore
-falls back to `critical`, which reads against it like a notification indicator.
+falls back to `neutral`, which stays legible there. Inactive pills keep the
+requested `intent`.
 
 <Canvas of={Stories.WithPillVariant}></Canvas>
 

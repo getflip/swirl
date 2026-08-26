@@ -205,7 +205,7 @@ describe("swirl-tab-bar", () => {
     // is forced to `critical`. inactive pills keep the requested intent
     expect(
       page.root.querySelector("#tab-tab1 swirl-badge").getAttribute("intent")
-    ).toBe("critical");
+    ).toBe("neutral");
 
     expect(
       page.root.querySelector("#tab-tab2 swirl-badge").getAttribute("intent")

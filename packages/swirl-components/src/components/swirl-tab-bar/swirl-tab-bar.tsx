@@ -152,9 +152,9 @@ export class SwirlTabBar {
             });
 
             // a dot has no text, so its intent color is the only thing carrying
-            // its meaning — and on the filled pill `info` resolves to the pill
-            // color itself, leaving nothing visible. `critical` reads against it
-            // behaving like a notification indicator.
+            // its meaning — and no intent reads against the active pill's filled
+            // primary background, `info` resolving to the pill color itself and
+            // leaving nothing visible. `neutral` is legible there instead.
             const badgeIntent: SwirlBadgeIntent =
               this.variant === "pill" && tab.active
                 ? "neutral"
