@@ -255,7 +255,7 @@
   min-width: 0;
   margin: 0;
   padding: 0;
-  align-items: flex-start;
+  align-items: center;
   border: none;
   color: var(--s-text-default);
   background: none;
@@ -272,6 +272,14 @@
 
   @media (--from-desktop-without-touch) {
     line-height: var(--s-line-height-base);
+  }
+}
+
+.resource-list-item--wrap-description,
+.resource-list-item--wrap-label,
+.resource-list-item--wrap-label-max-lines {
+  & .resource-list-item__content {
+    align-items: flex-start;
   }
 }
 
