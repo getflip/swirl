@@ -19,7 +19,7 @@ const Template = (args) => {
   return element;
 };
 
-// the badge sits on the active tab so the pill variant story shows the
+// the badge sits on the active tab so switching variant to pill shows the
 // combination where the intent color has no contrast and has to be adjusted
 const tabs: SwirlTabBarTab[] = [
   {
@@ -52,11 +52,4 @@ export const SwirlTabBar = Template.bind({});
 
 SwirlTabBar.args = {
   tabs,
-};
-
-export const WithPillVariant = Template.bind({});
-
-WithPillVariant.args = {
-  tabs,
-  variant: "pill",
 };

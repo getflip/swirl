@@ -58,8 +58,8 @@ from design tokens; the only thing configurable is `intent`, which sets the dot
 color and defaults to `info`.
 
 `label` is required. The dot has no text, so the label is not shown, but it is
-announced as part of the tab's accessible name — that is how a screen reader user
-learns _why_ the tab is marked.
+announced as part of the tab's accessible name — that is how a screen reader
+user learns _why_ the tab is marked.
 
 <Source code={`badge: { intent: "info", label: "Batches running" }`} />
 
@@ -74,9 +74,8 @@ In the `pill` variant, no intent color has usable contrast against the active
 pill's filled primary background — `info` in particular resolves to the same
 color as the pill, leaving nothing visible. On the active pill the dot therefore
 falls back to `neutral`, which stays legible there. Inactive pills keep the
-requested `intent`.
-
-<Canvas of={Stories.WithPillVariant}></Canvas>
+requested `intent`. Switch `variant` to `pill` on the [Usage](#usage) example to
+preview this.
 
 ## Related components
 
