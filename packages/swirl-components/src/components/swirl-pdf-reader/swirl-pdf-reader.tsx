@@ -11,9 +11,12 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import { disableBodyScroll, enableBodyScroll } from "../../utils/body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport, querySelectorAllDeep } from "../../utils";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+} from "../../utils/body-scroll-lock";
 import {
   SwirlFileViewerPdfViewMode,
   SwirlFileViewerPdfZoom,
@@ -52,8 +55,8 @@ export class SwirlPdfReader {
   @Prop() zoomSelectLabel?: string = "Select zoom";
   @Prop() skipNativeDownload?: boolean = false;
 
-  @Event() modalClose: EventEmitter<void>;
-  @Event() modalOpen: EventEmitter<void>;
+  @Event({ bubbles: false }) modalClose: EventEmitter<void>;
+  @Event({ bubbles: false }) modalOpen: EventEmitter<void>;
 
   @State() active = false;
   @State() closing = false;
