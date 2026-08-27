@@ -2127,6 +2127,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconFrontHand {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFullscreen {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -7363,6 +7371,12 @@ declare global {
         prototype: HTMLSwirlIconForwardElement;
         new (): HTMLSwirlIconForwardElement;
     };
+    interface HTMLSwirlIconFrontHandElement extends Components.SwirlIconFrontHand, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFrontHandElement: {
+        prototype: HTMLSwirlIconFrontHandElement;
+        new (): HTMLSwirlIconFrontHandElement;
+    };
     interface HTMLSwirlIconFullscreenElement extends Components.SwirlIconFullscreen, HTMLStencilElement {
     }
     var HTMLSwirlIconFullscreenElement: {
@@ -10274,6 +10288,7 @@ declare global {
         "swirl-icon-format-list-bulleted": HTMLSwirlIconFormatListBulletedElement;
         "swirl-icon-format-list-numbered": HTMLSwirlIconFormatListNumberedElement;
         "swirl-icon-forward": HTMLSwirlIconForwardElement;
+        "swirl-icon-front-hand": HTMLSwirlIconFrontHandElement;
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
         "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
         "swirl-icon-gif": HTMLSwirlIconGifElement;
@@ -12553,6 +12568,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconForward {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconFrontHand {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -17220,6 +17243,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconFrontHandAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFullscreenAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -19256,6 +19284,7 @@ declare namespace LocalJSX {
         "swirl-icon-format-list-bulleted": Omit<SwirlIconFormatListBulleted, keyof SwirlIconFormatListBulletedAttributes> & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes]?: SwirlIconFormatListBulleted[K] } & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes as `attr:${K}`]?: SwirlIconFormatListBulletedAttributes[K] } & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes as `prop:${K}`]?: SwirlIconFormatListBulleted[K] };
         "swirl-icon-format-list-numbered": Omit<SwirlIconFormatListNumbered, keyof SwirlIconFormatListNumberedAttributes> & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes]?: SwirlIconFormatListNumbered[K] } & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes as `attr:${K}`]?: SwirlIconFormatListNumberedAttributes[K] } & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes as `prop:${K}`]?: SwirlIconFormatListNumbered[K] };
         "swirl-icon-forward": Omit<SwirlIconForward, keyof SwirlIconForwardAttributes> & { [K in keyof SwirlIconForward & keyof SwirlIconForwardAttributes]?: SwirlIconForward[K] } & { [K in keyof SwirlIconForward & keyof SwirlIconForwardAttributes as `attr:${K}`]?: SwirlIconForwardAttributes[K] } & { [K in keyof SwirlIconForward & keyof SwirlIconForwardAttributes as `prop:${K}`]?: SwirlIconForward[K] };
+        "swirl-icon-front-hand": Omit<SwirlIconFrontHand, keyof SwirlIconFrontHandAttributes> & { [K in keyof SwirlIconFrontHand & keyof SwirlIconFrontHandAttributes]?: SwirlIconFrontHand[K] } & { [K in keyof SwirlIconFrontHand & keyof SwirlIconFrontHandAttributes as `attr:${K}`]?: SwirlIconFrontHandAttributes[K] } & { [K in keyof SwirlIconFrontHand & keyof SwirlIconFrontHandAttributes as `prop:${K}`]?: SwirlIconFrontHand[K] };
         "swirl-icon-fullscreen": Omit<SwirlIconFullscreen, keyof SwirlIconFullscreenAttributes> & { [K in keyof SwirlIconFullscreen & keyof SwirlIconFullscreenAttributes]?: SwirlIconFullscreen[K] } & { [K in keyof SwirlIconFullscreen & keyof SwirlIconFullscreenAttributes as `attr:${K}`]?: SwirlIconFullscreenAttributes[K] } & { [K in keyof SwirlIconFullscreen & keyof SwirlIconFullscreenAttributes as `prop:${K}`]?: SwirlIconFullscreen[K] };
         "swirl-icon-fullscreen-exit": Omit<SwirlIconFullscreenExit, keyof SwirlIconFullscreenExitAttributes> & { [K in keyof SwirlIconFullscreenExit & keyof SwirlIconFullscreenExitAttributes]?: SwirlIconFullscreenExit[K] } & { [K in keyof SwirlIconFullscreenExit & keyof SwirlIconFullscreenExitAttributes as `attr:${K}`]?: SwirlIconFullscreenExitAttributes[K] } & { [K in keyof SwirlIconFullscreenExit & keyof SwirlIconFullscreenExitAttributes as `prop:${K}`]?: SwirlIconFullscreenExit[K] };
         "swirl-icon-gif": Omit<SwirlIconGif, keyof SwirlIconGifAttributes> & { [K in keyof SwirlIconGif & keyof SwirlIconGifAttributes]?: SwirlIconGif[K] } & { [K in keyof SwirlIconGif & keyof SwirlIconGifAttributes as `attr:${K}`]?: SwirlIconGifAttributes[K] } & { [K in keyof SwirlIconGif & keyof SwirlIconGifAttributes as `prop:${K}`]?: SwirlIconGif[K] };
@@ -19812,6 +19841,7 @@ declare module "@stencil/core" {
             "swirl-icon-format-list-bulleted": LocalJSX.IntrinsicElements["swirl-icon-format-list-bulleted"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListBulletedElement>;
             "swirl-icon-format-list-numbered": LocalJSX.IntrinsicElements["swirl-icon-format-list-numbered"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListNumberedElement>;
             "swirl-icon-forward": LocalJSX.IntrinsicElements["swirl-icon-forward"] & JSXBase.HTMLAttributes<HTMLSwirlIconForwardElement>;
+            "swirl-icon-front-hand": LocalJSX.IntrinsicElements["swirl-icon-front-hand"] & JSXBase.HTMLAttributes<HTMLSwirlIconFrontHandElement>;
             "swirl-icon-fullscreen": LocalJSX.IntrinsicElements["swirl-icon-fullscreen"] & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
             "swirl-icon-fullscreen-exit": LocalJSX.IntrinsicElements["swirl-icon-fullscreen-exit"] & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
             "swirl-icon-gif": LocalJSX.IntrinsicElements["swirl-icon-gif"] & JSXBase.HTMLAttributes<HTMLSwirlIconGifElement>;
