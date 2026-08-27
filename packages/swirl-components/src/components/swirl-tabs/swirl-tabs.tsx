@@ -117,6 +117,8 @@ export class SwirlTabs {
     );
   }
 
+  // only runs on load and on activation
+  // a prop change at runtime is not picked up until the next tab click
   private updateTabBarTabs() {
     this.tabBarTabs = this.tabs.map((tab) => ({
       active: this.activeTab === tab.tabId,
