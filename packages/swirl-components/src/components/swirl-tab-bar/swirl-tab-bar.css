@@ -186,5 +186,5 @@
 }
 
 .tab-bar__tab-badge {
-  padding-left: var(--s-space-6);
+  padding-left: calc(var(--s-space-4) + var(--s-space-2));
 }
