@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.94.0
+
+### Minor Changes
+
+- [#1778](https://github.com/getflip/swirl/pull/1778)
+  [`e345fc1f8`](https://github.com/getflip/swirl/commit/e345fc1f8466da44841e8961dfdf76a9f6412de6)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Added new
+  Front Hand Icon
+
 ## 0.93.0
 
 ### Minor Changes
