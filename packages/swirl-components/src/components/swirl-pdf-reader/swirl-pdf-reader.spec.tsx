@@ -118,6 +118,45 @@ describe("swirl-pdf-reader", () => {
     `);
   });
 
+  it("emits modalOpen event that does not bubble when opened", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPdfReader],
+      html: `<swirl-pdf-reader file="/sample.pdf" label="PDF Reader"></swirl-pdf-reader>`,
+    });
+
+    const modalOpenSpy = jest.fn();
+
+    page.root.addEventListener("modalOpen", modalOpenSpy);
+
+    await page.root.open();
+    await page.waitForChanges();
+
+    expect(modalOpenSpy).toHaveBeenCalledTimes(1);
+    expect(modalOpenSpy.mock.calls[0][0].bubbles).toBe(false);
+  });
+
+  it("emits modalClose event that does not bubble when closed", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPdfReader],
+      html: `<swirl-pdf-reader file="/sample.pdf" label="PDF Reader"></swirl-pdf-reader>`,
+    });
+
+    const modalCloseSpy = jest.fn();
+
+    page.root.addEventListener("modalClose", modalCloseSpy);
+
+    await page.root.open();
+    await page.waitForChanges();
+
+    // Simulate the dialog's close event
+    const dialog = page.root.shadowRoot.querySelector("dialog");
+    dialog.dispatchEvent(new Event("close"));
+    await page.waitForChanges();
+
+    expect(modalCloseSpy).toHaveBeenCalledTimes(1);
+    expect(modalCloseSpy.mock.calls[0][0].bubbles).toBe(false);
+  });
+
   it("allows to zoom", async () => {
     const page = await newSpecPage({
       components: [SwirlPdfReader],
