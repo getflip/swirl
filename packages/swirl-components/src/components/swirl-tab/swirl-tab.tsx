@@ -11,8 +11,6 @@ export type SwirlTabPadding = "0" | "2" | "4" | "8" | "12" | "16" | "20" | "24";
 })
 export class SwirlTab {
   @Prop() active?: boolean;
-  // `badge`, `icon`, `label` and `tooltip` style the tabs
-  // swirl-tabs copies them into the tab bar, re-reading them only on tab click.
   @Prop() badge?: SwirlTabBarTabBadge;
   @Prop() icon?: string;
   @Prop() label!: string;

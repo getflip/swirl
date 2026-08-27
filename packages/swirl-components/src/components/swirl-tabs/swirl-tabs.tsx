@@ -117,9 +117,6 @@ export class SwirlTabs {
     );
   }
 
-  // snapshots the tab item props of every swirl-tab into the state the tab bar
-  // renders from. Only called on load and on activation, so a swirl-tab prop
-  // changed at runtime is not picked up until the next activation.
   private updateTabBarTabs() {
     this.tabBarTabs = this.tabs.map((tab) => ({
       active: this.activeTab === tab.tabId,
