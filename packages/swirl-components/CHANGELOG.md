@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.523.0
+
+### Minor Changes
+
+- [#1777](https://github.com/getflip/swirl/pull/1777)
+  [`fc4eb722c`](https://github.com/getflip/swirl/commit/fc4eb722ca54ee3a87b2ccca2ddef16a108e4dc0)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Add an
+  optional status badge to swirl-tab-bar tabs and swirl-tab.
+
 ## 0.522.0
 
 ### Minor Changes
