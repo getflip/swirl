@@ -151,15 +151,6 @@ export class SwirlTabBar {
               "tab-bar__tab-label--variant-pill": this.variant === "pill",
             });
 
-            // a dot has no text, so its intent color is the only thing carrying
-            // its meaning — and no intent reads against the active pill's filled
-            // primary background, `info` resolving to the pill color itself and
-            // leaving nothing visible. `neutral` is legible there instead.
-            const badgeIntent: SwirlBadgeIntent =
-              this.variant === "pill" && tab.active
-                ? "neutral"
-                : tab.badge?.intent ?? "info";
-
             const tabButton = (
               <button
                 aria-controls={this.disableTabSemantics ? undefined : tab.id}
@@ -193,7 +184,7 @@ export class SwirlTabBar {
                   {tab.badge && (
                     <swirl-badge
                       class="tab-bar__tab-badge"
-                      intent={badgeIntent}
+                      intent={tab.badge.intent ?? "info"}
                       label={tab.badge.label}
                       size="xs"
                       variant="dot"

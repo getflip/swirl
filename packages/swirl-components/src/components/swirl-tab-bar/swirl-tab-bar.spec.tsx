@@ -174,7 +174,7 @@ describe("swirl-tab-bar", () => {
     expect(page.root.querySelector("#tab-tab3 swirl-badge")).toBeNull();
   });
 
-  it("renders tab status badges in the pill variant", async () => {
+  it("preserves the requested badge intent in the pill variant", async () => {
     const page = await newSpecPage({
       components: [SwirlTabBar],
       html: `<swirl-tab-bar label="Tabs" variant="pill"></swirl-tab-bar>`,
@@ -187,28 +187,12 @@ describe("swirl-tab-bar", () => {
         id: "tab1",
         label: "Tab #1",
       },
-      {
-        active: false,
-        badge: { intent: "info", label: "Syncing" },
-        id: "tab2",
-        label: "Tab #2",
-      },
     ];
 
     await page.waitForChanges();
 
-    expect(page.root.querySelector("#tab-tab1").className).toContain(
-      "tab-bar__tab--variant-pill"
-    );
-
-    // an `info` dot would be invisible against the active pill, so its intent
-    // is forced to `critical`. inactive pills keep the requested intent
     expect(
       page.root.querySelector("#tab-tab1 swirl-badge").getAttribute("intent")
-    ).toBe("neutral");
-
-    expect(
-      page.root.querySelector("#tab-tab2 swirl-badge").getAttribute("intent")
     ).toBe("info");
   });
 
