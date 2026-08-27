@@ -31,10 +31,40 @@ panels.
 </swirl-tabs>`}
 />
 
+## Status badges
+
+A `swirl-tab` can carry a `badge` — a dot that flags the tab as needing
+attention — which `swirl-tabs` forwards to the tab bar, where it is rendered
+after the tab label. Its `label` is required and is announced as part of the
+tab's accessible name. See
+[SwirlTabBar](?path=/docs/components-swirltabbar--docs#status-badges).
+
+Because `badge` is an object it has to be set as a property, not an attribute,
+and it has to be set before mount — `swirl-tabs` reads it when it builds the tab
+bar.
+
+<Canvas of={Stories.StatusBadges}></Canvas>
+
+<Source
+  code={`<swirl-tabs initial-tab="tab-1" label="Tabs">
+    <swirl-tab label="Users" tab-id="tab-1"><swirl-text>Users</swirl-text></swirl-tab>
+    <swirl-tab label="Invite code batches" tab-id="tab-2"><swirl-text>Invite code batches</swirl-text></swirl-tab>
+    <swirl-tab label="Groups" tab-id="tab-3"><swirl-text>Groups</swirl-text></swirl-tab>
+</swirl-tabs>
+
+<script>
+    document.querySelector("[tab-id='tab-2']").badge = {
+        intent: "info",
+        label: "Batches running",
+    };
+</script>`}
+
+/>
+
 ## Related components
 
 - **[swirl-tab-bar](?path=/docs/components-swirltabbar--docs)** (child) —
-  Renders the tab strip; use inside `swirl-tabs`.
+  Renders the tab bar; use inside `swirl-tabs`.
 - **[swirl-tab](?path=/docs/components-swirltab--docs)** (child) — Tab panels;
   use as direct children of `swirl-tabs`.
 

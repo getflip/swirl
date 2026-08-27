@@ -33,6 +33,7 @@ implement your own tab handling.
     },
     {
       active: true,
+      badge: { intent: "info", label: "Batches running" },
       icon: &apos;<swirl-icon glyph="emoji-mood" size="20"></swirl-icon>&apos;,
       id: "tab2",
       label: "Another Tab",
@@ -48,11 +49,37 @@ implement your own tab handling.
 ></swirl-tab-bar>`}
 />
 
+## Status badges
+
+A tab can render a status badge after its label — a dot that flags the tab as
+needing attention, for example because background work is running. The badge
+delegates to [SwirlBadge](?path=/docs/components-swirlbadge--docs) and is styled
+from design tokens; the only thing configurable is `intent`, which sets the dot
+color and defaults to `info`.
+
+`label` is required. The dot has no text, so the label is not shown, but it is
+announced as part of the tab's accessible name — that is how a screen reader
+user learns _why_ the tab is marked.
+
+<Source code={`badge: { intent: "info", label: "Batches running" }`} />
+
+A counted badge is not supported yet. For a number next to a tab label, use
+`suffix` — muted text that reads as part of the label. The [Usage](#usage)
+example above shows both: `suffix` on the first and second tabs, a badge on the
+second.
+
+## Pill variant
+
+On an active pill, some intent colors — especially `info` — have little or no
+contrast against the filled primary background. Choose an intent that stays
+legible there; `neutral` is one option. Switch `variant` to `pill` on the
+[Usage](#usage) example to preview this.
+
 ## Related components
 
 - **[swirl-tabs](?path=/docs/components-swirltabs--docs)** (parent) — Tab
   container; `swirl-tab-bar` is typically used inside `swirl-tabs` to render the
-  tab strip.
+  tab bar.
 - **[swirl-tab](?path=/docs/components-swirltab--docs)** (sibling) — Tab panels;
   use alongside `swirl-tab-bar` when building a tabbed UI.
 

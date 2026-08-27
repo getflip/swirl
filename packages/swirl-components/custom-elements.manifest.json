@@ -60564,6 +60564,20 @@
             },
             {
               "kind": "field",
+              "name": "badge",
+              "type": {
+                "text": "{ intent?: SwirlBadgeIntent; label: string; }",
+                "references": [
+                  {
+                    "name": "SwirlTabBarTabBadge",
+                    "module": "../swirl-tab-bar/swirl-tab-bar"
+                  }
+                ]
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
               "name": "icon",
               "type": {
                 "text": "string"
