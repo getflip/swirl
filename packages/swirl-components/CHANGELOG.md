@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.523.1
+
+### Patch Changes
+
+- [#1781](https://github.com/getflip/swirl/pull/1781)
+  [`2727af675`](https://github.com/getflip/swirl/commit/2727af6751193599dc8800f0e091b6383c1588e9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Stop modelClose and modelOpen
+  events of swirl-pdf-reader from bubbling
+
 ## 0.523.0
 
 ### Minor Changes
