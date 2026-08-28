@@ -26094,6 +26094,10 @@
           ]
         },
         {
+          "name": "interactive",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },

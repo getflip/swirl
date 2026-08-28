@@ -20,6 +20,17 @@ The SwirlTag component is used to label or categorize items using keywords.
 
 <Source code={`<swirl-tag label="Label" removable></swirl-tag>`} />
 
+## Interactive tags
+
+Use the `interactive` prop to make the whole tag clickable. It renders the tag
+as a native button, emits a `tagClick` event, and overlays the tag with a
+hovered and pressed state that works with every intent and variant.
+
+<Source code={`<swirl-tag label="Label" interactive></swirl-tag>`} />
+
+Avoid combining `interactive` with `removable`: the removal button would be
+nested inside the interactive tag's button, which is invalid HTML.
+
 ## Related components
 
 No related components.
@@ -30,12 +41,12 @@ No related components.
 
 | ARIA            | Usage                                                                            |
 | --------------- | -------------------------------------------------------------------------------- |
-| `role="button"` | Removable tags use a native button.                                              |
+| `role="button"` | Interactive and removable tags use a native button.                              |
 | `aria-label`    | The removal button gets an accessible label via the `removal-button-label` prop. |
 
 ### Keyboard
 
-| Key              | Action                        |
-| ---------------- | ----------------------------- |
-| <kbd>ENTER</kbd> | Activates the removal button. |
-| <kbd>SPACE</kbd> | Activates the removal button. |
+| Key              | Action                                               |
+| ---------------- | ---------------------------------------------------- |
+| <kbd>ENTER</kbd> | Activates the interactive tag or the removal button. |
+| <kbd>SPACE</kbd> | Activates the interactive tag or the removal button. |

@@ -61823,6 +61823,14 @@
               "fieldName": "intent"
             },
             {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
               "name": "label",
               "type": {
                 "text": "string"
@@ -61931,6 +61939,16 @@
             },
             {
               "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "interactive"
+            },
+            {
+              "kind": "field",
               "name": "label",
               "type": {
                 "text": "string"
@@ -61990,6 +62008,18 @@
           "events": [
             {
               "name": "remove",
+              "type": {
+                "text": "CustomEvent<MouseEvent>",
+                "references": [
+                  {
+                    "name": "MouseEvent",
+                    "package": "global:"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "tagClick",
               "type": {
                 "text": "CustomEvent<MouseEvent>",
                 "references": [

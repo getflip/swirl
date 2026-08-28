@@ -36,6 +36,7 @@ export class SwirlTag {
   @Prop() icon?: string;
   @Prop() iconPosition: SwirlTagIconPosition = "start";
   @Prop() intent?: SwirlTagIntent = "default";
+  @Prop() interactive?: boolean = false;
   @Prop() label!: string;
   @Prop() removable?: boolean;
   @Prop() bordered?: boolean;
@@ -44,6 +45,7 @@ export class SwirlTag {
   @Prop({ mutable: true }) variant?: SwirlTagVariant = "default";
 
   @Event({ eventName: "remove" }) removeTag?: EventEmitter<MouseEvent>;
+  @Event() tagClick: EventEmitter<MouseEvent>;
 
   private iconEl: HTMLElement;
 
@@ -78,19 +80,36 @@ export class SwirlTag {
     this.removeTag?.emit(event);
   };
 
+  private onClick = (event: MouseEvent) => {
+    this.tagClick.emit(event);
+  };
+
   render() {
+    const Tag = this.interactive ? "button" : "span";
+
     const className = classnames(
       "tag",
       `tag--icon-position-${this.iconPosition}`,
       `tag--intent-${this.intent}`,
       `tag--size-${this.size}`,
       `tag--variant-${this.variant}`,
-      { "tag--hide-label": this.hideLabel }
+      {
+        "tag--hide-label": this.hideLabel,
+        "tag--interactive": this.interactive,
+      }
     );
 
     return (
       <Host>
-        <span class={className} part="tag">
+        <Tag
+          class={className}
+          onClick={this.interactive ? this.onClick : undefined}
+          part="tag"
+          tabIndex={
+            this.interactive && this.el.ariaHidden === "true" ? -1 : undefined
+          }
+          type={this.interactive ? "button" : undefined}
+        >
           {this.icon && (
             <span
               class="tag__icon"
@@ -114,7 +133,7 @@ export class SwirlTag {
               <swirl-icon-close size={16}></swirl-icon-close>
             </button>
           )}
-        </span>
+        </Tag>
       </Host>
     );
   }
