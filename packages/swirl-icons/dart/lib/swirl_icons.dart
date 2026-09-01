@@ -270,13 +270,14 @@ class SwirlIcons {
   static const IconData visibility = IconData(0xed10, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData visibility_off = IconData(0xed13, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData voice = IconData(0xed16, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData volume_up = IconData(0xed19, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData warning = IconData(0xed1c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData waving_hand = IconData(0xed1f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData web_asset = IconData(0xed22, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData web_asset_off = IconData(0xed25, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData work = IconData(0xed28, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData workspace_premium = IconData(0xed2b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData zoom_in = IconData(0xed2e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData zoom_out = IconData(0xed31, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData volume_off = IconData(0xed19, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData volume_up = IconData(0xed1c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData warning = IconData(0xed1f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData waving_hand = IconData(0xed22, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData web_asset = IconData(0xed25, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData web_asset_off = IconData(0xed28, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData work = IconData(0xed2b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData workspace_premium = IconData(0xed2e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData zoom_in = IconData(0xed31, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData zoom_out = IconData(0xed34, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -3439,6 +3439,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconVolumeOff {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -8356,6 +8364,12 @@ declare global {
         prototype: HTMLSwirlIconVoiceElement;
         new (): HTMLSwirlIconVoiceElement;
     };
+    interface HTMLSwirlIconVolumeOffElement extends Components.SwirlIconVolumeOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconVolumeOffElement: {
+        prototype: HTMLSwirlIconVolumeOffElement;
+        new (): HTMLSwirlIconVolumeOffElement;
+    };
     interface HTMLSwirlIconVolumeUpElement extends Components.SwirlIconVolumeUp, HTMLStencilElement {
     }
     var HTMLSwirlIconVolumeUpElement: {
@@ -10453,6 +10467,7 @@ declare global {
         "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
+        "swirl-icon-volume-off": HTMLSwirlIconVolumeOffElement;
         "swirl-icon-volume-up": HTMLSwirlIconVolumeUpElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
         "swirl-icon-waving-hand": HTMLSwirlIconWavingHandElement;
@@ -13881,6 +13896,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVoice {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconVolumeOff {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -18065,6 +18088,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconVolumeOffAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconVolumeUpAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -19450,6 +19478,7 @@ declare namespace LocalJSX {
         "swirl-icon-visibility": Omit<SwirlIconVisibility, keyof SwirlIconVisibilityAttributes> & { [K in keyof SwirlIconVisibility & keyof SwirlIconVisibilityAttributes]?: SwirlIconVisibility[K] } & { [K in keyof SwirlIconVisibility & keyof SwirlIconVisibilityAttributes as `attr:${K}`]?: SwirlIconVisibilityAttributes[K] } & { [K in keyof SwirlIconVisibility & keyof SwirlIconVisibilityAttributes as `prop:${K}`]?: SwirlIconVisibility[K] };
         "swirl-icon-visibility-off": Omit<SwirlIconVisibilityOff, keyof SwirlIconVisibilityOffAttributes> & { [K in keyof SwirlIconVisibilityOff & keyof SwirlIconVisibilityOffAttributes]?: SwirlIconVisibilityOff[K] } & { [K in keyof SwirlIconVisibilityOff & keyof SwirlIconVisibilityOffAttributes as `attr:${K}`]?: SwirlIconVisibilityOffAttributes[K] } & { [K in keyof SwirlIconVisibilityOff & keyof SwirlIconVisibilityOffAttributes as `prop:${K}`]?: SwirlIconVisibilityOff[K] };
         "swirl-icon-voice": Omit<SwirlIconVoice, keyof SwirlIconVoiceAttributes> & { [K in keyof SwirlIconVoice & keyof SwirlIconVoiceAttributes]?: SwirlIconVoice[K] } & { [K in keyof SwirlIconVoice & keyof SwirlIconVoiceAttributes as `attr:${K}`]?: SwirlIconVoiceAttributes[K] } & { [K in keyof SwirlIconVoice & keyof SwirlIconVoiceAttributes as `prop:${K}`]?: SwirlIconVoice[K] };
+        "swirl-icon-volume-off": Omit<SwirlIconVolumeOff, keyof SwirlIconVolumeOffAttributes> & { [K in keyof SwirlIconVolumeOff & keyof SwirlIconVolumeOffAttributes]?: SwirlIconVolumeOff[K] } & { [K in keyof SwirlIconVolumeOff & keyof SwirlIconVolumeOffAttributes as `attr:${K}`]?: SwirlIconVolumeOffAttributes[K] } & { [K in keyof SwirlIconVolumeOff & keyof SwirlIconVolumeOffAttributes as `prop:${K}`]?: SwirlIconVolumeOff[K] };
         "swirl-icon-volume-up": Omit<SwirlIconVolumeUp, keyof SwirlIconVolumeUpAttributes> & { [K in keyof SwirlIconVolumeUp & keyof SwirlIconVolumeUpAttributes]?: SwirlIconVolumeUp[K] } & { [K in keyof SwirlIconVolumeUp & keyof SwirlIconVolumeUpAttributes as `attr:${K}`]?: SwirlIconVolumeUpAttributes[K] } & { [K in keyof SwirlIconVolumeUp & keyof SwirlIconVolumeUpAttributes as `prop:${K}`]?: SwirlIconVolumeUp[K] };
         "swirl-icon-warning": Omit<SwirlIconWarning, keyof SwirlIconWarningAttributes> & { [K in keyof SwirlIconWarning & keyof SwirlIconWarningAttributes]?: SwirlIconWarning[K] } & { [K in keyof SwirlIconWarning & keyof SwirlIconWarningAttributes as `attr:${K}`]?: SwirlIconWarningAttributes[K] } & { [K in keyof SwirlIconWarning & keyof SwirlIconWarningAttributes as `prop:${K}`]?: SwirlIconWarning[K] };
         "swirl-icon-waving-hand": Omit<SwirlIconWavingHand, keyof SwirlIconWavingHandAttributes> & { [K in keyof SwirlIconWavingHand & keyof SwirlIconWavingHandAttributes]?: SwirlIconWavingHand[K] } & { [K in keyof SwirlIconWavingHand & keyof SwirlIconWavingHandAttributes as `attr:${K}`]?: SwirlIconWavingHandAttributes[K] } & { [K in keyof SwirlIconWavingHand & keyof SwirlIconWavingHandAttributes as `prop:${K}`]?: SwirlIconWavingHand[K] };
@@ -20007,6 +20036,7 @@ declare module "@stencil/core" {
             "swirl-icon-visibility": LocalJSX.IntrinsicElements["swirl-icon-visibility"] & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
             "swirl-icon-visibility-off": LocalJSX.IntrinsicElements["swirl-icon-visibility-off"] & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.IntrinsicElements["swirl-icon-voice"] & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;
+            "swirl-icon-volume-off": LocalJSX.IntrinsicElements["swirl-icon-volume-off"] & JSXBase.HTMLAttributes<HTMLSwirlIconVolumeOffElement>;
             "swirl-icon-volume-up": LocalJSX.IntrinsicElements["swirl-icon-volume-up"] & JSXBase.HTMLAttributes<HTMLSwirlIconVolumeUpElement>;
             "swirl-icon-warning": LocalJSX.IntrinsicElements["swirl-icon-warning"] & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
             "swirl-icon-waving-hand": LocalJSX.IntrinsicElements["swirl-icon-waving-hand"] & JSXBase.HTMLAttributes<HTMLSwirlIconWavingHandElement>;
