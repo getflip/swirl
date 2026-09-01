@@ -47523,6 +47523,14 @@
               "fieldName": "maxHeight"
             },
             {
+              "name": "mobile-bottom-sheet",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "fieldName": "mobileBottomSheet"
+            },
+            {
               "name": "offset",
               "type": {
                 "text": "number | number[]"
@@ -47695,6 +47703,16 @@
               "default": "\"22rem\"",
               "readonly": true,
               "attribute": "max-height"
+            },
+            {
+              "kind": "field",
+              "name": "mobileBottomSheet",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "readonly": true,
+              "attribute": "mobile-bottom-sheet"
             },
             {
               "kind": "field",

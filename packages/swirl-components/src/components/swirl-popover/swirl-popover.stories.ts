@@ -8,6 +8,11 @@ export default {
         "You should disable the scroll lock for popovers inside modals and dialogs.",
       name: "disable-scroll-lock",
     },
+    mobileBottomSheet: {
+      description:
+        "By default, the popover opens as a bottom sheet on viewports below 768px. Pass false to keep it anchored to its trigger on all viewports, e.g. for popovers opened on hover.",
+      name: "mobile-bottom-sheet",
+    },
     offset: {
       description:
         "Pass a number to specify the main axis offset. Use an array to provide the main axis and cross axis offsets.",
