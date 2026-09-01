@@ -41,7 +41,23 @@
     }
   }
 
-  &.progress-indicator--size-xs,
+  &.progress-indicator--size-xs {
+    height: 0.0625rem;
+
+    &::-webkit-progress-bar {
+      border-radius: 0.03125rem;
+    }
+
+    &::-webkit-progress-value {
+      border-radius: 0.03125rem;
+    }
+
+    &::-moz-progress-bar {
+      height: 0.0625rem;
+      border-radius: 0.03125rem;
+    }
+  }
+
   &.progress-indicator--size-s {
     height: 0.125rem;
 
@@ -56,6 +72,23 @@
     &::-moz-progress-bar {
       height: 0.125rem;
       border-radius: 0.0625rem;
+    }
+  }
+
+  &.progress-indicator--size-l {
+    height: 0.5rem;
+
+    &::-webkit-progress-bar {
+      border-radius: 0.25rem;
+    }
+
+    &::-webkit-progress-value {
+      border-radius: 0.25rem;
+    }
+
+    &::-moz-progress-bar {
+      height: 0.5rem;
+      border-radius: 0.25rem;
     }
   }
 }
@@ -75,6 +108,11 @@
   &.progress-indicator--size-s {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  &.progress-indicator--size-l {
+    width: 6rem;
+    height: 6rem;
   }
 }
 
