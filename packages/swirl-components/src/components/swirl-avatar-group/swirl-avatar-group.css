@@ -68,6 +68,127 @@
   }
 }
 
+.avatar-group--centered-stack {
+  display: inline-flex;
+  align-items: center;
+
+  & .avatar-group__badge {
+    display: none;
+  }
+
+  & ::slotted(*) {
+    display: inline-flex;
+    border-radius: var(--swirl-avatar-radius);
+    box-shadow: var(--s-shadow-level-1);
+  }
+}
+
+.avatar-group--centered-1 {
+  & ::slotted(:nth-child(1)) {
+    box-shadow: var(--s-shadow-level-2);
+  }
+
+  & ::slotted(:nth-child(n + 2)) {
+    display: none;
+  }
+}
+
+.avatar-group--centered-2 {
+  & ::slotted(:nth-child(1)) {
+    z-index: 2;
+    box-shadow: var(--s-shadow-level-2);
+  }
+
+  & ::slotted(:nth-child(2)) {
+    z-index: 1;
+    transform: scale(0.833333);
+    margin-right: calc(var(--swirl-avatar-size) * -0.083333);
+    margin-left: calc(var(--swirl-avatar-size) * -0.333333);
+  }
+
+  & ::slotted(:nth-child(n + 3)) {
+    display: none;
+  }
+}
+
+.avatar-group--centered-3 {
+  /* centre */
+  & ::slotted(:nth-child(1)) {
+    z-index: 2;
+    order: 2;
+    margin-left: calc(var(--swirl-avatar-size) * -0.333333);
+    box-shadow: var(--s-shadow-level-2);
+  }
+
+  /* right */
+  & ::slotted(:nth-child(2)) {
+    z-index: 1;
+    order: 3;
+    transform: scale(0.833333);
+    margin-right: calc(var(--swirl-avatar-size) * -0.083333);
+    margin-left: calc(var(--swirl-avatar-size) * -0.333333);
+  }
+
+  /* left */
+  & ::slotted(:nth-child(3)) {
+    z-index: 1;
+    order: 1;
+    transform: scale(0.833333);
+    margin-left: calc(var(--swirl-avatar-size) * -0.083333);
+  }
+
+  & ::slotted(:nth-child(n + 4)) {
+    display: none;
+  }
+}
+
+.avatar-group--centered-5 {
+  /* centre */
+  & ::slotted(:nth-child(1)) {
+    z-index: 3;
+    order: 3;
+    margin-left: calc(var(--swirl-avatar-size) * -0.333333);
+    box-shadow: var(--s-shadow-level-2);
+  }
+
+  /* inner right */
+  & ::slotted(:nth-child(2)) {
+    z-index: 2;
+    order: 4;
+    transform: scale(0.833333);
+    margin-left: calc(var(--swirl-avatar-size) * -0.333333);
+  }
+
+  /* inner left */
+  & ::slotted(:nth-child(3)) {
+    z-index: 2;
+    order: 2;
+    transform: scale(0.833333);
+    margin-left: calc(var(--swirl-avatar-size) * -0.5);
+  }
+
+  /* outer right */
+  & ::slotted(:nth-child(4)) {
+    z-index: 1;
+    order: 5;
+    transform: scale(0.666667);
+    margin-right: calc(var(--swirl-avatar-size) * -0.166667);
+    margin-left: calc(var(--swirl-avatar-size) * -0.5);
+  }
+
+  /* outer left */
+  & ::slotted(:nth-child(5)) {
+    z-index: 1;
+    order: 1;
+    transform: scale(0.666667);
+    margin-left: calc(var(--swirl-avatar-size) * -0.166667);
+  }
+
+  & ::slotted(:nth-child(n + 6)) {
+    display: none;
+  }
+}
+
 .avatar-group__badge {
   z-index: 3;
   display: inline-flex;

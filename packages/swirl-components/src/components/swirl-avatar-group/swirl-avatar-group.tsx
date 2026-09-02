@@ -1,8 +1,10 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlAvatarGroupLayout = "diagonal" | "horizontal";
+export type SwirlAvatarGroupLayout = "centered" | "diagonal" | "horizontal";
 export type SwirlAvatarGroupSemantics = "list" | "group";
+
+const centeredLayoutArrangements = [1, 2, 3, 5];
 
 /**
  * @slot slot - Your avatar components
@@ -48,17 +50,27 @@ export class SwirlAvatarGroup {
   };
 
   private layOutAvatars() {
-    if (this.layout === "diagonal") {
-      this.avatars.forEach((avatar) => {
-        avatar.style.position = "";
-        avatar.style.zIndex = "";
-      });
-    } else {
+    if (this.layout === "horizontal") {
       this.avatars.forEach((avatar, index) => {
         avatar.style.position = "relative";
         avatar.style.zIndex = String(this.avatars.length - index);
       });
+    } else {
+      this.avatars.forEach((avatar) => {
+        avatar.style.position = "";
+        avatar.style.zIndex = "";
+      });
     }
+  }
+
+  private getCenteredArrangement(): number {
+    const fittingArrangements = centeredLayoutArrangements.filter(
+      (arrangement) => arrangement <= this.avatars.length
+    );
+
+    return fittingArrangements.length > 0
+      ? fittingArrangements[fittingArrangements.length - 1]
+      : centeredLayoutArrangements[0];
   }
 
   render() {
@@ -67,6 +79,8 @@ export class SwirlAvatarGroup {
       `avatar-group--${this.layout}-stack`,
       {
         "avatar-group--has-badge": Boolean(this.badge),
+        [`avatar-group--centered-${this.getCenteredArrangement()}`]:
+          this.layout === "centered",
       }
     );
 
