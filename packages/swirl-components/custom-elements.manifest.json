@@ -8173,6 +8173,9 @@
             },
             {
               "name": "dialog__heading"
+            },
+            {
+              "name": "dialog__scroll-container"
             }
           ]
         }

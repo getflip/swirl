@@ -70,15 +70,10 @@
 }
 
 .dialog__body {
+  position: relative;
   z-index: var(--s-z-40);
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   width: 18.5rem;
-  max-height: 90vh;
-  padding-top: var(--s-space-24);
-  padding-right: var(--s-space-16);
-  padding-bottom: var(--s-space-16);
-  padding-left: var(--s-space-16);
   border-radius: var(--s-border-radius-l);
   background-color: var(--s-surface-overlay-default);
   text-align: center;
@@ -100,11 +95,30 @@
   }
 }
 
+.dialog__scroll-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 90vh;
+  padding-top: var(--s-space-24);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-16);
+  padding-left: var(--s-space-16);
+}
+
 .dialog--translucent .dialog__body {
+  background-color: transparent;
   outline: var(--s-border-width-default) solid
     var(--s-border-translucent-outline);
-  background-color: var(--s-translucent-low-default);
-  backdrop-filter: blur(var(--s-blur-l));
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--s-translucent-low-default);
+    backdrop-filter: blur(var(--s-blur-l));
+    border-radius: inherit;
+  }
 }
 
 .dialog__heading {
