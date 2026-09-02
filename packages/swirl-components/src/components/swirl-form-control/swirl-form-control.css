@@ -25,10 +25,7 @@
 
   &:not(.form-control--has-value):not(.form-control--has-focus):not(
       .form-control--is-select
-    ):not(.form-control--has-placeholder),
-  &.form-control--inline:not(.form-control--has-value):not(
-      .form-control--is-select
-    ) {
+    ):not(.form-control--has-placeholder) {
     & .form-control__input {
       overflow: hidden;
       max-height: 0;
@@ -228,29 +225,6 @@
 
   & .form-control__prefix {
     border-color: var(--s-border-default);
-  }
-}
-
-.form-control--inline {
-  /**
-   * The reduced, single-row padding only applies while the input is empty
-   * (where the label fills the whole row as a placeholder). Once it has a
-   * value, fall back to the default `.form-control__label` padding so the
-   * label can sit in its normal small, pinned position above the value
-   * without overlapping it.
-   */
-  &:not(.form-control--has-value) .form-control__label {
-    min-height: calc(2.375rem + 2 * var(--s-border-width-default));
-    padding: var(--s-space-8) var(--s-space-12);
-    gap: var(--s-space-2);
-
-    @media (--from-desktop-without-touch) {
-      min-height: calc(2.25rem + 2 * var(--s-border-width-default));
-    }
-  }
-
-  &.form-control--has-character-counter .form-control__description {
-    max-width: calc(100% - 6rem);
   }
 }
 
