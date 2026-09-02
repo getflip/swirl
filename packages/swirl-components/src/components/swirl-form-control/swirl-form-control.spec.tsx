@@ -182,7 +182,7 @@ describe("swirl-form-control", () => {
     ).toBeFalsy();
   });
 
-  it("hides the label once an inline input has a value", async () => {
+  it("marks an inline input as has-value so the label falls back to its normal pinned position instead of the compact empty-state layout", async () => {
     const page = await newSpecPage({
       components: [SwirlFormControl],
       html: `
