@@ -39,13 +39,6 @@ export type SwirlAvatarSize =
 
 export type SwirlAvatarVariant = "round" | "square";
 
-/**
- * The rendered width/height of an avatar at each size, in pixels. Only used
- * for the intrinsic `width`/`height` attributes on the `<img>`, which need
- * real numbers rather than a CSS value. The layout itself is driven by the
- * `--swirl-avatar-size` custom property in swirl-avatar.css; keep the two in
- * sync when adding a size.
- */
 const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
   "3xs": 20,
   "2xs": 24,
