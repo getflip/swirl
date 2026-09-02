@@ -163,4 +163,24 @@ describe("swirl-form-control", () => {
     const tooltip = page.root.querySelector("swirl-tooltip");
     expect(tooltip).not.toBeNull();
   });
+
+  it("renders the label outside the border when inline, even when the input has a placeholder", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control inline="true" label="Label">
+          <swirl-time-input placeholder="hh:mm"></swirl-time-input>
+        </swirl-form-control>
+      `,
+    });
+
+    const formControl = page.root.querySelector(".form-control");
+
+    expect(
+      formControl.classList.contains("form-control--label-position-outside")
+    ).toBeTruthy();
+    expect(
+      formControl.classList.contains("form-control--label-position-inside")
+    ).toBeFalsy();
+  });
 });
