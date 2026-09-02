@@ -164,12 +164,30 @@ describe("swirl-form-control", () => {
     expect(tooltip).not.toBeNull();
   });
 
-  it("renders the label outside the border when inline, even when the input has a placeholder", async () => {
+  it("keeps the label showing while inline and empty, even when the input has a placeholder", async () => {
     const page = await newSpecPage({
       components: [SwirlFormControl],
       html: `
         <swirl-form-control inline="true" label="Label">
-          <swirl-time-input placeholder="hh:mm"></swirl-time-input>
+          <input placeholder="hh:mm" />
+        </swirl-form-control>
+      `,
+    });
+
+    const formControl = page.root.querySelector(".form-control");
+
+    expect(formControl.classList.contains("form-control--inline")).toBeTruthy();
+    expect(
+      formControl.classList.contains("form-control--has-value")
+    ).toBeFalsy();
+  });
+
+  it("hides the label once an inline input has a value", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control inline="true" label="Label">
+          <input placeholder="hh:mm" value="12:30" />
         </swirl-form-control>
       `,
     });
@@ -177,10 +195,7 @@ describe("swirl-form-control", () => {
     const formControl = page.root.querySelector(".form-control");
 
     expect(
-      formControl.classList.contains("form-control--label-position-outside")
+      formControl.classList.contains("form-control--has-value")
     ).toBeTruthy();
-    expect(
-      formControl.classList.contains("form-control--label-position-inside")
-    ).toBeFalsy();
   });
 });

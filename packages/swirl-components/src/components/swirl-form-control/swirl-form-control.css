@@ -25,7 +25,10 @@
 
   &:not(.form-control--has-value):not(.form-control--has-focus):not(
       .form-control--is-select
-    ):not(.form-control--has-placeholder) {
+    ):not(.form-control--has-placeholder),
+  &.form-control--inline:not(.form-control--has-value):not(
+      .form-control--is-select
+    ) {
     & .form-control__input {
       overflow: hidden;
       max-height: 0;
@@ -225,6 +228,34 @@
 
   & .form-control__prefix {
     border-color: var(--s-border-default);
+  }
+}
+
+.form-control--inline {
+  & .form-control__label {
+    min-height: calc(2.375rem + 2 * var(--s-border-width-default));
+    padding: var(--s-space-8) var(--s-space-12);
+    gap: var(--s-space-2);
+
+    @media (--from-desktop-without-touch) {
+      min-height: calc(2.25rem + 2 * var(--s-border-width-default));
+    }
+  }
+
+  /**
+   * Once the input has a value, hide the label instead of letting it fall
+   * back to its small pinned position — inline's reduced label padding
+   * isn't tall enough to fit that position without overlapping the value.
+   */
+  &.form-control--has-value .form-control__label-text {
+    right: var(--s-space-12);
+    left: var(--s-space-12);
+    transition: none;
+    opacity: 0;
+  }
+
+  &.form-control--has-character-counter .form-control__description {
+    max-width: calc(100% - 6rem);
   }
 }
 

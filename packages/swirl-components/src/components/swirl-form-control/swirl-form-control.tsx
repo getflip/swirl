@@ -268,20 +268,10 @@ export class SwirlFormControl {
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
-    /**
-     * `inline` renders the same "label outside the border" layout as
-     * `labelPosition="outside"`. It predates that prop and was never given
-     * its own correct implementation, so it's normalized to it here instead
-     * of maintaining a second, divergent set of label styles.
-     */
-    const effectiveLabelPosition: SwirlFormControlLabelPosition = this.inline
-      ? "outside"
-      : this.labelPosition;
-
     const className = classnames(
       "form-control",
       `form-control--font-size-${this.fontSize}`,
-      `form-control--label-position-${effectiveLabelPosition}`,
+      `form-control--label-position-${this.labelPosition}`,
       {
         "form-control--disabled": this.disabled,
         "form-control--readonly": this.readonly,
@@ -320,7 +310,7 @@ export class SwirlFormControl {
               )}
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
-                {this.secondaryLabel && effectiveLabelPosition === "outside" && (
+                {this.secondaryLabel && this.labelPosition === "outside" && (
                   <span class="form-control__secondary-label">
                     {this.secondaryLabel}
                   </span>
