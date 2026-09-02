@@ -11,11 +11,6 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-import {
-  swirlAvatarSizeMappings,
-  swirlAvatarSquareRadiusMappings,
-} from "./swirl-avatar.constants";
-
 export type SwirlAvatarBadgePosition = "bottom" | "top";
 
 export type SwirlAvatarLoading = "lazy" | "auto" | "eager" | "intersecting";
@@ -43,6 +38,24 @@ export type SwirlAvatarSize =
   | "2xl";
 
 export type SwirlAvatarVariant = "round" | "square";
+
+/**
+ * The rendered width/height of an avatar at each size, in pixels. Only used
+ * for the intrinsic `width`/`height` attributes on the `<img>`, which need
+ * real numbers rather than a CSS value. The layout itself is driven by the
+ * `--swirl-avatar-size` custom property in swirl-avatar.css; keep the two in
+ * sync when adding a size.
+ */
+const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
+  "3xs": 20,
+  "2xs": 24,
+  xs: 28,
+  s: 32,
+  m: 40,
+  l: 48,
+  xl: 64,
+  "2xl": 144,
+};
 
 /**
  * @slot tool - Used to show a badge or (icon) button on the avatar.
@@ -213,12 +226,6 @@ export class SwirlAvatar {
         onKeydown={this.interactive ? this.onKeydown : undefined}
         onKeyup={this.interactive ? this.onKeyup : undefined}
         role={role}
-        style={{
-          "--swirl-avatar-size": `${swirlAvatarSizeMappings[this.size]}px`,
-          "--swirl-avatar-square-radius": `${
-            swirlAvatarSquareRadiusMappings[this.size]
-          }px`,
-        }}
         tabIndex={this.interactive ? 0 : undefined}
       >
         <span class={className} part="avatar">

@@ -78,7 +78,7 @@
 
   & ::slotted(*) {
     display: inline-flex;
-    border-radius: var(--swirl-avatar-square-radius);
+    border-radius: var(--swirl-avatar-radius);
     box-shadow: var(--s-shadow-level-1);
   }
 }

@@ -4,10 +4,39 @@
   align-items: center;
   flex-direction: column;
   --swirl-avatar-radius: 50%;
+  --swirl-avatar-size: 2.5rem;
 
   & * {
     box-sizing: border-box;
   }
+}
+
+:host([size="3xs"]) {
+  --swirl-avatar-size: 1.25rem;
+}
+
+:host([size="2xs"]) {
+  --swirl-avatar-size: 1.5rem;
+}
+
+:host([size="xs"]) {
+  --swirl-avatar-size: 1.75rem;
+}
+
+:host([size="s"]) {
+  --swirl-avatar-size: 2rem;
+}
+
+:host([size="l"]) {
+  --swirl-avatar-size: 3rem;
+}
+
+:host([size="xl"]) {
+  --swirl-avatar-size: 4rem;
+}
+
+:host([size="2xl"]) {
+  --swirl-avatar-size: 9rem;
 }
 
 :host([variant="square"][size="3xs"]),
@@ -39,17 +68,13 @@
 .avatar {
   position: relative;
   display: inline-flex;
+  width: var(--swirl-avatar-size);
+  height: var(--swirl-avatar-size);
   justify-content: center;
   align-items: center;
   border-radius: var(--swirl-avatar-radius);
   border: var(--swirl-avatar-border-width, 0) solid
     var(--swirl-avatar-border-color, transparent);
-}
-
-.avatar--variant-square,
-.avatar--variant-square .avatar__image,
-.avatar--variant-square .avatar__initials {
-  border-radius: var(--swirl-avatar-square-radius);
 }
 
 .avatar--has-icon {
@@ -76,9 +101,6 @@
 }
 
 .avatar--size-3xs {
-  width: 1.25rem;
-  height: 1.25rem;
-
   .avatar__initials {
     font-size: 0.625rem;
   }
@@ -90,9 +112,6 @@
 }
 
 .avatar--size-2xs {
-  width: 1.5rem;
-  height: 1.5rem;
-
   .avatar__initials {
     font-size: 0.625rem;
   }
@@ -104,9 +123,6 @@
 }
 
 .avatar--size-xs {
-  width: 1.75rem;
-  height: 1.75rem;
-
   .avatar__initials {
     font-size: 0.75rem;
   }
@@ -118,9 +134,6 @@
 }
 
 .avatar--size-s {
-  width: 2rem;
-  height: 2rem;
-
   .avatar__initials {
     font-size: 0.75rem;
   }
@@ -132,9 +145,6 @@
 }
 
 .avatar--size-m {
-  width: 2.5rem;
-  height: 2.5rem;
-
   .avatar__initials {
     font-size: var(--s-font-size-base);
   }
@@ -146,9 +156,6 @@
 }
 
 .avatar--size-l {
-  width: 3rem;
-  height: 3rem;
-
   .avatar__initials {
     font-size: var(--s-font-size-lg);
   }
@@ -160,9 +167,6 @@
 }
 
 .avatar--size-xl {
-  width: 4rem;
-  height: 4rem;
-
   .avatar__initials {
     font-size: var(--s-font-size-xl);
   }
@@ -174,9 +178,6 @@
 }
 
 .avatar--size-2xl {
-  width: 9rem;
-  height: 9rem;
-
   .avatar__initials {
     font-size: 3.375rem;
   }

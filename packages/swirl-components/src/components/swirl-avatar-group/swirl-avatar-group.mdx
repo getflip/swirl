@@ -51,9 +51,10 @@ Notes:
 - **Avatars are authored in importance order, not left-to-right order.** The
   first child takes the centre, the second sits to its right, the third to its
   left, and the fourth and fifth fill the outer right and outer left slots.
-- Every avatar should share the same `size` — the group derives its overall
-  scale from the first avatar's `size` attribute, and mixing sizes will
-  produce an inconsistent arrangement.
+- Every avatar should share the same `size`. Each one is sized and rounded
+  from the `--swirl-avatar-size` and `--swirl-avatar-radius` custom properties
+  its own `size`/`variant` publish, so mixing sizes produces an inconsistent
+  arrangement rather than an error.
 - Only the first 5 avatars are shown. 4 avatars render using the 3-avatar
   arrangement, with the 4th hidden; 6 or more avatars cap at the 5-avatar
   arrangement. There's no "+N" indicator for hidden avatars.

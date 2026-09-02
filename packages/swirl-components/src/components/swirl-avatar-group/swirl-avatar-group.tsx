@@ -1,12 +1,6 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
-import type { SwirlAvatarSize } from "../swirl-avatar/swirl-avatar";
-import {
-  swirlAvatarSizeMappings,
-  swirlAvatarSquareRadiusMappings,
-} from "../swirl-avatar/swirl-avatar.constants";
-
 export type SwirlAvatarGroupLayout = "centered" | "diagonal" | "horizontal";
 export type SwirlAvatarGroupSemantics = "list" | "group";
 
@@ -79,49 +73,22 @@ export class SwirlAvatarGroup {
       : centeredLayoutArrangements[0];
   }
 
-  private getCenteredBaseSize(): number {
-    const size = this.avatars[0]?.getAttribute("size") as SwirlAvatarSize;
-
-    return swirlAvatarSizeMappings[size] ?? swirlAvatarSizeMappings.m;
-  }
-
-  private getCenteredBaseRadius(): number {
-    const size = this.avatars[0]?.getAttribute("size") as SwirlAvatarSize;
-
-    return (
-      swirlAvatarSquareRadiusMappings[size] ?? swirlAvatarSquareRadiusMappings.m
-    );
-  }
-
   render() {
-    const isCentered = this.layout === "centered";
-
     const className = classnames(
       "avatar-group",
       `avatar-group--${this.layout}-stack`,
       {
         "avatar-group--has-badge": Boolean(this.badge),
-        [`avatar-group--centered-${this.getCenteredArrangement()}`]: isCentered,
+        [`avatar-group--centered-${this.getCenteredArrangement()}`]:
+          this.layout === "centered",
       }
     );
 
     const badgeClassName = classnames("avatar-group__badge");
 
-    const style = isCentered
-      ? {
-          "--swirl-avatar-group-base-size": `${this.getCenteredBaseSize()}px`,
-          "--swirl-avatar-group-base-radius": `${this.getCenteredBaseRadius()}px`,
-        }
-      : undefined;
-
     return (
       <Host>
-        <div
-          aria-label={this.label}
-          class={className}
-          role={this.semantics}
-          style={style}
-        >
+        <div aria-label={this.label} class={className} role={this.semantics}>
           <slot onSlotchange={this.onSlotChange}></slot>
           {this.badge && (
             <span
