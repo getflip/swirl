@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.95.0
+
+### Minor Changes
+
+- [#1784](https://github.com/getflip/swirl/pull/1784)
+  [`b1ce63794`](https://github.com/getflip/swirl/commit/b1ce6379457933881ee854272cac1ec6ac24d16d)
+  Thanks [@lukasballier](https://github.com/lukasballier)! - Add volume-off icon
+  to Swirl components
+
 ## 0.94.0
 
 ### Minor Changes
