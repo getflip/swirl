@@ -25,7 +25,10 @@
 
   &:not(.form-control--has-value):not(.form-control--has-focus):not(
       .form-control--is-select
-    ):not(.form-control--has-placeholder) {
+    ):not(.form-control--has-placeholder),
+  &.form-control--inline:not(.form-control--has-value):not(
+      .form-control--is-select
+    ) {
     & .form-control__input {
       overflow: hidden;
       max-height: 0;
@@ -225,6 +228,27 @@
 
   & .form-control__prefix {
     border-color: var(--s-border-default);
+  }
+}
+
+.form-control--inline {
+  /**
+   * Both the compact "inside, empty, acting as placeholder" state and the
+   * "outside, has a value" state use this same single-row box size, so the
+   * height doesn't jump when the label moves as the input gets a value.
+   */
+  & .form-control__label {
+    min-height: calc(2.375rem + 2 * var(--s-border-width-default));
+    padding: var(--s-space-8) var(--s-space-12);
+    gap: var(--s-space-2);
+
+    @media (--from-desktop-without-touch) {
+      min-height: calc(2.25rem + 2 * var(--s-border-width-default));
+    }
+  }
+
+  &.form-control--has-character-counter .form-control__description {
+    max-width: calc(100% - 6rem);
   }
 }
 

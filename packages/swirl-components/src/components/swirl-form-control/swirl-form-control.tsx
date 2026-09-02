@@ -269,14 +269,15 @@ export class SwirlFormControl {
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
     /**
-     * `inline` renders the label above the border, same as
-     * `labelPosition="outside"`. It predates that prop and was never given
-     * its own correct implementation (see SWR-122), so it's normalized to
-     * it here instead of maintaining a second, divergent set of label
-     * styles.
+     * `inline` acts as a placeholder-like label while the input is empty
+     * (compact, centered inside the border), then moves above the border
+     * once it has a value — the same "outside" position used elsewhere,
+     * just entered dynamically instead of statically. See SWR-122.
      */
     const effectiveLabelPosition: SwirlFormControlLabelPosition = this.inline
-      ? "outside"
+      ? hasValue
+        ? "outside"
+        : "inside"
       : this.labelPosition;
 
     const className = classnames(

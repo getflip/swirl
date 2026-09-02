@@ -164,7 +164,7 @@ describe("swirl-form-control", () => {
     expect(tooltip).not.toBeNull();
   });
 
-  it("renders the label above the border when inline, even when the input has a placeholder", async () => {
+  it("acts as an inside placeholder-like label while an inline input is empty, even when the input has a placeholder", async () => {
     const page = await newSpecPage({
       components: [SwirlFormControl],
       html: `
@@ -177,14 +177,14 @@ describe("swirl-form-control", () => {
     const formControl = page.root.querySelector(".form-control");
 
     expect(
-      formControl.classList.contains("form-control--label-position-outside")
+      formControl.classList.contains("form-control--label-position-inside")
     ).toBeTruthy();
     expect(
-      formControl.classList.contains("form-control--label-position-inside")
+      formControl.classList.contains("form-control--label-position-outside")
     ).toBeFalsy();
   });
 
-  it("keeps the label above the border once an inline input has a value", async () => {
+  it("moves the label above the border once an inline input has a value", async () => {
     const page = await newSpecPage({
       components: [SwirlFormControl],
       html: `
