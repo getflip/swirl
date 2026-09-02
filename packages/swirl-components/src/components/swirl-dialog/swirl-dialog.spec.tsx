@@ -24,13 +24,15 @@ describe("swirl-dialog", () => {
           <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none" role="alertdialog">
             <div class="dialog__backdrop"></div>
             <div class="dialog__body" part="dialog__body" role="document">
-              <h2 class="dialog__heading" part="dialog__heading" id="label">
-                Dialog
-              </h2>
-              <div class="dialog__content" part="dialog__content" id="content">
-                <slot></slot>
+              <div class="dialog__scroll-container" part="dialog__scroll-container">
+                <h2 class="dialog__heading" part="dialog__heading" id="label">
+                  Dialog
+                </h2>
+                <div class="dialog__content" part="dialog__content" id="content">
+                  <slot></slot>
+                </div>
+                <div class="dialog__controls"></div>
               </div>
-              <div class="dialog__controls"></div>
             </div>
           </dialog>
         </mock:shadow-root>
@@ -51,16 +53,18 @@ describe("swirl-dialog", () => {
           <dialog aria-describedby="content" aria-labelledby="label" class="dialog" closedby="none" role="alertdialog">
             <div class="dialog__backdrop"></div>
             <div class="dialog__body" part="dialog__body" role="document">
-              <h2 class="dialog__heading" part="dialog__heading" id="label">
-                Dialog
-              </h2>
-              <div class="dialog__content" part="dialog__content" id="content">
-                <slot></slot>
-              </div>
-              <div class="dialog__controls">
-                <div class="dialog__left_controls">
-                  <slot name="left-controls"></slot>
-                 </div>
+              <div class="dialog__scroll-container" part="dialog__scroll-container">
+                <h2 class="dialog__heading" part="dialog__heading" id="label">
+                  Dialog
+                </h2>
+                <div class="dialog__content" part="dialog__content" id="content">
+                  <slot></slot>
+                </div>
+                <div class="dialog__controls">
+                  <div class="dialog__left_controls">
+                    <slot name="left-controls"></slot>
+                   </div>
+                </div>
               </div>
             </div>
           </dialog>
@@ -81,6 +85,17 @@ describe("swirl-dialog", () => {
     expect(
       page.root.shadowRoot.querySelector(".dialog").getAttribute("aria-label")
     ).toBe("Dialog");
+  });
+
+  it("renders a translucent surface", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDialog],
+      html: `<swirl-dialog translucent label="Dialog">Content</swirl-dialog>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector("dialog").className
+    ).toContain("dialog--translucent");
   });
 
   it("renders controls and fires events", async () => {

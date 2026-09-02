@@ -37,6 +37,7 @@ export class SwirlDialog {
   @Prop() primaryActionLabel?: string;
   @Prop() returnFocusTo?: HTMLElement | string;
   @Prop() secondaryActionLabel?: string;
+  @Prop() translucent?: boolean;
 
   @Event() dialogClose: EventEmitter<void>;
   @Event() dialogOpen: EventEmitter<void>;
@@ -182,6 +183,7 @@ export class SwirlDialog {
     const className = classnames("dialog", {
       "dialog--closing": this.closing,
       "dialog--large": this.size === "large",
+      "dialog--translucent": this.translucent,
     });
     const hasLeftControls = Boolean(
       this.el.querySelector('[slot="left-controls"]')
@@ -204,46 +206,55 @@ export class SwirlDialog {
         >
           <div class="dialog__backdrop" onClick={this.onBackdropClick}></div>
           <div class="dialog__body" part="dialog__body" role="document">
-            {!this.hideLabel && (
-              <h2 class="dialog__heading" part="dialog__heading" id="label">
-                {this.label}
-              </h2>
-            )}
-            <div class="dialog__content" part="dialog__content" id="content">
-              <slot></slot>
-            </div>
-            <div class="dialog__controls">
-              {hasLeftControls && (
-                <div class="dialog__left_controls">
-                  <slot name="left-controls"></slot>
-                </div>
+            <div
+              class="dialog__scroll-container"
+              part="dialog__scroll-container"
+            >
+              {!this.hideLabel && (
+                <h2 class="dialog__heading" part="dialog__heading" id="label">
+                  {this.label}
+                </h2>
               )}
+              <div
+                class="dialog__content"
+                part="dialog__content"
+                id="content"
+              >
+                <slot></slot>
+              </div>
+              <div class="dialog__controls">
+                {hasLeftControls && (
+                  <div class="dialog__left_controls">
+                    <slot name="left-controls"></slot>
+                  </div>
+                )}
 
-              {(hasSecondaryAction || hasPrimaryAction) && (
-                <swirl-button-group
-                  class={classnames("dialog__actions", {
-                    "dialog__actions--vertical":
-                      this.actionsOrientation === "vertical",
-                  })}
-                  orientation={this.actionsOrientation}
-                  stretch={this.actionsOrientation === "vertical"}
-                >
-                  {hasSecondaryAction && (
-                    <swirl-button
-                      label={this.secondaryActionLabel}
-                      onClick={this.onSecondaryAction}
-                    ></swirl-button>
-                  )}
-                  {hasPrimaryAction && (
-                    <swirl-button
-                      intent={this.intent}
-                      label={this.primaryActionLabel}
-                      onClick={this.onPrimaryAction}
-                      variant="flat"
-                    ></swirl-button>
-                  )}
-                </swirl-button-group>
-              )}
+                {(hasSecondaryAction || hasPrimaryAction) && (
+                  <swirl-button-group
+                    class={classnames("dialog__actions", {
+                      "dialog__actions--vertical":
+                        this.actionsOrientation === "vertical",
+                    })}
+                    orientation={this.actionsOrientation}
+                    stretch={this.actionsOrientation === "vertical"}
+                  >
+                    {hasSecondaryAction && (
+                      <swirl-button
+                        label={this.secondaryActionLabel}
+                        onClick={this.onSecondaryAction}
+                      ></swirl-button>
+                    )}
+                    {hasPrimaryAction && (
+                      <swirl-button
+                        intent={this.intent}
+                        label={this.primaryActionLabel}
+                        onClick={this.onPrimaryAction}
+                        variant="flat"
+                      ></swirl-button>
+                    )}
+                  </swirl-button-group>
+                )}
+              </div>
             </div>
           </div>
         </dialog>

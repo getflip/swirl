@@ -969,6 +969,7 @@ export namespace Components {
           * @default "default"
          */
         "size"?: SwirlDialogSize;
+        "translucent"?: boolean;
     }
     interface SwirlEmoji {
         /**
@@ -11455,6 +11456,7 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "size"?: SwirlDialogSize;
+        "translucent"?: boolean;
     }
     interface SwirlEmoji {
         /**
@@ -16616,6 +16618,7 @@ declare namespace LocalJSX {
         "primaryActionLabel": string;
         "returnFocusTo": HTMLElement | string;
         "secondaryActionLabel": string;
+        "translucent": boolean;
     }
     interface SwirlEmojiAttributes {
         "label": string;

@@ -2998,6 +2998,10 @@
               "name": "large"
             }
           ]
+        },
+        {
+          "name": "translucent",
+          "description": ""
         }
       ]
     },
