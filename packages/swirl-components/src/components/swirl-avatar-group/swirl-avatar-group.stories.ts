@@ -77,3 +77,23 @@ export const WithSquareAvatars = TemplateWithSquareAvatars.bind({});
 WithSquareAvatars.args = {
   layout: "horizontal",
 };
+
+const TemplateWithCenteredLayout = (args) => {
+  const element = generateStoryElement("swirl-avatar-group", args);
+
+  element.innerHTML = `
+    <swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="l" variant="square"></swirl-avatar>
+    <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="l" variant="square"></swirl-avatar>
+    <swirl-avatar label="Jane Roe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=c" size="l" variant="square"></swirl-avatar>
+    <swirl-avatar label="John Roe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=d" size="l" variant="square"></swirl-avatar>
+    <swirl-avatar label="Jane Smith" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=e" size="l" variant="square"></swirl-avatar>
+  `;
+
+  return element;
+};
+
+export const WithCenteredLayout = TemplateWithCenteredLayout.bind({});
+
+WithCenteredLayout.args = {
+  layout: "centered",
+};

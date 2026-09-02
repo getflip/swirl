@@ -2525,7 +2525,7 @@
             {
               "name": "layout",
               "type": {
-                "text": "\"diagonal\" | \"horizontal\"",
+                "text": "\"centered\" | \"diagonal\" | \"horizontal\"",
                 "references": [
                   {
                     "name": "SwirlAvatarGroupLayout"
@@ -2572,7 +2572,7 @@
               "kind": "field",
               "name": "layout",
               "type": {
-                "text": "\"diagonal\" | \"horizontal\"",
+                "text": "\"centered\" | \"diagonal\" | \"horizontal\"",
                 "references": [
                   {
                     "name": "SwirlAvatarGroupLayout"

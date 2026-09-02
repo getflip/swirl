@@ -713,6 +713,9 @@
           "description": "",
           "values": [
             {
+              "name": "centered"
+            },
+            {
               "name": "diagonal"
             },
             {
