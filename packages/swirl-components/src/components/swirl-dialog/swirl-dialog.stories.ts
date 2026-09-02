@@ -66,4 +66,5 @@ SwirlDialog.args = {
   primaryActionLabel: "Leave",
   secondaryActionLabel: "Cancel",
   size: "default",
+  translucent: false,
 };

@@ -37,6 +37,7 @@ export class SwirlDialog {
   @Prop() primaryActionLabel?: string;
   @Prop() returnFocusTo?: HTMLElement | string;
   @Prop() secondaryActionLabel?: string;
+  @Prop() translucent?: boolean;
 
   @Event() dialogClose: EventEmitter<void>;
   @Event() dialogOpen: EventEmitter<void>;
@@ -182,6 +183,7 @@ export class SwirlDialog {
     const className = classnames("dialog", {
       "dialog--closing": this.closing,
       "dialog--large": this.size === "large",
+      "dialog--translucent": this.translucent,
     });
     const hasLeftControls = Boolean(
       this.el.querySelector('[slot="left-controls"]')

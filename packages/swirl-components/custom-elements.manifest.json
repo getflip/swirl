@@ -7933,6 +7933,13 @@
               },
               "default": "\"default\"",
               "fieldName": "size"
+            },
+            {
+              "name": "translucent",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "translucent"
             }
           ],
           "members": [
@@ -8032,6 +8039,15 @@
               "default": "\"default\"",
               "readonly": true,
               "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "translucent",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "translucent"
             },
             {
               "kind": "method",

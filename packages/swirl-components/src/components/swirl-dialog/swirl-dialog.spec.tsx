@@ -83,6 +83,17 @@ describe("swirl-dialog", () => {
     ).toBe("Dialog");
   });
 
+  it("renders a translucent surface", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDialog],
+      html: `<swirl-dialog translucent label="Dialog">Content</swirl-dialog>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector("dialog").className
+    ).toContain("dialog--translucent");
+  });
+
   it("renders controls and fires events", async () => {
     const page = await newSpecPage({
       components: [SwirlDialog],

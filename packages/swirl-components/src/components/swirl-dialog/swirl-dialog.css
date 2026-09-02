@@ -53,11 +53,13 @@
 }
 
 .dialog--closing {
-  animation: 0.15s dialog-fade-out;
-  animation-fill-mode: forwards;
+  & .dialog__backdrop,
+  & .dialog__body {
+    animation: 0.15s dialog-fade-out forwards;
 
-  @media (prefers-reduced-motion) {
-    animation: none;
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
   }
 }
 
@@ -96,6 +98,13 @@
   @media (--from-desktop-without-touch) {
     width: 35rem; /* 560px */
   }
+}
+
+.dialog--translucent .dialog__body {
+  outline: var(--s-border-width-default) solid
+    var(--s-border-translucent-outline);
+  background-color: var(--s-translucent-low-default);
+  backdrop-filter: blur(var(--s-blur-l));
 }
 
 .dialog__heading {
