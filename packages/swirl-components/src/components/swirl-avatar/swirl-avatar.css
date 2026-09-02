@@ -44,16 +44,6 @@
   border-radius: var(--swirl-avatar-radius);
   border: var(--swirl-avatar-border-width, 0) solid
     var(--swirl-avatar-border-color, transparent);
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    box-shadow: inset 0 0 0 var(--swirl-avatar-ring-width, 0)
-      var(--swirl-avatar-ring-color, transparent);
-    pointer-events: none;
-  }
 }
 
 .avatar--variant-square,
