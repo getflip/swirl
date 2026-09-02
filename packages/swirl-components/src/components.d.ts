@@ -4137,6 +4137,10 @@ export namespace Components {
          */
         "maxHeight"?: string;
         /**
+          * @default true
+         */
+        "mobileBottomSheet"?: boolean;
+        /**
           * @default 8
          */
         "offset"?: number | number[];
@@ -14529,6 +14533,10 @@ declare namespace LocalJSX {
          */
         "maxHeight"?: string;
         /**
+          * @default true
+         */
+        "mobileBottomSheet"?: boolean;
+        /**
           * @default 8
          */
         "offset"?: number | number[];
@@ -18337,6 +18345,7 @@ declare namespace LocalJSX {
         "fullscreenBottomSheet": boolean;
         "label": string;
         "maxHeight": string;
+        "mobileBottomSheet": boolean;
         "offset": number | number[];
         "padded": boolean;
         "popoverId": string;

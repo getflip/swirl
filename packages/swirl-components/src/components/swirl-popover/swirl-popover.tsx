@@ -19,7 +19,10 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { disableBodyScroll, enableBodyScroll } from "../../utils/body-scroll-lock";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+} from "../../utils/body-scroll-lock";
 import classnames from "classnames";
 import { tabbable } from "tabbable";
 import {
@@ -61,6 +64,7 @@ export class SwirlPopover {
   @Prop() fullscreenBottomSheet?: boolean;
   @Prop() label!: string;
   @Prop() maxHeight?: string = "22rem";
+  @Prop() mobileBottomSheet?: boolean = true;
   @Prop() offset?: number | number[] = 8;
   @Prop() padded?: boolean = true;
   @Prop() popoverId?: string;
@@ -320,6 +324,10 @@ export class SwirlPopover {
     }
   };
 
+  private get bottomSheetActive() {
+    return this.mobileBottomSheet && isMobileViewport();
+  }
+
   private connectTrigger() {
     if (!Boolean(this.trigger)) {
       this.triggerEl = undefined;
@@ -396,9 +404,7 @@ export class SwirlPopover {
       useContainerWidth = false;
     }
 
-    const mobile = !window.matchMedia("(min-width: 768px)").matches;
-
-    if (Boolean(useContainerWidth) && !mobile) {
+    if (Boolean(useContainerWidth) && !this.bottomSheetActive) {
       const container =
         typeof useContainerWidth === "string"
           ? this.el.closest(useContainerWidth) || this.el.parentElement
@@ -414,13 +420,11 @@ export class SwirlPopover {
   }
 
   private reposition = async () => {
-    const mobile = isMobileViewport();
-
     if (!Boolean(this.triggerEl) || !Boolean(this.contentContainer)) {
       return;
     }
 
-    if (mobile) {
+    if (this.bottomSheetActive) {
       this.position = undefined;
       return;
     }
@@ -461,9 +465,11 @@ export class SwirlPopover {
   };
 
   private lockBodyScroll() {
-    const mobile = isMobileViewport();
-
-    if (!mobile || this.disableScrollLock || !Boolean(this.scrollContainer)) {
+    if (
+      !this.bottomSheetActive ||
+      this.disableScrollLock ||
+      !Boolean(this.scrollContainer)
+    ) {
       return;
     }
 
@@ -471,9 +477,11 @@ export class SwirlPopover {
   }
 
   private unlockBodyScroll() {
-    const mobile = isMobileViewport();
-
-    if (!mobile || this.disableScrollLock || !Boolean(this.scrollContainer)) {
+    if (
+      !this.bottomSheetActive ||
+      this.disableScrollLock ||
+      !Boolean(this.scrollContainer)
+    ) {
       return;
     }
 
@@ -485,7 +493,7 @@ export class SwirlPopover {
   };
 
   render() {
-    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const mobileBottomSheet = this.bottomSheetActive;
     const borderRadius = swirlPopoverBorderRadiusTokens.includes(
       this.borderRadius as (typeof swirlPopoverBorderRadiusTokens)[number]
     )
@@ -499,8 +507,10 @@ export class SwirlPopover {
       {
         "popover--active": this.active,
         "popover--closing": this.closing,
-        "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
+        "popover--fullscreen-bottom-sheet":
+          this.fullscreenBottomSheet && this.mobileBottomSheet,
         "popover--inactive": !this.active,
+        "popover--mobile-bottom-sheet": this.mobileBottomSheet,
         "popover--translucent": this.translucent && !this.transparent,
         "popover--transparent": this.transparent,
         "popover--padded": this.padded,
@@ -527,7 +537,9 @@ export class SwirlPopover {
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
               opacity:
-                this.active && !this.position && !mobile ? "0" : undefined,
+                this.active && !this.position && !mobileBottomSheet
+                  ? "0"
+                  : undefined,
               "--swirl-popover-border-radius": borderRadius,
             }}
             tabindex="-1"
@@ -539,7 +551,7 @@ export class SwirlPopover {
               ref={(el) => (this.scrollContainer = el)}
               style={{
                 maxHeight:
-                  !mobile && Boolean(this.maxHeight)
+                  !mobileBottomSheet && Boolean(this.maxHeight)
                     ? this.maxHeight
                     : undefined,
               }}

@@ -4,6 +4,7 @@ jest.mock("tabbable", () => ({
 
 import { newSpecPage, SpecPage } from "@stencil/core/testing";
 
+import * as bodyScrollLock from "../../utils/body-scroll-lock";
 import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 import { SwirlPopover } from "./swirl-popover";
 
@@ -55,7 +56,7 @@ describe("swirl-popover", () => {
         </swirl-popover-trigger>
         <swirl-popover id="popover" label="Popover" style="display: none;">
           <mock:shadow-root>
-            <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined popover--translucent" popover="manual">
+            <div class="popover popover--animation-scale-in-xy popover--inactive popover--mobile-bottom-sheet popover--padded popover--placement-undefined popover--translucent" popover="manual">
               <div aria-hidden="true" aria-label="Popover" class="popover__content" part="popover__content" role="dialog" tabindex="-1" style="--swirl-popover-border-radius: var(--s-border-radius-base);">
                 <span class="popover__handle"></span>
                 <div class="popover__scroll-container" part="popover__scroll-container">
@@ -302,5 +303,108 @@ describe("swirl-popover", () => {
 
     expect(isPopoverOpen(page)).toBeFalsy();
     expect(focusSpy).not.toHaveBeenCalled();
+  });
+
+  it("renders as a bottom sheet on small viewports by default", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popoverEl = page.doc
+      .querySelector("swirl-popover")
+      .shadowRoot.querySelector(".popover");
+
+    expect(
+      popoverEl.classList.contains("popover--mobile-bottom-sheet")
+    ).toBeTruthy();
+  });
+
+  it("does not render as a bottom sheet on small viewports when mobileBottomSheet is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: `
+        <div>
+          <swirl-popover-trigger swirl-popover="popover">
+            <button id="trigger">Trigger popover</button>
+          </swirl-popover-trigger>
+          <swirl-popover label="Popover" id="popover" mobile-bottom-sheet="false" style="display: none;">
+            <div>Content</div>
+          </swirl-popover>
+        </div>
+      `,
+    });
+
+    const shadowRoot = page.doc.querySelector("swirl-popover").shadowRoot;
+
+    expect(
+      shadowRoot
+        .querySelector(".popover")
+        .classList.contains("popover--mobile-bottom-sheet")
+    ).toBeFalsy();
+
+    expect(
+      shadowRoot
+        .querySelector<HTMLElement>(".popover__scroll-container")
+        .style.getPropertyValue("max-height")
+    ).toBe("22rem");
+  });
+
+  it("ignores fullscreenBottomSheet when mobileBottomSheet is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: `
+        <div>
+          <swirl-popover-trigger swirl-popover="popover">
+            <button id="trigger">Trigger popover</button>
+          </swirl-popover-trigger>
+          <swirl-popover label="Popover" id="popover" fullscreen-bottom-sheet mobile-bottom-sheet="false" style="display: none;">
+            <div>Content</div>
+          </swirl-popover>
+        </div>
+      `,
+    });
+
+    const popoverEl = page.doc
+      .querySelector("swirl-popover")
+      .shadowRoot.querySelector(".popover");
+
+    expect(
+      popoverEl.classList.contains("popover--fullscreen-bottom-sheet")
+    ).toBeFalsy();
+  });
+
+  it("does not lock the body scroll when mobileBottomSheet is false", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: `
+        <div>
+          <swirl-popover-trigger swirl-popover="popover">
+            <button id="trigger">Trigger popover</button>
+          </swirl-popover-trigger>
+          <swirl-popover label="Popover" id="popover" mobile-bottom-sheet="false" style="display: none;">
+            <div>Content</div>
+          </swirl-popover>
+        </div>
+      `,
+    });
+
+    const disableBodyScrollSpy = jest.spyOn(
+      bodyScrollLock,
+      "disableBodyScroll"
+    );
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    await popover.open(trigger);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+    expect(disableBodyScrollSpy).not.toHaveBeenCalled();
+
+    disableBodyScrollSpy.mockRestore();
   });
 });
