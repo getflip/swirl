@@ -19,6 +19,7 @@ import { debounce, isMobileViewport } from "../../utils";
  * @slot content-header-tools - Button positioned next to the heading
  * @slot footer - Footer content positioned at the bottom of the layout
  * @slot heading - The main content's heading (only rendered if "heading" prop is not set).
+ * @slot logo - Custom logo (forwarded to the sidebar navigation)
  * @slot navigation - The main navigation
  * @slot overlays - Overlays like dialogs, modals and toasts
  * @slot user - The signed in user information at the bottom of the sidebar
@@ -42,6 +43,8 @@ export class SwirlConsoleLayout {
   @Prop() showBackButton?: boolean;
   @Prop() showHelpButton?: boolean;
   @Prop() showNavigationButtonLabel?: string = "Show main navigation";
+  @Prop() sidebarVisibilityStateStorageKey?: string =
+    "SWIRL_CONSOLE_LAYOUT_SIDEBAR_STATE";
   @Prop() subheading?: string;
   @Prop() hideContentHeader?: boolean;
 
@@ -52,19 +55,32 @@ export class SwirlConsoleLayout {
     scrolledToBottom: false,
   };
   @State() hasCustomAppBar: boolean;
+  @State() hasCustomLogo: boolean;
   @State() hasFooter: boolean;
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
+  @Event() sidebarVisibilityChange: EventEmitter<boolean>;
 
-  private sidebarEl: HTMLElement;
   private contentEl: HTMLElement;
+  private pendingFocus?: "collapse-button" | "toggle";
+  private sidebarEl: HTMLElement;
+
+  componentWillLoad() {
+    // Seed the initial state before the first render to avoid a visible
+    // collapse/expand transition on load
+    if (typeof window !== "undefined" && Boolean(window.matchMedia)) {
+      this.sidebarActive = !isMobileViewport() && this.getStoredSidebarState();
+    }
+  }
 
   componentDidLoad() {
     queueMicrotask(() => {
-      if (!isMobileViewport()) {
-        this.activateSidebar();
+      // Sync the inert attribute with the initial state seeded in
+      // componentWillLoad, without emitting sidebarVisibilityChange
+      if (this.sidebarActive) {
+        this.sidebarEl?.removeAttribute("inert");
       } else {
-        this.deactivateSidebar();
+        this.sidebarEl?.setAttribute("inert", "");
       }
 
       // Update initial scroll state
@@ -72,12 +88,19 @@ export class SwirlConsoleLayout {
 
       // Update initial slot states
       this.updateCustomAppBarStatus();
+      this.updateCustomLogoStatus();
       this.updateFooterStatus();
     });
   }
 
   private updateCustomAppBarStatus = () => {
     this.hasCustomAppBar = Boolean(this.el.querySelector('[slot="app-bar"]'));
+  };
+
+  private updateCustomLogoStatus = () => {
+    // The forwarding slot is only rendered when a logo is actually slotted;
+    // otherwise it would suppress the sidebar navigation's logo fallback
+    this.hasCustomLogo = Boolean(this.el.querySelector('[slot="logo"]'));
   };
 
   private updateFooterStatus = () => {
@@ -114,15 +137,17 @@ export class SwirlConsoleLayout {
   onWindowResize() {
     const mobileViewport = isMobileViewport();
 
-    if (!mobileViewport && !this.sidebarActive) {
-      this.activateSidebar();
-    } else if (mobileViewport) {
-      this.deactivateSidebar();
+    if (mobileViewport) {
+      if (this.sidebarActive) {
+        this.deactivateSidebar(false);
+      }
+    } else if (this.getStoredSidebarState() !== this.sidebarActive) {
+      this.restoreSidebarState();
     }
   }
 
   /**
-   * Toggle the mobile navigation visibility.
+   * Toggle the sidebar visibility.
    */
   @Method()
   async toggleSidebar() {
@@ -134,7 +159,7 @@ export class SwirlConsoleLayout {
   }
 
   /**
-   * Show the mobile navigation.
+   * Show the sidebar.
    */
   @Method()
   async showSidebar() {
@@ -144,7 +169,7 @@ export class SwirlConsoleLayout {
   }
 
   /**
-   * Hide the mobile navigation.
+   * Hide the sidebar.
    */
   @Method()
   async hideSidebar() {
@@ -153,21 +178,99 @@ export class SwirlConsoleLayout {
     }
   }
 
-  private activateSidebar() {
-    this.sidebarActive = true;
-    this.sidebarEl.removeAttribute("inert");
-
-    if (isMobileViewport()) {
-      this.el.querySelector("swirl-tree-navigation-item")?.focus();
+  private restoreSidebarState() {
+    if (this.getStoredSidebarState()) {
+      this.activateSidebar(false);
+    } else {
+      this.deactivateSidebar(false);
     }
   }
 
-  private deactivateSidebar() {
-    this.sidebarActive = false;
+  private getStoredSidebarState(): boolean {
+    try {
+      return (
+        localStorage.getItem(this.sidebarVisibilityStateStorageKey) !== "false"
+      );
+    } catch {
+      return true;
+    }
+  }
+
+  private storeSidebarState(active: boolean) {
+    try {
+      localStorage.setItem(
+        this.sidebarVisibilityStateStorageKey,
+        String(active)
+      );
+    } catch {
+      // localStorage is unavailable; state is not persisted
+    }
+  }
+
+  private activateSidebar(moveFocus: boolean = true) {
+    this.sidebarActive = true;
+    this.sidebarEl?.removeAttribute("inert");
 
     if (isMobileViewport()) {
-      this.sidebarEl.setAttribute("inert", "");
+      if (moveFocus) {
+        this.el.querySelector("swirl-tree-navigation-item")?.focus();
+      }
+    } else {
+      this.storeSidebarState(true);
+
+      if (moveFocus) {
+        this.pendingFocus = "collapse-button";
+      }
     }
+
+    this.sidebarVisibilityChange.emit(true);
+  }
+
+  private deactivateSidebar(moveFocus: boolean = true) {
+    this.sidebarActive = false;
+    this.sidebarEl?.setAttribute("inert", "");
+
+    if (!isMobileViewport()) {
+      this.storeSidebarState(false);
+    }
+
+    if (moveFocus) {
+      this.pendingFocus = "toggle";
+    }
+
+    this.sidebarVisibilityChange.emit(false);
+  }
+
+  componentDidUpdate() {
+    // Focus moves must happen after the re-render is committed: the toggle
+    // buttons mount/unmount and the sidebar's visibility changes with the
+    // sidebar state, so focusing earlier is dropped by the browser
+    if (this.pendingFocus === "toggle") {
+      this.focusSidebarToggle();
+    } else if (this.pendingFocus === "collapse-button") {
+      (
+        this.sidebarEl as HTMLSwirlSidebarNavigationElement
+      )?.focusCollapseButton?.();
+    }
+
+    this.pendingFocus = undefined;
+  }
+
+  /**
+   * Move focus to the visible sidebar toggle after the sidebar was hidden,
+   * so keyboard users don't lose their place
+   */
+  private focusSidebarToggle() {
+    const candidates = [
+      this.el.shadowRoot.querySelector<HTMLElement>(
+        ".console-layout__show-sidebar-button"
+      ),
+      this.el.shadowRoot.querySelector<HTMLElement>(
+        ".console-layout__mobile-navigation-button button"
+      ),
+    ];
+
+    candidates.find((el) => Boolean(el) && el.offsetWidth > 0)?.focus();
   }
 
   private onBackButtonClick = (event: MouseEvent) => {
@@ -182,7 +285,19 @@ export class SwirlConsoleLayout {
     this.toggleSidebar();
   };
 
+  private onSidebarCollapseButtonClick = () => {
+    this.hideSidebar();
+  };
+
+  private onShowSidebarButtonClick = () => {
+    this.showSidebar();
+  };
+
   private onClick = (event: MouseEvent) => {
+    if (!isMobileViewport()) {
+      return;
+    }
+
     const target = event.target as HTMLElement;
 
     const clickOnToggle = Boolean(
@@ -203,6 +318,10 @@ export class SwirlConsoleLayout {
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
+    if (!isMobileViewport()) {
+      return;
+    }
+
     if (event.code === "Escape" && this.sidebarActive) {
       this.deactivateSidebar();
     }
@@ -218,10 +337,12 @@ export class SwirlConsoleLayout {
       : undefined;
 
     this.updateCustomAppBarStatus();
+    this.updateCustomLogoStatus();
     this.updateFooterStatus();
 
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
+      "console-layout--sidebar-hidden": !this.sidebarActive,
       "console-layout--empty-app-bar":
         !Boolean(this.appName) && !this.showHelpButton && !this.hasCustomAppBar,
       "console-layout--has-footer": this.hasFooter,
@@ -241,47 +362,38 @@ export class SwirlConsoleLayout {
           onClick={this.onClick}
           onKeyDown={this.onKeyDown}
         >
-          <header
+          <swirl-sidebar-navigation
+            appName={this.logoText}
             aria-hidden={String(!this.sidebarActive)}
             class="console-layout__sidebar"
+            collapseButtonLabel={this.hideNavigationButtonLabel}
+            id="sidebar"
+            navigationLabel={this.navigationLabel}
+            onCollapseButtonClick={this.onSidebarCollapseButtonClick}
             ref={(el) => (this.sidebarEl = el)}
           >
-            <div class="console-layout__header">
-              <div class="console-layout__logo">
-                <svg
-                  class="console-layout__logo-mark"
-                  fill="none"
-                  height="26"
-                  viewBox="0 0 301 460"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M2.52486 276.36C5.57709 289.149 11.02 301.094 18.2296 311.628L258.719 138.748C269.874 131.507 278.35 121.993 285.395 110.766C291.904 100.212 296.922 87.3014 298.875 74.6738C300.769 61.4277 300.809 48.353 297.757 35.5639C294.705 22.7748 289.262 10.8302 282.052 0.296051L41.5626 173.176C30.4077 180.417 21.9314 189.931 14.8867 201.158C8.37746 211.712 3.35926 224.623 1.40724 237.25C-0.544773 249.878 0.0338964 262.896 2.52486 276.36ZM80.3121 424.184C83.3644 436.973 88.8073 448.918 96.0169 459.452L229.113 363.743C240.268 356.502 248.744 346.988 255.789 335.761C262.298 325.207 267.317 312.296 269.269 299.668C271.164 286.422 271.203 273.348 268.151 260.559C265.099 247.769 259.656 235.825 252.446 225.291L119.35 320.999C108.195 328.24 99.7187 337.755 92.674 348.982C86.1647 359.535 81.1465 372.446 79.1945 385.074C77.2996 398.32 77.2599 411.395 80.3121 424.184Z"
-                    fill="#2151F5"
-                  />
-                </svg>
-                <swirl-text class="console-layout__logo-text" weight="medium">
-                  {this.logoText}
-                </swirl-text>
-              </div>
-            </div>
-            <nav
-              aria-label={this.navigationLabel}
-              class="console-layout__navigation"
-            >
-              <slot name="navigation"></slot>
-            </nav>
-            <div class="console-layout__user">
-              <slot name="user"></slot>
-            </div>
-          </header>
+            {this.hasCustomLogo && <slot name="logo" slot="logo"></slot>}
+            <slot name="navigation"></slot>
+            <slot name="user" slot="user"></slot>
+          </swirl-sidebar-navigation>
           <main
             aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
             class="console-layout__main"
           >
+            {!this.sidebarActive && (
+              <button
+                aria-controls="sidebar"
+                aria-expanded="false"
+                aria-label={this.showNavigationButtonLabel}
+                class="console-layout__show-sidebar-button"
+                onClick={this.onShowSidebarButtonClick}
+                type="button"
+              >
+                <swirl-icon-hamburger-menu
+                  size={20}
+                ></swirl-icon-hamburger-menu>
+              </button>
+            )}
             <header class="console-layout__app-bar console-layout__app-bar--custom">
               <slot
                 name="app-bar"

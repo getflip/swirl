@@ -809,7 +809,7 @@ export namespace Components {
          */
         "hideNavigationButtonLabel"?: string;
         /**
-          * Hide the mobile navigation.
+          * Hide the sidebar.
          */
         "hideSidebar": () => Promise<void>;
         /**
@@ -828,12 +828,16 @@ export namespace Components {
          */
         "showNavigationButtonLabel"?: string;
         /**
-          * Show the mobile navigation.
+          * Show the sidebar.
          */
         "showSidebar": () => Promise<void>;
+        /**
+          * @default "SWIRL_CONSOLE_LAYOUT_SIDEBAR_STATE"
+         */
+        "sidebarVisibilityStateStorageKey"?: string;
         "subheading"?: string;
         /**
-          * Toggle the mobile navigation visibility.
+          * Toggle the sidebar visibility.
          */
         "toggleSidebar": () => Promise<void>;
     }
@@ -4543,6 +4547,23 @@ export namespace Components {
         "variant": SwirlShellNavigationItemVariant;
         "withGradient"?: boolean;
     }
+    interface SwirlSidebarNavigation {
+        "appName"?: string;
+        /**
+          * @default "Hide navigation"
+         */
+        "collapseButtonLabel"?: string;
+        "elevated"?: boolean;
+        /**
+          * Focus the collapse button.
+         */
+        "focusCollapseButton": () => Promise<void>;
+        "hideCollapseButton"?: boolean;
+        /**
+          * @default "Main"
+         */
+        "navigationLabel"?: string;
+    }
     interface SwirlSkeletonBox {
         /**
           * @default true
@@ -6064,6 +6085,10 @@ export interface SwirlShellLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlShellLayoutElement;
 }
+export interface SwirlSidebarNavigationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlSidebarNavigationElement;
+}
 export interface SwirlSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlSwitchElement;
@@ -6423,6 +6448,7 @@ declare global {
     interface HTMLSwirlConsoleLayoutElementEventMap {
         "backButtonClick": MouseEvent;
         "helpButtonClick": MouseEvent;
+        "sidebarVisibilityChange": boolean;
     }
     interface HTMLSwirlConsoleLayoutElement extends Components.SwirlConsoleLayout, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlConsoleLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlConsoleLayoutElement, ev: SwirlConsoleLayoutCustomEvent<HTMLSwirlConsoleLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -9068,6 +9094,23 @@ declare global {
         prototype: HTMLSwirlShellNavigationItemElement;
         new (): HTMLSwirlShellNavigationItemElement;
     };
+    interface HTMLSwirlSidebarNavigationElementEventMap {
+        "collapseButtonClick": MouseEvent;
+    }
+    interface HTMLSwirlSidebarNavigationElement extends Components.SwirlSidebarNavigation, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSidebarNavigationElementEventMap>(type: K, listener: (this: HTMLSwirlSidebarNavigationElement, ev: SwirlSidebarNavigationCustomEvent<HTMLSwirlSidebarNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSidebarNavigationElementEventMap>(type: K, listener: (this: HTMLSwirlSidebarNavigationElement, ev: SwirlSidebarNavigationCustomEvent<HTMLSwirlSidebarNavigationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlSidebarNavigationElement: {
+        prototype: HTMLSwirlSidebarNavigationElement;
+        new (): HTMLSwirlSidebarNavigationElement;
+    };
     interface HTMLSwirlSkeletonBoxElement extends Components.SwirlSkeletonBox, HTMLStencilElement {
     }
     var HTMLSwirlSkeletonBoxElement: {
@@ -10549,6 +10592,7 @@ declare global {
         "swirl-separator": HTMLSwirlSeparatorElement;
         "swirl-shell-layout": HTMLSwirlShellLayoutElement;
         "swirl-shell-navigation-item": HTMLSwirlShellNavigationItemElement;
+        "swirl-sidebar-navigation": HTMLSwirlSidebarNavigationElement;
         "swirl-skeleton-box": HTMLSwirlSkeletonBoxElement;
         "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
@@ -11319,12 +11363,17 @@ declare namespace LocalJSX {
         "navigationLabel"?: string;
         "onBackButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
+        "onSidebarVisibilityChange"?: (event: SwirlConsoleLayoutCustomEvent<boolean>) => void;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
         /**
           * @default "Show main navigation"
          */
         "showNavigationButtonLabel"?: string;
+        /**
+          * @default "SWIRL_CONSOLE_LAYOUT_SIDEBAR_STATE"
+         */
+        "sidebarVisibilityStateStorageKey"?: string;
         "subheading"?: string;
     }
     interface SwirlDataCell {
@@ -14943,6 +14992,20 @@ declare namespace LocalJSX {
         "variant"?: SwirlShellNavigationItemVariant;
         "withGradient"?: boolean;
     }
+    interface SwirlSidebarNavigation {
+        "appName"?: string;
+        /**
+          * @default "Hide navigation"
+         */
+        "collapseButtonLabel"?: string;
+        "elevated"?: boolean;
+        "hideCollapseButton"?: boolean;
+        /**
+          * @default "Main"
+         */
+        "navigationLabel"?: string;
+        "onCollapseButtonClick"?: (event: SwirlSidebarNavigationCustomEvent<MouseEvent>) => void;
+    }
     interface SwirlSkeletonBox {
         /**
           * @default true
@@ -16563,6 +16626,7 @@ declare namespace LocalJSX {
         "showBackButton": boolean;
         "showHelpButton": boolean;
         "showNavigationButtonLabel": string;
+        "sidebarVisibilityStateStorageKey": string;
         "subheading": string;
         "hideContentHeader": boolean;
     }
@@ -18527,6 +18591,13 @@ declare namespace LocalJSX {
         "variant": SwirlShellNavigationItemVariant;
         "withGradient": boolean;
     }
+    interface SwirlSidebarNavigationAttributes {
+        "appName": string;
+        "collapseButtonLabel": string;
+        "elevated": boolean;
+        "hideCollapseButton": boolean;
+        "navigationLabel": string;
+    }
     interface SwirlSkeletonBoxAttributes {
         "animated": boolean;
         "aspectRatio": string;
@@ -19567,6 +19638,7 @@ declare namespace LocalJSX {
         "swirl-separator": Omit<SwirlSeparator, keyof SwirlSeparatorAttributes> & { [K in keyof SwirlSeparator & keyof SwirlSeparatorAttributes]?: SwirlSeparator[K] } & { [K in keyof SwirlSeparator & keyof SwirlSeparatorAttributes as `attr:${K}`]?: SwirlSeparatorAttributes[K] } & { [K in keyof SwirlSeparator & keyof SwirlSeparatorAttributes as `prop:${K}`]?: SwirlSeparator[K] };
         "swirl-shell-layout": Omit<SwirlShellLayout, keyof SwirlShellLayoutAttributes> & { [K in keyof SwirlShellLayout & keyof SwirlShellLayoutAttributes]?: SwirlShellLayout[K] } & { [K in keyof SwirlShellLayout & keyof SwirlShellLayoutAttributes as `attr:${K}`]?: SwirlShellLayoutAttributes[K] } & { [K in keyof SwirlShellLayout & keyof SwirlShellLayoutAttributes as `prop:${K}`]?: SwirlShellLayout[K] };
         "swirl-shell-navigation-item": Omit<SwirlShellNavigationItem, keyof SwirlShellNavigationItemAttributes> & { [K in keyof SwirlShellNavigationItem & keyof SwirlShellNavigationItemAttributes]?: SwirlShellNavigationItem[K] } & { [K in keyof SwirlShellNavigationItem & keyof SwirlShellNavigationItemAttributes as `attr:${K}`]?: SwirlShellNavigationItemAttributes[K] } & { [K in keyof SwirlShellNavigationItem & keyof SwirlShellNavigationItemAttributes as `prop:${K}`]?: SwirlShellNavigationItem[K] } & OneOf<"label", SwirlShellNavigationItem["label"], SwirlShellNavigationItemAttributes["label"]>;
+        "swirl-sidebar-navigation": Omit<SwirlSidebarNavigation, keyof SwirlSidebarNavigationAttributes> & { [K in keyof SwirlSidebarNavigation & keyof SwirlSidebarNavigationAttributes]?: SwirlSidebarNavigation[K] } & { [K in keyof SwirlSidebarNavigation & keyof SwirlSidebarNavigationAttributes as `attr:${K}`]?: SwirlSidebarNavigationAttributes[K] } & { [K in keyof SwirlSidebarNavigation & keyof SwirlSidebarNavigationAttributes as `prop:${K}`]?: SwirlSidebarNavigation[K] };
         "swirl-skeleton-box": Omit<SwirlSkeletonBox, keyof SwirlSkeletonBoxAttributes> & { [K in keyof SwirlSkeletonBox & keyof SwirlSkeletonBoxAttributes]?: SwirlSkeletonBox[K] } & { [K in keyof SwirlSkeletonBox & keyof SwirlSkeletonBoxAttributes as `attr:${K}`]?: SwirlSkeletonBoxAttributes[K] } & { [K in keyof SwirlSkeletonBox & keyof SwirlSkeletonBoxAttributes as `prop:${K}`]?: SwirlSkeletonBox[K] };
         "swirl-skeleton-text": Omit<SwirlSkeletonText, keyof SwirlSkeletonTextAttributes> & { [K in keyof SwirlSkeletonText & keyof SwirlSkeletonTextAttributes]?: SwirlSkeletonText[K] } & { [K in keyof SwirlSkeletonText & keyof SwirlSkeletonTextAttributes as `attr:${K}`]?: SwirlSkeletonTextAttributes[K] } & { [K in keyof SwirlSkeletonText & keyof SwirlSkeletonTextAttributes as `prop:${K}`]?: SwirlSkeletonText[K] };
         "swirl-spinner": Omit<SwirlSpinner, keyof SwirlSpinnerAttributes> & { [K in keyof SwirlSpinner & keyof SwirlSpinnerAttributes]?: SwirlSpinner[K] } & { [K in keyof SwirlSpinner & keyof SwirlSpinnerAttributes as `attr:${K}`]?: SwirlSpinnerAttributes[K] } & { [K in keyof SwirlSpinner & keyof SwirlSpinnerAttributes as `prop:${K}`]?: SwirlSpinner[K] };
@@ -20131,6 +20203,7 @@ declare module "@stencil/core" {
              * @deprecated This component is deprecated and will be removed in the next major release.
              */
             "swirl-shell-navigation-item": LocalJSX.IntrinsicElements["swirl-shell-navigation-item"] & JSXBase.HTMLAttributes<HTMLSwirlShellNavigationItemElement>;
+            "swirl-sidebar-navigation": LocalJSX.IntrinsicElements["swirl-sidebar-navigation"] & JSXBase.HTMLAttributes<HTMLSwirlSidebarNavigationElement>;
             "swirl-skeleton-box": LocalJSX.IntrinsicElements["swirl-skeleton-box"] & JSXBase.HTMLAttributes<HTMLSwirlSkeletonBoxElement>;
             "swirl-skeleton-text": LocalJSX.IntrinsicElements["swirl-skeleton-text"] & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.IntrinsicElements["swirl-spinner"] & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;
