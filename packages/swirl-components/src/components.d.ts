@@ -5473,6 +5473,10 @@ export namespace Components {
           * @default "default"
          */
         "intent"?: SwirlTagIntent;
+        /**
+          * @default false
+         */
+        "interactive"?: boolean;
         "label": string;
         "removable"?: boolean;
         /**
@@ -9920,6 +9924,7 @@ declare global {
     };
     interface HTMLSwirlTagElementEventMap {
         "remove": MouseEvent;
+        "tagClick": MouseEvent;
     }
     interface HTMLSwirlTagElement extends Components.SwirlTag, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlTagElementEventMap>(type: K, listener: (this: HTMLSwirlTagElement, ev: SwirlTagCustomEvent<HTMLSwirlTagElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -15866,8 +15871,13 @@ declare namespace LocalJSX {
           * @default "default"
          */
         "intent"?: SwirlTagIntent;
+        /**
+          * @default false
+         */
+        "interactive"?: boolean;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
+        "onTagClick"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         /**
           * @default "Remove"
@@ -18994,6 +19004,7 @@ declare namespace LocalJSX {
         "icon": string;
         "iconPosition": SwirlTagIconPosition;
         "intent": SwirlTagIntent;
+        "interactive": boolean;
         "label": string;
         "removable": boolean;
         "bordered": boolean;

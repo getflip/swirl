@@ -202,6 +202,39 @@
   }
 }
 
+.tag--interactive {
+  position: relative;
+  margin: 0;
+  font-family: inherit;
+  text-align: start;
+  cursor: pointer;
+  appearance: none;
+
+  &::after {
+    position: absolute;
+    border-radius: inherit;
+    content: "";
+    inset: calc(-1 * var(--s-border-width-default));
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    background-color: var(--s-state-hovered);
+  }
+
+  &:active::after {
+    background-color: var(--s-state-pressed);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+  }
+}
+
 .tag__icon {
   display: inline-flex;
   margin-right: var(--s-space-4);
