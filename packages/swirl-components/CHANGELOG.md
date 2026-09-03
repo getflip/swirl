@@ -1,5 +1,42 @@
 # @getflip/swirl-components
 
+## 0.524.0
+
+### Minor Changes
+
+- [#1788](https://github.com/getflip/swirl/pull/1788)
+  [`722d82fcd`](https://github.com/getflip/swirl/commit/722d82fcd2e9e2a69dce698934b182bc3e40de4c)
+  Thanks [@danizep](https://github.com/danizep)! - Add translucent variant to
+  swirl-dialog
+
+* [#1756](https://github.com/getflip/swirl/pull/1756)
+  [`a7a24feee`](https://github.com/getflip/swirl/commit/a7a24feee2f0d064e9ce3a77bf1a313e9acd5a90)
+  Thanks [@marcomFlip](https://github.com/marcomFlip)! - Fix
+  SwirlProgressIndicator (variant=bar) size heights to match the design spec
+  (xs: 1px, s: 2px, m: 4px) and add the missing l size (8px)
+
+- [#1789](https://github.com/getflip/swirl/pull/1789)
+  [`2d032d6bc`](https://github.com/getflip/swirl/commit/2d032d6bc831e5b248e82866448a853104b44c07)
+  Thanks [@danizep](https://github.com/danizep)! - Add a "centered" layout to
+  SwirlAvatarGroup: a symmetric fan of up to 5 avatars scaled down from a
+  full-size centered avatar.
+
+* [#1784](https://github.com/getflip/swirl/pull/1784)
+  [`b1ce63794`](https://github.com/getflip/swirl/commit/b1ce6379457933881ee854272cac1ec6ac24d16d)
+  Thanks [@lukasballier](https://github.com/lukasballier)! - Add volume-off icon
+  to Swirl components
+
+- [#1785](https://github.com/getflip/swirl/pull/1785)
+  [`49944fdb1`](https://github.com/getflip/swirl/commit/49944fdb18b1d24e4f57d1b2f98e375bf94e599e)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  `mobileBottomSheet` prop to swirl-popover
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b1ce63794`](https://github.com/getflip/swirl/commit/b1ce6379457933881ee854272cac1ec6ac24d16d)]:
+  - @getflip/swirl-icons@0.95.0
+
 ## 0.523.1
 
 ### Patch Changes
