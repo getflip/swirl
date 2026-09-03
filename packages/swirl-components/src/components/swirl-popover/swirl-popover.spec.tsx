@@ -305,6 +305,107 @@ describe("swirl-popover", () => {
     expect(focusSpy).not.toHaveBeenCalled();
   });
 
+  it("does not return focus to trigger on close when the popover was opened via hover", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    const focusSpy = jest.spyOn(trigger, "focus");
+
+    await popover.open(trigger, true, "hover");
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    // Simulate the popover's own auto-close reacting to focus moving away,
+    // which does not pass disableFocus.
+    await popover.close();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+    expect(focusSpy).not.toHaveBeenCalled();
+  });
+
+  it("does not return focus to trigger on close when the popover was opened via focus", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    const focusSpy = jest.spyOn(trigger, "focus");
+
+    await popover.open(trigger, true, "focus");
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    // Simulate the popover's own auto-close reacting to focus moving away,
+    // which does not pass disableFocus.
+    await popover.close();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+    expect(focusSpy).not.toHaveBeenCalled();
+  });
+
+  it("returns focus to trigger on close when the popover was opened programmatically", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    const focusSpy = jest.spyOn(trigger, "focus");
+
+    await popover.open(trigger);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeTruthy();
+
+    await popover.close();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(isPopoverOpen(page)).toBeFalsy();
+    expect(focusSpy).toHaveBeenCalled();
+  });
+
+  it('omits aria-controls/aria-expanded on the trigger when opened via "focus"', async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover =
+      page.body.querySelector<HTMLSwirlPopoverElement>("swirl-popover");
+    const trigger = page.body.querySelector<HTMLElement>("#trigger");
+
+    await popover.open(trigger, true, "focus");
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(trigger.getAttribute("aria-haspopup")).toBe("dialog");
+    expect(trigger.hasAttribute("aria-controls")).toBeFalsy();
+    expect(trigger.hasAttribute("aria-expanded")).toBeFalsy();
+  });
+
   it("renders as a bottom sheet on small viewports by default", async () => {
     const page = await newSpecPage({
       components: [SwirlPopover, SwirlPopoverTrigger],

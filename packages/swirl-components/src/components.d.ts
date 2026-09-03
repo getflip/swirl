@@ -55,6 +55,7 @@ import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./component
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod, SwirlPopoverFallbackAxisSideDirection } from "./components/swirl-popover/swirl-popover";
 import { SwirlPopover } from "./components/swirl-popover/swirl-popover";
+import { SwirlPopoverTriggerMethod } from "./components/swirl-popover-trigger/swirl-popover-trigger";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
@@ -139,6 +140,7 @@ export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./component
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation, SwirlPopoverBorderRadius, SwirlPopoverControlMethod, SwirlPopoverFallbackAxisSideDirection } from "./components/swirl-popover/swirl-popover";
 export { SwirlPopover } from "./components/swirl-popover/swirl-popover";
+export { SwirlPopoverTriggerMethod } from "./components/swirl-popover-trigger/swirl-popover-trigger";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
@@ -4189,11 +4191,14 @@ export namespace Components {
          */
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement | SwirlPopover;
+        "trigger"?: SwirlPopoverTriggerMethod[] | string;
         /**
+          * @deprecated Please use the "trigger" prop instead, e.g. trigger="click".
           * @default true
          */
         "triggerOnClick"?: boolean;
         /**
+          * @deprecated Please use the "trigger" prop instead, e.g. trigger="hover focus".
           * @default false
          */
         "triggerOnHover"?: boolean;
@@ -14579,11 +14584,14 @@ declare namespace LocalJSX {
          */
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement | SwirlPopover;
+        "trigger"?: SwirlPopoverTriggerMethod[] | string;
         /**
+          * @deprecated Please use the "trigger" prop instead, e.g. trigger="click".
           * @default true
          */
         "triggerOnClick"?: boolean;
         /**
+          * @deprecated Please use the "trigger" prop instead, e.g. trigger="hover focus".
           * @default false
          */
         "triggerOnHover"?: boolean;
@@ -18364,6 +18372,7 @@ declare namespace LocalJSX {
         "hidePopoverWhenInvisible": boolean;
         "setAriaAttributes": boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement | SwirlPopover;
+        "trigger": SwirlPopoverTriggerMethod[] | string;
         "triggerOnClick": boolean;
         "triggerOnHover": boolean;
         "hoverLingerDuration": number;

@@ -10,6 +10,22 @@ export default {
         type: "text",
       },
     },
+    trigger: {
+      description:
+        'How the popover is opened. Accepts an array (["hover", "focus"]) or a space/comma-separated string ("hover focus") for plain HTML usage. Takes precedence over "triggerOnClick"/"triggerOnHover".',
+      control: {
+        type: "check",
+      },
+      options: ["click", "hover", "focus"],
+    },
+    triggerOnClick: {
+      description:
+        '**Deprecated! Please use the "trigger" prop instead, e.g. trigger="click".**',
+    },
+    triggerOnHover: {
+      description:
+        '**Deprecated! Please use the "trigger" prop instead, e.g. trigger="hover focus".**',
+    },
   },
   component: "swirl-popover-trigger",
   tags: ["autodocs"],
