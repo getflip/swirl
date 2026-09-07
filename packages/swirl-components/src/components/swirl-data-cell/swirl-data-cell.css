@@ -112,7 +112,7 @@
 .data-cell--size-s {
   gap: var(--s-space-4);
   padding: var(--s-space-8);
-  border-radius: var(--s-border-radius-s);
+  border-radius: var(--swirl-data-cell-border-radius, var(--s-border-radius-s));
 
   & .data-cell__content {
     gap: var(--s-space-8);

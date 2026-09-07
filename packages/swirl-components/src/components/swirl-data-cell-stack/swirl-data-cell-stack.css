@@ -77,6 +77,30 @@
   --swirl-data-cell-border-radius: var(--s-border-radius-l);
 }
 
+.data-cell-stack__cells
+  ::slotted(swirl-data-cell[size="s"]:first-of-type:not(:last-of-type)) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-base)
+    var(--s-border-radius-base) var(--s-border-radius-s) var(--s-border-radius-s);
+}
+
+.data-cell-stack__cells
+  ::slotted(swirl-data-cell[size="s"]:last-of-type:not(:first-of-type)) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-s)
+    var(--s-border-radius-s) var(--s-border-radius-base) var(--s-border-radius-base);
+}
+
+.data-cell-stack__cells
+  ::slotted(
+    swirl-data-cell[size="s"]:not(:first-of-type):not(:last-of-type)
+  ) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-s);
+}
+
+.data-cell-stack__cells
+  ::slotted(swirl-data-cell[size="s"]:first-of-type:last-of-type) {
+  --swirl-data-cell-border-radius: var(--s-border-radius-base);
+}
+
 .data-cell-stack__cta {
   display: flex;
   align-items: center;
