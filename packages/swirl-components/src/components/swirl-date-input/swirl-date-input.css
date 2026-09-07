@@ -24,6 +24,15 @@
       top: 0;
     }
   }
+
+  /*
+   * swirl-form-control's inline mode shows the label in place of a
+   * placeholder, so the input's own default placeholder ("yyyy-mm-dd") must
+   * never render on top of it, including while focused and still empty.
+   */
+  & .date-input__input::placeholder {
+    color: transparent;
+  }
 }
 
 .date-input__input {
