@@ -3818,6 +3818,7 @@ export namespace Components {
          */
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        "disableBackdropClose"?: boolean;
         /**
           * @default "Exit full screen"
          */
@@ -14226,6 +14227,7 @@ declare namespace LocalJSX {
          */
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        "disableBackdropClose"?: boolean;
         /**
           * @default "Exit full screen"
          */
@@ -18235,6 +18237,7 @@ declare namespace LocalJSX {
     interface SwirlModalAttributes {
         "closable": boolean;
         "closeButtonLabel": string;
+        "disableBackdropClose": boolean;
         "fullscreenEnableButtonLabel": string;
         "fullscreenDisableButtonLabel": string;
         "height": string;
