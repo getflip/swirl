@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.525.0
+
+### Minor Changes
+
+- [#1783](https://github.com/getflip/swirl/pull/1783)
+  [`9c09ee48b`](https://github.com/getflip/swirl/commit/9c09ee48bae3dafa52f37f47223e6eff7c491fb1)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! -
+  feat(swirl-tag): add interactive prop
+
 ## 0.524.0
 
 ### Minor Changes
