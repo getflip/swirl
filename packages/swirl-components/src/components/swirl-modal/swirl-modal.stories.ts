@@ -5,8 +5,7 @@ export default {
   argTypes: {
     disableBackdropClose: {
       description:
-        "Prevents the modal from closing when the backdrop is clicked. Use for modals containing unsaved user input. The close button and the Escape key still close the modal.",
-      name: "disable-backdrop-close",
+        "Prevents the modal from closing when the backdrop is clicked.",
     },
     returnFocusTo: {
       control: "text",
