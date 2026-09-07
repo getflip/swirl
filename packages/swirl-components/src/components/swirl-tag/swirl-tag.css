@@ -204,11 +204,8 @@
 
 .tag--interactive {
   position: relative;
-  margin: 0;
   font-family: inherit;
-  text-align: start;
   cursor: pointer;
-  appearance: none;
 
   &::after {
     position: absolute;
