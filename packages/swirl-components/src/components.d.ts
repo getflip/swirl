@@ -25,7 +25,7 @@ import { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } fr
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIconColor, SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
-import { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
+import { SwirlDataCellIntent, SwirlDataCellSize } from "./components/swirl-data-cell/swirl-data-cell";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlButtonGroupOrientation as SwirlButtonGroupOrientation1 } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlDialogIntent, SwirlDialogSize } from "./components/swirl-dialog/swirl-dialog";
@@ -109,7 +109,7 @@ export { SwirlCarouselFadeColor, SwirlCarouselPadding, SwirlCarouselSpacing } fr
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIconColor, SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
-export { SwirlDataCellIntent } from "./components/swirl-data-cell/swirl-data-cell";
+export { SwirlDataCellIntent, SwirlDataCellSize } from "./components/swirl-data-cell/swirl-data-cell";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlButtonGroupOrientation as SwirlButtonGroupOrientation1 } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlDialogIntent, SwirlDialogSize } from "./components/swirl-dialog/swirl-dialog";
@@ -838,11 +838,21 @@ export namespace Components {
         "toggleSidebar": () => Promise<void>;
     }
     interface SwirlDataCell {
+        "href"?: string;
         /**
           * @default "default"
          */
         "intent"?: SwirlDataCellIntent;
+        /**
+          * @default false
+         */
+        "interactive"?: boolean;
         "label"?: string;
+        "linkTarget"?: string;
+        /**
+          * @default "m"
+         */
+        "size"?: SwirlDataCellSize;
         "tooltip"?: string;
         "value"?: string;
         /**
@@ -11333,12 +11343,22 @@ declare namespace LocalJSX {
         "subheading"?: string;
     }
     interface SwirlDataCell {
+        "href"?: string;
         /**
           * @default "default"
          */
         "intent"?: SwirlDataCellIntent;
+        /**
+          * @default false
+         */
+        "interactive"?: boolean;
         "label"?: string;
+        "linkTarget"?: string;
         "onValueChange"?: (event: SwirlDataCellCustomEvent<MouseEvent>) => void;
+        /**
+          * @default "m"
+         */
+        "size"?: SwirlDataCellSize;
         "tooltip"?: string;
         "value"?: string;
         /**
@@ -16577,8 +16597,12 @@ declare namespace LocalJSX {
         "hideContentHeader": boolean;
     }
     interface SwirlDataCellAttributes {
+        "href": string;
         "intent": SwirlDataCellIntent;
+        "interactive": boolean;
         "label": string;
+        "linkTarget": string;
+        "size": SwirlDataCellSize;
         "tooltip": string;
         "value": string;
         "vertical": boolean;

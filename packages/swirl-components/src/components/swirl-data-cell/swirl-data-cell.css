@@ -15,11 +15,65 @@
   gap: var(--s-space-8);
   width: 100%;
   padding: var(--s-space-12) var(--s-space-16);
+  border: 0;
   border-radius: var(--swirl-data-cell-border-radius, var(--s-border-radius-l));
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  appearance: none;
 }
 
 .data-cell--interactive {
+  position: relative;
   cursor: pointer;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    content: "";
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    background-color: var(--s-state-hovered);
+  }
+
+  &:active::after {
+    background-color: var(--s-state-pressed);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+  }
+
+  &:hover .data-cell__media ::slotted(swirl-avatar) {
+    --swirl-avatar-background-color: var(--s-surface-raised-hovered);
+  }
+
+  &:active .data-cell__media ::slotted(swirl-avatar) {
+    --swirl-avatar-background-color: var(--s-surface-raised-pressed);
+  }
+}
+
+.data-cell--interactive.data-cell--intent-default {
+  &:hover {
+    background-color: var(--s-surface-raised-50-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-surface-raised-50-pressed);
+  }
+
+  &:hover::after,
+  &:active::after {
+    background-color: transparent;
+  }
 }
 
 /* Intent backgrounds */
@@ -53,6 +107,20 @@
 
 .data-cell--intent-subdued {
   background-color: var(--s-surface-raised-default);
+}
+
+.data-cell--size-s {
+  gap: var(--s-space-4);
+  padding: var(--s-space-8);
+  border-radius: var(--s-border-radius-s);
+
+  & .data-cell__content {
+    gap: var(--s-space-8);
+  }
+
+  & .data-cell__value {
+    font-weight: var(--s-font-weight-medium);
+  }
 }
 
 .data-cell--vertical {

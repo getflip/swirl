@@ -216,6 +216,30 @@ export const WithCheckbox = () => {
   return stack;
 };
 
+export const InteractiveCompactCells = () => {
+  const stack = generateStoryElement("swirl-data-cell-stack", {});
+
+  stack.innerHTML = `
+    <!-- Compact interactive cell -->
+    <swirl-data-cell interactive size="s" value="Feedback & Ideas">
+      <swirl-avatar slot="media" label="Feedback & Ideas" icon="<swirl-icon-chat-bubble></swirl-icon-chat-bubble>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+
+    <!-- Compact interactive cell with a trailing tag -->
+    <swirl-data-cell interactive size="s" value="Approvals">
+      <swirl-avatar slot="media" label="Approvals" icon="<swirl-icon-chat-bubble></swirl-icon-chat-bubble>" size="s"></swirl-avatar>
+      <swirl-tag slot="suffix" label="Approval" intent="warning"></swirl-tag>
+    </swirl-data-cell>
+
+    <!-- Compact cell rendered as a link -->
+    <swirl-data-cell href="#" size="s" value="Announcements">
+      <swirl-avatar slot="media" label="Announcements" icon="<swirl-icon-chat-bubble></swirl-icon-chat-bubble>" size="s"></swirl-avatar>
+    </swirl-data-cell>
+  `;
+
+  return stack;
+};
+
 export const WithRadioButton = () => {
   const stack = generateStoryElement("swirl-data-cell-stack", {});
 

@@ -30,12 +30,16 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 ## Properties
 
-| Property   | Attribute  | Description                                                 | Type      | Default     |
-| ---------- | ---------- | ----------------------------------------------------------- | --------- | ----------- |
-| `label`    | `label`    | Required label text                                         | `string`  | -           |
-| `tooltip`  | `tooltip`  | Optional tooltip content (displays info icon next to label) | `string`  | `undefined` |
-| `value`    | `value`    | Optional value text (ignored when input slot is used)       | `string`  | `undefined` |
-| `vertical` | `vertical` | Force vertical layout (default: false)                      | `boolean` | `false`     |
+| Property      | Attribute      | Description                                                                 | Type                | Default     |
+| ------------- | -------------- | ---------------------------------------------------------------------------- | ------------------- | ----------- |
+| `href`        | `href`         | Renders the cell as a link to this URL                                     | `string`             | `undefined` |
+| `interactive` | `interactive`  | Renders the cell as a clickable, keyboard-focusable button                 | `boolean`            | `false`     |
+| `label`       | `label`        | Required label text                                                         | `string`             | -           |
+| `linkTarget`  | `link-target`  | Target for the `href` link (adds `rel="noreferrer"` for `_blank`)          | `string`             | `undefined` |
+| `size`        | `size`         | Cell size: `"m"` (default) or `"s"` (compact, e.g. for channel-style rows) | `"m" \| "s"`         | `"m"`       |
+| `tooltip`     | `tooltip`      | Optional tooltip content (displays info icon next to label)                | `string`             | `undefined` |
+| `value`       | `value`        | Optional value text (ignored when input slot is used)                     | `string`             | `undefined` |
+| `vertical`    | `vertical`     | Force vertical layout (default: false)                                    | `boolean`            | `false`     |
 
 ## Slots
 
@@ -44,6 +48,39 @@ the content slot, allowing for editable data cells with inputs and selects.
 | `media`   | Optional media content (e.g., swirl-avatar, icons).                                               |
 | `content` | Optional content element (e.g., swirl-text-input, swirl-select). When provided, value is ignored. |
 | `suffix`  | Optional suffix content (e.g., buttons, badges)                                                   |
+
+## Interactive cells
+
+Use the `interactive` prop to make the whole cell clickable. It renders the
+cell as a native button, so consumers listen for the native `click` event, and
+it overlays the cell with hovered, pressed and focused states that work with
+every intent. Set `href` (and optionally `linkTarget`) instead to render the
+cell as a link.
+
+<Source code={`<swirl-data-cell interactive value="Feedback & Ideas">
+    <swirl-avatar slot="media" label="Feedback & Ideas" size="s"></swirl-avatar>
+</swirl-data-cell>
+
+<swirl-data-cell href="/channels/feedback" value="Feedback & Ideas">
+    <swirl-avatar slot="media" label="Feedback & Ideas" size="s"></swirl-avatar>
+</swirl-data-cell>`}
+/>
+
+Avoid combining `interactive`/`href` with the `content` slot or with
+interactive `suffix` content: the cell becomes a native button or link, so
+nesting another interactive element inside it is invalid HTML.
+
+## Compact cells
+
+Use `size="s"` for a denser row — 8px padding, a 4px radius and a medium-weight
+value — typically paired with a 24px (`size="s"`) avatar in the `media` slot,
+as in the channel-picker style row.
+
+<Source code={`<swirl-data-cell interactive size="s" value="Feedback & Ideas">
+    <swirl-avatar slot="media" label="Feedback & Ideas" size="s"></swirl-avatar>
+    <swirl-tag slot="suffix" label="Approval" intent="warning"></swirl-tag>
+</swirl-data-cell>`}
+/>
 
 ## Related components
 
@@ -55,19 +92,28 @@ the content slot, allowing for editable data cells with inputs and selects.
 
 ### ARIA
 
-The component structures label-value pairs for assistive technologies.
+The component structures label-value pairs for assistive technologies. When
+`interactive` or `href` is set, the cell renders as a native button or link
+instead, so the `term`/`definition` roles are omitted — a button/link already
+computes its accessible name from its contents.
 
-| ARIA                | Usage                                                             |
-| ------------------- | ----------------------------------------------------------------- |
-| `role="group"`      | Set on the host when `swirl-data-cell` is used standalone.        |
-| `role="listitem"`   | Set on the host when `swirl-data-cell` is used in a stack/list.   |
-| `role="term"`       | Set on the label element.                                         |
-| `role="definition"` | Set on the value/definition container.                            |
-| `aria-labelledby`   | Set on the definition, referencing the label ID.                  |
-| `aria-hidden`       | Set on the media container when present.                          |
-| `role="button"`     | Optional; set when the cell contains a checkbox or radio control. |
+| ARIA                | Usage                                                                                    |
+| ------------------- | ----------------------------------------------------------------------------------------- |
+| `role="group"`      | Set on the host when `swirl-data-cell` is used standalone.                               |
+| `role="listitem"`   | Set on the host when `swirl-data-cell` is used in a stack/list.                          |
+| `role="term"`       | Set on the label element (omitted when `interactive`/`href` is set).                      |
+| `role="definition"` | Set on the value/definition container (omitted when `interactive`/`href` is set).         |
+| `aria-labelledby`   | Set on the definition, referencing the label ID (omitted when `interactive`/`href` is set). |
+| `aria-hidden`       | Set on the media container when present.                                                  |
+| `role="button"`     | Optional; set when the cell contains a checkbox or radio control.                        |
 
 ### Keyboard
 
-Keyboard behavior is determined by slotted content (e.g. form controls). No
-component-specific shortcuts.
+Keyboard behavior is determined by slotted content (e.g. form controls), plus
+the following when `interactive` or `href` is set:
+
+| Key             | Action                                    |
+| --------------- | ------------------------------------------ |
+| <kbd>TAB</kbd>  | Moves focus to/from the cell.              |
+| <kbd>ENTER</kbd> | Activates the interactive cell or link.   |
+| <kbd>SPACE</kbd> | Activates the interactive cell (buttons only). |
