@@ -4,7 +4,7 @@ import classnames from "classnames";
 export type SwirlAvatarGroupLayout = "centered" | "diagonal" | "horizontal";
 export type SwirlAvatarGroupSemantics = "list" | "group";
 
-const centeredLayoutArrangements = [1, 2, 3, 5];
+const maxCenteredLayoutAvatars = 5;
 
 /**
  * @slot slot - Your avatar components
@@ -64,13 +64,7 @@ export class SwirlAvatarGroup {
   }
 
   private getCenteredArrangement(): number {
-    const fittingArrangements = centeredLayoutArrangements.filter(
-      (arrangement) => arrangement <= this.avatars.length
-    );
-
-    return fittingArrangements.length > 0
-      ? fittingArrangements[fittingArrangements.length - 1]
-      : centeredLayoutArrangements[0];
+    return Math.min(Math.max(this.avatars.length, 1), maxCenteredLayoutAvatars);
   }
 
   render() {

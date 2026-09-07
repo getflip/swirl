@@ -38,7 +38,7 @@ describe("swirl-avatar-group", () => {
           `<swirl-avatar label="Person ${index}" size="${size}" variant="square"></swirl-avatar>`
       ).join("\n");
 
-    it("caps at the 3-avatar arrangement for 4 avatars", async () => {
+    it("uses its own 4-avatar arrangement for 4 avatars", async () => {
       const page = await newSpecPage({
         components: [SwirlAvatarGroup],
         html: `
@@ -55,7 +55,7 @@ describe("swirl-avatar-group", () => {
       const div = page.root.shadowRoot.querySelector(".avatar-group");
 
       expect(div.className).toContain("avatar-group--centered-stack");
-      expect(div.className).toContain("avatar-group--centered-3");
+      expect(div.className).toContain("avatar-group--centered-4");
     });
 
     it("caps at the 5-avatar arrangement for 6 avatars", async () => {
@@ -81,6 +81,7 @@ describe("swirl-avatar-group", () => {
       [1, "1"],
       [2, "2"],
       [3, "3"],
+      [4, "4"],
       [5, "5"],
     ])(
       "uses the %i-avatar arrangement for %i avatars",
@@ -105,6 +106,21 @@ describe("swirl-avatar-group", () => {
         );
       }
     );
+
+    it("falls back to the 1-avatar arrangement with no avatars", async () => {
+      const page = await newSpecPage({
+        components: [SwirlAvatarGroup],
+        html: `<swirl-avatar-group layout="centered"></swirl-avatar-group>`,
+      });
+      const slot = page.root.shadowRoot.querySelector("slot");
+      slot.dispatchEvent(new Event("slotchange"));
+
+      await page.waitForChanges();
+
+      const div = page.root.shadowRoot.querySelector(".avatar-group");
+
+      expect(div.className).toContain("avatar-group--centered-1");
+    });
 
     it("does not set position/z-index inline styles on its avatars", async () => {
       const page = await newSpecPage({
