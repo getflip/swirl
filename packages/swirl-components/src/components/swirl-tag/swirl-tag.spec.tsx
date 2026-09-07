@@ -85,6 +85,40 @@ describe("swirl-tag", () => {
     `);
   });
 
+  it("renders as button when interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTag],
+      html: `<swirl-tag interactive="true" intent="info" label="Label"></swirl-tag>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-tag interactive="true" intent="info" label="Label">
+        <mock:shadow-root>
+          <button class="tag tag--icon-position-start tag--intent-info tag--interactive tag--size-m tag--variant-default" part="tag" type="button">
+            <span class="tag__label">
+              Label
+            </span>
+          </button>
+        </mock:shadow-root>
+      </swirl-tag>
+    `);
+  });
+
+  it("emits tagClick when interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTag],
+      html: `<swirl-tag interactive="true" label="Label"></swirl-tag>`,
+    });
+
+    const button = page.root.shadowRoot.querySelector("button");
+    const spy = jest.fn();
+
+    page.root.addEventListener("tagClick", spy);
+    button.click();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
   it("can be removed", async () => {
     const page = await newSpecPage({
       components: [SwirlTag],
