@@ -21641,6 +21641,10 @@
           ]
         },
         {
+          "name": "disable-backdrop-close",
+          "description": ""
+        },
+        {
           "name": "fullscreen-disable-button-label",
           "description": ""
         },

@@ -45040,6 +45040,13 @@
               "fieldName": "contentGap"
             },
             {
+              "name": "disable-backdrop-close",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "disableBackdropClose"
+            },
+            {
               "name": "fullscreen-disable-button-label",
               "type": {
                 "text": "string"
@@ -45355,6 +45362,15 @@
               },
               "readonly": true,
               "attribute": "content-gap"
+            },
+            {
+              "kind": "field",
+              "name": "disableBackdropClose",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "disable-backdrop-close"
             },
             {
               "kind": "field",

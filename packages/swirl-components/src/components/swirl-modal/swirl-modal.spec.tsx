@@ -319,4 +319,67 @@ describe("swirl-modal", () => {
 
     expect(spy).toHaveBeenCalled();
   });
+
+  it("closes when the backdrop is clicked by default", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog">Content</swirl-modal>`,
+    });
+
+    const requestModalCloseSpy = jest.fn();
+    page.root.addEventListener("requestModalClose", requestModalCloseSpy);
+
+    const backdrop =
+      page.root.shadowRoot.querySelector<HTMLElement>(".modal__backdrop");
+
+    backdrop.click();
+    await page.waitForChanges();
+
+    expect(requestModalCloseSpy).toHaveBeenCalled();
+    expect(
+      page.root.shadowRoot.querySelector(".modal--closing")
+    ).not.toBeNull();
+  });
+
+  it("does not close when the backdrop is clicked and disableBackdropClose is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog" disable-backdrop-close="true">Content</swirl-modal>`,
+    });
+
+    const requestModalCloseSpy = jest.fn();
+    page.root.addEventListener("requestModalClose", requestModalCloseSpy);
+
+    const backdrop =
+      page.root.shadowRoot.querySelector<HTMLElement>(".modal__backdrop");
+
+    backdrop.click();
+    await page.waitForChanges();
+
+    expect(requestModalCloseSpy).not.toHaveBeenCalled();
+    expect(page.root.shadowRoot.querySelector(".modal--closing")).toBeNull();
+  });
+
+  it("still closes via the close button when disableBackdropClose is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog" disable-backdrop-close="true">Content</swirl-modal>`,
+    });
+
+    const requestModalCloseSpy = jest.fn();
+    page.root.addEventListener("requestModalClose", requestModalCloseSpy);
+
+    const closeButton =
+      page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
+        ".modal__close-button"
+      );
+
+    closeButton.click();
+    await page.waitForChanges();
+
+    expect(requestModalCloseSpy).toHaveBeenCalled();
+    expect(
+      page.root.shadowRoot.querySelector(".modal--closing")
+    ).not.toBeNull();
+  });
 });

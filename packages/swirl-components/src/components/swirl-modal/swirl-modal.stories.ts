@@ -3,6 +3,10 @@ import Docs from "./swirl-modal.mdx";
 
 export default {
   argTypes: {
+    disableBackdropClose: {
+      description:
+        "Prevents the modal from closing when the backdrop is clicked.",
+    },
     returnFocusTo: {
       control: "text",
       description:

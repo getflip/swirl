@@ -50,6 +50,7 @@ export class SwirlModal {
 
   @Prop() closable?: boolean = true;
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() disableBackdropClose?: boolean;
   @Prop() fullscreenEnableButtonLabel?: string = "Full screen";
   @Prop() fullscreenDisableButtonLabel?: string = "Exit full screen";
   @Prop() height?: string;
@@ -252,6 +253,10 @@ export class SwirlModal {
   };
 
   private onBackdropClick = () => {
+    if (this.disableBackdropClose) {
+      return;
+    }
+
     this.close();
   };
 
