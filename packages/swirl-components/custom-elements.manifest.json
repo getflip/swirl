@@ -7037,7 +7037,8 @@
               },
               "default": "\"m\"",
               "readonly": true,
-              "attribute": "size"
+              "attribute": "size",
+              "reflects": true
             },
             {
               "kind": "field",

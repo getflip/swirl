@@ -39,7 +39,7 @@ export class SwirlDataCell {
   @Prop() interactive?: boolean = false;
   @Prop() label?: string;
   @Prop() linkTarget?: string;
-  @Prop() size?: SwirlDataCellSize = "m";
+  @Prop({ reflect: true }) size?: SwirlDataCellSize = "m";
   @Prop() tooltip?: string;
   @Prop() value?: string;
   @Prop() vertical?: boolean = false;
