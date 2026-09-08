@@ -46,20 +46,28 @@ progressively smaller avatars flanking it on each side.
 
 <Canvas of={Stories.WithCenteredLayout}></Canvas>
 
+With 2 or 4 avatars, the leftmost slot (left for 2, outer left for 4) is left
+empty, but its space is still reserved so the main avatar remains centered:
+
+<Canvas of={Stories.WithCenteredLayoutTwoAvatars}></Canvas>
+
 Notes:
 
 - **Avatars are authored in importance order, not left-to-right order.** The
-  first child takes the centre, the second sits to its right, the third to its
-  left, and the fourth and fifth fill the outer right and outer left slots.
-- Every avatar should share the same `size`. Each one is sized and rounded
-  from the `--swirl-avatar-size` and `--swirl-avatar-radius` custom properties
-  its own `size`/`variant` publish, so mixing sizes produces an inconsistent
+  first child takes the centre, the second sits to its inner right, the third to
+  its inner left, the fourth to the outer right, and the fifth to the outer
+  left.
+- Every avatar should share the same `size`. Each one is sized and rounded from
+  the `--swirl-avatar-size` and `--swirl-avatar-radius` custom properties its
+  own `size`/`variant` publish, so mixing sizes produces an inconsistent
   arrangement rather than an error.
-- Only the first 5 avatars are shown. 4 avatars render using the 3-avatar
-  arrangement, with the 4th hidden; 6 or more avatars cap at the 5-avatar
-  arrangement. There's no "+N" indicator for hidden avatars.
-- The `badge` prop has no effect in this layout — the design has no badge
-  for this cluster.
+- Every count from 1 to 5 has its own arrangement, and a 2-avatar group is as
+  wide as a 3-avatar one, just as a 4-avatar group is as wide as a 5-avatar one
+  — only the left / outer-left slot stays empty. 6 or more avatars cap at the
+  5-avatar arrangement, with the extras hidden. There's no "+N" indicator for
+  hidden avatars.
+- The `badge` prop has no effect in this layout — the design has no badge for
+  this cluster.
 
 ## Related components
 

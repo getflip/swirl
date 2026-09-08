@@ -78,22 +78,32 @@ WithSquareAvatars.args = {
   layout: "horizontal",
 };
 
-const TemplateWithCenteredLayout = (args) => {
+const centeredLayoutAvatarMarkup = [
+  `<swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="l" variant="square"></swirl-avatar>`,
+  `<swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="l" variant="square"></swirl-avatar>`,
+  `<swirl-avatar label="Jane Roe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=c" size="l" variant="square"></swirl-avatar>`,
+  `<swirl-avatar label="John Roe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=d" size="l" variant="square"></swirl-avatar>`,
+  `<swirl-avatar label="Jane Smith" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=e" size="l" variant="square"></swirl-avatar>`,
+];
+
+const createCenteredLayoutTemplate = (count: number) => (args) => {
   const element = generateStoryElement("swirl-avatar-group", args);
 
-  element.innerHTML = `
-    <swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="l" variant="square"></swirl-avatar>
-    <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="l" variant="square"></swirl-avatar>
-    <swirl-avatar label="Jane Roe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=c" size="l" variant="square"></swirl-avatar>
-    <swirl-avatar label="John Roe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=d" size="l" variant="square"></swirl-avatar>
-    <swirl-avatar label="Jane Smith" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=e" size="l" variant="square"></swirl-avatar>
-  `;
+  element.innerHTML = centeredLayoutAvatarMarkup.slice(0, count).join("\n");
 
   return element;
 };
 
-export const WithCenteredLayout = TemplateWithCenteredLayout.bind({});
+export const WithCenteredLayout = createCenteredLayoutTemplate(5).bind({});
 
 WithCenteredLayout.args = {
+  layout: "centered",
+};
+
+export const WithCenteredLayoutTwoAvatars = createCenteredLayoutTemplate(
+  2
+).bind({});
+
+WithCenteredLayoutTwoAvatars.args = {
   layout: "centered",
 };
