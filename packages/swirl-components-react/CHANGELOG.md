@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.526.0
+
+### Minor Changes
+
+- [#1793](https://github.com/getflip/swirl/pull/1793)
+  [`26459e5f0`](https://github.com/getflip/swirl/commit/26459e5f0995f3f15616af231bfe19a5fc05add7)
+  Thanks [@danizep](https://github.com/danizep)! - Enhance centered avatar group
+  layout with 4-avatar arrangement and improved symmetry
+
+* [#1795](https://github.com/getflip/swirl/pull/1795)
+  [`91d6e2723`](https://github.com/getflip/swirl/commit/91d6e2723ad75b5176b6c5a97f029d1148936572)
+  Thanks [@danizep](https://github.com/danizep)! - Add `disableBackdropClose`
+  prop to swirl-modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`26459e5f0`](https://github.com/getflip/swirl/commit/26459e5f0995f3f15616af231bfe19a5fc05add7),
+  [`91d6e2723`](https://github.com/getflip/swirl/commit/91d6e2723ad75b5176b6c5a97f029d1148936572)]:
+  - @getflip/swirl-components@0.526.0
+
 ## 0.525.0
 
 ### Patch Changes
