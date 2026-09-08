@@ -86,3 +86,8 @@ The SwirlPopover component is used to display small non-modal dialogs or menus.
 - Focus is moved to the popover content when opened.
 - After closing, the focus is returned to the trigger.
 - Moving focus outside the popover closes it.
+
+⚠️ **Hover/focus-triggered popovers behave differently:** when opened via
+[swirl-popover-trigger](?path=/docs/components-swirlpopovertrigger--docs)'s
+`"hover"` or `"focus"` trigger, focus is never moved into the popover content,
+and focus is never returned to the trigger on close.

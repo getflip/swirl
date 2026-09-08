@@ -22538,6 +22538,10 @@
           "description": ""
         },
         {
+          "name": "trigger",
+          "description": ""
+        },
+        {
           "name": "trigger-on-click",
           "description": ""
         },
