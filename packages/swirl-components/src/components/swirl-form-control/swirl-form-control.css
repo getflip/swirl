@@ -239,11 +239,46 @@
     }
   }
 
-  &:not(.form-control--has-placeholder) .form-control__label-text {
+  /*
+   * The label always substitutes for the placeholder in inline mode, so it
+   * must hide once there's a value, regardless of whether the child input
+   * also defines its own native placeholder (e.g. swirl-time-input's "hh:mm").
+   */
+  & .form-control__label-text {
     right: var(--s-space-12);
     left: var(--s-space-12);
     transition: none;
     opacity: 0;
+  }
+
+  /*
+   * While empty and unfocused, show the label centered in place of the
+   * (hidden) native placeholder, and collapse the input so its own
+   * placeholder never renders underneath it.
+   */
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(
+      .form-control--is-select
+    ) {
+    & .form-control__input {
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    & .form-control__label-text {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      height: auto;
+      font-size: var(--s-font-size-base);
+      opacity: 1;
+
+      @media (--from-desktop-without-touch) {
+        font-size: var(--s-font-size-sm);
+        line-height: var(--s-line-height-sm);
+      }
+    }
   }
 
   &.form-control--has-character-counter .form-control__description {
