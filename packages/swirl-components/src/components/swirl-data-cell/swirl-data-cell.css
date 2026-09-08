@@ -51,14 +51,6 @@
   &:focus-visible {
     outline-color: var(--s-focus-default);
   }
-
-  &:hover .data-cell__media ::slotted(swirl-avatar) {
-    --swirl-avatar-background-color: var(--s-surface-raised-hovered);
-  }
-
-  &:active .data-cell__media ::slotted(swirl-avatar) {
-    --swirl-avatar-background-color: var(--s-surface-raised-pressed);
-  }
 }
 
 .data-cell--interactive.data-cell--intent-default {
