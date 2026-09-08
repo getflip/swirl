@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.527.0
+
+### Minor Changes
+
+- [#1794](https://github.com/getflip/swirl/pull/1794)
+  [`19cc25ba8`](https://github.com/getflip/swirl/commit/19cc25ba8a30bca9167d31675d29f4ee12510d80)
+  Thanks [@danizep](https://github.com/danizep)! - Add `interactive`, `href`,
+  `linkTarget` and `size` props to swirl-data-cell
+
 ## 0.526.0
 
 ### Minor Changes
