@@ -426,4 +426,110 @@ describe("swirl-data-cell", () => {
     expect(radios[0]?.getAttribute("value")).toBe("standard");
     expect(radios[0]?.getAttribute("input-name")).toBe("plan");
   });
+
+  it("renders as a div by default", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.tagName).toBe("DIV");
+    expect(
+      dataCell?.classList.contains("data-cell--interactive")
+    ).toBeFalsy();
+  });
+
+  it("renders as a button when interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell interactive value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.tagName).toBe("BUTTON");
+    expect(dataCell?.getAttribute("type")).toBe("button");
+    expect(
+      dataCell?.classList.contains("data-cell--interactive")
+    ).toBeTruthy();
+    expect(dataCell?.getAttribute("role")).toBeNull();
+    expect(dataCell?.getAttribute("tabindex")).toBeNull();
+  });
+
+  it("renders as a link when href is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell href="/channels/feedback" value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.tagName).toBe("A");
+    expect(dataCell?.getAttribute("href")).toBe("/channels/feedback");
+    expect(
+      dataCell?.classList.contains("data-cell--interactive")
+    ).toBeTruthy();
+    expect(dataCell?.getAttribute("rel")).toBeNull();
+  });
+
+  it("adds rel=noreferrer when href opens in a new tab", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell href="/channels/feedback" link-target="_blank" value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.getAttribute("target")).toBe("_blank");
+    expect(dataCell?.getAttribute("rel")).toBe("noreferrer");
+  });
+
+  it("emits a native click event when interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell interactive value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const button = page.root.shadowRoot.querySelector(".data-cell");
+    const spy = jest.fn();
+
+    page.root.addEventListener("click", spy);
+    (button as HTMLElement).click();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("omits label/value definition-list roles when interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell interactive label="Name" value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const label = page.root.shadowRoot.querySelector(".data-cell__label");
+    expect(label?.getAttribute("role")).toBeNull();
+
+    const valueWrapper = page.root.shadowRoot.querySelector(
+      ".data-cell__value-wrapper"
+    );
+    expect(valueWrapper?.getAttribute("role")).toBeNull();
+    expect(valueWrapper?.getAttribute("aria-labelledby")).toBeNull();
+  });
+
+  it("applies the medium size by default", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--size-m")).toBeTruthy();
+  });
+
+  it("applies the small size", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `<swirl-data-cell size="s" value="Feedback & Ideas"></swirl-data-cell>`,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(dataCell?.classList.contains("data-cell--size-s")).toBeTruthy();
+  });
 });

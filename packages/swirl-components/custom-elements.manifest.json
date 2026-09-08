@@ -6894,6 +6894,13 @@
           "name": "SwirlDataCell",
           "attributes": [
             {
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "href"
+            },
+            {
               "name": "intent",
               "type": {
                 "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"subdued\" | \"success\" | \"translucent\" | \"warning\"",
@@ -6907,11 +6914,39 @@
               "fieldName": "intent"
             },
             {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
               "name": "label",
               "type": {
                 "text": "string"
               },
               "fieldName": "label"
+            },
+            {
+              "name": "link-target",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "linkTarget"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "\"m\" | \"s\"",
+                "references": [
+                  {
+                    "name": "SwirlDataCellSize"
+                  }
+                ]
+              },
+              "default": "\"m\"",
+              "fieldName": "size"
             },
             {
               "name": "tooltip",
@@ -6939,6 +6974,15 @@
           "members": [
             {
               "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "href"
+            },
+            {
+              "kind": "field",
               "name": "intent",
               "type": {
                 "text": "\"critical\" | \"default\" | \"info\" | \"special\" | \"subdued\" | \"success\" | \"translucent\" | \"warning\"",
@@ -6954,12 +6998,47 @@
             },
             {
               "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "interactive"
+            },
+            {
+              "kind": "field",
               "name": "label",
               "type": {
                 "text": "string"
               },
               "readonly": true,
               "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "linkTarget",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "link-target"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "\"m\" | \"s\"",
+                "references": [
+                  {
+                    "name": "SwirlDataCellSize"
+                  }
+                ]
+              },
+              "default": "\"m\"",
+              "readonly": true,
+              "attribute": "size",
+              "reflects": true
             },
             {
               "kind": "field",

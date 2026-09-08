@@ -19,6 +19,8 @@ export type SwirlDataCellIntent =
   | "translucent"
   | "subdued";
 
+export type SwirlDataCellSize = "s" | "m";
+
 /**
  * @slot media - Optional media content (e.g., swirl-avatar, icons). Only swirl-avatar and icon elements are styled.
  * @slot content - Optional content element (e.g., swirl-text-input, swirl-select). When provided, the value prop is ignored. Content automatically takes 100% width when no label is present.
@@ -32,8 +34,12 @@ export type SwirlDataCellIntent =
 export class SwirlDataCell {
   @Element() el: HTMLElement;
 
+  @Prop() href?: string;
   @Prop() intent?: SwirlDataCellIntent = "default";
+  @Prop() interactive?: boolean = false;
   @Prop() label?: string;
+  @Prop() linkTarget?: string;
+  @Prop({ reflect: true }) size?: SwirlDataCellSize = "m";
   @Prop() tooltip?: string;
   @Prop() value?: string;
   @Prop() vertical?: boolean = false;
@@ -80,14 +86,15 @@ export class SwirlDataCell {
     const hasRadio = Boolean(
       this.el.querySelector('swirl-radio[slot="content"]')
     );
+    const isInteractive = this.interactive || Boolean(this.href);
 
-    const className = classnames("data-cell", {
+    const className = classnames("data-cell", `data-cell--size-${this.size}`, {
       "data-cell--vertical": this.vertical,
       "data-cell--has-media": hasMedia,
       "data-cell--has-suffix": hasSuffix,
       "data-cell--has-content": hasContent,
       "data-cell--no-label": !hasLabel,
-      "data-cell--interactive": hasCheckbox || hasRadio,
+      "data-cell--interactive": isInteractive || hasCheckbox || hasRadio,
       [`data-cell--intent-${this.intent}`]: this.intent,
     });
 
@@ -100,9 +107,15 @@ export class SwirlDataCell {
     const wrapperRole =
       isInDataCellStack && !contentRole ? "group" : contentRole;
 
+    const Tag = Boolean(this.href) ? "a" : this.interactive ? "button" : "div";
+
     const labelContent = (
       <swirl-stack orientation="horizontal" align="center" spacing="4">
-        <span class="data-cell__label" id={labelId} role="term">
+        <span
+          class="data-cell__label"
+          id={labelId}
+          role={isInteractive ? undefined : "term"}
+        >
           {this.label}
         </span>
         {this.tooltip && (
@@ -119,12 +132,28 @@ export class SwirlDataCell {
 
     return (
       <Host role={hostRole}>
-        <div
+        <Tag
           class={className}
-          part="data-cell"
+          href={this.href}
           onClick={hasCheckbox || hasRadio ? this.handleClick : undefined}
-          role={wrapperRole}
-          tabIndex={hasCheckbox || hasRadio ? 0 : undefined}
+          part="data-cell"
+          rel={
+            Boolean(this.href) && this.linkTarget === "_blank"
+              ? "noreferrer"
+              : undefined
+          }
+          role={isInteractive ? undefined : wrapperRole}
+          tabIndex={
+            isInteractive ? undefined : hasCheckbox || hasRadio ? 0 : undefined
+          }
+          target={this.linkTarget}
+          type={
+            Boolean(this.href)
+              ? undefined
+              : this.interactive
+              ? "button"
+              : undefined
+          }
         >
           {hasMedia && (
             <div class="data-cell__media" aria-hidden="true">
@@ -138,8 +167,10 @@ export class SwirlDataCell {
             {(hasContent || this.value || hasSuffix) && (
               <div
                 class="data-cell__value-wrapper"
-                role="definition"
-                aria-labelledby={hasLabel ? labelId : undefined}
+                role={isInteractive ? undefined : "definition"}
+                aria-labelledby={
+                  hasLabel && !isInteractive ? labelId : undefined
+                }
                 id={valueId}
               >
                 {hasContent ? (
@@ -157,7 +188,7 @@ export class SwirlDataCell {
               <slot name="suffix"></slot>
             </div>
           )}
-        </div>
+        </Tag>
       </Host>
     );
   }

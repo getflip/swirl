@@ -2719,6 +2719,10 @@
       },
       "attributes": [
         {
+          "name": "href",
+          "description": ""
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [
@@ -2749,8 +2753,28 @@
           ]
         },
         {
+          "name": "interactive",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "link-target",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
         },
         {
           "name": "tooltip",
