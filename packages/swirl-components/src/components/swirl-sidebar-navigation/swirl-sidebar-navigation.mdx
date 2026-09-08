@@ -1,0 +1,53 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as Stories from "./swirl-sidebar-navigation.stories";
+
+<Meta title="Components/SwirlSidebarNavigation" />
+
+# SwirlSidebarNavigation
+
+The SwirlSidebarNavigation component is a reusable sidebar navigation shell
+consisting of a header with a logo and a collapse trigger, a scrollable
+navigation area, and a user footer. It is used by SwirlConsoleLayout and can be
+used standalone in apps.
+
+- **[Figma Design Specs](#)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-sidebar-navigation)**
+
+## Usage
+
+Please use the
+[canvas view](?path=/story/components-swirlsidebarnavigation--swirl-sidebar-navigation)
+to preview this component.
+
+Place a custom logo in the `logo` slot (falls back to a 32×32 rounded tile
+showing the Flip logo mark), navigation content like SwirlTreeNavigation in the
+default slot, and user profile content in the `user` slot. The
+`collapseButtonClick` event is emitted when the collapse button is activated;
+the host app or parent layout decides what to do with it. Set `elevated` to add
+a drop shadow for floating/overlay use.
+
+Use the `focusCollapseButton` method to programmatically move focus to the
+collapse button. Parent layouts like SwirlConsoleLayout use it to keep keyboard
+focus in place after the sidebar is expanded.
+
+<Controls of={Stories.SwirlSidebarNavigation} />
+
+## Related components
+
+[SwirlConsoleLayout](?path=/docs/admin-swirlconsolelayout--docs),
+[SwirlTreeNavigation](?path=/docs/admin-swirltreenavigation--docs)
+
+## Accessibility
+
+The navigation area is rendered as a `<nav>` element labeled via the
+`navigationLabel` prop. The collapse button is a native `<button>` with
+`aria-expanded="true"` and an accessible label provided by the
+`collapseButtonLabel` prop. The fallback logo is decorative and hidden from
+assistive technology via `aria-hidden`.
+
+### Keyboard
+
+| Key              | Action                         |
+| ---------------- | ------------------------------ |
+| <kbd>ENTER</kbd> | Activates the collapse button. |
+| <kbd>SPACE</kbd> | Activates the collapse button. |
