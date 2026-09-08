@@ -2197,7 +2197,7 @@
                   }
                 ]
               },
-              "default": "\"kiwi\"",
+              "default": "\"neutral\"",
               "fieldName": "color"
             },
             {
@@ -2332,7 +2332,7 @@
                   }
                 ]
               },
-              "default": "\"kiwi\"",
+              "default": "\"neutral\"",
               "readonly": true,
               "attribute": "color"
             },

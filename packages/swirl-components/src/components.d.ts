@@ -410,7 +410,7 @@ export namespace Components {
          */
         "badgePosition"?: SwirlAvatarBadgePosition;
         /**
-          * @default "kiwi"
+          * @default "neutral"
          */
         "color"?: SwirlAvatarColor;
         "icon"?: string;
@@ -10911,7 +10911,7 @@ declare namespace LocalJSX {
          */
         "badgePosition"?: SwirlAvatarBadgePosition;
         /**
-          * @default "kiwi"
+          * @default "neutral"
          */
         "color"?: SwirlAvatarColor;
         "icon"?: string;

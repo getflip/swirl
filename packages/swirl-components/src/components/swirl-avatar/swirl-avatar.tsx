@@ -63,7 +63,7 @@ export class SwirlAvatar {
 
   @Prop() badge?: string;
   @Prop() badgePosition?: SwirlAvatarBadgePosition = "bottom";
-  @Prop() color?: SwirlAvatarColor = "kiwi";
+  @Prop() color?: SwirlAvatarColor = "neutral";
   @Prop() icon?: string;
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
