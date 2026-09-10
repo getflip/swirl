@@ -400,40 +400,55 @@ const createTreeTable = (withSelection: boolean) => {
     "components",
   ]);
   const selectedIds = new Set<string>();
+  let applyingSelection = false;
 
-  const render = () => {
+  element.innerHTML = `
+    <div slot="columns">
+      ${
+        withSelection
+          ? `<swirl-table-column sticky width="58px">
+        <swirl-checkbox swirl-aria-label="Select all" input-id="select-all" input-name="select-all">
+        </swirl-checkbox><swirl-visually-hidden>Select</swirl-visually-hidden>
+      </swirl-table-column>`
+          : ""
+      }
+      <swirl-table-column min-width="280px" sticky>Tree</swirl-table-column>
+      <swirl-table-column min-width="100px">Members</swirl-table-column>
+      <swirl-table-column min-width="120px">Status</swirl-table-column>
+    </div>
+    <div slot="rows"></div>
+  `;
+
+  const rowsContainer = element.querySelector('[slot="rows"]') as HTMLElement;
+
+  const applySelection = () => {
+    if (!withSelection) {
+      return;
+    }
+
+    applyingSelection = true;
+
+    element.querySelectorAll("swirl-checkbox").forEach((checkbox) => {
+      const row = checkbox.closest("swirl-table-row");
+
+      if (row) {
+        (checkbox as HTMLSwirlCheckboxElement).checked = selectedIds.has(
+          row.id
+        );
+      }
+    });
+
+    applyingSelection = false;
+  };
+
+  const renderRows = () => {
     const rows = flattenVisibleTree(TREE_NODES, expandedIds);
 
-    element.innerHTML = `
-      <div slot="columns">
-        ${
-          withSelection
-            ? `<swirl-table-column sticky width="58px">
-          <swirl-checkbox swirl-aria-label="Select all" input-id="select-all" input-name="select-all">
-          </swirl-checkbox><swirl-visually-hidden>Select</swirl-visually-hidden>
-        </swirl-table-column>`
-            : ""
-        }
-        <swirl-table-column min-width="280px" sticky>Tree</swirl-table-column>
-        <swirl-table-column min-width="100px">Members</swirl-table-column>
-        <swirl-table-column min-width="120px">Status</swirl-table-column>
-      </div>
-      <div slot="rows">
-        ${rows.map((row) => renderTreeRow(row, withSelection)).join("")}
-      </div>
-    `;
+    rowsContainer.innerHTML = rows
+      .map((row) => renderTreeRow(row, withSelection))
+      .join("");
 
-    if (withSelection) {
-      rows.forEach((row) => {
-        const checkbox = element.querySelector(
-          `swirl-checkbox[input-id="select-${row.id}"]`
-        ) as HTMLSwirlCheckboxElement | null;
-
-        if (checkbox) {
-          checkbox.checked = selectedIds.has(row.id);
-        }
-      });
-    }
+    applySelection();
   };
 
   element.addEventListener(
@@ -451,12 +466,16 @@ const createTreeTable = (withSelection: boolean) => {
         expandedIds.delete(row.id);
       }
 
-      render();
+      renderRows();
     }
   );
 
   if (withSelection) {
     element.addEventListener("valueChange", (event: CustomEvent<boolean>) => {
+      if (applyingSelection) {
+        return;
+      }
+
       const checkbox = event.target as HTMLSwirlCheckboxElement;
       const row = checkbox.closest("swirl-table-row");
       const node = row ? findNode(TREE_NODES, row.id) : undefined;
@@ -475,11 +494,11 @@ const createTreeTable = (withSelection: boolean) => {
         }
       });
 
-      render();
+      applySelection();
     });
   }
 
-  render();
+  renderRows();
 
   return element;
 };
