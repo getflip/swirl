@@ -20,6 +20,8 @@
   transition: box-shadow 0.15s;
 
   &(.table-cell--tree) {
+    /* Slotted swirl-link titles underline only on hover. */
+    --swirl-link-text-decoration: none;
     padding-left: calc(
       var(--s-space-16) + var(--swirl-table-cell-tree-level) *
         var(--swirl-table-cell-tree-indent-step)

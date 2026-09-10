@@ -24,9 +24,12 @@ The SwirlTableColumn component is used to display a cell inside a
 ## Tree cell
 
 Set `tree` on the first data column to add computed indent and, when
-`expandable`, a focusable expand/collapse toggle. Slot the cell content (for
-example a link plus a subdued description). The consumer owns expand state and
-reacts to `toggle`.
+`expandable`, a focusable expand/collapse toggle. Slot the cell content. The
+consumer owns expand state and reacts to `toggle`.
+
+Use a **link** when the title opens details (`swirl-link`, highlight color,
+underline on hover only) or **plain text** when it does not (`swirl-text`,
+default color, no underline).
 
 <Source
   code={`<swirl-table-cell tree level="1" expandable expanded label="Platform">
@@ -34,8 +37,17 @@ reacts to `toggle`.
     <swirl-link href="#" label="Platform"></swirl-link>
     <swirl-text color="subdued" size="sm">Shared infrastructure</swirl-text>
   </swirl-stack>
-</swirl-table-cell>`}
-/>
+</swirl-table-cell>
+
+<swirl-table-cell tree level="1" label="Legal">
+  <swirl-stack spacing="0">
+    <swirl-text size="sm">Legal</swirl-text>
+    <swirl-text color="subdued" size="sm">
+      Leaf at the root
+    </swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+`} />
 
 ## Related components
 

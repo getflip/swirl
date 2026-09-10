@@ -84,8 +84,10 @@ export class SwirlTableCell {
         "--swirl-table-cell-tree-level",
         String(this.level ?? 0)
       );
+      this.el.style.setProperty("--swirl-link-text-decoration", "none");
     } else {
       this.el.style.removeProperty("--swirl-table-cell-tree-level");
+      this.el.style.removeProperty("--swirl-link-text-decoration");
     }
   }
 

@@ -154,6 +154,37 @@ not nest rows (that would break column alignment) and does **not** reuse
 
 <Canvas of={Stories.TreeViewWithSelection}></Canvas>
 
+<Canvas of={Stories.TreeViewLabelVariants}></Canvas>
+
+### Clickable vs plain titles
+
+Slot the title yourself. The cell only provides indent and the toggle.
+
+- **Clickable:** slot a `swirl-link`. Color is `interactive-primary` /
+  highlight. Links inside a tree cell have **no underline until hover**.
+- **Plain text:** slot `swirl-text` (default color). No underline on hover.
+
+<Source
+  code={`<!-- Clickable title -->
+<swirl-table-cell tree level="0" expandable label="Engineering">
+  <swirl-stack spacing="0">
+    <swirl-link href="/groups/engineering" label="Engineering"></swirl-link>
+    <swirl-text color="subdued" size="sm">Platform and product delivery</swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+
+<!-- Plain title -->
+
+<swirl-table-cell tree level="0" expandable label="Legal">
+  <swirl-stack spacing="0">
+    <swirl-text size="sm">Legal</swirl-text>
+    <swirl-text color="subdued" size="sm">
+      Leaf at the root
+    </swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+`} />
+
 ### Flat rows + computed indent
 
 - Each `swirl-table-row` is a sibling of the others. The consumer decides which

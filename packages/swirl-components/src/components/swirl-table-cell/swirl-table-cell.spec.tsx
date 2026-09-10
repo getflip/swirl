@@ -78,6 +78,17 @@ describe("swirl-table-cell", () => {
     expect(spy.mock.calls[1][0].detail).toEqual({ expanded: false });
   });
 
+  it("hides link underlines until hover in tree cells", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTableCell],
+      html: `<swirl-table-cell tree expandable label="Group">Cell</swirl-table-cell>`,
+    });
+
+    expect(
+      page.root.style.getPropertyValue("--swirl-link-text-decoration")
+    ).toBe("none");
+  });
+
   it("renders no toggle for leaf cells", async () => {
     const page = await newSpecPage({
       components: [SwirlTableCell],

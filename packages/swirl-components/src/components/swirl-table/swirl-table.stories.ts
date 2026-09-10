@@ -160,6 +160,8 @@ type TreeNode = {
   description: string;
   members: string;
   status: "Active" | "Pending";
+  /** When set, the title is a link (highlight color, underline on hover). */
+  href?: string;
   children?: TreeNode[];
 };
 
@@ -170,6 +172,7 @@ const TREE_NODES: TreeNode[] = [
     description: "Platform and product delivery",
     members: "128",
     status: "Active",
+    href: "#",
     children: [
       {
         id: "platform",
@@ -177,6 +180,7 @@ const TREE_NODES: TreeNode[] = [
         description: "Shared infrastructure",
         members: "42",
         status: "Active",
+        href: "#",
         children: [
           {
             id: "frontend",
@@ -184,6 +188,7 @@ const TREE_NODES: TreeNode[] = [
             description: "Web applications",
             members: "18",
             status: "Active",
+            href: "#",
             children: [
               {
                 id: "design-system",
@@ -191,6 +196,7 @@ const TREE_NODES: TreeNode[] = [
                 description: "Swirl components",
                 members: "7",
                 status: "Active",
+                href: "#",
                 children: [
                   {
                     id: "tokens",
@@ -205,6 +211,7 @@ const TREE_NODES: TreeNode[] = [
                     description: "Web component library",
                     members: "4",
                     status: "Active",
+                    href: "#",
                     children: [
                       {
                         id: "buttons",
@@ -230,6 +237,7 @@ const TREE_NODES: TreeNode[] = [
                 description: "Closed parent",
                 members: "11",
                 status: "Pending",
+                href: "#",
                 children: [
                   {
                     id: "web-app-core",
@@ -248,6 +256,7 @@ const TREE_NODES: TreeNode[] = [
             description: "Closed parent",
             members: "16",
             status: "Active",
+            href: "#",
             children: [
               {
                 id: "api",
@@ -275,6 +284,7 @@ const TREE_NODES: TreeNode[] = [
     description: "Closed root",
     members: "24",
     status: "Pending",
+    href: "#",
     children: [
       {
         id: "brand",
@@ -370,7 +380,11 @@ const renderTreeRow = (row: FlatTreeRow, withSelection: boolean) => `
       label="${row.label}"
     >
       <swirl-stack spacing="0">
-        <swirl-link href="#" label="${row.label}"></swirl-link>
+        ${
+          row.href
+            ? `<swirl-link href="${row.href}" label="${row.label}"></swirl-link>`
+            : `<swirl-text size="sm">${row.label}</swirl-text>`
+        }
         <swirl-text color="subdued" size="sm">${row.description}</swirl-text>
       </swirl-stack>
     </swirl-table-cell>
@@ -521,6 +535,49 @@ TreeViewWithSelection.parameters = {
     description: {
       story:
         "Tree cells coexist with row-selection checkboxes. Descendant selection is owned by the consumer, not the table primitive.",
+    },
+  },
+};
+
+export const TreeViewLabelVariants = () => {
+  const element = generateStoryElement("swirl-table", {
+    caption: "Clickable and plain tree titles.",
+    label: "Tree label variants",
+    tree: true,
+  }) as HTMLSwirlTableElement;
+
+  element.innerHTML = `
+    <div slot="columns">
+      <swirl-table-column min-width="360px">Tree</swirl-table-column>
+    </div>
+    <div slot="rows">
+      <swirl-table-row id="clickable" tree-level="0" tree-expandable tree-set-size="2" tree-pos-inset="1">
+        <swirl-table-cell tree level="0" expandable label="Clickable element">
+          <swirl-stack spacing="0">
+            <swirl-link href="#" label="Clickable element"></swirl-link>
+            <swirl-text color="subdued" size="sm">Description of the link</swirl-text>
+          </swirl-stack>
+        </swirl-table-cell>
+      </swirl-table-row>
+      <swirl-table-row id="plain" tree-level="0" tree-expandable tree-set-size="2" tree-pos-inset="2">
+        <swirl-table-cell tree level="0" expandable label="Plain text element">
+          <swirl-stack spacing="0">
+            <swirl-text size="sm">Plain text element</swirl-text>
+            <swirl-text color="subdued" size="sm">Description of the item</swirl-text>
+          </swirl-stack>
+        </swirl-table-cell>
+      </swirl-table-row>
+    </div>
+  `;
+
+  return element;
+};
+
+TreeViewLabelVariants.parameters = {
+  docs: {
+    description: {
+      story:
+        "Slot a swirl-link for a clickable title (highlight color, underline on hover only) or swirl-text for a plain title (default color, no underline).",
     },
   },
 };
