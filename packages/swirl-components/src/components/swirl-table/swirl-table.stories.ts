@@ -7,6 +7,9 @@ export default {
       description:
         'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true. The handle should be a button.',
     },
+    tree: {
+      control: "boolean",
+    },
   },
   component: "swirl-table",
   tags: ["autodocs"],
@@ -399,11 +402,15 @@ const renderTreeRow = (row: FlatTreeRow, withSelection: boolean) => `
   </swirl-table-row>
 `;
 
-const createTreeTable = (withSelection: boolean) => {
+const createTreeTable = (
+  withSelection: boolean,
+  args: Record<string, unknown> = {}
+) => {
   const element = generateStoryElement("swirl-table", {
     caption: "A hierarchical table rendered as a treegrid.",
     label: "Groups",
     tree: true,
+    ...args,
   }) as HTMLSwirlTableElement;
 
   const expandedIds = new Set([
@@ -517,7 +524,17 @@ const createTreeTable = (withSelection: boolean) => {
   return element;
 };
 
-export const TreeView = () => createTreeTable(false);
+const treeViewArgs = {
+  caption: "A hierarchical table rendered as a treegrid.",
+  dragDropHandle: ".drag-handle",
+  enableDragDrop: false,
+  label: "Groups",
+  tree: true,
+};
+
+export const TreeView = (args) => createTreeTable(false, args);
+
+TreeView.args = { ...treeViewArgs };
 
 TreeView.parameters = {
   docs: {
@@ -528,7 +545,9 @@ TreeView.parameters = {
   },
 };
 
-export const TreeViewWithSelection = () => createTreeTable(true);
+export const TreeViewWithSelection = (args) => createTreeTable(true, args);
+
+TreeViewWithSelection.args = { ...treeViewArgs };
 
 TreeViewWithSelection.parameters = {
   docs: {
