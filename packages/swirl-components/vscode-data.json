@@ -25869,6 +25869,10 @@
         {
           "name": "loading",
           "description": ""
+        },
+        {
+          "name": "tree",
+          "description": "Enables treegrid semantics (`role=\"treegrid\"`). Use with tree props on\n`swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell\nhas the `tree` attribute."
         }
       ]
     },
@@ -25878,7 +25882,36 @@
         "kind": "markdown",
         "value": ""
       },
-      "attributes": []
+      "attributes": [
+        {
+          "name": "collapsed-icon",
+          "description": "Glyph override for the collapsed toggle. Defaults to `chevron-right`."
+        },
+        {
+          "name": "expandable",
+          "description": "When true, the cell has children and renders a toggle. When false, it is a\nleaf and content sits flush after the level indent (no toggle zone)."
+        },
+        {
+          "name": "expanded",
+          "description": "Open/closed state. Controlled by the consumer; ignored when not expandable."
+        },
+        {
+          "name": "expanded-icon",
+          "description": "Glyph override for the expanded toggle. Defaults to `expand-more`."
+        },
+        {
+          "name": "label",
+          "description": "Accessible name of the tree node, used to build the toggle label\n(`Expand {label}` / `Collapse {label}`)."
+        },
+        {
+          "name": "level",
+          "description": "0-indexed depth. Drives computed inline-start indent when `tree` is true."
+        },
+        {
+          "name": "tree",
+          "description": "Enable the tree affordance (indent + optional expand/collapse toggle)."
+        }
+      ]
     },
     {
       "name": "swirl-table-column",
@@ -25950,6 +25983,26 @@
         {
           "name": "index",
           "description": ""
+        },
+        {
+          "name": "tree-expandable",
+          "description": "Whether this row has children. When true, `aria-expanded` is set from\n`treeExpanded`."
+        },
+        {
+          "name": "tree-expanded",
+          "description": "Whether this expandable row is currently expanded. Ignored when not\nexpandable."
+        },
+        {
+          "name": "tree-level",
+          "description": "0-indexed tree depth. Mapped to 1-based `aria-level` for treegrid."
+        },
+        {
+          "name": "tree-pos-inset",
+          "description": "1-based position among siblings. Mapped to `aria-posinset`."
+        },
+        {
+          "name": "tree-set-size",
+          "description": "Number of siblings at this level. Mapped to `aria-setsize`."
         }
       ]
     },

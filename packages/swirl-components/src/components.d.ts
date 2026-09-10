@@ -75,6 +75,7 @@ import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlT
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
+import { SwirlTableCellToggleEventDetail } from "./components/swirl-table-cell/swirl-table-cell";
 import { SwirlTableColumnSort, SwirlTableColumnVariant } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
@@ -159,6 +160,7 @@ export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlT
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
+export { SwirlTableCellToggleEventDetail } from "./components/swirl-table-cell/swirl-table-cell";
 export { SwirlTableColumnSort, SwirlTableColumnVariant } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
@@ -5420,8 +5422,47 @@ export namespace Components {
           * Force a re-render of the table
          */
         "rerender": () => Promise<void>;
+        /**
+          * Enables treegrid semantics (`role="treegrid"`). Use with tree props on `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell has the `tree` attribute.
+          * @default false
+         */
+        "tree"?: boolean;
     }
     interface SwirlTableCell {
+        /**
+          * Glyph override for the collapsed toggle. Defaults to `chevron-right`.
+          * @default "chevron-right"
+         */
+        "collapsedIcon"?: string;
+        /**
+          * When true, the cell has children and renders a toggle. When false, it is a leaf and content sits flush after the level indent (no toggle zone).
+          * @default false
+         */
+        "expandable"?: boolean;
+        /**
+          * Open/closed state. Controlled by the consumer; ignored when not expandable.
+          * @default false
+         */
+        "expanded"?: boolean;
+        /**
+          * Glyph override for the expanded toggle. Defaults to `expand-more`.
+          * @default "expand-more"
+         */
+        "expandedIcon"?: string;
+        /**
+          * Accessible name of the tree node, used to build the toggle label (`Expand {label}` / `Collapse {label}`).
+         */
+        "label"?: string;
+        /**
+          * 0-indexed depth. Drives computed inline-start indent when `tree` is true.
+          * @default 0
+         */
+        "level"?: number;
+        /**
+          * Enable the tree affordance (indent + optional expand/collapse toggle).
+          * @default false
+         */
+        "tree"?: boolean;
     }
     interface SwirlTableColumn {
         "maxWidth"?: string;
@@ -5441,6 +5482,28 @@ export namespace Components {
     interface SwirlTableRow {
         "highlighted"?: boolean;
         "index"?: number;
+        /**
+          * Whether this row has children. When true, `aria-expanded` is set from `treeExpanded`.
+          * @default false
+         */
+        "treeExpandable"?: boolean;
+        /**
+          * Whether this expandable row is currently expanded. Ignored when not expandable.
+          * @default false
+         */
+        "treeExpanded"?: boolean;
+        /**
+          * 0-indexed tree depth. Mapped to 1-based `aria-level` for treegrid.
+         */
+        "treeLevel"?: number;
+        /**
+          * 1-based position among siblings. Mapped to `aria-posinset`.
+         */
+        "treePosInset"?: number;
+        /**
+          * Number of siblings at this level. Mapped to `aria-setsize`.
+         */
+        "treeSetSize"?: number;
     }
     interface SwirlTableRowGroup {
         /**
@@ -6090,6 +6153,10 @@ export interface SwirlTabBarCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlTableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlTableElement;
+}
+export interface SwirlTableCellCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTableCellElement;
 }
 export interface SwirlTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -9892,7 +9959,18 @@ declare global {
         prototype: HTMLSwirlTableElement;
         new (): HTMLSwirlTableElement;
     };
+    interface HTMLSwirlTableCellElementEventMap {
+        "toggle": SwirlTableCellToggleEventDetail;
+    }
     interface HTMLSwirlTableCellElement extends Components.SwirlTableCell, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTableCellElementEventMap>(type: K, listener: (this: HTMLSwirlTableCellElement, ev: SwirlTableCellCustomEvent<HTMLSwirlTableCellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTableCellElementEventMap>(type: K, listener: (this: HTMLSwirlTableCellElement, ev: SwirlTableCellCustomEvent<HTMLSwirlTableCellElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTableCellElement: {
         prototype: HTMLSwirlTableCellElement;
@@ -15833,8 +15911,51 @@ declare namespace LocalJSX {
         "label": string;
         "loading"?: boolean;
         "onDropRow"?: (event: SwirlTableCustomEvent<SwirlTableDropRowEvent>) => void;
+        /**
+          * Enables treegrid semantics (`role="treegrid"`). Use with tree props on `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell has the `tree` attribute.
+          * @default false
+         */
+        "tree"?: boolean;
     }
     interface SwirlTableCell {
+        /**
+          * Glyph override for the collapsed toggle. Defaults to `chevron-right`.
+          * @default "chevron-right"
+         */
+        "collapsedIcon"?: string;
+        /**
+          * When true, the cell has children and renders a toggle. When false, it is a leaf and content sits flush after the level indent (no toggle zone).
+          * @default false
+         */
+        "expandable"?: boolean;
+        /**
+          * Open/closed state. Controlled by the consumer; ignored when not expandable.
+          * @default false
+         */
+        "expanded"?: boolean;
+        /**
+          * Glyph override for the expanded toggle. Defaults to `expand-more`.
+          * @default "expand-more"
+         */
+        "expandedIcon"?: string;
+        /**
+          * Accessible name of the tree node, used to build the toggle label (`Expand {label}` / `Collapse {label}`).
+         */
+        "label"?: string;
+        /**
+          * 0-indexed depth. Drives computed inline-start indent when `tree` is true.
+          * @default 0
+         */
+        "level"?: number;
+        /**
+          * Emitted when the toggle is activated. The payload is the requested next state. The component does not own expand state.
+         */
+        "onToggle"?: (event: SwirlTableCellCustomEvent<SwirlTableCellToggleEventDetail>) => void;
+        /**
+          * Enable the tree affordance (indent + optional expand/collapse toggle).
+          * @default false
+         */
+        "tree"?: boolean;
     }
     interface SwirlTableColumn {
         "maxWidth"?: string;
@@ -15854,6 +15975,28 @@ declare namespace LocalJSX {
     interface SwirlTableRow {
         "highlighted"?: boolean;
         "index"?: number;
+        /**
+          * Whether this row has children. When true, `aria-expanded` is set from `treeExpanded`.
+          * @default false
+         */
+        "treeExpandable"?: boolean;
+        /**
+          * Whether this expandable row is currently expanded. Ignored when not expandable.
+          * @default false
+         */
+        "treeExpanded"?: boolean;
+        /**
+          * 0-indexed tree depth. Mapped to 1-based `aria-level` for treegrid.
+         */
+        "treeLevel"?: number;
+        /**
+          * 1-based position among siblings. Mapped to `aria-posinset`.
+         */
+        "treePosInset"?: number;
+        /**
+          * Number of siblings at this level. Mapped to `aria-setsize`.
+         */
+        "treeSetSize"?: number;
     }
     interface SwirlTableRowGroup {
         /**
@@ -18996,6 +19139,16 @@ declare namespace LocalJSX {
         "enableDragDrop": boolean;
         "label": string;
         "loading": boolean;
+        "tree": boolean;
+    }
+    interface SwirlTableCellAttributes {
+        "tree": boolean;
+        "level": number;
+        "expandable": boolean;
+        "expanded": boolean;
+        "label": string;
+        "collapsedIcon": string;
+        "expandedIcon": string;
     }
     interface SwirlTableColumnAttributes {
         "variant": SwirlTableColumnVariant;
@@ -19009,6 +19162,11 @@ declare namespace LocalJSX {
     interface SwirlTableRowAttributes {
         "highlighted": boolean;
         "index": number;
+        "treeLevel": number;
+        "treeExpandable": boolean;
+        "treeExpanded": boolean;
+        "treeSetSize": number;
+        "treePosInset": number;
     }
     interface SwirlTableRowGroupAttributes {
         "label": string;
@@ -19734,7 +19892,7 @@ declare namespace LocalJSX {
         "swirl-tab": Omit<SwirlTab, keyof SwirlTabAttributes> & { [K in keyof SwirlTab & keyof SwirlTabAttributes]?: SwirlTab[K] } & { [K in keyof SwirlTab & keyof SwirlTabAttributes as `attr:${K}`]?: SwirlTabAttributes[K] } & { [K in keyof SwirlTab & keyof SwirlTabAttributes as `prop:${K}`]?: SwirlTab[K] } & OneOf<"label", SwirlTab["label"], SwirlTabAttributes["label"]> & OneOf<"tabId", SwirlTab["tabId"], SwirlTabAttributes["tabId"]>;
         "swirl-tab-bar": Omit<SwirlTabBar, keyof SwirlTabBarAttributes> & { [K in keyof SwirlTabBar & keyof SwirlTabBarAttributes]?: SwirlTabBar[K] } & { [K in keyof SwirlTabBar & keyof SwirlTabBarAttributes as `attr:${K}`]?: SwirlTabBarAttributes[K] } & { [K in keyof SwirlTabBar & keyof SwirlTabBarAttributes as `prop:${K}`]?: SwirlTabBar[K] } & OneOf<"label", SwirlTabBar["label"], SwirlTabBarAttributes["label"]>;
         "swirl-table": Omit<SwirlTable, keyof SwirlTableAttributes> & { [K in keyof SwirlTable & keyof SwirlTableAttributes]?: SwirlTable[K] } & { [K in keyof SwirlTable & keyof SwirlTableAttributes as `attr:${K}`]?: SwirlTableAttributes[K] } & { [K in keyof SwirlTable & keyof SwirlTableAttributes as `prop:${K}`]?: SwirlTable[K] } & OneOf<"label", SwirlTable["label"], SwirlTableAttributes["label"]>;
-        "swirl-table-cell": SwirlTableCell;
+        "swirl-table-cell": Omit<SwirlTableCell, keyof SwirlTableCellAttributes> & { [K in keyof SwirlTableCell & keyof SwirlTableCellAttributes]?: SwirlTableCell[K] } & { [K in keyof SwirlTableCell & keyof SwirlTableCellAttributes as `attr:${K}`]?: SwirlTableCellAttributes[K] } & { [K in keyof SwirlTableCell & keyof SwirlTableCellAttributes as `prop:${K}`]?: SwirlTableCell[K] };
         "swirl-table-column": Omit<SwirlTableColumn, keyof SwirlTableColumnAttributes> & { [K in keyof SwirlTableColumn & keyof SwirlTableColumnAttributes]?: SwirlTableColumn[K] } & { [K in keyof SwirlTableColumn & keyof SwirlTableColumnAttributes as `attr:${K}`]?: SwirlTableColumnAttributes[K] } & { [K in keyof SwirlTableColumn & keyof SwirlTableColumnAttributes as `prop:${K}`]?: SwirlTableColumn[K] };
         "swirl-table-row": Omit<SwirlTableRow, keyof SwirlTableRowAttributes> & { [K in keyof SwirlTableRow & keyof SwirlTableRowAttributes]?: SwirlTableRow[K] } & { [K in keyof SwirlTableRow & keyof SwirlTableRowAttributes as `attr:${K}`]?: SwirlTableRowAttributes[K] } & { [K in keyof SwirlTableRow & keyof SwirlTableRowAttributes as `prop:${K}`]?: SwirlTableRow[K] };
         "swirl-table-row-group": Omit<SwirlTableRowGroup, keyof SwirlTableRowGroupAttributes> & { [K in keyof SwirlTableRowGroup & keyof SwirlTableRowGroupAttributes]?: SwirlTableRowGroup[K] } & { [K in keyof SwirlTableRowGroup & keyof SwirlTableRowGroupAttributes as `attr:${K}`]?: SwirlTableRowGroupAttributes[K] } & { [K in keyof SwirlTableRowGroup & keyof SwirlTableRowGroupAttributes as `prop:${K}`]?: SwirlTableRowGroup[K] } & OneOf<"label", SwirlTableRowGroup["label"], SwirlTableRowGroupAttributes["label"]>;
