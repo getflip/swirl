@@ -56,6 +56,12 @@ export class SwirlTable {
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
   @Prop() loading?: boolean;
+  /**
+   * Enables treegrid semantics (`role="treegrid"`). Use with tree props on
+   * `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell
+   * has the `tree` attribute.
+   */
+  @Prop() tree?: boolean = false;
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
 
@@ -551,6 +557,12 @@ export class SwirlTable {
     this.empty = !Boolean(rowsContainer) || rowsContainer.children.length === 0;
   }
 
+  private isTreeGrid() {
+    return (
+      this.tree || Boolean(this.el.querySelector("swirl-table-cell[tree]"))
+    );
+  }
+
   private updateLiveRegionText(
     key?: keyof typeof this.dragDropInstructions,
     data: { position?: number; rowCount?: number } = {}
@@ -799,7 +811,7 @@ export class SwirlTable {
             <div
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}
               aria-label={this.label}
-              role="table"
+              role={this.isTreeGrid() ? "treegrid" : "table"}
               class="table__table"
             >
               {this.caption && (
