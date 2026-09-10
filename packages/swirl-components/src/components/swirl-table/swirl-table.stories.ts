@@ -412,7 +412,7 @@ const createTreeTable = (withSelection: boolean) => {
       </swirl-table-column>`
           : ""
       }
-      <swirl-table-column min-width="280px" sticky>Tree</swirl-table-column>
+      <swirl-table-column min-width="360px" sticky>Tree</swirl-table-column>
       <swirl-table-column min-width="100px">Members</swirl-table-column>
       <swirl-table-column min-width="120px">Status</swirl-table-column>
     </div>

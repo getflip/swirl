@@ -54,6 +54,7 @@
 .table-cell__tree {
   display: flex;
   min-width: 0;
+  flex: 1 1 auto;
   align-items: center;
   width: 100%;
 }
