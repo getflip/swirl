@@ -61198,6 +61198,7 @@
             },
             {
               "name": "enable-drag-drop",
+              "description": "Enables row drag and drop. Ignored when the table is in tree mode —\ncombining hierarchy with reorder is not supported.",
               "type": {
                 "text": "boolean"
               },
@@ -61216,6 +61217,15 @@
                 "text": "boolean"
               },
               "fieldName": "loading"
+            },
+            {
+              "name": "tree",
+              "description": "Enables treegrid semantics (`role=\"treegrid\"`). Use with tree props on\n`swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell\nhas the `tree` attribute. Incompatible with `enableDragDrop`.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "tree"
             }
           ],
           "members": [
@@ -61259,6 +61269,7 @@
             {
               "kind": "field",
               "name": "enableDragDrop",
+              "description": "Enables row drag and drop. Ignored when the table is in tree mode —\ncombining hierarchy with reorder is not supported.",
               "type": {
                 "text": "boolean"
               },
@@ -61282,6 +61293,17 @@
               },
               "readonly": true,
               "attribute": "loading"
+            },
+            {
+              "kind": "field",
+              "name": "tree",
+              "description": "Enables treegrid semantics (`role=\"treegrid\"`). Use with tree props on\n`swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell\nhas the `tree` attribute. Incompatible with `enableDragDrop`.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "tree"
             },
             {
               "kind": "method",
@@ -61355,6 +61377,163 @@
           "customElement": true,
           "tagName": "swirl-table-cell",
           "name": "SwirlTableCell",
+          "attributes": [
+            {
+              "name": "collapsed-icon",
+              "description": "Glyph override for the collapsed toggle. Defaults to `chevron-right`.",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"chevron-right\"",
+              "fieldName": "collapsedIcon"
+            },
+            {
+              "name": "expandable",
+              "description": "When true, the cell has children and renders a toggle. When false, it is a\nleaf and content sits flush after the level indent (no toggle zone).",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "expandable"
+            },
+            {
+              "name": "expanded",
+              "description": "Open/closed state. Controlled by the consumer; ignored when not expandable.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "expanded"
+            },
+            {
+              "name": "expanded-icon",
+              "description": "Glyph override for the expanded toggle. Defaults to `expand-more`.",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"expand-more\"",
+              "fieldName": "expandedIcon"
+            },
+            {
+              "name": "label",
+              "description": "Accessible name of the tree node, used to build the toggle label\n(`Expand {label}` / `Collapse {label}`).",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "level",
+              "description": "0-indexed depth. Drives computed inline-start indent when `tree` is true.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "level"
+            },
+            {
+              "name": "tree",
+              "description": "Enable the tree affordance (indent + optional expand/collapse toggle).",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "tree"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "collapsedIcon",
+              "description": "Glyph override for the collapsed toggle. Defaults to `chevron-right`.",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"chevron-right\"",
+              "readonly": true,
+              "attribute": "collapsed-icon"
+            },
+            {
+              "kind": "field",
+              "name": "expandable",
+              "description": "When true, the cell has children and renders a toggle. When false, it is a\nleaf and content sits flush after the level indent (no toggle zone).",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "expandable"
+            },
+            {
+              "kind": "field",
+              "name": "expanded",
+              "description": "Open/closed state. Controlled by the consumer; ignored when not expandable.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "expanded"
+            },
+            {
+              "kind": "field",
+              "name": "expandedIcon",
+              "description": "Glyph override for the expanded toggle. Defaults to `expand-more`.",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"expand-more\"",
+              "readonly": true,
+              "attribute": "expanded-icon"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "description": "Accessible name of the tree node, used to build the toggle label\n(`Expand {label}` / `Collapse {label}`).",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "level",
+              "description": "0-indexed depth. Drives computed inline-start indent when `tree` is true.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "readonly": true,
+              "attribute": "level"
+            },
+            {
+              "kind": "field",
+              "name": "tree",
+              "description": "Enable the tree affordance (indent + optional expand/collapse toggle).",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "tree",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "toggle",
+              "description": "Emitted when the toggle is activated. The payload is the requested next\nstate. The component does not own expand state.",
+              "type": {
+                "text": "CustomEvent<{ expanded: boolean; }>",
+                "references": [
+                  {
+                    "name": "SwirlTableCellToggleEventDetail"
+                  }
+                ]
+              }
+            }
+          ],
           "slots": [
             {
               "name": "slot",
@@ -61577,6 +61756,48 @@
                 "text": "number"
               },
               "fieldName": "index"
+            },
+            {
+              "name": "tree-expandable",
+              "description": "Whether this row has children. When true, `aria-expanded` is set from\n`treeExpanded`.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "treeExpandable"
+            },
+            {
+              "name": "tree-expanded",
+              "description": "Whether this expandable row is currently expanded. Ignored when not\nexpandable.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "treeExpanded"
+            },
+            {
+              "name": "tree-level",
+              "description": "0-indexed tree depth. Mapped to 1-based `aria-level` for treegrid.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "treeLevel"
+            },
+            {
+              "name": "tree-pos-inset",
+              "description": "1-based position among siblings. Mapped to `aria-posinset`.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "treePosInset"
+            },
+            {
+              "name": "tree-set-size",
+              "description": "Number of siblings at this level. Mapped to `aria-setsize`.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "treeSetSize"
             }
           ],
           "members": [
@@ -61597,6 +61818,58 @@
               },
               "readonly": true,
               "attribute": "index"
+            },
+            {
+              "kind": "field",
+              "name": "treeExpandable",
+              "description": "Whether this row has children. When true, `aria-expanded` is set from\n`treeExpanded`.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "tree-expandable"
+            },
+            {
+              "kind": "field",
+              "name": "treeExpanded",
+              "description": "Whether this expandable row is currently expanded. Ignored when not\nexpandable.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "readonly": true,
+              "attribute": "tree-expanded"
+            },
+            {
+              "kind": "field",
+              "name": "treeLevel",
+              "description": "0-indexed tree depth. Mapped to 1-based `aria-level` for treegrid.",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "attribute": "tree-level"
+            },
+            {
+              "kind": "field",
+              "name": "treePosInset",
+              "description": "1-based position among siblings. Mapped to `aria-posinset`.",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "attribute": "tree-pos-inset"
+            },
+            {
+              "kind": "field",
+              "name": "treeSetSize",
+              "description": "Number of siblings at this level. Mapped to `aria-setsize`.",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "attribute": "tree-set-size"
             }
           ],
           "slots": [

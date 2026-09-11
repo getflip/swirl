@@ -143,6 +143,130 @@ The SwirlTable component is used to organize and display data sets.
 </swirl-table>`}
 />
 
+## Tree view
+
+`swirl-table` can render hierarchical data as a **treegrid**: rows stay **flat
+siblings**, and indentation is computed from each row's `level`. The table does
+not nest rows (that would break column alignment) and does **not** reuse
+`swirl-tree-view` / `swirl-tree-view-item` DOM.
+
+<Canvas of={Stories.TreeView}></Canvas>
+
+<Canvas of={Stories.TreeViewWithSelection}></Canvas>
+
+<Canvas of={Stories.TreeViewLabelVariants}></Canvas>
+
+### Clickable vs plain titles
+
+Slot the title yourself. The cell only provides indent and the toggle.
+
+- **Clickable:** slot a `swirl-link`. Color is `interactive-primary` /
+  highlight. Links inside a tree cell have **no underline until hover**.
+- **Plain text:** slot `swirl-text` (default color). No underline on hover.
+
+<Source
+  code={`<!-- Clickable title -->
+<swirl-table-cell tree level="0" expandable label="Engineering">
+  <swirl-stack spacing="0">
+    <swirl-link href="/groups/engineering" label="Engineering"></swirl-link>
+    <swirl-text color="subdued" size="sm">Platform and product delivery</swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+
+<!-- Plain title -->
+
+<swirl-table-cell tree level="0" expandable label="Legal">
+  <swirl-stack spacing="0">
+    <swirl-text size="sm">Legal</swirl-text>
+    <swirl-text color="subdued" size="sm">
+      Leaf at the root
+    </swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+`} />
+
+### Flat rows + computed indent
+
+- Each `swirl-table-row` is a sibling of the others. The consumer decides which
+  rows exist and which are visible.
+- `swirl-table-cell` `level` is **0-indexed**. Indent is
+  `level * (space-24 + space-12)` (36px) **in addition to** the cell's 16px base
+  inline padding.
+- The 36px step matches the toggle-zone width, so a leaf at level N lines up
+  with its parent's label at level N-1.
+- Leaves (`expandable` is false) render **no toggle** and no toggle-zone
+  padding.
+
+### State ownership
+
+The primitive is **presentational and controlled**. It does not fetch children,
+hide rows, or store expand state. Listen for `toggle` on `swirl-table-cell` and
+update your data (`expanded`, visible rows, `level`).
+
+Tree mode and `enableDragDrop` cannot be combined. If both are set, drag and
+drop is ignored.
+
+### API
+
+**`swirl-table`**
+
+| Prop              | Notes                                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| `tree`            | Sets `role="treegrid"` on the table. Also inferred from a `tree` cell.                         |
+| `enableDragDrop`  | Row reorder. **Not available in tree mode** — hierarchy plus drag-and-drop is too complex yet. |
+
+**`swirl-table-cell`** (tree column only)
+
+| Prop / event                     | Notes                                                                    |
+| -------------------------------- | ------------------------------------------------------------------------ |
+| `tree`                           | Enables indent + optional toggle.                                        |
+| `level`                          | 0-indexed depth.                                                         |
+| `expandable` / `expanded`        | Parent vs leaf; `expanded` is ignored on leaves.                         |
+| `label`                          | Used for the toggle name: `Expand {label}` / `Collapse {label}`.         |
+| `collapsedIcon` / `expandedIcon` | Defaults `chevron-right` / `expand-more` (same vocabulary as tree view). |
+| `toggle`                         | `{ expanded: boolean }` — the requested next state.                      |
+
+**`swirl-table-row`** (ARIA)
+
+| Prop             | Maps to                                             |
+| ---------------- | --------------------------------------------------- |
+| `treeLevel`      | `aria-level` (0-indexed → 1-based)                  |
+| `treeExpandable` | When true, sets `aria-expanded` from `treeExpanded` |
+| `treeExpanded`   | `aria-expanded`                                     |
+| `treeSetSize`    | `aria-setsize`                                      |
+| `treePosInset`   | `aria-posinset`                                     |
+
+### Reuse boundary vs `swirl-tree-view`
+
+Reuse the **toggle icon names**, ARIA vocabulary, and tokens from
+`swirl-tree-view-item`. Do not nest table rows inside a parent row and do not
+route the table through `swirl-tree-view`.
+
+### Sample usage
+
+<Source
+  code={`<swirl-table label="Groups" tree>
+  <div slot="columns">
+    <swirl-table-column min-width="280px">Tree</swirl-table-column>
+    <swirl-table-column>Members</swirl-table-column>
+  </div>
+  <div slot="rows">
+    <swirl-table-row id="engineering" tree-level="0" tree-expandable tree-expanded tree-set-size="2" tree-pos-inset="1">
+      <swirl-table-cell tree level="0" expandable expanded label="Engineering">
+        <swirl-link href="#" label="Engineering"></swirl-link>
+      </swirl-table-cell>
+      <swirl-table-cell>128</swirl-table-cell>
+    </swirl-table-row>
+    <swirl-table-row id="product" tree-level="1" tree-set-size="1" tree-pos-inset="1">
+      <swirl-table-cell tree level="1" label="Product">
+        <swirl-link href="#" label="Product"></swirl-link>
+      </swirl-table-cell>
+      <swirl-table-cell>9</swirl-table-cell>
+    </swirl-table-row>
+  </div>
+</swirl-table>`}
+/>
+
 ## Related components
 
 - **[swirl-table-column](?path=/docs/components-swirltablecolumn--docs)**
@@ -158,11 +282,15 @@ The SwirlTable component is used to organize and display data sets.
 ### ARIA
 
 The component follows the
-[WAI-ARIA Table Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/).
+[WAI-ARIA Table Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/). When
+`tree` is set (or a tree cell is present) it follows the
+[WAI-ARIA Treegrid Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/)
+for roles and row state.
 
 | ARIA                  | Usage                                                           |
 | --------------------- | --------------------------------------------------------------- |
-| `role="table"`        | Set on the outer table element.                                 |
+| `role="table"`        | Set on the outer table element when tree mode is off.           |
+| `role="treegrid"`     | Set on the outer table element when tree mode is on.            |
 | `aria-rowcount`       | Set to the overall row count.                                   |
 | `aria-label`          | An accessible label is provided via the `aria-label` attribute. |
 | `role="rowgroup"`     | Set on the table's header and body elements.                    |
@@ -170,9 +298,16 @@ The component follows the
 | `aria-sort`           | Set on a sorted table column.                                   |
 | `role="row"`          | Set on a the table's row elements.                              |
 | `aria-rowindex`       | Set to the overall index of the row element.                    |
+| `aria-level`          | Tree depth of the row (1-based).                                |
+| `aria-expanded`       | Set on expandable tree rows.                                    |
+| `aria-setsize`        | Sibling count at the row's level.                               |
+| `aria-posinset`       | 1-based position among siblings.                                |
 | `role="cell"`         | Set on a the table's cell elements.                             |
 
 ### Keyboard
 
-No component-specific keyboard behavior; table navigation depends on host or
-application.
+Non-tree tables have no component-specific keyboard behavior.
+
+In tree mode, the expand/collapse control is a real `<button>`. Enter and Space
+activate it and emit `toggle`. Full treegrid arrow-key navigation (move between
+rows/cells, Left/Right to collapse/expand) is out of scope for v1.

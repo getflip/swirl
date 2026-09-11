@@ -1,4 +1,9 @@
 :host {
+  --swirl-table-cell-tree-indent-step: calc(
+    var(--s-space-24) + var(--s-space-12)
+  );
+  --swirl-table-cell-tree-level: 0;
+
   display: flex;
   overflow: auto;
   padding-top: var(--s-space-8);
@@ -13,6 +18,15 @@
   word-break: break-word;
   hyphens: auto;
   transition: box-shadow 0.15s;
+
+  &(.table-cell--tree) {
+    /* Slotted swirl-link titles underline only on hover. */
+    --swirl-link-text-decoration: none;
+    padding-left: calc(
+      var(--s-space-16) + var(--swirl-table-cell-tree-level) *
+        var(--swirl-table-cell-tree-indent-step)
+    );
+  }
 
   &(.table-cell--is-sticky) {
     position: sticky;
@@ -37,4 +51,51 @@
   & * {
     box-sizing: border-box;
   }
+}
+
+.table-cell__tree {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+  width: 100%;
+}
+
+.table-cell__tree-toggle {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 var(--swirl-table-cell-tree-indent-step);
+  justify-content: center;
+  align-items: center;
+  width: var(--swirl-table-cell-tree-indent-step);
+  height: var(--swirl-table-cell-tree-indent-step);
+  border: none;
+  border-radius: var(--s-border-radius-sm);
+  color: var(--s-icon-default);
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+
+  &:hover {
+    background-color: var(--s-state-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-state-pressed);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+    outline-offset: var(--s-space-2);
+  }
+}
+
+.table-cell__tree-content {
+  min-width: 0;
+  flex: 1 1 auto;
 }

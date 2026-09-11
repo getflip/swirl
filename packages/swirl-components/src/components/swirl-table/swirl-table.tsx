@@ -53,9 +53,19 @@ export class SwirlTable {
   @Prop() dragDropHandle?: string;
   @Prop() dragDropInstructions = defaultDragDropInstructions;
   @Prop() emptyStateLabel?: string = "No results found.";
+  /**
+   * Enables row drag and drop. Ignored when the table is in tree mode —
+   * combining hierarchy with reorder is not supported.
+   */
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
   @Prop() loading?: boolean;
+  /**
+   * Enables treegrid semantics (`role="treegrid"`). Use with tree props on
+   * `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell
+   * has the `tree` attribute. Incompatible with `enableDragDrop`.
+   */
+  @Prop() tree?: boolean = false;
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
 
@@ -75,6 +85,7 @@ export class SwirlTable {
   private positionBeforeKeyboardMove?: number;
   private rowMutationObserver: MutationObserver;
   private sortable: Sortable | undefined;
+  private warnedTreeDragDrop = false;
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
@@ -93,6 +104,7 @@ export class SwirlTable {
   }
 
   @Watch("enableDragDrop")
+  @Watch("tree")
   handleEnableDragDropChange() {
     queueMicrotask(() => {
       this.setupDragDrop();
@@ -167,7 +179,17 @@ export class SwirlTable {
       this.sortable = undefined;
     }
 
-    if (this.enableDragDrop) {
+    if (this.enableDragDrop && this.isTreeGrid()) {
+      if (!this.warnedTreeDragDrop) {
+        console.warn(
+          "[Swirl] Drag & drop is not supported when swirl-table is in tree mode."
+        );
+        this.warnedTreeDragDrop = true;
+      }
+      return;
+    }
+
+    if (this.isDragDropEnabled()) {
       const tableHasRowGroups = !!this.el.querySelector(
         "swirl-table-row-group"
       );
@@ -551,6 +573,16 @@ export class SwirlTable {
     this.empty = !Boolean(rowsContainer) || rowsContainer.children.length === 0;
   }
 
+  private isTreeGrid() {
+    return (
+      this.tree || Boolean(this.el.querySelector("swirl-table-cell[tree]"))
+    );
+  }
+
+  private isDragDropEnabled() {
+    return Boolean(this.enableDragDrop) && !this.isTreeGrid();
+  }
+
   private updateLiveRegionText(
     key?: keyof typeof this.dragDropInstructions,
     data: { position?: number; rowCount?: number } = {}
@@ -732,7 +764,7 @@ export class SwirlTable {
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
-    if (!this.enableDragDrop) {
+    if (!this.isDragDropEnabled()) {
       return;
     }
 
@@ -781,7 +813,7 @@ export class SwirlTable {
     return (
       <Host>
         <div class={className}>
-          {this.enableDragDrop && (
+          {this.isDragDropEnabled() && (
             <swirl-visually-hidden>
               <span aria-live="assertive">{this.liveRegionText}</span>
             </swirl-visually-hidden>
@@ -799,7 +831,7 @@ export class SwirlTable {
             <div
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}
               aria-label={this.label}
-              role="table"
+              role={this.isTreeGrid() ? "treegrid" : "table"}
               class="table__table"
             >
               {this.caption && (

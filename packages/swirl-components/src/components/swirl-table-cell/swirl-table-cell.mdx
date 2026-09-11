@@ -21,6 +21,34 @@ The SwirlTableColumn component is used to display a cell inside a
 
 <Source code={`<swirl-table-cell> Table cell </swirl-table-cell>`} />
 
+## Tree cell
+
+Set `tree` on the first data column to add computed indent and, when
+`expandable`, a focusable expand/collapse toggle. Slot the cell content. The
+consumer owns expand state and reacts to `toggle`.
+
+Use a **link** when the title opens details (`swirl-link`, highlight color,
+underline on hover only) or **plain text** when it does not (`swirl-text`,
+default color, no underline).
+
+<Source
+  code={`<swirl-table-cell tree level="1" expandable expanded label="Platform">
+  <swirl-stack spacing="0">
+    <swirl-link href="#" label="Platform"></swirl-link>
+    <swirl-text color="subdued" size="sm">Shared infrastructure</swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+
+<swirl-table-cell tree level="1" label="Legal">
+  <swirl-stack spacing="0">
+    <swirl-text size="sm">Legal</swirl-text>
+    <swirl-text color="subdued" size="sm">
+      Leaf at the root
+    </swirl-text>
+  </swirl-stack>
+</swirl-table-cell>
+`} />
+
 ## Related components
 
 - **[swirl-table-row](?path=/docs/components-swirltablerow--docs)** (parent) —
@@ -33,10 +61,13 @@ The SwirlTableColumn component is used to display a cell inside a
 The component follows the
 [WAI-ARIA Table Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/).
 
-| ARIA          | Usage |
-| ------------- | ----- |
-| `role="cell"` |       |
+| ARIA            | Usage                                                |
+| --------------- | ---------------------------------------------------- |
+| `role="cell"`   |                                                      |
+| `aria-expanded` | Set on the tree toggle button when `expandable`.     |
+| `aria-label`    | `Expand {label}` / `Collapse {label}` on the toggle. |
 
 ### Keyboard
 
-No component-specific keyboard behavior.
+When `tree` and `expandable` are set, the toggle is a `<button>`. Enter and
+Space activate it and emit `toggle`. Focus-visible uses `--s-focus-default`.
