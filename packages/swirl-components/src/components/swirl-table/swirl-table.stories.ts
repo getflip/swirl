@@ -1,32 +1,53 @@
 import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-table.mdx";
 
+const dragDropControlIf = { arg: "tree", truthy: false };
+
+const tableControlOrder = [
+  "caption",
+  "label",
+  "emptyStateLabel",
+  "tree",
+  "enableDragDrop",
+  "dragDropHandle",
+  "dragDropInstructions",
+  "loading",
+];
+
 export default {
   argTypes: {
-    dragDropHandle: {
-      description:
-        'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true. The handle should be a button.',
-      if: { arg: "tree", truthy: false },
-    },
-    dragDropInstructions: {
-      if: { arg: "tree", truthy: false },
-    },
-    enableDragDrop: {
-      description:
-        "Enables row drag and drop. Hidden when tree mode is on — the two cannot be combined.",
-      if: { arg: "tree", truthy: false },
-    },
+    caption: {},
+    label: {},
+    emptyStateLabel: {},
     tree: {
       control: "boolean",
       description:
         "Renders the table as a treegrid. Disables drag and drop while enabled.",
     },
+    enableDragDrop: {
+      description:
+        "Enables row drag and drop. Hidden when tree mode is on — the two cannot be combined.",
+      if: dragDropControlIf,
+    },
+    dragDropHandle: {
+      description:
+        'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true. The handle should be a button.',
+      if: dragDropControlIf,
+    },
+    dragDropInstructions: {
+      if: dragDropControlIf,
+    },
+    loading: {},
   },
   component: "swirl-table",
   tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
+    },
+    controls: {
+      include: tableControlOrder,
+      sort: "none",
     },
   },
   title: "Components/SwirlTable",
@@ -597,18 +618,18 @@ export const SwirlTable = Template.bind({});
 
 SwirlTable.args = {
   caption: "A table displaying data.",
-  dragDropHandle: ".drag-handle",
-  enableDragDrop: true,
   label: "Table",
   tree: false,
+  enableDragDrop: true,
+  dragDropHandle: ".drag-handle",
 };
 
 const treeViewArgs = {
   caption: "A hierarchical table rendered as a treegrid.",
-  dragDropHandle: ".drag-handle",
-  enableDragDrop: false,
   label: "Groups",
   tree: true,
+  enableDragDrop: false,
+  dragDropHandle: ".drag-handle",
 };
 
 export const TreeView = (args) => createTreeTable(false, args);
