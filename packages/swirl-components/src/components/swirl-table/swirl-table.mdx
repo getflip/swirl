@@ -203,13 +203,17 @@ The primitive is **presentational and controlled**. It does not fetch children,
 hide rows, or store expand state. Listen for `toggle` on `swirl-table-cell` and
 update your data (`expanded`, visible rows, `level`).
 
+Tree mode and `enableDragDrop` cannot be combined. If both are set, drag and
+drop is ignored.
+
 ### API
 
 **`swirl-table`**
 
-| Prop   | Notes                                                                  |
-| ------ | ---------------------------------------------------------------------- |
-| `tree` | Sets `role="treegrid"` on the table. Also inferred from a `tree` cell. |
+| Prop              | Notes                                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| `tree`            | Sets `role="treegrid"` on the table. Also inferred from a `tree` cell.                         |
+| `enableDragDrop`  | Row reorder. **Not available in tree mode** — hierarchy plus drag-and-drop is too complex yet. |
 
 **`swirl-table-cell`** (tree column only)
 

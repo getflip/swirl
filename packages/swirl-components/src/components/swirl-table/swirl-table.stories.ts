@@ -6,9 +6,20 @@ export default {
     dragDropHandle: {
       description:
         'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true. The handle should be a button.',
+      if: { arg: "tree", truthy: false },
+    },
+    dragDropInstructions: {
+      if: { arg: "tree", truthy: false },
+    },
+    enableDragDrop: {
+      description:
+        "Enables row drag and drop. Hidden when tree mode is on — the two cannot be combined.",
+      if: { arg: "tree", truthy: false },
     },
     tree: {
       control: "boolean",
+      description:
+        "Renders the table as a treegrid. Disables drag and drop while enabled.",
     },
   },
   component: "swirl-table",
@@ -21,11 +32,22 @@ export default {
   title: "Components/SwirlTable",
 };
 
-const Template = (args) => {
-  const element = generateStoryElement(
-    "swirl-table",
-    args
-  ) as HTMLSwirlTableElement;
+const createUserTable = (args) => {
+  const showDrag = Boolean(args.enableDragDrop);
+  const element = generateStoryElement("swirl-table", {
+    ...args,
+    tree: false,
+    enableDragDrop: showDrag,
+  }) as HTMLSwirlTableElement;
+
+  const dragColumn = showDrag
+    ? `<swirl-table-column>Drag</swirl-table-column>`
+    : "";
+  const dragCell = showDrag
+    ? `<swirl-table-cell>
+          <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+        </swirl-table-cell>`
+    : "";
 
   element.innerHTML = `
     <div slot="columns">
@@ -34,7 +56,7 @@ const Template = (args) => {
         </swirl-checkbox><swirl-visually-hidden>Select</swirl-visually-hidden>
       </swirl-table-column>
       <swirl-table-column min-width="160px" sticky>User</swirl-table-column>
-      <swirl-table-column>Drag</swirl-table-column>
+      ${dragColumn}
       <swirl-table-column min-width="120px">User ID</swirl-table-column>
       <swirl-table-column min-width="200px" sortable sort="descending">Email</swirl-table-column>
       <swirl-table-column>Location</swirl-table-column>
@@ -51,9 +73,7 @@ const Template = (args) => {
         <swirl-table-cell>
           <swirl-text size="sm" weight="medium">Isabel Lakin</swirl-text>
         </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
-        </swirl-table-cell>
+        ${dragCell}
         <swirl-table-cell>
           <swirl-text size="sm" truncate>1234567890</swirl-text>
         </swirl-table-cell>
@@ -85,9 +105,7 @@ const Template = (args) => {
           <swirl-table-cell>
             <swirl-text size="sm" weight="medium">Doyle Stoltenberg</swirl-text>
           </swirl-table-cell>
-          <swirl-table-cell>
-            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
-          </swirl-table-cell>
+          ${dragCell}
           <swirl-table-cell>
             <swirl-text size="sm" truncate>0987654321</swirl-text>
           </swirl-table-cell>
@@ -117,9 +135,7 @@ const Template = (args) => {
           <swirl-table-cell>
             <swirl-text size="sm" weight="medium">Don Conroy</swirl-text>
           </swirl-table-cell>
-          <swirl-table-cell>
-            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
-          </swirl-table-cell>
+          ${dragCell}
           <swirl-table-cell>
             <swirl-text size="sm" truncate>5432167890</swirl-text>
           </swirl-table-cell>
@@ -146,15 +162,6 @@ const Template = (args) => {
   `;
 
   return element;
-};
-
-export const SwirlTable = Template.bind({});
-
-SwirlTable.args = {
-  caption: "A table displaying data.",
-  dragDropHandle: ".drag-handle",
-  enableDragDrop: true,
-  label: "Table",
 };
 
 type TreeNode = {
@@ -337,6 +344,22 @@ const flattenVisibleTree = (
       : [row];
   });
 
+const flattenAllTree = (nodes: TreeNode[], level = 0): FlatTreeRow[] =>
+  nodes.flatMap((node, index) => {
+    const row: FlatTreeRow = {
+      ...node,
+      level,
+      expandable: Boolean(node.children?.length),
+      expanded: false,
+      setSize: nodes.length,
+      posInset: index + 1,
+    };
+
+    return node.children?.length
+      ? [row, ...flattenAllTree(node.children, level + 1)]
+      : [row];
+  });
+
 const collectDescendantIds = (node: TreeNode): string[] =>
   (node.children ?? []).flatMap((child) => [
     child.id,
@@ -359,14 +382,27 @@ const findNode = (nodes: TreeNode[], id: string): TreeNode | undefined => {
   return undefined;
 };
 
-const renderTreeRow = (row: FlatTreeRow, withSelection: boolean) => `
+const renderTreeRow = (
+  row: FlatTreeRow,
+  options: { tree: boolean; withDrag: boolean; withSelection: boolean }
+) => {
+  const { tree, withDrag, withSelection } = options;
+  const title = row.href
+    ? `<swirl-link href="${row.href}" label="${row.label}"></swirl-link>`
+    : `<swirl-text size="sm">${row.label}</swirl-text>`;
+
+  return `
   <swirl-table-row
     id="${row.id}"
-    tree-level="${row.level}"
+    ${
+      tree
+        ? `tree-level="${row.level}"
     ${row.expandable ? "tree-expandable" : ""}
     ${row.expanded ? "tree-expanded" : ""}
     tree-set-size="${row.setSize}"
-    tree-pos-inset="${row.posInset}"
+    tree-pos-inset="${row.posInset}"`
+        : ""
+    }
   >
     ${
       withSelection
@@ -376,41 +412,54 @@ const renderTreeRow = (row: FlatTreeRow, withSelection: boolean) => `
         : ""
     }
     <swirl-table-cell
-      tree
+      ${
+        tree
+          ? `tree
       level="${row.level}"
       ${row.expandable ? "expandable" : ""}
       ${row.expanded ? "expanded" : ""}
-      label="${row.label}"
+      label="${row.label}"`
+          : ""
+      }
     >
       <swirl-stack spacing="0">
-        ${
-          row.href
-            ? `<swirl-link href="${row.href}" label="${row.label}"></swirl-link>`
-            : `<swirl-text size="sm">${row.label}</swirl-text>`
-        }
+        ${title}
         <swirl-text color="subdued" size="sm">${row.description}</swirl-text>
       </swirl-stack>
     </swirl-table-cell>
+    ${
+      withDrag
+        ? `<swirl-table-cell>
+          <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+        </swirl-table-cell>`
+        : ""
+    }
     <swirl-table-cell>
       <swirl-text size="sm">${row.members}</swirl-text>
     </swirl-table-cell>
     <swirl-table-cell>
       <swirl-tag label="${row.status}" intent="${
-  row.status === "Active" ? "success" : "warning"
-}"></swirl-tag>
+    row.status === "Active" ? "success" : "warning"
+  }"></swirl-tag>
     </swirl-table-cell>
   </swirl-table-row>
 `;
+};
 
 const createTreeTable = (
   withSelection: boolean,
   args: Record<string, unknown> = {}
 ) => {
+  const isTree = args.tree !== false;
+  const enableDragDrop = !isTree && Boolean(args.enableDragDrop);
   const element = generateStoryElement("swirl-table", {
-    caption: "A hierarchical table rendered as a treegrid.",
+    caption: isTree
+      ? "A hierarchical table rendered as a treegrid."
+      : "A flat table of the same groups.",
     label: "Groups",
-    tree: true,
     ...args,
+    tree: isTree,
+    enableDragDrop,
   }) as HTMLSwirlTableElement;
 
   const expandedIds = new Set([
@@ -433,7 +482,14 @@ const createTreeTable = (
       </swirl-table-column>`
           : ""
       }
-      <swirl-table-column min-width="360px" sticky>Tree</swirl-table-column>
+      <swirl-table-column min-width="360px" sticky>${
+        isTree ? "Tree" : "Group"
+      }</swirl-table-column>
+      ${
+        enableDragDrop
+          ? `<swirl-table-column>Drag</swirl-table-column>`
+          : ""
+      }
       <swirl-table-column min-width="100px">Members</swirl-table-column>
       <swirl-table-column min-width="120px">Status</swirl-table-column>
     </div>
@@ -463,10 +519,18 @@ const createTreeTable = (
   };
 
   const renderRows = () => {
-    const rows = flattenVisibleTree(TREE_NODES, expandedIds);
+    const rows = isTree
+      ? flattenVisibleTree(TREE_NODES, expandedIds)
+      : flattenAllTree(TREE_NODES);
 
     rowsContainer.innerHTML = rows
-      .map((row) => renderTreeRow(row, withSelection))
+      .map((row) =>
+        renderTreeRow(row, {
+          tree: isTree,
+          withDrag: enableDragDrop,
+          withSelection,
+        })
+      )
       .join("");
 
     applySelection();
@@ -522,6 +586,21 @@ const createTreeTable = (
   renderRows();
 
   return element;
+};
+
+const Template = (args) =>
+  args.tree
+    ? createTreeTable(true, { ...args, enableDragDrop: false })
+    : createUserTable(args);
+
+export const SwirlTable = Template.bind({});
+
+SwirlTable.args = {
+  caption: "A table displaying data.",
+  dragDropHandle: ".drag-handle",
+  enableDragDrop: true,
+  label: "Table",
+  tree: false,
 };
 
 const treeViewArgs = {
@@ -590,6 +669,19 @@ export const TreeViewLabelVariants = () => {
   `;
 
   return element;
+};
+
+TreeViewLabelVariants.args = {
+  caption: "Clickable and plain tree titles.",
+  label: "Tree label variants",
+  tree: true,
+};
+
+TreeViewLabelVariants.argTypes = {
+  dragDropHandle: { control: false, table: { disable: true } },
+  dragDropInstructions: { control: false, table: { disable: true } },
+  enableDragDrop: { control: false, table: { disable: true } },
+  tree: { control: false, table: { disable: true } },
 };
 
 TreeViewLabelVariants.parameters = {

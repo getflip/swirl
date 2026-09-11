@@ -103,4 +103,34 @@ describe("swirl-table", () => {
       "treegrid"
     );
   });
+
+  it("ignores drag and drop when tree mode is enabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTable],
+      html: `
+        <swirl-table
+          label="Groups"
+          tree
+          enable-drag-drop
+          drag-drop-handle=".drag-handle"
+        >
+          <div slot="columns">
+            <span role="columnheader">Tree</span>
+          </div>
+          <div slot="rows">
+            <div role="row">
+              <span role="cell">Root</span>
+            </div>
+          </div>
+        </swirl-table>
+      `,
+    });
+
+    expect(
+      page.root.querySelector(".table > swirl-visually-hidden [aria-live]")
+    ).toBeNull();
+    expect(page.root.querySelector(".table__table").getAttribute("role")).toBe(
+      "treegrid"
+    );
+  });
 });
