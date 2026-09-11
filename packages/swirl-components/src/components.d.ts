@@ -5415,6 +5415,9 @@ export namespace Components {
           * @default "No results found."
          */
         "emptyStateLabel"?: string;
+        /**
+          * Enables row drag and drop. Ignored when the table is in tree mode — combining hierarchy with reorder is not supported.
+         */
         "enableDragDrop"?: boolean;
         "label": string;
         "loading"?: boolean;
@@ -5423,7 +5426,7 @@ export namespace Components {
          */
         "rerender": () => Promise<void>;
         /**
-          * Enables treegrid semantics (`role="treegrid"`). Use with tree props on `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell has the `tree` attribute.
+          * Enables treegrid semantics (`role="treegrid"`). Use with tree props on `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell has the `tree` attribute. Incompatible with `enableDragDrop`.
           * @default false
          */
         "tree"?: boolean;
@@ -15907,12 +15910,15 @@ declare namespace LocalJSX {
           * @default "No results found."
          */
         "emptyStateLabel"?: string;
+        /**
+          * Enables row drag and drop. Ignored when the table is in tree mode — combining hierarchy with reorder is not supported.
+         */
         "enableDragDrop"?: boolean;
         "label": string;
         "loading"?: boolean;
         "onDropRow"?: (event: SwirlTableCustomEvent<SwirlTableDropRowEvent>) => void;
         /**
-          * Enables treegrid semantics (`role="treegrid"`). Use with tree props on `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell has the `tree` attribute.
+          * Enables treegrid semantics (`role="treegrid"`). Use with tree props on `swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell has the `tree` attribute. Incompatible with `enableDragDrop`.
           * @default false
          */
         "tree"?: boolean;

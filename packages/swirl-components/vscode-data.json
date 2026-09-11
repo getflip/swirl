@@ -25860,7 +25860,7 @@
         },
         {
           "name": "enable-drag-drop",
-          "description": ""
+          "description": "Enables row drag and drop. Ignored when the table is in tree mode —\ncombining hierarchy with reorder is not supported."
         },
         {
           "name": "label",
@@ -25872,7 +25872,7 @@
         },
         {
           "name": "tree",
-          "description": "Enables treegrid semantics (`role=\"treegrid\"`). Use with tree props on\n`swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell\nhas the `tree` attribute."
+          "description": "Enables treegrid semantics (`role=\"treegrid\"`). Use with tree props on\n`swirl-table-row` / `swirl-table-cell`. Also inferred when a slotted cell\nhas the `tree` attribute. Incompatible with `enableDragDrop`."
         }
       ]
     },
