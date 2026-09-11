@@ -619,6 +619,7 @@ export const SwirlTable = Template.bind({});
 SwirlTable.args = {
   caption: "A table displaying data.",
   label: "Table",
+  emptyStateLabel: "No results found.",
   tree: false,
   enableDragDrop: true,
   dragDropHandle: ".drag-handle",
@@ -627,6 +628,7 @@ SwirlTable.args = {
 const treeViewArgs = {
   caption: "A hierarchical table rendered as a treegrid.",
   label: "Groups",
+  emptyStateLabel: "No results found.",
   tree: true,
   enableDragDrop: false,
   dragDropHandle: ".drag-handle",
