@@ -55,7 +55,7 @@ describe("swirl-table-cell", () => {
     expect(toggle).toBeTruthy();
     expect(toggle.getAttribute("label")).toBe("Expand Engineering");
     expect(toggle.getAttribute("variant")).toBe("plain");
-    expect(toggle.getAttribute("swirl-aria-expanded")).toBe("false");
+    expect(toggle.getAttribute("swirlariaexpanded")).toBe("false");
     expect(toggle.getAttribute("icon")).toContain("swirl-icon-chevron-right");
 
     toggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
@@ -67,7 +67,7 @@ describe("swirl-table-cell", () => {
     await page.waitForChanges();
 
     expect(toggle.getAttribute("label")).toBe("Collapse Engineering");
-    expect(toggle.getAttribute("swirl-aria-expanded")).toBe("true");
+    expect(toggle.getAttribute("swirlariaexpanded")).toBe("true");
     expect(toggle.getAttribute("icon")).toContain("swirl-icon-expand-more");
 
     toggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
