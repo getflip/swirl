@@ -63,9 +63,10 @@
 }
 
 .table-cell__tree-toggle {
-  flex: 0 0 var(--s-space-24);
+  display: inline-flex;
+  flex: 0 0 auto;
 
-  & .button {
+  & .button.button--variant-plain.button--icon-only {
     padding: 0;
     min-width: var(--s-space-24);
     min-height: var(--s-space-24);
