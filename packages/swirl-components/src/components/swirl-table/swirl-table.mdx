@@ -190,10 +190,10 @@ Slot the title yourself. The cell only provides indent and the toggle.
 - Each `swirl-table-row` is a sibling of the others. The consumer decides which
   rows exist and which are visible.
 - `swirl-table-cell` `level` is **0-indexed**. Indent is
-  `level * (space-24 + space-12)` (36px) **in addition to** the cell's 16px base
+  `level * (space-24 + space-8)` (32px) **in addition to** the cell's 16px base
   inline padding.
-- The 36px step matches the toggle-zone width, so a leaf at level N lines up
-  with its parent's label at level N-1.
+- The 32px step is the plain toggle (24px) plus 8px gap before the label, so a
+  leaf at level N lines up with its parent's label at level N-1.
 - Leaves (`expandable` is false) render **no toggle** and no toggle-zone
   padding.
 

@@ -1,6 +1,6 @@
 :host {
   --swirl-table-cell-tree-indent-step: calc(
-    var(--s-space-24) + var(--s-space-12)
+    var(--s-space-24) + var(--s-space-8)
   );
   --swirl-table-cell-tree-level: 0;
 
@@ -58,40 +58,17 @@
   min-width: 0;
   flex: 1 1 auto;
   align-items: center;
+  gap: var(--s-space-8);
   width: 100%;
 }
 
 .table-cell__tree-toggle {
-  display: inline-flex;
-  margin: 0;
-  padding: 0;
-  flex: 0 0 var(--swirl-table-cell-tree-indent-step);
-  justify-content: center;
-  align-items: center;
-  width: var(--swirl-table-cell-tree-indent-step);
-  height: var(--swirl-table-cell-tree-indent-step);
-  border: none;
-  border-radius: var(--s-border-radius-sm);
-  color: var(--s-icon-default);
-  background-color: transparent;
-  cursor: pointer;
-  appearance: none;
+  flex: 0 0 var(--s-space-24);
 
-  &:hover {
-    background-color: var(--s-state-hovered);
-  }
-
-  &:active {
-    background-color: var(--s-state-pressed);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline-color: var(--s-focus-default);
-    outline-offset: var(--s-space-2);
+  & .button {
+    padding: 0;
+    min-width: var(--s-space-24);
+    min-height: var(--s-space-24);
   }
 }
 

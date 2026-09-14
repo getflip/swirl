@@ -126,19 +126,15 @@ export class SwirlTableCell {
       <Host class={className} role="cell">
         <div class="table-cell__tree">
           {this.expandable && (
-            <button
-              aria-expanded={String(Boolean(this.expanded))}
-              aria-label={this.getToggleLabel()}
+            <swirl-button
               class="table-cell__tree-toggle"
+              hideLabel
+              icon={`<swirl-icon-${glyph}></swirl-icon-${glyph}>`}
+              label={this.getToggleLabel()}
               onClick={this.onToggleClick}
-              type="button"
-            >
-              <swirl-icon
-                aria-hidden="true"
-                glyph={glyph}
-                size={24}
-              ></swirl-icon>
-            </button>
+              swirlAriaExpanded={String(Boolean(this.expanded))}
+              variant="plain"
+            ></swirl-button>
           )}
           <div class="table-cell__tree-content">
             <slot></slot>

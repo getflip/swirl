@@ -48,18 +48,17 @@ describe("swirl-table-cell", () => {
 
     page.root.addEventListener("toggle", spy);
 
-    const toggle = page.root.shadowRoot.querySelector<HTMLButtonElement>(
-      ".table-cell__tree-toggle"
+    const toggle = page.root.shadowRoot.querySelector(
+      "swirl-button.table-cell__tree-toggle"
     );
 
     expect(toggle).toBeTruthy();
-    expect(toggle.getAttribute("aria-label")).toBe("Expand Engineering");
-    expect(toggle.getAttribute("aria-expanded")).toBe("false");
-    expect(toggle.querySelector("swirl-icon")?.getAttribute("glyph")).toBe(
-      "chevron-right"
-    );
+    expect(toggle.getAttribute("label")).toBe("Expand Engineering");
+    expect(toggle.getAttribute("variant")).toBe("plain");
+    expect(toggle.getAttribute("swirl-aria-expanded")).toBe("false");
+    expect(toggle.getAttribute("icon")).toContain("swirl-icon-chevron-right");
 
-    toggle.click();
+    toggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
     expect(spy).toHaveBeenCalledTimes(1);
     expect(spy.mock.calls[0][0].detail).toEqual({ expanded: true });
@@ -67,13 +66,11 @@ describe("swirl-table-cell", () => {
     page.root.expanded = true;
     await page.waitForChanges();
 
-    expect(toggle.getAttribute("aria-label")).toBe("Collapse Engineering");
-    expect(toggle.getAttribute("aria-expanded")).toBe("true");
-    expect(toggle.querySelector("swirl-icon")?.getAttribute("glyph")).toBe(
-      "expand-more"
-    );
+    expect(toggle.getAttribute("label")).toBe("Collapse Engineering");
+    expect(toggle.getAttribute("swirl-aria-expanded")).toBe("true");
+    expect(toggle.getAttribute("icon")).toContain("swirl-icon-expand-more");
 
-    toggle.click();
+    toggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
     expect(spy.mock.calls[1][0].detail).toEqual({ expanded: false });
   });
@@ -110,13 +107,15 @@ describe("swirl-table-cell", () => {
       html: `<swirl-table-cell tree expandable collapsed-icon="folder" expanded-icon="folder-open">Cell</swirl-table-cell>`,
     });
 
-    const icon = page.root.shadowRoot.querySelector("swirl-icon");
+    const toggle = page.root.shadowRoot.querySelector(
+      "swirl-button.table-cell__tree-toggle"
+    );
 
-    expect(icon.getAttribute("glyph")).toBe("folder");
+    expect(toggle.getAttribute("icon")).toContain("swirl-icon-folder>");
 
     page.root.expanded = true;
     await page.waitForChanges();
 
-    expect(icon.getAttribute("glyph")).toBe("folder-open");
+    expect(toggle.getAttribute("icon")).toContain("swirl-icon-folder-open");
   });
 });
