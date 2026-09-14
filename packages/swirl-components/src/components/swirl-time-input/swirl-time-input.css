@@ -57,6 +57,10 @@
     background-color: transparent;
   }
 
+  &::placeholder {
+    color: var(--swirl-input-placeholder-color);
+  }
+
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
