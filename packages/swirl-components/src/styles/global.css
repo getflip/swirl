@@ -81,6 +81,7 @@
   --swirl-tab-bar-height: auto;
 
   --swirl-text-input-placeholder-size: var(--s-font-size-base);
+  --swirl-input-placeholder-color: var(--s-text-subdued);
 
   --swirl-form-control-label-background-color: transparent;
 

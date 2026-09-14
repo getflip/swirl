@@ -161,6 +161,7 @@
   }
 
   &::placeholder {
+    color: var(--swirl-input-placeholder-color);
     font-size: var(--swirl-text-input-placeholder-size);
   }
 
