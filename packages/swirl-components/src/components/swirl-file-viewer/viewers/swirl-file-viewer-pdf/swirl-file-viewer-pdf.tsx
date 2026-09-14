@@ -282,7 +282,12 @@ export class SwirlFileViewerPdf {
     this.renderingPageNumbers = [...this.renderingPageNumbers, page.pageNumber];
 
     const scale = forPrint ? this.getPrintScale(page) : this.getScale(page);
-    const outputScale = Math.max(window.devicePixelRatio || 2, 2);
+
+    // The print scale already resolves to the target print resolution, so it
+    // must not be multiplied by the device pixel ratio on top of that.
+    const outputScale = forPrint
+      ? 1
+      : Math.max(window.devicePixelRatio || 2, 2);
 
     const transform = [outputScale, 0, 0, outputScale, 0, 0];
 
@@ -478,9 +483,66 @@ export class SwirlFileViewerPdf {
     pageEl?.scrollIntoView({ behavior: "smooth" });
   }
 
-  private async openPrintDialog() {
+  private getPrintPages() {
     const canvases = Array.from(
       this.scrollContainer.querySelectorAll("canvas")
+    );
+
+    return canvases
+      .map((canvas) => {
+        const container = canvas.closest<HTMLDivElement>(
+          ".file-viewer-pdf__page"
+        );
+
+        const page = this.pages.find(
+          (page) => page?.pageNumber === +container?.dataset.pageNumber
+        );
+
+        if (!Boolean(page)) {
+          return undefined;
+        }
+
+        // The viewport takes the page rotation and its user unit into account,
+        // page.view does not.
+        const viewport = page.getViewport({ scale: 1 });
+
+        // The page sizes are converted to millimeters, because "@page" needs a
+        // physical unit. A PDF user space unit is 1/72 inch, an inch is 25.4mm.
+        return {
+          canvas,
+          height: +((viewport.height * 25.4) / 72).toFixed(2),
+          width: +((viewport.width * 25.4) / 72).toFixed(2),
+        };
+      })
+      .filter(Boolean);
+  }
+
+  private async openPrintDialog() {
+    const printPages = this.getPrintPages();
+
+    // Pages of a document may differ in size and orientation, so we collect the
+    // distinct sizes and print every page on a sheet matching its own size.
+    const sizes: Array<{ count: number; height: number; width: number }> = [];
+
+    const sizeIndexes = printPages.map(({ height, width }) => {
+      const index = sizes.findIndex(
+        (size) => size.height === height && size.width === width
+      );
+
+      if (index >= 0) {
+        sizes[index].count += 1;
+        return index;
+      }
+
+      return sizes.push({ count: 1, height, width }) - 1;
+    });
+
+    // Browsers without support for named pages ignore the "page" property and
+    // fall back to the default @page rule, so we default to the most used size.
+    const defaultSize = sizes.reduce(
+      (previous, current) =>
+        current.count > previous.count ? current : previous,
+      sizes[0] ?? { count: 0, height: 297, width: 210 }
     );
 
     let styles = `
@@ -491,21 +553,50 @@ export class SwirlFileViewerPdf {
       }
 
       @page {
-        size: a4 !important;
+        size: ${defaultSize.width}mm ${defaultSize.height}mm;
         margin: 0;
         padding: 0;
       }
 
-      html, body {
-        width: 210mm;
-        height: 297mm;
+      ${sizes
+        .map(
+          (size, index) => `
+      @page size-${index} {
+        size: ${size.width}mm ${size.height}mm;
+        margin: 0;
+        padding: 0;
+      }
+
+      .file-viewer-pdf-print-page--size-${index} {
+        page: size-${index};
+        width: ${size.width}mm;
+        /* Browsers round the printable area down to whole pixels. A page box
+           of exactly the sheet height would overflow by a fraction of a pixel
+           and push a blank sheet after every page, so we subtract a hairline. */
+        height: calc(${size.height}mm - 1px);
+      }
+      `
+        )
+        .join("")}
+
+      .file-viewer-pdf-print-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .file-viewer-pdf-print-page:last-child {
+        break-after: auto;
+        page-break-after: auto;
       }
 
       img {
         display: block;
         max-width: 100%;
         max-height: 100%;
-        page-break-after: always;
       }
     `;
 
@@ -516,15 +607,17 @@ export class SwirlFileViewerPdf {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${this.file}</title>
+        <title>Print PDF</title>
         <style>${styles}</style>
       </head>
       <body>
     `;
 
-    for (const canvas of canvases) {
-      html += `<img src="${canvas.toDataURL()}">`;
-    }
+    printPages.forEach(({ canvas }, index) => {
+      html += `<div class="file-viewer-pdf-print-page file-viewer-pdf-print-page--size-${
+        sizeIndexes[index]
+      }"><img src="${canvas.toDataURL()}"></div>`;
+    });
 
     html += `
       </body>
@@ -550,7 +643,9 @@ export class SwirlFileViewerPdf {
     const padding = isMobileViewport() ? 0 : 32;
 
     if (this.zoom === "auto") {
-      return (this.scrollContainer?.clientWidth - padding) / page.view[2];
+      const { width } = page.getViewport({ scale: 1 });
+
+      return (this.scrollContainer?.clientWidth - padding) / width;
     } else if (isNaN(this.zoom)) {
       return 1;
     }
@@ -559,11 +654,16 @@ export class SwirlFileViewerPdf {
   }
 
   private getPrintScale(page: PDFPageProxy) {
-    // For performance reasons we have to limit the print scale. The resulting
-    // width of a page should not exceed 2480px in width, and 3508px in height.
-    // This relates to the maximum resolution of an A4 page at 300 DPI, which
-    // should be sufficient for a decent print quality.
-    return Math.min(Math.min(2480 / page.view[2], 3508 / page.view[3]), 2);
+    // For performance reasons we have to limit the print scale. A page is
+    // rendered at 300 DPI at most, and never larger than an A4 page at 300 DPI
+    // (2480px x 3508px) along its own orientation. The viewport is used instead
+    // of page.view, because it accounts for the page rotation and user unit.
+    const { height, width } = page.getViewport({ scale: 1 });
+
+    const longSide = Math.max(width, height);
+    const shortSide = Math.min(width, height);
+
+    return Math.min(3508 / longSide, 2480 / shortSide, 300 / 72);
   }
 
   private restoreScrollPosition() {
