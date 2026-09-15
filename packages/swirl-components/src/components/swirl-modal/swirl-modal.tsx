@@ -3,12 +3,12 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Listen,
   Method,
   Prop,
   State,
-  h,
 } from "@stencil/core";
 import classnames from "classnames";
 import { tabbable } from "tabbable";
@@ -380,8 +380,7 @@ export class SwirlModal {
       return;
     }
 
-    // Don't steal focus if the user (or another component) already moved focus
-    // into the modal content during the 200 ms delay.
+    // don't steal focus if already moved
     if (this.focusIsInsideContent() && document.activeElement !== autoFocusEl) {
       return;
     }
@@ -390,9 +389,9 @@ export class SwirlModal {
   }
 
   private focusIsInsideContent(): boolean {
-    // Shallow check: when focus sits inside a nested shadow root,
+    // shallow check: when focus sits inside a nested shadow root,
     // document.activeElement is that component's host, which is still a
-    // light-DOM descendant of this.el.
+    // light-DOM descendant of this.el
     const shallowActiveEl = document.activeElement;
 
     if (
@@ -403,9 +402,8 @@ export class SwirlModal {
       return true;
     }
 
-    // Deep check for scoped (non-shadow) components such as swirl-text-input.
+    // deep check for scoped (non-shadow) components such as swirl-text-input
     const activeEl = getActiveElement();
-
     return Boolean(activeEl) && this.el.contains(activeEl);
   }
 

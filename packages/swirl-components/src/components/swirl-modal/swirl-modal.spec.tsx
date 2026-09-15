@@ -384,8 +384,7 @@ describe("swirl-modal", () => {
   });
 
   describe("autofocus", () => {
-    // Stencil's mock-doc does not implement `document.activeElement`, and its
-    // `focus()` only dispatches an event. Simulate the focus state explicitly.
+    // simulate the focus state explicitly
     function setActiveElement(page: SpecPage, element: Element | null) {
       Object.defineProperty(page.doc, "activeElement", {
         configurable: true,
@@ -436,7 +435,7 @@ describe("swirl-modal", () => {
 
       await modal.open();
 
-      // The user tabs on to the next field before the timer fires.
+      // the user tabs on to the next field before the timer fires.
       setActiveElement(page, secondInput);
 
       await waitForAutoFocusDelay();
