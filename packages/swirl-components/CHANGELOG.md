@@ -1,5 +1,18 @@
 # @getflip/swirl-components
 
+## 0.529.0
+
+### Minor Changes
+
+- [#1790](https://github.com/getflip/swirl/pull/1790)
+  [`627d06f18`](https://github.com/getflip/swirl/commit/627d06f181825ae0af5bf26c6c14455038a04e3f)
+  Thanks [@danizep](https://github.com/danizep)! - Add `trigger` prop to
+  swirl-popover-trigger (`click` | `hover` | `focus`, array or space-separated
+  string) so popovers used as hover cards are keyboard accessible (WCAG 1.4.13).
+
+  Deprecates `triggerOnClick` and `triggerOnHover`; `triggerOnHover="true"` now
+  also opens the popover on keyboard focus.
+
 ## 0.528.0
 
 ### Minor Changes
