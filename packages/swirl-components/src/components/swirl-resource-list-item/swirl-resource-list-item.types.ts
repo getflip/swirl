@@ -24,8 +24,6 @@ export const swirlResourceListItemRel = {
 export type SwirlResourceListItemRel =
   (typeof swirlResourceListItemRel)[keyof typeof swirlResourceListItemRel];
 
-export type SwirlResourceListItemSelectionMode = "row" | "checkbox";
-
 export type SwirlResourceListItemTarget =
   | "_self"
   | "_blank"

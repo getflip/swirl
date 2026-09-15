@@ -18,7 +18,6 @@ import {
   SwirlResourceListItemAriaCurrent,
   SwirlResourceListItemLabelWeight,
   SwirlResourceListItemRel,
-  SwirlResourceListItemSelectionMode,
   SwirlResourceListItemTarget,
 } from "./swirl-resource-list-item.types";
 
@@ -39,7 +38,6 @@ export class SwirlResourceListItem {
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
   @Prop() allowHtml?: boolean;
-  @Prop() checkboxLabel?: string = "Select";
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() compact?: boolean;
   @Prop() description?: string;
@@ -63,7 +61,6 @@ export class SwirlResourceListItem {
   @Prop() meta?: string;
   @Prop() rel?: SwirlResourceListItemRel;
   @Prop() selectable?: boolean;
-  @Prop() selectionMode?: SwirlResourceListItemSelectionMode = "row";
   @Prop() swirlAriaCurrent?: SwirlResourceListItemAriaCurrent;
   @Prop() swirlAriaLabel?: string;
   @Prop() target?: SwirlResourceListItemTarget;
@@ -73,11 +70,9 @@ export class SwirlResourceListItem {
   @State() hasMedia: boolean = false;
   @State() iconSize: 20 | 24 = 24;
 
-  @Event() activate: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
-  private checkboxEl: HTMLElement;
   private elementId = crypto.randomUUID();
   private iconEl: HTMLElement;
   private mediaQueryUnsubscribe: () => void = () => {};
@@ -99,17 +94,12 @@ export class SwirlResourceListItem {
     this.rowHasFocus = this.el.contains(document.activeElement);
 
     this.syncTabIndex(this.getControl());
-    this.syncTabIndex(this.checkboxEl);
 
     if (Boolean(this.menuTriggerId)) {
       console.warn(
         '[Swirl] The "menu-trigger-id" prop of swirl-resource-list-item is deprecated and will be removed with the next major release. Please use the "control" slot to add a menu button instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlresourcelistitem--docs'
       );
     }
-  }
-
-  componentDidRender() {
-    this.syncTabIndex(this.checkboxEl);
   }
 
   disconnectedCallback() {
@@ -121,7 +111,6 @@ export class SwirlResourceListItem {
     this.rowHasFocus = true;
 
     this.syncTabIndex(this.getControl());
-    this.syncTabIndex(this.checkboxEl);
   }
 
   @Listen("focusout")
@@ -135,13 +124,6 @@ export class SwirlResourceListItem {
     this.rowHasFocus = false;
 
     this.syncTabIndex(this.getControl());
-    this.syncTabIndex(this.checkboxEl);
-  }
-
-  private get hasInteractiveCheckbox() {
-    return (
-      this.interactive && this.selectable && this.selectionMode === "checkbox"
-    );
   }
 
   private get hasBadges() {
@@ -188,15 +170,6 @@ export class SwirlResourceListItem {
       return;
     }
 
-    if (this.hasInteractiveCheckbox) {
-      if (this.disabled) {
-        return;
-      }
-
-      this.activate.emit(this.el);
-      return;
-    }
-
     this.toggle();
   };
 
@@ -218,18 +191,6 @@ export class SwirlResourceListItem {
     event.stopPropagation();
   };
 
-  private onCheckboxClick = (event: MouseEvent) => {
-    // The checkbox consumes the click, so it never reads as a row activation.
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (this.disabled) {
-      return;
-    }
-
-    this.toggle();
-  };
-
   private toggle() {
     this.checked = !this.checked;
     this.valueChange.emit(this.checked);
@@ -249,7 +210,6 @@ export class SwirlResourceListItem {
     const hasBadges = this.hasBadges;
     const hasControl = this.el.querySelector("[slot='control']");
     const hasMenu = Boolean(this.menuTriggerId) || hasControl;
-    const hasInteractiveCheckbox = this.hasInteractiveCheckbox;
 
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
 
@@ -262,15 +222,8 @@ export class SwirlResourceListItem {
       ? this.swirlAriaLabel
       : this.label;
 
-    const ariaChecked =
-      this.selectable && !hasInteractiveCheckbox
-        ? String(this.checked)
-        : undefined;
-
-    const role =
-      this.interactive && this.selectable && !hasInteractiveCheckbox
-        ? "checkbox"
-        : undefined;
+    const ariaChecked = this.selectable ? String(this.checked) : undefined;
+    const role = this.interactive && this.selectable ? "checkbox" : undefined;
     const hostRole = !!this.el.closest('[role="grid"]') ? "row" : "listitem";
     const containerRole = hostRole === "row" ? "gridcell" : undefined;
 
@@ -367,33 +320,15 @@ export class SwirlResourceListItem {
               )}
             </span>
           </Tag>
-          {this.selectable &&
-            (hasInteractiveCheckbox ? (
-              <button
-                aria-checked={String(this.checked)}
-                aria-label={`${this.checkboxLabel} "${this.label}"`}
-                class="resource-list-item__checkbox"
-                disabled={disabled}
-                onClick={this.onCheckboxClick}
-                ref={(el) => (this.checkboxEl = el)}
-                role="checkbox"
-                type="button"
-              >
-                <span class="resource-list-item__checkbox-icon">
-                  {this.checked && (
-                    <swirl-icon-check-strong></swirl-icon-check-strong>
-                  )}
-                </span>
-              </button>
-            ) : (
-              <span aria-hidden="true" class="resource-list-item__checkbox">
-                <span class="resource-list-item__checkbox-icon">
-                  {this.checked && (
-                    <swirl-icon-check-strong></swirl-icon-check-strong>
-                  )}
-                </span>
+          {this.selectable && (
+            <span aria-hidden="true" class="resource-list-item__checkbox">
+              <span class="resource-list-item__checkbox-icon">
+                {this.checked && (
+                  <swirl-icon-check-strong></swirl-icon-check-strong>
+                )}
               </span>
-            ))}
+            </span>
+          )}
           {showMeta && (
             <span class="resource-list-item__meta">
               {this.meta && (
