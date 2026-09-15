@@ -2,7 +2,7 @@ jest.mock("tabbable", () => ({
   tabbable: (element: HTMLElement | null) => (element ? [element] : []),
 }));
 
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, SpecPage } from "@stencil/core/testing";
 import { SwirlModal } from "./swirl-modal";
 
 (global as any).MutationObserver = class {
@@ -381,5 +381,82 @@ describe("swirl-modal", () => {
     expect(
       page.root.shadowRoot.querySelector(".modal--closing")
     ).not.toBeNull();
+  });
+
+  describe("autofocus", () => {
+    // simulate the focus state explicitly
+    function setActiveElement(page: SpecPage, element: Element | null) {
+      Object.defineProperty(page.doc, "activeElement", {
+        configurable: true,
+        get: () => element,
+      });
+    }
+
+    async function setUpModal() {
+      const page = await newSpecPage({
+        components: [SwirlModal],
+        html: `
+          <swirl-modal label="Dialog">
+            <input id="first" autofocus />
+            <input id="second" />
+          </swirl-modal>
+        `,
+      });
+
+      return {
+        page,
+        modal: page.root as HTMLSwirlModalElement,
+        firstInput: page.root.querySelector<HTMLInputElement>("#first"),
+        secondInput: page.root.querySelector<HTMLInputElement>("#second"),
+      };
+    }
+
+    // `newSpecPage` relies on real timers to flush renders, so wait the
+    // autofocus delay out rather than using fake timers.
+    const waitForAutoFocusDelay = () =>
+      new Promise((resolve) => setTimeout(resolve, 250));
+
+    it("focuses input[autofocus] 200ms after opening", async () => {
+      const { modal, firstInput } = await setUpModal();
+      const focusSpy = jest.spyOn(firstInput, "focus");
+
+      await modal.open();
+
+      expect(focusSpy).not.toHaveBeenCalled();
+
+      await waitForAutoFocusDelay();
+
+      expect(focusSpy).toHaveBeenCalled();
+    });
+
+    it("does not steal focus when focus already moved inside the modal", async () => {
+      const { page, modal, firstInput, secondInput } = await setUpModal();
+      const focusSpy = jest.spyOn(firstInput, "focus");
+
+      await modal.open();
+
+      // the user tabs on to the next field before the timer fires.
+      setActiveElement(page, secondInput);
+
+      await waitForAutoFocusDelay();
+
+      expect(focusSpy).not.toHaveBeenCalled();
+      expect(page.doc.activeElement).toBe(secondInput);
+    });
+
+    it("still autofocuses when focus is on the modal itself", async () => {
+      const { page, modal, firstInput } = await setUpModal();
+      const focusSpy = jest.spyOn(firstInput, "focus");
+
+      await modal.open();
+
+      // `showModal()` leaves focus on the dialog, so the host is the shallow
+      // active element. This must not count as focus inside the content.
+      setActiveElement(page, modal);
+
+      await waitForAutoFocusDelay();
+
+      expect(focusSpy).toHaveBeenCalled();
+    });
   });
 });
