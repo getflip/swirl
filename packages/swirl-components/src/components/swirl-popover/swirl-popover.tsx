@@ -34,7 +34,11 @@ import {
 
 export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
 
-export type SwirlPopoverControlMethod = "click" | "hover" | "programmatic";
+export type SwirlPopoverControlMethod =
+  | "click"
+  | "hover"
+  | "focus"
+  | "programmatic";
 
 const swirlPopoverBorderRadiusTokens = ["xs", "sm", "base", "l", "xl"] as const;
 
@@ -231,7 +235,14 @@ export class SwirlPopover {
 
     this.unlockBodyScroll();
 
-    if (this.returnFocusToTrigger && !disableFocus) {
+    const openedWithoutActivation =
+      this.openedVia === "hover" || this.openedVia === "focus";
+
+    if (
+      this.returnFocusToTrigger &&
+      !disableFocus &&
+      !openedWithoutActivation
+    ) {
       this.getNativeTriggerElement()?.focus();
     }
   }
@@ -364,9 +375,7 @@ export class SwirlPopover {
     }
   };
 
-  private updateTriggerAttributes(
-    controlledVia?: "click" | "hover" | "programmatic"
-  ) {
+  private updateTriggerAttributes(controlledVia?: SwirlPopoverControlMethod) {
     if (!Boolean(this.triggerEl)) {
       return;
     }
@@ -377,7 +386,7 @@ export class SwirlPopover {
       return;
     }
 
-    if (controlledVia !== "hover") {
+    if (controlledVia !== "hover" && controlledVia !== "focus") {
       nativeTriggerEl.setAttribute("aria-controls", this.el.id);
       nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
     } else {

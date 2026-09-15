@@ -46,5 +46,11 @@ shadow DOM barrier.
 
 ### Keyboard
 
-Keyboard behavior is defined by the associated SwirlPopover (e.g. Enter/Space to
-open, Escape to close).
+| Key                        | Function                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------- |
+| <kbd>Tab</kbd>              | Moves focus to the trigger, opening the popover when `"focus"` is active.   |
+| <kbd>Escape</kbd>           | Closes the popover while the trigger has focus.                            |
+| <kbd>Enter</kbd>/<kbd>Space</kbd> | Toggles the popover when `"click"` is active (native button behavior). |
+
+Further keyboard behavior (moving focus within the popover, closing on
+outside click) is defined by the associated SwirlPopover.

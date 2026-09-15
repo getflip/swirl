@@ -48255,7 +48255,7 @@
                 {
                   "name": "via",
                   "type": {
-                    "text": "\"click\" | \"hover\" | \"programmatic\"",
+                    "text": "\"click\" | \"focus\" | \"hover\" | \"programmatic\"",
                     "references": [
                       {
                         "name": "Promise",
@@ -48318,7 +48318,7 @@
                 {
                   "name": "via",
                   "type": {
-                    "text": "\"click\" | \"hover\" | \"programmatic\"",
+                    "text": "\"click\" | \"focus\" | \"hover\" | \"programmatic\"",
                     "references": [
                       {
                         "name": "Promise",
@@ -48466,12 +48466,25 @@
               "fieldName": "swirlPopover"
             },
             {
+              "name": "trigger",
+              "type": {
+                "text": "SwirlPopoverTriggerMethod[] | string",
+                "references": [
+                  {
+                    "name": "SwirlPopoverTriggerMethod"
+                  }
+                ]
+              },
+              "fieldName": "trigger"
+            },
+            {
               "name": "trigger-on-click",
               "type": {
                 "text": "boolean"
               },
               "default": "true",
-              "fieldName": "triggerOnClick"
+              "fieldName": "triggerOnClick",
+              "deprecated": "Please use the \"trigger\" prop instead, e.g. trigger=\"click\"."
             },
             {
               "name": "trigger-on-hover",
@@ -48479,7 +48492,8 @@
                 "text": "boolean"
               },
               "default": "false",
-              "fieldName": "triggerOnHover"
+              "fieldName": "triggerOnHover",
+              "deprecated": "Please use the \"trigger\" prop instead, e.g. trigger=\"hover focus\"."
             }
           ],
           "members": [
@@ -48556,11 +48570,26 @@
             },
             {
               "kind": "field",
+              "name": "trigger",
+              "type": {
+                "text": "SwirlPopoverTriggerMethod[] | string",
+                "references": [
+                  {
+                    "name": "SwirlPopoverTriggerMethod"
+                  }
+                ]
+              },
+              "readonly": true,
+              "attribute": "trigger"
+            },
+            {
+              "kind": "field",
               "name": "triggerOnClick",
               "type": {
                 "text": "boolean"
               },
               "default": "true",
+              "deprecated": "Please use the \"trigger\" prop instead, e.g. trigger=\"click\".",
               "readonly": true,
               "attribute": "trigger-on-click"
             },
@@ -48571,6 +48600,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "deprecated": "Please use the \"trigger\" prop instead, e.g. trigger=\"hover focus\".",
               "readonly": true,
               "attribute": "trigger-on-hover"
             }
