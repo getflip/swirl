@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
+import { getActiveElement, isDescendantOf } from "../../utils";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
 export type SwirlPopoverTriggerMethod = "click" | "hover" | "focus";
@@ -266,7 +267,7 @@ export class SwirlPopoverTrigger {
       if (
         this.triggerIsActive &&
         this.isPopoverOpen() &&
-        !this.focusStaysWithin(this.getActiveElement())
+        !this.focusStaysWithin(getActiveElement())
       ) {
         this.closePopover(true);
       }
@@ -334,14 +335,9 @@ export class SwirlPopoverTrigger {
     const popoverEl = this.getPopoverEl();
 
     return (
-      this.el.contains(node) ||
-      popoverEl === (node as unknown as HTMLElement) ||
-      Boolean(popoverEl?.contains(node))
+      isDescendantOf(node as Element, this.el) ||
+      (Boolean(popoverEl) && isDescendantOf(node as Element, popoverEl))
     );
-  }
-
-  private getActiveElement(): Node | null {
-    return document.activeElement;
   }
 
   private ariaOpenHandler = () => {
