@@ -3258,6 +3258,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconTabMove {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconTasks {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -8240,6 +8248,12 @@ declare global {
         prototype: HTMLSwirlIconSyncElement;
         new (): HTMLSwirlIconSyncElement;
     };
+    interface HTMLSwirlIconTabMoveElement extends Components.SwirlIconTabMove, HTMLStencilElement {
+    }
+    var HTMLSwirlIconTabMoveElement: {
+        prototype: HTMLSwirlIconTabMoveElement;
+        new (): HTMLSwirlIconTabMoveElement;
+    };
     interface HTMLSwirlIconTasksElement extends Components.SwirlIconTasks, HTMLStencilElement {
     }
     var HTMLSwirlIconTasksElement: {
@@ -10464,6 +10478,7 @@ declare global {
         "swirl-icon-sunny": HTMLSwirlIconSunnyElement;
         "swirl-icon-swap-vert": HTMLSwirlIconSwapVertElement;
         "swirl-icon-sync": HTMLSwirlIconSyncElement;
+        "swirl-icon-tab-move": HTMLSwirlIconTabMoveElement;
         "swirl-icon-tasks": HTMLSwirlIconTasksElement;
         "swirl-icon-tasks-filled": HTMLSwirlIconTasksFilledElement;
         "swirl-icon-terminal": HTMLSwirlIconTerminalElement;
@@ -13736,6 +13751,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSync {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconTabMove {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -18015,6 +18038,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconTabMoveAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconTasksAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -19504,6 +19532,7 @@ declare namespace LocalJSX {
         "swirl-icon-sunny": Omit<SwirlIconSunny, keyof SwirlIconSunnyAttributes> & { [K in keyof SwirlIconSunny & keyof SwirlIconSunnyAttributes]?: SwirlIconSunny[K] } & { [K in keyof SwirlIconSunny & keyof SwirlIconSunnyAttributes as `attr:${K}`]?: SwirlIconSunnyAttributes[K] } & { [K in keyof SwirlIconSunny & keyof SwirlIconSunnyAttributes as `prop:${K}`]?: SwirlIconSunny[K] };
         "swirl-icon-swap-vert": Omit<SwirlIconSwapVert, keyof SwirlIconSwapVertAttributes> & { [K in keyof SwirlIconSwapVert & keyof SwirlIconSwapVertAttributes]?: SwirlIconSwapVert[K] } & { [K in keyof SwirlIconSwapVert & keyof SwirlIconSwapVertAttributes as `attr:${K}`]?: SwirlIconSwapVertAttributes[K] } & { [K in keyof SwirlIconSwapVert & keyof SwirlIconSwapVertAttributes as `prop:${K}`]?: SwirlIconSwapVert[K] };
         "swirl-icon-sync": Omit<SwirlIconSync, keyof SwirlIconSyncAttributes> & { [K in keyof SwirlIconSync & keyof SwirlIconSyncAttributes]?: SwirlIconSync[K] } & { [K in keyof SwirlIconSync & keyof SwirlIconSyncAttributes as `attr:${K}`]?: SwirlIconSyncAttributes[K] } & { [K in keyof SwirlIconSync & keyof SwirlIconSyncAttributes as `prop:${K}`]?: SwirlIconSync[K] };
+        "swirl-icon-tab-move": Omit<SwirlIconTabMove, keyof SwirlIconTabMoveAttributes> & { [K in keyof SwirlIconTabMove & keyof SwirlIconTabMoveAttributes]?: SwirlIconTabMove[K] } & { [K in keyof SwirlIconTabMove & keyof SwirlIconTabMoveAttributes as `attr:${K}`]?: SwirlIconTabMoveAttributes[K] } & { [K in keyof SwirlIconTabMove & keyof SwirlIconTabMoveAttributes as `prop:${K}`]?: SwirlIconTabMove[K] };
         "swirl-icon-tasks": Omit<SwirlIconTasks, keyof SwirlIconTasksAttributes> & { [K in keyof SwirlIconTasks & keyof SwirlIconTasksAttributes]?: SwirlIconTasks[K] } & { [K in keyof SwirlIconTasks & keyof SwirlIconTasksAttributes as `attr:${K}`]?: SwirlIconTasksAttributes[K] } & { [K in keyof SwirlIconTasks & keyof SwirlIconTasksAttributes as `prop:${K}`]?: SwirlIconTasks[K] };
         "swirl-icon-tasks-filled": Omit<SwirlIconTasksFilled, keyof SwirlIconTasksFilledAttributes> & { [K in keyof SwirlIconTasksFilled & keyof SwirlIconTasksFilledAttributes]?: SwirlIconTasksFilled[K] } & { [K in keyof SwirlIconTasksFilled & keyof SwirlIconTasksFilledAttributes as `attr:${K}`]?: SwirlIconTasksFilledAttributes[K] } & { [K in keyof SwirlIconTasksFilled & keyof SwirlIconTasksFilledAttributes as `prop:${K}`]?: SwirlIconTasksFilled[K] };
         "swirl-icon-terminal": Omit<SwirlIconTerminal, keyof SwirlIconTerminalAttributes> & { [K in keyof SwirlIconTerminal & keyof SwirlIconTerminalAttributes]?: SwirlIconTerminal[K] } & { [K in keyof SwirlIconTerminal & keyof SwirlIconTerminalAttributes as `attr:${K}`]?: SwirlIconTerminalAttributes[K] } & { [K in keyof SwirlIconTerminal & keyof SwirlIconTerminalAttributes as `prop:${K}`]?: SwirlIconTerminal[K] };
@@ -20062,6 +20091,7 @@ declare module "@stencil/core" {
             "swirl-icon-sunny": LocalJSX.IntrinsicElements["swirl-icon-sunny"] & JSXBase.HTMLAttributes<HTMLSwirlIconSunnyElement>;
             "swirl-icon-swap-vert": LocalJSX.IntrinsicElements["swirl-icon-swap-vert"] & JSXBase.HTMLAttributes<HTMLSwirlIconSwapVertElement>;
             "swirl-icon-sync": LocalJSX.IntrinsicElements["swirl-icon-sync"] & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
+            "swirl-icon-tab-move": LocalJSX.IntrinsicElements["swirl-icon-tab-move"] & JSXBase.HTMLAttributes<HTMLSwirlIconTabMoveElement>;
             "swirl-icon-tasks": LocalJSX.IntrinsicElements["swirl-icon-tasks"] & JSXBase.HTMLAttributes<HTMLSwirlIconTasksElement>;
             "swirl-icon-tasks-filled": LocalJSX.IntrinsicElements["swirl-icon-tasks-filled"] & JSXBase.HTMLAttributes<HTMLSwirlIconTasksFilledElement>;
             "swirl-icon-terminal": LocalJSX.IntrinsicElements["swirl-icon-terminal"] & JSXBase.HTMLAttributes<HTMLSwirlIconTerminalElement>;
