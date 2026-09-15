@@ -1,5 +1,36 @@
 # @getflip/swirl-components
 
+## 0.528.0
+
+### Minor Changes
+
+- [#1803](https://github.com/getflip/swirl/pull/1803)
+  [`eb2565ed5`](https://github.com/getflip/swirl/commit/eb2565ed59d5b8a48572efb3c74b198c9478d771)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add tab-move
+  icon
+
+### Patch Changes
+
+- [#1792](https://github.com/getflip/swirl/pull/1792)
+  [`c15d42b97`](https://github.com/getflip/swirl/commit/c15d42b97633385cf13c010371143a2381f4df7e)
+  Thanks [@marcomFlip](https://github.com/marcomFlip)! - Fix the label of an
+  `inline` `swirl-form-control` rendering on top of the input
+
+* [#1802](https://github.com/getflip/swirl/pull/1802)
+  [`64ae61352`](https://github.com/getflip/swirl/commit/64ae6135264a82d4bac71b46d81e20701ac96bf1)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! -
+  `swirl-modal` no longer moves focus back to `input[autofocus]` if focus
+  already moved elsewhere inside the modal
+
+- [#1801](https://github.com/getflip/swirl/pull/1801)
+  [`bcbb4db2c`](https://github.com/getflip/swirl/commit/bcbb4db2c848f98f32357fcb040d624c3d5f6461)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Print PDF pages at their correct
+  size and orientation.
+
+- Updated dependencies
+  [[`eb2565ed5`](https://github.com/getflip/swirl/commit/eb2565ed59d5b8a48572efb3c74b198c9478d771)]:
+  - @getflip/swirl-icons@0.96.0
+
 ## 0.527.0
 
 ### Minor Changes

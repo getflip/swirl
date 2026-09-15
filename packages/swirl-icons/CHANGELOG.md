@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.96.0
+
+### Minor Changes
+
+- [#1803](https://github.com/getflip/swirl/pull/1803)
+  [`eb2565ed5`](https://github.com/getflip/swirl/commit/eb2565ed59d5b8a48572efb3c74b198c9478d771)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add tab-move
+  icon
+
 ## 0.95.0
 
 ### Minor Changes
