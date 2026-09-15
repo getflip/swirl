@@ -12,7 +12,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { tabbable } from "tabbable";
-import { SwirlDialogToggleEvent } from "../../utils";
+import { getActiveElement, SwirlDialogToggleEvent } from "../../utils";
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -373,7 +373,40 @@ export class SwirlModal {
   };
 
   private handleAutoFocus() {
-    this.el.querySelector<HTMLInputElement>("input[autofocus]")?.focus();
+    const autoFocusEl =
+      this.el.querySelector<HTMLInputElement>("input[autofocus]");
+
+    if (!autoFocusEl) {
+      return;
+    }
+
+    // Don't steal focus if the user (or another component) already moved focus
+    // into the modal content during the 200 ms delay.
+    if (this.focusIsInsideContent() && document.activeElement !== autoFocusEl) {
+      return;
+    }
+
+    autoFocusEl.focus();
+  }
+
+  private focusIsInsideContent(): boolean {
+    // Shallow check: when focus sits inside a nested shadow root,
+    // document.activeElement is that component's host, which is still a
+    // light-DOM descendant of this.el.
+    const shallowActiveEl = document.activeElement;
+
+    if (
+      Boolean(shallowActiveEl) &&
+      shallowActiveEl !== this.el &&
+      this.el.contains(shallowActiveEl)
+    ) {
+      return true;
+    }
+
+    // Deep check for scoped (non-shadow) components such as swirl-text-input.
+    const activeEl = getActiveElement();
+
+    return Boolean(activeEl) && this.el.contains(activeEl);
   }
 
   private lockBodyScroll() {
