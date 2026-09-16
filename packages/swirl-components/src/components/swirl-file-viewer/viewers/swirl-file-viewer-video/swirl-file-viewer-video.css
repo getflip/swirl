@@ -11,5 +11,7 @@
 
 .file-viewer-video__video {
   width: 100%;
+  min-height: 8rem;
   background-color: rgba(0, 0, 0, 1);
+  object-fit: contain;
 }
