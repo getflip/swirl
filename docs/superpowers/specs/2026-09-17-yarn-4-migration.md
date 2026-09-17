@@ -61,15 +61,21 @@ from the Yarn 4 lockfile — `string-width-cjs`, `strip-ansi-cjs` and
 `wrap-ansi-cjs`, all npm *aliases* that Yarn 4 records under a different key,
 not version changes.
 
-Two failures seen during investigation were **not** caused by Yarn 4 and are
-not in scope:
+One failure seen during investigation was **not** caused by Yarn 4 and is not
+in scope:
 
-- **Storybook build, `ENAMETOOLONG`.** Storybook encodes the absolute repo path
-  into a virtual module filename. At the probe's scratchpad path that filename
-  is 279 bytes; at the real repo path it is 189 bytes. macOS `NAME_MAX` is 255.
-  An artifact of where the probe lived.
 - **swirl-docs tests.** Need `turbo run prebuild`, which needs the
   `NEXT_PUBLIC_ALGOLIA_*` secrets that CI supplies.
+
+The Storybook build **was** genuinely broken by Yarn 4 — see breaking change
+B7 below. An earlier pass of this investigation misattributed that break to
+`ENAMETOOLONG`: Storybook encodes the absolute repo path into a virtual module
+filename, and at the probe's scratchpad path that filename is 279 bytes, over
+macOS's 255-byte `NAME_MAX` (at the real repo path it is 189 bytes and fine).
+That path-length ceiling is real, but it was a red herring for *this* failure
+— it is a hazard of building Storybook from a very deep checkout path in
+general, unrelated to the vite-hoisting regression that actually broke the
+build, which reproduces regardless of path length.
 
 ### Breaking changes that must be handled
 
@@ -148,7 +154,8 @@ Affected:
 - `apps/swirl-docs` `prebuild`/`postbuild` — these **silently stop firing**
   when turbo invokes `yarn run build`. Today `yarn build` at the repo root
   generates the API docs data as a side effect; after the migration it would
-  not.
+  not. `prebuild` is re-attached via `turbo.json`'s `swirl-docs#build` task
+  (Task 2). `postbuild` is deliberately **not** re-attached — see D5.
 - `apps/swirl-docs/Dockerfile` is unaffected: its build context is
   `apps/swirl-docs`, so it never sees the root `.yarnrc.yml` and keeps running
   Alpine's Yarn 1.
@@ -168,6 +175,42 @@ reports `4.18.0`, with no `corepack enable` anywhere. Cost: 3.7 MB in git.
 
 **B6 — `figma-to-style-dictionary.yml` pins Node 16.** Yarn 4.18.0 requires
 Node >= 18.12.
+
+**B7 — Yarn 4's hoisting broke the Storybook build via a peer-dependency
+violation, misdiagnosed at first as a `chai` problem.**
+
+`@storybook/builder-vite@10.2.11` declares `vite` only as a peerDependency
+(`^5.0.0 || ^6.0.0 || ^7.0.0`), with no `dependencies.vite` of its own. This
+repo pins two vite majors across workspaces — `packages/swirl-components`
+devDependency `vite@5.4.0`, `packages/swirl-components-react` `vite@3.2.10`
+(transitively). Yarn 1 nested a `vite@5.4.0` directly under `builder-vite`;
+Yarn 4's node-modules linker instead hoists `builder-vite` to the repo root,
+where the only `vite` available is `3.2.10` — violating builder-vite's peer
+range.
+
+Vite 3's bundled esbuild then rejects a `0n` BigInt literal it encounters in
+bundled `chai@4.4.0`, which is what the build actually threw on — making the
+symptom look like a `chai` regression. It is not: `chai` resolves to identical
+versions in both the Yarn 1 and Yarn 4 lockfiles, so it was a red herring, and
+the two vite majors already coexisted under Yarn 1 without incident, since
+Yarn 1's hoisting never put the wrong one where builder-vite could find it.
+
+**Fix:** a `packageExtensions` entry in `.yarnrc.yml` gives
+`@storybook/builder-vite` a real `dependencies.vite: "5.4.0"`. This corrects
+the manifest Yarn resolves against without changing anything else about the
+physical layout — `pdfjs-dist` in particular stays hoisted at the root, where
+`packages/swirl-components/stencil.config.ts` (its `copy` output target) reads
+it from `../../../node_modules/pdfjs-dist`.
+
+A first attempt used `installConfig.hoistingLimits: workspaces` on
+`swirl-components` instead. It was rejected: it fixed Storybook, but it also
+unhoisted `pdfjs-dist`, which broke `stencil:build`.
+
+Because the extension declares `vite` under `dependencies` rather than
+resolving the existing hoisted copy, Yarn materialises a **second physical
+copy** at `node_modules/@storybook/builder-vite/node_modules/vite` (confirmed:
+`5.4.0`, matching the pin). This is a known, accepted duplication — see the
+sync-instruction comment added to `.yarnrc.yml` alongside the extension.
 
 ### Non-issues, confirmed
 
@@ -232,6 +275,29 @@ an empty `dependencies: {}`, and reorders one `devDependencies` block. The
 `bin` change is semantically identical — npm derives the command name from the
 unscoped package name. Commit these deliberately rather than fighting them.
 
+**D5 — Re-attach `prebuild` through turbo (Task 2); leave `postbuild`
+explicit-only.** `apps/swirl-docs`'s `postbuild` (`tsx
+src/scripts/postbuild.ts`) calls `sendDataToAlgolia(...)`, publishing to the
+**live** Algolia search index. Wiring it into `turbo.json`'s `swirl-docs#build`
+alongside `prebuild` would make it fire from `turbo run build` again — but that
+is not wanted:
+
+- No CI path regresses without it. `build-deploy.yml` builds with
+  `--filter=!swirl-docs`; `publish.yml` uses `build:packages`; `lint-test.yml`
+  only builds tokens. No workflow runs `turbo run build` for swirl-docs.
+- `apps/swirl-docs/Dockerfile` calls `yarn postbuild` explicitly as its own
+  step, and its build context is `apps/swirl-docs`, so it never sees the root
+  `.yarnrc.yml` and keeps running Yarn 1. The production path that actually
+  populates the search index is unaffected by this migration.
+- A developer's local `yarn build` silently mutating the production search
+  index is a hazard, not a feature Yarn 1 gave us on purpose to keep. Restoring
+  it through turbo would restore that hazard for everyone who runs `yarn build`
+  at the root.
+
+So `postbuild` stays exactly what B4 made it: invoked explicitly, by
+`Dockerfile`'s `RUN yarn postbuild` in production and by `yarn postbuild`
+locally if someone wants to refresh the index by hand.
+
 ## Requirements
 
 1. `packageManager` is `yarn@4.18.0`; `.yarn/releases/yarn-4.18.0.cjs` is
@@ -246,8 +312,9 @@ unscoped package name. Commit these deliberately rather than fighting them.
 6. The release flow refreshes `yarn.lock` after `changeset version`, so the
    Version Packages PR is installable under an immutable CI install.
 7. `apps/swirl-docs` `prebuild` runs to completion under Yarn's shell.
-8. `yarn build` at the repo root still produces swirl-docs' generated API docs
-   data, i.e. `prebuild`/`postbuild` still run despite B4.
+8. `prebuild` is re-attached via turbo, so `turbo run build` still produces
+   swirl-docs' generated API docs data despite B4. `postbuild` is **not**
+   re-attached and stays explicit-only — see B4 and D5 for why.
 9. `README.md` tells a new contributor how to get the right Yarn.
 10. Builds, lint and the Stencil spec suite pass.
 

@@ -77,6 +77,7 @@ Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
 | `.github/workflows/figma-to-style-dictionary.yml` | Modify | Node 16 → 20 |
 | `README.md` | Modify | Contributor setup instructions |
 | `.changeset/*.md` | Create | Changeset for the release |
+| `.yarnrc.yml` | Modify (Task 7) | `packageExtensions` fix for the Storybook builder-vite/vite peer mismatch (B7) |
 
 ---
 
@@ -951,6 +952,115 @@ Full investigation: `docs/superpowers/specs/2026-09-17-yarn-4-migration.md`
 EOF
 )"
 ```
+
+---
+
+### Task 7: Fix the Storybook build (discovered during Task 6's verification)
+
+Task 6 Step 3 ("Build Storybook") was where this was actually found: `yarn workspace @getflip/swirl-components run storybook:build` failed, and it was a real finding rather than the `ENAMETOOLONG` path-length artifact the plan anticipated. This task records what shipped to fix it — it is a record of what happened, not instructions to re-run.
+
+**Files:**
+- Modify: `.yarnrc.yml` (`packageExtensions` block)
+
+**Interfaces:**
+- Consumes: the Yarn 4 install from Task 1, `@storybook/builder-vite@10.2.11` and the two vite majors already pinned in the workspace (`packages/swirl-components` devDependency `vite@5.4.0`; `packages/swirl-components-react`'s transitive `vite@3.2.10`).
+- Produces: `yarn workspace @getflip/swirl-components run storybook:build` succeeds; no other package's resolution changes.
+
+- [ ] **Step 1: Diagnose past the misleading symptom**
+
+The build failed inside vite 3's bundled esbuild:
+
+```
+Big integer literals are not available in the configured target environment
+```
+
+The literal in question is a `0n` in bundled `chai@4.4.0`, which made this look like a `chai` regression. It is not — `chai` resolves to identical versions in both the Yarn 1 and Yarn 4 lockfiles. The real cause is upstream of `chai`: `@storybook/builder-vite@10.2.11` declares `vite` only as a peerDependency (`^5.0.0 || ^6.0.0 || ^7.0.0`), never as a real `dependencies` entry. Under Yarn 1's hoisting, `builder-vite` happened to land next to `swirl-components`' own `vite@5.4.0`. Yarn 4's node-modules linker hoists differently: `vite@3.2.10` (pulled in via `swirl-components-react`) wins the single root slot, which violates builder-vite's peer range, so it links against vite 3, not 5.
+
+Yarn already detects this — `YN0086 "peer dependencies incorrectly met"` — but only warns; it does not restructure the tree on its own.
+
+- [ ] **Step 2: Reject the naive fix**
+
+An earlier attempt used `installConfig.hoistingLimits: "workspaces"` on `packages/swirl-components/package.json`, to force a `vite@5.4.0` next to `builder-vite` by unhoisting `swirl-components`' whole dependency tree. It fixed Storybook, but it also unhoisted `pdfjs-dist`, breaking `stencil:build` — `packages/swirl-components/stencil.config.ts`'s `copy` output target reads it from the hardcoded path `../../../node_modules/pdfjs-dist`. Rejected: a fix that breaks a different, passing build is not a fix.
+
+- [ ] **Step 3: Apply the targeted fix**
+
+Add a `packageExtensions` entry in `.yarnrc.yml` giving `@storybook/builder-vite` a real `dependencies.vite`, so Yarn resolves and links an actual vite 5.4.0 next to it, without touching how anything else in the tree is hoisted:
+
+```yaml
+# @storybook/builder-vite@10.2.11 only declares vite as a peerDependency
+# (no `dependencies.vite`), so Yarn 4's node-modules linker is free to hoist
+# it next to whichever vite happens to win the root slot. This repo pins two
+# vite majors across workspaces (swirl-components: 5.4.0,
+# swirl-components-react: 3.2.10); when 3.2.10 wins the root, it violates
+# builder-vite's peer range (^5.0.0 || ^6.0.0 || ^7.0.0), and Storybook's
+# preview build fails inside vite 3's bundled esbuild. This extension patches
+# builder-vite's manifest so Yarn resolves/hoists a real vite 5.4.0 for it,
+# without touching the physical layout of any other dependency (e.g.
+# pdfjs-dist stays hoisted at the root, where swirl-components/stencil.config.ts
+# expects it).
+packageExtensions:
+  "@storybook/builder-vite@*":
+    dependencies:
+      vite: "5.4.0"
+```
+
+No `yarn.lock` changes result: Yarn resolves the extension against the `vite@5.4.0` resolution that already exists for `swirl-components`' own devDependency, so no new lockfile entry is needed. It does create a second physical copy of vite at `node_modules/@storybook/builder-vite/node_modules/vite`, which is expected — see the comment block in `.yarnrc.yml`.
+
+- [ ] **Step 4: Verify**
+
+```bash
+cd /Users/paulobernardes/getflip/swirl
+yarn workspace @getflip/swirl-components run storybook:build
+yarn workspace @getflip/swirl-components run stencil:build
+yarn workspace @getflip/swirl-components run test
+yarn lint
+CI=true yarn install
+```
+
+Expected: Storybook build succeeds; `stencil:build` succeeds and its `pdfjs-dist` copy step actually copies files (checked by listing, not just exit code — an unhoisting regression here would fail silently on exit code alone); tests stay at 106 suites / 587 tests / 14 snapshots; lint passes; `CI=true yarn install` reports no `YN0028`. Also confirm `swirl-components-react` still resolves `vite@3.2.10`, unaffected by the extension.
+
+- [ ] **Step 5: Commit**
+
+```bash
+cd /Users/paulobernardes/getflip/swirl
+git add .yarnrc.yml
+git commit -m "build: patch @storybook/builder-vite's manifest to fix Storybook under Yarn 4
+
+@storybook/builder-vite@10.2.11 declares vite only as a peerDependency
+(^5.0.0 || ^6.0.0 || ^7.0.0), never as a real dependency. This repo pins two
+vite majors across workspaces (swirl-components: 5.4.0,
+swirl-components-react: 3.2.10). Under Yarn 1's hoisting, builder-vite
+happened to land next to swirl-components' own vite 5.4.0. Yarn 4's
+node-modules linker hoists differently: vite 3.2.10 wins the single root
+slot, which violates builder-vite's peer range, so Storybook's preview
+build fails inside vite 3's bundled esbuild (\"Big integer literals are
+not available in the configured target environment\").
+
+Yarn already detects the mismatch (YN0086 \"peer dependencies incorrectly
+met\") but only warns; it won't restructure the tree on its own.
+
+Fix via packageExtensions in .yarnrc.yml: add a real \`dependencies.vite\`
+entry to builder-vite's manifest so Yarn resolves/links an actual vite
+5.4.0 next to it. This is the targeted fix for the one package with the
+broken manifest, and it leaves the rest of the tree's physical layout
+untouched — pdfjs-dist and everything else stays hoisted at the root
+exactly as before, so swirl-components/stencil.config.ts's hardcoded
+../../../node_modules/pdfjs-dist paths keep resolving.
+
+An earlier attempt used installConfig.hoistingLimits: \"workspaces\" on
+swirl-components' package.json to force vite 5.4.0 next to builder-vite.
+That fixed Storybook but unhoisted swirl-components' entire dependency
+tree, including pdfjs-dist, breaking those hardcoded stencil.config.ts
+paths and failing stencil:build. Rejected in favor of this narrower fix.
+
+No yarn.lock changes: Yarn resolves the extension against the vite@5.4.0
+resolution that already exists for swirl-components' own devDependency,
+so no new lockfile entry is needed.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+```
+
+This landed as commit `0dffda87`, after Task 6's changeset commit — Storybook's verification is what surfaced it, one task late relative to where the spec originally expected it (B7).
 
 ---
 

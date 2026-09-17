@@ -108,6 +108,17 @@ install it: running `yarn` in this repo uses `.yarn/releases/yarn-4.18.0.cjs`
 automatically. If you have no `yarn` on your `PATH` at all, enable Corepack
 once with `corepack enable`.
 
+> [!NOTE]
+> If you have an existing checkout from before this migration, delete any
+> leftover Yarn 1 `yarn.lock` files nested under `packages/`/`apps/` before
+> your first install — Yarn 4 treats a directory containing a `yarn.lock` as
+> its own standalone project, which breaks workspace commands run from
+> inside it. This is a one-time cleanup:
+>
+> ```sh
+> find packages apps -maxdepth 2 -name yarn.lock -delete
+> ```
+
 ### Install dependencies and build workspaces
 
 ```sh
