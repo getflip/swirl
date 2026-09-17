@@ -74,6 +74,10 @@
     "stencil:build": {
       "outputs": ["dist/**", "components.json"],
       "dependsOn": ["@getflip/swirl-tokens#build"]
+    },
+    "swirl-docs#build": {
+      "outputs": [".next/**"],
+      "dependsOn": ["prebuild", "^build"]
     }
   }
 }
