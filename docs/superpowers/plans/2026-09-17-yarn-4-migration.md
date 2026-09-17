@@ -8,7 +8,7 @@
 
 **Tech Stack:** Yarn 4.18.0, Turborepo 2.9.18, Changesets 2.24.3, Stencil 4.43.1, Next.js 14, Angular 19, GitHub Actions.
 
-**Spec:** `docs/superpowers/specs/2026-09-17-yarn-4-migration.md` — read it first. Every decision below (D1–D4) and every breaking change (B1–B6) is defined there, with the evidence.
+**Spec:** `docs/superpowers/specs/2026-09-17-yarn-4-migration.md` — read it first. Every decision below (D1–D5) and every breaking change (B1–B7) is defined there, with the evidence.
 
 ## Global Constraints
 
