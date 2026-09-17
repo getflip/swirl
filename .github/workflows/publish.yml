@@ -36,6 +36,7 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: yarn release
+          version: yarn version:ci
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -84,6 +85,9 @@ jobs:
         run: npx changeset version --snapshot beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Refresh lockfile after snapshot versioning
+        run: yarn install --mode=update-lockfile
 
       - name: Publish snapshot to npm
         run: npx changeset publish --tag beta
