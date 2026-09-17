@@ -59,7 +59,7 @@ import { SwirlPopoverTriggerMethod } from "./components/swirl-popover-trigger/sw
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
-import { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight, SwirlResourceListItemRel, SwirlResourceListItemSelectionMode, SwirlResourceListItemTarget } from "./components/swirl-resource-list-item/swirl-resource-list-item.types";
+import { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight, SwirlResourceListItemRel, SwirlResourceListItemTarget } from "./components/swirl-resource-list-item/swirl-resource-list-item.types";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -144,7 +144,7 @@ export { SwirlPopoverTriggerMethod } from "./components/swirl-popover-trigger/sw
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
-export { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight, SwirlResourceListItemRel, SwirlResourceListItemSelectionMode, SwirlResourceListItemTarget } from "./components/swirl-resource-list-item/swirl-resource-list-item.types";
+export { SwirlResourceListItemAriaCurrent, SwirlResourceListItemLabelWeight, SwirlResourceListItemRel, SwirlResourceListItemTarget } from "./components/swirl-resource-list-item/swirl-resource-list-item.types";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSemantics, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -4314,10 +4314,6 @@ export namespace Components {
         "allowDrag"?: boolean;
         "allowHtml"?: boolean;
         /**
-          * @default "Select"
-         */
-        "checkboxLabel"?: string;
-        /**
           * @default false
          */
         "checked"?: boolean;
@@ -4361,10 +4357,6 @@ export namespace Components {
         "meta"?: string;
         "rel"?: SwirlResourceListItemRel;
         "selectable"?: boolean;
-        /**
-          * @default "row"
-         */
-        "selectionMode"?: SwirlResourceListItemSelectionMode;
         "swirlAriaCurrent"?: SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel"?: string;
         "target"?: SwirlResourceListItemTarget;
@@ -9002,7 +8994,6 @@ declare global {
         new (): HTMLSwirlResourceListFileItemElement;
     };
     interface HTMLSwirlResourceListItemElementEventMap {
-        "activate": HTMLSwirlResourceListItemElement;
         "toggleDrag": HTMLSwirlResourceListItemElement;
         "valueChange": boolean;
     }
@@ -14745,10 +14736,6 @@ declare namespace LocalJSX {
         "allowDrag"?: boolean;
         "allowHtml"?: boolean;
         /**
-          * @default "Select"
-         */
-        "checkboxLabel"?: string;
-        /**
           * @default false
          */
         "checked"?: boolean;
@@ -14790,15 +14777,10 @@ declare namespace LocalJSX {
          */
         "menuTriggerLabel"?: string;
         "meta"?: string;
-        "onActivate"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "rel"?: SwirlResourceListItemRel;
         "selectable"?: boolean;
-        /**
-          * @default "row"
-         */
-        "selectionMode"?: SwirlResourceListItemSelectionMode;
         "swirlAriaCurrent"?: SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel"?: string;
         "target"?: SwirlResourceListItemTarget;
@@ -18492,7 +18474,6 @@ declare namespace LocalJSX {
         "active": boolean;
         "allowDrag": boolean;
         "allowHtml": boolean;
-        "checkboxLabel": string;
         "checked": boolean;
         "compact": boolean;
         "description": string;
@@ -18516,7 +18497,6 @@ declare namespace LocalJSX {
         "meta": string;
         "rel": SwirlResourceListItemRel;
         "selectable": boolean;
-        "selectionMode": SwirlResourceListItemSelectionMode;
         "swirlAriaCurrent": SwirlResourceListItemAriaCurrent;
         "swirlAriaLabel": string;
         "target": SwirlResourceListItemTarget;
