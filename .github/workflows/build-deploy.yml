@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - run: yarn install --ignore-scripts
+      - run: yarn install --mode=skip-build
       - run: npx turbo run build --filter=!swirl-docs
       - name: Build And Deploy
         id: builddeploy
