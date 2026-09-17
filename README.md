@@ -100,13 +100,13 @@ generated from our OpenAPI specs.
 
 ## Getting started
 
-You need to have [Node.js](https://nodejs.org/en) installed on your machine. We
-recommend using [nvm](https://github.com/nvm-sh/nvm) for that. You will also
-need to install [yarn](https://classic.yarnpkg.com/en/).
+You need to have [Node.js](https://nodejs.org/en) installed on your machine (at
+least v18.12). We recommend using [nvm](https://github.com/nvm-sh/nvm) for that.
 
-```sh
-npm install --global yarn@1
-```
+Yarn is pinned to 4.18.0 and committed to the repo, so you do not need to
+install it: running `yarn` in this repo uses `.yarn/releases/yarn-4.18.0.cjs`
+automatically. If you have no `yarn` on your `PATH` at all, enable Corepack
+once with `corepack enable`.
 
 ### Install dependencies and build workspaces
 
