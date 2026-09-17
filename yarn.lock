@@ -10041,7 +10041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/lockfile@npm:1.1.0, @yarnpkg/lockfile@npm:^1.1.0":
+"@yarnpkg/lockfile@npm:1.1.0":
   version: 1.1.0
   resolution: "@yarnpkg/lockfile@npm:1.1.0"
   checksum: 10c0/0bfa50a3d756623d1f3409bc23f225a1d069424dbc77c6fd2f14fb377390cd57ec703dc70286e081c564be9051ead9ba85d81d66a3e68eeb6eb506d4e0c0fbda
@@ -12617,13 +12617,6 @@ __metadata:
   version: 1.6.0
   resolution: "ci-info@npm:1.6.0"
   checksum: 10c0/5a74921e50e0be504ef811f00cb8dd6a547e1f4f2e709b7364b2de72a6fbc0215d86c88cd62c485a129090365d2a6367ca00344ced04e714860b22fbe10180c8
-  languageName: node
-  linkType: hard
-
-"ci-info@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ci-info@npm:2.0.0"
-  checksum: 10c0/8c5fa3830a2bcee2b53c2e5018226f0141db9ec9f7b1e27a5c57db5512332cde8a0beb769bcbaf0d8775a78afbf2bb841928feca4ea6219638a5b088f9884b46
   languageName: node
   linkType: hard
 
@@ -16941,15 +16934,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-yarn-workspace-root@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "find-yarn-workspace-root@npm:2.0.0"
-  dependencies:
-    micromatch: "npm:^4.0.2"
-  checksum: 10c0/b0d3843013fbdaf4e57140e0165889d09fa61745c9e85da2af86e54974f4cc9f1967e40f0d8fc36a79d53091f0829c651d06607d552582e53976f3cd8f4e5689
-  languageName: node
-  linkType: hard
-
 "findup-sync@npm:^5.0.0":
   version: 5.0.0
   resolution: "findup-sync@npm:5.0.0"
@@ -19306,17 +19290,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-ci@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "is-ci@npm:2.0.0"
-  dependencies:
-    ci-info: "npm:^2.0.0"
-  bin:
-    is-ci: bin.js
-  checksum: 10c0/17de4e2cd8f993c56c86472dd53dd9e2c7f126d0ee55afe610557046cdd64de0e8feadbad476edc9eeff63b060523b8673d9094ed2ab294b59efb5a66dd05a9a
-  languageName: node
-  linkType: hard
-
 "is-ci@npm:^3.0.1":
   version: 3.0.1
   resolution: "is-ci@npm:3.0.1"
@@ -19408,15 +19381,6 @@ __metadata:
     is-data-descriptor: "npm:^1.0.0"
     kind-of: "npm:^6.0.2"
   checksum: 10c0/a05169c7a87feb88fc155e3ada469090cfabb5a548a3f794358b511cc47a0871b8b95e7345be4925a22ef3df585c3923b31943b3ad6255ce563a9d97f2e221e0
-  languageName: node
-  linkType: hard
-
-"is-docker@npm:^2.0.0":
-  version: 2.2.1
-  resolution: "is-docker@npm:2.2.1"
-  bin:
-    is-docker: cli.js
-  checksum: 10c0/e828365958d155f90c409cdbe958f64051d99e8aedc2c8c4cd7c89dcf35329daed42f7b99346f7828df013e27deb8f721cf9408ba878c76eb9e8290235fbcdcc
   languageName: node
   linkType: hard
 
@@ -19965,15 +19929,6 @@ __metadata:
   version: 1.1.0
   resolution: "is-wsl@npm:1.1.0"
   checksum: 10c0/7ad0012f21092d6f586c7faad84755a8ef0da9b9ec295e4dc82313cce4e1a93a3da3c217265016461f9b141503fe55fa6eb1fd5457d3f05e8d1bdbb48e50c13a
-  languageName: node
-  linkType: hard
-
-"is-wsl@npm:^2.1.1":
-  version: 2.2.0
-  resolution: "is-wsl@npm:2.2.0"
-  dependencies:
-    is-docker: "npm:^2.0.0"
-  checksum: 10c0/a6fa2d370d21be487c0165c7a440d567274fbba1a817f2f0bfa41cc5e3af25041d84267baa22df66696956038a43973e72fca117918c91431920bdef490fa25e
   languageName: node
   linkType: hard
 
@@ -21247,15 +21202,6 @@ __metadata:
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
   checksum: 10c0/61cdff9623dabf3568b6445e93e31376bee1cdb93f8ba7033d86022c2a9b1791a1d9510e026e6465ebd701a6dd2f7b0808483ad8838341ac52f003f512e0b4c4
-  languageName: node
-  linkType: hard
-
-"klaw-sync@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "klaw-sync@npm:6.0.0"
-  dependencies:
-    graceful-fs: "npm:^4.1.11"
-  checksum: 10c0/00d8e4c48d0d699b743b3b028e807295ea0b225caf6179f51029e19783a93ad8bb9bccde617d169659fbe99559d73fb35f796214de031d0023c26b906cecd70a
   languageName: node
   linkType: hard
 
@@ -25320,16 +25266,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open@npm:^7.4.2":
-  version: 7.4.2
-  resolution: "open@npm:7.4.2"
-  dependencies:
-    is-docker: "npm:^2.0.0"
-    is-wsl: "npm:^2.1.1"
-  checksum: 10c0/77573a6a68f7364f3a19a4c80492712720746b63680ee304555112605ead196afe91052bd3c3d165efdf4e9d04d255e87de0d0a77acec11ef47fd5261251813f
-  languageName: node
-  linkType: hard
-
 "openapi-types@npm:^12.1.0":
   version: 12.1.0
   resolution: "openapi-types@npm:12.1.0"
@@ -25894,29 +25830,6 @@ __metadata:
   version: 0.1.1
   resolution: "pascalcase@npm:0.1.1"
   checksum: 10c0/48dfe90618e33810bf58211d8f39ad2c0262f19ad6354da1ba563935b5f429f36409a1fb9187c220328f7a4dc5969917f8e3e01ee089b5f1627b02aefe39567b
-  languageName: node
-  linkType: hard
-
-"patch-package@npm:6.4.7":
-  version: 6.4.7
-  resolution: "patch-package@npm:6.4.7"
-  dependencies:
-    "@yarnpkg/lockfile": "npm:^1.1.0"
-    chalk: "npm:^2.4.2"
-    cross-spawn: "npm:^6.0.5"
-    find-yarn-workspace-root: "npm:^2.0.0"
-    fs-extra: "npm:^7.0.1"
-    is-ci: "npm:^2.0.0"
-    klaw-sync: "npm:^6.0.0"
-    minimist: "npm:^1.2.0"
-    open: "npm:^7.4.2"
-    rimraf: "npm:^2.6.3"
-    semver: "npm:^5.6.0"
-    slash: "npm:^2.0.0"
-    tmp: "npm:^0.0.33"
-  bin:
-    patch-package: index.js
-  checksum: 10c0/fc5906dab7b4e5213be1aea36a825008d04da475c8f7b87e2b87579b5fca52927c200160f1f59a491b553db7e2a01427a1b3669bac5325e8b0d7e890241cbea0
   languageName: node
   linkType: hard
 
@@ -26595,13 +26508,6 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^0.6.2"
   checksum: 10c0/41fcf9773bc48c66ee771f2732bd81050c10fbfb3e06babeddb7a36da9e93baed6b8ba0175597458d8123b58b49111f0c0e38846598e1f407fcc5329eb7812d6
-  languageName: node
-  linkType: hard
-
-"postinstall-postinstall@npm:2.1.0":
-  version: 2.1.0
-  resolution: "postinstall-postinstall@npm:2.1.0"
-  checksum: 10c0/70488447292c712afa7806126824d6fe93362392cbe261ae60166d9119a350713e0dbf4deb2ca91637c1037bc030ed1de78d61d9041bf2504513070f1caacdfd
   languageName: node
   linkType: hard
 
@@ -28188,7 +28094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^2.5.4, rimraf@npm:^2.6.1, rimraf@npm:^2.6.2, rimraf@npm:^2.6.3":
+"rimraf@npm:^2.5.4, rimraf@npm:^2.6.1, rimraf@npm:^2.6.2":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
   dependencies:
@@ -29436,13 +29342,6 @@ __metadata:
   version: 1.0.5
   resolution: "sisteransi@npm:1.0.5"
   checksum: 10c0/230ac975cca485b7f6fe2b96a711aa62a6a26ead3e6fb8ba17c5a00d61b8bed0d7adc21f5626b70d7c33c62ff4e63933017a6462942c719d1980bb0b1207ad46
-  languageName: node
-  linkType: hard
-
-"slash@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "slash@npm:2.0.0"
-  checksum: 10c0/f83dbd3cb62c41bb8fcbbc6bf5473f3234b97fa1d008f571710a9d3757a28c7169e1811cad1554ccb1cc531460b3d221c9a7b37f549398d9a30707f0a5af9193
   languageName: node
   linkType: hard
 
@@ -30764,8 +30663,6 @@ __metadata:
     "@changesets/changelog-github": "npm:0.4.6"
     "@changesets/cli": "npm:2.24.3"
     npm-run-all: "npm:4.1.5"
-    patch-package: "npm:6.4.7"
-    postinstall-postinstall: "npm:2.1.0"
     prettier: "npm:2.8.8"
     turbo: "npm:2.9.18"
   languageName: unknown
