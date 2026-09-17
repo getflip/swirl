@@ -1,5 +1,27 @@
 # @getflip/swirl-components
 
+## 0.529.0
+
+### Minor Changes
+
+- [#1790](https://github.com/getflip/swirl/pull/1790)
+  [`627d06f18`](https://github.com/getflip/swirl/commit/627d06f181825ae0af5bf26c6c14455038a04e3f)
+  Thanks [@danizep](https://github.com/danizep)! - Add `trigger` prop to
+  swirl-popover-trigger (`click` | `hover` | `focus`, array or space-separated
+  string) so popovers used as hover cards are keyboard accessible (WCAG 1.4.13).
+
+  Deprecates `triggerOnClick` and `triggerOnHover`; `triggerOnHover="true"` now
+  also opens the popover on keyboard focus.
+
+### Patch Changes
+
+- [#1806](https://github.com/getflip/swirl/pull/1806)
+  [`dabcc0e33`](https://github.com/getflip/swirl/commit/dabcc0e334f584eea3bb7d494c20a99a14a6f158)
+  Thanks [@danizep](https://github.com/danizep)! - Fix SwirlFileViewer video
+  rendering: videos now fill the available stage and letterbox the picture, so
+  extremely wide/short videos are no longer covered by the native controls bar,
+  and tall videos no longer overflow their container.
+
 ## 0.528.0
 
 ### Minor Changes
