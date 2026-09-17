@@ -8,14 +8,14 @@
 
 **Tech Stack:** Yarn 4.18.0, Turborepo 2.9.18, Changesets 2.24.3, Stencil 4.43.1, Next.js 14, Angular 19, GitHub Actions.
 
-**Spec:** `docs/superpowers/specs/2026-09-17-yarn-4-migration.md` — read it first. Every decision below (D1–D5) and every breaking change (B1–B7) is defined there, with the evidence.
+**Spec:** `docs/superpowers/specs/2026-09-17-yarn-4-migration.md` — read it first. Every decision below (D1–D5) and every breaking change (B1–B8) is defined there, with the evidence.
 
 ## Global Constraints
 
 - Yarn version is exactly **4.18.0**. Do not run `yarn set version latest` or `stable` — pin the number.
 - Node version floor is **18.12** (Yarn 4.18.0's minimum). CI currently uses 20 and 22; one workflow uses 16 and must be raised.
 - `nodeLinker` is **`node-modules`**. Do not use PnP or the pnpm linker.
-- **No dependency versions change in this PR.** The lockfile is converted, not re-resolved. If any package version moves, stop and investigate.
+- **No dependency versions change in this PR — with one deliberate, documented exception (B8).** The lockfile is converted, not re-resolved. If any *other* package version moves, stop and investigate. The one exception: `packages/swirl-mcp`'s `zod` pin moved `3.24.0` → `3.25.76` (Task 8), because Yarn 4 lets `@modelcontextprotocol/sdk`'s `zod` peer dependency win over `swirl-mcp`'s own pin, and `3.24.0` violates that peer's range — Yarn 1 masked this by nesting the SDK's own copy instead. See the spec's B8 for the full mechanism.
 - `npmMinimalAgeGate` stays **`0`** in this PR (D3). Turning the gate on is a separate follow-up PR.
 - **The migration must be 100% behaviour-neutral** (D2). Local `yarn install` keeps running dependency install scripts (`enableScripts: true`); CI keeps skipping them (`--mode=skip-build`, replacing `--ignore-scripts`). Do not "simplify" this to `enableScripts: false` — that would change what developers get.
 - Do **not** add `approvedGitRepositories` — the repo has zero git-protocol dependencies, and Yarn's automatic migration adds a `["**"]` wildcard that must be deleted.
@@ -923,7 +923,11 @@ to preserve Yarn 1 behaviour. Turning it on to `3d` with
 - Yarn 4.18.0, pinned via `yarnPath` and a committed `.yarn/releases` binary, so
   the Yarn 1 already on CI runners delegates to it. No `corepack enable` needed —
   two workflows have no `setup-node` step at all.
-- `yarn.lock` converted to Yarn 4 format. No dependency versions changed.
+- `yarn.lock` converted to Yarn 4 format. No dependency versions changed, with
+  one deliberate exception landed separately (Task 8): `packages/swirl-mcp`'s
+  `zod` pin moved `3.24.0` → `3.25.76`, because Yarn 4 lets
+  `@modelcontextprotocol/sdk`'s `zod` peer dependency win over that pin, and
+  `3.24.0` violates the SDK's peer range — see B8.
 - `--ignore-scripts` → `--mode=skip-build` in all five workflows. Local
   installs still run dependency install scripts and CI still does not, exactly
   as before.
@@ -1061,6 +1065,23 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 ```
 
 This landed as commit `0dffda87`, after Task 6's changeset commit — Storybook's verification is what surfaced it, one task late relative to where the spec originally expected it (B7).
+
+---
+
+### Task 8: Bump swirl-mcp's zod pin so the SDK resolves zod/v4 (discovered by actually running `yarn dev`)
+
+Every earlier task verified builds and type-checks; nobody ran `@getflip/swirl-mcp` itself until after this plan's original scope (Tasks 1–7) had already landed. Running it surfaced a second, unrelated Yarn 4 peer-resolution regression: see B8 in the spec for the full mechanism. This task is, like Task 7, a record of what shipped, not instructions to re-run.
+
+**Files:**
+- Modify: `packages/swirl-mcp/package.json` (`zod` `3.24.0` → `3.25.76`)
+- Modify: `yarn.lock` (the `zod` resolution entry and `swirl-mcp`'s workspace pin)
+- Create: `.changeset/bump-swirl-mcp-zod-3-25-76.md`
+
+**Interfaces:**
+- Consumes: the Yarn 4 install from Task 1.
+- Produces: `@getflip/swirl-mcp` resolves a `zod` that satisfies `@modelcontextprotocol/sdk`'s peer range and exposes the `./v4` subpath its ESM build imports.
+
+This is the one deliberate, documented exception to "no dependency versions change in this PR" — see the Global Constraints note above and B8 in the spec. Verified: `yarn workspace @getflip/swirl-mcp run build`, `yarn workspace @getflip/swirl-mcp run dev` (stdio server starts without `ERR_PACKAGE_PATH_NOT_EXPORTED`), root `yarn dev`, `yarn workspace @getflip/swirl-components run test` (106/587/14, unchanged), `yarn workspace @getflip/bridge run test` (11/27, unchanged), `yarn lint`, and `CI=true yarn install --mode=skip-build` (no `YN0028`) all pass after the bump, and the `yarn.lock` diff touches only the `zod` entries.
 
 ---
 

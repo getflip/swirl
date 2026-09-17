@@ -212,6 +212,47 @@ copy** at `node_modules/@storybook/builder-vite/node_modules/vite` (confirmed:
 `5.4.0`, matching the pin). This is a known, accepted duplication — see the
 sync-instruction comment added to `.yarnrc.yml` alongside the extension.
 
+**B8 — Yarn 4 lets `@modelcontextprotocol/sdk`'s peer dependency on `zod` win over `swirl-mcp`'s own pin, breaking `@getflip/swirl-mcp` at runtime; the fix is a deliberate, documented dependency-version change.**
+
+`@modelcontextprotocol/sdk@1.27.1` declares `zod` as **both** a `dependencies`
+entry and a `peerDependencies` entry, range `^3.25 || ^4.0`.
+`packages/swirl-mcp/package.json` pinned `zod: "3.24.0"`, which violates that
+range.
+
+- **Under Yarn 1** the SDK got its own nested copy, isolated from the
+  violation: `packages/swirl-mcp/node_modules/@modelcontextprotocol/sdk/node_modules/zod`
+  resolved to **4.3.6** (confirmed by rebuilding the pre-migration tree at
+  `c29231e7` and resolving from the SDK's own directory).
+- **Under Yarn 4** the node-modules linker instead lets the peer win, resolved
+  from the parent workspace: the SDK resolves `zod` to the hoisted root copy,
+  which is `swirl-mcp`'s own pinned **3.24.0** — a version that has no `./v4`
+  export. `zod@4.3.6` still appears in `yarn.lock` (pulled in elsewhere) but
+  is installed nowhere the SDK can reach.
+- **Runtime symptom:**
+  ```
+  ERR_PACKAGE_PATH_NOT_EXPORTED: Package subpath './v4' is not defined by
+  "exports" in node_modules/zod/package.json imported from
+  node_modules/@modelcontextprotocol/sdk/dist/esm/types.js
+  ```
+- It builds and type-checks clean, which is why an earlier review pass of
+  this migration misclassified this as pre-existing skew — only running
+  `swirl-mcp` exposes it.
+
+**Fix:** bump `packages/swirl-mcp`'s own `zod` pin from `3.24.0` to
+`3.25.76`. That version satisfies the SDK's `^3.25 || ^4.0` peer range and
+exposes the `./v4` subpath the SDK's ESM build imports (verified against the
+npm registry for both `3.25.0` and `3.25.76`), while staying a minor bump
+inside zod 3 rather than a major jump to zod 4. `swirl-mcp`'s own source
+imports only `from "zod"` (the root export, verified by grep across
+`packages/swirl-mcp/src`), so the bump does not touch what its own code uses.
+
+This is the one deliberate, documented exception to "no dependency versions
+change in this PR" (Requirement 3 below, and the plan's Global Constraints):
+Yarn 1 was silently installing a `zod` version `swirl-mcp`'s own manifest
+never declared compatible with what its SDK dependency requires; Yarn 4
+surfaces that real constraint instead of masking it, and the honest repair is
+to correct the manifest, not to try to reproduce Yarn 1's nested-copy masking.
+
 ### Non-issues, confirmed
 
 - **OIDC trusted publishing survives.** `@changesets/cli@2.24.3`'s
@@ -305,7 +346,8 @@ locally if someone wants to refresh the index by hand.
 2. `.yarnrc.yml` sets `nodeLinker: node-modules`, `enableScripts: true`,
    `npmMinimalAgeGate: 0`. It does **not** set `approvedGitRepositories`.
 3. `yarn.lock` is converted to Yarn 4 format (`__metadata: version 10`) with no
-   dependency version changes.
+   dependency version changes, with one deliberate, documented exception:
+   `packages/swirl-mcp`'s `zod` pin, `3.24.0` → `3.25.76` — see B8.
 4. No workflow passes `--ignore-scripts`; each passes `--mode=skip-build`
    instead, preserving today's behaviour.
 5. `figma-to-style-dictionary.yml` runs on Node >= 18.12.
