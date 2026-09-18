@@ -45,4 +45,97 @@ describe("swirl-action-list-item", () => {
       page.root.shadowRoot.querySelector(".action-list-item__suffix")
     ).toBeNull();
   });
+
+  it("does not set aria-disabled or the native disabled attribute when neither disabled prop is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label"></swirl-action-list-item>`,
+    });
+
+    const button = page.root.shadowRoot.querySelector("button");
+
+    expect(button.hasAttribute("disabled")).toBe(false);
+    expect(button.hasAttribute("aria-disabled")).toBe(false);
+    expect(button.classList.contains("action-list-item--aria-disabled")).toBe(
+      false
+    );
+  });
+
+  it("does not set aria-disabled when only disabled is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item disabled="true" label="Label"></swirl-action-list-item>`,
+    });
+
+    const button = page.root.shadowRoot.querySelector("button");
+
+    expect(button.hasAttribute("disabled")).toBe(true);
+    expect(button.hasAttribute("aria-disabled")).toBe(false);
+    expect(button.classList.contains("action-list-item--aria-disabled")).toBe(
+      false
+    );
+  });
+
+  it("sets aria-disabled but not the native disabled attribute when swirlAriaDisabled is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label" swirl-aria-disabled="true"></swirl-action-list-item>`,
+    });
+
+    const button = page.root.shadowRoot.querySelector("button");
+
+    expect(button.hasAttribute("disabled")).toBe(false);
+    expect(button.getAttribute("aria-disabled")).toBe("true");
+    expect(button.classList.contains("action-list-item--aria-disabled")).toBe(
+      true
+    );
+  });
+
+  it("hides suffix if swirlAriaDisabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label" suffix="<swirl-icon-chevron-right></swirl-icon-chevron-right>" swirl-aria-disabled="true"></swirl-action-list-item>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector(".action-list-item__suffix")
+    ).toBeNull();
+  });
+
+  it("forwards swirlAriaDescribedby to aria-describedby on the button", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label" swirl-aria-describedby="tooltip-1"></swirl-action-list-item>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector("button").getAttribute("aria-describedby")
+    ).toBe("tooltip-1");
+  });
+
+  it("prevents a click from bubbling to the host when swirlAriaDisabled is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label" swirl-aria-disabled="true"></swirl-action-list-item>`,
+    });
+
+    const onClick = jest.fn();
+    page.root.addEventListener("click", onClick);
+    page.root.shadowRoot.querySelector("button").click();
+
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("lets a click bubble to the host when neither disabled prop is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label"></swirl-action-list-item>`,
+    });
+
+    const onClick = jest.fn();
+    page.root.addEventListener("click", onClick);
+    page.root.shadowRoot.querySelector("button").click();
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
 });

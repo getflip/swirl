@@ -27,7 +27,7 @@
   cursor: pointer;
   gap: var(--s-space-12);
 
-  &:hover {
+  &:hover:not(.action-list-item--aria-disabled) {
     background-color: var(--s-state-hovered);
 
     --swirl-tag-background-default: var(--s-state-pressed);
@@ -45,11 +45,12 @@
     z-index: 1;
   }
 
-  &:active {
+  &:active:not(.action-list-item--aria-disabled) {
     background-color: var(--s-translucent-low-pressed);
   }
 
-  &:disabled {
+  &:disabled,
+  &.action-list-item--aria-disabled {
     cursor: default;
 
     & .action-list-item__label,
@@ -79,7 +80,7 @@
     color: var(--s-icon-critical);
   }
 
-  &:not(:disabled) {
+  &:not(:disabled):not(.action-list-item--aria-disabled) {
     & .action-list-item__label {
       color: var(--s-text-critical);
     }

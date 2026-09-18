@@ -26,6 +26,8 @@ export class SwirlActionListItem {
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaDisabled?: boolean;
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlAriaHaspopup?: string;
   @Prop() suffix?: string;
@@ -45,6 +47,13 @@ export class SwirlActionListItem {
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
   }
+
+  private onClick = (event: MouseEvent) => {
+    if (this.swirlAriaDisabled) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
 
   private forceIconProps(smallIcon: boolean) {
     const icon = this.iconEl?.children[0];
@@ -66,21 +75,27 @@ export class SwirlActionListItem {
     const showIconBadge = Boolean(this.iconBadge);
     const showSuffixSlot = Boolean(this.el.querySelector('[slot="suffix"]'));
     const showSuffix =
-      (Boolean(this.suffix) || showSuffixSlot) && !this.disabled;
+      (Boolean(this.suffix) || showSuffixSlot) &&
+      !this.disabled &&
+      !this.swirlAriaDisabled;
 
     const className = classnames(
       "action-list-item",
       `action-list-item--intent-${this.intent}`,
-      `action-list-item--size-${this.size}`
+      `action-list-item--size-${this.size}`,
+      { "action-list-item--aria-disabled": this.swirlAriaDisabled }
     );
 
     return (
       <Host>
         <button
+          aria-describedby={this.swirlAriaDescribedby}
+          aria-disabled={this.swirlAriaDisabled ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}
           aria-haspopup={this.swirlAriaHaspopup}
           class={className}
           disabled={this.disabled}
+          onClick={this.onClick}
           part="action-list-item"
           role="menuitem"
           tabIndex={-1}
