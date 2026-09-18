@@ -21,6 +21,7 @@ import {
   Endpoint,
   Operations,
 } from "../../lib/docs/src/docs.model";
+import { CircularRefExpander } from "./CircularRefExpander";
 import { EndpointMapper } from "./EndpointMapper";
 import { FlipApiExtensions } from "./FlipApiExtensions";
 
@@ -122,6 +123,7 @@ export default class OASBuilder implements IOASBuilder {
 
   public async dereference() {
     await this._oas.dereference().then(() => console.log("Dereferenced!"));
+    this._oas.api = CircularRefExpander.expand(this._oas.api);
     return this;
   }
 
