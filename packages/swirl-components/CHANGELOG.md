@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.530.0
+
+### Minor Changes
+
+- [#1804](https://github.com/getflip/swirl/pull/1804)
+  [`20e5e7d51`](https://github.com/getflip/swirl/commit/20e5e7d5137c32d2b4f6a9480c9528d70871fec4)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Remove the
+  `selectionMode`, `checkboxLabel` and `activate` swirl-resource-list-item
+
 ## 0.529.0
 
 ### Minor Changes
