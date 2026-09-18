@@ -1,5 +1,19 @@
 # swirl-docs
 
+## 0.3.352
+
+### Patch Changes
+
+- [#1808](https://github.com/getflip/swirl/pull/1808)
+  [`ee79e2f47`](https://github.com/getflip/swirl/commit/ee79e2f47ef19fb649c57c0034db50e4fb43fdb0)
+  Thanks [@danizep](https://github.com/danizep)! - Fix API examples not
+  displaying circular references
+
+- Updated dependencies
+  [[`20e5e7d51`](https://github.com/getflip/swirl/commit/20e5e7d5137c32d2b4f6a9480c9528d70871fec4)]:
+  - @getflip/swirl-components@0.530.0
+  - @getflip/swirl-components-react@0.530.0
+
 ## 0.3.351
 
 ### Patch Changes
