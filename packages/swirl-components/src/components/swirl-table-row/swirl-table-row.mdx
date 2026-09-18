@@ -49,7 +49,12 @@ The component follows the
 | --------------- | ----------------------------------------------------- |
 | `role="row"`    |                                                       |
 | `aria-rowindex` | Set to the overall index of the row inside the table. |
+| `aria-level`    | Tree depth when `treeLevel` is set (1-based).         |
+| `aria-expanded` | Set when `treeExpandable` is true.                    |
+| `aria-setsize`  | Set from `treeSetSize`.                               |
+| `aria-posinset` | Set from `treePosInset`.                              |
 
 ### Keyboard
 
-No component-specific keyboard behavior.
+No component-specific keyboard behavior. Expand/collapse is handled by the tree
+toggle in `swirl-table-cell`.

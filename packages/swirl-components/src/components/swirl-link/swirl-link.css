@@ -11,10 +11,12 @@
 .link {
   color: var(--s-interactive-primary-default);
   line-height: var(--s-line-height-base);
+  text-decoration: var(--swirl-link-text-decoration, underline);
   text-underline-offset: var(--s-space-4);
 
   &:hover {
     color: var(--s-interactive-primary-hovered);
+    text-decoration: underline;
   }
 
   &:active {
