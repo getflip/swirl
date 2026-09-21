@@ -17,8 +17,8 @@ const Template = (args) => {
 
   element.innerHTML = `
     <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
-    <swirl-tooltip id="action-2-disabled-reason" content="This action is currently disabled" position="top">
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2" swirl-aria-disabled swirl-aria-describedby="action-2-disabled-reason"></swirl-action-list-item>
+    <swirl-tooltip content="This action is currently disabled" position="top">
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2" swirl-aria-disabled swirl-aria-description="This action is currently disabled"></swirl-action-list-item>
     </swirl-tooltip>
     <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
     <swirl-separator></swirl-separator>

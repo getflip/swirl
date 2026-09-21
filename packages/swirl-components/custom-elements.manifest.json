@@ -464,11 +464,11 @@
               "fieldName": "suffix"
             },
             {
-              "name": "swirl-aria-describedby",
+              "name": "swirl-aria-description",
               "type": {
                 "text": "string"
               },
-              "fieldName": "swirlAriaDescribedby"
+              "fieldName": "swirlAriaDescription"
             },
             {
               "name": "swirl-aria-disabled",
@@ -596,12 +596,12 @@
             },
             {
               "kind": "field",
-              "name": "swirlAriaDescribedby",
+              "name": "swirlAriaDescription",
               "type": {
                 "text": "string"
               },
               "readonly": true,
-              "attribute": "swirl-aria-describedby"
+              "attribute": "swirl-aria-description"
             },
             {
               "kind": "field",
