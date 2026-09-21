@@ -235,7 +235,6 @@ export namespace Components {
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
         "swirlAriaDescribedby"?: string;
-        "swirlAriaDescription"?: string;
         "swirlAriaDisabled"?: boolean;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
@@ -10777,7 +10776,6 @@ declare namespace LocalJSX {
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
         "swirlAriaDescribedby"?: string;
-        "swirlAriaDescription"?: string;
         "swirlAriaDisabled"?: boolean;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
@@ -16326,7 +16324,6 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlActionListItemSize;
         "swirlAriaDescribedby": string;
-        "swirlAriaDescription": string;
         "swirlAriaDisabled": boolean;
         "swirlAriaExpanded": string;
         "swirlAriaHaspopup": string;

@@ -471,13 +471,6 @@
               "fieldName": "swirlAriaDescribedby"
             },
             {
-              "name": "swirl-aria-description",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "swirlAriaDescription"
-            },
-            {
               "name": "swirl-aria-disabled",
               "type": {
                 "text": "boolean"
@@ -609,15 +602,6 @@
               },
               "readonly": true,
               "attribute": "swirl-aria-describedby"
-            },
-            {
-              "kind": "field",
-              "name": "swirlAriaDescription",
-              "type": {
-                "text": "string"
-              },
-              "readonly": true,
-              "attribute": "swirl-aria-description"
             },
             {
               "kind": "field",

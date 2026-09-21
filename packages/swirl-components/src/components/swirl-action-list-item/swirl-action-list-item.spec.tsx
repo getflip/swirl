@@ -102,17 +102,6 @@ describe("swirl-action-list-item", () => {
     ).toBeNull();
   });
 
-  it("forwards swirlAriaDescription to aria-description on the button", async () => {
-    const page = await newSpecPage({
-      components: [SwirlActionListItem],
-      html: `<swirl-action-list-item label="Label" swirl-aria-description="This action is currently disabled"></swirl-action-list-item>`,
-    });
-
-    expect(
-      page.root.shadowRoot.querySelector("button").getAttribute("aria-description")
-    ).toBe("This action is currently disabled");
-  });
-
   it("forwards swirlAriaDescribedby to aria-describedby on the button", async () => {
     const page = await newSpecPage({
       components: [SwirlActionListItem],

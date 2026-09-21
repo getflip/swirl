@@ -37,7 +37,6 @@ export class SwirlActionListItem {
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
   @Prop() swirlAriaDescribedby?: string;
-  @Prop() swirlAriaDescription?: string;
   @Prop() swirlAriaDisabled?: boolean;
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlAriaHaspopup?: string;
@@ -122,7 +121,6 @@ export class SwirlActionListItem {
       <Host>
         <button
           aria-describedby={this.swirlAriaDescribedby}
-          aria-description={this.swirlAriaDescription}
           aria-disabled={this.swirlAriaDisabled ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}
           aria-haspopup={this.swirlAriaHaspopup}
