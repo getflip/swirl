@@ -51,9 +51,11 @@ The SwirlActionListItem component is used to render menu items inside the
 The component follows the
 [WAI-ARIA Menu Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menu/).
 
-| ARIA              | Usage                                                                                                            |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `role="menuitem"` | The action list item has `role` set to `menuitem`. It should only be used inside a component with `role="menu"`. |
+| ARIA                | Usage                                                                                                                                                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `role="menuitem"`   | The action list item has `role` set to `menuitem`. It should only be used inside a component with `role="menu"`.                                                                                                |
+| `aria-disabled`     | Set when `swirlAriaDisabled` is `true`. Unlike `disabled`, the item stays focusable and hoverable — clicking it (mouse or keyboard) is blocked internally. Use this instead of `disabled` when the item should still be reachable, e.g. to explain why it's disabled via a wrapping `swirl-tooltip`. |
+| `aria-describedby`  | Set from the `swirlAriaDescribedby` prop. |
 
 ### Keyboard
 

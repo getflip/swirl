@@ -1,6 +1,16 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
+
+declare global {
+  interface ARIAMixin {
+    /**
+     * Not yet part of this project's bundled TypeScript DOM lib.
+     * https://developer.mozilla.org/docs/Web/API/Element/ariaDescribedByElements
+     */
+    ariaDescribedByElements: ReadonlyArray<globalThis.Element> | null;
+  }
+}
 
 export type SwirlActionListItemIntent = "default" | "critical";
 
@@ -26,6 +36,8 @@ export class SwirlActionListItem {
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaDisabled?: boolean;
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlAriaHaspopup?: string;
   @Prop() suffix?: string;
@@ -34,17 +46,43 @@ export class SwirlActionListItem {
   private iconEl: HTMLElement;
   private iconBadgeEl: HTMLElement;
   private suffixEl: HTMLElement;
+  private buttonEl: HTMLButtonElement;
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
       this.forceIconProps(isDesktop);
     });
+    this.updateAriaDescribedByElements();
   }
 
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
   }
+
+  @Watch("swirlAriaDescribedby")
+  private updateAriaDescribedByElements() {
+    if (!this.buttonEl) {
+      return;
+    }
+
+    const root = this.el.getRootNode() as Document | ShadowRoot;
+    const elements = (this.swirlAriaDescribedby ?? "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((id) => root.getElementById?.(id))
+      .filter((element): element is HTMLElement => Boolean(element));
+
+    this.buttonEl.ariaDescribedByElements =
+      elements.length > 0 ? elements : null;
+  }
+
+  private onClick = (event: MouseEvent) => {
+    if (this.swirlAriaDisabled) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
 
   private forceIconProps(smallIcon: boolean) {
     const icon = this.iconEl?.children[0];
@@ -66,22 +104,29 @@ export class SwirlActionListItem {
     const showIconBadge = Boolean(this.iconBadge);
     const showSuffixSlot = Boolean(this.el.querySelector('[slot="suffix"]'));
     const showSuffix =
-      (Boolean(this.suffix) || showSuffixSlot) && !this.disabled;
+      (Boolean(this.suffix) || showSuffixSlot) &&
+      !this.disabled &&
+      !this.swirlAriaDisabled;
 
     const className = classnames(
       "action-list-item",
       `action-list-item--intent-${this.intent}`,
-      `action-list-item--size-${this.size}`
+      `action-list-item--size-${this.size}`,
+      { "action-list-item--aria-disabled": this.swirlAriaDisabled }
     );
 
     return (
       <Host>
         <button
+          aria-describedby={this.swirlAriaDescribedby}
+          aria-disabled={this.swirlAriaDisabled ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}
           aria-haspopup={this.swirlAriaHaspopup}
           class={className}
           disabled={this.disabled}
+          onClick={this.onClick}
           part="action-list-item"
+          ref={(el) => (this.buttonEl = el)}
           role="menuitem"
           tabIndex={-1}
           type="button"

@@ -464,6 +464,20 @@
               "fieldName": "suffix"
             },
             {
+              "name": "swirl-aria-describedby",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "swirlAriaDescribedby"
+            },
+            {
+              "name": "swirl-aria-disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "swirlAriaDisabled"
+            },
+            {
               "name": "swirl-aria-expanded",
               "type": {
                 "text": "string"
@@ -579,6 +593,24 @@
               },
               "readonly": true,
               "attribute": "suffix"
+            },
+            {
+              "kind": "field",
+              "name": "swirlAriaDescribedby",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "swirl-aria-describedby"
+            },
+            {
+              "kind": "field",
+              "name": "swirlAriaDisabled",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "swirl-aria-disabled"
             },
             {
               "kind": "field",
