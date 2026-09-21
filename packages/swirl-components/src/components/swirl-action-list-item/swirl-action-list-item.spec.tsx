@@ -113,6 +113,45 @@ describe("swirl-action-list-item", () => {
     ).toBe("This action is currently disabled");
   });
 
+  it("forwards swirlAriaDescribedby to aria-describedby on the button", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label" swirl-aria-describedby="tooltip-1"></swirl-action-list-item>`,
+    });
+
+    expect(
+      page.root.shadowRoot.querySelector("button").getAttribute("aria-describedby")
+    ).toBe("tooltip-1");
+  });
+
+  it("resolves swirlAriaDescribedby ids to elements via ariaDescribedByElements", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `
+        <swirl-action-list-item label="Label" swirl-aria-describedby="tooltip-1 tooltip-2"></swirl-action-list-item>
+        <div id="tooltip-1">Reason one</div>
+        <div id="tooltip-2">Reason two</div>
+      `,
+    });
+
+    const button = page.root.shadowRoot.querySelector("button");
+    const tooltip1 = page.body.querySelector("#tooltip-1");
+    const tooltip2 = page.body.querySelector("#tooltip-2");
+
+    expect(button.ariaDescribedByElements).toEqual([tooltip1, tooltip2]);
+  });
+
+  it("clears ariaDescribedByElements when swirlAriaDescribedby has no matching elements", async () => {
+    const page = await newSpecPage({
+      components: [SwirlActionListItem],
+      html: `<swirl-action-list-item label="Label"></swirl-action-list-item>`,
+    });
+
+    const button = page.root.shadowRoot.querySelector("button");
+
+    expect(button.ariaDescribedByElements).toBeNull();
+  });
+
   it("prevents a click from bubbling to the host when swirlAriaDisabled is set", async () => {
     const page = await newSpecPage({
       components: [SwirlActionListItem],

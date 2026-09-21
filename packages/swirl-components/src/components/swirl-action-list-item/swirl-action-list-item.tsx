@@ -2,6 +2,16 @@ import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
+declare global {
+  interface ARIAMixin {
+    /**
+     * Not yet part of this project's bundled TypeScript DOM lib.
+     * https://developer.mozilla.org/docs/Web/API/Element/ariaDescribedByElements
+     */
+    ariaDescribedByElements: ReadonlyArray<globalThis.Element> | null;
+  }
+}
+
 export type SwirlActionListItemIntent = "default" | "critical";
 
 export type SwirlActionListItemSize = "m" | "l";
@@ -26,6 +36,7 @@ export class SwirlActionListItem {
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
+  @Prop() swirlAriaDescribedby?: string;
   @Prop() swirlAriaDescription?: string;
   @Prop() swirlAriaDisabled?: boolean;
   @Prop() swirlAriaExpanded?: string;
@@ -36,6 +47,7 @@ export class SwirlActionListItem {
   private iconEl: HTMLElement;
   private iconBadgeEl: HTMLElement;
   private suffixEl: HTMLElement;
+  private buttonEl: HTMLButtonElement;
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
@@ -44,8 +56,28 @@ export class SwirlActionListItem {
     });
   }
 
+  componentDidRender() {
+    this.updateAriaDescribedByElements();
+  }
+
   disconnectedCallback() {
     this.mediaQueryUnsubscribe();
+  }
+
+  private updateAriaDescribedByElements() {
+    if (!this.buttonEl) {
+      return;
+    }
+
+    const root = this.el.getRootNode() as Document | ShadowRoot;
+    const elements = (this.swirlAriaDescribedby ?? "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((id) => root.getElementById?.(id))
+      .filter((element): element is HTMLElement => Boolean(element));
+
+    this.buttonEl.ariaDescribedByElements =
+      elements.length > 0 ? elements : null;
   }
 
   private onClick = (event: MouseEvent) => {
@@ -89,6 +121,7 @@ export class SwirlActionListItem {
     return (
       <Host>
         <button
+          aria-describedby={this.swirlAriaDescribedby}
           aria-description={this.swirlAriaDescription}
           aria-disabled={this.swirlAriaDisabled ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}
@@ -97,6 +130,7 @@ export class SwirlActionListItem {
           disabled={this.disabled}
           onClick={this.onClick}
           part="action-list-item"
+          ref={(el) => (this.buttonEl = el)}
           role="menuitem"
           tabIndex={-1}
           type="button"

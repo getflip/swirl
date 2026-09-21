@@ -115,6 +115,10 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
           "name": "swirl-aria-description",
           "description": ""
         },
