@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.530.0
+
+### Minor Changes
+
+- [#1809](https://github.com/getflip/swirl/pull/1809)
+  [`b4befd67a`](https://github.com/getflip/swirl/commit/b4befd67a0362611a95875f21accd91ca60e6613)
+  Thanks [@danizep](https://github.com/danizep)! - Added a `swirlAriaDisabled`
+  and a `swirlAriaDescribedby` input to `swirl-action-list-item`.
+  `swirlAriaDisabled` renders the item with `aria-disabled` instead of the
+  native `disabled` attribute, so it stays focusable and hoverable — letting a
+  wrapping `swirl-tooltip` explain why the item is disabled. Clicking (mouse or
+  keyboard) a soft-disabled item is blocked inside the component. The existing
+  `disabled` prop is unchanged.
+
+* [#1804](https://github.com/getflip/swirl/pull/1804)
+  [`20e5e7d51`](https://github.com/getflip/swirl/commit/20e5e7d5137c32d2b4f6a9480c9528d70871fec4)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Remove the
+  `selectionMode`, `checkboxLabel` and `activate` swirl-resource-list-item
+
 ## 0.529.0
 
 ### Minor Changes
