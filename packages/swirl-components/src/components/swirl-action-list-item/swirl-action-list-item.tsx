@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
@@ -53,9 +53,6 @@ export class SwirlActionListItem {
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
       this.forceIconProps(isDesktop);
     });
-  }
-
-  componentDidRender() {
     this.updateAriaDescribedByElements();
   }
 
@@ -63,6 +60,7 @@ export class SwirlActionListItem {
     this.mediaQueryUnsubscribe();
   }
 
+  @Watch("swirlAriaDescribedby")
   private updateAriaDescribedByElements() {
     if (!this.buttonEl) {
       return;
