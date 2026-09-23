@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.97.0
+
+### Minor Changes
+
+- [#1810](https://github.com/getflip/swirl/pull/1810)
+  [`18ecfa895`](https://github.com/getflip/swirl/commit/18ecfa89510f9da2e7d84ebc105130bff112aac5)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add security
+  icons
+
 ## 0.96.0
 
 ### Minor Changes
