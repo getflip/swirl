@@ -58,6 +58,7 @@ export class SwirlToast {
   }
 
   disconnectedCallback() {
+    this.clearTimer();
     this.mediaQueryUnsubscribe();
   }
 
@@ -95,6 +96,7 @@ export class SwirlToast {
   };
 
   private onDismiss = () => {
+    this.clearTimer();
     this.dismiss.emit(this.toastId);
   };
 
