@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.531.1
+
+### Patch Changes
+
+- [#1812](https://github.com/getflip/swirl/pull/1812)
+  [`fc17982af`](https://github.com/getflip/swirl/commit/fc17982af2a35ac86c541068e7c2ddb72d656924)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Clear
+  swirl-toast auto-dismiss timer on close and disconnect
+
 ## 0.531.0
 
 ### Minor Changes
