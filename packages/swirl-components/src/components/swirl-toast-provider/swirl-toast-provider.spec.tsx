@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+import { SwirlToast } from "../swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastProvider } from "./swirl-toast-provider";
 
 describe("swirl-toast-provider", () => {
@@ -798,5 +799,46 @@ describe("swirl-toast-provider", () => {
     // Verify popover was refreshed (hide then show)
     expect(hidePopoverSpy).toHaveBeenCalled();
     expect(showPopoverSpy).toHaveBeenCalled();
+  });
+
+  it("does not let a dismissed toast's timer dismiss a newer toast with the same id", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToastProvider, SwirlToast],
+      html: `<swirl-toast-provider global-duration="7000"></swirl-toast-provider>`,
+    });
+
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
+    const getToasts = () =>
+      Array.from(page.root.shadowRoot.querySelectorAll("swirl-toast"));
+
+    const { requestAnimationFrame } = globalThis;
+    jest.useFakeTimers("legacy");
+
+    try {
+      await toastProvider.toast({ content: "A", toastId: "x" });
+      await page.waitForChanges();
+
+      jest.advanceTimersByTime(1000);
+      getToasts()[0].shadowRoot.querySelector("button").click();
+      await page.waitForChanges();
+      expect(getToasts()).toHaveLength(0);
+
+      jest.advanceTimersByTime(1000);
+      await toastProvider.toast({ content: "B", toastId: "x" });
+      await page.waitForChanges();
+
+      // A's original timer would have fired at 7s.
+      jest.advanceTimersByTime(5500);
+      await page.waitForChanges();
+      expect(getToasts().map((toast) => toast.textContent)).toEqual(["B"]);
+
+      // B's own timer fires 7s after it was created (9s).
+      jest.advanceTimersByTime(1500);
+      await page.waitForChanges();
+      expect(getToasts()).toHaveLength(0);
+    } finally {
+      jest.useRealTimers();
+      globalThis.requestAnimationFrame = requestAnimationFrame;
+    }
   });
 });
