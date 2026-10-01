@@ -13,7 +13,7 @@ describe("swirl-avatar", () => {
       <swirl-avatar label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
-            <span class="avatar__icon">
+            <span aria-label="John Doe" class="avatar__icon" role="img">
               <swirl-icon-person></swirl-icon-person>
             </span>
             <span class="avatar__tool avatar__tool--position-bottom">
@@ -43,7 +43,7 @@ describe("swirl-avatar", () => {
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__image">
-              <img alt="" height="40" src="https://" width="40">
+              <img alt="John Doe" height="40" src="https://" width="40">
             </span>
             <span class="avatar__tool avatar__tool--position-bottom">
               <slot name="tool"></slot>
@@ -64,7 +64,7 @@ describe("swirl-avatar", () => {
       <swirl-avatar initials="JD" label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-initials avatar--size-m avatar--variant-round" part="avatar">
-            <span class="avatar__initials">
+            <span aria-label="John Doe" class="avatar__initials" role="img">
               <span>
                 JD
               </span>
@@ -88,7 +88,7 @@ describe("swirl-avatar", () => {
       <swirl-avatar icon="<swirl-icon-close></swirl-icon-close>" label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
-            <span class="avatar__icon">
+            <span aria-label="John Doe" class="avatar__icon" role="img">
               <swirl-icon-close></swirl-icon-close>
             </span>
             <span class="avatar__tool avatar__tool--position-bottom">
@@ -156,7 +156,7 @@ describe("swirl-avatar", () => {
       <swirl-avatar badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
-            <span class="avatar__icon">
+            <span aria-label="John Doe" class="avatar__icon" role="img">
               <swirl-icon-person></swirl-icon-person>
             </span>
             <span class="avatar__badge avatar__badge--position-top">
@@ -181,7 +181,7 @@ describe("swirl-avatar", () => {
       <swirl-avatar label="John Doe" show-label="" size="m" variant="round">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
-            <span class="avatar__icon">
+            <span aria-label="John Doe" class="avatar__icon" role="img">
               <swirl-icon-person></swirl-icon-person>
             </span>
             <span class="avatar__tool avatar__tool--position-bottom">
@@ -194,6 +194,20 @@ describe("swirl-avatar", () => {
         </mock:shadow-root>
       </swirl-avatar>
     `);
+  });
+
+  it("exposes the label as accessible name when not interactive", async () => {
+    const page = await newSpecPage({
+      components: [SwirlAvatar],
+      html: `<swirl-avatar initials="JD" label="John Doe"></swirl-avatar>`,
+    });
+
+    expect(page.root.getAttribute("aria-label")).toBeNull();
+    expect(page.root.getAttribute("role")).toBeNull();
+
+    const visual = page.root.shadowRoot.querySelector('[role="img"]');
+
+    expect(visual.getAttribute("aria-label")).toBe("John Doe");
   });
 
   it("activates when interactive", async () => {
