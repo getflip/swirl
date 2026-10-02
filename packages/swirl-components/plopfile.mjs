@@ -366,7 +366,6 @@ export default function (
           const png = readFileSync(path);
 
           writeFileSync(`./public/emojis/${pngFileName}`, png);
-          writeFileSync(`./src/assets/emojis/${pngFileName}`, png);
         }
 
         const emojiNames = Array.from(

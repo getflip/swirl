@@ -225,7 +225,7 @@ export class SwirlAvatar {
           {showImage && (
             <span class="avatar__image">
               <img
-                alt=""
+                alt={this.label}
                 height={swirlAvatarSizeMappings[this.size]}
                 loading={
                   this.loading !== "intersecting" ? this.loading : undefined
@@ -237,13 +237,20 @@ export class SwirlAvatar {
             </span>
           )}
           {showInitials && (
-            <span class="avatar__initials">
+            <span aria-label={this.label} class="avatar__initials" role="img">
               <span>{this.initials}</span>
             </span>
           )}
-          {showIcon && <span class="avatar__icon" innerHTML={this.icon}></span>}
+          {showIcon && (
+            <span
+              aria-label={this.label}
+              class="avatar__icon"
+              innerHTML={this.icon}
+              role="img"
+            ></span>
+          )}
           {showFallbackIcon && (
-            <span class="avatar__icon">
+            <span aria-label={this.label} class="avatar__icon" role="img">
               <swirl-icon-person></swirl-icon-person>
             </span>
           )}

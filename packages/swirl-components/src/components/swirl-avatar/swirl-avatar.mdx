@@ -39,11 +39,12 @@ No related components.
 
 ### ARIA
 
-| ARIA            | Usage                                                   |
-| --------------- | ------------------------------------------------------- |
-| `role="img"`    | Role set for the avatar.                                |
-| `role="button"` | Role set for the interactive avatar.                    |
-| `aria-label`    | The `aria-label` is set to provide an accessible label. |
+| ARIA            | Usage                                                                                                                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `role="img"`    | Set on the rendered image, initials or icon so the avatar is announced as an image named by `label`.                                                                                                               |
+| `role="button"` | Set on the host of an interactive avatar.                                                                                                                                                                          |
+| `aria-label`    | Set to `label`. On an interactive avatar it is set on the host, otherwise on the rendered image, initials or icon.                                                                                                 |
+| `aria-hidden`   | Not set by the component. If the avatar is decorative, e.g. it sits next to text that already names the person (list items, chips, menu items), set `aria-hidden="true"` on the `swirl-avatar` element to hide it. |
 
 ### Keyboard
 
