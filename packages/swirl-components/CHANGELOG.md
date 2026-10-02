@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.531.2
+
+### Patch Changes
+
+- [#1814](https://github.com/getflip/swirl/pull/1814)
+  [`5c1f8f786`](https://github.com/getflip/swirl/commit/5c1f8f786ff743a60171e6d798530676feecd633)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - `swirl-avatar` now exposes its
+  `label` as accessible name for non-interactive avatars (`alt` on the image,
+  `role="img"` and `aria-label` on initials and icon).
+
+* [#1816](https://github.com/getflip/swirl/pull/1816)
+  [`d34b52b20`](https://github.com/getflip/swirl/commit/d34b52b2013ff4e66c829dfe3b1288550e4e815f)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! - Keep
+  `swirl-toast` auto-dismiss timer when the toast is moved in the DOM (e.g. into
+  or out of an open modal)
+
 ## 0.531.1
 
 ### Patch Changes
