@@ -41,6 +41,8 @@ export class SwirlToast {
 
   private dismissIconEl: HTMLElement;
   private iconEl: HTMLElement;
+  private dismissAt: number;
+  private loaded = false;
   private timeout: NodeJS.Timeout;
   private mediaQueryUnsubscribe: () => void = () => {};
 
@@ -49,17 +51,34 @@ export class SwirlToast {
     this.startTimer();
   }
 
+  connectedCallback() {
+    // moving toasts in the DOM disconnects and reconnects them,
+    // this restores what disconnectedCallback cleaned up. (e.g. provider moving into a dialog)
+    if (!this.loaded) {
+      return;
+    }
+
+    this.scheduleDismiss();
+    this.subscribeToMediaQuery();
+  }
+
   componentDidLoad() {
+    this.loaded = true;
     this.startTimer();
+    this.subscribeToMediaQuery();
+  }
+
+  disconnectedCallback() {
+    this.cancelScheduledDismiss();
+    this.mediaQueryUnsubscribe();
+  }
+
+  private subscribeToMediaQuery() {
+    this.mediaQueryUnsubscribe();
 
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
       this.forceIconProps(isDesktop);
     });
-  }
-
-  disconnectedCallback() {
-    this.clearTimer();
-    this.mediaQueryUnsubscribe();
   }
 
   private forceIconProps(smallIcon: boolean) {
@@ -77,18 +96,35 @@ export class SwirlToast {
       return;
     }
 
-    this.timeout = setTimeout(() => {
-      this.dismiss.emit(this.toastId);
-    }, this.duration);
+    this.dismissAt = Date.now() + this.duration;
+    this.scheduleDismiss();
   }
 
-  private clearTimer() {
+  private scheduleDismiss() {
+    if (this.dismissAt === undefined) {
+      return;
+    }
+
+    this.cancelScheduledDismiss();
+
+    this.timeout = setTimeout(() => {
+      this.clearTimer();
+      this.dismiss.emit(this.toastId);
+    }, Math.max(0, this.dismissAt - Date.now()));
+  }
+
+  private cancelScheduledDismiss() {
     if (!Boolean(this.timeout)) {
       return;
     }
 
     clearTimeout(this.timeout);
     this.timeout = undefined;
+  }
+
+  private clearTimer() {
+    this.cancelScheduledDismiss();
+    this.dismissAt = undefined;
   }
 
   private onAction = () => {
