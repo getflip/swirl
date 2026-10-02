@@ -58,7 +58,7 @@ export class SwirlToast {
       return;
     }
 
-    this.resumeTimer();
+    this.scheduleDismiss();
     this.subscribeToMediaQuery();
   }
 
@@ -69,7 +69,7 @@ export class SwirlToast {
   }
 
   disconnectedCallback() {
-    this.clearTimeoutHandle();
+    this.cancelScheduledDismiss();
     this.mediaQueryUnsubscribe();
   }
 
@@ -95,15 +95,15 @@ export class SwirlToast {
     }
 
     this.dismissAt = Date.now() + this.duration;
-    this.resumeTimer();
+    this.scheduleDismiss();
   }
 
-  private resumeTimer() {
+  private scheduleDismiss() {
     if (this.dismissAt === undefined) {
       return;
     }
 
-    this.clearTimeoutHandle();
+    this.cancelScheduledDismiss();
 
     this.timeout = setTimeout(() => {
       this.clearTimer();
@@ -111,7 +111,7 @@ export class SwirlToast {
     }, Math.max(0, this.dismissAt - Date.now()));
   }
 
-  private clearTimeoutHandle() {
+  private cancelScheduledDismiss() {
     if (!Boolean(this.timeout)) {
       return;
     }
@@ -121,7 +121,7 @@ export class SwirlToast {
   }
 
   private clearTimer() {
-    this.clearTimeoutHandle();
+    this.cancelScheduledDismiss();
     this.dismissAt = undefined;
   }
 
