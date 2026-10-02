@@ -66,6 +66,52 @@ describe("swirl-toast", () => {
     );
   });
 
+  it("keeps its auto-dismiss timer when moved in the DOM", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToast],
+      html: `
+        <div id="a"><swirl-toast duration="100" toast-id="test-toast">Content</swirl-toast></div>
+        <div id="b"></div>
+      `,
+    });
+    const toast = page.body.querySelector("swirl-toast");
+    const spy = jest.fn();
+
+    toast.addEventListener("dismiss", spy);
+
+    await new Promise((resolve) => setTimeout(resolve, 50));
+
+    page.body.querySelector("#b").appendChild(toast);
+    await page.waitForChanges();
+
+    await new Promise((resolve) => setTimeout(resolve, 51));
+    await page.waitForChanges();
+
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: "test-toast",
+      })
+    );
+  });
+
+  it("clears its auto-dismiss timer when removed from the DOM", async () => {
+    const page = await newSpecPage({
+      components: [SwirlToast],
+      html: `<swirl-toast duration="100" toast-id="test-toast">Content</swirl-toast>`,
+    });
+    const toast = page.root;
+    const spy = jest.fn();
+
+    toast.addEventListener("dismiss", spy);
+    toast.remove();
+
+    await new Promise((resolve) => setTimeout(resolve, 101));
+    await page.waitForChanges();
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
   it("does not dismiss when duration is set to Infinity", async () => {
     const page = await newSpecPage({
       components: [SwirlToast],

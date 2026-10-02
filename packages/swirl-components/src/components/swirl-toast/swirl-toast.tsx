@@ -41,6 +41,8 @@ export class SwirlToast {
 
   private dismissIconEl: HTMLElement;
   private iconEl: HTMLElement;
+  private dismissAt: number;
+  private loaded = false;
   private timeout: NodeJS.Timeout;
   private mediaQueryUnsubscribe: () => void = () => {};
 
@@ -49,17 +51,32 @@ export class SwirlToast {
     this.startTimer();
   }
 
-  componentDidLoad() {
-    this.startTimer();
+  connectedCallback() {
+    // moving toasts in the DOM disconnects and reconnects them,
+    // this restores what disconnectedCallback cleaned up. (e.g. provider moving into a dialog)
+    if (!this.loaded) {
+      return;
+    }
 
-    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
-      this.forceIconProps(isDesktop);
-    });
+    this.resumeTimer();
+    this.subscribeToMediaQuery();
+  }
+
+  componentDidLoad() {
+    this.loaded = true;
+    this.startTimer();
+    this.subscribeToMediaQuery();
   }
 
   disconnectedCallback() {
-    this.clearTimer();
+    this.clearTimeoutHandle();
     this.mediaQueryUnsubscribe();
+  }
+
+  private subscribeToMediaQuery() {
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.forceIconProps(isDesktop);
+    });
   }
 
   private forceIconProps(smallIcon: boolean) {
@@ -77,18 +94,35 @@ export class SwirlToast {
       return;
     }
 
-    this.timeout = setTimeout(() => {
-      this.dismiss.emit(this.toastId);
-    }, this.duration);
+    this.dismissAt = Date.now() + this.duration;
+    this.resumeTimer();
   }
 
-  private clearTimer() {
+  private resumeTimer() {
+    if (this.dismissAt === undefined) {
+      return;
+    }
+
+    this.clearTimeoutHandle();
+
+    this.timeout = setTimeout(() => {
+      this.clearTimer();
+      this.dismiss.emit(this.toastId);
+    }, Math.max(0, this.dismissAt - Date.now()));
+  }
+
+  private clearTimeoutHandle() {
     if (!Boolean(this.timeout)) {
       return;
     }
 
     clearTimeout(this.timeout);
     this.timeout = undefined;
+  }
+
+  private clearTimer() {
+    this.clearTimeoutHandle();
+    this.dismissAt = undefined;
   }
 
   private onAction = () => {
