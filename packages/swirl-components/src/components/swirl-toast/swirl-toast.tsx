@@ -74,6 +74,8 @@ export class SwirlToast {
   }
 
   private subscribeToMediaQuery() {
+    this.mediaQueryUnsubscribe();
+
     this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
       this.forceIconProps(isDesktop);
     });
