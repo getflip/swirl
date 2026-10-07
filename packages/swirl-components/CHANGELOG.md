@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.531.3
+
+### Patch Changes
+
+- [#1817](https://github.com/getflip/swirl/pull/1817)
+  [`0a62c415f`](https://github.com/getflip/swirl/commit/0a62c415feeceafd8345505e1d775d62925745b3)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - hideLabel prop
+  in swirl-button works with slotted icons
+
 ## 0.531.2
 
 ### Patch Changes
