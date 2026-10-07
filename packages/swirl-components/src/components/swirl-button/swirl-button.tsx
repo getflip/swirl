@@ -137,15 +137,15 @@ export class SwirlButton {
   }
 
   render() {
+    const hasIcon =
+      Boolean(this.icon) || Boolean(this.el.querySelector("[slot='icon']"));
+
     const hideLabel =
-      (this.hideLabel && Boolean(this.icon)) ||
+      (this.hideLabel && hasIcon) ||
       (this.variant === "floating" && this.intent === "default");
 
     const isLink = Boolean(this.href);
     const ariaLabel = this.getAriaLabel(hideLabel);
-
-    const hasIcon =
-      this.icon || Boolean(this.el.querySelector("[slot='icon']"));
 
     const hasTag = Boolean(this.el.querySelector("[slot='tag']"));
 

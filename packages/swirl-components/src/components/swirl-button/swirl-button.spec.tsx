@@ -42,6 +42,28 @@ describe("swirl-button", () => {
     expect(page.root.querySelector("[aria-label='Label']")).toBeDefined();
   });
 
+  it("can hide its label if icon is slotted", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button hide-label="true" label="Label"><swirl-icon-close slot="icon"></swirl-icon-close></swirl-button>`,
+    });
+
+    const buttonElement = page.root.querySelector("button");
+
+    expect(page.root.querySelector(".button__label")).toBeNull();
+    expect(buttonElement.getAttribute("aria-label")).toBe("Label");
+    expect(buttonElement.classList.contains("button--icon-only")).toBe(true);
+  });
+
+  it("does not hide its label if no icon is present", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button hide-label="true" label="Label"></swirl-button>`,
+    });
+
+    expect(page.root.querySelector(".button__label")).not.toBeNull();
+  });
+
   it("renders as a small button", async () => {
     const page = await newSpecPage({
       components: [SwirlButton],
