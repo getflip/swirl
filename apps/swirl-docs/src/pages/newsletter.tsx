@@ -29,11 +29,11 @@ const Newsletter: NextPage = () => {
     <>
       <Head>
         <title>
-          Subscribe to the Flip Developer Newsletter — getflip.dev
+          Subscribe to the Flip AI Developer Newsletter — getflip.dev
         </title>
         <meta
           name="description"
-          content="Get product updates, API changes, and engineering deep-dives from the Flip developer team delivered to your inbox."
+          content="Get product updates, API changes, and engineering deep-dives from the Flip AI developer team delivered to your inbox."
         />
       </Head>
 

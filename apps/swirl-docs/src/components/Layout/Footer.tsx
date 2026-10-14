@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 const links: NavLink[] = [
   {
-    name: "About Flip",
+    name: "About Flip AI",
     path: "https://www.getflip.com/about-us/",
   },
   {
@@ -38,7 +38,12 @@ const Footer = () => {
         )}
       >
         <span className="mb-6 md:mb-0">
-          <Image alt="Flip Logo" src="/flip-logo.svg" width={70} height={30} />
+          <Image
+            alt="Flip AI logo"
+            src="/flip-ai-logo.svg"
+            width={96}
+            height={30}
+          />
         </span>
         <ul className="flex flex-col md:flex-row justify-center items-center">
           {links.map((link, index) => (

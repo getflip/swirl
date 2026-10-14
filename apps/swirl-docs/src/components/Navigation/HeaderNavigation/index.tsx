@@ -23,8 +23,8 @@ export const HeaderLogo = ({ onClick }: { onClick?: () => void }) => {
     >
       <Image
         alt="Swirl home"
-        src="/swirl-icon-temp.svg"
-        width={28}
+        src="/swirl_blue.svg"
+        width={18}
         height={28}
         className="max-h-7"
       />

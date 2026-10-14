@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Flip & Swirl Developer Docs</title>
+        <title>Flip AI & Swirl Developer Docs</title>
       </Head>
 
       <div className="flex flex-col items-center h-[calc(100vh_-_72px)] md:px-space-16 overflow-auto">
@@ -26,11 +26,11 @@ const Home: NextPage = () => {
             <div className="flex flex-col md:flex-row md:items-center w-full gap-4 justify-between md:max-w-[50rem] mx-auto">
               <div className="basis-0 grow max-w-[22.5rem]">
                 <h1 className="font-bold text-[2.5rem] mb-space-8">
-                  Build with Flip
+                  Build with Flip AI
                 </h1>
                 <p className="text-font-size-lg text-text-on-surface-highlight-subdued mb-space-24">
                   Design, build, and deliver improved experiences for the
-                  blue-collar world using the Swirl design system and Flip APIs.
+                  blue-collar world using the Swirl design system and our APIs.
                 </p>
                 <Link
                   href="/tokens/color"

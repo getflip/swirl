@@ -22,7 +22,7 @@ export const navItems: NavItem[] = [
     title: CategoryEnum.API,
     url: apiDocsNavItems[0].url,
     description:
-      "Uniform APIs and documents for our Flip system, ensuring seamless integration across platforms.",
+      "Uniform APIs and documents for our system, ensuring seamless integration across platforms.",
     teaserIcon: "/images/teaser-icon-api.svg",
     comingSoon: true,
     children: [
@@ -42,7 +42,7 @@ export const navItems: NavItem[] = [
     url: "/components",
     devOnly: true,
     description:
-      "Consistent web components for our Flip system, ensuring harmony across platforms.",
+      "Consistent web components for our system, ensuring harmony across platforms.",
     teaserIcon: "/images/teaser-icon-component.svg",
   },
   {
