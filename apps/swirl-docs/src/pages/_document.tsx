@@ -20,7 +20,7 @@ class MyDocument extends Document {
             sizes="180x180"
           />
           <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#145af5" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2151f5" />
         </Head>
         <body>
           <Main />

@@ -19,8 +19,8 @@ function GetFlipDev({ Component, pageProps }: AppProps) {
 
 const PasswordProtectedGetFlipDev = withPasswordProtect(GetFlipDev, {
   loginComponentProps: {
-    logo: "/flip-logo.svg",
-    buttonBackgroundColor: "#145af5",
+    logo: "/flip-ai-logo.svg",
+    buttonBackgroundColor: "#2151f5",
     buttonColor: "#fff",
   },
 });

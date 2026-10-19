@@ -15,7 +15,7 @@ const PreFooter = () => {
         <nav>
           <ul>
             <li>Developer Changelog</li>
-            <li>Flip Status</li>
+            <li>Flip AI Status</li>
           </ul>
         </nav>
       </PreFooterTile>
