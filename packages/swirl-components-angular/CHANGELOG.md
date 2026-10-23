@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.532.0
+
+### Minor Changes
+
+- [#1821](https://github.com/getflip/swirl/pull/1821)
+  [`96b02083c`](https://github.com/getflip/swirl/commit/96b02083c1a1015d2295cf21c73705c09d8c0e20)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add optional
+  heading prop to swirl-banner
+
+### Patch Changes
+
+- Updated dependencies
+  [[`96b02083c`](https://github.com/getflip/swirl/commit/96b02083c1a1015d2295cf21c73705c09d8c0e20)]:
+  - @getflip/swirl-components@0.532.0
+
 ## 0.531.3
 
 ### Patch Changes
