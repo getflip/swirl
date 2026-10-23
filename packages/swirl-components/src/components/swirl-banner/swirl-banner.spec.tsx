@@ -35,6 +35,30 @@ describe("swirl-banner", () => {
     `);
   });
 
+  it("renders a heading above the content", async () => {
+    const page = await newSpecPage({
+      components: [SwirlBanner],
+      html: `<swirl-banner content="Content" heading="Heading"></swirl-banner>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-banner content="Content" heading="Heading">
+        <mock:shadow-root>
+          <div aria-describedby="content" class="banner banner--intent-default banner--size-m" role="status" tabindex="0">
+            <div class="banner__content" id="content" part="banner__content">
+              <span class="banner__text">
+                <strong class="banner__heading" part="banner__heading">
+                  Heading
+                </strong>
+                Content
+              </span>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </swirl-banner>
+    `);
+  });
+
   it("fires custom action event", async () => {
     const page = await newSpecPage({
       components: [SwirlBanner],

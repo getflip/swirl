@@ -41,6 +41,7 @@ export class SwirlBanner {
   @Prop() content!: string;
   @Prop() dismissable?: boolean = false;
   @Prop() dismissLabel?: string = "Dismiss";
+  @Prop() heading?: string;
   @Prop() importance?: SwirlBannerAriaRole = "status";
   @Prop() intent?: SwirlBannerIntent = "default";
   @Prop() showIcon?: boolean = false;
@@ -115,7 +116,14 @@ export class SwirlBanner {
                 ref={(el) => (this.iconEl = el)}
               ></span>
             )}
-            <span class="banner__text">{this.content}</span>
+            <span class="banner__text">
+              {this.heading && (
+                <strong class="banner__heading" part="banner__heading">
+                  {this.heading}
+                </strong>
+              )}
+              {this.content}
+            </span>
           </div>
           {showControls && (
             <div class="banner__controls">

@@ -129,6 +129,11 @@
   }
 }
 
+.banner__heading {
+  display: block;
+  font-weight: var(--s-font-weight-semibold);
+}
+
 .banner__controls {
   display: inline-flex;
   flex-shrink: 0;
