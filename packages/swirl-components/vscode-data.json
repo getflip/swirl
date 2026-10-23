@@ -855,6 +855,10 @@
           "description": ""
         },
         {
+          "name": "heading",
+          "description": ""
+        },
+        {
           "name": "icon",
           "description": ""
         },

@@ -482,6 +482,7 @@ export namespace Components {
           * @default false
          */
         "dismissable"?: boolean;
+        "heading"?: string;
         "icon"?: string;
         /**
           * @default "status"
@@ -11051,6 +11052,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "dismissable"?: boolean;
+        "heading"?: string;
         "icon"?: string;
         /**
           * @default "status"
@@ -16494,6 +16496,7 @@ declare namespace LocalJSX {
         "content": string;
         "dismissable": boolean;
         "dismissLabel": string;
+        "heading": string;
         "importance": SwirlBannerAriaRole;
         "intent": SwirlBannerIntent;
         "showIcon": boolean;

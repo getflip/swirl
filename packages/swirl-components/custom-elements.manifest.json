@@ -2850,6 +2850,13 @@
               "fieldName": "dismissable"
             },
             {
+              "name": "heading",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "heading"
+            },
+            {
               "name": "icon",
               "type": {
                 "text": "string"
@@ -2942,6 +2949,15 @@
               "default": "false",
               "readonly": true,
               "attribute": "dismissable"
+            },
+            {
+              "kind": "field",
+              "name": "heading",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "heading"
             },
             {
               "kind": "field",
@@ -3043,6 +3059,9 @@
             },
             {
               "name": "banner__dismiss-button"
+            },
+            {
+              "name": "banner__heading"
             }
           ]
         }
