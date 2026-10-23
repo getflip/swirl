@@ -1,5 +1,19 @@
 # swirl-docs
 
+## 0.3.357
+
+### Patch Changes
+
+- [#1819](https://github.com/getflip/swirl/pull/1819)
+  [`f8cfba12f`](https://github.com/getflip/swirl/commit/f8cfba12f8fe3495b46d36356bc1650abc669db8)
+  Thanks [@danizep](https://github.com/danizep)! - Update logos and mentions of
+  Flip
+
+- Updated dependencies
+  [[`96b02083c`](https://github.com/getflip/swirl/commit/96b02083c1a1015d2295cf21c73705c09d8c0e20)]:
+  - @getflip/swirl-components@0.532.0
+  - @getflip/swirl-components-react@0.532.0
+
 ## 0.3.356
 
 ### Patch Changes
