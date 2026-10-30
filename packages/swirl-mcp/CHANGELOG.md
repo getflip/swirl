@@ -1,5 +1,14 @@
 # @getflip/swirl-mcp
 
+## 0.4.2
+
+### Patch Changes
+
+- [#1822](https://github.com/getflip/swirl/pull/1822)
+  [`c69c1deaa`](https://github.com/getflip/swirl/commit/c69c1deaa2aee07599d61d42bd038a0a035449d0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Pin build dependencies and
+  install from a lockfile in the Docker image so builds are reproducible.
+
 ## 0.4.1
 
 ### Patch Changes
