@@ -48,6 +48,7 @@ node_modules/
 jspm_packages/
 **/yarn.lock
 package-lock.json
+!packages/swirl-mcp/package-lock.json
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/

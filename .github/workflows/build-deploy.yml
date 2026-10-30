@@ -29,7 +29,7 @@ jobs:
         with:
           submodules: true
       - run: yarn install --ignore-scripts
-      - run: npx turbo run build --filter=!swirl-docs
+      - run: yarn turbo run build --filter=!swirl-docs
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
