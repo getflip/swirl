@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
-      - run: npx npm@11 install -g npm@11
+      - run: npm install -g npm@11.21.1 --ignore-scripts
       - run: yarn install --ignore-scripts
 
       - name: Publish to npm
@@ -72,7 +72,7 @@ jobs:
         with:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
-      - run: npx npm@11 install -g npm@11
+      - run: npm install -g npm@11.21.1 --ignore-scripts
       - run: yarn install --ignore-scripts
 
       - name: Build packages
@@ -81,9 +81,9 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Create snapshot versions
-        run: npx changeset version --snapshot beta
+        run: yarn changeset version --snapshot beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish snapshot to npm
-        run: npx changeset publish --tag beta
+        run: yarn changeset publish --tag beta
