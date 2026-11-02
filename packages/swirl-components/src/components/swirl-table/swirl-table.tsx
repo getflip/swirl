@@ -33,7 +33,6 @@ export type SwirlTableDropRowEvent = Pick<
 };
 
 export type SwirlTableVisibleRows = {
-  /** 0-based indexes of the rows to render, in ascending order. */
   indexes: number[];
 };
 
@@ -66,27 +65,14 @@ export class SwirlTable {
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
   @Prop() loading?: boolean;
-  /**
-   * Draws only the rows near the visible area. Render the rows from
-   * `visibleRowsChange`, each with its 0-based index in `data-index`.
-   * Requires `rowCount`. Doesn't work with drag & drop or row groups.
-   */
-  @Prop() virtualize?: boolean;
-  /** Total number of rows when virtualized. */
-  @Prop() rowCount?: number;
-  /** Height in px assumed for rows not drawn yet. */
-  @Prop() estimatedRowHeight?: number = 56;
-  /** Number of extra rows drawn above and below the visible ones. */
-  @Prop() overscan?: number = 10;
-  /**
-   * Indexes of rows to keep drawn when out of view, e.g. a row with an open
-   * menu. The focused row is always kept.
-   */
-  @Prop() keepRowsRendered?: number[] = [];
+  @Prop() isVirtualized?: boolean; // requires `rowCount`, doesn't work with dnd or row groups
+  @Prop() rowCount?: number; // total number of rows when virtualized
+  @Prop() estimatedRowHeight?: number = 56; // height in px assumed for rows not drawn yet
+  @Prop() overscan?: number = 10; // number of extra rows drawn above and below the visible ones
+  @Prop() keepRowsRendered?: number[] = []; // indexes of rows to keep rendered (e.g row with an open menu)
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
-  /** Emits the indexes of the rows to render. */
-  @Event() visibleRowsChange: EventEmitter<SwirlTableVisibleRows>;
+  @Event() visibleRowsChange: EventEmitter<SwirlTableVisibleRows>; // emits the indexes of the rows to render
 
   @State() empty: boolean;
   @State() liveRegionText = "";
@@ -135,7 +121,7 @@ export class SwirlTable {
   }
 
   private get virtualizerConfig(): SwirlTableVirtualizerConfig | undefined {
-    if (!this.virtualize || !this.rowCount) {
+    if (!this.isVirtualized || !this.rowCount) {
       return undefined;
     }
 
@@ -167,7 +153,7 @@ export class SwirlTable {
       return;
     }
 
-    // Reserve the full height first, so the scroll container overflows and
+    // reserve the full height first, so the scroll container overflows and
     // can be found.
     this.bodyEl.style.paddingBottom = `${
       config.rowCount * config.estimatedRowHeight
@@ -178,7 +164,7 @@ export class SwirlTable {
       getScrollParent(this.el),
       config,
       (indexes) =>
-        // Emit async, so frameworks don't get it mid-render.
+        // emit async, so frameworks don't get it mid-render.
         queueMicrotask(() => this.visibleRowsChange.emit({ indexes }))
     );
   }
@@ -237,7 +223,7 @@ export class SwirlTable {
         (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
       );
 
-      // Rows tracked by position are reused: only their data-index changes.
+      // rows tracked by position are reused: only their data-index changes.
       const rowIndexChanged = mutations.some(
         (mutation) => mutation.type === "attributes"
       );
@@ -345,10 +331,8 @@ export class SwirlTable {
     }
   }
 
-  /**
-   * A table hidden on load falls back to the window. Look for the scroll
-   * container again once it is visible.
-   */
+  // A table hidden on load falls back to the window.
+  // Look for the scroll container again once it is visible.
   private updateScrollParent() {
     if (
       !this.virtualizer ||
@@ -668,7 +652,7 @@ export class SwirlTable {
   }
 
   private updateEmptyState() {
-    if (this.virtualize && this.rowCount) {
+    if (this.isVirtualized && this.rowCount) {
       this.empty = false;
       return;
     }
@@ -866,7 +850,7 @@ export class SwirlTable {
 
   /** Keeps the focused row drawn, so it doesn't lose focus. */
   private trackFocusedRow(target: HTMLElement | null) {
-    if (!this.virtualize) {
+    if (!this.isVirtualized) {
       return;
     }
 
@@ -949,7 +933,9 @@ export class SwirlTable {
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}
               aria-label={this.label}
               aria-rowcount={
-                this.virtualize && this.rowCount ? this.rowCount + 1 : undefined
+                this.isVirtualized && this.rowCount
+                  ? this.rowCount + 1
+                  : undefined
               }
               role="table"
               class="table__table"
@@ -962,7 +948,7 @@ export class SwirlTable {
               <div role="rowgroup">
                 <div
                   class="table__header"
-                  aria-rowindex={this.virtualize ? 1 : undefined}
+                  aria-rowindex={this.isVirtualized ? 1 : undefined}
                   ref={(el) => (this.headerEl = el)}
                   role="row"
                 >
