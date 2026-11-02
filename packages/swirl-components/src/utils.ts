@@ -416,3 +416,46 @@ export function getPixelsFromRemToken(token: string): number {
       .replace("rem", "") * 16
   );
 }
+
+/**
+ * Nearest vertically scrolling ancestor, also across shadow roots. Falls back
+ * to the window.
+ */
+export function getScrollParent(el: HTMLElement): HTMLElement | Window {
+  let node = getFlatTreeParent(el);
+
+  while (node && node !== document.body && node !== document.documentElement) {
+    const { overflowY } = getComputedStyle(node);
+
+    if (
+      /(auto|scroll|overlay)/.test(overflowY) &&
+      node.scrollHeight > node.clientHeight
+    ) {
+      return node as HTMLElement;
+    }
+
+    node = getFlatTreeParent(node);
+  }
+
+  return window;
+}
+
+/**
+ * Parent in the rendered (flat) tree: a slotted element's parent is its slot,
+ * not its light DOM parent, and a shadow root's top element's parent is the
+ * host. Unlike `closestPassShadow`, this finds ancestors inside the shadow
+ * root an element is slotted into.
+ */
+export function getFlatTreeParent(el: Element): Element | null {
+  if (el.assignedSlot) {
+    return el.assignedSlot;
+  }
+
+  if (el.parentElement) {
+    return el.parentElement;
+  }
+
+  const root = el.getRootNode();
+
+  return root instanceof ShadowRoot ? root.host : null;
+}

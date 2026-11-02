@@ -16,9 +16,13 @@ import {
 
 import classNames from "classnames";
 import Sortable, { SortableEvent } from "sortablejs";
-import { debounce, isMobileViewport, querySelectorAllDeep } from "../../utils";
 import {
+  debounce,
   getScrollParent,
+  isMobileViewport,
+  querySelectorAllDeep,
+} from "../../utils";
+import {
   SwirlTableVirtualizer,
   SwirlTableVirtualizerConfig,
 } from "./swirl-table-virtualizer";

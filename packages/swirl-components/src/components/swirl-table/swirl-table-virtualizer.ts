@@ -295,43 +295,6 @@ export class SwirlTableVirtualizer {
   }
 }
 
-/**
- * Nearest vertically scrolling ancestor, also across shadow roots. Falls back
- * to the window.
- */
-export function getScrollParent(el: HTMLElement): HTMLElement | Window {
-  let node = getFlatTreeParent(el);
-
-  while (node && node !== document.body && node !== document.documentElement) {
-    const { overflowY } = getComputedStyle(node);
-
-    if (
-      /(auto|scroll|overlay)/.test(overflowY) &&
-      node.scrollHeight > node.clientHeight
-    ) {
-      return node as HTMLElement;
-    }
-
-    node = getFlatTreeParent(node);
-  }
-
-  return window;
-}
-
-function getFlatTreeParent(el: Element): Element | null {
-  if (el.assignedSlot) {
-    return el.assignedSlot;
-  }
-
-  if (el.parentElement) {
-    return el.parentElement;
-  }
-
-  const root = el.getRootNode();
-
-  return root instanceof ShadowRoot ? root.host : null;
-}
-
 function getRowIndex(row: HTMLElement) {
   return Number(row.dataset.index);
 }
