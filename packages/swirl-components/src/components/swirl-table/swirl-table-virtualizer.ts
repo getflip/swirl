@@ -29,10 +29,7 @@ export class SwirlTableVirtualizer {
   private virtualizer: Virtualizer<ScrollElement, HTMLElement>;
   private unmount: () => void;
   private scrollMargin: number;
-  /**
-   * Index each row was last measured for. Rows can be reused for other
-   * indexes.
-   */
+  // Index each row was last measured for. Rows can be reused for other indexes.
   private measuredIndexes = new WeakMap<HTMLElement, number>();
   private observedRows = new Set<HTMLElement>();
   /**

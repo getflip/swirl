@@ -145,8 +145,8 @@ The SwirlTable component is used to organize and display data sets.
 
 ## Virtualized rows
 
-For tables with hundreds of rows or more, set `virtualize` and `row-count`. The
-table then draws only the rows near the visible area. Listen to
+For tables with hundreds of rows or more, set `is-virtualized` and `row-count`.
+The table then draws only the rows near the visible area. Listen to
 `visibleRowsChange` and render the rows it names, in order, each with its
 0-based index in `data-index`. Rows can be tracked by id or by position. The
 table positions them and sets `aria-rowcount` and `aria-rowindex` for screen
@@ -159,7 +159,7 @@ drawn, such as a row with an open menu, set the `keepRowsRendered` property.
 Virtualization doesn't support drag & drop or `swirl-table-row-group`.
 
 <Source
-  code={`<swirl-table label="Users" virtualize row-count="1000">
+  code={`<swirl-table label="Users" is-virtualized row-count="1000">
   <div slot="columns">…</div>
   <div slot="rows">
     <!-- Only the rows from visibleRowsChange, e.g. indexes 0 to 29 -->

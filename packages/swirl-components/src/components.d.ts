@@ -5452,6 +5452,10 @@ export namespace Components {
          */
         "estimatedRowHeight"?: number;
         /**
+          * Draws only the rows near the visible area. Render the rows from `visibleRowsChange`, each with its 0-based index in `data-index`. Requires `rowCount`. Doesn't work with drag & drop or row groups.
+         */
+        "isVirtualized"?: boolean;
+        /**
           * Indexes of rows to keep drawn when out of view, e.g. a row with an open menu. The focused row is always kept.
           * @default []
          */
@@ -5471,10 +5475,6 @@ export namespace Components {
           * Total number of rows when virtualized.
          */
         "rowCount"?: number;
-        /**
-          * Draws only the rows near the visible area. Render the rows from `visibleRowsChange`, each with its 0-based index in `data-index`. Requires `rowCount`. Doesn't work with drag & drop or row groups.
-         */
-        "virtualize"?: boolean;
     }
     interface SwirlTableCell {
     }
@@ -15948,6 +15948,10 @@ declare namespace LocalJSX {
          */
         "estimatedRowHeight"?: number;
         /**
+          * Draws only the rows near the visible area. Render the rows from `visibleRowsChange`, each with its 0-based index in `data-index`. Requires `rowCount`. Doesn't work with drag & drop or row groups.
+         */
+        "isVirtualized"?: boolean;
+        /**
           * Indexes of rows to keep drawn when out of view, e.g. a row with an open menu. The focused row is always kept.
           * @default []
          */
@@ -15968,10 +15972,6 @@ declare namespace LocalJSX {
           * Total number of rows when virtualized.
          */
         "rowCount"?: number;
-        /**
-          * Draws only the rows near the visible area. Render the rows from `visibleRowsChange`, each with its 0-based index in `data-index`. Requires `rowCount`. Doesn't work with drag & drop or row groups.
-         */
-        "virtualize"?: boolean;
     }
     interface SwirlTableCell {
     }
@@ -19157,7 +19157,7 @@ declare namespace LocalJSX {
         "enableDragDrop": boolean;
         "label": string;
         "loading": boolean;
-        "virtualize": boolean;
+        "isVirtualized": boolean;
         "rowCount": number;
         "estimatedRowHeight": number;
         "overscan": number;

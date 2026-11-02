@@ -33,6 +33,7 @@ export type SwirlTableDropRowEvent = Pick<
 };
 
 export type SwirlTableVisibleRows = {
+  /** 0-based indexes of the rows to render, in ascending order. */
   indexes: number[];
 };
 
@@ -65,14 +66,27 @@ export class SwirlTable {
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
   @Prop() loading?: boolean;
-  @Prop() isVirtualized?: boolean; // requires `rowCount`, doesn't work with dnd or row groups
-  @Prop() rowCount?: number; // total number of rows when virtualized
-  @Prop() estimatedRowHeight?: number = 56; // height in px assumed for rows not drawn yet
-  @Prop() overscan?: number = 10; // number of extra rows drawn above and below the visible ones
-  @Prop() keepRowsRendered?: number[] = []; // indexes of rows to keep rendered (e.g row with an open menu)
+  /**
+   * Draws only the rows near the visible area. Render the rows from
+   * `visibleRowsChange`, each with its 0-based index in `data-index`.
+   * Requires `rowCount`. Doesn't work with drag & drop or row groups.
+   */
+  @Prop() isVirtualized?: boolean;
+  /** Total number of rows when virtualized. */
+  @Prop() rowCount?: number;
+  /** Height in px assumed for rows not drawn yet. */
+  @Prop() estimatedRowHeight?: number = 56;
+  /** Number of extra rows drawn above and below the visible ones. */
+  @Prop() overscan?: number = 10;
+  /**
+   * Indexes of rows to keep drawn when out of view, e.g. a row with an open
+   * menu. The focused row is always kept.
+   */
+  @Prop() keepRowsRendered?: number[] = [];
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
-  @Event() visibleRowsChange: EventEmitter<SwirlTableVisibleRows>; // emits the indexes of the rows to render
+  /** Emits the indexes of the rows to render. */
+  @Event() visibleRowsChange: EventEmitter<SwirlTableVisibleRows>;
 
   @State() empty: boolean;
   @State() liveRegionText = "";
@@ -111,7 +125,7 @@ export class SwirlTable {
     this.destroyVirtualizer();
   }
 
-  @Watch("virtualize")
+  @Watch("isVirtualized")
   @Watch("rowCount")
   @Watch("estimatedRowHeight")
   @Watch("overscan")
@@ -331,8 +345,10 @@ export class SwirlTable {
     }
   }
 
-  // A table hidden on load falls back to the window.
-  // Look for the scroll container again once it is visible.
+  /**
+   * A table hidden on load falls back to the window. Look for the scroll
+   * container again once it is visible.
+   */
   private updateScrollParent() {
     if (
       !this.virtualizer ||

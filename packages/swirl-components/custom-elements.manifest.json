@@ -61678,6 +61678,14 @@
               "fieldName": "estimatedRowHeight"
             },
             {
+              "name": "is-virtualized",
+              "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "isVirtualized"
+            },
+            {
               "name": "label",
               "type": {
                 "text": "string"
@@ -61707,14 +61715,6 @@
                 "text": "number"
               },
               "fieldName": "rowCount"
-            },
-            {
-              "name": "virtualize",
-              "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups.",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "virtualize"
             }
           ],
           "members": [
@@ -61777,6 +61777,16 @@
             },
             {
               "kind": "field",
+              "name": "isVirtualized",
+              "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups.",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "is-virtualized"
+            },
+            {
+              "kind": "field",
               "name": "keepRowsRendered",
               "description": "Indexes of rows to keep drawn when out of view, e.g. a row with an open\nmenu. The focused row is always kept.",
               "type": {
@@ -61823,16 +61833,6 @@
               },
               "readonly": true,
               "attribute": "row-count"
-            },
-            {
-              "kind": "field",
-              "name": "virtualize",
-              "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups.",
-              "type": {
-                "text": "boolean"
-              },
-              "readonly": true,
-              "attribute": "virtualize"
             },
             {
               "kind": "method",

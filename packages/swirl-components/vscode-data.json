@@ -26115,6 +26115,10 @@
           "description": "Height in px assumed for rows not drawn yet."
         },
         {
+          "name": "is-virtualized",
+          "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups."
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -26129,10 +26133,6 @@
         {
           "name": "row-count",
           "description": "Total number of rows when virtualized."
-        },
-        {
-          "name": "virtualize",
-          "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups."
         }
       ]
     },
