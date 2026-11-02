@@ -245,9 +245,10 @@ export class SwirlTable {
       if (rowWasAddedOrRemoved) {
         this.updateEmptyState();
         this.setupDragDrop();
-        this.virtualizer?.sync();
-      } else if (rowIndexChanged) {
-        this.virtualizer?.sync();
+      }
+
+      if (rowWasAddedOrRemoved || rowIndexChanged) {
+        this.syncVirtualizedRows();
       }
     });
 
@@ -863,6 +864,24 @@ export class SwirlTable {
       this.updateLiveRegionText();
     }
   };
+
+  /**
+   * Measures and positions rows after they were added, removed or re-indexed.
+   * The focused row's index is read again first, as it changes when e.g. a row
+   * is inserted above it.
+   */
+  private syncVirtualizedRows() {
+    if (!this.virtualizer) {
+      return;
+    }
+
+    this.trackFocusedRow(
+      this.el.querySelector<HTMLElement>(
+        "swirl-table-row[data-index]:focus-within"
+      )
+    );
+    this.virtualizer.sync();
+  }
 
   /** Keeps the focused row drawn, so it doesn't lose focus. */
   private trackFocusedRow(target: HTMLElement | null) {
