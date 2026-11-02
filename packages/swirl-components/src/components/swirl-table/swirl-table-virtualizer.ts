@@ -37,9 +37,16 @@ export class SwirlTableVirtualizer {
    * by index and stops observing reused ones.
    */
   private resizeObserver = new ResizeObserver((entries) =>
-    entries.forEach(({ target }) => this.measureRow(target as HTMLElement))
+    this.resizeRows(
+      entries.map(({ borderBoxSize, target }) => ({
+        row: target as HTMLElement,
+        height: borderBoxSize[0].blockSize,
+      }))
+    )
   );
   private indexes: number[] = [];
+  private isResizingRows = false;
+  private hasChangeWhileResizing = false;
 
   constructor(
     private bodyEl: HTMLElement,
@@ -74,16 +81,22 @@ export class SwirlTableVirtualizer {
       }
     });
 
-    this.getRenderedRows().forEach((row) => {
+    const rows = this.getRenderedRows();
+
+    rows.forEach((row) => {
       if (!this.observedRows.has(row)) {
         this.observedRows.add(row);
         this.resizeObserver.observe(row);
       }
-
-      if (this.measuredIndexes.get(row) !== getRowIndex(row)) {
-        this.measureRow(row);
-      }
     });
+
+    // Read all heights before resizeRows() writes styles, so the browser lays
+    // out the table once instead of once per row.
+    this.resizeRows(
+      rows
+        .filter((row) => this.measuredIndexes.get(row) !== getRowIndex(row))
+        .map((row) => ({ row, height: row.getBoundingClientRect().height }))
+    );
 
     this.layout();
   }
@@ -138,20 +151,44 @@ export class SwirlTableVirtualizer {
     return true;
   }
 
-  /** Reports the row's height for its current index. */
-  private measureRow(row: HTMLElement) {
-    const index = getRowIndex(row);
+  /**
+   * Reports each row's height for its current index. Every resize makes the
+   * virtualizer call onChange, so the rows are positioned once at the end
+   * instead of after each resize.
+   */
+  private resizeRows(sizes: { row: HTMLElement; height: number }[]) {
+    this.isResizingRows = true;
 
-    const height = row.offsetHeight;
+    try {
+      sizes.forEach(({ row, height }) => {
+        const index = getRowIndex(row);
 
-    // An unrendered row has no height yet. Counting it as 0 would draw every
-    // row. The ResizeObserver measures it later.
-    if (!row.isConnected || Number.isNaN(index) || height === 0) {
+        // An unrendered row has no height yet. Counting it as 0 would draw
+        // every row. The ResizeObserver measures it later.
+        if (!row.isConnected || Number.isNaN(index) || height === 0) {
+          return;
+        }
+
+        this.measuredIndexes.set(row, index);
+        this.virtualizer.resizeItem(index, height);
+      });
+    } finally {
+      this.isResizingRows = false;
+    }
+
+    if (this.hasChangeWhileResizing) {
+      this.hasChangeWhileResizing = false;
+      this.update();
+    }
+  }
+
+  private handleChange() {
+    if (this.isResizingRows) {
+      this.hasChangeWhileResizing = true;
       return;
     }
 
-    this.measuredIndexes.set(row, index);
-    this.virtualizer.resizeItem(index, height);
+    this.update();
   }
 
   private layout() {
@@ -238,7 +275,7 @@ export class SwirlTableVirtualizer {
         ScrollElement,
         HTMLElement
       >["scrollToFn"],
-      onChange: () => this.update(),
+      onChange: () => this.handleChange(),
     };
   }
 
