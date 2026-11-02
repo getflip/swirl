@@ -68,4 +68,18 @@ describe("swirl-checkbox", () => {
     expect(spy).toHaveBeenCalled();
     expect(spy.mock.calls[0][0].detail).toBe(true);
   });
+
+  it("generates a unique input id per instance and labels its own input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCheckbox],
+      html: `<swirl-checkbox input-name="a" label="A"></swirl-checkbox><swirl-checkbox input-name="b" label="B"></swirl-checkbox>`,
+    });
+
+    const labels = Array.from(page.body.querySelectorAll("label"));
+    const ids = labels.map((label) => label.querySelector("input").id);
+
+    expect(ids[0]).toBeTruthy();
+    expect(ids[0]).not.toBe(ids[1]);
+    expect(labels.map((label) => label.htmlFor)).toEqual(ids);
+  });
 });

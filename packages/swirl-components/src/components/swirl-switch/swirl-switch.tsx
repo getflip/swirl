@@ -32,7 +32,7 @@ export class SwirlSwitch {
   @Prop() disabled?: boolean = false;
   @Prop() hideDescription?: boolean;
   @Prop() hideLabel?: boolean;
-  @Prop() inputId!: string;
+  @Prop() inputId?: string = crypto.randomUUID();
   @Prop() inputName!: string;
   @Prop() label?: string;
   @Prop() labelPosition?: SwirlSwitchLabelPosition = "end";

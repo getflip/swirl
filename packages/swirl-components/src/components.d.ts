@@ -729,7 +729,10 @@ export namespace Components {
           * @default false
          */
         "disabled"?: boolean;
-        "inputId": string;
+        /**
+          * @default crypto.randomUUID()
+         */
+        "inputId"?: string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
@@ -4274,7 +4277,10 @@ export namespace Components {
           * @default false
          */
         "disabled"?: boolean;
-        "inputId": string;
+        /**
+          * @default crypto.randomUUID()
+         */
+        "inputId"?: string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
@@ -4666,7 +4672,10 @@ export namespace Components {
         "disabled"?: boolean;
         "hideDescription"?: boolean;
         "hideLabel"?: boolean;
-        "inputId": string;
+        /**
+          * @default crypto.randomUUID()
+         */
+        "inputId"?: string;
         "inputName": string;
         "label"?: string;
         /**
@@ -11296,7 +11305,10 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
-        "inputId": string;
+        /**
+          * @default crypto.randomUUID()
+         */
+        "inputId"?: string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
@@ -14737,7 +14749,10 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
-        "inputId": string;
+        /**
+          * @default crypto.randomUUID()
+         */
+        "inputId"?: string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
@@ -15138,7 +15153,10 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "hideDescription"?: boolean;
         "hideLabel"?: boolean;
-        "inputId": string;
+        /**
+          * @default crypto.randomUUID()
+         */
+        "inputId"?: string;
         "inputName": string;
         "label"?: string;
         /**
@@ -19340,7 +19358,7 @@ declare namespace LocalJSX {
         "swirl-card": Omit<SwirlCard, keyof SwirlCardAttributes> & { [K in keyof SwirlCard & keyof SwirlCardAttributes]?: SwirlCard[K] } & { [K in keyof SwirlCard & keyof SwirlCardAttributes as `attr:${K}`]?: SwirlCardAttributes[K] } & { [K in keyof SwirlCard & keyof SwirlCardAttributes as `prop:${K}`]?: SwirlCard[K] };
         "swirl-carousel": Omit<SwirlCarousel, keyof SwirlCarouselAttributes> & { [K in keyof SwirlCarousel & keyof SwirlCarouselAttributes]?: SwirlCarousel[K] } & { [K in keyof SwirlCarousel & keyof SwirlCarouselAttributes as `attr:${K}`]?: SwirlCarouselAttributes[K] } & { [K in keyof SwirlCarousel & keyof SwirlCarouselAttributes as `prop:${K}`]?: SwirlCarousel[K] } & OneOf<"label", SwirlCarousel["label"], SwirlCarouselAttributes["label"]>;
         "swirl-carousel-slide": Omit<SwirlCarouselSlide, keyof SwirlCarouselSlideAttributes> & { [K in keyof SwirlCarouselSlide & keyof SwirlCarouselSlideAttributes]?: SwirlCarouselSlide[K] } & { [K in keyof SwirlCarouselSlide & keyof SwirlCarouselSlideAttributes as `attr:${K}`]?: SwirlCarouselSlideAttributes[K] } & { [K in keyof SwirlCarouselSlide & keyof SwirlCarouselSlideAttributes as `prop:${K}`]?: SwirlCarouselSlide[K] };
-        "swirl-checkbox": Omit<SwirlCheckbox, keyof SwirlCheckboxAttributes> & { [K in keyof SwirlCheckbox & keyof SwirlCheckboxAttributes]?: SwirlCheckbox[K] } & { [K in keyof SwirlCheckbox & keyof SwirlCheckboxAttributes as `attr:${K}`]?: SwirlCheckboxAttributes[K] } & { [K in keyof SwirlCheckbox & keyof SwirlCheckboxAttributes as `prop:${K}`]?: SwirlCheckbox[K] } & OneOf<"inputId", SwirlCheckbox["inputId"], SwirlCheckboxAttributes["inputId"]> & OneOf<"inputName", SwirlCheckbox["inputName"], SwirlCheckboxAttributes["inputName"]>;
+        "swirl-checkbox": Omit<SwirlCheckbox, keyof SwirlCheckboxAttributes> & { [K in keyof SwirlCheckbox & keyof SwirlCheckboxAttributes]?: SwirlCheckbox[K] } & { [K in keyof SwirlCheckbox & keyof SwirlCheckboxAttributes as `attr:${K}`]?: SwirlCheckboxAttributes[K] } & { [K in keyof SwirlCheckbox & keyof SwirlCheckboxAttributes as `prop:${K}`]?: SwirlCheckbox[K] } & OneOf<"inputName", SwirlCheckbox["inputName"], SwirlCheckboxAttributes["inputName"]>;
         "swirl-chip": Omit<SwirlChip, keyof SwirlChipAttributes> & { [K in keyof SwirlChip & keyof SwirlChipAttributes]?: SwirlChip[K] } & { [K in keyof SwirlChip & keyof SwirlChipAttributes as `attr:${K}`]?: SwirlChipAttributes[K] } & { [K in keyof SwirlChip & keyof SwirlChipAttributes as `prop:${K}`]?: SwirlChip[K] } & OneOf<"label", SwirlChip["label"], SwirlChipAttributes["label"]>;
         "swirl-color-input": Omit<SwirlColorInput, keyof SwirlColorInputAttributes> & { [K in keyof SwirlColorInput & keyof SwirlColorInputAttributes]?: SwirlColorInput[K] } & { [K in keyof SwirlColorInput & keyof SwirlColorInputAttributes as `attr:${K}`]?: SwirlColorInputAttributes[K] } & { [K in keyof SwirlColorInput & keyof SwirlColorInputAttributes as `prop:${K}`]?: SwirlColorInput[K] };
         "swirl-columns": Omit<SwirlColumns, keyof SwirlColumnsAttributes> & { [K in keyof SwirlColumns & keyof SwirlColumnsAttributes]?: SwirlColumns[K] } & { [K in keyof SwirlColumns & keyof SwirlColumnsAttributes as `attr:${K}`]?: SwirlColumnsAttributes[K] } & { [K in keyof SwirlColumns & keyof SwirlColumnsAttributes as `prop:${K}`]?: SwirlColumns[K] };
@@ -19708,7 +19726,7 @@ declare namespace LocalJSX {
         "swirl-popover": Omit<SwirlPopover, keyof SwirlPopoverAttributes> & { [K in keyof SwirlPopover & keyof SwirlPopoverAttributes]?: SwirlPopover[K] } & { [K in keyof SwirlPopover & keyof SwirlPopoverAttributes as `attr:${K}`]?: SwirlPopoverAttributes[K] } & { [K in keyof SwirlPopover & keyof SwirlPopoverAttributes as `prop:${K}`]?: SwirlPopover[K] } & OneOf<"label", SwirlPopover["label"], SwirlPopoverAttributes["label"]>;
         "swirl-popover-trigger": Omit<SwirlPopoverTrigger, keyof SwirlPopoverTriggerAttributes> & { [K in keyof SwirlPopoverTrigger & keyof SwirlPopoverTriggerAttributes]?: SwirlPopoverTrigger[K] } & { [K in keyof SwirlPopoverTrigger & keyof SwirlPopoverTriggerAttributes as `attr:${K}`]?: SwirlPopoverTriggerAttributes[K] } & { [K in keyof SwirlPopoverTrigger & keyof SwirlPopoverTriggerAttributes as `prop:${K}`]?: SwirlPopoverTrigger[K] } & OneOf<"swirlPopover", SwirlPopoverTrigger["swirlPopover"], SwirlPopoverTriggerAttributes["swirlPopover"]>;
         "swirl-progress-indicator": Omit<SwirlProgressIndicator, keyof SwirlProgressIndicatorAttributes> & { [K in keyof SwirlProgressIndicator & keyof SwirlProgressIndicatorAttributes]?: SwirlProgressIndicator[K] } & { [K in keyof SwirlProgressIndicator & keyof SwirlProgressIndicatorAttributes as `attr:${K}`]?: SwirlProgressIndicatorAttributes[K] } & { [K in keyof SwirlProgressIndicator & keyof SwirlProgressIndicatorAttributes as `prop:${K}`]?: SwirlProgressIndicator[K] } & OneOf<"label", SwirlProgressIndicator["label"], SwirlProgressIndicatorAttributes["label"]>;
-        "swirl-radio": Omit<SwirlRadio, keyof SwirlRadioAttributes> & { [K in keyof SwirlRadio & keyof SwirlRadioAttributes]?: SwirlRadio[K] } & { [K in keyof SwirlRadio & keyof SwirlRadioAttributes as `attr:${K}`]?: SwirlRadioAttributes[K] } & { [K in keyof SwirlRadio & keyof SwirlRadioAttributes as `prop:${K}`]?: SwirlRadio[K] } & OneOf<"inputId", SwirlRadio["inputId"], SwirlRadioAttributes["inputId"]> & OneOf<"inputName", SwirlRadio["inputName"], SwirlRadioAttributes["inputName"]> & OneOf<"value", SwirlRadio["value"], SwirlRadioAttributes["value"]>;
+        "swirl-radio": Omit<SwirlRadio, keyof SwirlRadioAttributes> & { [K in keyof SwirlRadio & keyof SwirlRadioAttributes]?: SwirlRadio[K] } & { [K in keyof SwirlRadio & keyof SwirlRadioAttributes as `attr:${K}`]?: SwirlRadioAttributes[K] } & { [K in keyof SwirlRadio & keyof SwirlRadioAttributes as `prop:${K}`]?: SwirlRadio[K] } & OneOf<"inputName", SwirlRadio["inputName"], SwirlRadioAttributes["inputName"]> & OneOf<"value", SwirlRadio["value"], SwirlRadioAttributes["value"]>;
         "swirl-radio-group": Omit<SwirlRadioGroup, keyof SwirlRadioGroupAttributes> & { [K in keyof SwirlRadioGroup & keyof SwirlRadioGroupAttributes]?: SwirlRadioGroup[K] } & { [K in keyof SwirlRadioGroup & keyof SwirlRadioGroupAttributes as `attr:${K}`]?: SwirlRadioGroupAttributes[K] } & { [K in keyof SwirlRadioGroup & keyof SwirlRadioGroupAttributes as `prop:${K}`]?: SwirlRadioGroup[K] };
         "swirl-resource-list": Omit<SwirlResourceList, keyof SwirlResourceListAttributes> & { [K in keyof SwirlResourceList & keyof SwirlResourceListAttributes]?: SwirlResourceList[K] } & { [K in keyof SwirlResourceList & keyof SwirlResourceListAttributes as `attr:${K}`]?: SwirlResourceListAttributes[K] } & { [K in keyof SwirlResourceList & keyof SwirlResourceListAttributes as `prop:${K}`]?: SwirlResourceList[K] };
         "swirl-resource-list-file-item": Omit<SwirlResourceListFileItem, keyof SwirlResourceListFileItemAttributes> & { [K in keyof SwirlResourceListFileItem & keyof SwirlResourceListFileItemAttributes]?: SwirlResourceListFileItem[K] } & { [K in keyof SwirlResourceListFileItem & keyof SwirlResourceListFileItemAttributes as `attr:${K}`]?: SwirlResourceListFileItemAttributes[K] } & { [K in keyof SwirlResourceListFileItem & keyof SwirlResourceListFileItemAttributes as `prop:${K}`]?: SwirlResourceListFileItem[K] } & OneOf<"label", SwirlResourceListFileItem["label"], SwirlResourceListFileItemAttributes["label"]>;
@@ -19724,7 +19742,7 @@ declare namespace LocalJSX {
         "swirl-spinner": Omit<SwirlSpinner, keyof SwirlSpinnerAttributes> & { [K in keyof SwirlSpinner & keyof SwirlSpinnerAttributes]?: SwirlSpinner[K] } & { [K in keyof SwirlSpinner & keyof SwirlSpinnerAttributes as `attr:${K}`]?: SwirlSpinnerAttributes[K] } & { [K in keyof SwirlSpinner & keyof SwirlSpinnerAttributes as `prop:${K}`]?: SwirlSpinner[K] };
         "swirl-stack": Omit<SwirlStack, keyof SwirlStackAttributes> & { [K in keyof SwirlStack & keyof SwirlStackAttributes]?: SwirlStack[K] } & { [K in keyof SwirlStack & keyof SwirlStackAttributes as `attr:${K}`]?: SwirlStackAttributes[K] } & { [K in keyof SwirlStack & keyof SwirlStackAttributes as `prop:${K}`]?: SwirlStack[K] };
         "swirl-status-indicator": Omit<SwirlStatusIndicator, keyof SwirlStatusIndicatorAttributes> & { [K in keyof SwirlStatusIndicator & keyof SwirlStatusIndicatorAttributes]?: SwirlStatusIndicator[K] } & { [K in keyof SwirlStatusIndicator & keyof SwirlStatusIndicatorAttributes as `attr:${K}`]?: SwirlStatusIndicatorAttributes[K] } & { [K in keyof SwirlStatusIndicator & keyof SwirlStatusIndicatorAttributes as `prop:${K}`]?: SwirlStatusIndicator[K] } & OneOf<"intent", SwirlStatusIndicator["intent"], SwirlStatusIndicatorAttributes["intent"]> & OneOf<"label", SwirlStatusIndicator["label"], SwirlStatusIndicatorAttributes["label"]>;
-        "swirl-switch": Omit<SwirlSwitch, keyof SwirlSwitchAttributes> & { [K in keyof SwirlSwitch & keyof SwirlSwitchAttributes]?: SwirlSwitch[K] } & { [K in keyof SwirlSwitch & keyof SwirlSwitchAttributes as `attr:${K}`]?: SwirlSwitchAttributes[K] } & { [K in keyof SwirlSwitch & keyof SwirlSwitchAttributes as `prop:${K}`]?: SwirlSwitch[K] } & OneOf<"inputId", SwirlSwitch["inputId"], SwirlSwitchAttributes["inputId"]> & OneOf<"inputName", SwirlSwitch["inputName"], SwirlSwitchAttributes["inputName"]>;
+        "swirl-switch": Omit<SwirlSwitch, keyof SwirlSwitchAttributes> & { [K in keyof SwirlSwitch & keyof SwirlSwitchAttributes]?: SwirlSwitch[K] } & { [K in keyof SwirlSwitch & keyof SwirlSwitchAttributes as `attr:${K}`]?: SwirlSwitchAttributes[K] } & { [K in keyof SwirlSwitch & keyof SwirlSwitchAttributes as `prop:${K}`]?: SwirlSwitch[K] } & OneOf<"inputName", SwirlSwitch["inputName"], SwirlSwitchAttributes["inputName"]>;
         "swirl-symbol": Omit<SwirlSymbol, keyof SwirlSymbolAttributes> & { [K in keyof SwirlSymbol & keyof SwirlSymbolAttributes]?: SwirlSymbol[K] } & { [K in keyof SwirlSymbol & keyof SwirlSymbolAttributes as `attr:${K}`]?: SwirlSymbolAttributes[K] } & { [K in keyof SwirlSymbol & keyof SwirlSymbolAttributes as `prop:${K}`]?: SwirlSymbol[K] } & OneOf<"glyph", SwirlSymbol["glyph"], SwirlSymbolAttributes["glyph"]>;
         "swirl-symbol-ac-unit": Omit<SwirlSymbolAcUnit, keyof SwirlSymbolAcUnitAttributes> & { [K in keyof SwirlSymbolAcUnit & keyof SwirlSymbolAcUnitAttributes]?: SwirlSymbolAcUnit[K] } & { [K in keyof SwirlSymbolAcUnit & keyof SwirlSymbolAcUnitAttributes as `attr:${K}`]?: SwirlSymbolAcUnitAttributes[K] } & { [K in keyof SwirlSymbolAcUnit & keyof SwirlSymbolAcUnitAttributes as `prop:${K}`]?: SwirlSymbolAcUnit[K] };
         "swirl-symbol-account-circle": Omit<SwirlSymbolAccountCircle, keyof SwirlSymbolAccountCircleAttributes> & { [K in keyof SwirlSymbolAccountCircle & keyof SwirlSymbolAccountCircleAttributes]?: SwirlSymbolAccountCircle[K] } & { [K in keyof SwirlSymbolAccountCircle & keyof SwirlSymbolAccountCircleAttributes as `attr:${K}`]?: SwirlSymbolAccountCircleAttributes[K] } & { [K in keyof SwirlSymbolAccountCircle & keyof SwirlSymbolAccountCircleAttributes as `prop:${K}`]?: SwirlSymbolAccountCircle[K] };

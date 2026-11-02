@@ -44,4 +44,18 @@ describe("swirl-radio", () => {
     expect(spy).toHaveBeenCalled();
     expect(spy.mock.calls[0][0].detail).toBe("Value");
   });
+
+  it("generates a unique input id per instance and labels its own input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlRadio],
+      html: `<swirl-radio input-name="a" label="A" value="a"></swirl-radio><swirl-radio input-name="b" label="B" value="b"></swirl-radio>`,
+    });
+
+    const labels = Array.from(page.body.querySelectorAll("label"));
+    const ids = labels.map((label) => label.querySelector("input").id);
+
+    expect(ids[0]).toBeTruthy();
+    expect(ids[0]).not.toBe(ids[1]);
+    expect(labels.map((label) => label.htmlFor)).toEqual(ids);
+  });
 });
