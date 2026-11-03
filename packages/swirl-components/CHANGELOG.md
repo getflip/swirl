@@ -1,5 +1,15 @@
 # @getflip/swirl-components
 
+## 0.532.1
+
+### Patch Changes
+
+- [#1825](https://github.com/getflip/swirl/pull/1825)
+  [`622b884bf`](https://github.com/getflip/swirl/commit/622b884bff6769317e203f08fa209d86cfaf696b)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Make `inputId`
+  optional on `swirl-checkbox`, `swirl-radio` and `swirl-switch`; a unique id is
+  generated when omitted
+
 ## 0.532.0
 
 ### Minor Changes
