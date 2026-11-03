@@ -5740,6 +5740,7 @@
               "type": {
                 "text": "string"
               },
+              "default": "crypto.randomUUID()",
               "fieldName": "inputId"
             },
             {
@@ -5851,6 +5852,7 @@
               "type": {
                 "text": "string"
               },
+              "default": "crypto.randomUUID()",
               "readonly": true,
               "attribute": "input-id"
             },
@@ -49179,6 +49181,7 @@
               "type": {
                 "text": "string"
               },
+              "default": "crypto.randomUUID()",
               "fieldName": "inputId"
             },
             {
@@ -49270,6 +49273,7 @@
               "type": {
                 "text": "string"
               },
+              "default": "crypto.randomUUID()",
               "readonly": true,
               "attribute": "input-id"
             },
@@ -52955,6 +52959,7 @@
               "type": {
                 "text": "string"
               },
+              "default": "crypto.randomUUID()",
               "fieldName": "inputId"
             },
             {
@@ -53052,6 +53057,7 @@
               "type": {
                 "text": "string"
               },
+              "default": "crypto.randomUUID()",
               "readonly": true,
               "attribute": "input-id"
             },

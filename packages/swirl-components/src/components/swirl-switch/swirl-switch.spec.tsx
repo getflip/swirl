@@ -79,4 +79,18 @@ describe("swirl-switch", () => {
     await page.root.toggle();
     expect(spy.mock.calls[1][0].detail).toBe(false);
   });
+
+  it("generates a unique input id per instance and labels its own input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSwitch],
+      html: `<swirl-switch input-name="a" label="A"></swirl-switch><swirl-switch input-name="b" label="B"></swirl-switch>`,
+    });
+
+    const labels = Array.from(page.body.querySelectorAll("label"));
+    const ids = labels.map((label) => label.querySelector("input").id);
+
+    expect(ids[0]).toBeTruthy();
+    expect(ids[0]).not.toBe(ids[1]);
+    expect(labels.map((label) => label.htmlFor)).toEqual(ids);
+  });
 });

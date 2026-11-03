@@ -25,7 +25,7 @@ export class SwirlCheckbox {
   @Prop() disabled?: boolean = false;
   @Prop() swirlAriaDescribedby?: string;
   @Prop() swirlAriaLabel?: string;
-  @Prop() inputId!: string;
+  @Prop() inputId?: string = crypto.randomUUID();
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
   @Prop() label?: string;

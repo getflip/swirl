@@ -21,7 +21,7 @@ export class SwirlRadio {
   @Prop({ mutable: true }) checked?: SwirlRadioState = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean = false;
-  @Prop() inputId!: string;
+  @Prop() inputId?: string = crypto.randomUUID();
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
   @Prop() label?: string;
