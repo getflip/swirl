@@ -13,9 +13,17 @@ import { FlipApiExtensions } from "./FlipApiExtensions";
 import OASBuilder from "./oasBuilder";
 
 export class EndpointMapper {
-  mapEndpoint(operation: Operation, oasBuilder: OASBuilder): ApiEndpoint {
+  /**
+   * `schemaOperation` is `operation` with subtype properties added for the tables, see
+   * `DiscriminatorExpander`. The request and response examples keep using `operation`.
+   */
+  mapEndpoint(
+    operation: Operation,
+    oasBuilder: OASBuilder,
+    schemaOperation: Operation = operation
+  ): ApiEndpoint {
     const responseBodySchemas = Object.entries(
-      operation.schema.responses || {}
+      schemaOperation.schema.responses || {}
     ).map(([statusCode, response]) => ({
       schema: response.content?.["application/json"]?.schema || null,
       statusCode,
@@ -25,7 +33,7 @@ export class EndpointMapper {
       (operation.schema["x-experimental"] as boolean) ?? false;
 
     const requestSchemas: SchemaWrapper[] | undefined =
-      operation.getParametersAsJSONSchema();
+      schemaOperation.getParametersAsJSONSchema();
     const requestBody = requestSchemas?.filter(
       (param) => param.type === "body"
     );
@@ -68,7 +76,8 @@ export class EndpointMapper {
       globalErrorCodes: FlipApiExtensions.getErrorCodes(operation),
       parameters: this.getEndpointOperationSchema(otherParameters),
       requestBody: this.getEndpointOperationSchema(requestBody),
-      responseBody: this.getEndpointOperationResponseParameters(operation),
+      responseBody:
+        this.getEndpointOperationResponseParameters(schemaOperation),
       request: oasBuilder?.generateRequest(operation),
       responseExamples: oasBuilder?.generateResponseExamples(operation),
       responseBodySchemas,
