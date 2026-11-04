@@ -22,6 +22,7 @@ import {
   Operations,
 } from "../../lib/docs/src/docs.model";
 import { CircularRefExpander } from "./CircularRefExpander";
+import { DiscriminatorExpander } from "./DiscriminatorExpander";
 import { EndpointMapper } from "./EndpointMapper";
 import { FlipApiExtensions } from "./FlipApiExtensions";
 
@@ -60,6 +61,8 @@ const OASToHar = (oasToHar as any).default || oasToHar;
 export default class OASBuilder implements IOASBuilder {
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oas: Oas = new OAS({} as OASDocument);
+  /** Feeds the property tables only; examples come from `_oas`, see `DiscriminatorExpander`. */
+  private _schemaOas: Oas = this._oas;
   private endpointMapper = new EndpointMapper();
 
   public title: string = "";
@@ -81,6 +84,7 @@ export default class OASBuilder implements IOASBuilder {
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
     this._oas = new OAS(oasDocument);
+    this._schemaOas = this._oas;
   }
 
   private createParameters(
@@ -123,7 +127,11 @@ export default class OASBuilder implements IOASBuilder {
 
   public async dereference() {
     await this._oas.dereference().then(() => console.log("Dereferenced!"));
-    this._oas.api = CircularRefExpander.expand(this._oas.api);
+    const dereferenced = this._oas.api;
+    this._oas.api = CircularRefExpander.expand(dereferenced);
+    this._schemaOas = new OAS(
+      CircularRefExpander.expand(DiscriminatorExpander.expand(dereferenced))
+    );
     return this;
   }
 
@@ -181,7 +189,11 @@ export default class OASBuilder implements IOASBuilder {
             }
 
             const endpoint = {
-              ...this.endpointMapper.mapEndpoint(operation, this),
+              ...this.endpointMapper.mapEndpoint(
+                operation,
+                this,
+                this._schemaOas.operation(path, pathItemObject as HttpMethods)
+              ),
               method: pathItemObject as HttpMethods,
             };
 
