@@ -2,12 +2,36 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlProgressIndicator } from "./swirl-progress-indicator";
 
+async function renderAfterLoad(html: string) {
+  const page = await newSpecPage({
+    components: [SwirlProgressIndicator],
+    html,
+  });
+
+  // The fill renders at 0 first and moves to the actual value a frame later.
+  await new Promise((resolve) => requestAnimationFrame(resolve));
+  await page.waitForChanges();
+
+  return page;
+}
+
 describe("swirl-progress-indicator", () => {
-  it("renders a progress bar", async () => {
+  it("renders the fill at 0 before animating it to the value", async () => {
     const page = await newSpecPage({
       components: [SwirlProgressIndicator],
       html: `<swirl-progress-indicator label="Progress" value="60"></swirl-progress-indicator>`,
     });
+
+    const progress = page.root.shadowRoot.querySelector("progress");
+
+    expect(progress.getAttribute("value")).toBe("0");
+    expect(progress.getAttribute("aria-valuenow")).toBe("60");
+  });
+
+  it("renders a progress bar", async () => {
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" value="60"></swirl-progress-indicator>`
+    );
 
     expect(page.root).toEqualHtml(`
       <swirl-progress-indicator class="bar" label="Progress" value="60">
@@ -26,10 +50,9 @@ describe("swirl-progress-indicator", () => {
   });
 
   it("renders an extra-small progress bar", async () => {
-    const page = await newSpecPage({
-      components: [SwirlProgressIndicator],
-      html: `<swirl-progress-indicator label="Progress" size="xs" value="60"></swirl-progress-indicator>`,
-    });
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" size="xs" value="60"></swirl-progress-indicator>`
+    );
 
     expect(page.root).toEqualHtml(`
       <swirl-progress-indicator class="bar" label="Progress" size="xs" value="60">
@@ -48,10 +71,9 @@ describe("swirl-progress-indicator", () => {
   });
 
   it("renders a large progress bar", async () => {
-    const page = await newSpecPage({
-      components: [SwirlProgressIndicator],
-      html: `<swirl-progress-indicator label="Progress" size="l" value="60"></swirl-progress-indicator>`,
-    });
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" size="l" value="60"></swirl-progress-indicator>`
+    );
 
     expect(page.root).toEqualHtml(`
       <swirl-progress-indicator class="bar" label="Progress" size="l" value="60">
@@ -69,11 +91,31 @@ describe("swirl-progress-indicator", () => {
     `);
   });
 
+  it("renders an extra-large progress bar", async () => {
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" size="xl" value="60"></swirl-progress-indicator>`
+    );
+
+    expect(page.root).toEqualHtml(`
+      <swirl-progress-indicator class="bar" label="Progress" size="xl" value="60">
+        <mock:shadow-root>
+          <progress
+            aria-label="Progress"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="60"
+            class="progress-indicator progress-indicator--size-xl progress-indicator--variant-bar"
+            max="100"
+            value="60"></progress>
+        </mock:shadow-root>
+      </swirl-progress-indicator>
+    `);
+  });
+
   it("renders a progress circle", async () => {
-    const page = await newSpecPage({
-      components: [SwirlProgressIndicator],
-      html: `<swirl-progress-indicator label="Progress" value="60" variant="circle"></swirl-progress-indicator>`,
-    });
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" value="60" variant="circle"></swirl-progress-indicator>`
+    );
 
     expect(page.root).toEqualHtml(`
       <swirl-progress-indicator class="circle" label="Progress" value="60" variant="circle">
@@ -90,10 +132,9 @@ describe("swirl-progress-indicator", () => {
   });
 
   it("renders an extra-small progress circle", async () => {
-    const page = await newSpecPage({
-      components: [SwirlProgressIndicator],
-      html: `<swirl-progress-indicator label="Progress" size="xs" value="60" variant="circle"></swirl-progress-indicator>`,
-    });
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" size="xs" value="60" variant="circle"></swirl-progress-indicator>`
+    );
 
     expect(page.root).toEqualHtml(`
       <swirl-progress-indicator class="circle" label="Progress" size="xs" value="60" variant="circle">
@@ -110,10 +151,9 @@ describe("swirl-progress-indicator", () => {
   });
 
   it("renders a large progress circle", async () => {
-    const page = await newSpecPage({
-      components: [SwirlProgressIndicator],
-      html: `<swirl-progress-indicator label="Progress" size="l" value="60" variant="circle"></swirl-progress-indicator>`,
-    });
+    const page = await renderAfterLoad(
+      `<swirl-progress-indicator label="Progress" size="l" value="60" variant="circle"></swirl-progress-indicator>`
+    );
 
     expect(page.root).toEqualHtml(`
       <swirl-progress-indicator class="circle" label="Progress" size="l" value="60" variant="circle">
