@@ -35,3 +35,20 @@ SwirlButton.args = {
   icon: "<swirl-icon-add></swirl-icon-add>",
   label: "Label",
 };
+
+const CustomLabelTemplate = (args) => {
+  const element = generateStoryElement("swirl-button", args);
+
+  element.innerHTML = `
+    <span slot="label">Add <strong>item</strong></span>
+  `;
+
+  return element;
+};
+
+export const CustomLabel = CustomLabelTemplate.bind({});
+
+CustomLabel.args = {
+  icon: "<swirl-icon-add></swirl-icon-add>",
+  label: "Add item",
+};

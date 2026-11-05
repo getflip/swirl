@@ -26,6 +26,7 @@ export type SwirlButtonCursor = SwirlCursor;
 
 /**
  * @slot icon - Icon to be displayed inside the button.
+ * @slot label - Custom label markup. Replaces the label prop visually, which is still used as accessible name when the label is hidden.
  * @slot tag - Tag to be displayed inside the button.
  * @slot trailing - Trailing slot for content to be displayed at the end.
  */
@@ -147,6 +148,8 @@ export class SwirlButton {
     const isLink = Boolean(this.href);
     const ariaLabel = this.getAriaLabel(hideLabel);
 
+    const hasLabelSlot = Boolean(this.el.querySelector("[slot='label']"));
+
     const hasTag = Boolean(this.el.querySelector("[slot='tag']"));
 
     const hasTrailingSlot = Boolean(this.el.querySelector("[slot='trailing']"));
@@ -212,7 +215,13 @@ export class SwirlButton {
               <slot name="icon"></slot>
             </span>
           )}
-          {!hideLabel && <span class="button__label">{this.label}</span>}
+          {hasLabelSlot ? (
+            <span class="button__label" hidden={hideLabel}>
+              <slot name="label"></slot>
+            </span>
+          ) : (
+            !hideLabel && <span class="button__label">{this.label}</span>
+          )}
           {hasTag && (
             <span class="button__tag">
               <slot name="tag"></slot>

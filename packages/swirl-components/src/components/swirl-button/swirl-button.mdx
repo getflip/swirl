@@ -23,6 +23,21 @@ The SwirlButton component is used to trigger actions or events.
   code={`<swirl-button icon="<swirl-icon-add></swirl-icon-add>" label="Label"></swirl-button>`}
 />
 
+## Custom label
+
+Only use the `label` slot when you need custom label markup. The slotted content
+replaces the `label` prop visually. Always set the `label` prop as well: it is
+used as the accessible name whenever the label is hidden (e.g. `hide-label` with
+an icon). Keep the markup simple and only use inline elements.
+
+<Canvas of={Stories.CustomLabel}></Canvas>
+
+<Source
+  code={`<swirl-button icon="<swirl-icon-add></swirl-icon-add>" label="Add item">
+    <span slot="label">Add <strong>item</strong></span>
+</swirl-button>`}
+/>
+
 ## Related components
 
 No related components.
