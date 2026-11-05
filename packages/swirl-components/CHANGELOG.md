@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.533.0
+
+### Minor Changes
+
+- [#1831](https://github.com/getflip/swirl/pull/1831)
+  [`ea425cddc`](https://github.com/getflip/swirl/commit/ea425cddc10d67d9089a6ebec667c1f03c2eb061)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - SwirlButton: add a `label` slot
+  for custom label markup. The slotted content replaces the `label` prop
+  visually; the prop is still used as accessible name when the label is hidden.
+
+* [#1829](https://github.com/getflip/swirl/pull/1829)
+  [`7ad8729e6`](https://github.com/getflip/swirl/commit/7ad8729e6eb5aab0db54b63ac0a7c87e0aece309)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - SwirlProgressIndicator: add an
+  `xl` size (12px) to the bar variant, use full-round corners for the bar, and
+  animate the fill in when the indicator first renders
+
 ## 0.532.1
 
 ### Patch Changes
