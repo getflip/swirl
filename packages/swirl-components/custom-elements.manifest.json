@@ -61679,6 +61679,14 @@
               "fieldName": "enableDragDrop"
             },
             {
+              "name": "enable-virtualization",
+              "description": "Draws only the rows near the visible area. Render the rows from\n`virtualizationRowsChange`, each with its 0-based index in `data-index`.\nRequires `virtualizationRowCount`. Doesn't work with drag & drop or row\ngroups.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "enableVirtualization"
+            },
+            {
               "name": "label",
               "type": {
                 "text": "string"
@@ -61691,6 +61699,32 @@
                 "text": "boolean"
               },
               "fieldName": "loading"
+            },
+            {
+              "name": "virtualization-estimated-row-height",
+              "description": "Height in px assumed for rows not drawn yet.",
+              "type": {
+                "text": "number"
+              },
+              "default": "56",
+              "fieldName": "virtualizationEstimatedRowHeight"
+            },
+            {
+              "name": "virtualization-overscan",
+              "description": "Number of extra rows drawn above and below the visible ones.",
+              "type": {
+                "text": "number"
+              },
+              "default": "10",
+              "fieldName": "virtualizationOverscan"
+            },
+            {
+              "name": "virtualization-row-count",
+              "description": "Total number of rows when virtualized.",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "virtualizationRowCount"
             }
           ],
           "members": [
@@ -61742,6 +61776,16 @@
             },
             {
               "kind": "field",
+              "name": "enableVirtualization",
+              "description": "Draws only the rows near the visible area. Render the rows from\n`virtualizationRowsChange`, each with its 0-based index in `data-index`.\nRequires `virtualizationRowCount`. Doesn't work with drag & drop or row\ngroups.",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "enable-virtualization"
+            },
+            {
+              "kind": "field",
               "name": "label",
               "type": {
                 "text": "string"
@@ -61757,6 +61801,48 @@
               },
               "readonly": true,
               "attribute": "loading"
+            },
+            {
+              "kind": "field",
+              "name": "virtualizationEstimatedRowHeight",
+              "description": "Height in px assumed for rows not drawn yet.",
+              "type": {
+                "text": "number"
+              },
+              "default": "56",
+              "readonly": true,
+              "attribute": "virtualization-estimated-row-height"
+            },
+            {
+              "kind": "field",
+              "name": "virtualizationKeepRowsRendered",
+              "description": "Indexes of rows to keep drawn when out of view, e.g. a row with an open\nmenu. The focused row is always kept.",
+              "type": {
+                "text": "number[]"
+              },
+              "default": "[]",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "virtualizationOverscan",
+              "description": "Number of extra rows drawn above and below the visible ones.",
+              "type": {
+                "text": "number"
+              },
+              "default": "10",
+              "readonly": true,
+              "attribute": "virtualization-overscan"
+            },
+            {
+              "kind": "field",
+              "name": "virtualizationRowCount",
+              "description": "Total number of rows when virtualized.",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "attribute": "virtualization-row-count"
             },
             {
               "kind": "method",
@@ -61783,6 +61869,18 @@
                 "references": [
                   {
                     "name": "SwirlTableDropRowEvent"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "virtualizationRowsChange",
+              "description": "Emits the indexes of the rows to render.",
+              "type": {
+                "text": "CustomEvent<{ indexes: number[]; }>",
+                "references": [
+                  {
+                    "name": "SwirlTableVirtualizationRows"
                   }
                 ]
               }

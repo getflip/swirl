@@ -75,7 +75,7 @@ import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1, SwirlTabBarTabBadge, SwirlTabBarVariant as SwirlTabBarVariant1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
-import { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
+import { SwirlTableDropRowEvent, SwirlTableVirtualizationRows } from "./components/swirl-table/swirl-table";
 import { SwirlTableColumnSort, SwirlTableColumnVariant } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
@@ -160,7 +160,7 @@ export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1, SwirlTabBarTabBadge, SwirlTabBarVariant as SwirlTabBarVariant1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
-export { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
+export { SwirlTableDropRowEvent, SwirlTableVirtualizationRows } from "./components/swirl-table/swirl-table";
 export { SwirlTableColumnSort, SwirlTableColumnVariant } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
@@ -5455,12 +5455,35 @@ export namespace Components {
          */
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
+        /**
+          * Draws only the rows near the visible area. Render the rows from `virtualizationRowsChange`, each with its 0-based index in `data-index`. Requires `virtualizationRowCount`. Doesn't work with drag & drop or row groups.
+         */
+        "enableVirtualization"?: boolean;
         "label": string;
         "loading"?: boolean;
         /**
           * Force a re-render of the table
          */
         "rerender": () => Promise<void>;
+        /**
+          * Height in px assumed for rows not drawn yet.
+          * @default 56
+         */
+        "virtualizationEstimatedRowHeight"?: number;
+        /**
+          * Indexes of rows to keep drawn when out of view, e.g. a row with an open menu. The focused row is always kept.
+          * @default []
+         */
+        "virtualizationKeepRowsRendered"?: number[];
+        /**
+          * Number of extra rows drawn above and below the visible ones.
+          * @default 10
+         */
+        "virtualizationOverscan"?: number;
+        /**
+          * Total number of rows when virtualized.
+         */
+        "virtualizationRowCount"?: number;
     }
     interface SwirlTableCell {
     }
@@ -9941,6 +9964,7 @@ declare global {
     };
     interface HTMLSwirlTableElementEventMap {
         "dropRow": SwirlTableDropRowEvent;
+        "virtualizationRowsChange": SwirlTableVirtualizationRows;
     }
     interface HTMLSwirlTableElement extends Components.SwirlTable, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlTableElementEventMap>(type: K, listener: (this: HTMLSwirlTableElement, ev: SwirlTableCustomEvent<HTMLSwirlTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -15936,9 +15960,36 @@ declare namespace LocalJSX {
          */
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
+        /**
+          * Draws only the rows near the visible area. Render the rows from `virtualizationRowsChange`, each with its 0-based index in `data-index`. Requires `virtualizationRowCount`. Doesn't work with drag & drop or row groups.
+         */
+        "enableVirtualization"?: boolean;
         "label": string;
         "loading"?: boolean;
         "onDropRow"?: (event: SwirlTableCustomEvent<SwirlTableDropRowEvent>) => void;
+        /**
+          * Emits the indexes of the rows to render.
+         */
+        "onVirtualizationRowsChange"?: (event: SwirlTableCustomEvent<SwirlTableVirtualizationRows>) => void;
+        /**
+          * Height in px assumed for rows not drawn yet.
+          * @default 56
+         */
+        "virtualizationEstimatedRowHeight"?: number;
+        /**
+          * Indexes of rows to keep drawn when out of view, e.g. a row with an open menu. The focused row is always kept.
+          * @default []
+         */
+        "virtualizationKeepRowsRendered"?: number[];
+        /**
+          * Number of extra rows drawn above and below the visible ones.
+          * @default 10
+         */
+        "virtualizationOverscan"?: number;
+        /**
+          * Total number of rows when virtualized.
+         */
+        "virtualizationRowCount"?: number;
     }
     interface SwirlTableCell {
     }
@@ -19124,6 +19175,10 @@ declare namespace LocalJSX {
         "enableDragDrop": boolean;
         "label": string;
         "loading": boolean;
+        "enableVirtualization": boolean;
+        "virtualizationRowCount": number;
+        "virtualizationEstimatedRowHeight": number;
+        "virtualizationOverscan": number;
     }
     interface SwirlTableColumnAttributes {
         "variant": SwirlTableColumnVariant;

@@ -16,7 +16,16 @@ import {
 
 import classNames from "classnames";
 import Sortable, { SortableEvent } from "sortablejs";
-import { debounce, isMobileViewport, querySelectorAllDeep } from "../../utils";
+import {
+  debounce,
+  getScrollParent,
+  isMobileViewport,
+  querySelectorAllDeep,
+} from "../../utils";
+import {
+  SwirlTableVirtualizer,
+  SwirlTableVirtualizerConfig,
+} from "./swirl-table-virtualizer";
 
 export type SwirlTableDropRowEvent = Pick<
   SortableEvent,
@@ -25,6 +34,11 @@ export type SwirlTableDropRowEvent = Pick<
   itemId: string;
   newNextSiblingItemId: string | undefined;
   newPrevSiblingItemId: string | undefined;
+};
+
+export type SwirlTableVirtualizationRows = {
+  /** 0-based indexes of the rows to render, in ascending order. */
+  indexes: number[];
 };
 
 const defaultDragDropInstructions = {
@@ -56,8 +70,28 @@ export class SwirlTable {
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
   @Prop() loading?: boolean;
+  /**
+   * Draws only the rows near the visible area. Render the rows from
+   * `virtualizationRowsChange`, each with its 0-based index in `data-index`.
+   * Requires `virtualizationRowCount`. Doesn't work with drag & drop or row
+   * groups.
+   */
+  @Prop() enableVirtualization?: boolean;
+  /** Total number of rows when virtualized. */
+  @Prop() virtualizationRowCount?: number;
+  /** Height in px assumed for rows not drawn yet. */
+  @Prop() virtualizationEstimatedRowHeight?: number = 56;
+  /** Number of extra rows drawn above and below the visible ones. */
+  @Prop() virtualizationOverscan?: number = 10;
+  /**
+   * Indexes of rows to keep drawn when out of view, e.g. a row with an open
+   * menu. The focused row is always kept.
+   */
+  @Prop() virtualizationKeepRowsRendered?: number[] = [];
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
+  /** Emits the indexes of the rows to render. */
+  @Event() virtualizationRowsChange: EventEmitter<SwirlTableVirtualizationRows>;
 
   @State() empty: boolean;
   @State() liveRegionText = "";
@@ -75,10 +109,13 @@ export class SwirlTable {
   private positionBeforeKeyboardMove?: number;
   private rowMutationObserver: MutationObserver;
   private sortable: Sortable | undefined;
+  private virtualizer: SwirlTableVirtualizer | undefined;
+  private focusedRowIndex: number | undefined;
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
     this.setupMutationObservers();
+    this.updateVirtualizer();
 
     queueMicrotask(() => {
       this.setupDragDrop();
@@ -90,6 +127,90 @@ export class SwirlTable {
     this.columnMutationObserver?.disconnect();
     this.rowMutationObserver?.disconnect();
     this.sortable?.destroy();
+    this.destroyVirtualizer();
+  }
+
+  @Watch("enableVirtualization")
+  @Watch("virtualizationRowCount")
+  @Watch("virtualizationEstimatedRowHeight")
+  @Watch("virtualizationOverscan")
+  @Watch("virtualizationKeepRowsRendered")
+  handleVirtualizationChange() {
+    this.updateVirtualizer();
+  }
+
+  private get virtualizerConfig(): SwirlTableVirtualizerConfig | undefined {
+    if (!this.enableVirtualization || !this.virtualizationRowCount) {
+      return undefined;
+    }
+
+    return {
+      estimatedRowHeight: this.virtualizationEstimatedRowHeight,
+      keptIndexes:
+        this.focusedRowIndex === undefined
+          ? this.virtualizationKeepRowsRendered ?? []
+          : [
+              ...(this.virtualizationKeepRowsRendered ?? []),
+              this.focusedRowIndex,
+            ],
+      overscan: this.virtualizationOverscan,
+      rowCount: this.virtualizationRowCount,
+    };
+  }
+
+  private updateVirtualizer() {
+    if (!this.bodyEl) {
+      return;
+    }
+
+    const config = this.virtualizerConfig;
+
+    if (!config) {
+      const hadVirtualizer = Boolean(this.virtualizer);
+
+      this.destroyVirtualizer();
+
+      // tell the app to clear its rows when they drop to 0. checking for a
+      // previous virtualizer emits only once, not on every focus change.
+      if (this.enableVirtualization && hadVirtualizer) {
+        queueMicrotask(() =>
+          this.virtualizationRowsChange.emit({ indexes: [] })
+        );
+      }
+
+      return;
+    }
+
+    if (this.virtualizer) {
+      this.virtualizer.setConfig(config);
+
+      // find the scroll container when more rows make it overflow
+      if (this.virtualizer.scrollElement === window) {
+        this.updateScrollParent();
+      }
+
+      return;
+    }
+
+    // reserve the full height first, so the scroll container overflows and
+    // can be found.
+    this.bodyEl.style.paddingBottom = `${
+      config.rowCount * config.estimatedRowHeight
+    }px`;
+
+    this.virtualizer = new SwirlTableVirtualizer(
+      this.bodyEl,
+      getScrollParent(this.el),
+      config,
+      (indexes) =>
+        // emit async, so frameworks don't get it mid-render.
+        queueMicrotask(() => this.virtualizationRowsChange.emit({ indexes }))
+    );
+  }
+
+  private destroyVirtualizer() {
+    this.virtualizer?.destroy();
+    this.virtualizer = undefined;
   }
 
   @Watch("enableDragDrop")
@@ -141,9 +262,18 @@ export class SwirlTable {
         (mutation) => mutation.addedNodes.length || mutation.removedNodes.length
       );
 
+      // rows tracked by position are reused: only their data-index changes.
+      const rowIndexChanged = mutations.some(
+        (mutation) => mutation.type === "attributes"
+      );
+
       if (rowWasAddedOrRemoved) {
         this.updateEmptyState();
         this.setupDragDrop();
+      }
+
+      if (rowWasAddedOrRemoved || rowIndexChanged) {
+        this.syncVirtualizedRows();
       }
     });
 
@@ -152,6 +282,7 @@ export class SwirlTable {
 
   private startRowMutationObserver() {
     this.rowMutationObserver?.observe(this.bodyEl, {
+      attributeFilter: ["data-index"],
       childList: true,
       subtree: true,
     });
@@ -234,9 +365,26 @@ export class SwirlTable {
       // Delay layout update to ensure the container is fully visible,
       // especially if it was initially rendered in a modal.
       setTimeout(async () => {
+        this.updateScrollParent();
         await this.updateLayout();
       }, 100);
     }
+  }
+
+  /**
+   * A table hidden on load falls back to the window. Look for the scroll
+   * container again once it is visible.
+   */
+  private updateScrollParent() {
+    if (
+      !this.virtualizer ||
+      getScrollParent(this.el) === this.virtualizer.scrollElement
+    ) {
+      return;
+    }
+
+    this.destroyVirtualizer();
+    this.updateVirtualizer();
   }
 
   async componentDidRender() {
@@ -546,6 +694,11 @@ export class SwirlTable {
   }
 
   private updateEmptyState() {
+    if (this.enableVirtualization && this.virtualizationRowCount) {
+      this.empty = false;
+      return;
+    }
+
     const rowsContainer = this.el.querySelector('[slot="rows"]');
 
     this.empty = !Boolean(rowsContainer) || rowsContainer.children.length === 0;
@@ -698,6 +851,8 @@ export class SwirlTable {
   };
 
   private onFocus = (event: FocusEvent) => {
+    this.trackFocusedRow(event.target as HTMLElement | null);
+
     if (this.movingViaKeyboard) {
       const movingRow =
         this.el.querySelector<HTMLElement>(".table-row--moving");
@@ -718,6 +873,10 @@ export class SwirlTable {
 
   private onBlur = (event: FocusEvent) => {
     const newlyFocusedElement = event.relatedTarget as HTMLElement | undefined;
+
+    if (!this.el.contains(newlyFocusedElement)) {
+      this.trackFocusedRow(null);
+    }
     const focusedDragHandle = !!newlyFocusedElement?.closest(
       this.dragDropHandle
     );
@@ -730,6 +889,40 @@ export class SwirlTable {
       this.updateLiveRegionText();
     }
   };
+
+  /**
+   * Measures and positions rows after they were added, removed or re-indexed.
+   * The focused row's index is read again first, as it changes when e.g. a row
+   * is inserted above it.
+   */
+  private syncVirtualizedRows() {
+    if (!this.virtualizer) {
+      return;
+    }
+
+    this.trackFocusedRow(
+      this.el.querySelector<HTMLElement>(
+        "swirl-table-row[data-index]:focus-within"
+      )
+    );
+    this.virtualizer.sync();
+  }
+
+  /** Keeps the focused row drawn, so it doesn't lose focus. */
+  private trackFocusedRow(target: HTMLElement | null) {
+    if (!this.enableVirtualization) {
+      return;
+    }
+
+    const index = target?.closest<HTMLElement>("swirl-table-row[data-index]")
+      ?.dataset.index;
+    const focusedRowIndex = index === undefined ? undefined : Number(index);
+
+    if (focusedRowIndex !== this.focusedRowIndex) {
+      this.focusedRowIndex = focusedRowIndex;
+      this.updateVirtualizer();
+    }
+  }
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (!this.enableDragDrop) {
@@ -799,6 +992,11 @@ export class SwirlTable {
             <div
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}
               aria-label={this.label}
+              aria-rowcount={
+                this.enableVirtualization && this.virtualizationRowCount
+                  ? this.virtualizationRowCount + 1
+                  : undefined
+              }
               role="table"
               class="table__table"
             >
@@ -810,6 +1008,7 @@ export class SwirlTable {
               <div role="rowgroup">
                 <div
                   class="table__header"
+                  aria-rowindex={this.enableVirtualization ? 1 : undefined}
                   ref={(el) => (this.headerEl = el)}
                   role="row"
                 >
