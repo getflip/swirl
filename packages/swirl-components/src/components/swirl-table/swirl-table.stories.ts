@@ -153,3 +153,341 @@ SwirlTable.args = {
   enableDragDrop: true,
   label: "Table",
 };
+
+const firstNames = [
+  "Isabel",
+  "Doyle",
+  "Don",
+  "Amara",
+  "Kenji",
+  "Lena",
+  "Mateo",
+  "Priya",
+  "Sven",
+  "Zoe",
+];
+
+const lastNames = [
+  "Lakin",
+  "Stoltenberg",
+  "Conroy",
+  "Okafor",
+  "Tanaka",
+  "Schmidt",
+  "Rossi",
+  "Patel",
+  "Larsen",
+  "Moreau",
+  "Novak",
+];
+
+const statuses = [
+  { intent: "success", label: "Active" },
+  { intent: "warning", label: "Pending" },
+  { intent: "critical", label: "Blocked" },
+];
+
+/**
+ * Builds the row for an index. Content depends on the index only, so a row
+ * drawn again after scrolling looks the same. Every 7th row has two lines of
+ * text, so the rows have different heights.
+ */
+const createVirtualizedRow = (index: number, idPrefix: string) => {
+  const firstName = firstNames[index % firstNames.length];
+  const lastName = lastNames[(index * 7) % lastNames.length];
+  const name = `${firstName} ${lastName}`;
+  const email = `${firstName}.${lastName}.${index}@flipapp.de`.toLowerCase();
+  const status = statuses[index % statuses.length];
+  const isTall = index % 7 === 0;
+  const popoverId = `${idPrefix}-popover-${index}`;
+
+  const row = document.createElement("swirl-table-row");
+
+  row.id = `${idPrefix}-row-${index}`;
+  row.dataset.index = String(index);
+  row.innerHTML = `
+    <swirl-table-cell>
+      <swirl-text size="sm" truncate>${index}</swirl-text>
+    </swirl-table-cell>
+    <swirl-table-cell>
+      <swirl-stack>
+        <swirl-text size="sm" weight="medium">${name}</swirl-text>
+        ${
+          isTall
+            ? `<swirl-text color="subdued" size="sm">Taller row with a second line of text</swirl-text>`
+            : ""
+        }
+      </swirl-stack>
+    </swirl-table-cell>
+    <swirl-table-cell>
+      <swirl-text size="sm"><swirl-link href="#" label="${email}"></swirl-link></swirl-text>
+    </swirl-table-cell>
+    <swirl-table-cell>
+      <swirl-tag label="${status.label}" intent="${status.intent}"></swirl-tag>
+    </swirl-table-cell>
+    <swirl-table-cell>
+      <swirl-popover-trigger hide-popover-when-invisible="false" swirl-popover="${popoverId}">
+        <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options for ${name}"></swirl-button>
+      </swirl-popover-trigger>
+      <swirl-popover disable-scroll-lock id="${popoverId}" label="Options for ${name}">
+        <swirl-action-list>
+          <swirl-action-list-item icon="<swirl-icon-edit></swirl-icon-edit>" label="Edit"></swirl-action-list-item>
+          <swirl-action-list-item icon="<swirl-icon-delete></swirl-icon-delete>" intent="critical" label="Delete"></swirl-action-list-item>
+        </swirl-action-list>
+      </swirl-popover>
+    </swirl-table-cell>
+  `;
+
+  return row;
+};
+
+/**
+ * Renders the rows named by `visibleRowsChange`, tracked by id. Rows that
+ * stay drawn are not moved, so focus and open popovers survive scrolling.
+ * Rows with an open popover are kept drawn via `keepRowsRendered`. The
+ * popovers stay open while scrolled out of view and don't lock scrolling, so
+ * kept rows can be tested by scrolling away from an open menu.
+ */
+const createVirtualizedTable = (args, idPrefix: string) => {
+  const table = generateStoryElement(
+    "swirl-table",
+    args
+  ) as HTMLSwirlTableElement;
+
+  table.innerHTML = `
+    <div slot="columns">
+      <swirl-table-column width="80px">#</swirl-table-column>
+      <swirl-table-column min-width="200px">Name</swirl-table-column>
+      <swirl-table-column min-width="240px">Email</swirl-table-column>
+      <swirl-table-column min-width="120px">Status</swirl-table-column>
+      <swirl-table-column sticky width="74px"><swirl-visually-hidden>Options</swirl-visually-hidden></swirl-table-column>
+    </div>
+    <div slot="rows"></div>
+  `;
+
+  const rowsContainer = table.querySelector<HTMLElement>('[slot="rows"]');
+  const rowsByIndex = new Map<number, HTMLElement>();
+  const openPopoverRows = new Set<number>();
+  const status = document.createElement("swirl-text");
+  let indexes: number[] = [];
+
+  status.setAttribute("size", "sm");
+  status.setAttribute("color", "subdued");
+
+  const updateStatus = () => {
+    const kept = [...openPopoverRows].sort((a, b) => a - b);
+    const renderedIndexes = [...rowsByIndex.keys()].sort((a, b) => a - b);
+
+    status.textContent = [
+      `rowCount: ${table.rowCount ?? 0}`,
+      `rendered rows: ${renderedIndexes.length}`,
+      renderedIndexes.length
+        ? `first/last index: ${renderedIndexes[0]}/${
+            renderedIndexes[renderedIndexes.length - 1]
+          }`
+        : "first/last index: none",
+      `keepRowsRendered: [${kept.join(", ")}]`,
+    ].join(" · ");
+  };
+
+  const renderRows = () => {
+    const rowCount = table.rowCount ?? 0;
+    const wanted = indexes.filter((index) => index < rowCount);
+    const wantedSet = new Set(wanted);
+
+    // Remove rows first, so the rows that stay are never moved.
+    rowsByIndex.forEach((row, index) => {
+      if (!wantedSet.has(index)) {
+        row.remove();
+        rowsByIndex.delete(index);
+      }
+    });
+
+    let nextRow = rowsContainer.firstElementChild;
+
+    wanted.forEach((index) => {
+      const existingRow = rowsByIndex.get(index);
+
+      if (existingRow) {
+        nextRow = existingRow.nextElementSibling;
+        return;
+      }
+
+      const row = createVirtualizedRow(index, idPrefix);
+
+      rowsByIndex.set(index, row);
+      rowsContainer.insertBefore(row, nextRow);
+    });
+
+    updateStatus();
+  };
+
+  const getAllIndexes = () =>
+    Array.from({ length: table.rowCount ?? 0 }, (_, index) => index);
+
+  const updateKeptRows = () => {
+    table.keepRowsRendered = [...openPopoverRows];
+    updateStatus();
+  };
+
+  const getRowIndexOf = (target: EventTarget) =>
+    Number(
+      (target as HTMLElement).closest("swirl-table-row")?.dataset.index ?? NaN
+    );
+
+  table.addEventListener("visibleRowsChange", (event: CustomEvent) => {
+    indexes = event.detail.indexes;
+    renderRows();
+  });
+
+  table.addEventListener("popoverOpen", (event) => {
+    const index = getRowIndexOf(event.target);
+
+    if (!Number.isNaN(index)) {
+      openPopoverRows.add(index);
+      updateKeptRows();
+    }
+  });
+
+  table.addEventListener("popoverClose", (event) => {
+    const index = getRowIndexOf(event.target);
+
+    if (!Number.isNaN(index)) {
+      openPopoverRows.delete(index);
+      updateKeptRows();
+    }
+  });
+
+  // Change rowCount on the live table. The controls panel re-creates the
+  // whole story instead.
+  const toolbar = document.createElement("swirl-stack");
+
+  toolbar.setAttribute("orientation", "horizontal");
+  toolbar.setAttribute("spacing", "8");
+  toolbar.setAttribute("align", "center");
+  toolbar.setAttribute("wrap", "true");
+
+  const rowCountActions: { label: string; getRowCount: () => number }[] = [
+    { label: "0 rows", getRowCount: () => 0 },
+    { label: "3 rows", getRowCount: () => 3 },
+    { label: "10 rows", getRowCount: () => 10 },
+    { label: "1000 rows", getRowCount: () => 1000 },
+    { label: "+100 rows", getRowCount: () => (table.rowCount ?? 0) + 100 },
+    {
+      label: "−100 rows",
+      getRowCount: () => Math.max(0, (table.rowCount ?? 0) - 100),
+    },
+  ];
+
+  rowCountActions.forEach(({ label, getRowCount }) => {
+    const button = document.createElement("swirl-button");
+
+    button.setAttribute("label", label);
+    button.setAttribute("size", "s");
+    button.addEventListener("click", () => {
+      table.rowCount = getRowCount();
+
+      if (!table.isVirtualized) {
+        indexes = getAllIndexes();
+      }
+
+      // The table doesn't emit visibleRowsChange for 0 rows, so drop rows
+      // beyond the new count here.
+      renderRows();
+    });
+
+    toolbar.append(button);
+  });
+
+  // Turns virtualization off and on again in one go, so the content keeps its
+  // height but the table creates a new virtualizer, like it does when it finds
+  // a new scroll container.
+  const recreateButton = document.createElement("swirl-button");
+
+  recreateButton.setAttribute("label", "Re-create virtualizer");
+  recreateButton.setAttribute("size", "s");
+  recreateButton.addEventListener("click", () => {
+    table.isVirtualized = false;
+    table.isVirtualized = true;
+  });
+
+  toolbar.append(recreateButton, status);
+
+  // Without virtualization, render all rows for comparison.
+  if (!args.isVirtualized) {
+    indexes = getAllIndexes();
+  }
+
+  renderRows();
+
+  return { table, toolbar };
+};
+
+const virtualizedArgTypes = {
+  estimatedRowHeight: {
+    control: { type: "number" },
+    description: "Height in px assumed for rows not drawn yet.",
+  },
+  isVirtualized: {
+    control: { type: "boolean" },
+    description: "Draws only the rows near the visible area.",
+  },
+  overscan: {
+    control: { type: "number" },
+    description: "Number of extra rows drawn above and below the visible ones.",
+  },
+  rowCount: {
+    control: { type: "number" },
+    description: "Total number of rows when virtualized.",
+  },
+};
+
+const virtualizedArgs = {
+  emptyStateLabel: "No rows.",
+  estimatedRowHeight: 56,
+  isVirtualized: true,
+  label: "Virtualized table",
+  overscan: 10,
+  rowCount: 1000,
+};
+
+const VirtualizedTemplate = (args) => {
+  const container = document.createElement("swirl-stack");
+  const scrollContainer = document.createElement("div");
+  const { table, toolbar } = createVirtualizedTable(args, "virtualized");
+
+  container.setAttribute("spacing", "16");
+
+  scrollContainer.style.height = "500px";
+  scrollContainer.style.overflowY = "auto";
+  scrollContainer.style.border =
+    "1px solid var(--s-border-default, currentColor)";
+  scrollContainer.append(table);
+
+  container.append(toolbar, scrollContainer);
+
+  return container;
+};
+
+export const Virtualized = VirtualizedTemplate.bind({});
+
+Virtualized.args = { ...virtualizedArgs };
+Virtualized.argTypes = virtualizedArgTypes;
+
+const VirtualizedWindowScrollTemplate = (args) => {
+  const container = document.createElement("swirl-stack");
+  const { table, toolbar } = createVirtualizedTable(
+    args,
+    "virtualized-window-scroll"
+  );
+
+  container.setAttribute("spacing", "16");
+  container.append(toolbar, table);
+
+  return container;
+};
+
+export const VirtualizedWindowScroll = VirtualizedWindowScrollTemplate.bind({});
+
+VirtualizedWindowScroll.args = { ...virtualizedArgs };
+VirtualizedWindowScroll.argTypes = virtualizedArgTypes;
