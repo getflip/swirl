@@ -1,5 +1,20 @@
 # swirl-docs
 
+## 0.3.359
+
+### Patch Changes
+
+- [#1828](https://github.com/getflip/swirl/pull/1828)
+  [`528919aaa`](https://github.com/getflip/swirl/commit/528919aaa5a01dce7c54f7047e2c0c2f1f169e5f)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Show the properties
+  of polymorphic (discriminator) subtypes in the API docs
+
+- Updated dependencies
+  [[`ea425cddc`](https://github.com/getflip/swirl/commit/ea425cddc10d67d9089a6ebec667c1f03c2eb061),
+  [`7ad8729e6`](https://github.com/getflip/swirl/commit/7ad8729e6eb5aab0db54b63ac0a7c87e0aece309)]:
+  - @getflip/swirl-components@0.533.0
+  - @getflip/swirl-components-react@0.533.0
+
 ## 0.3.358
 
 ### Patch Changes
