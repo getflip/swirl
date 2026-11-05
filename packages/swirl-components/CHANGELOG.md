@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.534.0
+
+### Minor Changes
+
+- [#1824](https://github.com/getflip/swirl/pull/1824)
+  [`61bd35040`](https://github.com/getflip/swirl/commit/61bd3504027d106f9f8eb3061d90e67f3c44fd4c)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! -
+  swirl-table: add opt-in row virtualization
+
 ## 0.533.0
 
 ### Minor Changes
