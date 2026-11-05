@@ -168,6 +168,12 @@ export class SwirlTable {
 
     if (this.virtualizer) {
       this.virtualizer.setConfig(config);
+
+      // find the scroll container when more rows make it overflow
+      if (this.virtualizer.scrollElement === window) {
+        this.updateScrollParent();
+      }
+
       return;
     }
 

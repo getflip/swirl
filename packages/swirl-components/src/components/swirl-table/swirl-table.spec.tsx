@@ -211,6 +211,49 @@ describe("swirl-table", () => {
       expect(page.root.querySelector(".table--show-empty-state")).toBeNull();
     });
 
+    it("switches to its scroll container once more rows make it overflow", async () => {
+      // mock-doc has no layout: read overflow-y from the inline style.
+      jest
+        .spyOn(global as any, "getComputedStyle")
+        .mockImplementation((el: HTMLElement) => ({
+          overflowY: el.style.overflowY || "visible",
+        }));
+
+      const page = await newSpecPage({
+        components: [SwirlTable],
+        html: `
+          <div class="box" style="overflow-y: auto">
+            <swirl-table label="Users">
+              <div slot="columns"></div>
+              <div slot="rows"></div>
+            </swirl-table>
+          </div>
+        `,
+      });
+      const box = page.body.querySelector<HTMLElement>(".box");
+      const table = page.body.querySelector("swirl-table");
+      let overflows = false;
+
+      Object.defineProperty(box, "scrollTop", { value: 0 });
+      Object.defineProperty(box, "clientHeight", { value: 100 });
+      Object.defineProperty(box, "scrollHeight", {
+        get: () => (overflows ? 200 : 100),
+      });
+
+      // The rows fit, so the table falls back to the window.
+      table.isVirtualized = true;
+      table.rowCount = 1;
+      await settle(page);
+
+      overflows = true;
+      table.rowCount = 1000;
+      await settle(page);
+
+      expect(page.rootInstance.virtualizer.scrollElement).toBe(box);
+
+      jest.restoreAllMocks();
+    });
+
     it("keeps the focused row rendered when it scrolls out of view", async () => {
       const { lastIndexes, page, renderRows, scrollToRow, table } = await setup(
         1000
