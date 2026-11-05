@@ -36,7 +36,7 @@ export type SwirlTableDropRowEvent = Pick<
   newPrevSiblingItemId: string | undefined;
 };
 
-export type SwirlTableVisibleRows = {
+export type SwirlTableVirtualizationRows = {
   /** 0-based indexes of the rows to render, in ascending order. */
   indexes: number[];
 };
@@ -72,25 +72,26 @@ export class SwirlTable {
   @Prop() loading?: boolean;
   /**
    * Draws only the rows near the visible area. Render the rows from
-   * `visibleRowsChange`, each with its 0-based index in `data-index`.
-   * Requires `rowCount`. Doesn't work with drag & drop or row groups.
+   * `virtualizationRowsChange`, each with its 0-based index in `data-index`.
+   * Requires `virtualizationRowCount`. Doesn't work with drag & drop or row
+   * groups.
    */
-  @Prop() isVirtualized?: boolean;
+  @Prop() enableVirtualization?: boolean;
   /** Total number of rows when virtualized. */
-  @Prop() rowCount?: number;
+  @Prop() virtualizationRowCount?: number;
   /** Height in px assumed for rows not drawn yet. */
-  @Prop() estimatedRowHeight?: number = 56;
+  @Prop() virtualizationEstimatedRowHeight?: number = 56;
   /** Number of extra rows drawn above and below the visible ones. */
-  @Prop() overscan?: number = 10;
+  @Prop() virtualizationOverscan?: number = 10;
   /**
    * Indexes of rows to keep drawn when out of view, e.g. a row with an open
    * menu. The focused row is always kept.
    */
-  @Prop() keepRowsRendered?: number[] = [];
+  @Prop() virtualizationKeepRowsRendered?: number[] = [];
 
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
   /** Emits the indexes of the rows to render. */
-  @Event() visibleRowsChange: EventEmitter<SwirlTableVisibleRows>;
+  @Event() virtualizationRowsChange: EventEmitter<SwirlTableVirtualizationRows>;
 
   @State() empty: boolean;
   @State() liveRegionText = "";
@@ -129,28 +130,31 @@ export class SwirlTable {
     this.destroyVirtualizer();
   }
 
-  @Watch("isVirtualized")
-  @Watch("rowCount")
-  @Watch("estimatedRowHeight")
-  @Watch("overscan")
-  @Watch("keepRowsRendered")
+  @Watch("enableVirtualization")
+  @Watch("virtualizationRowCount")
+  @Watch("virtualizationEstimatedRowHeight")
+  @Watch("virtualizationOverscan")
+  @Watch("virtualizationKeepRowsRendered")
   handleVirtualizationChange() {
     this.updateVirtualizer();
   }
 
   private get virtualizerConfig(): SwirlTableVirtualizerConfig | undefined {
-    if (!this.isVirtualized || !this.rowCount) {
+    if (!this.enableVirtualization || !this.virtualizationRowCount) {
       return undefined;
     }
 
     return {
-      estimatedRowHeight: this.estimatedRowHeight,
+      estimatedRowHeight: this.virtualizationEstimatedRowHeight,
       keptIndexes:
         this.focusedRowIndex === undefined
-          ? this.keepRowsRendered ?? []
-          : [...(this.keepRowsRendered ?? []), this.focusedRowIndex],
-      overscan: this.overscan,
-      rowCount: this.rowCount,
+          ? this.virtualizationKeepRowsRendered ?? []
+          : [
+              ...(this.virtualizationKeepRowsRendered ?? []),
+              this.focusedRowIndex,
+            ],
+      overscan: this.virtualizationOverscan,
+      rowCount: this.virtualizationRowCount,
     };
   }
 
@@ -168,8 +172,10 @@ export class SwirlTable {
 
       // tell the app to clear its rows when they drop to 0. checking for a
       // previous virtualizer emits only once, not on every focus change.
-      if (this.isVirtualized && hadVirtualizer) {
-        queueMicrotask(() => this.visibleRowsChange.emit({ indexes: [] }));
+      if (this.enableVirtualization && hadVirtualizer) {
+        queueMicrotask(() =>
+          this.virtualizationRowsChange.emit({ indexes: [] })
+        );
       }
 
       return;
@@ -198,7 +204,7 @@ export class SwirlTable {
       config,
       (indexes) =>
         // emit async, so frameworks don't get it mid-render.
-        queueMicrotask(() => this.visibleRowsChange.emit({ indexes }))
+        queueMicrotask(() => this.virtualizationRowsChange.emit({ indexes }))
     );
   }
 
@@ -688,7 +694,7 @@ export class SwirlTable {
   }
 
   private updateEmptyState() {
-    if (this.isVirtualized && this.rowCount) {
+    if (this.enableVirtualization && this.virtualizationRowCount) {
       this.empty = false;
       return;
     }
@@ -904,7 +910,7 @@ export class SwirlTable {
 
   /** Keeps the focused row drawn, so it doesn't lose focus. */
   private trackFocusedRow(target: HTMLElement | null) {
-    if (!this.isVirtualized) {
+    if (!this.enableVirtualization) {
       return;
     }
 
@@ -987,8 +993,8 @@ export class SwirlTable {
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}
               aria-label={this.label}
               aria-rowcount={
-                this.isVirtualized && this.rowCount
-                  ? this.rowCount + 1
+                this.enableVirtualization && this.virtualizationRowCount
+                  ? this.virtualizationRowCount + 1
                   : undefined
               }
               role="table"
@@ -1002,7 +1008,7 @@ export class SwirlTable {
               <div role="rowgroup">
                 <div
                   class="table__header"
-                  aria-rowindex={this.isVirtualized ? 1 : undefined}
+                  aria-rowindex={this.enableVirtualization ? 1 : undefined}
                   ref={(el) => (this.headerEl = el)}
                   role="row"
                 >

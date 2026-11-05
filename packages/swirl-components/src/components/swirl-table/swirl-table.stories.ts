@@ -242,11 +242,12 @@ const createVirtualizedRow = (index: number, idPrefix: string) => {
 };
 
 /**
- * Renders the rows named by `visibleRowsChange`, tracked by id. Rows that
- * stay drawn are not moved, so focus and open popovers survive scrolling.
- * Rows with an open popover are kept drawn via `keepRowsRendered`. The
- * popovers stay open while scrolled out of view and don't lock scrolling, so
- * kept rows can be tested by scrolling away from an open menu.
+ * Renders the rows named by `virtualizationRowsChange`, tracked by id. Rows
+ * that stay drawn are not moved, so focus and open popovers survive scrolling.
+ * Rows with an open popover are kept drawn via
+ * `virtualizationKeepRowsRendered`. The popovers stay open while scrolled out
+ * of view and don't lock scrolling, so kept rows can be tested by scrolling
+ * away from an open menu.
  */
 const createVirtualizedTable = (args, idPrefix: string) => {
   const table = generateStoryElement(
@@ -315,10 +316,10 @@ const createVirtualizedTable = (args, idPrefix: string) => {
       openPopoverRows.delete(index);
     }
 
-    table.keepRowsRendered = [...openPopoverRows];
+    table.virtualizationKeepRowsRendered = [...openPopoverRows];
   };
 
-  table.addEventListener("visibleRowsChange", (event: CustomEvent) => {
+  table.addEventListener("virtualizationRowsChange", (event: CustomEvent) => {
     renderRows(event.detail.indexes);
   });
 
@@ -328,27 +329,32 @@ const createVirtualizedTable = (args, idPrefix: string) => {
   );
 
   // Without virtualization, render all rows for comparison.
-  if (!args.isVirtualized) {
-    renderRows(Array.from({ length: args.rowCount ?? 0 }, (_, index) => index));
+  if (!args.enableVirtualization) {
+    renderRows(
+      Array.from(
+        { length: args.virtualizationRowCount ?? 0 },
+        (_, index) => index
+      )
+    );
   }
 
   return table;
 };
 
 const virtualizedArgTypes = {
-  estimatedRowHeight: {
-    control: { type: "number" },
-    description: "Height in px assumed for rows not drawn yet.",
-  },
-  isVirtualized: {
+  enableVirtualization: {
     control: { type: "boolean" },
     description: "Draws only the rows near the visible area.",
   },
-  overscan: {
+  virtualizationEstimatedRowHeight: {
+    control: { type: "number" },
+    description: "Height in px assumed for rows not drawn yet.",
+  },
+  virtualizationOverscan: {
     control: { type: "number" },
     description: "Number of extra rows drawn above and below the visible ones.",
   },
-  rowCount: {
+  virtualizationRowCount: {
     control: { type: "number" },
     description: "Total number of rows when virtualized.",
   },
@@ -356,11 +362,11 @@ const virtualizedArgTypes = {
 
 const virtualizedArgs = {
   emptyStateLabel: "No rows.",
-  estimatedRowHeight: 56,
-  isVirtualized: true,
+  enableVirtualization: true,
   label: "Virtualized table",
-  overscan: 10,
-  rowCount: 1000,
+  virtualizationEstimatedRowHeight: 56,
+  virtualizationOverscan: 10,
+  virtualizationRowCount: 1000,
 };
 
 const VirtualizedTemplate = (args) => {

@@ -26111,12 +26111,8 @@
           "description": ""
         },
         {
-          "name": "estimated-row-height",
-          "description": "Height in px assumed for rows not drawn yet."
-        },
-        {
-          "name": "is-virtualized",
-          "description": "Draws only the rows near the visible area. Render the rows from\n`visibleRowsChange`, each with its 0-based index in `data-index`.\nRequires `rowCount`. Doesn't work with drag & drop or row groups."
+          "name": "enable-virtualization",
+          "description": "Draws only the rows near the visible area. Render the rows from\n`virtualizationRowsChange`, each with its 0-based index in `data-index`.\nRequires `virtualizationRowCount`. Doesn't work with drag & drop or row\ngroups."
         },
         {
           "name": "label",
@@ -26127,11 +26123,15 @@
           "description": ""
         },
         {
-          "name": "overscan",
+          "name": "virtualization-estimated-row-height",
+          "description": "Height in px assumed for rows not drawn yet."
+        },
+        {
+          "name": "virtualization-overscan",
           "description": "Number of extra rows drawn above and below the visible ones."
         },
         {
-          "name": "row-count",
+          "name": "virtualization-row-count",
           "description": "Total number of rows when virtualized."
         }
       ]

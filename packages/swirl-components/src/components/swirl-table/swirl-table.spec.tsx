@@ -117,7 +117,7 @@ describe("swirl-table", () => {
       const table = page.root as HTMLSwirlTableElement;
       const emitted: number[][] = [];
 
-      table.addEventListener("visibleRowsChange", (event: CustomEvent) =>
+      table.addEventListener("virtualizationRowsChange", (event: CustomEvent) =>
         emitted.push(event.detail.indexes)
       );
 
@@ -126,8 +126,8 @@ describe("swirl-table", () => {
         () => ({ top: -window.scrollY } as DOMRect);
 
       // Set after load, which also covers turning virtualization on later.
-      table.isVirtualized = true;
-      table.rowCount = rowCount;
+      table.enableVirtualization = true;
+      table.virtualizationRowCount = rowCount;
       await settle(page);
 
       /** Renders the rows from the last event, like a consumer does. */
@@ -174,7 +174,7 @@ describe("swirl-table", () => {
       const { lastIndexes, page, renderRows, table } = await setup(3);
 
       renderRows();
-      table.rowCount = 0;
+      table.virtualizationRowCount = 0;
       await settle(page);
 
       expect(lastIndexes()).toEqual([]);
@@ -197,7 +197,7 @@ describe("swirl-table", () => {
 
       expect(body.style.paddingBottom).not.toBe("");
 
-      table.isVirtualized = false;
+      table.enableVirtualization = false;
       await settle(page);
 
       expect(body.style.paddingBottom).toBe("");
@@ -210,7 +210,7 @@ describe("swirl-table", () => {
       const page = await newSpecPage({
         components: [SwirlTable],
         html: `
-          <swirl-table label="Users" is-virtualized row-count="1000">
+          <swirl-table label="Users" enable-virtualization virtualization-row-count="1000">
             <div slot="columns"></div>
             <div slot="rows"></div>
           </swirl-table>
@@ -251,12 +251,12 @@ describe("swirl-table", () => {
       });
 
       // The rows fit, so the table falls back to the window.
-      table.isVirtualized = true;
-      table.rowCount = 1;
+      table.enableVirtualization = true;
+      table.virtualizationRowCount = 1;
       await settle(page);
 
       overflows = true;
-      table.rowCount = 1000;
+      table.virtualizationRowCount = 1000;
       await settle(page);
 
       expect(page.rootInstance.virtualizer.scrollElement).toBe(box);

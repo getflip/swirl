@@ -145,31 +145,32 @@ The SwirlTable component is used to organize and display data sets.
 
 ## Virtualized rows
 
-For tables with hundreds of rows or more, set `is-virtualized` and `row-count`.
-The table then draws only the rows near the visible area. Listen to
-`visibleRowsChange` and render the rows it names, in order, each with its
-0-based index in `data-index`. Rows can be tracked by id or by position. The
-table positions them and sets `aria-rowcount` and `aria-rowindex` for screen
-readers.
+For tables with hundreds of rows or more, set `enable-virtualization` and
+`virtualization-row-count`. The table then draws only the rows near the visible
+area. Listen to `virtualizationRowsChange` and render the rows it names, in
+order, each with its 0-based index in `data-index`. Rows can be tracked by id or
+by position. The table positions them and sets `aria-rowcount` and
+`aria-rowindex` for screen readers.
 
 The table scrolls with its nearest scrolling ancestor, also across shadow roots,
 or with the window. The focused row always stays drawn. To keep other rows
-drawn, such as a row with an open menu, set the `keepRowsRendered` property.
+drawn, such as a row with an open menu, set the `virtualizationKeepRowsRendered`
+property.
 
 Virtualization doesn't support drag & drop or `swirl-table-row-group`.
 
 <Source
-  code={`<swirl-table label="Users" is-virtualized row-count="1000">
+  code={`<swirl-table label="Users" enable-virtualization virtualization-row-count="1000">
   <div slot="columns">…</div>
   <div slot="rows">
-    <!-- Only the rows from visibleRowsChange, e.g. indexes 0 to 29 -->
+    <!-- Only the rows from virtualizationRowsChange, e.g. indexes 0 to 29 -->
     <swirl-table-row data-index="0">…</swirl-table-row>
     <swirl-table-row data-index="1">…</swirl-table-row>
   </div>
 </swirl-table>
 
 <script>
-  table.addEventListener("visibleRowsChange", (event) => {
+  table.addEventListener("virtualizationRowsChange", (event) => {
     renderRows(event.detail.indexes);
   });
 </script>`}
