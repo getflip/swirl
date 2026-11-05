@@ -1,7 +1,11 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlProgressIndicatorSize = "xs" | "s" | "m" | "l";
+/**
+ * The `xl` size is only available for the `bar` variant. A `circle` with size
+ * `xl` renders like size `l`.
+ */
+export type SwirlProgressIndicatorSize = "xs" | "s" | "m" | "l" | "xl";
 
 export type SwirlProgressIndicatorVariant = "bar" | "circle";
 
@@ -13,6 +17,7 @@ const circleSizeConfig: Record<
   s: { radius: 10, strokeWidth: 2 },
   m: { radius: 20, strokeWidth: 4 },
   l: { radius: 40, strokeWidth: 8 },
+  xl: { radius: 40, strokeWidth: 8 },
 };
 
 @Component({
@@ -26,6 +31,16 @@ export class SwirlProgressIndicator {
   @Prop() value?: number = 0;
   @Prop() variant?: SwirlProgressIndicatorVariant = "bar";
 
+  @State() private hasLoaded = false;
+
+  componentDidLoad() {
+    // Render the fill at 0 first and switch to the actual value a frame later,
+    // so the CSS transition animates the fill in.
+    requestAnimationFrame(() => {
+      this.hasLoaded = true;
+    });
+  }
+
   render() {
     const className = classnames(
       "progress-indicator",
@@ -35,7 +50,10 @@ export class SwirlProgressIndicator {
 
     const { radius, strokeWidth } = circleSizeConfig[this.size];
     const circumference = Math.round(radius * 2 * Math.PI);
-    const dashOffset = Math.round(circumference * ((100 - this.value) / 100));
+    const displayedValue = this.hasLoaded ? this.value : 0;
+    const dashOffset = Math.round(
+      circumference * ((100 - displayedValue) / 100)
+    );
 
     return (
       <Host class={this.variant}>
@@ -47,7 +65,7 @@ export class SwirlProgressIndicator {
             aria-valuenow={this.value}
             class={className}
             max={100}
-            value={this.value}
+            value={displayedValue}
           ></progress>
         )}
         {this.variant === "circle" && (

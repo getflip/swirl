@@ -49036,7 +49036,7 @@
             {
               "name": "size",
               "type": {
-                "text": "\"l\" | \"m\" | \"s\" | \"xs\"",
+                "text": "\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\"",
                 "references": [
                   {
                     "name": "SwirlProgressIndicatorSize"
@@ -49082,7 +49082,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "\"l\" | \"m\" | \"s\" | \"xs\"",
+                "text": "\"l\" | \"m\" | \"s\" | \"xl\" | \"xs\"",
                 "references": [
                   {
                     "name": "SwirlProgressIndicatorSize"
