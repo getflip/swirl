@@ -4462,6 +4462,10 @@
               "description": "Icon to be displayed inside the button."
             },
             {
+              "name": "label",
+              "description": "Custom label markup. Replaces the label prop visually, which is still used as accessible name when the label is hidden."
+            },
+            {
               "name": "tag",
               "description": "Tag to be displayed inside the button."
             },

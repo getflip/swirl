@@ -64,6 +64,58 @@ describe("swirl-button", () => {
     expect(page.root.querySelector(".button__label")).not.toBeNull();
   });
 
+  it("renders slotted label content instead of the label prop", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button label="Label"><span slot="label">Custom <b>label</b></span></swirl-button>`,
+    });
+
+    const labelElement = page.root.querySelector(".button__label");
+
+    expect(labelElement).not.toBeNull();
+    expect(labelElement.hasAttribute("hidden")).toBe(false);
+    expect(labelElement.querySelector("[slot='label']")).not.toBeNull();
+    expect(labelElement.textContent.trim()).toBe("Custom label");
+    expect(page.root.textContent).not.toContain("Label");
+    expect(page.root.querySelector("button").hasAttribute("aria-label")).toBe(
+      false
+    );
+  });
+
+  it("keeps slotted label content inside the button when the label is hidden", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button hide-label="true" label="Label"><swirl-icon-close slot="icon"></swirl-icon-close><span slot="label" style="display: block;">Custom label</span></swirl-button>`,
+    });
+
+    const buttonElement = page.root.querySelector("button");
+    const slottedLabel = page.root.querySelector("[slot='label']");
+
+    expect(buttonElement.getAttribute("aria-label")).toBe("Label");
+    expect(slottedLabel.closest(".button__label")).not.toBeNull();
+    expect(slottedLabel.closest("button")).toBe(buttonElement);
+    expect(
+      page.root.querySelector(".button__label").hasAttribute("hidden")
+    ).toBe(true);
+
+    page.root.hideLabel = false;
+    await page.waitForChanges();
+
+    expect(slottedLabel.closest("button")).toBe(buttonElement);
+    expect(
+      page.root.querySelector(".button__label").hasAttribute("hidden")
+    ).toBe(false);
+    expect(buttonElement.hasAttribute("aria-label")).toBe(false);
+
+    page.root.hideLabel = true;
+    await page.waitForChanges();
+
+    expect(slottedLabel.closest("button")).toBe(buttonElement);
+    expect(
+      page.root.querySelector(".button__label").hasAttribute("hidden")
+    ).toBe(true);
+  });
+
   it("renders as a small button", async () => {
     const page = await newSpecPage({
       components: [SwirlButton],
