@@ -39,7 +39,10 @@ class MockResizeObserver {
   }
 }
 
-function setup(config: Partial<SwirlTableVirtualizerConfig> = {}) {
+function setup(
+  config: Partial<SwirlTableVirtualizerConfig> = {},
+  scrollTop = 0
+) {
   const scrollEl = document.createElement("div");
   const bodyEl = document.createElement("div");
 
@@ -50,7 +53,7 @@ function setup(config: Partial<SwirlTableVirtualizerConfig> = {}) {
   Object.defineProperty(scrollEl, "clientWidth", { value: 800 });
   scrollEl.getBoundingClientRect = () => rect(0, viewportHeight);
   scrollEl.scrollTo = jest.fn();
-  scrollEl.scrollTop = 0;
+  scrollEl.scrollTop = scrollTop;
   bodyEl.getBoundingClientRect = () => rect(-scrollEl.scrollTop, 0);
 
   const onIndexesChange = jest.fn();
@@ -137,6 +140,15 @@ describe("SwirlTableVirtualizer", () => {
 
     scrollTo(scrollEl, 100 * rowHeight);
 
+    expect(lastIndexes()).toEqual(range(98, 111));
+  });
+
+  it("keeps the scroll position of its scroll container when created", () => {
+    const { lastIndexes, scrollEl } = setup({}, 100 * rowHeight);
+
+    expect(scrollEl.scrollTo).not.toHaveBeenCalledWith(
+      expect.objectContaining({ top: 0 })
+    );
     expect(lastIndexes()).toEqual(range(98, 111));
   });
 

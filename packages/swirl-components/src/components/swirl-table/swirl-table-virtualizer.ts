@@ -250,6 +250,12 @@ export class SwirlTableVirtualizer {
       count: rowCount,
       estimateSize: () => estimatedRowHeight,
       getScrollElement: () => this.scrollElement,
+      // defaults to 0, which makes the virtualizer scroll to the top when it
+      // subscribes to the scroll container.
+      initialOffset: () =>
+        this.scrollElement instanceof Window
+          ? this.scrollElement.scrollY
+          : this.scrollElement.scrollTop,
       overscan,
       scrollMargin: this.scrollMargin,
       rangeExtractor: (range) =>
