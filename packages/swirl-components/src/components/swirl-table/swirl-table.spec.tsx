@@ -170,6 +170,16 @@ describe("swirl-table", () => {
       expect(lastIndexes()).toEqual([0, 1, 2]);
     });
 
+    it("emits no rows when the row count drops to 0", async () => {
+      const { lastIndexes, page, renderRows, table } = await setup(3);
+
+      renderRows();
+      table.rowCount = 0;
+      await settle(page);
+
+      expect(lastIndexes()).toEqual([]);
+    });
+
     it("gives screen readers the full row count", async () => {
       const { table } = await setup(1000);
 

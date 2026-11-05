@@ -162,7 +162,16 @@ export class SwirlTable {
     const config = this.virtualizerConfig;
 
     if (!config) {
+      const hadVirtualizer = Boolean(this.virtualizer);
+
       this.destroyVirtualizer();
+
+      // tell the app to clear its rows when they drop to 0. checking for a
+      // previous virtualizer emits only once, not on every focus change.
+      if (this.isVirtualized && hadVirtualizer) {
+        queueMicrotask(() => this.visibleRowsChange.emit({ indexes: [] }));
+      }
+
       return;
     }
 
