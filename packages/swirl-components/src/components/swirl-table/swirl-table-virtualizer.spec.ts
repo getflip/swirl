@@ -152,8 +152,17 @@ describe("SwirlTableVirtualizer", () => {
     expect(lastIndexes()).toEqual(range(98, 111));
   });
 
-  it("adds kept rows, but not beyond the row count", () => {
-    const { lastIndexes, virtualizer } = setup({ keptIndexes: [500, 2000] });
+  it("adds kept rows, ignoring invalid indexes", () => {
+    const { lastIndexes, scrollEl, virtualizer } = setup({
+      keptIndexes: [-1, 1.5, NaN, 500, 2000],
+    });
+
+    expect(lastIndexes()).toEqual([...range(0, 11), 500]);
+
+    // Scrolling still works, which an invalid index broke.
+    scrollTo(scrollEl, 100 * rowHeight);
+    expect(lastIndexes()).toEqual([...range(98, 111), 500]);
+    scrollTo(scrollEl, 0);
 
     expect(lastIndexes()).toEqual([...range(0, 11), 500]);
 

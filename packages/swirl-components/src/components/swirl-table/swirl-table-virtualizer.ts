@@ -261,7 +261,9 @@ export class SwirlTableVirtualizer {
       rangeExtractor: (range) =>
         mergeIndexes(
           defaultRangeExtractor(range),
-          keptIndexes.filter((index) => index < rowCount)
+          keptIndexes.filter(
+            (index) => Number.isInteger(index) && index >= 0 && index < rowCount
+          )
         ),
       observeElementRect: (isWindow
         ? observeWindowRect
