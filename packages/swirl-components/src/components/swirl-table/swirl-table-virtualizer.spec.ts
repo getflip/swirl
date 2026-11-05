@@ -46,8 +46,8 @@ function setup(config: Partial<SwirlTableVirtualizerConfig> = {}) {
   scrollEl.appendChild(bodyEl);
   document.body.appendChild(scrollEl);
 
-  Object.defineProperty(scrollEl, "offsetHeight", { value: viewportHeight });
-  Object.defineProperty(scrollEl, "offsetWidth", { value: 800 });
+  Object.defineProperty(scrollEl, "clientHeight", { value: viewportHeight });
+  Object.defineProperty(scrollEl, "clientWidth", { value: 800 });
   scrollEl.getBoundingClientRect = () => rect(0, viewportHeight);
   scrollEl.scrollTo = jest.fn();
   scrollEl.scrollTop = 0;
