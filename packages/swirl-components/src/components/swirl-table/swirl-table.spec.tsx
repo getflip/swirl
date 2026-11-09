@@ -15,16 +15,68 @@ type Mutation = {
   removedNodes: Node[];
 };
 
+type MutationCallback = (mutations: Mutation[]) => void;
+
 /** Callbacks of the MutationObservers created, to report mutations by hand. */
-let mutationCallbacks: ((mutations: Mutation[]) => void)[] = [];
+let mutationCallbacks: MutationCallback[] = [];
+
+/** The callback of the MutationObserver that watches each element. */
+const mutationCallbackByTarget = new Map<Node, MutationCallback>();
 
 (global as any).MutationObserver = class {
-  constructor(callback: (mutations: Mutation[]) => void) {
+  constructor(private callback: MutationCallback) {
     mutationCallbacks.push(callback);
   }
   disconnect() {}
-  observe() {}
+  observe(target: Node) {
+    mutationCallbackByTarget.set(target, this.callback);
+  }
 };
+
+/** Waits past the 16 ms debounce of the table's layout. */
+const waitForLayout = () => new Promise((resolve) => setTimeout(resolve, 20));
+
+/**
+ * Adds columns whose widths come from `getWidths`. mock-doc has no layout, so
+ * the widths are what the table measures.
+ */
+function addColumns(table: HTMLElement, getWidths: () => number[]) {
+  const container = table.querySelector('[slot="columns"]');
+  const count = getWidths().length;
+
+  container.innerHTML = "<swirl-table-column></swirl-table-column>".repeat(
+    count
+  );
+
+  container.querySelectorAll("swirl-table-column").forEach((column, index) => {
+    column.getBoundingClientRect = () =>
+      ({ width: getWidths()[index] } as DOMRect);
+  });
+
+  return count;
+}
+
+/** Adds a row with one cell per column. */
+function addRow(table: HTMLElement, columnCount: number, index?: number) {
+  const row = document.createElement("swirl-table-row");
+
+  if (index !== undefined) {
+    row.setAttribute("data-index", String(index));
+  }
+
+  row.innerHTML = "<swirl-table-cell></swirl-table-cell>".repeat(columnCount);
+  table.querySelector('[slot="rows"]').append(row);
+
+  return row;
+}
+
+/** The flex each cell of the row got from the table's layout. */
+function cellFlex(row: HTMLElement) {
+  return Array.from(
+    row.querySelectorAll<HTMLElement>("swirl-table-cell"),
+    (cell) => cell.style.flex
+  );
+}
 
 describe("swirl-table", () => {
   it("renders its columns and rows", async () => {
@@ -92,6 +144,63 @@ describe("swirl-table", () => {
         </div>
       </swirl-table>
     `);
+  });
+
+  describe("layout", () => {
+    async function setupTable() {
+      const page = await newSpecPage({
+        components: [SwirlTable],
+        html: `
+          <swirl-table label="Users">
+            <div slot="columns"></div>
+            <div slot="rows"></div>
+          </swirl-table>
+        `,
+      });
+
+      return page.root as HTMLSwirlTableElement;
+    }
+
+    it("lays out a row that loads while the table lays out", async () => {
+      const table = await setupTable();
+      const columnCount = addColumns(table, () => [100, 200]);
+      await waitForLayout();
+
+      // Each row calls rerender() when it loads.
+      addRow(table, columnCount);
+      await table.rerender();
+      const secondRow = addRow(table, columnCount);
+      await table.rerender();
+      await waitForLayout();
+
+      expect(cellFlex(secondRow)).toEqual(["0 0 100px", "0 0 200px"]);
+    });
+
+    it("sizes every cell to its column, though sizing cells moves the columns", async () => {
+      const table = await setupTable();
+
+      // The table is as wide as its widest row: while some cells are sized
+      // and others aren't, the columns are 10px wider.
+      const isPartlySized = () => {
+        const flex = Array.from(
+          table.querySelectorAll<HTMLElement>("swirl-table-cell"),
+          (cell) => cell.style.flex
+        );
+
+        return flex.some(Boolean) && !flex.every(Boolean);
+      };
+      const columnCount = addColumns(table, () =>
+        isPartlySized() ? [110, 210, 310] : [100, 200, 300]
+      );
+      const rows = [addRow(table, columnCount), addRow(table, columnCount)];
+
+      await table.rerender();
+      await waitForLayout();
+
+      rows.forEach((row) =>
+        expect(cellFlex(row)).toEqual(["0 0 100px", "0 0 200px", "0 0 300px"])
+      );
+    });
   });
 
   describe("with virtualized rows", () => {
@@ -310,6 +419,27 @@ describe("swirl-table", () => {
 
       expect(lastIndexes()).toContain(4);
       expect(lastIndexes()).not.toContain(3);
+    });
+
+    it("lays out rows added while scrolling, without a call to rerender()", async () => {
+      const { table } = await setup(1000);
+      const columnCount = addColumns(table, () => [100, 200]);
+      await waitForLayout();
+
+      const row = addRow(table, columnCount, 0);
+      // mock-doc doesn't support :focus-within.
+      const querySelector = table.querySelector.bind(table);
+      jest
+        .spyOn(table, "querySelector")
+        .mockImplementation((selector: string) =>
+          selector.includes(":focus-within") ? null : querySelector(selector)
+        );
+      mutationCallbackByTarget.get(table.querySelector(".table__body"))([
+        { type: "childList", addedNodes: [row], removedNodes: [] },
+      ]);
+      await waitForLayout();
+
+      expect(cellFlex(row)).toEqual(["0 0 100px", "0 0 200px"]);
     });
   });
 });
