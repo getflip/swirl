@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.534.1
+
+### Patch Changes
+
+- [#1833](https://github.com/getflip/swirl/pull/1833)
+  [`f9dabc109`](https://github.com/getflip/swirl/commit/f9dabc10943c65d19fd803520b45e6e8372d2a38)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! -
+  swirl-table: keep virtualized rows aligned with the columns while scrolling
+
 ## 0.534.0
 
 ### Minor Changes
