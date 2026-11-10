@@ -17,7 +17,6 @@ import {
 import classNames from "classnames";
 import Sortable, { SortableEvent } from "sortablejs";
 import {
-  debounce,
   getScrollParent,
   isMobileViewport,
   querySelectorAllDeep,
@@ -273,7 +272,7 @@ export class SwirlTable {
       }
 
       if (rowWasAddedOrRemoved || rowIndexChanged) {
-        this.syncVirtualizedRows();
+        this.syncVirtualizedRows({ layOutCells: rowWasAddedOrRemoved });
       }
     });
 
@@ -402,17 +401,11 @@ export class SwirlTable {
    */
   @Method()
   async rerender() {
-    this.triggerRerender();
+    // updateLayout is debounced with a trailing call, so a row that loads
+    // while a layout runs still gets laid out.
+    await this.updateLayout();
+    this.updateEmptyState();
   }
-
-  private triggerRerender = debounce(
-    async () => {
-      await this.updateLayout();
-      this.updateEmptyState();
-    },
-    0,
-    true
-  );
 
   private resetEmptyRowStyles() {
     const emptyRow = this.el.querySelector<HTMLElement>(".table__empty-row");
@@ -583,19 +576,21 @@ export class SwirlTable {
     const columns = this.getColumns();
     const cells = this.getCells();
 
+    // Measure every column before sizing any cell. The table is as wide as its
+    // widest row, so sizing one column's cells moves the columns not measured
+    // yet.
+    const columnProperties = columns.map((column, colIndex) =>
+      this.calculateColumnProperties(column, columns, colIndex)
+    );
+
     columns.forEach((column, colIndex) => {
       const cellsOfColumn = this.getCellsForColumn(cells, columns, colIndex);
-      const columnProperties = this.calculateColumnProperties(
-        column,
-        columns,
-        colIndex
-      );
 
       cellsOfColumn.forEach((cell) =>
-        this.applyCellStyles(cell, column, columnProperties)
+        this.applyCellStyles(cell, column, columnProperties[colIndex])
       );
 
-      this.applyColumnStyles(column, columnProperties);
+      this.applyColumnStyles(column, columnProperties[colIndex]);
     });
   }
 
@@ -894,8 +889,11 @@ export class SwirlTable {
    * Measures and positions rows after they were added, removed or re-indexed.
    * The focused row's index is read again first, as it changes when e.g. a row
    * is inserted above it.
+   *
+   * Added rows and cells are laid out too: a row calls `rerender()` only when
+   * it first loads, so cells added to a drawn row would get no width.
    */
-  private syncVirtualizedRows() {
+  private syncVirtualizedRows({ layOutCells }: { layOutCells: boolean }) {
     if (!this.virtualizer) {
       return;
     }
@@ -906,6 +904,10 @@ export class SwirlTable {
       )
     );
     this.virtualizer.sync();
+
+    if (layOutCells) {
+      this.updateLayout();
+    }
   }
 
   /** Keeps the focused row drawn, so it doesn't lose focus. */
