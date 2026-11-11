@@ -15,7 +15,7 @@
   width: 100%;
 
   & ::part(popover__content) {
-    margin-top: var(--s-space-16);
+    margin-top: var(--s-space-12);
   }
 
   & ::part(popover__scroll-container) {
@@ -27,7 +27,7 @@
 
 .select--placement-top-start {
   & ::part(popover__content) {
-    margin-top: -2.25rem;
+    margin-top: -1.875rem;
   }
 }
 
@@ -163,7 +163,7 @@
   right: 0;
   display: inline-flex;
   color: var(--s-icon-default);
-  transform: translateY(calc(-50% - var(--s-space-8)));
+  transform: translateY(calc(-50% - 0.5625rem));
   pointer-events: none;
 }
 

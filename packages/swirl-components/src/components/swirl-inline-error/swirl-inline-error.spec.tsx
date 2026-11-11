@@ -24,4 +24,17 @@ describe("swirl-inline-error", () => {
       </swirl-inline-error>
     `);
   });
+
+  it("renders the xs size with a small icon", async () => {
+    const page = await newSpecPage({
+      components: [SwirlInlineError],
+      html: `<swirl-inline-error message="The error message." size="xs"></swirl-inline-error>`,
+    });
+
+    const container = page.root.shadowRoot.querySelector(".inline-error");
+    const icon = page.root.shadowRoot.querySelector("swirl-icon-error");
+
+    expect(container.classList.contains("inline-error--size-xs")).toBe(true);
+    expect(icon.getAttribute("size")).toBe("16");
+  });
 });
