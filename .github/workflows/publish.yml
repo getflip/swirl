@@ -29,7 +29,8 @@ jobs:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm@11.21.1 --ignore-scripts
-      - run: yarn install --ignore-scripts
+      - run: corepack enable
+      - run: yarn install --mode=skip-build
 
       - name: Publish to npm
         id: changesets
@@ -73,7 +74,8 @@ jobs:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm@11.21.1 --ignore-scripts
-      - run: yarn install --ignore-scripts
+      - run: corepack enable
+      - run: yarn install --mode=skip-build
 
       - name: Build packages
         run: yarn build:packages
