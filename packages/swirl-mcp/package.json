@@ -12,9 +12,7 @@
     "url": "https://github.com/getflip/swirl/issues"
   },
   "type": "module",
-  "bin": {
-    "swirl-mcp": "dist/transports/stdio.js"
-  },
+  "bin": "dist/transports/stdio.js",
   "files": [
     "dist",
     "README.md"
