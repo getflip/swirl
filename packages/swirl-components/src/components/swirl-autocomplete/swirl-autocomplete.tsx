@@ -387,7 +387,7 @@ export class SwirlAutocomplete
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
-              width: `${this.inputEl?.getBoundingClientRect().width + 32}px`,
+              width: `${this.inputEl?.getBoundingClientRect().width + 24}px`,
             }}
           >
             {this.loading && (
