@@ -40,8 +40,7 @@ html.disable-desktop-style-tweaks {
     & .select__label,
     & .tabs__tab,
     & .text--size-base,
-    & .text-input__input,
-    & .text-input__character-counter {
+    & .text-input__input {
       font-size: var(--s-font-size-base);
       line-height: var(--s-line-height-base);
     }
@@ -73,7 +72,7 @@ html.disable-desktop-style-tweaks {
     }
 
     & .date-input__date-picker-button {
-      top: calc(-1 * var(--s-space-12));
+      top: -0.4375rem;
     }
 
     & ::part(description-list-item__term) {
@@ -102,6 +101,16 @@ html.disable-desktop-style-tweaks {
     }
 
     & .form-control {
+      &:not(.form-control--inline):not(.form-control--label-position-outside)
+        .form-control__label {
+        min-height: 3.75rem;
+      }
+
+      & .form-control__error-message swirl-inline-error::part(inline-error) {
+        font-size: var(--s-font-size-xs);
+        line-height: var(--s-line-height-xs);
+      }
+
       &.form-control--inline .form-control__label {
         min-height: calc(2.375rem + 2 * var(--s-border-width-default));
       }
@@ -267,11 +276,11 @@ html.disable-desktop-style-tweaks {
 
     & .text-input__clear-button,
     & .text-input__password-toggle {
-      top: calc(-1 * var(--s-space-12));
+      top: -0.4375rem;
     }
 
     & .text-input__stepper {
-      top: -1.4375rem;
+      top: -1.0625rem;
     }
 
     & ::part(toast__icon) {
