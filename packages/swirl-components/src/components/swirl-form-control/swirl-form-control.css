@@ -382,6 +382,19 @@
   transform: none;
 }
 
+/* Keep the floating label clear of the clear button and password toggle,
+ * which are centred in the field and reach into the label row. */
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input__clear-button)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input__password-toggle)
+  .form-control__label-text {
+  right: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));
+}
+
 /* Keep the floating label clear of the character counter, which shares its
  * row. Only reserve the space while the counter is rendered (it can be
  * limited to near the max length), and add the trailing button column of

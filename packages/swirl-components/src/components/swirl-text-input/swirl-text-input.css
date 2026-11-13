@@ -181,7 +181,7 @@
 .text-input__clear-button,
 .text-input__password-toggle {
   position: absolute;
-  top: 0;
+  top: -0.5625rem;
   right: 0;
   display: inline-flex;
   margin: 0;
