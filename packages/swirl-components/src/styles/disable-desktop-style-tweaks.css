@@ -177,6 +177,14 @@ html.disable-desktop-style-tweaks {
       line-height: var(--s-line-height-base);
     }
 
+    & .select .select__popover::part(popover__content) {
+      margin-top: var(--s-space-12);
+    }
+
+    & .select--placement-top-start .select__popover::part(popover__content) {
+      margin-top: -1.875rem;
+    }
+
     & .search__input {
       font-size: var(--s-font-size-base);
       line-height: var(--s-line-height-base);

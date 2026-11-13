@@ -186,6 +186,15 @@
   }
 }
 
+/* The 24px tooltip trigger must not stretch the 16px floating label row, or
+ * the label moves up into the top border. */
+.form-control:not(.form-control--label-position-outside)
+  .form-control__tooltip {
+  @media (--from-desktop-without-touch) {
+    margin-block: calc(-1 * var(--s-space-4));
+  }
+}
+
 .form-control__label-text {
   @media (--from-desktop-without-touch) {
     display: flex;
@@ -373,11 +382,30 @@
   transform: none;
 }
 
-.form-control--has-character-counter:not(.form-control--inline):not(
+/* Keep the floating label clear of the character counter, which shares its
+ * row. Only reserve the space while the counter is rendered (it can be
+ * limited to near the max length), and add the trailing button column of
+ * clearable, number and password inputs. */
+.form-control:not(.form-control--inline):not(
     .form-control--label-position-outside
-  )
+  ):has(.text-input__character-counter)
   .form-control__label-text {
   right: calc(var(--s-space-12) + 4rem);
+}
+
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input--clearable .text-input__character-counter)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input--type-number .text-input__character-counter)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input--type-password .text-input__character-counter)
+  .form-control__label-text {
+  right: calc(var(--s-space-12) + 4rem + 1.5rem + var(--s-space-8));
 }
 
 .form-control__prefix {

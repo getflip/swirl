@@ -160,7 +160,7 @@ export class SwirlAutocomplete
       this.inputEl,
       this.listboxContainerEl,
       {
-        middleware: [offset({ crossAxis: -16, mainAxis: 16 })],
+        middleware: [offset({ crossAxis: -12, mainAxis: 10 })],
         placement: "bottom-start",
         strategy: "fixed",
       }
