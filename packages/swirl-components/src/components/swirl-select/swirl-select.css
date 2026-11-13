@@ -14,8 +14,14 @@
   display: flex;
   width: 100%;
 
+  /* Keep a 1px gap between the field and the popover. The select box is
+   * 20px tall; on touch the field is 60px, which centres it 2px lower. */
   & ::part(popover__content) {
-    margin-top: var(--s-space-16);
+    margin-top: var(--s-space-12);
+
+    @media (--from-desktop-without-touch) {
+      margin-top: calc(var(--s-space-8) + var(--s-space-2));
+    }
   }
 
   & ::part(popover__scroll-container) {
@@ -27,7 +33,11 @@
 
 .select--placement-top-start {
   & ::part(popover__content) {
-    margin-top: -2.25rem;
+    margin-top: -1.875rem;
+
+    @media (--from-desktop-without-touch) {
+      margin-top: -1.75rem;
+    }
   }
 }
 
@@ -163,7 +173,7 @@
   right: 0;
   display: inline-flex;
   color: var(--s-icon-default);
-  transform: translateY(calc(-50% - var(--s-space-8)));
+  transform: translateY(calc(-50% - 0.5625rem));
   pointer-events: none;
 }
 

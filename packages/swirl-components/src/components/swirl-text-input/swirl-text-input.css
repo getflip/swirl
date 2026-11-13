@@ -181,7 +181,7 @@
 .text-input__clear-button,
 .text-input__password-toggle {
   position: absolute;
-  top: calc(-1 * var(--s-space-12));
+  top: -0.5625rem;
   right: 0;
   display: inline-flex;
   margin: 0;
@@ -200,15 +200,11 @@
   &:focus-visible {
     outline-color: var(--s-focus-default);
   }
-
-  @media (--from-desktop-without-touch) {
-    top: -0.625rem;
-  }
 }
 
 .text-input__stepper {
   position: absolute;
-  top: -1.4375rem;
+  top: -1.3125rem;
   right: 0;
   display: flex;
   flex-direction: column;
@@ -216,7 +212,7 @@
   user-select: none;
 
   @media (--from-desktop-without-touch) {
-    top: -1.25rem;
+    top: -1.1875rem;
   }
 }
 
@@ -242,17 +238,13 @@
 
 .text-input__character-counter {
   position: absolute;
-  top: -1.375rem;
+  top: -1.125rem;
   right: 0;
   display: flex;
   color: var(--s-text-subdued);
-  line-height: var(--s-line-height-sm);
+  font-size: var(--s-font-size-xs);
+  line-height: var(--s-line-height-xs);
   flex-direction: column;
-
-  @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-sm);
-    line-height: var(--s-line-height-sm);
-  }
 }
 
 .text-input__prefix {

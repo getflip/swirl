@@ -64,9 +64,9 @@
 }
 
 .color-input__preview-button {
-  width: 2.75rem;
-  height: 2.75rem;
-  margin-top: -1.25rem;
+  width: 2.375rem;
+  height: 2.375rem;
+  margin-top: -1.125rem;
   flex-shrink: 0;
   border: 0.0625rem solid var(--s-border-default);
   border-radius: var(--s-border-radius-s);

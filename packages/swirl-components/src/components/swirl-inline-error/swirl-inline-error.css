@@ -33,6 +33,25 @@
   }
 }
 
+.inline-error--size-xs {
+  font-size: var(--s-font-size-xs);
+  line-height: var(--s-line-height-xs);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-xs);
+    line-height: var(--s-line-height-xs);
+  }
+
+  & .inline-error__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  & .inline-error__message {
+    padding-top: 0;
+  }
+}
+
 .inline-error__icon {
   display: inline-flex;
   width: 1.5rem;

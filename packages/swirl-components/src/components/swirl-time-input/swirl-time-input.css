@@ -69,7 +69,7 @@
 
 .time-input__icon {
   position: absolute;
-  top: calc(-1 * var(--s-space-12));
+  top: -0.5625rem;
   right: 0;
   display: inline-flex;
   margin: 0;
@@ -77,8 +77,4 @@
   border: none;
   color: var(--s-icon-default);
   background-color: transparent;
-
-  @media (--from-desktop-without-touch) {
-    top: -0.625rem;
-  }
 }

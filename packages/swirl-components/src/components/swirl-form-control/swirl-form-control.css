@@ -45,6 +45,7 @@
 
     & .form-control__label-text {
       font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
       opacity: 1;
 
       @media (--from-desktop-without-touch) {
@@ -68,7 +69,7 @@
       }
 
       & .form-control__description {
-        font-size: var(--s-font-size-sm);
+        font-size: var(--s-font-size-xs);
       }
     }
 
@@ -92,6 +93,7 @@
 
     & .form-control__label-text {
       font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
       opacity: 1;
 
       @media (--from-desktop-without-touch) {
@@ -160,6 +162,7 @@
     color: var(--s-text-default);
     font-size: var(--s-font-size-sm);
     font-weight: var(--s-font-weight-medium);
+    line-height: var(--s-line-height-sm);
     transform: none;
     opacity: 1;
   }
@@ -180,6 +183,15 @@
 
   @media (--from-desktop-without-touch) {
     --swirl-text-input-placeholder-size: var(--s-font-size-sm);
+  }
+}
+
+/* The 24px tooltip trigger must not stretch the 16px floating label row, or
+ * the label moves up into the top border. */
+.form-control:not(.form-control--label-position-outside)
+  .form-control__tooltip {
+  @media (--from-desktop-without-touch) {
+    margin-block: calc(-1 * var(--s-space-4));
   }
 }
 
@@ -330,8 +342,12 @@
   position: relative;
   display: flex;
   width: 100%;
-  min-height: 4.375rem;
-  padding: calc(var(--s-space-12) + 1.25rem) var(--s-space-16) var(--s-space-12);
+  /* Touch devices keep 16px/24px input text (prevents iOS focus zoom), so the
+   * field is 60px there. Reserve that height up front so empty fields don't
+   * grow on focus. */
+  min-height: 3.75rem;
+  padding: calc(var(--s-space-8) + 1rem + var(--s-space-2)) var(--s-space-12)
+    var(--s-space-8);
   justify-content: center;
   border: var(--s-border-width-default) solid var(--s-border-strong);
   border-radius: var(--s-border-radius-sm);
@@ -339,6 +355,10 @@
   flex-direction: column;
   gap: var(--s-space-2);
   background-color: var(--swirl-form-control-label-background-color);
+
+  @media (--from-desktop-without-touch) {
+    min-height: 3.5rem;
+  }
 }
 
 .form-control__secondary-label {
@@ -349,16 +369,56 @@
 
 .form-control__label-text {
   position: absolute;
-  right: var(--s-space-16);
-  bottom: calc(100% - 1.25rem - var(--s-space-12));
-  left: var(--s-space-16);
+  right: var(--s-space-12);
+  bottom: calc(100% - 1rem - var(--s-space-8));
+  left: var(--s-space-12);
   overflow: hidden;
-  font-size: var(--s-font-size-sm);
+  font-size: var(--s-font-size-xs);
+  line-height: var(--s-line-height-xs);
   text-align: start;
   white-space: nowrap;
   text-overflow: ellipsis;
   transition: font-size 0.15s, transform 0.15s, top 0.15s;
   transform: none;
+}
+
+/* Keep the floating label clear of the clear button and password toggle,
+ * which are centred in the field and reach into the label row. */
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input__clear-button)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input__password-toggle)
+  .form-control__label-text {
+  right: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));
+}
+
+/* Keep the floating label clear of the character counter, which shares its
+ * row. Only reserve the space while the counter is rendered (it can be
+ * limited to near the max length), and add the trailing button column of
+ * clearable, number and password inputs. */
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input__character-counter)
+  .form-control__label-text {
+  right: calc(var(--s-space-12) + 4rem);
+}
+
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input--clearable .text-input__character-counter)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input--type-number .text-input__character-counter)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input--type-password .text-input__character-counter)
+  .form-control__label-text {
+  right: calc(var(--s-space-12) + 4rem + 1.5rem + var(--s-space-8));
 }
 
 .form-control__prefix {
@@ -426,9 +486,9 @@
 .form-control__description {
   display: block;
   margin-top: var(--s-space-4);
-  padding-left: var(--s-space-4);
   color: var(--s-text-subdued);
-  font-size: var(--s-font-size-sm);
+  font-size: var(--s-font-size-xs);
+  line-height: var(--s-line-height-xs);
 }
 
 .form-control__error-message {

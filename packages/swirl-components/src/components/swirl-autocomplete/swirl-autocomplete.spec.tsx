@@ -51,7 +51,7 @@ describe("swirl-autocomplete", () => {
       <swirl-autocomplete>
         <div class="autocomplete">
           <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="true" swirlrole="combobox" id="autocomplete-0" value=""></swirl-text-input>
-          <div class="autocomplete__listbox-container" style="width: 32px;">
+          <div class="autocomplete__listbox-container" style="width: 24px;">
             <swirl-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
               <swirl-option-list-item label="Item #1" value="1"></swirl-option-list-item>
               <swirl-option-list-item disabled="" label="Item #2" value="2"></swirl-option-list-item>
@@ -82,7 +82,7 @@ describe("swirl-autocomplete", () => {
       <swirl-autocomplete>
         <div class="autocomplete">
           <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="true" swirlrole="combobox" id="autocomplete-0" value=""></swirl-text-input>
-          <div class="autocomplete__listbox-container" style="width: 32px;">
+          <div class="autocomplete__listbox-container" style="width: 24px;">
             <swirl-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
               <swirl-option-list-item label="Item #3" value="3"></swirl-option-list-item>
             </swirl-option-list>
@@ -117,7 +117,7 @@ describe("swirl-autocomplete", () => {
       <swirl-autocomplete>
         <div class="autocomplete autocomplete--inactive">
           <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="false" swirlrole="combobox" id="autocomplete-0" value="Item #3"></swirl-text-input>
-          <div class="autocomplete__listbox-container" style="width: 32px;">
+          <div class="autocomplete__listbox-container" style="width: 24px;">
             <swirl-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
               <swirl-option-list-item label="Item #3" selected="" value="3"></swirl-option-list-item>
             </swirl-option-list>

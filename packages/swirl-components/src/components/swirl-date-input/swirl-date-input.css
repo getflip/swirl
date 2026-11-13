@@ -69,7 +69,7 @@
 
 .date-input__date-picker-button {
   position: absolute;
-  top: calc(-1 * var(--s-space-12));
+  top: -0.5625rem;
   right: 0;
   display: inline-flex;
   margin: 0;
@@ -91,10 +91,6 @@
   &:disabled {
     color: var(--s-icon-disabled);
     cursor: default;
-  }
-
-  @media (--from-desktop-without-touch) {
-    top: -0.625rem;
   }
 }
 
