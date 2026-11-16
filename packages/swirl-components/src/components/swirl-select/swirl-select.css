@@ -41,6 +41,29 @@
   }
 }
 
+/* Inline and outside-label form controls set `inline` on the select. Their
+ * fields are 38px (desktop) or 40px (touch) tall, so the select box sits
+ * 9px or 10px from the field edges. */
+.select--inline {
+  & ::part(popover__content) {
+    margin-top: 0.6875rem;
+
+    @media (--from-desktop-without-touch) {
+      margin-top: 0.625rem;
+    }
+  }
+}
+
+.select--inline.select--placement-top-start {
+  & ::part(popover__content) {
+    margin-top: -0.6875rem;
+
+    @media (--from-desktop-without-touch) {
+      margin-top: -0.625rem;
+    }
+  }
+}
+
 .select--multi {
   & .select__input {
     position: absolute;

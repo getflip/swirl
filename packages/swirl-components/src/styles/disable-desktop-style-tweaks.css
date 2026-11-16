@@ -111,7 +111,8 @@ html.disable-desktop-style-tweaks {
         line-height: var(--s-line-height-xs);
       }
 
-      &.form-control--inline .form-control__label {
+      &.form-control--inline .form-control__label,
+      &.form-control--label-position-outside .form-control__label {
         min-height: calc(2.375rem + 2 * var(--s-border-width-default));
       }
 
@@ -183,6 +184,16 @@ html.disable-desktop-style-tweaks {
 
     & .select--placement-top-start .select__popover::part(popover__content) {
       margin-top: -1.875rem;
+    }
+
+    & .select--inline .select__popover::part(popover__content) {
+      margin-top: 0.6875rem;
+    }
+
+    &
+      .select--inline.select--placement-top-start
+      .select__popover::part(popover__content) {
+      margin-top: -0.6875rem;
     }
 
     & .search__input {
