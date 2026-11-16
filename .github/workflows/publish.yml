@@ -29,13 +29,15 @@ jobs:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm@11.21.1 --ignore-scripts
-      - run: yarn install --ignore-scripts
+      - run: corepack enable
+      - run: yarn install --mode=skip-build
 
       - name: Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
           publish: yarn release
+          version: yarn version:ci
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -73,7 +75,8 @@ jobs:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
       - run: npm install -g npm@11.21.1 --ignore-scripts
-      - run: yarn install --ignore-scripts
+      - run: corepack enable
+      - run: yarn install --mode=skip-build
 
       - name: Build packages
         run: yarn build:packages

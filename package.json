@@ -19,7 +19,7 @@
     "./apps/swirl-docs"
   ],
   "private": true,
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "yarn@4.18.1+sha512.b2e1e7524f654f2749d32b4ebcb4622473cb5bcbc485df2007e12a154e50162a4d795526768bc5f5b8f81717bfd79deb2472813d86fb5ae2eb551fa9c872b08f",
   "scripts": {
     "build": "turbo run build",
     "build:packages": "turbo run build --filter='./packages/*'",
@@ -35,15 +35,13 @@
     "generate": "cd packages/swirl-components && yarn generate",
     "prepare-dart-packages": "node packages/swirl-tokens/scripts/update-dart-package-version.js && node packages/swirl-icons/scripts/update-dart-package-version.js",
     "release": "yarn build:packages && changeset publish",
-    "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
-    "prebuild": "patch-package"
+    "version:ci": "changeset version && yarn install --mode=update-lockfile",
+    "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.6",
     "@changesets/cli": "2.24.3",
     "npm-run-all": "4.1.5",
-    "patch-package": "6.4.7",
-    "postinstall-postinstall": "2.1.0",
     "prettier": "2.8.8",
     "turbo": "2.9.18"
   },
@@ -52,6 +50,5 @@
     "jsonpath-plus": "10.2.0",
     "shell-quote": "1.8.4",
     "svgicons2svgfont": "10.0.6"
-  },
-  "dependencies": {}
+  }
 }
