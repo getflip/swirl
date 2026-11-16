@@ -341,7 +341,7 @@ export class SwirlFormControl {
               <span class="form-control__error-message" id={this.descriptionId}>
                 <swirl-inline-error
                   message={this.errorMessage}
-                  size="s"
+                  size="xs"
                 ></swirl-inline-error>
               </span>
             )}

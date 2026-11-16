@@ -160,7 +160,7 @@ export class SwirlAutocomplete
       this.inputEl,
       this.listboxContainerEl,
       {
-        middleware: [offset({ crossAxis: -16, mainAxis: 16 })],
+        middleware: [offset({ crossAxis: -12, mainAxis: 10 })],
         placement: "bottom-start",
         strategy: "fixed",
       }
@@ -387,7 +387,7 @@ export class SwirlAutocomplete
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
-              width: `${this.inputEl?.getBoundingClientRect().width + 32}px`,
+              width: `${this.inputEl?.getBoundingClientRect().width + 24}px`,
             }}
           >
             {this.loading && (

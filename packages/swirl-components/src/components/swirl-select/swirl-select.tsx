@@ -328,15 +328,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         ? String(this.invalid)
         : undefined;
 
-    const formControl = this.el.closest<
-      HTMLSwirlFormControlElement | undefined
-    >("swirl-form-control");
-
-    const offset = this.standalone
-      ? [-8, 0]
-      : formControl?.inline || formControl?.labelPosition === "outside"
-      ? [0, -12]
-      : [0, -16];
+    const offset = this.standalone ? [-8, 0] : [0, -12];
 
     const className = classnames(
       "select",

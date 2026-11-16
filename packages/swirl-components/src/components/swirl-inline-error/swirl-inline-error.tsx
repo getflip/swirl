@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
-export type SwirlInlineErrorSize = "s" | "m";
+export type SwirlInlineErrorSize = "xs" | "s" | "m";
 
 @Component({
   shadow: true,
@@ -34,7 +34,7 @@ export class SwirlInlineError {
     const icon = this.iconEl.children[0];
     let iconSize = "24";
 
-    if (this.size === "s") {
+    if (this.size === "xs" || this.size === "s") {
       iconSize = "16";
     } else if (smallIcon) {
       iconSize = "20";

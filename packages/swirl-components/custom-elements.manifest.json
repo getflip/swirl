@@ -44174,7 +44174,7 @@
             {
               "name": "size",
               "type": {
-                "text": "\"m\" | \"s\"",
+                "text": "\"m\" | \"s\" | \"xs\"",
                 "references": [
                   {
                     "name": "SwirlInlineErrorSize"
@@ -44199,7 +44199,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "\"m\" | \"s\"",
+                "text": "\"m\" | \"s\" | \"xs\"",
                 "references": [
                   {
                     "name": "SwirlInlineErrorSize"
