@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.535.0
+
+### Minor Changes
+
+- [#1835](https://github.com/getflip/swirl/pull/1835)
+  [`3f839ba01`](https://github.com/getflip/swirl/commit/3f839ba010f3baacc04f522bba11d85308d0ce25)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-form-control more
+  compact. Add `xs` size swirl-inline-error.
+
 ## 0.534.1
 
 ### Patch Changes
