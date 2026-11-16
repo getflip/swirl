@@ -64,7 +64,6 @@ function registerListTool(
         version: z.string().describe(VERSION_DESCRIPTION),
       },
     },
-    // @ts-ignore - MCP SDK + zod 3.x causes excessively deep type instantiation
     async ({ version }: { version: string }) => {
       const lib = await loadLibrary(version);
       const components = lib.getByCategory(category);

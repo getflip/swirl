@@ -81,7 +81,6 @@ function registerListTokensTool(
           .describe(FORMAT_DESCRIPTION),
       },
     },
-    // @ts-ignore - MCP SDK + zod 3.x causes excessively deep type instantiation
     async ({ version, format }: { version: string; format: TokenFormat }) => {
       const lib = await loadLibrary(version);
       const tokens = lib.getTokensByCategory(category);

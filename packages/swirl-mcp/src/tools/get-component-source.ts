@@ -23,7 +23,6 @@ export function registerGetComponentSource(
         version: z.string().describe(VERSION_DESCRIPTION),
       },
     },
-    // @ts-ignore - MCP SDK + zod 3.x causes excessively deep type instantiation
     async ({ tag, version }: { tag: string; version: string }) => {
       const lib = await loadLibrary(version);
 
