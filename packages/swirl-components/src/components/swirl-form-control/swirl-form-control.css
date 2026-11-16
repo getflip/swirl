@@ -382,8 +382,9 @@
   transform: none;
 }
 
-/* Keep the floating label clear of the clear button and password toggle,
- * which are centred in the field and reach into the label row. */
+/* Keep the floating label clear of the clear button, password toggle and
+ * number stepper, which are centred in the field and reach into the label
+ * row. */
 .form-control:not(.form-control--inline):not(
     .form-control--label-position-outside
   ):has(.text-input__clear-button)
@@ -391,6 +392,10 @@
 .form-control:not(.form-control--inline):not(
     .form-control--label-position-outside
   ):has(.text-input__password-toggle)
+  .form-control__label-text,
+.form-control:not(.form-control--inline):not(
+    .form-control--label-position-outside
+  ):has(.text-input__stepper)
   .form-control__label-text {
   right: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));
 }
