@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.536.0
+
+### Minor Changes
+
+- [#1840](https://github.com/getflip/swirl/pull/1840)
+  [`56cab5836`](https://github.com/getflip/swirl/commit/56cab583602615ea1bc46a33ed3b2970fb2ae417)
+  Thanks [@brunosantos-flip](https://github.com/brunosantos-flip)! -
+  swirl-tooltip: the `focus` trigger now only opens the tooltip on keyboard
+  focus (`:focus-visible`). Focus caused by a mouse click, or moved by a script
+  after a mouse interaction (e.g. a popover returning focus to its trigger on
+  close), no longer opens it. Use `show()` to open the tooltip programmatically.
+
+### Patch Changes
+
+- [#1836](https://github.com/getflip/swirl/pull/1836)
+  [`f5a35f769`](https://github.com/getflip/swirl/commit/f5a35f769ed2a62f63934284a026b0d92ecbed67)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update
+  dependencies
+
 ## 0.535.0
 
 ### Minor Changes
