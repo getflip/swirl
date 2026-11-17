@@ -1,5 +1,14 @@
 # @getflip/swirl-mcp
 
+## 0.4.3
+
+### Patch Changes
+
+- [#1836](https://github.com/getflip/swirl/pull/1836)
+  [`f5a35f769`](https://github.com/getflip/swirl/commit/f5a35f769ed2a62f63934284a026b0d92ecbed67)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update
+  dependencies
+
 ## 0.4.2
 
 ### Patch Changes
