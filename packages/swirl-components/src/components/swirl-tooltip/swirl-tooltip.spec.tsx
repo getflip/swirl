@@ -59,6 +59,7 @@ describe("swirl-tooltip", () => {
       ".tooltip__reference"
     ) as HTMLElement;
 
+    referenceEl.matches = jest.fn(() => true);
     referenceEl.dispatchEvent(new FocusEvent("focusin"));
 
     page.waitForChanges();
@@ -72,6 +73,25 @@ describe("swirl-tooltip", () => {
     await new Promise((resolve) => setTimeout(resolve));
 
     expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedHidden);
+  });
+
+  it("does not show the tooltip on focus without :focus-visible", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
+    });
+
+    const referenceEl = page.root.shadowRoot.querySelector(
+      ".tooltip__reference"
+    ) as HTMLElement;
+
+    referenceEl.matches = jest.fn(() => false);
+    referenceEl.dispatchEvent(new FocusEvent("focusin"));
+
+    page.waitForChanges();
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(page.root.shadowRoot.querySelector(".tooltip--visible")).toBeNull();
   });
 
   it("shows/hides the positioned popper on mouseenter/mouseleave", async () => {
