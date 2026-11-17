@@ -47,3 +47,10 @@ The component follows the
 | Key            | Action                 |
 | -------------- | ---------------------- |
 | <kbd>ESC</kbd> | Dismisses the tooltip. |
+
+### Focus
+
+With the `focus` trigger, the tooltip only opens on keyboard focus
+(`:focus-visible`). Focus caused by a mouse click, or moved by a script after a
+mouse interaction (e.g. a popover returning focus to its trigger), does not open
+the tooltip. Use the `show()` method to open it programmatically.

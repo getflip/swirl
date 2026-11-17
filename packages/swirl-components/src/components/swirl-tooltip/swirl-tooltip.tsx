@@ -158,8 +158,10 @@ export class SwirlTooltip {
     }
   };
 
-  private onFocusIn = () => {
-    if (this.trigger.includes("focus")) {
+  private onFocusIn = (event: FocusEvent) => {
+    const target = event.composedPath()[0] as HTMLElement;
+
+    if (this.trigger.includes("focus") && target.matches(":focus-visible")) {
       this.show();
     }
   };
