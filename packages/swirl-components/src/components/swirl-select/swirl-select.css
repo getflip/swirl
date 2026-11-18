@@ -116,6 +116,13 @@
   }
 }
 
+.select--readonly {
+  & .select__input,
+  & .select__indicator {
+    cursor: default;
+  }
+}
+
 .select--search-loading {
   & .select__search-input {
     padding-right: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));

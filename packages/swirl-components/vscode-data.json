@@ -537,6 +537,10 @@
           "description": ""
         },
         {
+          "name": "readonly",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },
@@ -3304,6 +3308,10 @@
         {
           "name": "multiple",
           "description": ""
+        },
+        {
+          "name": "readonly",
+          "description": "File inputs don't support the readonly attribute, so a readonly file\nuploader disables its input to prevent selecting or dropping files."
         },
         {
           "name": "show-dropzone",
@@ -23577,6 +23585,10 @@
         },
         {
           "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "readonly",
           "description": ""
         },
         {

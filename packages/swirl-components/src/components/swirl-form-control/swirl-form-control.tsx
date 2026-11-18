@@ -59,6 +59,7 @@ export class SwirlFormControl {
 
   private componentLoaded = false;
   private inputEl: HTMLElement & SwirlFormInput;
+  private originalContenteditableValue?: string;
 
   connectedCallback() {
     if (this.componentLoaded) {
@@ -110,6 +111,8 @@ export class SwirlFormControl {
     } else {
       this.inputEl.removeAttribute("disabled");
     }
+
+    this.setContenteditableState();
   }
 
   @Watch("readonly")
@@ -122,6 +125,47 @@ export class SwirlFormControl {
       this.inputEl.setAttribute("readonly", "true");
     } else {
       this.inputEl.removeAttribute("readonly");
+    }
+
+    this.setContenteditableState();
+  }
+
+  /**
+   * Contenteditable elements ignore the disabled and readonly attributes, so
+   * editing has to be turned off via the contenteditable attribute itself. Its
+   * value is set to "false" (not removed), so the element is still detected as
+   * a contenteditable control.
+   */
+  private setContenteditableState() {
+    if (!this.inputEl.hasAttribute("contenteditable")) {
+      return;
+    }
+
+    if (this.disabled || this.readonly) {
+      if (this.originalContenteditableValue === undefined) {
+        this.originalContenteditableValue =
+          this.inputEl.getAttribute("contenteditable");
+      }
+
+      this.inputEl.setAttribute("contenteditable", "false");
+    } else if (this.originalContenteditableValue !== undefined) {
+      this.inputEl.setAttribute(
+        "contenteditable",
+        this.originalContenteditableValue
+      );
+      this.originalContenteditableValue = undefined;
+    }
+
+    if (this.disabled) {
+      this.inputEl.setAttribute("aria-disabled", "true");
+    } else {
+      this.inputEl.removeAttribute("aria-disabled");
+    }
+
+    if (this.readonly) {
+      this.inputEl.setAttribute("aria-readonly", "true");
+    } else {
+      this.inputEl.removeAttribute("aria-readonly");
     }
   }
 

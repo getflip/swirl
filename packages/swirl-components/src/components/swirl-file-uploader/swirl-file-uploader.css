@@ -43,7 +43,8 @@
   }
 }
 
-.file-uploader--disabled {
+.file-uploader--disabled,
+.file-uploader--readonly {
   & .file-uploader__input {
     cursor: default;
   }

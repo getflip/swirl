@@ -163,4 +163,81 @@ describe("swirl-form-control", () => {
     const tooltip = page.root.querySelector("swirl-tooltip");
     expect(tooltip).not.toBeNull();
   });
+
+  it("disables editing of contenteditable controls when readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" readonly="true">
+          <div contenteditable="plaintext-only" role="textbox"></div>
+        </swirl-form-control>
+      `,
+    });
+
+    const input = page.root.querySelector<HTMLElement>('[role="textbox"]');
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+    expect(input.getAttribute("aria-readonly")).toBe("true");
+
+    page.root.readonly = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("plaintext-only");
+    expect(input.hasAttribute("aria-readonly")).toBeFalsy();
+
+    page.root.readonly = true;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+  });
+
+  it("disables editing of contenteditable controls when disabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" disabled="true">
+          <div contenteditable="true" role="textbox"></div>
+        </swirl-form-control>
+      `,
+    });
+
+    const input = page.root.querySelector<HTMLElement>('[role="textbox"]');
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+    expect(input.getAttribute("aria-disabled")).toBe("true");
+
+    page.root.readonly = true;
+    await page.waitForChanges();
+    page.root.disabled = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+
+    page.root.readonly = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("true");
+    expect(input.hasAttribute("aria-disabled")).toBeFalsy();
+  });
+
+  it("restores an empty contenteditable attribute", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" readonly="true">
+          <div contenteditable role="textbox"></div>
+        </swirl-form-control>
+      `,
+    });
+
+    const input = page.root.querySelector<HTMLElement>('[role="textbox"]');
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+
+    page.root.readonly = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("");
+    expect(input.hasAttribute("aria-readonly")).toBeFalsy();
+  });
 });

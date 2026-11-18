@@ -14,6 +14,9 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { querySelectorAllDeep, SwirlFormInput } from "../../utils";
+import { SwirlPopoverTriggerMethod } from "../swirl-popover-trigger/swirl-popover-trigger";
+
+const NO_TRIGGER_METHODS: SwirlPopoverTriggerMethod[] = [];
 
 @Component({
   /**
@@ -37,6 +40,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
+  @Prop() readonly?: boolean;
   @Prop() required?: boolean;
   @Prop() searchInputLabel?: string = "Search options";
   @Prop() searchLoading?: boolean;
@@ -58,6 +62,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private observer: MutationObserver;
   private optionList: HTMLSwirlOptionListElement;
   private searchInput: HTMLInputElement | undefined;
+  private skipFocusOnClose = false;
   private swirlPopover: HTMLSwirlPopoverElement;
   private typeaheadBuffer: string = "";
   private typeaheadTimeout: ReturnType<typeof setTimeout>;
@@ -92,6 +97,14 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     }
 
     this.valueChange.emit(this.value);
+  }
+
+  @Watch("readonly")
+  watchReadonly() {
+    if (this.readonly && this.open) {
+      this.skipFocusOnClose = true;
+      this.swirlPopover?.close(true);
+    }
   }
 
   @Method()
@@ -168,7 +181,12 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     this.typeaheadBuffer = "";
     clearTimeout(this.typeaheadTimeout);
     this.open = false;
-    this.input.focus();
+
+    if (this.skipFocusOnClose) {
+      this.skipFocusOnClose = false;
+    } else {
+      this.input.focus();
+    }
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -178,6 +196,11 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       }
 
       event.preventDefault();
+
+      if (this.disabled || this.readonly) {
+        return;
+      }
+
       this.swirlPopover.open(this.el);
     } else if (
       event.code === "ArrowDown" &&
@@ -337,6 +360,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         "select--disabled": this.disabled,
         "select--inline": this.inline,
         "select--multi": this.multiSelect,
+        "select--readonly": this.readonly,
         "select--search-loading": this.searchLoading,
         "select--standalone": this.standalone,
       }
@@ -348,6 +372,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
           <swirl-popover-trigger
             swirlPopover={this.swirlPopover}
             setAriaAttributes={false}
+            trigger={this.readonly ? NO_TRIGGER_METHODS : undefined}
           >
             <swirl-stack class="select__value-container">
               {this.standalone && (
@@ -359,6 +384,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
                 aria-describedby={this.swirlAriaDescribedby}
                 aria-disabled={this.disabled ? "true" : undefined}
                 aria-invalid={ariaInvalid}
+                aria-readonly={this.readonly ? "true" : undefined}
                 class="select__input"
                 disabled={this.disabled}
                 readOnly={true}
@@ -380,7 +406,10 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
                   // eslint-disable-next-line react/jsx-no-bind
                   onRemove={() => this.unselectOption(option?.value)}
                   removable={
-                    !this.disabled && this.allowDeselect && !option?.disabled
+                    !this.disabled &&
+                    !this.readonly &&
+                    this.allowDeselect &&
+                    !option?.disabled
                   }
                 ></swirl-tag>
               ))}
