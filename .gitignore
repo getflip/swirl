@@ -169,3 +169,8 @@ apps/swirl-docs/users-admin-usergroups.yml
 apps/swirl-docs/src/lib/navigation/src/data/apiDocs.data.ts
 apps/swirl-docs/src/lib/navigation/src/data/apiEndpoints.data.ts
 apps/swirl-docs/src/lib/navigation/src/data/apiSpecs.data.ts
+
+# AI agents
+.claude/*
+!.claude/skills/
+.cursor/plans/

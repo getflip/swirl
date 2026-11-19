@@ -39,30 +39,34 @@ The {{pascalCase name}} component is used to …
 
 <Canvas of={Stories.{{pascalCase name}}{{append '' '}'}}></Canvas>
 
+<Controls of={Stories.{{pascalCase name}}{{append '' '}'}} />
+
+## Sample usage
+
 <Source
-  code={''}
+  code={\`<{{name}} label="Label"></{{name}}>\`}
 />
 
-<Controls of={Stories.{{pascalCase name}}{{append '' '}'}} />
+## Related components
+
+No related components.
 
 ## Accessibility
 
 ### ARIA
 
-The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+The component follows the
+[WAI-ARIA … Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/).
 
-| ARIA            | Usage                                                                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------- |
-| \`role="button"\` |                                                                                                                   |
-| \`aria-label\`    | If no accessible label is provided via the button's text, the \`aria-label\` or \`aria-labelledby\` attribute is set. |
-| \`aria-disabled\` | If the button is disabled, the \`aria-disabled\` attribute is set to \`true\`.                                        |
+| ARIA       | Usage |
+| ---------- | ----- |
+| \`role="…"\` | …     |
 
 ### Keyboard
 
-| Key              | Action                |
-| ---------------- | --------------------- |
-| <kbd>ENTER</kbd> | Activates the button. |
-| <kbd>SPACE</kbd> | Activates the button. |
+| Key          | Action |
+| ------------ | ------ |
+| <kbd>…</kbd> | …      |
 `;
 
 export const emojiComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
