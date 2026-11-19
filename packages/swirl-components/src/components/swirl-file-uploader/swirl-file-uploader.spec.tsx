@@ -83,4 +83,40 @@ describe("swirl-file-uploader", () => {
 
     expect(spy).toHaveBeenCalled();
   });
+
+  it("can be readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFileUploader],
+      html: `<swirl-file-uploader
+              input-id="file-upload"
+              input-name="file-upload"
+              label="Label"
+              readonly="true"
+            ></swirl-file-uploader>`,
+    });
+
+    expect(page.root.querySelector("input").disabled).toBeTruthy();
+    expect(
+      page.root
+        .querySelector(".file-uploader")
+        .classList.contains("file-uploader--readonly")
+    ).toBeTruthy();
+  });
+
+  it("disables the upload button when readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFileUploader],
+      html: `<swirl-file-uploader
+              input-id="file-upload"
+              input-name="file-upload"
+              label="Label"
+              readonly="true"
+              show-dropzone="false"
+            ></swirl-file-uploader>`,
+    });
+
+    expect(
+      page.root.querySelector("swirl-button").hasAttribute("disabled")
+    ).toBeTruthy();
+  });
 });

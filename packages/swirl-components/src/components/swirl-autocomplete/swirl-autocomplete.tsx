@@ -61,6 +61,7 @@ export class SwirlAutocomplete
   @Prop() mode?: SwirlTextInputMode;
   @Prop() multiSelect?: boolean;
   @Prop() placeholder?: string;
+  @Prop() readonly?: boolean;
   @Prop() required?: boolean;
   @Prop() spellCheck?: boolean;
   @Prop() swirlAriaDescribedby?: string;
@@ -99,6 +100,13 @@ export class SwirlAutocomplete
   @Watch("multiSelect")
   watchMultiSelect() {
     this.handleInitialValue();
+  }
+
+  @Watch("readonly")
+  watchReadonly() {
+    if (this.readonly) {
+      this.close();
+    }
   }
 
   private async close() {
@@ -181,6 +189,10 @@ export class SwirlAutocomplete
 
   private updateTerm = debounce(
     async (event: CustomEvent<string>) => {
+      if (this.readonly) {
+        return;
+      }
+
       this.updateSuggestions(event.detail);
       this.open();
 
@@ -278,6 +290,10 @@ export class SwirlAutocomplete
   };
 
   private onFocus = () => {
+    if (this.disabled || this.readonly) {
+      return;
+    }
+
     this.updateSuggestions();
     this.open();
   };
@@ -294,6 +310,10 @@ export class SwirlAutocomplete
   private onInputKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown") {
       event.preventDefault();
+
+      if (this.readonly) {
+        return;
+      }
 
       this.listboxEl
         .querySelector<HTMLDivElement>('[role="listbox"]')
@@ -346,7 +366,7 @@ export class SwirlAutocomplete
                         label={item.label}
                         // eslint-disable-next-line react/jsx-no-bind
                         onRemove={() => this.onRemoveValue(item.id)}
-                        removable={!this.disabled}
+                        removable={!this.disabled && !this.readonly}
                       ></swirl-tag>
                     );
                   })}
@@ -369,6 +389,7 @@ export class SwirlAutocomplete
             maxLength={this.maxLength}
             mode={this.mode}
             placeholder={this.placeholder}
+            readonly={this.readonly}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             spellCheck={this.spellCheck}

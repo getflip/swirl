@@ -1,11 +1,18 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { SwirlOptionListItem } from "../swirl-option-list-item/swirl-option-list-item";
 import { SwirlOptionList } from "../swirl-option-list/swirl-option-list";
+import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
 import { SwirlSelect } from "./swirl-select";
 
 (global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
+(global as any).IntersectionObserver = class {
   constructor() {}
   disconnect() {}
   observe() {}
@@ -105,6 +112,124 @@ describe("swirl-select", () => {
     });
 
     expect(page.root.querySelector("input").disabled).toBeTruthy();
+  });
+
+  it("can be readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSelect],
+      html: `
+        <swirl-select label="Select" multi-select="true" readonly="true">
+          <swirl-option-list-item
+            label="This is an option 1"
+            value="1"
+          ></swirl-option-list-item>
+          <swirl-option-list-item
+            label="This is an option 2"
+            value="2"
+          ></swirl-option-list-item>
+        </swirl-select>`,
+    });
+
+    page.root.value = ["1"];
+    await page.waitForChanges();
+
+    const input = page.root.querySelector("input");
+    const tag = page.root.querySelector<HTMLSwirlTagElement>(
+      ".select__multi-select-values swirl-tag"
+    );
+
+    expect(input.getAttribute("aria-readonly")).toBe("true");
+    expect(input.disabled).toBeFalsy();
+    expect(tag.removable).toBeFalsy();
+    expect(
+      page.root.querySelector(".select").classList.contains("select--readonly")
+    ).toBeTruthy();
+  });
+
+  it("does not open via keyboard when readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSelect],
+      html: `
+        <swirl-select label="Select" readonly="true">
+          <swirl-option-list-item
+            label="This is an option 1"
+            value="1"
+          ></swirl-option-list-item>
+        </swirl-select>`,
+    });
+
+    const popover = page.root.querySelector("swirl-popover");
+    popover.open = jest.fn();
+
+    for (const code of ["Space", "Enter"]) {
+      page.root
+        .querySelector("input")
+        .dispatchEvent(new KeyboardEvent("keydown", { code, bubbles: true }));
+    }
+
+    await page.waitForChanges();
+
+    expect(popover.open).not.toHaveBeenCalled();
+  });
+
+  it("does not open via click when readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSelect, SwirlPopoverTrigger],
+      html: `
+        <swirl-select label="Select" readonly="true">
+          <swirl-option-list-item
+            label="This is an option 1"
+            value="1"
+          ></swirl-option-list-item>
+        </swirl-select>`,
+    });
+
+    const popover = page.root.querySelector("swirl-popover");
+    popover.toggle = jest.fn();
+
+    page.root.querySelector("input").click();
+    await page.waitForChanges();
+
+    expect(popover.toggle).not.toHaveBeenCalled();
+
+    page.root.readonly = false;
+    await page.waitForChanges();
+
+    page.root.querySelector("input").click();
+    await page.waitForChanges();
+
+    expect(popover.toggle).toHaveBeenCalled();
+  });
+
+  it("closes without moving focus when it becomes readonly", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSelect],
+      html: `
+        <swirl-select label="Select">
+          <swirl-option-list-item
+            label="This is an option 1"
+            value="1"
+          ></swirl-option-list-item>
+        </swirl-select>`,
+    });
+
+    const popover = page.root.querySelector("swirl-popover");
+    const input = page.root.querySelector("input");
+
+    popover.close = jest.fn(async () => {
+      popover.dispatchEvent(new CustomEvent("popoverClose"));
+    });
+    input.focus = jest.fn();
+
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    page.root.readonly = true;
+    await page.waitForChanges();
+
+    expect(popover.close).toHaveBeenCalledWith(true);
+    expect(page.rootInstance.open).toBeFalsy();
+    expect(input.focus).not.toHaveBeenCalled();
   });
 
   it("fires valueChange events", async () => {

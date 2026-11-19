@@ -1970,6 +1970,13 @@
               "fieldName": "placeholder"
             },
             {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "readonly"
+            },
+            {
               "name": "required",
               "type": {
                 "text": "boolean"
@@ -2116,6 +2123,15 @@
               },
               "readonly": true,
               "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "readonly"
             },
             {
               "kind": "field",
@@ -9422,6 +9438,14 @@
               "fieldName": "multiple"
             },
             {
+              "name": "readonly",
+              "description": "File inputs don't support the readonly attribute, so a readonly file\nuploader disables its input to prevent selecting or dropping files.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "readonly"
+            },
+            {
               "name": "show-dropzone",
               "type": {
                 "text": "boolean"
@@ -9562,6 +9586,16 @@
               },
               "readonly": true,
               "attribute": "multiple"
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "description": "File inputs don't support the readonly attribute, so a readonly file\nuploader disables its input to prevent selecting or dropping files.",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "readonly"
             },
             {
               "kind": "field",
@@ -51061,6 +51095,13 @@
               "fieldName": "multiSelect"
             },
             {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "readonly"
+            },
+            {
               "name": "required",
               "type": {
                 "text": "boolean"
@@ -51184,6 +51225,15 @@
               },
               "readonly": true,
               "attribute": "multi-select"
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "readonly"
             },
             {
               "kind": "field",

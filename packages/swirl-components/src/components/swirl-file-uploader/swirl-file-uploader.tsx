@@ -35,6 +35,7 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
   @Prop() inputName!: string;
   @Prop() label!: string;
   @Prop() multiple?: boolean;
+  @Prop() readonly?: boolean;
   @Prop() showDropzone?: boolean = true;
   @Prop() uploadButtonIcon?: string;
   @Prop() uploadButtonLabel?: string = "Select file";
@@ -69,8 +70,11 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
 
     const tabIndex = this.showDropzone ? 0 : -1;
 
+    const inputDisabled = this.disabled || this.readonly;
+
     const className = classnames("file-uploader", {
       "file-uploader--disabled": this.disabled,
+      "file-uploader--readonly": this.readonly,
       "file-uploader--show-dropzone": this.showDropzone,
     });
 
@@ -122,7 +126,7 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
             ) : (
               <swirl-button
                 class="file-uploader__upload-button"
-                disabled={this.disabled}
+                disabled={inputDisabled}
                 icon={this.uploadButtonIcon}
                 intent="primary"
                 label={this.uploadButtonLabel}
@@ -135,10 +139,10 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
             <input
               accept={this.accept}
               aria-describedby={ariaDescribedby}
-              aria-disabled={this.disabled}
+              aria-disabled={inputDisabled}
               autoComplete="off"
               class="file-uploader__input"
-              disabled={this.disabled}
+              disabled={inputDisabled}
               id={this.inputId}
               multiple={this.multiple}
               name={this.inputName}

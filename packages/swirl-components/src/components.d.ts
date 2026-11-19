@@ -402,6 +402,7 @@ export namespace Components {
         "mode"?: SwirlTextInputMode;
         "multiSelect"?: boolean;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
@@ -1124,6 +1125,10 @@ export namespace Components {
         "inputName": string;
         "label": string;
         "multiple"?: boolean;
+        /**
+          * File inputs don't support the readonly attribute, so a readonly file uploader disables its input to prevent selecting or dropping files.
+         */
+        "readonly"?: boolean;
         /**
           * Reset the file input.
          */
@@ -4449,6 +4454,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
+        "readonly"?: boolean;
         "required"?: boolean;
         /**
           * @default "Search options"
@@ -11003,6 +11009,7 @@ declare namespace LocalJSX {
         "multiSelect"?: boolean;
         "onValueChange"?: (event: SwirlAutocompleteCustomEvent<SwirlAutocompleteValue>) => void;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
@@ -11721,6 +11728,10 @@ declare namespace LocalJSX {
         "label": string;
         "multiple"?: boolean;
         "onValueChange"?: (event: SwirlFileUploaderCustomEvent<FileList>) => void;
+        /**
+          * File inputs don't support the readonly attribute, so a readonly file uploader disables its input to prevent selecting or dropping files.
+         */
+        "readonly"?: boolean;
         /**
           * @default true
          */
@@ -14960,6 +14971,7 @@ declare namespace LocalJSX {
         "multiSelect"?: boolean;
         "onSearchChange"?: (event: SwirlSelectCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
+        "readonly"?: boolean;
         "required"?: boolean;
         /**
           * @default "Search options"
@@ -16528,6 +16540,7 @@ declare namespace LocalJSX {
         "mode": SwirlTextInputMode;
         "multiSelect": boolean;
         "placeholder": string;
+        "readonly": boolean;
         "required": boolean;
         "spellCheck": boolean;
         "swirlAriaDescribedby": string;
@@ -16879,6 +16892,7 @@ declare namespace LocalJSX {
         "inputName": string;
         "label": string;
         "multiple": boolean;
+        "readonly": boolean;
         "showDropzone": boolean;
         "uploadButtonIcon": string;
         "uploadButtonLabel": string;
@@ -18691,6 +18705,7 @@ declare namespace LocalJSX {
         "invalid": boolean;
         "label": string;
         "multiSelect": boolean;
+        "readonly": boolean;
         "required": boolean;
         "searchInputLabel": string;
         "searchLoading": boolean;
