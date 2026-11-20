@@ -15,6 +15,8 @@ export type SwirlFormControlFontSize = "default" | "sm" | "base";
 
 export type SwirlFormControlLabelPosition = "inside" | "outside";
 
+const FORMAT_HINT_INPUT_TAGS = ["SWIRL-DATE-INPUT", "SWIRL-TIME-INPUT"];
+
 /**
  * @slot prefix - The prefix element, e.g. `<select slot="prefix">…</select>`
  * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
@@ -306,9 +308,18 @@ export class SwirlFormControl {
       this.inputEl.getAttribute("show-character-counter")
     );
 
+    // Date and time inputs always carry a format hint ("yyyy-mm-dd", "hh:mm")
+    // as placeholder. It is only meant to be shown while the field is active,
+    // so it must not keep an empty, unfocused field expanded like a real
+    // placeholder.
+    const hasFormatHintPlaceholder = FORMAT_HINT_INPUT_TAGS.includes(
+      this.inputEl.tagName
+    );
+
     const hasPlaceholder =
-      Boolean(this.inputEl.getAttribute("placeholder")) ||
-      Boolean(this.inputEl.placeholder);
+      !hasFormatHintPlaceholder &&
+      (Boolean(this.inputEl.getAttribute("placeholder")) ||
+        Boolean(this.inputEl.placeholder));
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
