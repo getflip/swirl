@@ -415,7 +415,11 @@ export class SwirlMenu {
     if (!Boolean(trigger) || !Boolean(this.menuContainer)) {
       return;
     }
-    const viewportPadding = getPixelsFromRemToken("--s-space-16");
+
+    const overflowOptions = {
+      boundary: [],
+      padding: getPixelsFromRemToken("--s-space-16"),
+    };
 
     requestAnimationFrame(async () => {
       this.position = await computePosition(trigger, this.menuContainer, {
@@ -423,10 +427,10 @@ export class SwirlMenu {
         strategy: "fixed",
         middleware: [
           offset({ mainAxis: -10, crossAxis: 0 }),
-          shift({ padding: viewportPadding }),
-          flip(),
+          shift(overflowOptions),
+          flip({ boundary: overflowOptions.boundary }),
           size({
-            padding: viewportPadding,
+            ...overflowOptions,
             apply: ({ availableHeight }) => {
               this.computedMaxHeight = Boolean(this.maxHeight)
                 ? `min(${this.maxHeight}, ${availableHeight}px)`
