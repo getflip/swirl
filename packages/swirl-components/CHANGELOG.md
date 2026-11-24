@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.537.0
+
+### Minor Changes
+
+- [#1841](https://github.com/getflip/swirl/pull/1841)
+  [`0d03bdeb5`](https://github.com/getflip/swirl/commit/0d03bdeb599d7c6a984aa852e51bc0e5a913afe4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix form controls remaining
+  interactive when `swirl-form-control` is readonly.
+
+  - swirl-select: add `readonly` prop. A readonly select does not open its
+    options and its multi-select tags can't be removed.
+  - swirl-autocomplete: add `readonly` prop. A readonly autocomplete doesn't
+    accept input or show suggestions, and its multi-select tags can't be
+    removed.
+  - swirl-file-uploader: add `readonly` prop. A readonly file uploader doesn't
+    open the file picker or accept dropped files.
+  - swirl-form-control: readonly and disabled now also turn off editing of
+    slotted contenteditable controls.
+
 ## 0.536.0
 
 ### Minor Changes

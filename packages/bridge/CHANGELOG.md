@@ -1,5 +1,20 @@
 # @getflip/bridge
 
+## 0.12.0
+
+### Minor Changes
+
+- [#1844](https://github.com/getflip/swirl/pull/1844)
+  [`207cc0413`](https://github.com/getflip/swirl/commit/207cc0413873168e1a9310a030ce7d237168bff2)
+  Thanks [@sobimor](https://github.com/sobimor)! - Add `isMdmManaged` method to
+  detect whether the mobile device is MDM managed.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0d03bdeb5`](https://github.com/getflip/swirl/commit/0d03bdeb599d7c6a984aa852e51bc0e5a913afe4)]:
+  - @getflip/swirl-components@0.537.0
+
 ## 0.11.93
 
 ### Patch Changes
