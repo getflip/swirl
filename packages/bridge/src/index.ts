@@ -7,6 +7,7 @@ export * from "./dialog";
 export * from "./download";
 export * from "./events";
 export * from "./i18n";
+export * from "./mdm";
 export * from "./modal";
 export * from "./navigation";
 export * from "./theming";
