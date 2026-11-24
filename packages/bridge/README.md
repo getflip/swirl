@@ -15,6 +15,7 @@ App or Flip Admin Console.
   - [Modals](#modals)
   - [Toasts](#toasts)
   - [Downloads](#download)
+  - [Device](#device)
 - [Events](#events)
 - [Error Handling](#error-handling)
 - [Development](#development)
@@ -443,6 +444,26 @@ await download({
   fileType: "text/plain",
   url: "https://example.com/my-file.txt",
 });
+```
+
+### Device
+
+#### `isMdmManaged`
+
+Check whether the mobile device is MDM managed, i.e. the MDM has pushed a
+managed app configuration to the Flip app.
+
+Host apps that don't support this method (e.g. older versions of the mobile
+app) reject the request. Treat a rejection as "not managed".
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { isMdmManaged } from "@getflip/bridge";
+
+const managed = await isMdmManaged().catch(() => false);
 ```
 
 ## Events

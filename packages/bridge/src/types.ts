@@ -13,6 +13,7 @@ import {
   DestroyModalResult,
   OpenModalResult,
 } from "./modal";
+import { IsMdmManagedResult } from "./mdm";
 import { CloseResult, NavigateResult } from "./navigation";
 import { GetThemeResult, SetThemeResult } from "./theming";
 import { ShowToastResult } from "./toast";
@@ -42,6 +43,7 @@ export enum BridgeMethod {
   GET_AVAILABLE_LANGS = "GET_AVAILABLE_LANGS",
   GET_LANG = "GET_LANG",
   GET_THEME = "GET_THEME",
+  IS_MDM_MANAGED = "IS_MDM_MANAGED",
   NAVIGATE = "NAVIGATE",
   OPEN_DIALOG = "OPEN_DIALOG",
   OPEN_MODAL = "OPEN_MODAL",
@@ -63,6 +65,7 @@ export type BridgeMethodResultMapping = {
   [BridgeMethod.GET_AVAILABLE_LANGS]: GetAvailableLangsResult;
   [BridgeMethod.GET_LANG]: GetLangResult;
   [BridgeMethod.GET_THEME]: GetThemeResult;
+  [BridgeMethod.IS_MDM_MANAGED]: IsMdmManagedResult;
   [BridgeMethod.NAVIGATE]: NavigateResult;
   [BridgeMethod.OPEN_DIALOG]: OpenDialogResult;
   [BridgeMethod.OPEN_MODAL]: OpenModalResult;
