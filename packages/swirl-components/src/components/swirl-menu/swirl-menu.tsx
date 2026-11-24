@@ -6,6 +6,7 @@ import {
   offset,
   Placement,
   shift,
+  size,
 } from "@floating-ui/dom";
 import {
   Component,
@@ -23,6 +24,7 @@ import classnames from "classnames";
 import {
   closestPassShadow,
   getActiveElement,
+  getPixelsFromRemToken,
   isMobileViewport,
   parentsPassShadow,
   querySelectorAllDeep,
@@ -44,6 +46,7 @@ export class SwirlMenu {
   @Prop({ mutable: true }) active?: boolean = true;
   @Prop() label!: string;
   @Prop({ mutable: true }) level?: number = 0;
+  @Prop() maxHeight?: string;
   @Prop() mobileBackButtonLabel?: string = "Back";
   @Prop() mobileCloseMenuButtonLabel?: string = "Close menu";
   @Prop() placement?: Placement = "right-start";
@@ -52,6 +55,7 @@ export class SwirlMenu {
   @Prop() variant?: SwirlMenuVariant = "action";
 
   @State() activeLevel: number = 0;
+  @State() computedMaxHeight: string;
   @State() mobile: boolean;
   @State() position: ComputePositionReturn;
 
@@ -122,6 +126,11 @@ export class SwirlMenu {
       this.menuContainer,
       this.reposition
     );
+  }
+
+  @Watch("maxHeight")
+  watchMaxHeight() {
+    this.reposition();
   }
 
   @Watch("value")
@@ -406,11 +415,25 @@ export class SwirlMenu {
     if (!Boolean(trigger) || !Boolean(this.menuContainer)) {
       return;
     }
+    const viewportPadding = getPixelsFromRemToken("--s-space-16");
+
     requestAnimationFrame(async () => {
       this.position = await computePosition(trigger, this.menuContainer, {
         placement: this.placement,
         strategy: "fixed",
-        middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift(), flip()],
+        middleware: [
+          offset({ mainAxis: -10, crossAxis: 0 }),
+          shift({ padding: viewportPadding }),
+          flip(),
+          size({
+            padding: viewportPadding,
+            apply: ({ availableHeight }) => {
+              this.computedMaxHeight = Boolean(this.maxHeight)
+                ? `min(${this.maxHeight}, ${availableHeight}px)`
+                : `${availableHeight}px`;
+            },
+          }),
+        ],
       });
     });
   };
@@ -529,6 +552,7 @@ export class SwirlMenu {
                     top: Boolean(this.position) ? `${this.position?.y}px` : "",
                     left: Boolean(this.position) ? `${this.position?.x}px` : "",
                     opacity: Boolean(this.position) ? undefined : "0",
+                    "--swirl-menu-max-height": this.computedMaxHeight,
                   }
                 : this.mobile
                 ? {
@@ -539,7 +563,9 @@ export class SwirlMenu {
                 : undefined
             }
           >
-            <slot></slot>
+            <div class="menu__items">
+              <slot></slot>
+            </div>
           </div>
         </div>
       </Host>

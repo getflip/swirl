@@ -52,7 +52,6 @@
       max-width: 22.5rem;
       border-radius: var(--s-border-radius-base);
       box-shadow: var(--s-shadow-level-2);
-      padding: var(--s-space-4);
       outline: var(--s-border-width-default) solid var(--s-border-translucent-outline);
 
       &:before {
@@ -64,6 +63,16 @@
         background: var(--s-translucent-low-default);
         backdrop-filter: blur(var(--s-blur-l));
       }
+    }
+
+    & > .menu__menu > .menu__items {
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: var(--swirl-menu-max-height, none);
+      overscroll-behavior: contain;
+      padding: var(--s-space-4);
     }
   }
 
