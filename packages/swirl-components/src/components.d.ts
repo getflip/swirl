@@ -1125,9 +1125,6 @@ export namespace Components {
         "inputName": string;
         "label": string;
         "multiple"?: boolean;
-        /**
-          * File inputs don't support the readonly attribute, so a readonly file uploader disables its input to prevent selecting or dropping files.
-         */
         "readonly"?: boolean;
         /**
           * Reset the file input.
@@ -3797,6 +3794,7 @@ export namespace Components {
           * @default 0
          */
         "level"?: number;
+        "maxHeight"?: string;
         /**
           * @default "Back"
          */
@@ -11728,9 +11726,6 @@ declare namespace LocalJSX {
         "label": string;
         "multiple"?: boolean;
         "onValueChange"?: (event: SwirlFileUploaderCustomEvent<FileList>) => void;
-        /**
-          * File inputs don't support the readonly attribute, so a readonly file uploader disables its input to prevent selecting or dropping files.
-         */
         "readonly"?: boolean;
         /**
           * @default true
@@ -14336,6 +14331,7 @@ declare namespace LocalJSX {
           * @default 0
          */
         "level"?: number;
+        "maxHeight"?: string;
         /**
           * @default "Back"
          */
@@ -18433,6 +18429,7 @@ declare namespace LocalJSX {
         "active": boolean;
         "label": string;
         "level": number;
+        "maxHeight": string;
         "mobileBackButtonLabel": string;
         "mobileCloseMenuButtonLabel": string;
         "placement": Placement;
