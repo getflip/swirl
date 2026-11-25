@@ -1,5 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
 
+import { SwirlDateInput } from "../swirl-date-input/swirl-date-input";
+import { SwirlTextInput } from "../swirl-text-input/swirl-text-input";
+import { SwirlTimeInput } from "../swirl-time-input/swirl-time-input";
 import { SwirlFormControl } from "./swirl-form-control";
 
 (global as any).DocumentFragment = class DocumentFragment extends Node {};
@@ -239,5 +242,87 @@ describe("swirl-form-control", () => {
 
     expect(input.getAttribute("contenteditable")).toBe("");
     expect(input.hasAttribute("aria-readonly")).toBeFalsy();
+  });
+
+  describe("format hint placeholders of date and time inputs", () => {
+    const cases = [
+      { component: SwirlDateInput, tag: "swirl-date-input" },
+      { component: SwirlTimeInput, tag: "swirl-time-input" },
+    ];
+
+    it.each(cases)(
+      "does not treat the default placeholder of $tag as placeholder",
+      async ({ component, tag }) => {
+        const page = await newSpecPage({
+          components: [SwirlFormControl, component],
+          html: `
+            <swirl-form-control label="Label">
+              <${tag}></${tag}>
+            </swirl-form-control>
+          `,
+        });
+
+        const formControl = page.root.querySelector(".form-control");
+
+        expect(formControl).not.toHaveClass("form-control--has-placeholder");
+
+        page.root.dispatchEvent(new Event("focusin"));
+        await page.waitForChanges();
+        page.root.dispatchEvent(new Event("focusout"));
+        await page.waitForChanges();
+
+        expect(formControl).not.toHaveClass("form-control--has-focus");
+        expect(formControl).not.toHaveClass("form-control--has-placeholder");
+        expect(formControl).not.toHaveClass("form-control--has-value");
+      }
+    );
+
+    it.each(cases)(
+      "does not treat an explicit placeholder of $tag as placeholder",
+      async ({ component, tag }) => {
+        const page = await newSpecPage({
+          components: [SwirlFormControl, component],
+          html: `
+            <swirl-form-control label="Label">
+              <${tag} placeholder="Format"></${tag}>
+            </swirl-form-control>
+          `,
+        });
+
+        expect(page.root.querySelector(".form-control")).not.toHaveClass(
+          "form-control--has-placeholder"
+        );
+      }
+    );
+
+    it("marks a date input with a value as having a value", async () => {
+      const page = await newSpecPage({
+        components: [SwirlFormControl, SwirlDateInput],
+        html: `
+          <swirl-form-control label="Label">
+            <swirl-date-input value="2026-11-20"></swirl-date-input>
+          </swirl-form-control>
+        `,
+      });
+
+      expect(page.root.querySelector(".form-control")).toHaveClass(
+        "form-control--has-value"
+      );
+    });
+
+    it("still treats the placeholder of other inputs as placeholder", async () => {
+      const page = await newSpecPage({
+        components: [SwirlFormControl, SwirlTextInput],
+        html: `
+          <swirl-form-control label="Label">
+            <swirl-text-input placeholder="Placeholder"></swirl-text-input>
+          </swirl-form-control>
+        `,
+      });
+
+      expect(page.root.querySelector(".form-control")).toHaveClass(
+        "form-control--has-placeholder"
+      );
+    });
   });
 });
