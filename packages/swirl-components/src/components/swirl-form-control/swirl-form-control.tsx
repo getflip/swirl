@@ -323,6 +323,13 @@ export class SwirlFormControl {
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
+    const rows = Number(
+      this.inputEl.getAttribute("rows") ??
+        (this.inputEl as unknown as { rows?: number }).rows
+    );
+
+    const isMultiline = rows > 1;
+
     const className = classnames(
       "form-control",
       `form-control--font-size-${this.fontSize}`,
@@ -340,6 +347,7 @@ export class SwirlFormControl {
         "form-control--hide-label": this.hideLabel,
         "form-control--inline": this.inline,
         "form-control--invalid": this.invalid,
+        "form-control--is-multiline": isMultiline,
         "form-control--is-select": isSelect,
       }
     );

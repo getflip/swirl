@@ -325,4 +325,35 @@ describe("swirl-form-control", () => {
       );
     });
   });
+
+  it.each([
+    [
+      "inputs with multiple rows",
+      true,
+      `<swirl-text-input rows="5"></swirl-text-input>`,
+    ],
+    ["textareas with multiple rows", true, `<textarea rows="4"></textarea>`],
+    ["single-line inputs", false, `<swirl-text-input></swirl-text-input>`],
+    [
+      "inputs with one row",
+      false,
+      `<swirl-text-input rows="1"></swirl-text-input>`,
+    ],
+    [
+      "auto-growing inputs",
+      false,
+      `<swirl-text-input auto-grow="true"></swirl-text-input>`,
+    ],
+  ])("treats %s as multi-line: %s", async (_, isMultiline, input) => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `<swirl-form-control label="Label">${input}</swirl-form-control>`,
+    });
+
+    const formControl = page.root.querySelector(".form-control");
+
+    expect(formControl.classList.contains("form-control--is-multiline")).toBe(
+      isMultiline
+    );
+  });
 });

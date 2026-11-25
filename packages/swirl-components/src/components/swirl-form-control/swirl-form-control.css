@@ -25,7 +25,10 @@
 
   &:not(.form-control--has-value):not(.form-control--has-focus):not(
       .form-control--is-select
-    ):is(.form-control--inline, :not(.form-control--has-placeholder)) {
+    ):is(
+      .form-control--inline,
+      :not(.form-control--has-placeholder):not(.form-control--is-multiline)
+    ) {
     &:not(.form-control--inline) .form-control__input {
       overflow: hidden;
       max-height: 0;
@@ -153,7 +156,10 @@
   & .form-control__label-text,
   &:not(.form-control--has-value):not(.form-control--has-focus):not(
       .form-control--is-select
-    ):is(.form-control--inline, :not(.form-control--has-placeholder))
+    ):is(
+      .form-control--inline,
+      :not(.form-control--has-placeholder):not(.form-control--is-multiline)
+    )
     .form-control__label-text,
   &:not(.form-control--has-value).form-control--is-select
     .form-control__label-text {
