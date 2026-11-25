@@ -1,7 +1,7 @@
 ---
-"@getflip/swirl-ai": minor
+"@getflip/swirl-components": minor
 "@getflip/swirl-components-angular": minor
 "@getflip/swirl-components-react": minor
 ---
 
-Add max-height and scroll for long sub menus inside swirl-menu
+Fix long sub menus of swirl-menu overflowing the viewport.
