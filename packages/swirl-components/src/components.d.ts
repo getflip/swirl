@@ -2120,6 +2120,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconFolderSupervised {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFormatHOne {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -2281,6 +2289,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconHrResting {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconHub {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -7448,6 +7464,12 @@ declare global {
         prototype: HTMLSwirlIconFolderSharedElement;
         new (): HTMLSwirlIconFolderSharedElement;
     };
+    interface HTMLSwirlIconFolderSupervisedElement extends Components.SwirlIconFolderSupervised, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFolderSupervisedElement: {
+        prototype: HTMLSwirlIconFolderSupervisedElement;
+        new (): HTMLSwirlIconFolderSupervisedElement;
+    };
     interface HTMLSwirlIconFormatHOneElement extends Components.SwirlIconFormatHOne, HTMLStencilElement {
     }
     var HTMLSwirlIconFormatHOneElement: {
@@ -7573,6 +7595,12 @@ declare global {
     var HTMLSwirlIconHrRestingElement: {
         prototype: HTMLSwirlIconHrRestingElement;
         new (): HTMLSwirlIconHrRestingElement;
+    };
+    interface HTMLSwirlIconHubElement extends Components.SwirlIconHub, HTMLStencilElement {
+    }
+    var HTMLSwirlIconHubElement: {
+        prototype: HTMLSwirlIconHubElement;
+        new (): HTMLSwirlIconHubElement;
     };
     interface HTMLSwirlIconImageElement extends Components.SwirlIconImage, HTMLStencilElement {
     }
@@ -10416,6 +10444,7 @@ declare global {
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
         "swirl-icon-folder": HTMLSwirlIconFolderElement;
         "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
+        "swirl-icon-folder-supervised": HTMLSwirlIconFolderSupervisedElement;
         "swirl-icon-format-h-one": HTMLSwirlIconFormatHOneElement;
         "swirl-icon-format-list-bulleted": HTMLSwirlIconFormatListBulletedElement;
         "swirl-icon-format-list-numbered": HTMLSwirlIconFormatListNumberedElement;
@@ -10437,6 +10466,7 @@ declare global {
         "swirl-icon-home": HTMLSwirlIconHomeElement;
         "swirl-icon-home-filled": HTMLSwirlIconHomeFilledElement;
         "swirl-icon-hr-resting": HTMLSwirlIconHrRestingElement;
+        "swirl-icon-hub": HTMLSwirlIconHubElement;
         "swirl-icon-image": HTMLSwirlIconImageElement;
         "swirl-icon-improve-text": HTMLSwirlIconImproveTextElement;
         "swirl-icon-info": HTMLSwirlIconInfoElement;
@@ -12703,6 +12733,14 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconFolderSupervised {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFormatHOne {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -12864,6 +12902,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHrResting {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconHub {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -17474,6 +17520,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconFolderSupervisedAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFormatHOneAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -17575,6 +17626,11 @@ declare namespace LocalJSX {
         "size": SwirlIconSize;
     }
     interface SwirlIconHrRestingAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconHubAttributes {
         "color": SwirlIconColor;
         "label": string;
         "size": SwirlIconSize;
@@ -19564,6 +19620,7 @@ declare namespace LocalJSX {
         "swirl-icon-filter": Omit<SwirlIconFilter, keyof SwirlIconFilterAttributes> & { [K in keyof SwirlIconFilter & keyof SwirlIconFilterAttributes]?: SwirlIconFilter[K] } & { [K in keyof SwirlIconFilter & keyof SwirlIconFilterAttributes as `attr:${K}`]?: SwirlIconFilterAttributes[K] } & { [K in keyof SwirlIconFilter & keyof SwirlIconFilterAttributes as `prop:${K}`]?: SwirlIconFilter[K] };
         "swirl-icon-folder": Omit<SwirlIconFolder, keyof SwirlIconFolderAttributes> & { [K in keyof SwirlIconFolder & keyof SwirlIconFolderAttributes]?: SwirlIconFolder[K] } & { [K in keyof SwirlIconFolder & keyof SwirlIconFolderAttributes as `attr:${K}`]?: SwirlIconFolderAttributes[K] } & { [K in keyof SwirlIconFolder & keyof SwirlIconFolderAttributes as `prop:${K}`]?: SwirlIconFolder[K] };
         "swirl-icon-folder-shared": Omit<SwirlIconFolderShared, keyof SwirlIconFolderSharedAttributes> & { [K in keyof SwirlIconFolderShared & keyof SwirlIconFolderSharedAttributes]?: SwirlIconFolderShared[K] } & { [K in keyof SwirlIconFolderShared & keyof SwirlIconFolderSharedAttributes as `attr:${K}`]?: SwirlIconFolderSharedAttributes[K] } & { [K in keyof SwirlIconFolderShared & keyof SwirlIconFolderSharedAttributes as `prop:${K}`]?: SwirlIconFolderShared[K] };
+        "swirl-icon-folder-supervised": Omit<SwirlIconFolderSupervised, keyof SwirlIconFolderSupervisedAttributes> & { [K in keyof SwirlIconFolderSupervised & keyof SwirlIconFolderSupervisedAttributes]?: SwirlIconFolderSupervised[K] } & { [K in keyof SwirlIconFolderSupervised & keyof SwirlIconFolderSupervisedAttributes as `attr:${K}`]?: SwirlIconFolderSupervisedAttributes[K] } & { [K in keyof SwirlIconFolderSupervised & keyof SwirlIconFolderSupervisedAttributes as `prop:${K}`]?: SwirlIconFolderSupervised[K] };
         "swirl-icon-format-h-one": Omit<SwirlIconFormatHOne, keyof SwirlIconFormatHOneAttributes> & { [K in keyof SwirlIconFormatHOne & keyof SwirlIconFormatHOneAttributes]?: SwirlIconFormatHOne[K] } & { [K in keyof SwirlIconFormatHOne & keyof SwirlIconFormatHOneAttributes as `attr:${K}`]?: SwirlIconFormatHOneAttributes[K] } & { [K in keyof SwirlIconFormatHOne & keyof SwirlIconFormatHOneAttributes as `prop:${K}`]?: SwirlIconFormatHOne[K] };
         "swirl-icon-format-list-bulleted": Omit<SwirlIconFormatListBulleted, keyof SwirlIconFormatListBulletedAttributes> & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes]?: SwirlIconFormatListBulleted[K] } & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes as `attr:${K}`]?: SwirlIconFormatListBulletedAttributes[K] } & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes as `prop:${K}`]?: SwirlIconFormatListBulleted[K] };
         "swirl-icon-format-list-numbered": Omit<SwirlIconFormatListNumbered, keyof SwirlIconFormatListNumberedAttributes> & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes]?: SwirlIconFormatListNumbered[K] } & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes as `attr:${K}`]?: SwirlIconFormatListNumberedAttributes[K] } & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes as `prop:${K}`]?: SwirlIconFormatListNumbered[K] };
@@ -19585,6 +19642,7 @@ declare namespace LocalJSX {
         "swirl-icon-home": Omit<SwirlIconHome, keyof SwirlIconHomeAttributes> & { [K in keyof SwirlIconHome & keyof SwirlIconHomeAttributes]?: SwirlIconHome[K] } & { [K in keyof SwirlIconHome & keyof SwirlIconHomeAttributes as `attr:${K}`]?: SwirlIconHomeAttributes[K] } & { [K in keyof SwirlIconHome & keyof SwirlIconHomeAttributes as `prop:${K}`]?: SwirlIconHome[K] };
         "swirl-icon-home-filled": Omit<SwirlIconHomeFilled, keyof SwirlIconHomeFilledAttributes> & { [K in keyof SwirlIconHomeFilled & keyof SwirlIconHomeFilledAttributes]?: SwirlIconHomeFilled[K] } & { [K in keyof SwirlIconHomeFilled & keyof SwirlIconHomeFilledAttributes as `attr:${K}`]?: SwirlIconHomeFilledAttributes[K] } & { [K in keyof SwirlIconHomeFilled & keyof SwirlIconHomeFilledAttributes as `prop:${K}`]?: SwirlIconHomeFilled[K] };
         "swirl-icon-hr-resting": Omit<SwirlIconHrResting, keyof SwirlIconHrRestingAttributes> & { [K in keyof SwirlIconHrResting & keyof SwirlIconHrRestingAttributes]?: SwirlIconHrResting[K] } & { [K in keyof SwirlIconHrResting & keyof SwirlIconHrRestingAttributes as `attr:${K}`]?: SwirlIconHrRestingAttributes[K] } & { [K in keyof SwirlIconHrResting & keyof SwirlIconHrRestingAttributes as `prop:${K}`]?: SwirlIconHrResting[K] };
+        "swirl-icon-hub": Omit<SwirlIconHub, keyof SwirlIconHubAttributes> & { [K in keyof SwirlIconHub & keyof SwirlIconHubAttributes]?: SwirlIconHub[K] } & { [K in keyof SwirlIconHub & keyof SwirlIconHubAttributes as `attr:${K}`]?: SwirlIconHubAttributes[K] } & { [K in keyof SwirlIconHub & keyof SwirlIconHubAttributes as `prop:${K}`]?: SwirlIconHub[K] };
         "swirl-icon-image": Omit<SwirlIconImage, keyof SwirlIconImageAttributes> & { [K in keyof SwirlIconImage & keyof SwirlIconImageAttributes]?: SwirlIconImage[K] } & { [K in keyof SwirlIconImage & keyof SwirlIconImageAttributes as `attr:${K}`]?: SwirlIconImageAttributes[K] } & { [K in keyof SwirlIconImage & keyof SwirlIconImageAttributes as `prop:${K}`]?: SwirlIconImage[K] };
         "swirl-icon-improve-text": Omit<SwirlIconImproveText, keyof SwirlIconImproveTextAttributes> & { [K in keyof SwirlIconImproveText & keyof SwirlIconImproveTextAttributes]?: SwirlIconImproveText[K] } & { [K in keyof SwirlIconImproveText & keyof SwirlIconImproveTextAttributes as `attr:${K}`]?: SwirlIconImproveTextAttributes[K] } & { [K in keyof SwirlIconImproveText & keyof SwirlIconImproveTextAttributes as `prop:${K}`]?: SwirlIconImproveText[K] };
         "swirl-icon-info": Omit<SwirlIconInfo, keyof SwirlIconInfoAttributes> & { [K in keyof SwirlIconInfo & keyof SwirlIconInfoAttributes]?: SwirlIconInfo[K] } & { [K in keyof SwirlIconInfo & keyof SwirlIconInfoAttributes as `attr:${K}`]?: SwirlIconInfoAttributes[K] } & { [K in keyof SwirlIconInfo & keyof SwirlIconInfoAttributes as `prop:${K}`]?: SwirlIconInfo[K] };
@@ -20126,6 +20184,7 @@ declare module "@stencil/core" {
             "swirl-icon-filter": LocalJSX.IntrinsicElements["swirl-icon-filter"] & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
             "swirl-icon-folder": LocalJSX.IntrinsicElements["swirl-icon-folder"] & JSXBase.HTMLAttributes<HTMLSwirlIconFolderElement>;
             "swirl-icon-folder-shared": LocalJSX.IntrinsicElements["swirl-icon-folder-shared"] & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
+            "swirl-icon-folder-supervised": LocalJSX.IntrinsicElements["swirl-icon-folder-supervised"] & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSupervisedElement>;
             "swirl-icon-format-h-one": LocalJSX.IntrinsicElements["swirl-icon-format-h-one"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatHOneElement>;
             "swirl-icon-format-list-bulleted": LocalJSX.IntrinsicElements["swirl-icon-format-list-bulleted"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListBulletedElement>;
             "swirl-icon-format-list-numbered": LocalJSX.IntrinsicElements["swirl-icon-format-list-numbered"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListNumberedElement>;
@@ -20147,6 +20206,7 @@ declare module "@stencil/core" {
             "swirl-icon-home": LocalJSX.IntrinsicElements["swirl-icon-home"] & JSXBase.HTMLAttributes<HTMLSwirlIconHomeElement>;
             "swirl-icon-home-filled": LocalJSX.IntrinsicElements["swirl-icon-home-filled"] & JSXBase.HTMLAttributes<HTMLSwirlIconHomeFilledElement>;
             "swirl-icon-hr-resting": LocalJSX.IntrinsicElements["swirl-icon-hr-resting"] & JSXBase.HTMLAttributes<HTMLSwirlIconHrRestingElement>;
+            "swirl-icon-hub": LocalJSX.IntrinsicElements["swirl-icon-hub"] & JSXBase.HTMLAttributes<HTMLSwirlIconHubElement>;
             "swirl-icon-image": LocalJSX.IntrinsicElements["swirl-icon-image"] & JSXBase.HTMLAttributes<HTMLSwirlIconImageElement>;
             "swirl-icon-improve-text": LocalJSX.IntrinsicElements["swirl-icon-improve-text"] & JSXBase.HTMLAttributes<HTMLSwirlIconImproveTextElement>;
             "swirl-icon-info": LocalJSX.IntrinsicElements["swirl-icon-info"] & JSXBase.HTMLAttributes<HTMLSwirlIconInfoElement>;
