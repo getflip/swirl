@@ -27,13 +27,13 @@
   border-radius: var(--s-border-radius-sm);
   background-color: var(--s-surface);
 
-  &:focus-within {
+  &:has(.radio__input:focus-visible) {
     box-shadow: 0 0 0 0.125rem var(--s-background-default),
       0 0 0 0.25rem var(--s-focus-default);
+  }
 
-    & .radio__box {
-      box-shadow: none;
-    }
+  &:focus-within .radio__box {
+    box-shadow: none;
   }
 
   &:hover:not(.radio--disabled) {
@@ -50,6 +50,59 @@
 
   &.radio--invalid:not(.radio--disabled) {
     border-color: var(--s-border-critical);
+  }
+
+  &.radio--has-icon {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--s-border-radius-l);
+    text-align: center;
+    gap: var(--s-space-16);
+
+    & .radio__control {
+      position: absolute;
+      inset-block-start: var(--s-space-16);
+      inset-inline-end: var(--s-space-16);
+    }
+
+    & .radio__icon {
+      display: inline-flex;
+      width: 6.5rem;
+      height: 6.5rem;
+      margin-block: 1.75rem;
+      flex-shrink: 0;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1.625rem;
+      background-color: var(--s-surface-highlight-default);
+      color: var(--s-icon-highlight);
+    }
+
+    /* Scoped CSS cannot select the innerHTML glyph, so the wrapper scales the
+    28px glyph to 40px instead of sizing its ::part(icon). */
+    & .radio__icon-glyph {
+      display: inline-flex;
+      transform: scale(calc(40 / 28));
+    }
+
+    & .radio__label-container {
+      margin-left: 0;
+      padding-top: 0;
+      align-items: center;
+      gap: var(--s-space-8);
+    }
+
+    & .radio__label {
+      justify-content: center;
+      font-size: var(--s-font-size-lg);
+      font-weight: var(--s-font-weight-semibold);
+      line-height: var(--s-line-height-lg);
+    }
+
+    &.radio--disabled .radio__icon {
+      color: var(--s-icon-disabled);
+    }
   }
 }
 

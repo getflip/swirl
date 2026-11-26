@@ -21,6 +21,7 @@ export class SwirlRadio {
   @Prop({ mutable: true }) checked?: SwirlRadioState = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean = false;
+  @Prop() icon?: string;
   @Prop() inputId?: string = crypto.randomUUID();
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
@@ -30,6 +31,16 @@ export class SwirlRadio {
   @Prop() variant?: SwirlRadioVariant = "default";
 
   @Event() valueChange: EventEmitter<string>;
+
+  private iconEl: HTMLElement;
+
+  componentDidRender() {
+    this.forceIconProps();
+  }
+
+  private forceIconProps() {
+    this.iconEl?.children[0]?.setAttribute("size", "28");
+  }
 
   private onChange = () => {
     this.checked = true;
@@ -52,10 +63,12 @@ export class SwirlRadio {
 
     const ariaCheckedLabel = this.getAriaCheckedLabel(checked, unchecked);
     const ariaInvalid = this.invalid;
+    const hasIcon = this.variant === "card" && Boolean(this.icon);
 
     const className = classnames("radio", `radio--variant-${this.variant}`, {
       "radio--checked": checked,
       "radio--disabled": this.disabled,
+      "radio--has-icon": hasIcon,
       "radio--invalid": this.invalid,
       "radio--unchecked": unchecked,
     });
@@ -80,6 +93,15 @@ export class SwirlRadio {
             </swirl-visually-hidden>
             <span aria-hidden="true" class="radio__box"></span>
           </span>
+          {hasIcon && (
+            <span aria-hidden="true" class="radio__icon">
+              <span
+                class="radio__icon-glyph"
+                innerHTML={this.icon}
+                ref={(el) => (this.iconEl = el)}
+              ></span>
+            </span>
+          )}
           <span class="radio__label-container">
             {this.label && (
               <span class="radio__label">
