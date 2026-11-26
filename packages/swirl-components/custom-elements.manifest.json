@@ -9439,7 +9439,6 @@
             },
             {
               "name": "readonly",
-              "description": "File inputs don't support the readonly attribute, so a readonly file\nuploader disables its input to prevent selecting or dropping files.",
               "type": {
                 "text": "boolean"
               },
@@ -9590,7 +9589,6 @@
             {
               "kind": "field",
               "name": "readonly",
-              "description": "File inputs don't support the readonly attribute, so a readonly file\nuploader disables its input to prevent selecting or dropping files.",
               "type": {
                 "text": "boolean"
               },
@@ -44955,6 +44953,13 @@
               "fieldName": "level"
             },
             {
+              "name": "max-height",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "maxHeight"
+            },
+            {
               "name": "mobile-back-button-label",
               "type": {
                 "text": "string"
@@ -45040,6 +45045,15 @@
               },
               "default": "0",
               "attribute": "level"
+            },
+            {
+              "kind": "field",
+              "name": "maxHeight",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "max-height"
             },
             {
               "kind": "field",

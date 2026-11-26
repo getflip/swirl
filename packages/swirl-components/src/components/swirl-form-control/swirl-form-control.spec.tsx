@@ -244,6 +244,81 @@ describe("swirl-form-control", () => {
     expect(input.hasAttribute("aria-readonly")).toBeFalsy();
   });
 
+  it("keeps a contenteditable value set by the app before re-enabling", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label">
+          <div contenteditable="plaintext-only" role="textbox"></div>
+        </swirl-form-control>
+      `,
+    });
+
+    const input = page.root.querySelector<HTMLElement>('[role="textbox"]');
+
+    input.setAttribute("contenteditable", "false");
+    page.root.disabled = true;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+
+    input.setAttribute("contenteditable", "plaintext-only");
+    page.root.disabled = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("plaintext-only");
+  });
+
+  it("keeps a contenteditable value set by the app after re-enabling", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label">
+          <div contenteditable="plaintext-only" role="textbox"></div>
+        </swirl-form-control>
+      `,
+    });
+
+    const input = page.root.querySelector<HTMLElement>('[role="textbox"]');
+
+    input.setAttribute("contenteditable", "false");
+    page.root.disabled = true;
+    await page.waitForChanges();
+    page.root.disabled = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+
+    input.setAttribute("contenteditable", "plaintext-only");
+    page.root.disabled = true;
+    await page.waitForChanges();
+    page.root.disabled = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("plaintext-only");
+  });
+
+  it("does not overwrite a contenteditable value changed while disabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" disabled="true">
+          <div contenteditable="plaintext-only" role="textbox"></div>
+        </swirl-form-control>
+      `,
+    });
+
+    const input = page.root.querySelector<HTMLElement>('[role="textbox"]');
+
+    expect(input.getAttribute("contenteditable")).toBe("false");
+
+    input.setAttribute("contenteditable", "true");
+    page.root.disabled = false;
+    await page.waitForChanges();
+
+    expect(input.getAttribute("contenteditable")).toBe("true");
+  });
+
   describe("format hint placeholders of date and time inputs", () => {
     const cases = [
       { component: SwirlDateInput, tag: "swirl-date-input" },
