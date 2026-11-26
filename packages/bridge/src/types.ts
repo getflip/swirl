@@ -1,3 +1,4 @@
+import { AppReadyResult } from "./app";
 import {
   CloseDialogResult,
   CreateDialogResult,
@@ -33,6 +34,7 @@ export enum BridgeErrorCode {
 }
 
 export enum BridgeMethod {
+  APP_READY = "APP_READY",
   CLOSE_DIALOG = "CLOSE_DIALOG",
   CLOSE_MODAL = "CLOSE_MODAL",
   CLOSE = "CLOSE",
@@ -55,6 +57,7 @@ export enum BridgeMethod {
 }
 
 export type BridgeMethodResultMapping = {
+  [BridgeMethod.APP_READY]: AppReadyResult;
   [BridgeMethod.CLOSE_DIALOG]: CloseDialogResult;
   [BridgeMethod.CLOSE_MODAL]: CloseModalResult;
   [BridgeMethod.CLOSE]: CloseResult;

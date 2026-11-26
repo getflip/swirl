@@ -8,6 +8,7 @@ App or Flip Admin Console.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Methods](#methods)
+  - [App lifecycle](#app-lifecycle)
   - [Internationalization](#internationalization)
   - [Navigation](#navigation)
   - [Theming](#theming)
@@ -46,6 +47,34 @@ initFlipBridge({
 ```
 
 ## Methods
+
+### App lifecycle
+
+#### `notifyAppReady`
+
+Tells the host app that your app has rendered its first real screen, so the host
+can hide its loading screen. Call it once, after any login or loading step.
+
+Host apps that don't support this method (e.g. older versions) reject the
+request.
+
+**Param** (optional)
+
+```js
+{
+  builtWith?: string; // the toolkit your app was built with, e.g. "fusion"
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { notifyAppReady } from "@getflip/bridge";
+
+await notifyAppReady({ builtWith: "fusion" });
+```
 
 ### Internationalization
 
@@ -97,9 +126,9 @@ await navigate("/my-app/settings");
 
 #### `close`
 
-Asks the host app to close the current integration (for example the same action as
-the host’s back or close control). Use this when you provide your own header and
-want a custom back or close button instead of relying on the host.
+Asks the host app to close the current integration (for example the same action
+as the host’s back or close control). Use this when you provide your own header
+and want a custom back or close button instead of relying on the host.
 
 **Returns** `Promise<boolean>`
 
@@ -453,8 +482,8 @@ await download({
 Check whether the mobile device is MDM managed, i.e. the MDM has pushed a
 managed app configuration to the Flip app.
 
-Host apps that don't support this method (e.g. older versions of the mobile
-app) reject the request. Treat a rejection as "not managed".
+Host apps that don't support this method (e.g. older versions of the mobile app)
+reject the request. Treat a rejection as "not managed".
 
 **Returns** `Promise<boolean>`
 

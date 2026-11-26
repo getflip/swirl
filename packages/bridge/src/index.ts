@@ -3,6 +3,7 @@ import { BridgeOptions } from "./types";
 export * from "./messaging/messaging.types";
 export * from "./types";
 
+export * from "./app";
 export * from "./dialog";
 export * from "./download";
 export * from "./events";
