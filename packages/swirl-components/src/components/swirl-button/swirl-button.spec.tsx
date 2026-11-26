@@ -153,4 +153,47 @@ describe("swirl-button", () => {
 
     expect(page.root.querySelector("button").style.cursor).toBe("");
   });
+
+  it("is aria-disabled but focusable and blocks clicks with swirlAriaDisabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button label="Label" swirl-aria-disabled="true" type="submit"></swirl-button>`,
+    });
+
+    const buttonElement = page.root.querySelector("button");
+    const spy = jest.fn();
+    page.root.addEventListener("click", spy);
+
+    expect(page.root.style.pointerEvents).toBe("");
+    expect(buttonElement.hasAttribute("disabled")).toBe(false);
+    expect(buttonElement.getAttribute("aria-disabled")).toBe("true");
+    expect(buttonElement.classList.contains("button--disabled")).toBe(true);
+
+    const event = new MouseEvent("click", { bubbles: true, cancelable: true });
+    buttonElement.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBe(true);
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("sets aria-disabled on a link with swirlAriaDisabled", async () => {
+    const page = await newSpecPage({
+      components: [SwirlButton],
+      html: `<swirl-button href="#" label="Label" swirl-aria-disabled="true"></swirl-button>`,
+    });
+
+    const linkElement = page.root.querySelector("a");
+    const click = new MouseEvent("click", { bubbles: true, cancelable: true });
+    const middleClick = new MouseEvent("auxclick", {
+      bubbles: true,
+      button: 1,
+      cancelable: true,
+    });
+    linkElement.dispatchEvent(click);
+    linkElement.dispatchEvent(middleClick);
+
+    expect(linkElement.getAttribute("aria-disabled")).toBe("true");
+    expect(click.defaultPrevented).toBe(true);
+    expect(middleClick.defaultPrevented).toBe(true);
+  });
 });
