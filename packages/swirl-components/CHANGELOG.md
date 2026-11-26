@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.539.0
+
+### Minor Changes
+
+- [#1850](https://github.com/getflip/swirl/pull/1850)
+  [`caea8df81`](https://github.com/getflip/swirl/commit/caea8df8135fa8484775efa3a59950a03ffd3b30)
+  Thanks [@fabio-carvalho88](https://github.com/fabio-carvalho88)! -
+  swirl-button has a new `swirlAriaDisabled` prop. The button looks and acts
+  disabled but stays focusable and hoverable, so a wrapping swirl-tooltip can
+  explain why it is disabled.
+
+### Patch Changes
+
+- [#1846](https://github.com/getflip/swirl/pull/1846)
+  [`cbd91620b`](https://github.com/getflip/swirl/commit/cbd91620b3fd7f39c7be04dccb9d1ab9e81deb7f)
+  Thanks [@brunosantos-flip](https://github.com/brunosantos-flip)! - Keep empty
+  multi-line inputs in swirl-form-control at their rows height instead of
+  collapsing them to a single line
+
 ## 0.538.0
 
 ### Minor Changes
