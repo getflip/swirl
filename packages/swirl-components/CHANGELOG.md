@@ -1,5 +1,28 @@
 # @getflip/swirl-components
 
+## 0.538.0
+
+### Minor Changes
+
+- [#1845](https://github.com/getflip/swirl/pull/1845)
+  [`1e2467866`](https://github.com/getflip/swirl/commit/1e2467866d4cf7d03b6077008c6a576511a46ceb)
+  Thanks [@brunosantos-flip](https://github.com/brunosantos-flip)! - Fix long
+  sub menus of swirl-menu overflowing the viewport.
+
+### Patch Changes
+
+- [#1848](https://github.com/getflip/swirl/pull/1848)
+  [`5663a7c76`](https://github.com/getflip/swirl/commit/5663a7c76d81b7f559d836c418eea932d04383ae)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - swirl-form-control no longer
+  leaves a contenteditable control uneditable after it is re-enabled, when the
+  app also sets `contenteditable` on it.
+
+* [#1843](https://github.com/getflip/swirl/pull/1843)
+  [`78e0efabe`](https://github.com/getflip/swirl/commit/78e0efabee863fba0976244e060de3d65352add3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Empty date and time inputs in
+  swirl-form-control collapse again when they lose focus, like other inputs.
+  Their format placeholder now only shows while the field is focused.
+
 ## 0.537.0
 
 ### Minor Changes
