@@ -3311,7 +3311,7 @@
         },
         {
           "name": "readonly",
-          "description": "File inputs don't support the readonly attribute, so a readonly file\nuploader disables its input to prevent selecting or dropping files."
+          "description": ""
         },
         {
           "name": "show-dropzone",
@@ -21756,6 +21756,10 @@
         },
         {
           "name": "level",
+          "description": ""
+        },
+        {
+          "name": "max-height",
           "description": ""
         },
         {

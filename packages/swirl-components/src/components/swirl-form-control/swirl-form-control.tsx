@@ -137,24 +137,35 @@ export class SwirlFormControl {
    * editing has to be turned off via the contenteditable attribute itself. Its
    * value is set to "false" (not removed), so the element is still detected as
    * a contenteditable control.
+   *
+   * The previous value is only restored if editing was turned off here and
+   * the attribute is still "false". Values set by the app in the meantime
+   * (e.g. by a form library toggling its own disabled state) are kept.
    */
   private setContenteditableState() {
     if (!this.inputEl.hasAttribute("contenteditable")) {
       return;
     }
 
+    const contenteditable = this.inputEl.getAttribute("contenteditable");
+
     if (this.disabled || this.readonly) {
-      if (this.originalContenteditableValue === undefined) {
-        this.originalContenteditableValue =
-          this.inputEl.getAttribute("contenteditable");
+      if (
+        this.originalContenteditableValue === undefined &&
+        contenteditable !== "false"
+      ) {
+        this.originalContenteditableValue = contenteditable;
       }
 
       this.inputEl.setAttribute("contenteditable", "false");
     } else if (this.originalContenteditableValue !== undefined) {
-      this.inputEl.setAttribute(
-        "contenteditable",
-        this.originalContenteditableValue
-      );
+      if (contenteditable === "false") {
+        this.inputEl.setAttribute(
+          "contenteditable",
+          this.originalContenteditableValue
+        );
+      }
+
       this.originalContenteditableValue = undefined;
     }
 
