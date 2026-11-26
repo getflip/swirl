@@ -4111,6 +4111,14 @@
               "fieldName": "swirlAriaDescribedby"
             },
             {
+              "name": "swirl-aria-disabled",
+              "description": "Looks and acts disabled, but stays focusable and hoverable, e.g. so a\nwrapping swirl-tooltip can explain why.",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "swirlAriaDisabled"
+            },
+            {
               "name": "swirl-aria-expanded",
               "type": {
                 "text": "string"
@@ -4380,6 +4388,16 @@
               },
               "readonly": true,
               "attribute": "swirl-aria-describedby"
+            },
+            {
+              "kind": "field",
+              "name": "swirlAriaDisabled",
+              "description": "Looks and acts disabled, but stays focusable and hoverable, e.g. so a\nwrapping swirl-tooltip can explain why.",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true,
+              "attribute": "swirl-aria-disabled"
             },
             {
               "kind": "field",

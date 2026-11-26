@@ -38,6 +38,29 @@ an icon). Keep the markup simple and only use inline elements.
 </swirl-button>`}
 />
 
+## Disabled with a reason
+
+A `disabled` button can't be hovered or focused, so a wrapping `swirl-tooltip`
+never opens. Use `swirl-aria-disabled` instead when users need to know why the
+button is disabled. The button looks disabled and ignores clicks, Enter and
+Space, but stays in the tab order. Point `swirl-aria-describedby` at a light-DOM
+element with the reason for screen readers.
+
+<Canvas of={Stories.AriaDisabled}></Canvas>
+
+<Source
+  code={`<swirl-tooltip content="You can't delete the main language.">
+  <swirl-button
+    label="Delete"
+    swirl-aria-describedby="delete-reason"
+    swirl-aria-disabled="true"
+  ></swirl-button>
+</swirl-tooltip>
+<swirl-visually-hidden id="delete-reason">
+  You can't delete the main language.
+</swirl-visually-hidden>`}
+/>
+
 ## Related components
 
 No related components.
@@ -53,7 +76,7 @@ The component follows the
 | ------------------ | ------------------------------------------------------------------------------------------ |
 | `role="button"`    | Implicit when rendered as <code>&lt;button&gt;</code>; link when <code>href</code> is set. |
 | `aria-label`       | Set when the label is hidden (e.g. icon-only) or via <code>swirlAriaLabel</code>.          |
-| `aria-disabled`    | Set to <code>true</code> when the button is disabled (button only, not link).              |
+| `aria-disabled`    | Set to <code>true</code> when disabled (button only) or <code>swirlAriaDisabled</code>.    |
 | `aria-pressed`     | Set to <code>true</code> when <code>pressed</code> is true (toggle buttons).               |
 | `aria-controls`    | Optional; set via <code>swirlAriaControls</code>.                                          |
 | `aria-current`     | Optional; set via <code>swirlAriaCurrent</code>.                                           |

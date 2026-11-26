@@ -52,3 +52,24 @@ CustomLabel.args = {
   icon: "<swirl-icon-add></swirl-icon-add>",
   label: "Add item",
 };
+
+const AriaDisabledTemplate = () => {
+  const element = document.createElement("div");
+
+  element.innerHTML = `
+    <swirl-tooltip content="You can't delete the main language.">
+      <swirl-button
+        label="Delete"
+        swirl-aria-describedby="delete-reason"
+        swirl-aria-disabled="true"
+      ></swirl-button>
+    </swirl-tooltip>
+    <swirl-visually-hidden id="delete-reason">
+      You can't delete the main language.
+    </swirl-visually-hidden>
+  `;
+
+  return element;
+};
+
+export const AriaDisabled = AriaDisabledTemplate.bind({});

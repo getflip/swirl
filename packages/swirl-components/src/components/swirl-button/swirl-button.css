@@ -32,13 +32,13 @@
   gap: var(--s-space-8);
   transition: box-shadow 0.3s;
 
-  &:hover {
+  &:hover:where(:not(:disabled):not(.button--disabled)) {
     background-color: var(--swirl-ghost-button-background-hovered);
 
     --swirl-tag-background-default: var(--s-state-pressed);
   }
 
-  &:active {
+  &:active:where(:not(:disabled):not(.button--disabled)) {
     background-color: var(--swirl-ghost-button-background-pressed);
   }
 
@@ -133,11 +133,11 @@
   background-color: var(--swirl-flat-button-background-default);
   --swirl-tag-background-default: var(--s-state-pressed);
 
-  &:hover {
+  &:hover:where(:not(:disabled):not(.button--disabled)) {
     background-color: var(--swirl-flat-button-background-hovered);
   }
 
-  &:active {
+  &:active:where(:not(:disabled):not(.button--disabled)) {
     background-color: var(--swirl-flat-button-background-pressed);
   }
 
@@ -342,11 +342,11 @@
   color: var(--s-text-on-image);
   background: rgba(0, 0, 0, 0.6);
 
-  &:hover {
+  &:hover:where(:not(:disabled):not(.button--disabled)) {
     background: rgba(0, 0, 0, 0.5);
   }
 
-  &:active {
+  &:active:where(:not(:disabled):not(.button--disabled)) {
     background: rgba(0, 0, 0, 0.4);
   }
 
@@ -381,12 +381,12 @@
     box-shadow: var(--s-shadow-level-1);
   }
 
-  &:hover {
+  &:hover:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-state-hovered);
   }
 
-  &:active {
+  &:active:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-state-pressed);
   }
@@ -443,11 +443,11 @@
   box-shadow: var(--s-shadow-level-2);
   backdrop-filter: blur(var(--s-blur-s));
 
-  &:hover {
+  &:hover:where(:not(:disabled):not(.button--disabled)) {
     background: var(--s-translucent-medium-hovered);
   }
 
-  &:active {
+  &:active:where(:not(:disabled):not(.button--disabled)) {
     background: var(--s-translucent-medium-pressed);
   }
 

@@ -1634,6 +1634,10 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-disabled",
+          "description": "Looks and acts disabled, but stays focusable and hoverable, e.g. so a\nwrapping swirl-tooltip can explain why."
+        },
+        {
           "name": "swirl-aria-expanded",
           "description": ""
         },

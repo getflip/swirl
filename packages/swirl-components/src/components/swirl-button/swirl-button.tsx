@@ -64,6 +64,11 @@ export class SwirlButton {
   @Prop() swirlAriaControls?: string;
   @Prop() swirlAriaCurrent?: string;
   @Prop() swirlAriaDescribedby?: string;
+  /**
+   * Looks and acts disabled, but stays focusable and hoverable, e.g. so a
+   * wrapping swirl-tooltip can explain why.
+   */
+  @Prop() swirlAriaDisabled?: boolean;
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlAriaHaspopup?: string;
   @Prop() swirlAriaLabel?: string;
@@ -115,6 +120,13 @@ export class SwirlButton {
     }
   }
 
+  private onClick = (event: MouseEvent) => {
+    if (this.swirlAriaDisabled) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
+
   private getAriaLabel(hideLabel: boolean) {
     if (Boolean(this.swirlAriaLabel)) {
       return this.swirlAriaLabel;
@@ -146,6 +158,7 @@ export class SwirlButton {
       (this.variant === "floating" && this.intent === "default");
 
     const isLink = Boolean(this.href);
+    const isDisabled = this.disabled || this.swirlAriaDisabled;
     const ariaLabel = this.getAriaLabel(hideLabel);
 
     const hasLabelSlot = Boolean(this.el.querySelector("[slot='label']"));
@@ -163,7 +176,7 @@ export class SwirlButton {
       `button--variant-${this.variant}`,
       {
         "button--elevated": this.elevated,
-        "button--disabled": this.disabled,
+        "button--disabled": isDisabled,
         "button--has-icon": hasIcon,
         "button--icon-only": hideLabel,
         "button--pill": this.pill,
@@ -179,7 +192,11 @@ export class SwirlButton {
           aria-controls={this.swirlAriaControls}
           aria-current={this.swirlAriaCurrent}
           aria-describedby={this.swirlAriaDescribedby}
-          aria-disabled={this.disabled && !isLink ? "true" : undefined}
+          aria-disabled={
+            (this.disabled && !isLink) || this.swirlAriaDisabled
+              ? "true"
+              : undefined
+          }
           aria-expanded={this.swirlAriaExpanded}
           aria-haspopup={this.swirlAriaHaspopup}
           aria-label={ariaLabel}
@@ -190,13 +207,15 @@ export class SwirlButton {
           form={isLink ? undefined : this.form}
           href={this.href}
           name={isLink ? undefined : this.name}
+          onAuxClick={this.onClick}
+          onClick={this.onClick}
           ref={(el: HTMLElement) => (this.buttonEl = el)}
           target={isLink ? this.target : undefined}
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}
           style={{
             cursor:
-              !this.disabled && this.cursor !== "pointer"
+              !isDisabled && this.cursor !== "pointer"
                 ? this.cursor
                 : undefined,
             fontSize: this.inheritFontSize ? "inherit" : undefined,

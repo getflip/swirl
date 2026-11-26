@@ -588,6 +588,10 @@ export namespace Components {
         "swirlAriaControls"?: string;
         "swirlAriaCurrent"?: string;
         "swirlAriaDescribedby"?: string;
+        /**
+          * Looks and acts disabled, but stays focusable and hoverable, e.g. so a wrapping swirl-tooltip can explain why.
+         */
+        "swirlAriaDisabled"?: boolean;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
@@ -11198,6 +11202,10 @@ declare namespace LocalJSX {
         "swirlAriaControls"?: string;
         "swirlAriaCurrent"?: string;
         "swirlAriaDescribedby"?: string;
+        /**
+          * Looks and acts disabled, but stays focusable and hoverable, e.g. so a wrapping swirl-tooltip can explain why.
+         */
+        "swirlAriaDisabled"?: boolean;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
@@ -16643,6 +16651,7 @@ declare namespace LocalJSX {
         "swirlAriaControls": string;
         "swirlAriaCurrent": string;
         "swirlAriaDescribedby": string;
+        "swirlAriaDisabled": boolean;
         "swirlAriaExpanded": string;
         "swirlAriaHaspopup": string;
         "swirlAriaLabel": string;
