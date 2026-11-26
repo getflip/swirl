@@ -120,7 +120,9 @@ describe("swirl-menu", () => {
                   </swirl-button>
                 </div>
                 <div aria-labelledby="menu-title" aria-orientation="vertical" class="menu__menu" role="menubar" style="left: calc(-100% * 0);">
-                  <slot></slot>
+                  <div class="menu__items">
+                    <slot></slot>
+                  </div>
                 </div>
               </div>
             </template>
@@ -143,7 +145,9 @@ describe("swirl-menu", () => {
                 <template shadowrootmode="open">
                   <div class="menu menu--level-1 menu--mobile">
                     <div aria-label="Sub menu" aria-orientation="vertical" class="menu__menu" role="menu" style="left: 100%;">
-                      <slot></slot>
+                      <div class="menu__items">
+                        <slot></slot>
+                      </div>
                     </div>
                   </div>
                 </template>
