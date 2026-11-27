@@ -2160,6 +2160,14 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconForward10 {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFrontHand {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -3049,6 +3057,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconRepeat {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconReplay10 {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -7495,6 +7511,12 @@ declare global {
         prototype: HTMLSwirlIconForwardElement;
         new (): HTMLSwirlIconForwardElement;
     };
+    interface HTMLSwirlIconForward10Element extends Components.SwirlIconForward10, HTMLStencilElement {
+    }
+    var HTMLSwirlIconForward10Element: {
+        prototype: HTMLSwirlIconForward10Element;
+        new (): HTMLSwirlIconForward10Element;
+    };
     interface HTMLSwirlIconFrontHandElement extends Components.SwirlIconFrontHand, HTMLStencilElement {
     }
     var HTMLSwirlIconFrontHandElement: {
@@ -8166,6 +8188,12 @@ declare global {
     var HTMLSwirlIconRepeatElement: {
         prototype: HTMLSwirlIconRepeatElement;
         new (): HTMLSwirlIconRepeatElement;
+    };
+    interface HTMLSwirlIconReplay10Element extends Components.SwirlIconReplay10, HTMLStencilElement {
+    }
+    var HTMLSwirlIconReplay10Element: {
+        prototype: HTMLSwirlIconReplay10Element;
+        new (): HTMLSwirlIconReplay10Element;
     };
     interface HTMLSwirlIconReplyElement extends Components.SwirlIconReply, HTMLStencilElement {
     }
@@ -10450,6 +10478,7 @@ declare global {
         "swirl-icon-format-list-bulleted": HTMLSwirlIconFormatListBulletedElement;
         "swirl-icon-format-list-numbered": HTMLSwirlIconFormatListNumberedElement;
         "swirl-icon-forward": HTMLSwirlIconForwardElement;
+        "swirl-icon-forward10": HTMLSwirlIconForward10Element;
         "swirl-icon-front-hand": HTMLSwirlIconFrontHandElement;
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
         "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
@@ -10562,6 +10591,7 @@ declare global {
         "swirl-icon-remove-circle": HTMLSwirlIconRemoveCircleElement;
         "swirl-icon-remove-moderator": HTMLSwirlIconRemoveModeratorElement;
         "swirl-icon-repeat": HTMLSwirlIconRepeatElement;
+        "swirl-icon-replay10": HTMLSwirlIconReplay10Element;
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
         "swirl-icon-report": HTMLSwirlIconReportElement;
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
@@ -12774,6 +12804,14 @@ declare namespace LocalJSX {
          */
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconForward10 {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFrontHand {
         "color"?: SwirlIconColor1;
         "label"?: string;
@@ -13663,6 +13701,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRepeat {
+        "color"?: SwirlIconColor1;
+        "label"?: string;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconReplay10 {
         "color"?: SwirlIconColor1;
         "label"?: string;
         /**
@@ -17547,6 +17593,11 @@ declare namespace LocalJSX {
         "label": string;
         "size": SwirlIconSize;
     }
+    interface SwirlIconForward10Attributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFrontHandAttributes {
         "color": SwirlIconColor;
         "label": string;
@@ -18103,6 +18154,11 @@ declare namespace LocalJSX {
         "size": SwirlIconSize;
     }
     interface SwirlIconRepeatAttributes {
+        "color": SwirlIconColor;
+        "label": string;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconReplay10Attributes {
         "color": SwirlIconColor;
         "label": string;
         "size": SwirlIconSize;
@@ -19628,6 +19684,7 @@ declare namespace LocalJSX {
         "swirl-icon-format-list-bulleted": Omit<SwirlIconFormatListBulleted, keyof SwirlIconFormatListBulletedAttributes> & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes]?: SwirlIconFormatListBulleted[K] } & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes as `attr:${K}`]?: SwirlIconFormatListBulletedAttributes[K] } & { [K in keyof SwirlIconFormatListBulleted & keyof SwirlIconFormatListBulletedAttributes as `prop:${K}`]?: SwirlIconFormatListBulleted[K] };
         "swirl-icon-format-list-numbered": Omit<SwirlIconFormatListNumbered, keyof SwirlIconFormatListNumberedAttributes> & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes]?: SwirlIconFormatListNumbered[K] } & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes as `attr:${K}`]?: SwirlIconFormatListNumberedAttributes[K] } & { [K in keyof SwirlIconFormatListNumbered & keyof SwirlIconFormatListNumberedAttributes as `prop:${K}`]?: SwirlIconFormatListNumbered[K] };
         "swirl-icon-forward": Omit<SwirlIconForward, keyof SwirlIconForwardAttributes> & { [K in keyof SwirlIconForward & keyof SwirlIconForwardAttributes]?: SwirlIconForward[K] } & { [K in keyof SwirlIconForward & keyof SwirlIconForwardAttributes as `attr:${K}`]?: SwirlIconForwardAttributes[K] } & { [K in keyof SwirlIconForward & keyof SwirlIconForwardAttributes as `prop:${K}`]?: SwirlIconForward[K] };
+        "swirl-icon-forward10": Omit<SwirlIconForward10, keyof SwirlIconForward10Attributes> & { [K in keyof SwirlIconForward10 & keyof SwirlIconForward10Attributes]?: SwirlIconForward10[K] } & { [K in keyof SwirlIconForward10 & keyof SwirlIconForward10Attributes as `attr:${K}`]?: SwirlIconForward10Attributes[K] } & { [K in keyof SwirlIconForward10 & keyof SwirlIconForward10Attributes as `prop:${K}`]?: SwirlIconForward10[K] };
         "swirl-icon-front-hand": Omit<SwirlIconFrontHand, keyof SwirlIconFrontHandAttributes> & { [K in keyof SwirlIconFrontHand & keyof SwirlIconFrontHandAttributes]?: SwirlIconFrontHand[K] } & { [K in keyof SwirlIconFrontHand & keyof SwirlIconFrontHandAttributes as `attr:${K}`]?: SwirlIconFrontHandAttributes[K] } & { [K in keyof SwirlIconFrontHand & keyof SwirlIconFrontHandAttributes as `prop:${K}`]?: SwirlIconFrontHand[K] };
         "swirl-icon-fullscreen": Omit<SwirlIconFullscreen, keyof SwirlIconFullscreenAttributes> & { [K in keyof SwirlIconFullscreen & keyof SwirlIconFullscreenAttributes]?: SwirlIconFullscreen[K] } & { [K in keyof SwirlIconFullscreen & keyof SwirlIconFullscreenAttributes as `attr:${K}`]?: SwirlIconFullscreenAttributes[K] } & { [K in keyof SwirlIconFullscreen & keyof SwirlIconFullscreenAttributes as `prop:${K}`]?: SwirlIconFullscreen[K] };
         "swirl-icon-fullscreen-exit": Omit<SwirlIconFullscreenExit, keyof SwirlIconFullscreenExitAttributes> & { [K in keyof SwirlIconFullscreenExit & keyof SwirlIconFullscreenExitAttributes]?: SwirlIconFullscreenExit[K] } & { [K in keyof SwirlIconFullscreenExit & keyof SwirlIconFullscreenExitAttributes as `attr:${K}`]?: SwirlIconFullscreenExitAttributes[K] } & { [K in keyof SwirlIconFullscreenExit & keyof SwirlIconFullscreenExitAttributes as `prop:${K}`]?: SwirlIconFullscreenExit[K] };
@@ -19740,6 +19797,7 @@ declare namespace LocalJSX {
         "swirl-icon-remove-circle": Omit<SwirlIconRemoveCircle, keyof SwirlIconRemoveCircleAttributes> & { [K in keyof SwirlIconRemoveCircle & keyof SwirlIconRemoveCircleAttributes]?: SwirlIconRemoveCircle[K] } & { [K in keyof SwirlIconRemoveCircle & keyof SwirlIconRemoveCircleAttributes as `attr:${K}`]?: SwirlIconRemoveCircleAttributes[K] } & { [K in keyof SwirlIconRemoveCircle & keyof SwirlIconRemoveCircleAttributes as `prop:${K}`]?: SwirlIconRemoveCircle[K] };
         "swirl-icon-remove-moderator": Omit<SwirlIconRemoveModerator, keyof SwirlIconRemoveModeratorAttributes> & { [K in keyof SwirlIconRemoveModerator & keyof SwirlIconRemoveModeratorAttributes]?: SwirlIconRemoveModerator[K] } & { [K in keyof SwirlIconRemoveModerator & keyof SwirlIconRemoveModeratorAttributes as `attr:${K}`]?: SwirlIconRemoveModeratorAttributes[K] } & { [K in keyof SwirlIconRemoveModerator & keyof SwirlIconRemoveModeratorAttributes as `prop:${K}`]?: SwirlIconRemoveModerator[K] };
         "swirl-icon-repeat": Omit<SwirlIconRepeat, keyof SwirlIconRepeatAttributes> & { [K in keyof SwirlIconRepeat & keyof SwirlIconRepeatAttributes]?: SwirlIconRepeat[K] } & { [K in keyof SwirlIconRepeat & keyof SwirlIconRepeatAttributes as `attr:${K}`]?: SwirlIconRepeatAttributes[K] } & { [K in keyof SwirlIconRepeat & keyof SwirlIconRepeatAttributes as `prop:${K}`]?: SwirlIconRepeat[K] };
+        "swirl-icon-replay10": Omit<SwirlIconReplay10, keyof SwirlIconReplay10Attributes> & { [K in keyof SwirlIconReplay10 & keyof SwirlIconReplay10Attributes]?: SwirlIconReplay10[K] } & { [K in keyof SwirlIconReplay10 & keyof SwirlIconReplay10Attributes as `attr:${K}`]?: SwirlIconReplay10Attributes[K] } & { [K in keyof SwirlIconReplay10 & keyof SwirlIconReplay10Attributes as `prop:${K}`]?: SwirlIconReplay10[K] };
         "swirl-icon-reply": Omit<SwirlIconReply, keyof SwirlIconReplyAttributes> & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes]?: SwirlIconReply[K] } & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes as `attr:${K}`]?: SwirlIconReplyAttributes[K] } & { [K in keyof SwirlIconReply & keyof SwirlIconReplyAttributes as `prop:${K}`]?: SwirlIconReply[K] };
         "swirl-icon-report": Omit<SwirlIconReport, keyof SwirlIconReportAttributes> & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes]?: SwirlIconReport[K] } & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes as `attr:${K}`]?: SwirlIconReportAttributes[K] } & { [K in keyof SwirlIconReport & keyof SwirlIconReportAttributes as `prop:${K}`]?: SwirlIconReport[K] };
         "swirl-icon-roadmap": Omit<SwirlIconRoadmap, keyof SwirlIconRoadmapAttributes> & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes]?: SwirlIconRoadmap[K] } & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes as `attr:${K}`]?: SwirlIconRoadmapAttributes[K] } & { [K in keyof SwirlIconRoadmap & keyof SwirlIconRoadmapAttributes as `prop:${K}`]?: SwirlIconRoadmap[K] };
@@ -20192,6 +20250,7 @@ declare module "@stencil/core" {
             "swirl-icon-format-list-bulleted": LocalJSX.IntrinsicElements["swirl-icon-format-list-bulleted"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListBulletedElement>;
             "swirl-icon-format-list-numbered": LocalJSX.IntrinsicElements["swirl-icon-format-list-numbered"] & JSXBase.HTMLAttributes<HTMLSwirlIconFormatListNumberedElement>;
             "swirl-icon-forward": LocalJSX.IntrinsicElements["swirl-icon-forward"] & JSXBase.HTMLAttributes<HTMLSwirlIconForwardElement>;
+            "swirl-icon-forward10": LocalJSX.IntrinsicElements["swirl-icon-forward10"] & JSXBase.HTMLAttributes<HTMLSwirlIconForward10Element>;
             "swirl-icon-front-hand": LocalJSX.IntrinsicElements["swirl-icon-front-hand"] & JSXBase.HTMLAttributes<HTMLSwirlIconFrontHandElement>;
             "swirl-icon-fullscreen": LocalJSX.IntrinsicElements["swirl-icon-fullscreen"] & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
             "swirl-icon-fullscreen-exit": LocalJSX.IntrinsicElements["swirl-icon-fullscreen-exit"] & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
@@ -20304,6 +20363,7 @@ declare module "@stencil/core" {
             "swirl-icon-remove-circle": LocalJSX.IntrinsicElements["swirl-icon-remove-circle"] & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveCircleElement>;
             "swirl-icon-remove-moderator": LocalJSX.IntrinsicElements["swirl-icon-remove-moderator"] & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveModeratorElement>;
             "swirl-icon-repeat": LocalJSX.IntrinsicElements["swirl-icon-repeat"] & JSXBase.HTMLAttributes<HTMLSwirlIconRepeatElement>;
+            "swirl-icon-replay10": LocalJSX.IntrinsicElements["swirl-icon-replay10"] & JSXBase.HTMLAttributes<HTMLSwirlIconReplay10Element>;
             "swirl-icon-reply": LocalJSX.IntrinsicElements["swirl-icon-reply"] & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
             "swirl-icon-report": LocalJSX.IntrinsicElements["swirl-icon-report"] & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
             "swirl-icon-roadmap": LocalJSX.IntrinsicElements["swirl-icon-roadmap"] & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
