@@ -224,9 +224,10 @@
     var(--s-surface-default)
   );
 
-  /* ensure checkbox and radio elements take full width */
+  /* ensure checkbox, radio and switch elements take full width */
   & ::slotted(swirl-checkbox),
-  & ::slotted(swirl-radio) {
+  & ::slotted(swirl-radio),
+  & ::slotted(swirl-switch) {
     width: 100%;
   }
 }

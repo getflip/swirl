@@ -216,6 +216,22 @@ export const WithCheckbox = () => {
   return stack;
 };
 
+export const WithSwitch = () => {
+  const stack = generateStoryElement("swirl-data-cell-stack", {});
+
+  stack.innerHTML = `
+    <swirl-data-cell>
+      <swirl-switch slot="content" label="View roles" label-position="start" input-id="switch-1" input-name="view-roles"></swirl-switch>
+    </swirl-data-cell>
+
+    <swirl-data-cell>
+      <swirl-switch slot="content" label="Manage menu items without user group" label-position="start" input-id="switch-2" input-name="manage-menu-items" checked></swirl-switch>
+    </swirl-data-cell>
+  `;
+
+  return stack;
+};
+
 export const InteractiveCompactCells = () => {
   const stack = generateStoryElement("swirl-data-cell-stack", {});
 
