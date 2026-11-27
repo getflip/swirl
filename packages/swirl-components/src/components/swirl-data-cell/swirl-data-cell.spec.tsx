@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { SwirlDataCell } from "./swirl-data-cell";
+import { SwirlSwitch } from "../swirl-switch/swirl-switch";
 
 describe("swirl-data-cell", () => {
   it("renders as group when used standalone", async () => {
@@ -392,6 +393,45 @@ describe("swirl-data-cell", () => {
       "Receive updates about new features"
     );
     expect(checkbox?.getAttribute("checked")).toBe("true");
+  });
+
+  it("renders as interactive with a switch", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell],
+      html: `
+        <swirl-data-cell>
+          <swirl-switch slot="content" label="View roles" label-position="start" input-id="view-roles" input-name="view-roles"></swirl-switch>
+        </swirl-data-cell>
+      `,
+    });
+
+    const dataCell = page.root.shadowRoot.querySelector(".data-cell");
+    expect(
+      dataCell?.classList.contains("data-cell--interactive")
+    ).toBeTruthy();
+  });
+
+  it("forwards clicks on the cell itself to a slotted switch", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDataCell, SwirlSwitch],
+      html: `
+        <swirl-data-cell>
+          <swirl-switch slot="content" label="View roles" input-id="view-roles" input-name="view-roles"></swirl-switch>
+        </swirl-data-cell>
+      `,
+    });
+
+    const input =
+      page.root.querySelector<HTMLInputElement>("swirl-switch input");
+    const inputClick = jest.spyOn(input, "click");
+    const dataCell =
+      page.root.shadowRoot.querySelector<HTMLElement>(".data-cell");
+
+    dataCell.click();
+    expect(inputClick).toHaveBeenCalledTimes(1);
+
+    page.root.querySelector<HTMLElement>("swirl-switch .switch__label").click();
+    expect(inputClick).toHaveBeenCalledTimes(1);
   });
 
   it("renders with radio button group", async () => {

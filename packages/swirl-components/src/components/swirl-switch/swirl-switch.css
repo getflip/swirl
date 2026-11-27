@@ -13,6 +13,7 @@
   display: inline-flex;
   width: 100%;
   align-items: center;
+  cursor: pointer;
   touch-action: none;
 
   &:focus-within .switch__control {
@@ -45,6 +46,8 @@
 }
 
 .switch--disabled {
+  cursor: default;
+
   & .switch__control {
     background-color: var(--s-interactive-primary-disabled);
     cursor: default;

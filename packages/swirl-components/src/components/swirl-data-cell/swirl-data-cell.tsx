@@ -61,8 +61,22 @@ export class SwirlDataCell {
     }
   };
 
+  private handleSwitchClick = (event: MouseEvent) => {
+    // Only clicks on the cell's own shadow chrome (e.g. padding); slotted
+    // content handles its own clicks.
+    if ((event.target as Node).getRootNode() !== this.el.shadowRoot) {
+      return;
+    }
+
+    const switchInput = this.el.querySelector(
+      'swirl-switch[slot="content"] input[type="checkbox"]'
+    ) as HTMLInputElement | null;
+    switchInput?.click();
+  };
+
   private handleClick = (event: MouseEvent) => {
     this.handleRadioClick(event);
+    this.handleSwitchClick(event);
     this.valueChange.emit(event);
   };
 
@@ -86,6 +100,9 @@ export class SwirlDataCell {
     const hasRadio = Boolean(
       this.el.querySelector('swirl-radio[slot="content"]')
     );
+    const hasSwitch = Boolean(
+      this.el.querySelector('swirl-switch[slot="content"]')
+    );
     const isInteractive = this.interactive || Boolean(this.href);
 
     const className = classnames("data-cell", `data-cell--size-${this.size}`, {
@@ -94,7 +111,8 @@ export class SwirlDataCell {
       "data-cell--has-suffix": hasSuffix,
       "data-cell--has-content": hasContent,
       "data-cell--no-label": !hasLabel,
-      "data-cell--interactive": isInteractive || hasCheckbox || hasRadio,
+      "data-cell--interactive":
+        isInteractive || hasCheckbox || hasRadio || hasSwitch,
       [`data-cell--intent-${this.intent}`]: this.intent,
     });
 
@@ -135,7 +153,9 @@ export class SwirlDataCell {
         <Tag
           class={className}
           href={this.href}
-          onClick={hasCheckbox || hasRadio ? this.handleClick : undefined}
+          onClick={
+            hasCheckbox || hasRadio || hasSwitch ? this.handleClick : undefined
+          }
           part="data-cell"
           rel={
             Boolean(this.href) && this.linkTarget === "_blank"
