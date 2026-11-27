@@ -1,5 +1,29 @@
 # @getflip/swirl-components
 
+## 0.541.0
+
+### Minor Changes
+
+- [#1855](https://github.com/getflip/swirl/pull/1855)
+  [`133e8d986`](https://github.com/getflip/swirl/commit/133e8d9868c70d70ddd1b8c64388a4d611071b15)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add replay-10
+  and forward-10 icons
+
+### Patch Changes
+
+- [#1856](https://github.com/getflip/swirl/pull/1856)
+  [`bb61e0aa7`](https://github.com/getflip/swirl/commit/bb61e0aa70d2cd92f1cfeb675c427dbcfd77a58b)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - A swirl-switch in the
+  `content` slot of swirl-data-cell now takes the full width of the cell, like
+  swirl-checkbox and swirl-radio. With `labelPosition="start"`, the toggle sits
+  at the end of the cell. The cell is interactive: it shows the pointer cursor
+  and hover state, and a click anywhere in the cell toggles the switch.
+  swirl-switch now shows the pointer cursor over its label too, not only over
+  the toggle.
+- Updated dependencies
+  [[`133e8d986`](https://github.com/getflip/swirl/commit/133e8d9868c70d70ddd1b8c64388a4d611071b15)]:
+  - @getflip/swirl-icons@0.99.0
+
 ## 0.540.0
 
 ### Minor Changes
