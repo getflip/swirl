@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.98.0
+
+### Minor Changes
+
+- [#1852](https://github.com/getflip/swirl/pull/1852)
+  [`32b8a63da`](https://github.com/getflip/swirl/commit/32b8a63da89e342387792c39d8599e35d1ab7fc4)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add hub and
+  folder-supervised icons
+
 ## 0.97.0
 
 ### Minor Changes

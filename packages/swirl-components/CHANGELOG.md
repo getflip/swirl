@@ -1,5 +1,28 @@
 # @getflip/swirl-components
 
+## 0.540.0
+
+### Minor Changes
+
+- [#1853](https://github.com/getflip/swirl/pull/1853)
+  [`98f5b53fd`](https://github.com/getflip/swirl/commit/98f5b53fdf7a581e5fc5e63f91718468e5a30163)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - swirl-radio has a new
+  `icon` prop for the card variant. A card with an icon shows a large icon tile
+  above a centred label and description, with the radio circle in the top-right
+  corner. swirl-radio and swirl-checkbox cards now show the focus ring only for
+  keyboard focus, so a mouse click no longer adds a second border.
+
+* [#1852](https://github.com/getflip/swirl/pull/1852)
+  [`32b8a63da`](https://github.com/getflip/swirl/commit/32b8a63da89e342387792c39d8599e35d1ab7fc4)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Add hub and
+  folder-supervised icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`32b8a63da`](https://github.com/getflip/swirl/commit/32b8a63da89e342387792c39d8599e35d1ab7fc4)]:
+  - @getflip/swirl-icons@0.98.0
+
 ## 0.539.0
 
 ### Minor Changes
