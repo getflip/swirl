@@ -115,8 +115,11 @@ export class SwirlModal {
   @State() sidebarScrollable = false;
 
   private modalEl: HTMLDialogElement;
+  private contentSlot: HTMLSlotElement;
   private mutationObserver: MutationObserver;
+  private resizeObserver: ResizeObserver;
   private scrollContainer: HTMLElement;
+  private sidebarContentSlot: HTMLSlotElement;
   private sidebarScrollContainer: HTMLElement;
   private temporaryReturnFocusTo: HTMLElement | string;
 
@@ -135,6 +138,7 @@ export class SwirlModal {
 
   disconnectedCallback() {
     this.mutationObserver?.disconnect();
+    this.teardownResizeObserver();
     if (this.modalEl?.open) {
       this.modalEl.close();
     }
@@ -166,6 +170,7 @@ export class SwirlModal {
       childList: true,
     });
     this.lockBodyScroll();
+    this.setupResizeObserver();
     this.determineScrollStatus();
 
     setTimeout(() => {
@@ -194,6 +199,7 @@ export class SwirlModal {
 
     setTimeout(() => {
       this.mutationObserver?.disconnect();
+      this.teardownResizeObserver();
       this.modalEl.close();
       this.customFocusReturn();
     }, 150);
@@ -309,6 +315,7 @@ export class SwirlModal {
     this.hasSidebarContent = Boolean(
       this.el.querySelector(':scope > [slot="sidebar-content"]')
     );
+    this.observeContentSize();
   };
 
   private updateSidebarFooterStatus = () => {
@@ -323,15 +330,29 @@ export class SwirlModal {
   };
 
   private determineMainScrollStatus = () => {
+    const scrollable = this.determineScrollable(
+      this.scrollContainer,
+      "modal--scrollable"
+    );
+
+    if (scrollable !== this.scrollable) {
+      this.scrollable = scrollable;
+    }
+
+    this.withClass(
+      "modal--scrollable",
+      scrollable,
+      this.updateMainScrollPosition
+    );
+  };
+
+  private updateMainScrollPosition = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
     const scrolledDown =
       Math.ceil(
         this.scrollContainer?.scrollTop + this.scrollContainer?.offsetHeight
       ) >= this.scrollContainer?.scrollHeight;
-
-    const scrollable =
-      this.scrollContainer?.scrollHeight > this.scrollContainer?.offsetHeight;
 
     if (scrolled !== this.scrolled) {
       this.scrolled = scrolled;
@@ -340,13 +361,26 @@ export class SwirlModal {
     if (scrolledDown !== this.scrolledDown) {
       this.scrolledDown = scrolledDown;
     }
-
-    if (scrollable !== this.scrollable) {
-      this.scrollable = scrollable;
-    }
   };
 
   private determineSidebarScrollStatus = () => {
+    const scrollable = this.determineScrollable(
+      this.sidebarScrollContainer,
+      "modal--sidebar-scrollable"
+    );
+
+    if (scrollable !== this.sidebarScrollable) {
+      this.sidebarScrollable = scrollable;
+    }
+
+    this.withClass(
+      "modal--sidebar-scrollable",
+      scrollable,
+      this.updateSidebarScrollPosition
+    );
+  };
+
+  private updateSidebarScrollPosition = () => {
     const scrolled = this.sidebarScrollContainer?.scrollTop > 0;
 
     const scrolledDown =
@@ -355,10 +389,6 @@ export class SwirlModal {
           this.sidebarScrollContainer?.offsetHeight
       ) >= this.sidebarScrollContainer?.scrollHeight;
 
-    const scrollable =
-      this.sidebarScrollContainer?.scrollHeight >
-      this.sidebarScrollContainer?.offsetHeight;
-
     if (scrolled !== this.sidebarScrolled) {
       this.sidebarScrolled = scrolled;
     }
@@ -366,10 +396,77 @@ export class SwirlModal {
     if (scrolledDown !== this.sidebarScrolledDown) {
       this.sidebarScrolledDown = scrolledDown;
     }
+  };
 
-    if (scrollable !== this.sidebarScrollable) {
-      this.sidebarScrollable = scrollable;
+  /**
+   * The scrollable classes remove the container's bottom padding and add the
+   * footer border. Measured with them, content that only overflows by that
+   * padding fits, and the state would flip on every check.
+   */
+  private determineScrollable(
+    container: HTMLElement,
+    scrollableClass: string
+  ): boolean {
+    return this.withClass(
+      scrollableClass,
+      false,
+      () => container?.scrollHeight > container?.offsetHeight
+    );
+  }
+
+  /**
+   * Measures the layout with the class set to `enabled`, then restores the
+   * class so the next render applies it.
+   */
+  private withClass<T>(
+    className: string,
+    enabled: boolean,
+    measure: () => T
+  ): T {
+    const classList = this.modalEl?.classList;
+    if (!classList || classList.contains(className) === enabled) {
+      return measure();
     }
+
+    classList.toggle(className);
+    const result = measure();
+    classList.toggle(className);
+
+    return result;
+  }
+
+  private setupResizeObserver() {
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = new ResizeObserver(() => {
+      if (this.modalEl?.open) {
+        this.determineScrollStatus();
+      }
+    });
+    this.observeContentSize();
+  }
+
+  private teardownResizeObserver() {
+    this.resizeObserver?.disconnect();
+    this.resizeObserver = undefined;
+  }
+
+  private observeContentSize = () => {
+    if (!this.resizeObserver) {
+      return;
+    }
+
+    this.resizeObserver.disconnect();
+
+    [
+      this.scrollContainer,
+      this.sidebarScrollContainer,
+      ...(this.contentSlot?.assignedElements() ?? []),
+      ...(this.sidebarContentSlot?.assignedElements() ?? []),
+    ]
+      .filter(Boolean)
+      .forEach((element) =>
+        this.resizeObserver.observe(element, { box: "border-box" })
+      );
   };
 
   private handleAutoFocus() {
@@ -557,12 +654,15 @@ export class SwirlModal {
               )}
               <div
                 class="modal__sidebar-content"
-                onScroll={this.determineSidebarScrollStatus}
+                onScroll={this.updateSidebarScrollPosition}
                 ref={(el) => (this.sidebarScrollContainer = el)}
               >
                 <slot
                   name="sidebar-content"
                   onSlotchange={this.updateSidebarContentStatus}
+                  ref={(el) =>
+                    (this.sidebarContentSlot = el as HTMLSlotElement)
+                  }
                 ></slot>
               </div>
 
@@ -648,11 +748,14 @@ export class SwirlModal {
                   </div>
                   <div
                     class="modal__content"
-                    onScroll={this.determineMainScrollStatus}
+                    onScroll={this.updateMainScrollPosition}
                     part="modal__content"
                     ref={(el) => (this.scrollContainer = el)}
                   >
-                    <slot></slot>
+                    <slot
+                      onSlotchange={this.observeContentSize}
+                      ref={(el) => (this.contentSlot = el as HTMLSlotElement)}
+                    ></slot>
                   </div>
                 </div>
                 <div

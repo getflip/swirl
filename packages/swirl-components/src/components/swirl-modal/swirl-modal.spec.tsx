@@ -11,6 +11,30 @@ import { SwirlModal } from "./swirl-modal";
   observe() {}
 };
 
+class MockResizeObserver {
+  static instances: MockResizeObserver[] = [];
+
+  observed: Element[] = [];
+
+  constructor(public callback: () => void) {
+    MockResizeObserver.instances.push(this);
+  }
+
+  disconnect() {
+    this.observed = [];
+  }
+
+  observe(element: Element) {
+    this.observed.push(element);
+  }
+
+  static resize() {
+    MockResizeObserver.instances.forEach((instance) => instance.callback());
+  }
+}
+
+(global as any).ResizeObserver = MockResizeObserver;
+
 describe("swirl-modal", () => {
   it("renders content and heading", async () => {
     const page = await newSpecPage({
@@ -457,6 +481,121 @@ describe("swirl-modal", () => {
       await waitForAutoFocusDelay();
 
       expect(focusSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe("footer line", () => {
+    beforeEach(() => {
+      MockResizeObserver.instances = [];
+    });
+
+    async function setUpModal() {
+      const page = await newSpecPage({
+        components: [SwirlModal],
+        html: `
+          <swirl-modal label="Dialog" primary-action-label="Save">
+            <div id="content">Content</div>
+          </swirl-modal>
+        `,
+      });
+
+      const dialog = page.root.shadowRoot.querySelector("dialog");
+      const scrollContainer =
+        page.root.shadowRoot.querySelector<HTMLElement>(".modal__content");
+
+      return { page, dialog, scrollContainer };
+    }
+
+    // `.modal--scrollable` removes the content's 16px bottom padding and adds
+    // the 1px footer border.
+    function setContentHeight(
+      dialog: HTMLDialogElement,
+      scrollContainer: HTMLElement,
+      contentHeight: number,
+      availableHeight: number
+    ) {
+      const scrollable = () => dialog.classList.contains("modal--scrollable");
+
+      Object.defineProperty(scrollContainer, "scrollHeight", {
+        configurable: true,
+        get: () =>
+          Math.max(
+            contentHeight + (scrollable() ? 0 : 16),
+            scrollContainer.offsetHeight
+          ),
+      });
+      Object.defineProperty(scrollContainer, "offsetHeight", {
+        configurable: true,
+        get: () => availableHeight - (scrollable() ? 1 : 0),
+      });
+      Object.defineProperty(scrollContainer, "scrollTop", {
+        configurable: true,
+        value: 0,
+      });
+    }
+
+    it("observes the content while the modal is open", async () => {
+      const { page, scrollContainer } = await setUpModal();
+
+      await (page.root as HTMLSwirlModalElement).open();
+
+      const [observer] = MockResizeObserver.instances;
+      expect(observer.observed).toContain(scrollContainer);
+      expect(observer.observed).toContain(page.root.querySelector("#content"));
+
+      await (page.root as HTMLSwirlModalElement).close(true);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+
+      expect(observer.observed).toHaveLength(0);
+    });
+
+    it("shows the line when the content grows while open", async () => {
+      const { page, dialog, scrollContainer } = await setUpModal();
+
+      setContentHeight(dialog, scrollContainer, 200, 600);
+      await (page.root as HTMLSwirlModalElement).open();
+      await page.waitForChanges();
+
+      expect(dialog).not.toHaveClass("modal--scrollable");
+
+      setContentHeight(dialog, scrollContainer, 1000, 600);
+      MockResizeObserver.resize();
+      await page.waitForChanges();
+
+      expect(dialog).toHaveClass("modal--scrollable");
+      expect(dialog).not.toHaveClass("modal--scrolled-down");
+    });
+
+    it("hides the line when the content shrinks while open", async () => {
+      const { page, dialog, scrollContainer } = await setUpModal();
+
+      setContentHeight(dialog, scrollContainer, 1000, 600);
+      await (page.root as HTMLSwirlModalElement).open();
+      await page.waitForChanges();
+
+      expect(dialog).toHaveClass("modal--scrollable");
+
+      setContentHeight(dialog, scrollContainer, 200, 600);
+      MockResizeObserver.resize();
+      await page.waitForChanges();
+
+      expect(dialog).not.toHaveClass("modal--scrollable");
+    });
+
+    it("hides the line when the content only overflows by its bottom padding", async () => {
+      const { page, dialog, scrollContainer } = await setUpModal();
+
+      setContentHeight(dialog, scrollContainer, 298, 301);
+      await (page.root as HTMLSwirlModalElement).open();
+      await page.waitForChanges();
+
+      for (let i = 0; i < 2; i++) {
+        MockResizeObserver.resize();
+        await page.waitForChanges();
+
+        expect(dialog).toHaveClass("modal--scrollable");
+        expect(dialog).toHaveClass("modal--scrolled-down");
+      }
     });
   });
 });
