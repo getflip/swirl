@@ -27,7 +27,7 @@ class FlipLegacyIcons {
 
 function getGlyphsFromScss(path: string, legacy: boolean) {
   const regEx = !legacy
-    ? /^\$([a-zA-Z-]+16): "(\\[a-z0-9]+)";$/gm
+    ? /^\$([a-zA-Z0-9-]+16): "(\\[a-z0-9]+)";$/gm
     : /^\$([a-zA-Z-_]+): "(\\[a-z0-9]+)";$/gm;
 
   return Array.from(
