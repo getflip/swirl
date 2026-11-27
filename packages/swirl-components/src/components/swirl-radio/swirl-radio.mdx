@@ -31,10 +31,47 @@ single choice from a list of options. Has to be used in combination with a
 ></swirl-radio>`}
 />
 
+## Card with icon
+
+Set `icon` on a radio with `variant="card"` to show a large icon tile above the
+label and description. The `icon` prop has no effect on the default variant. The
+radio circle stays in the top-right corner, so the selected card does not rely
+on the border color alone. To place cards side by side, wrap them in
+`swirl-columns` inside the `swirl-radio-group`.
+
+<Canvas of={Stories.SwirlRadioCardWithIcon}></Canvas>
+
+<Source
+  code={`
+  <swirl-radio-group aria-label="Role scope" value="organization">
+    <swirl-columns columns="repeat(2, minmax(0, 1fr))" spacing="16">
+      <swirl-radio
+        description="View and enable organization-wide permissions here."
+        icon="<swirl-icon-groups></swirl-icon-groups>"
+        input-id="radio-organization"
+        input-name="role-scope"
+        label="Organization role"
+        value="organization"
+        variant="card"
+      ></swirl-radio>
+      <swirl-radio
+        description="Create a role that gives permissions only within the selected user group."
+        icon="<swirl-icon-folder-shared></swirl-icon-folder-shared>"
+        input-id="radio-user-group"
+        input-name="role-scope"
+        label="User group role"
+        value="user-group"
+        variant="card"
+      ></swirl-radio>
+    </swirl-columns>
+  </swirl-radio-group>
+`}
+/>
+
 ## Related components
 
 - **[swirl-radio-group](?path=/docs/components-swirlradiogroup--docs)** (parent)
-  — Group of radio options; use `swirl-radio` as a direct child of
+  — Group of radio options; use `swirl-radio` as a descendant of
   `swirl-radio-group`.
 
 ## Accessibility

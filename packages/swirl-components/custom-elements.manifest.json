@@ -49247,6 +49247,13 @@
               "fieldName": "disabled"
             },
             {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "icon"
+            },
+            {
               "name": "input-id",
               "type": {
                 "text": "string"
@@ -49336,6 +49343,15 @@
               "default": "false",
               "readonly": true,
               "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "readonly": true,
+              "attribute": "icon"
             },
             {
               "kind": "field",

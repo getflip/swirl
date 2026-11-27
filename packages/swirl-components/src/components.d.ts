@@ -4284,6 +4284,7 @@ export namespace Components {
           * @default false
          */
         "disabled"?: boolean;
+        "icon"?: string;
         /**
           * @default crypto.randomUUID()
          */
@@ -14788,6 +14789,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "icon"?: string;
         /**
           * @default crypto.randomUUID()
          */
@@ -18617,6 +18619,7 @@ declare namespace LocalJSX {
         "checked": string;
         "description": string;
         "disabled": boolean;
+        "icon": string;
         "inputId": string;
         "inputName": string;
         "invalid": boolean;

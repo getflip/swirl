@@ -45,6 +45,42 @@ describe("swirl-radio", () => {
     expect(spy.mock.calls[0][0].detail).toBe("Value");
   });
 
+  it("renders an icon on card variant", async () => {
+    const page = await newSpecPage({
+      components: [SwirlRadio],
+      html: `<swirl-radio icon="<swirl-icon-groups></swirl-icon-groups>" input-id="radio" input-name="radio" label="Label" value="Value" variant="card"></swirl-radio>`,
+    });
+
+    const label = page.root.querySelector("label");
+    const icon = page.root.querySelector(".radio__icon");
+
+    expect(label.classList.contains("radio--has-icon")).toBe(true);
+    expect(icon.getAttribute("aria-hidden")).toBe("true");
+    expect(
+      icon.previousElementSibling.classList.contains("radio__control")
+    ).toBe(true);
+    expect(
+      icon.nextElementSibling.classList.contains("radio__label-container")
+    ).toBe(true);
+
+    const glyph = icon.querySelector(".radio__icon-glyph").children[0];
+
+    expect(glyph.tagName).toBe("SWIRL-ICON-GROUPS");
+    expect(glyph.getAttribute("size")).toBe("28");
+  });
+
+  it("does not render an icon on default variant", async () => {
+    const page = await newSpecPage({
+      components: [SwirlRadio],
+      html: `<swirl-radio icon="<swirl-icon-groups></swirl-icon-groups>" input-id="radio" input-name="radio" label="Label" value="Value"></swirl-radio>`,
+    });
+
+    const label = page.root.querySelector("label");
+
+    expect(label.classList.contains("radio--has-icon")).toBe(false);
+    expect(page.root.querySelector(".radio__icon")).toBeNull();
+  });
+
   it("generates a unique input id per instance and labels its own input", async () => {
     const page = await newSpecPage({
       components: [SwirlRadio],
