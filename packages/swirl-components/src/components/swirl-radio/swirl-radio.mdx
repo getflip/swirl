@@ -42,28 +42,30 @@ on the border color alone. To place cards side by side, wrap them in
 <Canvas of={Stories.SwirlRadioCardWithIcon}></Canvas>
 
 <Source
-  code={`<swirl-radio-group aria-label="Role scope" value="organization">
-  <swirl-columns columns="repeat(2, minmax(0, 1fr))" spacing="16">
-    <swirl-radio
-      description="View and enable organization-wide permissions here."
-      icon="<swirl-icon-groups></swirl-icon-groups>"
-      input-id="radio-organization"
-      input-name="role-scope"
-      label="Organization role"
-      value="organization"
-      variant="card"
-    ></swirl-radio>
-    <swirl-radio
-      description="Create a role that gives permissions only within the selected user group."
-      icon="<swirl-icon-folder-shared></swirl-icon-folder-shared>"
-      input-id="radio-user-group"
-      input-name="role-scope"
-      label="User group role"
-      value="user-group"
-      variant="card"
-    ></swirl-radio>
-  </swirl-columns>
-</swirl-radio-group>`}
+  code={`
+  <swirl-radio-group aria-label="Role scope" value="organization">
+    <swirl-columns columns="repeat(2, minmax(0, 1fr))" spacing="16">
+      <swirl-radio
+        description="View and enable organization-wide permissions here."
+        icon="<swirl-icon-groups></swirl-icon-groups>"
+        input-id="radio-organization"
+        input-name="role-scope"
+        label="Organization role"
+        value="organization"
+        variant="card"
+      ></swirl-radio>
+      <swirl-radio
+        description="Create a role that gives permissions only within the selected user group."
+        icon="<swirl-icon-folder-shared></swirl-icon-folder-shared>"
+        input-id="radio-user-group"
+        input-name="role-scope"
+        label="User group role"
+        value="user-group"
+        variant="card"
+      ></swirl-radio>
+    </swirl-columns>
+  </swirl-radio-group>
+`}
 />
 
 ## Related components
